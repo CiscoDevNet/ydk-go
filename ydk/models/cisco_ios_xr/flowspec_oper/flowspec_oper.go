@@ -83,6 +83,7 @@ func (flowSpec *FlowSpec) GetEntityData() *types.CommonEntityData {
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "Cisco-IOS-XR-flowspec-oper"
     flowSpec.EntityData.SegmentPath = "Cisco-IOS-XR-flowspec-oper:flow-spec"
+    flowSpec.EntityData.AbsolutePath = flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -114,6 +115,7 @@ func (clients *FlowSpec_Clients) GetEntityData() *types.CommonEntityData {
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "flow-spec"
     clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/" + clients.EntityData.SegmentPath
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -121,6 +123,7 @@ func (clients *FlowSpec_Clients) GetEntityData() *types.CommonEntityData {
     clients.EntityData.Children = types.NewOrderedMap()
     clients.EntityData.Children.Append("client", types.YChild{"Client", nil})
     for i := range clients.Client {
+        types.SetYListKey(clients.Client[i], i)
         clients.EntityData.Children.Append(types.GetSegmentPath(clients.Client[i]), types.YChild{"Client", clients.Client[i]})
     }
     clients.EntityData.Leafs = types.NewOrderedMap()
@@ -135,6 +138,7 @@ func (clients *FlowSpec_Clients) GetEntityData() *types.CommonEntityData {
 type FlowSpec_Clients_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // FlowSpec Client Type. The type is FsClient.
     ClientType interface{}
@@ -154,7 +158,8 @@ func (client *FlowSpec_Clients_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.YangName = "client"
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "clients"
-    client.EntityData.SegmentPath = "client"
+    client.EntityData.SegmentPath = "client" + types.AddNoKeyToken(client)
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/clients/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -190,6 +195,7 @@ func (summary *FlowSpec_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "flow-spec"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -220,6 +226,7 @@ func (vrfs *FlowSpec_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "flow-spec"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -241,6 +248,7 @@ func (vrfs *FlowSpec_Vrfs) GetEntityData() *types.CommonEntityData {
 type FlowSpec_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with length: 1..32.
     VrfName interface{}
@@ -255,6 +263,7 @@ func (vrf *FlowSpec_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -285,6 +294,7 @@ func (afs *FlowSpec_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntityData {
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "vrf"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -306,6 +316,7 @@ func (afs *FlowSpec_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntityData {
 type FlowSpec_Vrfs_Vrf_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set string. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -327,6 +338,7 @@ func (af *FlowSpec_Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -366,6 +378,7 @@ func (tableSummary *FlowSpec_Vrfs_Vrf_Afs_Af_TableSummary) GetEntityData() *type
     tableSummary.EntityData.BundleName = "cisco_ios_xr"
     tableSummary.EntityData.ParentYangName = "af"
     tableSummary.EntityData.SegmentPath = "table-summary"
+    tableSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/" + tableSummary.EntityData.SegmentPath
     tableSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tableSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tableSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -398,6 +411,7 @@ func (nlris *FlowSpec_Vrfs_Vrf_Afs_Af_Nlris) GetEntityData() *types.CommonEntity
     nlris.EntityData.BundleName = "cisco_ios_xr"
     nlris.EntityData.ParentYangName = "af"
     nlris.EntityData.SegmentPath = "nlris"
+    nlris.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/" + nlris.EntityData.SegmentPath
     nlris.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nlris.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nlris.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -419,6 +433,7 @@ func (nlris *FlowSpec_Vrfs_Vrf_Afs_Af_Nlris) GetEntityData() *types.CommonEntity
 type FlowSpec_Vrfs_Vrf_Afs_Af_Nlris_Nlri struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enter NLRI hex string. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -434,6 +449,7 @@ func (nlri *FlowSpec_Vrfs_Vrf_Afs_Af_Nlris_Nlri) GetEntityData() *types.CommonEn
     nlri.EntityData.BundleName = "cisco_ios_xr"
     nlri.EntityData.ParentYangName = "nlris"
     nlri.EntityData.SegmentPath = "nlri" + types.AddKeyToken(nlri.NlriBytes, "nlri-bytes")
+    nlri.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/nlris/" + nlri.EntityData.SegmentPath
     nlri.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nlri.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nlri.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -467,6 +483,7 @@ func (flowStatistics *FlowSpec_Vrfs_Vrf_Afs_Af_Nlris_Nlri_FlowStatistics) GetEnt
     flowStatistics.EntityData.BundleName = "cisco_ios_xr"
     flowStatistics.EntityData.ParentYangName = "nlri"
     flowStatistics.EntityData.SegmentPath = "flow-statistics"
+    flowStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/nlris/nlri/" + flowStatistics.EntityData.SegmentPath
     flowStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -502,6 +519,7 @@ func (classified *FlowSpec_Vrfs_Vrf_Afs_Af_Nlris_Nlri_FlowStatistics_Classified)
     classified.EntityData.BundleName = "cisco_ios_xr"
     classified.EntityData.ParentYangName = "flow-statistics"
     classified.EntityData.SegmentPath = "classified"
+    classified.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/nlris/nlri/flow-statistics/" + classified.EntityData.SegmentPath
     classified.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classified.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classified.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -537,6 +555,7 @@ func (dropped *FlowSpec_Vrfs_Vrf_Afs_Af_Nlris_Nlri_FlowStatistics_Dropped) GetEn
     dropped.EntityData.BundleName = "cisco_ios_xr"
     dropped.EntityData.ParentYangName = "flow-statistics"
     dropped.EntityData.SegmentPath = "dropped"
+    dropped.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/nlris/nlri/flow-statistics/" + dropped.EntityData.SegmentPath
     dropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -568,6 +587,7 @@ func (flows *FlowSpec_Vrfs_Vrf_Afs_Af_Flows) GetEntityData() *types.CommonEntity
     flows.EntityData.BundleName = "cisco_ios_xr"
     flows.EntityData.ParentYangName = "af"
     flows.EntityData.SegmentPath = "flows"
+    flows.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/" + flows.EntityData.SegmentPath
     flows.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flows.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flows.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -589,6 +609,7 @@ func (flows *FlowSpec_Vrfs_Vrf_Afs_Af_Flows) GetEntityData() *types.CommonEntity
 type FlowSpec_Vrfs_Vrf_Afs_Af_Flows_Flow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enter the Flow notation string. The type is
     // string.
@@ -604,6 +625,7 @@ func (flow *FlowSpec_Vrfs_Vrf_Afs_Af_Flows_Flow) GetEntityData() *types.CommonEn
     flow.EntityData.BundleName = "cisco_ios_xr"
     flow.EntityData.ParentYangName = "flows"
     flow.EntityData.SegmentPath = "flow" + types.AddKeyToken(flow.FlowNotation, "flow-notation")
+    flow.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/flows/" + flow.EntityData.SegmentPath
     flow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -637,6 +659,7 @@ func (flowStatistics *FlowSpec_Vrfs_Vrf_Afs_Af_Flows_Flow_FlowStatistics) GetEnt
     flowStatistics.EntityData.BundleName = "cisco_ios_xr"
     flowStatistics.EntityData.ParentYangName = "flow"
     flowStatistics.EntityData.SegmentPath = "flow-statistics"
+    flowStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/flows/flow/" + flowStatistics.EntityData.SegmentPath
     flowStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -672,6 +695,7 @@ func (classified *FlowSpec_Vrfs_Vrf_Afs_Af_Flows_Flow_FlowStatistics_Classified)
     classified.EntityData.BundleName = "cisco_ios_xr"
     classified.EntityData.ParentYangName = "flow-statistics"
     classified.EntityData.SegmentPath = "classified"
+    classified.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/flows/flow/flow-statistics/" + classified.EntityData.SegmentPath
     classified.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classified.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classified.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -707,6 +731,7 @@ func (dropped *FlowSpec_Vrfs_Vrf_Afs_Af_Flows_Flow_FlowStatistics_Dropped) GetEn
     dropped.EntityData.BundleName = "cisco_ios_xr"
     dropped.EntityData.ParentYangName = "flow-statistics"
     dropped.EntityData.SegmentPath = "dropped"
+    dropped.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/flows/flow/flow-statistics/" + dropped.EntityData.SegmentPath
     dropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

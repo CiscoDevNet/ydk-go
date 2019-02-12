@@ -40,6 +40,7 @@ func (exception *Exception) GetEntityData() *types.CommonEntityData {
     exception.EntityData.BundleName = "cisco_ios_xr"
     exception.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-corehelper-cfg"
     exception.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-corehelper-cfg:exception"
+    exception.EntityData.AbsolutePath = exception.EntityData.SegmentPath
     exception.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exception.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exception.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -75,6 +76,7 @@ func (file *Exception_File) GetEntityData() *types.CommonEntityData {
     file.EntityData.BundleName = "cisco_ios_xr"
     file.EntityData.ParentYangName = "exception"
     file.EntityData.SegmentPath = "file"
+    file.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-corehelper-cfg:exception/" + file.EntityData.SegmentPath
     file.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     file.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     file.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

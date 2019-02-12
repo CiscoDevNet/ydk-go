@@ -59,6 +59,7 @@ func (environmentSensors *EnvironmentSensors) GetEntityData() *types.CommonEntit
     environmentSensors.EntityData.BundleName = "cisco_ios_xe"
     environmentSensors.EntityData.ParentYangName = "Cisco-IOS-XE-environment-oper"
     environmentSensors.EntityData.SegmentPath = "Cisco-IOS-XE-environment-oper:environment-sensors"
+    environmentSensors.EntityData.AbsolutePath = environmentSensors.EntityData.SegmentPath
     environmentSensors.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     environmentSensors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     environmentSensors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -80,6 +81,7 @@ func (environmentSensors *EnvironmentSensors) GetEntityData() *types.CommonEntit
 type EnvironmentSensors_EnvironmentSensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the sensor component. This includes all
     // physical components of the chasis - both fixed and pluggable. The type is
@@ -123,6 +125,7 @@ func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetEntityData() *
     environmentSensor.EntityData.BundleName = "cisco_ios_xe"
     environmentSensor.EntityData.ParentYangName = "environment-sensors"
     environmentSensor.EntityData.SegmentPath = "environment-sensor" + types.AddKeyToken(environmentSensor.Name, "name") + types.AddKeyToken(environmentSensor.Location, "location")
+    environmentSensor.EntityData.AbsolutePath = "Cisco-IOS-XE-environment-oper:environment-sensors/" + environmentSensor.EntityData.SegmentPath
     environmentSensor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     environmentSensor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     environmentSensor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

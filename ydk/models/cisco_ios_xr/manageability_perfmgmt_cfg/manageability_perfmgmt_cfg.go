@@ -93,6 +93,7 @@ func (perfMgmt *PerfMgmt) GetEntityData() *types.CommonEntityData {
     perfMgmt.EntityData.BundleName = "cisco_ios_xr"
     perfMgmt.EntityData.ParentYangName = "Cisco-IOS-XR-manageability-perfmgmt-cfg"
     perfMgmt.EntityData.SegmentPath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt"
+    perfMgmt.EntityData.AbsolutePath = perfMgmt.EntityData.SegmentPath
     perfMgmt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     perfMgmt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     perfMgmt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -132,6 +133,7 @@ func (resources *PerfMgmt_Resources) GetEntityData() *types.CommonEntityData {
     resources.EntityData.BundleName = "cisco_ios_xr"
     resources.EntityData.ParentYangName = "perf-mgmt"
     resources.EntityData.SegmentPath = "resources"
+    resources.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/" + resources.EntityData.SegmentPath
     resources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -175,6 +177,7 @@ func (tftpResources *PerfMgmt_Resources_TftpResources) GetEntityData() *types.Co
     tftpResources.EntityData.BundleName = "cisco_ios_xr"
     tftpResources.EntityData.ParentYangName = "resources"
     tftpResources.EntityData.SegmentPath = "tftp-resources"
+    tftpResources.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/resources/" + tftpResources.EntityData.SegmentPath
     tftpResources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tftpResources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpResources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -206,6 +209,7 @@ func (dumpLocal *PerfMgmt_Resources_DumpLocal) GetEntityData() *types.CommonEnti
     dumpLocal.EntityData.BundleName = "cisco_ios_xr"
     dumpLocal.EntityData.ParentYangName = "resources"
     dumpLocal.EntityData.SegmentPath = "dump-local"
+    dumpLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/resources/" + dumpLocal.EntityData.SegmentPath
     dumpLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dumpLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dumpLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -242,6 +246,7 @@ func (memoryResources *PerfMgmt_Resources_MemoryResources) GetEntityData() *type
     memoryResources.EntityData.BundleName = "cisco_ios_xr"
     memoryResources.EntityData.ParentYangName = "resources"
     memoryResources.EntityData.SegmentPath = "memory-resources"
+    memoryResources.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/resources/" + memoryResources.EntityData.SegmentPath
     memoryResources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryResources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryResources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -299,6 +304,7 @@ func (statistics *PerfMgmt_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "perf-mgmt"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -338,6 +344,7 @@ func (genericCounterInterface *PerfMgmt_Statistics_GenericCounterInterface) GetE
     genericCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterface.EntityData.ParentYangName = "statistics"
     genericCounterInterface.EntityData.SegmentPath = "generic-counter-interface"
+    genericCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/" + genericCounterInterface.EntityData.SegmentPath
     genericCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -368,6 +375,7 @@ func (templates *PerfMgmt_Statistics_GenericCounterInterface_Templates) GetEntit
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "generic-counter-interface"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/generic-counter-interface/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -389,6 +397,7 @@ func (templates *PerfMgmt_Statistics_GenericCounterInterface_Templates) GetEntit
 type PerfMgmt_Statistics_GenericCounterInterface_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -419,6 +428,7 @@ func (template *PerfMgmt_Statistics_GenericCounterInterface_Templates_Template) 
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/generic-counter-interface/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -453,6 +463,7 @@ func (processNode *PerfMgmt_Statistics_ProcessNode) GetEntityData() *types.Commo
     processNode.EntityData.BundleName = "cisco_ios_xr"
     processNode.EntityData.ParentYangName = "statistics"
     processNode.EntityData.SegmentPath = "process-node"
+    processNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/" + processNode.EntityData.SegmentPath
     processNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -483,6 +494,7 @@ func (templates *PerfMgmt_Statistics_ProcessNode_Templates) GetEntityData() *typ
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "process-node"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/process-node/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -504,6 +516,7 @@ func (templates *PerfMgmt_Statistics_ProcessNode_Templates) GetEntityData() *typ
 type PerfMgmt_Statistics_ProcessNode_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -534,6 +547,7 @@ func (template *PerfMgmt_Statistics_ProcessNode_Templates_Template) GetEntityDat
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/process-node/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -568,6 +582,7 @@ func (basicCounterInterface *PerfMgmt_Statistics_BasicCounterInterface) GetEntit
     basicCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterface.EntityData.ParentYangName = "statistics"
     basicCounterInterface.EntityData.SegmentPath = "basic-counter-interface"
+    basicCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/" + basicCounterInterface.EntityData.SegmentPath
     basicCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -598,6 +613,7 @@ func (templates *PerfMgmt_Statistics_BasicCounterInterface_Templates) GetEntityD
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "basic-counter-interface"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/basic-counter-interface/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -619,6 +635,7 @@ func (templates *PerfMgmt_Statistics_BasicCounterInterface_Templates) GetEntityD
 type PerfMgmt_Statistics_BasicCounterInterface_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -649,6 +666,7 @@ func (template *PerfMgmt_Statistics_BasicCounterInterface_Templates_Template) Ge
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/basic-counter-interface/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -683,6 +701,7 @@ func (ospfv3Protocol *PerfMgmt_Statistics_Ospfv3Protocol) GetEntityData() *types
     ospfv3Protocol.EntityData.BundleName = "cisco_ios_xr"
     ospfv3Protocol.EntityData.ParentYangName = "statistics"
     ospfv3Protocol.EntityData.SegmentPath = "ospfv3-protocol"
+    ospfv3Protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/" + ospfv3Protocol.EntityData.SegmentPath
     ospfv3Protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -713,6 +732,7 @@ func (templates *PerfMgmt_Statistics_Ospfv3Protocol_Templates) GetEntityData() *
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "ospfv3-protocol"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ospfv3-protocol/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -734,6 +754,7 @@ func (templates *PerfMgmt_Statistics_Ospfv3Protocol_Templates) GetEntityData() *
 type PerfMgmt_Statistics_Ospfv3Protocol_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -764,6 +785,7 @@ func (template *PerfMgmt_Statistics_Ospfv3Protocol_Templates_Template) GetEntity
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ospfv3-protocol/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -798,6 +820,7 @@ func (cpuNode *PerfMgmt_Statistics_CpuNode) GetEntityData() *types.CommonEntityD
     cpuNode.EntityData.BundleName = "cisco_ios_xr"
     cpuNode.EntityData.ParentYangName = "statistics"
     cpuNode.EntityData.SegmentPath = "cpu-node"
+    cpuNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/" + cpuNode.EntityData.SegmentPath
     cpuNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cpuNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -828,6 +851,7 @@ func (templates *PerfMgmt_Statistics_CpuNode_Templates) GetEntityData() *types.C
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "cpu-node"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/cpu-node/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -849,6 +873,7 @@ func (templates *PerfMgmt_Statistics_CpuNode_Templates) GetEntityData() *types.C
 type PerfMgmt_Statistics_CpuNode_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -879,6 +904,7 @@ func (template *PerfMgmt_Statistics_CpuNode_Templates_Template) GetEntityData() 
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/cpu-node/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -913,6 +939,7 @@ func (dataRateInterface *PerfMgmt_Statistics_DataRateInterface) GetEntityData() 
     dataRateInterface.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterface.EntityData.ParentYangName = "statistics"
     dataRateInterface.EntityData.SegmentPath = "data-rate-interface"
+    dataRateInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/" + dataRateInterface.EntityData.SegmentPath
     dataRateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -943,6 +970,7 @@ func (templates *PerfMgmt_Statistics_DataRateInterface_Templates) GetEntityData(
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "data-rate-interface"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/data-rate-interface/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -964,6 +992,7 @@ func (templates *PerfMgmt_Statistics_DataRateInterface_Templates) GetEntityData(
 type PerfMgmt_Statistics_DataRateInterface_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -994,6 +1023,7 @@ func (template *PerfMgmt_Statistics_DataRateInterface_Templates_Template) GetEnt
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/data-rate-interface/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1028,6 +1058,7 @@ func (memoryNode *PerfMgmt_Statistics_MemoryNode) GetEntityData() *types.CommonE
     memoryNode.EntityData.BundleName = "cisco_ios_xr"
     memoryNode.EntityData.ParentYangName = "statistics"
     memoryNode.EntityData.SegmentPath = "memory-node"
+    memoryNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/" + memoryNode.EntityData.SegmentPath
     memoryNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1058,6 +1089,7 @@ func (templates *PerfMgmt_Statistics_MemoryNode_Templates) GetEntityData() *type
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "memory-node"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/memory-node/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1079,6 +1111,7 @@ func (templates *PerfMgmt_Statistics_MemoryNode_Templates) GetEntityData() *type
 type PerfMgmt_Statistics_MemoryNode_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1109,6 +1142,7 @@ func (template *PerfMgmt_Statistics_MemoryNode_Templates_Template) GetEntityData
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/memory-node/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1143,6 +1177,7 @@ func (ldpMpls *PerfMgmt_Statistics_LdpMpls) GetEntityData() *types.CommonEntityD
     ldpMpls.EntityData.BundleName = "cisco_ios_xr"
     ldpMpls.EntityData.ParentYangName = "statistics"
     ldpMpls.EntityData.SegmentPath = "ldp-mpls"
+    ldpMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/" + ldpMpls.EntityData.SegmentPath
     ldpMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1173,6 +1208,7 @@ func (templates *PerfMgmt_Statistics_LdpMpls_Templates) GetEntityData() *types.C
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "ldp-mpls"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ldp-mpls/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1194,6 +1230,7 @@ func (templates *PerfMgmt_Statistics_LdpMpls_Templates) GetEntityData() *types.C
 type PerfMgmt_Statistics_LdpMpls_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1224,6 +1261,7 @@ func (template *PerfMgmt_Statistics_LdpMpls_Templates_Template) GetEntityData() 
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ldp-mpls/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1258,6 +1296,7 @@ func (bgp *PerfMgmt_Statistics_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "statistics"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1288,6 +1327,7 @@ func (templates *PerfMgmt_Statistics_Bgp_Templates) GetEntityData() *types.Commo
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "bgp"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/bgp/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1309,6 +1349,7 @@ func (templates *PerfMgmt_Statistics_Bgp_Templates) GetEntityData() *types.Commo
 type PerfMgmt_Statistics_Bgp_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1339,6 +1380,7 @@ func (template *PerfMgmt_Statistics_Bgp_Templates_Template) GetEntityData() *typ
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/bgp/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1373,6 +1415,7 @@ func (ospfv2Protocol *PerfMgmt_Statistics_Ospfv2Protocol) GetEntityData() *types
     ospfv2Protocol.EntityData.BundleName = "cisco_ios_xr"
     ospfv2Protocol.EntityData.ParentYangName = "statistics"
     ospfv2Protocol.EntityData.SegmentPath = "ospfv2-protocol"
+    ospfv2Protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/" + ospfv2Protocol.EntityData.SegmentPath
     ospfv2Protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1403,6 +1446,7 @@ func (templates *PerfMgmt_Statistics_Ospfv2Protocol_Templates) GetEntityData() *
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "ospfv2-protocol"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ospfv2-protocol/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1424,6 +1468,7 @@ func (templates *PerfMgmt_Statistics_Ospfv2Protocol_Templates) GetEntityData() *
 type PerfMgmt_Statistics_Ospfv2Protocol_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1454,6 +1499,7 @@ func (template *PerfMgmt_Statistics_Ospfv2Protocol_Templates_Template) GetEntity
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ospfv2-protocol/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1495,6 +1541,7 @@ func (enable *PerfMgmt_Enable) GetEntityData() *types.CommonEntityData {
     enable.EntityData.BundleName = "cisco_ios_xr"
     enable.EntityData.ParentYangName = "perf-mgmt"
     enable.EntityData.SegmentPath = "enable"
+    enable.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/" + enable.EntityData.SegmentPath
     enable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1554,6 +1601,7 @@ func (threshold *PerfMgmt_Enable_Threshold) GetEntityData() *types.CommonEntityD
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "enable"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1592,6 +1640,7 @@ func (ospfv3Protocol *PerfMgmt_Enable_Threshold_Ospfv3Protocol) GetEntityData() 
     ospfv3Protocol.EntityData.BundleName = "cisco_ios_xr"
     ospfv3Protocol.EntityData.ParentYangName = "threshold"
     ospfv3Protocol.EntityData.SegmentPath = "ospfv3-protocol"
+    ospfv3Protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/" + ospfv3Protocol.EntityData.SegmentPath
     ospfv3Protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1621,6 +1670,7 @@ func (bgp *PerfMgmt_Enable_Threshold_Bgp) GetEntityData() *types.CommonEntityDat
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "threshold"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1650,6 +1700,7 @@ func (dataRateInterface *PerfMgmt_Enable_Threshold_DataRateInterface) GetEntityD
     dataRateInterface.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterface.EntityData.ParentYangName = "threshold"
     dataRateInterface.EntityData.SegmentPath = "data-rate-interface"
+    dataRateInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/" + dataRateInterface.EntityData.SegmentPath
     dataRateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1679,6 +1730,7 @@ func (ospfv2Protocol *PerfMgmt_Enable_Threshold_Ospfv2Protocol) GetEntityData() 
     ospfv2Protocol.EntityData.BundleName = "cisco_ios_xr"
     ospfv2Protocol.EntityData.ParentYangName = "threshold"
     ospfv2Protocol.EntityData.SegmentPath = "ospfv2-protocol"
+    ospfv2Protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/" + ospfv2Protocol.EntityData.SegmentPath
     ospfv2Protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1711,6 +1763,7 @@ func (memoryNode *PerfMgmt_Enable_Threshold_MemoryNode) GetEntityData() *types.C
     memoryNode.EntityData.BundleName = "cisco_ios_xr"
     memoryNode.EntityData.ParentYangName = "threshold"
     memoryNode.EntityData.SegmentPath = "memory-node"
+    memoryNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/" + memoryNode.EntityData.SegmentPath
     memoryNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1742,6 +1795,7 @@ func (nodes *PerfMgmt_Enable_Threshold_MemoryNode_Nodes) GetEntityData() *types.
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "memory-node"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/memory-node/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1763,6 +1817,7 @@ func (nodes *PerfMgmt_Enable_Threshold_MemoryNode_Nodes) GetEntityData() *types.
 type PerfMgmt_Enable_Threshold_MemoryNode_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -1778,6 +1833,7 @@ func (node *PerfMgmt_Enable_Threshold_MemoryNode_Nodes_Node) GetEntityData() *ty
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/memory-node/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1808,6 +1864,7 @@ func (nodeAll *PerfMgmt_Enable_Threshold_MemoryNode_NodeAll) GetEntityData() *ty
     nodeAll.EntityData.BundleName = "cisco_ios_xr"
     nodeAll.EntityData.ParentYangName = "memory-node"
     nodeAll.EntityData.SegmentPath = "node-all"
+    nodeAll.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/memory-node/" + nodeAll.EntityData.SegmentPath
     nodeAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1838,6 +1895,7 @@ func (genericCounterInterface *PerfMgmt_Enable_Threshold_GenericCounterInterface
     genericCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterface.EntityData.ParentYangName = "threshold"
     genericCounterInterface.EntityData.SegmentPath = "generic-counter-interface"
+    genericCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/" + genericCounterInterface.EntityData.SegmentPath
     genericCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1870,6 +1928,7 @@ func (cpuNode *PerfMgmt_Enable_Threshold_CpuNode) GetEntityData() *types.CommonE
     cpuNode.EntityData.BundleName = "cisco_ios_xr"
     cpuNode.EntityData.ParentYangName = "threshold"
     cpuNode.EntityData.SegmentPath = "cpu-node"
+    cpuNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/" + cpuNode.EntityData.SegmentPath
     cpuNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cpuNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1901,6 +1960,7 @@ func (nodes *PerfMgmt_Enable_Threshold_CpuNode_Nodes) GetEntityData() *types.Com
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "cpu-node"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/cpu-node/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1922,6 +1982,7 @@ func (nodes *PerfMgmt_Enable_Threshold_CpuNode_Nodes) GetEntityData() *types.Com
 type PerfMgmt_Enable_Threshold_CpuNode_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -1937,6 +1998,7 @@ func (node *PerfMgmt_Enable_Threshold_CpuNode_Nodes_Node) GetEntityData() *types
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/cpu-node/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1967,6 +2029,7 @@ func (nodeAll *PerfMgmt_Enable_Threshold_CpuNode_NodeAll) GetEntityData() *types
     nodeAll.EntityData.BundleName = "cisco_ios_xr"
     nodeAll.EntityData.ParentYangName = "cpu-node"
     nodeAll.EntityData.SegmentPath = "node-all"
+    nodeAll.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/cpu-node/" + nodeAll.EntityData.SegmentPath
     nodeAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1996,6 +2059,7 @@ func (ldpMpls *PerfMgmt_Enable_Threshold_LdpMpls) GetEntityData() *types.CommonE
     ldpMpls.EntityData.BundleName = "cisco_ios_xr"
     ldpMpls.EntityData.ParentYangName = "threshold"
     ldpMpls.EntityData.SegmentPath = "ldp-mpls"
+    ldpMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/" + ldpMpls.EntityData.SegmentPath
     ldpMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2028,6 +2092,7 @@ func (processNode *PerfMgmt_Enable_Threshold_ProcessNode) GetEntityData() *types
     processNode.EntityData.BundleName = "cisco_ios_xr"
     processNode.EntityData.ParentYangName = "threshold"
     processNode.EntityData.SegmentPath = "process-node"
+    processNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/" + processNode.EntityData.SegmentPath
     processNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2059,6 +2124,7 @@ func (nodes *PerfMgmt_Enable_Threshold_ProcessNode_Nodes) GetEntityData() *types
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "process-node"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/process-node/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2080,6 +2146,7 @@ func (nodes *PerfMgmt_Enable_Threshold_ProcessNode_Nodes) GetEntityData() *types
 type PerfMgmt_Enable_Threshold_ProcessNode_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -2095,6 +2162,7 @@ func (node *PerfMgmt_Enable_Threshold_ProcessNode_Nodes_Node) GetEntityData() *t
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/process-node/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2125,6 +2193,7 @@ func (nodeAll *PerfMgmt_Enable_Threshold_ProcessNode_NodeAll) GetEntityData() *t
     nodeAll.EntityData.BundleName = "cisco_ios_xr"
     nodeAll.EntityData.ParentYangName = "process-node"
     nodeAll.EntityData.SegmentPath = "node-all"
+    nodeAll.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/process-node/" + nodeAll.EntityData.SegmentPath
     nodeAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2155,6 +2224,7 @@ func (basicCounterInterface *PerfMgmt_Enable_Threshold_BasicCounterInterface) Ge
     basicCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterface.EntityData.ParentYangName = "threshold"
     basicCounterInterface.EntityData.SegmentPath = "basic-counter-interface"
+    basicCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/" + basicCounterInterface.EntityData.SegmentPath
     basicCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2212,6 +2282,7 @@ func (statistics *PerfMgmt_Enable_Statistics) GetEntityData() *types.CommonEntit
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "enable"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2250,6 +2321,7 @@ func (genericCounterInterface *PerfMgmt_Enable_Statistics_GenericCounterInterfac
     genericCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterface.EntityData.ParentYangName = "statistics"
     genericCounterInterface.EntityData.SegmentPath = "generic-counter-interface"
+    genericCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/" + genericCounterInterface.EntityData.SegmentPath
     genericCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2279,6 +2351,7 @@ func (bgp *PerfMgmt_Enable_Statistics_Bgp) GetEntityData() *types.CommonEntityDa
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "statistics"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2308,6 +2381,7 @@ func (ospfv2Protocol *PerfMgmt_Enable_Statistics_Ospfv2Protocol) GetEntityData()
     ospfv2Protocol.EntityData.BundleName = "cisco_ios_xr"
     ospfv2Protocol.EntityData.ParentYangName = "statistics"
     ospfv2Protocol.EntityData.SegmentPath = "ospfv2-protocol"
+    ospfv2Protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/" + ospfv2Protocol.EntityData.SegmentPath
     ospfv2Protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2337,6 +2411,7 @@ func (ospfv3Protocol *PerfMgmt_Enable_Statistics_Ospfv3Protocol) GetEntityData()
     ospfv3Protocol.EntityData.BundleName = "cisco_ios_xr"
     ospfv3Protocol.EntityData.ParentYangName = "statistics"
     ospfv3Protocol.EntityData.SegmentPath = "ospfv3-protocol"
+    ospfv3Protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/" + ospfv3Protocol.EntityData.SegmentPath
     ospfv3Protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2369,6 +2444,7 @@ func (cpuNode *PerfMgmt_Enable_Statistics_CpuNode) GetEntityData() *types.Common
     cpuNode.EntityData.BundleName = "cisco_ios_xr"
     cpuNode.EntityData.ParentYangName = "statistics"
     cpuNode.EntityData.SegmentPath = "cpu-node"
+    cpuNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/" + cpuNode.EntityData.SegmentPath
     cpuNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cpuNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2399,6 +2475,7 @@ func (nodeAll *PerfMgmt_Enable_Statistics_CpuNode_NodeAll) GetEntityData() *type
     nodeAll.EntityData.BundleName = "cisco_ios_xr"
     nodeAll.EntityData.ParentYangName = "cpu-node"
     nodeAll.EntityData.SegmentPath = "node-all"
+    nodeAll.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/cpu-node/" + nodeAll.EntityData.SegmentPath
     nodeAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2429,6 +2506,7 @@ func (nodes *PerfMgmt_Enable_Statistics_CpuNode_Nodes) GetEntityData() *types.Co
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "cpu-node"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/cpu-node/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2450,6 +2528,7 @@ func (nodes *PerfMgmt_Enable_Statistics_CpuNode_Nodes) GetEntityData() *types.Co
 type PerfMgmt_Enable_Statistics_CpuNode_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -2465,6 +2544,7 @@ func (node *PerfMgmt_Enable_Statistics_CpuNode_Nodes_Node) GetEntityData() *type
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/cpu-node/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2495,6 +2575,7 @@ func (basicCounterInterface *PerfMgmt_Enable_Statistics_BasicCounterInterface) G
     basicCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterface.EntityData.ParentYangName = "statistics"
     basicCounterInterface.EntityData.SegmentPath = "basic-counter-interface"
+    basicCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/" + basicCounterInterface.EntityData.SegmentPath
     basicCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2527,6 +2608,7 @@ func (processNode *PerfMgmt_Enable_Statistics_ProcessNode) GetEntityData() *type
     processNode.EntityData.BundleName = "cisco_ios_xr"
     processNode.EntityData.ParentYangName = "statistics"
     processNode.EntityData.SegmentPath = "process-node"
+    processNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/" + processNode.EntityData.SegmentPath
     processNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2557,6 +2639,7 @@ func (nodeAll *PerfMgmt_Enable_Statistics_ProcessNode_NodeAll) GetEntityData() *
     nodeAll.EntityData.BundleName = "cisco_ios_xr"
     nodeAll.EntityData.ParentYangName = "process-node"
     nodeAll.EntityData.SegmentPath = "node-all"
+    nodeAll.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/process-node/" + nodeAll.EntityData.SegmentPath
     nodeAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2587,6 +2670,7 @@ func (nodes *PerfMgmt_Enable_Statistics_ProcessNode_Nodes) GetEntityData() *type
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "process-node"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/process-node/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2608,6 +2692,7 @@ func (nodes *PerfMgmt_Enable_Statistics_ProcessNode_Nodes) GetEntityData() *type
 type PerfMgmt_Enable_Statistics_ProcessNode_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -2623,6 +2708,7 @@ func (node *PerfMgmt_Enable_Statistics_ProcessNode_Nodes_Node) GetEntityData() *
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/process-node/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2653,6 +2739,7 @@ func (dataRateInterface *PerfMgmt_Enable_Statistics_DataRateInterface) GetEntity
     dataRateInterface.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterface.EntityData.ParentYangName = "statistics"
     dataRateInterface.EntityData.SegmentPath = "data-rate-interface"
+    dataRateInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/" + dataRateInterface.EntityData.SegmentPath
     dataRateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2685,6 +2772,7 @@ func (memoryNode *PerfMgmt_Enable_Statistics_MemoryNode) GetEntityData() *types.
     memoryNode.EntityData.BundleName = "cisco_ios_xr"
     memoryNode.EntityData.ParentYangName = "statistics"
     memoryNode.EntityData.SegmentPath = "memory-node"
+    memoryNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/" + memoryNode.EntityData.SegmentPath
     memoryNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2715,6 +2803,7 @@ func (nodeAll *PerfMgmt_Enable_Statistics_MemoryNode_NodeAll) GetEntityData() *t
     nodeAll.EntityData.BundleName = "cisco_ios_xr"
     nodeAll.EntityData.ParentYangName = "memory-node"
     nodeAll.EntityData.SegmentPath = "node-all"
+    nodeAll.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/memory-node/" + nodeAll.EntityData.SegmentPath
     nodeAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2745,6 +2834,7 @@ func (nodes *PerfMgmt_Enable_Statistics_MemoryNode_Nodes) GetEntityData() *types
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "memory-node"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/memory-node/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2766,6 +2856,7 @@ func (nodes *PerfMgmt_Enable_Statistics_MemoryNode_Nodes) GetEntityData() *types
 type PerfMgmt_Enable_Statistics_MemoryNode_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -2781,6 +2872,7 @@ func (node *PerfMgmt_Enable_Statistics_MemoryNode_Nodes_Node) GetEntityData() *t
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/memory-node/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2811,6 +2903,7 @@ func (ldpMpls *PerfMgmt_Enable_Statistics_LdpMpls) GetEntityData() *types.Common
     ldpMpls.EntityData.BundleName = "cisco_ios_xr"
     ldpMpls.EntityData.ParentYangName = "statistics"
     ldpMpls.EntityData.SegmentPath = "ldp-mpls"
+    ldpMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/" + ldpMpls.EntityData.SegmentPath
     ldpMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2867,6 +2960,7 @@ func (monitorEnable *PerfMgmt_Enable_MonitorEnable) GetEntityData() *types.Commo
     monitorEnable.EntityData.BundleName = "cisco_ios_xr"
     monitorEnable.EntityData.ParentYangName = "enable"
     monitorEnable.EntityData.SegmentPath = "monitor-enable"
+    monitorEnable.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/" + monitorEnable.EntityData.SegmentPath
     monitorEnable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     monitorEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitorEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2905,6 +2999,7 @@ func (ldpMpls *PerfMgmt_Enable_MonitorEnable_LdpMpls) GetEntityData() *types.Com
     ldpMpls.EntityData.BundleName = "cisco_ios_xr"
     ldpMpls.EntityData.ParentYangName = "monitor-enable"
     ldpMpls.EntityData.SegmentPath = "ldp-mpls"
+    ldpMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/" + ldpMpls.EntityData.SegmentPath
     ldpMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2935,6 +3030,7 @@ func (sessions *PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions) GetEntityData() 
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "ldp-mpls"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ldp-mpls/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2956,6 +3052,7 @@ func (sessions *PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions) GetEntityData() 
 type PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the LDP Session. The type is string
     // with pattern:
@@ -2972,6 +3069,7 @@ func (session *PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions_Session) GetEntity
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.Session, "session")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ldp-mpls/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3002,6 +3100,7 @@ func (ospfv3Protocol *PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol) GetEntityDat
     ospfv3Protocol.EntityData.BundleName = "cisco_ios_xr"
     ospfv3Protocol.EntityData.ParentYangName = "monitor-enable"
     ospfv3Protocol.EntityData.SegmentPath = "ospfv3-protocol"
+    ospfv3Protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/" + ospfv3Protocol.EntityData.SegmentPath
     ospfv3Protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3032,6 +3131,7 @@ func (ospfInstances *PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances)
     ospfInstances.EntityData.BundleName = "cisco_ios_xr"
     ospfInstances.EntityData.ParentYangName = "ospfv3-protocol"
     ospfInstances.EntityData.SegmentPath = "ospf-instances"
+    ospfInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ospfv3-protocol/" + ospfInstances.EntityData.SegmentPath
     ospfInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3053,6 +3153,7 @@ func (ospfInstances *PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances)
 type PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances_OspfInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -3068,6 +3169,7 @@ func (ospfInstance *PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances_O
     ospfInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfInstance.EntityData.ParentYangName = "ospf-instances"
     ospfInstance.EntityData.SegmentPath = "ospf-instance" + types.AddKeyToken(ospfInstance.InstanceName, "instance-name")
+    ospfInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ospfv3-protocol/ospf-instances/" + ospfInstance.EntityData.SegmentPath
     ospfInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3098,6 +3200,7 @@ func (genericCounters *PerfMgmt_Enable_MonitorEnable_GenericCounters) GetEntityD
     genericCounters.EntityData.BundleName = "cisco_ios_xr"
     genericCounters.EntityData.ParentYangName = "monitor-enable"
     genericCounters.EntityData.SegmentPath = "generic-counters"
+    genericCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/" + genericCounters.EntityData.SegmentPath
     genericCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3128,6 +3231,7 @@ func (interfaces *PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces) GetE
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "generic-counters"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/generic-counters/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3149,6 +3253,7 @@ func (interfaces *PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces) GetE
 type PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3164,6 +3269,7 @@ func (self *PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces_Interface) 
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/generic-counters/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3194,6 +3300,7 @@ func (process *PerfMgmt_Enable_MonitorEnable_Process) GetEntityData() *types.Com
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "monitor-enable"
     process.EntityData.SegmentPath = "process"
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3224,6 +3331,7 @@ func (processNodes *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes) GetEntit
     processNodes.EntityData.BundleName = "cisco_ios_xr"
     processNodes.EntityData.ParentYangName = "process"
     processNodes.EntityData.SegmentPath = "process-nodes"
+    processNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/process/" + processNodes.EntityData.SegmentPath
     processNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3245,6 +3353,7 @@ func (processNodes *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes) GetEntit
 type PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -3260,6 +3369,7 @@ func (processNode *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNod
     processNode.EntityData.BundleName = "cisco_ios_xr"
     processNode.EntityData.ParentYangName = "process-nodes"
     processNode.EntityData.SegmentPath = "process-node" + types.AddKeyToken(processNode.NodeId, "node-id")
+    processNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/process/process-nodes/" + processNode.EntityData.SegmentPath
     processNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3291,6 +3401,7 @@ func (pids *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids)
     pids.EntityData.BundleName = "cisco_ios_xr"
     pids.EntityData.ParentYangName = "process-node"
     pids.EntityData.SegmentPath = "pids"
+    pids.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/process/process-nodes/process-node/" + pids.EntityData.SegmentPath
     pids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3313,6 +3424,7 @@ func (pids *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids)
 type PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids_Pid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify Process ID. The type is interface{} with
     // range: 0..4294967295.
@@ -3328,6 +3440,7 @@ func (pid *PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode_Pids_P
     pid.EntityData.BundleName = "cisco_ios_xr"
     pid.EntityData.ParentYangName = "pids"
     pid.EntityData.SegmentPath = "pid" + types.AddKeyToken(pid.Pid, "pid")
+    pid.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/process/process-nodes/process-node/pids/" + pid.EntityData.SegmentPath
     pid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3358,6 +3471,7 @@ func (basicCounters *PerfMgmt_Enable_MonitorEnable_BasicCounters) GetEntityData(
     basicCounters.EntityData.BundleName = "cisco_ios_xr"
     basicCounters.EntityData.ParentYangName = "monitor-enable"
     basicCounters.EntityData.SegmentPath = "basic-counters"
+    basicCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/" + basicCounters.EntityData.SegmentPath
     basicCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3388,6 +3502,7 @@ func (interfaces *PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces) GetEnt
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "basic-counters"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/basic-counters/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3409,6 +3524,7 @@ func (interfaces *PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces) GetEnt
 type PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3424,6 +3540,7 @@ func (self *PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces_Interface) Ge
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/basic-counters/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3454,6 +3571,7 @@ func (memory *PerfMgmt_Enable_MonitorEnable_Memory) GetEntityData() *types.Commo
     memory.EntityData.BundleName = "cisco_ios_xr"
     memory.EntityData.ParentYangName = "monitor-enable"
     memory.EntityData.SegmentPath = "memory"
+    memory.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/" + memory.EntityData.SegmentPath
     memory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3484,6 +3602,7 @@ func (nodes *PerfMgmt_Enable_MonitorEnable_Memory_Nodes) GetEntityData() *types.
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "memory"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/memory/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3505,6 +3624,7 @@ func (nodes *PerfMgmt_Enable_MonitorEnable_Memory_Nodes) GetEntityData() *types.
 type PerfMgmt_Enable_MonitorEnable_Memory_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -3520,6 +3640,7 @@ func (node *PerfMgmt_Enable_MonitorEnable_Memory_Nodes_Node) GetEntityData() *ty
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/memory/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3550,6 +3671,7 @@ func (ospfv2Protocol *PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol) GetEntityDat
     ospfv2Protocol.EntityData.BundleName = "cisco_ios_xr"
     ospfv2Protocol.EntityData.ParentYangName = "monitor-enable"
     ospfv2Protocol.EntityData.SegmentPath = "ospfv2-protocol"
+    ospfv2Protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/" + ospfv2Protocol.EntityData.SegmentPath
     ospfv2Protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3580,6 +3702,7 @@ func (ospfInstances *PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances)
     ospfInstances.EntityData.BundleName = "cisco_ios_xr"
     ospfInstances.EntityData.ParentYangName = "ospfv2-protocol"
     ospfInstances.EntityData.SegmentPath = "ospf-instances"
+    ospfInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ospfv2-protocol/" + ospfInstances.EntityData.SegmentPath
     ospfInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3601,6 +3724,7 @@ func (ospfInstances *PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances)
 type PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances_OspfInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -3616,6 +3740,7 @@ func (ospfInstance *PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances_O
     ospfInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfInstance.EntityData.ParentYangName = "ospf-instances"
     ospfInstance.EntityData.SegmentPath = "ospf-instance" + types.AddKeyToken(ospfInstance.InstanceName, "instance-name")
+    ospfInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ospfv2-protocol/ospf-instances/" + ospfInstance.EntityData.SegmentPath
     ospfInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3646,6 +3771,7 @@ func (cpu *PerfMgmt_Enable_MonitorEnable_Cpu) GetEntityData() *types.CommonEntit
     cpu.EntityData.BundleName = "cisco_ios_xr"
     cpu.EntityData.ParentYangName = "monitor-enable"
     cpu.EntityData.SegmentPath = "cpu"
+    cpu.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/" + cpu.EntityData.SegmentPath
     cpu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cpu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3676,6 +3802,7 @@ func (nodes *PerfMgmt_Enable_MonitorEnable_Cpu_Nodes) GetEntityData() *types.Com
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "cpu"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/cpu/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3697,6 +3824,7 @@ func (nodes *PerfMgmt_Enable_MonitorEnable_Cpu_Nodes) GetEntityData() *types.Com
 type PerfMgmt_Enable_MonitorEnable_Cpu_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -3712,6 +3840,7 @@ func (node *PerfMgmt_Enable_MonitorEnable_Cpu_Nodes_Node) GetEntityData() *types
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/cpu/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3742,6 +3871,7 @@ func (bgp *PerfMgmt_Enable_MonitorEnable_Bgp) GetEntityData() *types.CommonEntit
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "monitor-enable"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3772,6 +3902,7 @@ func (neighbors *PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors) GetEntityData() *t
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "bgp"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/bgp/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3793,6 +3924,7 @@ func (neighbors *PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors) GetEntityData() *t
 type PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the Neighbor. The type is string
     // with pattern:
@@ -3809,6 +3941,7 @@ func (neighbor *PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors_Neighbor) GetEntityD
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.PeerAddress, "peer-address")
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/bgp/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3839,6 +3972,7 @@ func (dataRates *PerfMgmt_Enable_MonitorEnable_DataRates) GetEntityData() *types
     dataRates.EntityData.BundleName = "cisco_ios_xr"
     dataRates.EntityData.ParentYangName = "monitor-enable"
     dataRates.EntityData.SegmentPath = "data-rates"
+    dataRates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/" + dataRates.EntityData.SegmentPath
     dataRates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3869,6 +4003,7 @@ func (interfaces *PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces) GetEntityD
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "data-rates"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/data-rates/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3890,6 +4025,7 @@ func (interfaces *PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces) GetEntityD
 type PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3905,6 +4041,7 @@ func (self *PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces_Interface) GetEnt
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/data-rates/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3936,6 +4073,7 @@ func (regExpGroups *PerfMgmt_RegExpGroups) GetEntityData() *types.CommonEntityDa
     regExpGroups.EntityData.BundleName = "cisco_ios_xr"
     regExpGroups.EntityData.ParentYangName = "perf-mgmt"
     regExpGroups.EntityData.SegmentPath = "reg-exp-groups"
+    regExpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/" + regExpGroups.EntityData.SegmentPath
     regExpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     regExpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regExpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3957,6 +4095,7 @@ func (regExpGroups *PerfMgmt_RegExpGroups) GetEntityData() *types.CommonEntityDa
 type PerfMgmt_RegExpGroups_RegExpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Regular expression group name. The type is string
     // with length: 1..32.
@@ -3972,6 +4111,7 @@ func (regExpGroup *PerfMgmt_RegExpGroups_RegExpGroup) GetEntityData() *types.Com
     regExpGroup.EntityData.BundleName = "cisco_ios_xr"
     regExpGroup.EntityData.ParentYangName = "reg-exp-groups"
     regExpGroup.EntityData.SegmentPath = "reg-exp-group" + types.AddKeyToken(regExpGroup.RegExpGroupName, "reg-exp-group-name")
+    regExpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/reg-exp-groups/" + regExpGroup.EntityData.SegmentPath
     regExpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     regExpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regExpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4003,6 +4143,7 @@ func (regExps *PerfMgmt_RegExpGroups_RegExpGroup_RegExps) GetEntityData() *types
     regExps.EntityData.BundleName = "cisco_ios_xr"
     regExps.EntityData.ParentYangName = "reg-exp-group"
     regExps.EntityData.SegmentPath = "reg-exps"
+    regExps.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/reg-exp-groups/reg-exp-group/" + regExps.EntityData.SegmentPath
     regExps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     regExps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regExps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4024,6 +4165,7 @@ func (regExps *PerfMgmt_RegExpGroups_RegExpGroup_RegExps) GetEntityData() *types
 type PerfMgmt_RegExpGroups_RegExpGroup_RegExps_RegExp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Regular expression index number. The type is
     // interface{} with range: 1..100.
@@ -4040,6 +4182,7 @@ func (regExp *PerfMgmt_RegExpGroups_RegExpGroup_RegExps_RegExp) GetEntityData() 
     regExp.EntityData.BundleName = "cisco_ios_xr"
     regExp.EntityData.ParentYangName = "reg-exps"
     regExp.EntityData.SegmentPath = "reg-exp" + types.AddKeyToken(regExp.RegExpIndex, "reg-exp-index")
+    regExp.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/reg-exp-groups/reg-exp-group/reg-exps/" + regExp.EntityData.SegmentPath
     regExp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     regExp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regExp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4097,6 +4240,7 @@ func (threshold *PerfMgmt_Threshold) GetEntityData() *types.CommonEntityData {
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "perf-mgmt"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4136,6 +4280,7 @@ func (genericCounterInterface *PerfMgmt_Threshold_GenericCounterInterface) GetEn
     genericCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterface.EntityData.ParentYangName = "threshold"
     genericCounterInterface.EntityData.SegmentPath = "generic-counter-interface"
+    genericCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/" + genericCounterInterface.EntityData.SegmentPath
     genericCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4166,6 +4311,7 @@ func (genericCounterInterfaceTemplates *PerfMgmt_Threshold_GenericCounterInterfa
     genericCounterInterfaceTemplates.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterfaceTemplates.EntityData.ParentYangName = "generic-counter-interface"
     genericCounterInterfaceTemplates.EntityData.SegmentPath = "generic-counter-interface-templates"
+    genericCounterInterfaceTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/" + genericCounterInterfaceTemplates.EntityData.SegmentPath
     genericCounterInterfaceTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterfaceTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterfaceTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4188,6 +4334,7 @@ func (genericCounterInterfaceTemplates *PerfMgmt_Threshold_GenericCounterInterfa
 type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates_GenericCounterInterfaceTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -4272,6 +4419,7 @@ func (genericCounterInterfaceTemplate *PerfMgmt_Threshold_GenericCounterInterfac
     genericCounterInterfaceTemplate.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterfaceTemplate.EntityData.ParentYangName = "generic-counter-interface-templates"
     genericCounterInterfaceTemplate.EntityData.SegmentPath = "generic-counter-interface-template" + types.AddKeyToken(genericCounterInterfaceTemplate.TemplateName, "template-name")
+    genericCounterInterfaceTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/" + genericCounterInterfaceTemplate.EntityData.SegmentPath
     genericCounterInterfaceTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterfaceTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterfaceTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4344,6 +4492,7 @@ func (inOctets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfa
     inOctets.EntityData.BundleName = "cisco_ios_xr"
     inOctets.EntityData.ParentYangName = "generic-counter-interface-template"
     inOctets.EntityData.SegmentPath = "in-octets"
+    inOctets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inOctets.EntityData.SegmentPath
     inOctets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inOctets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inOctets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4398,6 +4547,7 @@ func (inUcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInte
     inUcastPkts.EntityData.BundleName = "cisco_ios_xr"
     inUcastPkts.EntityData.ParentYangName = "generic-counter-interface-template"
     inUcastPkts.EntityData.SegmentPath = "in-ucast-pkts"
+    inUcastPkts.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inUcastPkts.EntityData.SegmentPath
     inUcastPkts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inUcastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inUcastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4452,6 +4602,7 @@ func (outUcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInt
     outUcastPkts.EntityData.BundleName = "cisco_ios_xr"
     outUcastPkts.EntityData.ParentYangName = "generic-counter-interface-template"
     outUcastPkts.EntityData.SegmentPath = "out-ucast-pkts"
+    outUcastPkts.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + outUcastPkts.EntityData.SegmentPath
     outUcastPkts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outUcastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outUcastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4506,6 +4657,7 @@ func (outBroadcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
     outBroadcastPkts.EntityData.BundleName = "cisco_ios_xr"
     outBroadcastPkts.EntityData.ParentYangName = "generic-counter-interface-template"
     outBroadcastPkts.EntityData.SegmentPath = "out-broadcast-pkts"
+    outBroadcastPkts.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + outBroadcastPkts.EntityData.SegmentPath
     outBroadcastPkts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outBroadcastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outBroadcastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4560,6 +4712,7 @@ func (outMulticastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
     outMulticastPkts.EntityData.BundleName = "cisco_ios_xr"
     outMulticastPkts.EntityData.ParentYangName = "generic-counter-interface-template"
     outMulticastPkts.EntityData.SegmentPath = "out-multicast-pkts"
+    outMulticastPkts.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + outMulticastPkts.EntityData.SegmentPath
     outMulticastPkts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outMulticastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outMulticastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4615,6 +4768,7 @@ func (inputOverrun *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInt
     inputOverrun.EntityData.BundleName = "cisco_ios_xr"
     inputOverrun.EntityData.ParentYangName = "generic-counter-interface-template"
     inputOverrun.EntityData.SegmentPath = "input-overrun"
+    inputOverrun.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inputOverrun.EntityData.SegmentPath
     inputOverrun.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputOverrun.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputOverrun.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4669,6 +4823,7 @@ func (outOctets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterf
     outOctets.EntityData.BundleName = "cisco_ios_xr"
     outOctets.EntityData.ParentYangName = "generic-counter-interface-template"
     outOctets.EntityData.SegmentPath = "out-octets"
+    outOctets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + outOctets.EntityData.SegmentPath
     outOctets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outOctets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outOctets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4724,6 +4879,7 @@ func (outputUnderrun *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterI
     outputUnderrun.EntityData.BundleName = "cisco_ios_xr"
     outputUnderrun.EntityData.ParentYangName = "generic-counter-interface-template"
     outputUnderrun.EntityData.SegmentPath = "output-underrun"
+    outputUnderrun.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + outputUnderrun.EntityData.SegmentPath
     outputUnderrun.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputUnderrun.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputUnderrun.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4779,6 +4935,7 @@ func (inputTotalErrors *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
     inputTotalErrors.EntityData.BundleName = "cisco_ios_xr"
     inputTotalErrors.EntityData.ParentYangName = "generic-counter-interface-template"
     inputTotalErrors.EntityData.SegmentPath = "input-total-errors"
+    inputTotalErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inputTotalErrors.EntityData.SegmentPath
     inputTotalErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputTotalErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputTotalErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4833,6 +4990,7 @@ func (outputTotalDrops *PerfMgmt_Threshold_GenericCounterInterface_GenericCounte
     outputTotalDrops.EntityData.BundleName = "cisco_ios_xr"
     outputTotalDrops.EntityData.ParentYangName = "generic-counter-interface-template"
     outputTotalDrops.EntityData.SegmentPath = "output-total-drops"
+    outputTotalDrops.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + outputTotalDrops.EntityData.SegmentPath
     outputTotalDrops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputTotalDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputTotalDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4888,6 +5046,7 @@ func (inputCrc *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfa
     inputCrc.EntityData.BundleName = "cisco_ios_xr"
     inputCrc.EntityData.ParentYangName = "generic-counter-interface-template"
     inputCrc.EntityData.SegmentPath = "input-crc"
+    inputCrc.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inputCrc.EntityData.SegmentPath
     inputCrc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputCrc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputCrc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4942,6 +5101,7 @@ func (inBroadcastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
     inBroadcastPkts.EntityData.BundleName = "cisco_ios_xr"
     inBroadcastPkts.EntityData.ParentYangName = "generic-counter-interface-template"
     inBroadcastPkts.EntityData.SegmentPath = "in-broadcast-pkts"
+    inBroadcastPkts.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inBroadcastPkts.EntityData.SegmentPath
     inBroadcastPkts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inBroadcastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inBroadcastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4996,6 +5156,7 @@ func (inMulticastPkts *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
     inMulticastPkts.EntityData.BundleName = "cisco_ios_xr"
     inMulticastPkts.EntityData.ParentYangName = "generic-counter-interface-template"
     inMulticastPkts.EntityData.SegmentPath = "in-multicast-pkts"
+    inMulticastPkts.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inMulticastPkts.EntityData.SegmentPath
     inMulticastPkts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inMulticastPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inMulticastPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5050,6 +5211,7 @@ func (outPackets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInter
     outPackets.EntityData.BundleName = "cisco_ios_xr"
     outPackets.EntityData.ParentYangName = "generic-counter-interface-template"
     outPackets.EntityData.SegmentPath = "out-packets"
+    outPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + outPackets.EntityData.SegmentPath
     outPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5105,6 +5267,7 @@ func (outputTotalErrors *PerfMgmt_Threshold_GenericCounterInterface_GenericCount
     outputTotalErrors.EntityData.BundleName = "cisco_ios_xr"
     outputTotalErrors.EntityData.ParentYangName = "generic-counter-interface-template"
     outputTotalErrors.EntityData.SegmentPath = "output-total-errors"
+    outputTotalErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + outputTotalErrors.EntityData.SegmentPath
     outputTotalErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputTotalErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputTotalErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5159,6 +5322,7 @@ func (inPackets *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterf
     inPackets.EntityData.BundleName = "cisco_ios_xr"
     inPackets.EntityData.ParentYangName = "generic-counter-interface-template"
     inPackets.EntityData.SegmentPath = "in-packets"
+    inPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inPackets.EntityData.SegmentPath
     inPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5214,6 +5378,7 @@ func (inputUnknownProto *PerfMgmt_Threshold_GenericCounterInterface_GenericCount
     inputUnknownProto.EntityData.BundleName = "cisco_ios_xr"
     inputUnknownProto.EntityData.ParentYangName = "generic-counter-interface-template"
     inputUnknownProto.EntityData.SegmentPath = "input-unknown-proto"
+    inputUnknownProto.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inputUnknownProto.EntityData.SegmentPath
     inputUnknownProto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputUnknownProto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputUnknownProto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5268,6 +5433,7 @@ func (inputQueueDrops *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
     inputQueueDrops.EntityData.BundleName = "cisco_ios_xr"
     inputQueueDrops.EntityData.ParentYangName = "generic-counter-interface-template"
     inputQueueDrops.EntityData.SegmentPath = "input-queue-drops"
+    inputQueueDrops.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inputQueueDrops.EntityData.SegmentPath
     inputQueueDrops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputQueueDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputQueueDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5322,6 +5488,7 @@ func (inputTotalDrops *PerfMgmt_Threshold_GenericCounterInterface_GenericCounter
     inputTotalDrops.EntityData.BundleName = "cisco_ios_xr"
     inputTotalDrops.EntityData.ParentYangName = "generic-counter-interface-template"
     inputTotalDrops.EntityData.SegmentPath = "input-total-drops"
+    inputTotalDrops.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inputTotalDrops.EntityData.SegmentPath
     inputTotalDrops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputTotalDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputTotalDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5377,6 +5544,7 @@ func (inputFrame *PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInter
     inputFrame.EntityData.BundleName = "cisco_ios_xr"
     inputFrame.EntityData.ParentYangName = "generic-counter-interface-template"
     inputFrame.EntityData.SegmentPath = "input-frame"
+    inputFrame.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/generic-counter-interface-template/" + inputFrame.EntityData.SegmentPath
     inputFrame.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputFrame.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputFrame.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5411,6 +5579,7 @@ func (ldpMpls *PerfMgmt_Threshold_LdpMpls) GetEntityData() *types.CommonEntityDa
     ldpMpls.EntityData.BundleName = "cisco_ios_xr"
     ldpMpls.EntityData.ParentYangName = "threshold"
     ldpMpls.EntityData.SegmentPath = "ldp-mpls"
+    ldpMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/" + ldpMpls.EntityData.SegmentPath
     ldpMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5441,6 +5610,7 @@ func (ldpMplsTemplates *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates) GetEntityDa
     ldpMplsTemplates.EntityData.BundleName = "cisco_ios_xr"
     ldpMplsTemplates.EntityData.ParentYangName = "ldp-mpls"
     ldpMplsTemplates.EntityData.SegmentPath = "ldp-mpls-templates"
+    ldpMplsTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/" + ldpMplsTemplates.EntityData.SegmentPath
     ldpMplsTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpMplsTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMplsTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5462,6 +5632,7 @@ func (ldpMplsTemplates *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates) GetEntityDa
 type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -5532,6 +5703,7 @@ func (ldpMplsTemplate *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTempla
     ldpMplsTemplate.EntityData.BundleName = "cisco_ios_xr"
     ldpMplsTemplate.EntityData.ParentYangName = "ldp-mpls-templates"
     ldpMplsTemplate.EntityData.SegmentPath = "ldp-mpls-template" + types.AddKeyToken(ldpMplsTemplate.TemplateName, "template-name")
+    ldpMplsTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/" + ldpMplsTemplate.EntityData.SegmentPath
     ldpMplsTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpMplsTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpMplsTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5600,6 +5772,7 @@ func (addressWithdrawMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMp
     addressWithdrawMsgsRcvd.EntityData.BundleName = "cisco_ios_xr"
     addressWithdrawMsgsRcvd.EntityData.ParentYangName = "ldp-mpls-template"
     addressWithdrawMsgsRcvd.EntityData.SegmentPath = "address-withdraw-msgs-rcvd"
+    addressWithdrawMsgsRcvd.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + addressWithdrawMsgsRcvd.EntityData.SegmentPath
     addressWithdrawMsgsRcvd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressWithdrawMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressWithdrawMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5654,6 +5827,7 @@ func (labelWithdrawMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMpls
     labelWithdrawMsgsRcvd.EntityData.BundleName = "cisco_ios_xr"
     labelWithdrawMsgsRcvd.EntityData.ParentYangName = "ldp-mpls-template"
     labelWithdrawMsgsRcvd.EntityData.SegmentPath = "label-withdraw-msgs-rcvd"
+    labelWithdrawMsgsRcvd.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + labelWithdrawMsgsRcvd.EntityData.SegmentPath
     labelWithdrawMsgsRcvd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelWithdrawMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelWithdrawMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5708,6 +5882,7 @@ func (addressWithdrawMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMp
     addressWithdrawMsgsSent.EntityData.BundleName = "cisco_ios_xr"
     addressWithdrawMsgsSent.EntityData.ParentYangName = "ldp-mpls-template"
     addressWithdrawMsgsSent.EntityData.SegmentPath = "address-withdraw-msgs-sent"
+    addressWithdrawMsgsSent.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + addressWithdrawMsgsSent.EntityData.SegmentPath
     addressWithdrawMsgsSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressWithdrawMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressWithdrawMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5762,6 +5937,7 @@ func (labelWithdrawMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMpls
     labelWithdrawMsgsSent.EntityData.BundleName = "cisco_ios_xr"
     labelWithdrawMsgsSent.EntityData.ParentYangName = "ldp-mpls-template"
     labelWithdrawMsgsSent.EntityData.SegmentPath = "label-withdraw-msgs-sent"
+    labelWithdrawMsgsSent.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + labelWithdrawMsgsSent.EntityData.SegmentPath
     labelWithdrawMsgsSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelWithdrawMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelWithdrawMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5816,6 +5992,7 @@ func (notificationMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     notificationMsgsRcvd.EntityData.BundleName = "cisco_ios_xr"
     notificationMsgsRcvd.EntityData.ParentYangName = "ldp-mpls-template"
     notificationMsgsRcvd.EntityData.SegmentPath = "notification-msgs-rcvd"
+    notificationMsgsRcvd.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + notificationMsgsRcvd.EntityData.SegmentPath
     notificationMsgsRcvd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     notificationMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     notificationMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5870,6 +6047,7 @@ func (totalMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate
     totalMsgsRcvd.EntityData.BundleName = "cisco_ios_xr"
     totalMsgsRcvd.EntityData.ParentYangName = "ldp-mpls-template"
     totalMsgsRcvd.EntityData.SegmentPath = "total-msgs-rcvd"
+    totalMsgsRcvd.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + totalMsgsRcvd.EntityData.SegmentPath
     totalMsgsRcvd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     totalMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     totalMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5924,6 +6102,7 @@ func (notificationMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     notificationMsgsSent.EntityData.BundleName = "cisco_ios_xr"
     notificationMsgsSent.EntityData.ParentYangName = "ldp-mpls-template"
     notificationMsgsSent.EntityData.SegmentPath = "notification-msgs-sent"
+    notificationMsgsSent.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + notificationMsgsSent.EntityData.SegmentPath
     notificationMsgsSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     notificationMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     notificationMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5978,6 +6157,7 @@ func (totalMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate
     totalMsgsSent.EntityData.BundleName = "cisco_ios_xr"
     totalMsgsSent.EntityData.ParentYangName = "ldp-mpls-template"
     totalMsgsSent.EntityData.SegmentPath = "total-msgs-sent"
+    totalMsgsSent.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + totalMsgsSent.EntityData.SegmentPath
     totalMsgsSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     totalMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     totalMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6032,6 +6212,7 @@ func (labelReleaseMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     labelReleaseMsgsRcvd.EntityData.BundleName = "cisco_ios_xr"
     labelReleaseMsgsRcvd.EntityData.ParentYangName = "ldp-mpls-template"
     labelReleaseMsgsRcvd.EntityData.SegmentPath = "label-release-msgs-rcvd"
+    labelReleaseMsgsRcvd.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + labelReleaseMsgsRcvd.EntityData.SegmentPath
     labelReleaseMsgsRcvd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelReleaseMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelReleaseMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6086,6 +6267,7 @@ func (initMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_
     initMsgsRcvd.EntityData.BundleName = "cisco_ios_xr"
     initMsgsRcvd.EntityData.ParentYangName = "ldp-mpls-template"
     initMsgsRcvd.EntityData.SegmentPath = "init-msgs-rcvd"
+    initMsgsRcvd.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + initMsgsRcvd.EntityData.SegmentPath
     initMsgsRcvd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     initMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6140,6 +6322,7 @@ func (labelReleaseMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     labelReleaseMsgsSent.EntityData.BundleName = "cisco_ios_xr"
     labelReleaseMsgsSent.EntityData.ParentYangName = "ldp-mpls-template"
     labelReleaseMsgsSent.EntityData.SegmentPath = "label-release-msgs-sent"
+    labelReleaseMsgsSent.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + labelReleaseMsgsSent.EntityData.SegmentPath
     labelReleaseMsgsSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelReleaseMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelReleaseMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6194,6 +6377,7 @@ func (initMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_
     initMsgsSent.EntityData.BundleName = "cisco_ios_xr"
     initMsgsSent.EntityData.ParentYangName = "ldp-mpls-template"
     initMsgsSent.EntityData.SegmentPath = "init-msgs-sent"
+    initMsgsSent.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + initMsgsSent.EntityData.SegmentPath
     initMsgsSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     initMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6248,6 +6432,7 @@ func (labelMappingMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     labelMappingMsgsRcvd.EntityData.BundleName = "cisco_ios_xr"
     labelMappingMsgsRcvd.EntityData.ParentYangName = "ldp-mpls-template"
     labelMappingMsgsRcvd.EntityData.SegmentPath = "label-mapping-msgs-rcvd"
+    labelMappingMsgsRcvd.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + labelMappingMsgsRcvd.EntityData.SegmentPath
     labelMappingMsgsRcvd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelMappingMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMappingMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6302,6 +6487,7 @@ func (keepaliveMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemp
     keepaliveMsgsRcvd.EntityData.BundleName = "cisco_ios_xr"
     keepaliveMsgsRcvd.EntityData.ParentYangName = "ldp-mpls-template"
     keepaliveMsgsRcvd.EntityData.SegmentPath = "keepalive-msgs-rcvd"
+    keepaliveMsgsRcvd.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + keepaliveMsgsRcvd.EntityData.SegmentPath
     keepaliveMsgsRcvd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keepaliveMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepaliveMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6356,6 +6542,7 @@ func (labelMappingMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsT
     labelMappingMsgsSent.EntityData.BundleName = "cisco_ios_xr"
     labelMappingMsgsSent.EntityData.ParentYangName = "ldp-mpls-template"
     labelMappingMsgsSent.EntityData.SegmentPath = "label-mapping-msgs-sent"
+    labelMappingMsgsSent.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + labelMappingMsgsSent.EntityData.SegmentPath
     labelMappingMsgsSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelMappingMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMappingMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6410,6 +6597,7 @@ func (keepaliveMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemp
     keepaliveMsgsSent.EntityData.BundleName = "cisco_ios_xr"
     keepaliveMsgsSent.EntityData.ParentYangName = "ldp-mpls-template"
     keepaliveMsgsSent.EntityData.SegmentPath = "keepalive-msgs-sent"
+    keepaliveMsgsSent.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + keepaliveMsgsSent.EntityData.SegmentPath
     keepaliveMsgsSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keepaliveMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepaliveMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6464,6 +6652,7 @@ func (addressMsgsRcvd *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTempla
     addressMsgsRcvd.EntityData.BundleName = "cisco_ios_xr"
     addressMsgsRcvd.EntityData.ParentYangName = "ldp-mpls-template"
     addressMsgsRcvd.EntityData.SegmentPath = "address-msgs-rcvd"
+    addressMsgsRcvd.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + addressMsgsRcvd.EntityData.SegmentPath
     addressMsgsRcvd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressMsgsRcvd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressMsgsRcvd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6518,6 +6707,7 @@ func (addressMsgsSent *PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTempla
     addressMsgsSent.EntityData.BundleName = "cisco_ios_xr"
     addressMsgsSent.EntityData.ParentYangName = "ldp-mpls-template"
     addressMsgsSent.EntityData.SegmentPath = "address-msgs-sent"
+    addressMsgsSent.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/ldp-mpls-template/" + addressMsgsSent.EntityData.SegmentPath
     addressMsgsSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressMsgsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressMsgsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6552,6 +6742,7 @@ func (basicCounterInterface *PerfMgmt_Threshold_BasicCounterInterface) GetEntity
     basicCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterface.EntityData.ParentYangName = "threshold"
     basicCounterInterface.EntityData.SegmentPath = "basic-counter-interface"
+    basicCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/" + basicCounterInterface.EntityData.SegmentPath
     basicCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6582,6 +6773,7 @@ func (basicCounterInterfaceTemplates *PerfMgmt_Threshold_BasicCounterInterface_B
     basicCounterInterfaceTemplates.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterfaceTemplates.EntityData.ParentYangName = "basic-counter-interface"
     basicCounterInterfaceTemplates.EntityData.SegmentPath = "basic-counter-interface-templates"
+    basicCounterInterfaceTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/" + basicCounterInterfaceTemplates.EntityData.SegmentPath
     basicCounterInterfaceTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterfaceTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterfaceTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6604,6 +6796,7 @@ func (basicCounterInterfaceTemplates *PerfMgmt_Threshold_BasicCounterInterface_B
 type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_BasicCounterInterfaceTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -6658,6 +6851,7 @@ func (basicCounterInterfaceTemplate *PerfMgmt_Threshold_BasicCounterInterface_Ba
     basicCounterInterfaceTemplate.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterfaceTemplate.EntityData.ParentYangName = "basic-counter-interface-templates"
     basicCounterInterfaceTemplate.EntityData.SegmentPath = "basic-counter-interface-template" + types.AddKeyToken(basicCounterInterfaceTemplate.TemplateName, "template-name")
+    basicCounterInterfaceTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/" + basicCounterInterfaceTemplate.EntityData.SegmentPath
     basicCounterInterfaceTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterfaceTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterfaceTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6720,6 +6914,7 @@ func (inOctets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTe
     inOctets.EntityData.BundleName = "cisco_ios_xr"
     inOctets.EntityData.ParentYangName = "basic-counter-interface-template"
     inOctets.EntityData.SegmentPath = "in-octets"
+    inOctets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/basic-counter-interface-template/" + inOctets.EntityData.SegmentPath
     inOctets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inOctets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inOctets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6774,6 +6969,7 @@ func (outOctets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceT
     outOctets.EntityData.BundleName = "cisco_ios_xr"
     outOctets.EntityData.ParentYangName = "basic-counter-interface-template"
     outOctets.EntityData.SegmentPath = "out-octets"
+    outOctets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/basic-counter-interface-template/" + outOctets.EntityData.SegmentPath
     outOctets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outOctets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outOctets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6828,6 +7024,7 @@ func (outputQueueDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInt
     outputQueueDrops.EntityData.BundleName = "cisco_ios_xr"
     outputQueueDrops.EntityData.ParentYangName = "basic-counter-interface-template"
     outputQueueDrops.EntityData.SegmentPath = "output-queue-drops"
+    outputQueueDrops.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/basic-counter-interface-template/" + outputQueueDrops.EntityData.SegmentPath
     outputQueueDrops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputQueueDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputQueueDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6883,6 +7080,7 @@ func (inputTotalErrors *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInt
     inputTotalErrors.EntityData.BundleName = "cisco_ios_xr"
     inputTotalErrors.EntityData.ParentYangName = "basic-counter-interface-template"
     inputTotalErrors.EntityData.SegmentPath = "input-total-errors"
+    inputTotalErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/basic-counter-interface-template/" + inputTotalErrors.EntityData.SegmentPath
     inputTotalErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputTotalErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputTotalErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6937,6 +7135,7 @@ func (outputTotalDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInt
     outputTotalDrops.EntityData.BundleName = "cisco_ios_xr"
     outputTotalDrops.EntityData.ParentYangName = "basic-counter-interface-template"
     outputTotalDrops.EntityData.SegmentPath = "output-total-drops"
+    outputTotalDrops.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/basic-counter-interface-template/" + outputTotalDrops.EntityData.SegmentPath
     outputTotalDrops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputTotalDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputTotalDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6991,6 +7190,7 @@ func (outPackets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterface
     outPackets.EntityData.BundleName = "cisco_ios_xr"
     outPackets.EntityData.ParentYangName = "basic-counter-interface-template"
     outPackets.EntityData.SegmentPath = "out-packets"
+    outPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/basic-counter-interface-template/" + outPackets.EntityData.SegmentPath
     outPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7046,6 +7246,7 @@ func (outputTotalErrors *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterIn
     outputTotalErrors.EntityData.BundleName = "cisco_ios_xr"
     outputTotalErrors.EntityData.ParentYangName = "basic-counter-interface-template"
     outputTotalErrors.EntityData.SegmentPath = "output-total-errors"
+    outputTotalErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/basic-counter-interface-template/" + outputTotalErrors.EntityData.SegmentPath
     outputTotalErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputTotalErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputTotalErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7100,6 +7301,7 @@ func (inPackets *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceT
     inPackets.EntityData.BundleName = "cisco_ios_xr"
     inPackets.EntityData.ParentYangName = "basic-counter-interface-template"
     inPackets.EntityData.SegmentPath = "in-packets"
+    inPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/basic-counter-interface-template/" + inPackets.EntityData.SegmentPath
     inPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7154,6 +7356,7 @@ func (inputQueueDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInte
     inputQueueDrops.EntityData.BundleName = "cisco_ios_xr"
     inputQueueDrops.EntityData.ParentYangName = "basic-counter-interface-template"
     inputQueueDrops.EntityData.SegmentPath = "input-queue-drops"
+    inputQueueDrops.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/basic-counter-interface-template/" + inputQueueDrops.EntityData.SegmentPath
     inputQueueDrops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputQueueDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputQueueDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7208,6 +7411,7 @@ func (inputTotalDrops *PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInte
     inputTotalDrops.EntityData.BundleName = "cisco_ios_xr"
     inputTotalDrops.EntityData.ParentYangName = "basic-counter-interface-template"
     inputTotalDrops.EntityData.SegmentPath = "input-total-drops"
+    inputTotalDrops.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/basic-counter-interface-template/" + inputTotalDrops.EntityData.SegmentPath
     inputTotalDrops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputTotalDrops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputTotalDrops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7242,6 +7446,7 @@ func (bgp *PerfMgmt_Threshold_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "threshold"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7272,6 +7477,7 @@ func (bgpTemplates *PerfMgmt_Threshold_Bgp_BgpTemplates) GetEntityData() *types.
     bgpTemplates.EntityData.BundleName = "cisco_ios_xr"
     bgpTemplates.EntityData.ParentYangName = "bgp"
     bgpTemplates.EntityData.SegmentPath = "bgp-templates"
+    bgpTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/" + bgpTemplates.EntityData.SegmentPath
     bgpTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7293,6 +7499,7 @@ func (bgpTemplates *PerfMgmt_Threshold_Bgp_BgpTemplates) GetEntityData() *types.
 type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -7333,6 +7540,7 @@ func (bgpTemplate *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate) GetEntityDat
     bgpTemplate.EntityData.BundleName = "cisco_ios_xr"
     bgpTemplate.EntityData.ParentYangName = "bgp-templates"
     bgpTemplate.EntityData.SegmentPath = "bgp-template" + types.AddKeyToken(bgpTemplate.TemplateName, "template-name")
+    bgpTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/" + bgpTemplate.EntityData.SegmentPath
     bgpTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7391,6 +7599,7 @@ func (outputUpdateMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_Outp
     outputUpdateMessages.EntityData.BundleName = "cisco_ios_xr"
     outputUpdateMessages.EntityData.ParentYangName = "bgp-template"
     outputUpdateMessages.EntityData.SegmentPath = "output-update-messages"
+    outputUpdateMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/bgp-template/" + outputUpdateMessages.EntityData.SegmentPath
     outputUpdateMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputUpdateMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputUpdateMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7445,6 +7654,7 @@ func (errorsReceived *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ErrorsRece
     errorsReceived.EntityData.BundleName = "cisco_ios_xr"
     errorsReceived.EntityData.ParentYangName = "bgp-template"
     errorsReceived.EntityData.SegmentPath = "errors-received"
+    errorsReceived.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/bgp-template/" + errorsReceived.EntityData.SegmentPath
     errorsReceived.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorsReceived.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorsReceived.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7500,6 +7710,7 @@ func (connEstablished *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ConnEstab
     connEstablished.EntityData.BundleName = "cisco_ios_xr"
     connEstablished.EntityData.ParentYangName = "bgp-template"
     connEstablished.EntityData.SegmentPath = "conn-established"
+    connEstablished.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/bgp-template/" + connEstablished.EntityData.SegmentPath
     connEstablished.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connEstablished.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connEstablished.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7554,6 +7765,7 @@ func (outputMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_OutputMess
     outputMessages.EntityData.BundleName = "cisco_ios_xr"
     outputMessages.EntityData.ParentYangName = "bgp-template"
     outputMessages.EntityData.SegmentPath = "output-messages"
+    outputMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/bgp-template/" + outputMessages.EntityData.SegmentPath
     outputMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7608,6 +7820,7 @@ func (connDropped *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ConnDropped) 
     connDropped.EntityData.BundleName = "cisco_ios_xr"
     connDropped.EntityData.ParentYangName = "bgp-template"
     connDropped.EntityData.SegmentPath = "conn-dropped"
+    connDropped.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/bgp-template/" + connDropped.EntityData.SegmentPath
     connDropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connDropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connDropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7662,6 +7875,7 @@ func (inputUpdateMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_Input
     inputUpdateMessages.EntityData.BundleName = "cisco_ios_xr"
     inputUpdateMessages.EntityData.ParentYangName = "bgp-template"
     inputUpdateMessages.EntityData.SegmentPath = "input-update-messages"
+    inputUpdateMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/bgp-template/" + inputUpdateMessages.EntityData.SegmentPath
     inputUpdateMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputUpdateMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputUpdateMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7716,6 +7930,7 @@ func (errorsSent *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_ErrorsSent) Ge
     errorsSent.EntityData.BundleName = "cisco_ios_xr"
     errorsSent.EntityData.ParentYangName = "bgp-template"
     errorsSent.EntityData.SegmentPath = "errors-sent"
+    errorsSent.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/bgp-template/" + errorsSent.EntityData.SegmentPath
     errorsSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorsSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorsSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7770,6 +7985,7 @@ func (inputMessages *PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate_InputMessag
     inputMessages.EntityData.BundleName = "cisco_ios_xr"
     inputMessages.EntityData.ParentYangName = "bgp-template"
     inputMessages.EntityData.SegmentPath = "input-messages"
+    inputMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/bgp-template/" + inputMessages.EntityData.SegmentPath
     inputMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7804,6 +8020,7 @@ func (ospfv2Protocol *PerfMgmt_Threshold_Ospfv2Protocol) GetEntityData() *types.
     ospfv2Protocol.EntityData.BundleName = "cisco_ios_xr"
     ospfv2Protocol.EntityData.ParentYangName = "threshold"
     ospfv2Protocol.EntityData.SegmentPath = "ospfv2-protocol"
+    ospfv2Protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/" + ospfv2Protocol.EntityData.SegmentPath
     ospfv2Protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7834,6 +8051,7 @@ func (ospfv2ProtocolTemplates *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolT
     ospfv2ProtocolTemplates.EntityData.BundleName = "cisco_ios_xr"
     ospfv2ProtocolTemplates.EntityData.ParentYangName = "ospfv2-protocol"
     ospfv2ProtocolTemplates.EntityData.SegmentPath = "ospfv2-protocol-templates"
+    ospfv2ProtocolTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/" + ospfv2ProtocolTemplates.EntityData.SegmentPath
     ospfv2ProtocolTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2ProtocolTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7855,6 +8073,7 @@ func (ospfv2ProtocolTemplates *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolT
 type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -7934,6 +8153,7 @@ func (ospfv2ProtocolTemplate *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTe
     ospfv2ProtocolTemplate.EntityData.BundleName = "cisco_ios_xr"
     ospfv2ProtocolTemplate.EntityData.ParentYangName = "ospfv2-protocol-templates"
     ospfv2ProtocolTemplate.EntityData.SegmentPath = "ospfv2-protocol-template" + types.AddKeyToken(ospfv2ProtocolTemplate.TemplateName, "template-name")
+    ospfv2ProtocolTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/" + ospfv2ProtocolTemplate.EntityData.SegmentPath
     ospfv2ProtocolTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2ProtocolTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8006,6 +8226,7 @@ func (checksumErrors *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_
     checksumErrors.EntityData.BundleName = "cisco_ios_xr"
     checksumErrors.EntityData.ParentYangName = "ospfv2-protocol-template"
     checksumErrors.EntityData.SegmentPath = "checksum-errors"
+    checksumErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + checksumErrors.EntityData.SegmentPath
     checksumErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     checksumErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     checksumErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8060,6 +8281,7 @@ func (inputLsaAcksLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates
     inputLsaAcksLsa.EntityData.BundleName = "cisco_ios_xr"
     inputLsaAcksLsa.EntityData.ParentYangName = "ospfv2-protocol-template"
     inputLsaAcksLsa.EntityData.SegmentPath = "input-lsa-acks-lsa"
+    inputLsaAcksLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + inputLsaAcksLsa.EntityData.SegmentPath
     inputLsaAcksLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsaAcksLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaAcksLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8114,6 +8336,7 @@ func (outputDbDsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_O
     outputDbDsLsa.EntityData.BundleName = "cisco_ios_xr"
     outputDbDsLsa.EntityData.ParentYangName = "ospfv2-protocol-template"
     outputDbDsLsa.EntityData.SegmentPath = "output-db-ds-lsa"
+    outputDbDsLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + outputDbDsLsa.EntityData.SegmentPath
     outputDbDsLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputDbDsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputDbDsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8168,6 +8391,7 @@ func (inputDbDsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Os
     inputDbDsLsa.EntityData.BundleName = "cisco_ios_xr"
     inputDbDsLsa.EntityData.ParentYangName = "ospfv2-protocol-template"
     inputDbDsLsa.EntityData.SegmentPath = "input-db-ds-lsa"
+    inputDbDsLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + inputDbDsLsa.EntityData.SegmentPath
     inputDbDsLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputDbDsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputDbDsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8222,6 +8446,7 @@ func (inputLsaUpdates *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates
     inputLsaUpdates.EntityData.BundleName = "cisco_ios_xr"
     inputLsaUpdates.EntityData.ParentYangName = "ospfv2-protocol-template"
     inputLsaUpdates.EntityData.SegmentPath = "input-lsa-updates"
+    inputLsaUpdates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + inputLsaUpdates.EntityData.SegmentPath
     inputLsaUpdates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsaUpdates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaUpdates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8276,6 +8501,7 @@ func (outputDbDs *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospf
     outputDbDs.EntityData.BundleName = "cisco_ios_xr"
     outputDbDs.EntityData.ParentYangName = "ospfv2-protocol-template"
     outputDbDs.EntityData.SegmentPath = "output-db-ds"
+    outputDbDs.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + outputDbDs.EntityData.SegmentPath
     outputDbDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputDbDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputDbDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8330,6 +8556,7 @@ func (outputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempl
     outputLsaUpdatesLsa.EntityData.BundleName = "cisco_ios_xr"
     outputLsaUpdatesLsa.EntityData.ParentYangName = "ospfv2-protocol-template"
     outputLsaUpdatesLsa.EntityData.SegmentPath = "output-lsa-updates-lsa"
+    outputLsaUpdatesLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + outputLsaUpdatesLsa.EntityData.SegmentPath
     outputLsaUpdatesLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsaUpdatesLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaUpdatesLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8384,6 +8611,7 @@ func (inputDbDs *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv
     inputDbDs.EntityData.BundleName = "cisco_ios_xr"
     inputDbDs.EntityData.ParentYangName = "ospfv2-protocol-template"
     inputDbDs.EntityData.SegmentPath = "input-db-ds"
+    inputDbDs.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + inputDbDs.EntityData.SegmentPath
     inputDbDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputDbDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputDbDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8438,6 +8666,7 @@ func (inputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempla
     inputLsaUpdatesLsa.EntityData.BundleName = "cisco_ios_xr"
     inputLsaUpdatesLsa.EntityData.ParentYangName = "ospfv2-protocol-template"
     inputLsaUpdatesLsa.EntityData.SegmentPath = "input-lsa-updates-lsa"
+    inputLsaUpdatesLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + inputLsaUpdatesLsa.EntityData.SegmentPath
     inputLsaUpdatesLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsaUpdatesLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaUpdatesLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8492,6 +8721,7 @@ func (outputPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_O
     outputPackets.EntityData.BundleName = "cisco_ios_xr"
     outputPackets.EntityData.ParentYangName = "ospfv2-protocol-template"
     outputPackets.EntityData.SegmentPath = "output-packets"
+    outputPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + outputPackets.EntityData.SegmentPath
     outputPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8546,6 +8776,7 @@ func (inputPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Os
     inputPackets.EntityData.BundleName = "cisco_ios_xr"
     inputPackets.EntityData.ParentYangName = "ospfv2-protocol-template"
     inputPackets.EntityData.SegmentPath = "input-packets"
+    inputPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + inputPackets.EntityData.SegmentPath
     inputPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8600,6 +8831,7 @@ func (outputHelloPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempla
     outputHelloPackets.EntityData.BundleName = "cisco_ios_xr"
     outputHelloPackets.EntityData.ParentYangName = "ospfv2-protocol-template"
     outputHelloPackets.EntityData.SegmentPath = "output-hello-packets"
+    outputHelloPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + outputHelloPackets.EntityData.SegmentPath
     outputHelloPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputHelloPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputHelloPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8654,6 +8886,7 @@ func (inputHelloPackets *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplat
     inputHelloPackets.EntityData.BundleName = "cisco_ios_xr"
     inputHelloPackets.EntityData.ParentYangName = "ospfv2-protocol-template"
     inputHelloPackets.EntityData.SegmentPath = "input-hello-packets"
+    inputHelloPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + inputHelloPackets.EntityData.SegmentPath
     inputHelloPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputHelloPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputHelloPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8708,6 +8941,7 @@ func (outputLsRequests *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplate
     outputLsRequests.EntityData.BundleName = "cisco_ios_xr"
     outputLsRequests.EntityData.ParentYangName = "ospfv2-protocol-template"
     outputLsRequests.EntityData.SegmentPath = "output-ls-requests"
+    outputLsRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + outputLsRequests.EntityData.SegmentPath
     outputLsRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8762,6 +8996,7 @@ func (outputLsaAcksLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplate
     outputLsaAcksLsa.EntityData.BundleName = "cisco_ios_xr"
     outputLsaAcksLsa.EntityData.ParentYangName = "ospfv2-protocol-template"
     outputLsaAcksLsa.EntityData.SegmentPath = "output-lsa-acks-lsa"
+    outputLsaAcksLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + outputLsaAcksLsa.EntityData.SegmentPath
     outputLsaAcksLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsaAcksLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaAcksLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8816,6 +9051,7 @@ func (outputLsaAcks *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_O
     outputLsaAcks.EntityData.BundleName = "cisco_ios_xr"
     outputLsaAcks.EntityData.ParentYangName = "ospfv2-protocol-template"
     outputLsaAcks.EntityData.SegmentPath = "output-lsa-acks"
+    outputLsaAcks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + outputLsaAcks.EntityData.SegmentPath
     outputLsaAcks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsaAcks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaAcks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8870,6 +9106,7 @@ func (inputLsaAcks *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Os
     inputLsaAcks.EntityData.BundleName = "cisco_ios_xr"
     inputLsaAcks.EntityData.ParentYangName = "ospfv2-protocol-template"
     inputLsaAcks.EntityData.SegmentPath = "input-lsa-acks"
+    inputLsaAcks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + inputLsaAcks.EntityData.SegmentPath
     inputLsaAcks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsaAcks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaAcks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8924,6 +9161,7 @@ func (outputLsaUpdates *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplate
     outputLsaUpdates.EntityData.BundleName = "cisco_ios_xr"
     outputLsaUpdates.EntityData.ParentYangName = "ospfv2-protocol-template"
     outputLsaUpdates.EntityData.SegmentPath = "output-lsa-updates"
+    outputLsaUpdates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + outputLsaUpdates.EntityData.SegmentPath
     outputLsaUpdates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsaUpdates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaUpdates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8978,6 +9216,7 @@ func (outputLsRequestsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempl
     outputLsRequestsLsa.EntityData.BundleName = "cisco_ios_xr"
     outputLsRequestsLsa.EntityData.ParentYangName = "ospfv2-protocol-template"
     outputLsRequestsLsa.EntityData.SegmentPath = "output-ls-requests-lsa"
+    outputLsRequestsLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + outputLsRequestsLsa.EntityData.SegmentPath
     outputLsRequestsLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsRequestsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsRequestsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9032,6 +9271,7 @@ func (inputLsRequestsLsa *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTempla
     inputLsRequestsLsa.EntityData.BundleName = "cisco_ios_xr"
     inputLsRequestsLsa.EntityData.ParentYangName = "ospfv2-protocol-template"
     inputLsRequestsLsa.EntityData.SegmentPath = "input-ls-requests-lsa"
+    inputLsRequestsLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + inputLsRequestsLsa.EntityData.SegmentPath
     inputLsRequestsLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsRequestsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsRequestsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9086,6 +9326,7 @@ func (inputLsRequests *PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates
     inputLsRequests.EntityData.BundleName = "cisco_ios_xr"
     inputLsRequests.EntityData.ParentYangName = "ospfv2-protocol-template"
     inputLsRequests.EntityData.SegmentPath = "input-ls-requests"
+    inputLsRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/ospfv2-protocol-template/" + inputLsRequests.EntityData.SegmentPath
     inputLsRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9120,6 +9361,7 @@ func (cpuNode *PerfMgmt_Threshold_CpuNode) GetEntityData() *types.CommonEntityDa
     cpuNode.EntityData.BundleName = "cisco_ios_xr"
     cpuNode.EntityData.ParentYangName = "threshold"
     cpuNode.EntityData.SegmentPath = "cpu-node"
+    cpuNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/" + cpuNode.EntityData.SegmentPath
     cpuNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cpuNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9150,6 +9392,7 @@ func (cpuNodeTemplates *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates) GetEntityDa
     cpuNodeTemplates.EntityData.BundleName = "cisco_ios_xr"
     cpuNodeTemplates.EntityData.ParentYangName = "cpu-node"
     cpuNodeTemplates.EntityData.SegmentPath = "cpu-node-templates"
+    cpuNodeTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/cpu-node/" + cpuNodeTemplates.EntityData.SegmentPath
     cpuNodeTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cpuNodeTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNodeTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9172,6 +9415,7 @@ func (cpuNodeTemplates *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates) GetEntityDa
 type PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -9194,6 +9438,7 @@ func (cpuNodeTemplate *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTempla
     cpuNodeTemplate.EntityData.BundleName = "cisco_ios_xr"
     cpuNodeTemplate.EntityData.ParentYangName = "cpu-node-templates"
     cpuNodeTemplate.EntityData.SegmentPath = "cpu-node-template" + types.AddKeyToken(cpuNodeTemplate.TemplateName, "template-name")
+    cpuNodeTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/cpu-node/cpu-node-templates/" + cpuNodeTemplate.EntityData.SegmentPath
     cpuNodeTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cpuNodeTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuNodeTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9246,6 +9491,7 @@ func (averageCpuUsed *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplat
     averageCpuUsed.EntityData.BundleName = "cisco_ios_xr"
     averageCpuUsed.EntityData.ParentYangName = "cpu-node-template"
     averageCpuUsed.EntityData.SegmentPath = "average-cpu-used"
+    averageCpuUsed.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/cpu-node/cpu-node-templates/cpu-node-template/" + averageCpuUsed.EntityData.SegmentPath
     averageCpuUsed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     averageCpuUsed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageCpuUsed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9300,6 +9546,7 @@ func (noProcesses *PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate_N
     noProcesses.EntityData.BundleName = "cisco_ios_xr"
     noProcesses.EntityData.ParentYangName = "cpu-node-template"
     noProcesses.EntityData.SegmentPath = "no-processes"
+    noProcesses.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/cpu-node/cpu-node-templates/cpu-node-template/" + noProcesses.EntityData.SegmentPath
     noProcesses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     noProcesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     noProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9334,6 +9581,7 @@ func (dataRateInterface *PerfMgmt_Threshold_DataRateInterface) GetEntityData() *
     dataRateInterface.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterface.EntityData.ParentYangName = "threshold"
     dataRateInterface.EntityData.SegmentPath = "data-rate-interface"
+    dataRateInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/" + dataRateInterface.EntityData.SegmentPath
     dataRateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9364,6 +9612,7 @@ func (dataRateInterfaceTemplates *PerfMgmt_Threshold_DataRateInterface_DataRateI
     dataRateInterfaceTemplates.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterfaceTemplates.EntityData.ParentYangName = "data-rate-interface"
     dataRateInterfaceTemplates.EntityData.SegmentPath = "data-rate-interface-templates"
+    dataRateInterfaceTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/" + dataRateInterfaceTemplates.EntityData.SegmentPath
     dataRateInterfaceTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterfaceTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterfaceTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9386,6 +9635,7 @@ func (dataRateInterfaceTemplates *PerfMgmt_Threshold_DataRateInterface_DataRateI
 type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInterfaceTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -9437,6 +9687,7 @@ func (dataRateInterfaceTemplate *PerfMgmt_Threshold_DataRateInterface_DataRateIn
     dataRateInterfaceTemplate.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterfaceTemplate.EntityData.ParentYangName = "data-rate-interface-templates"
     dataRateInterfaceTemplate.EntityData.SegmentPath = "data-rate-interface-template" + types.AddKeyToken(dataRateInterfaceTemplate.TemplateName, "template-name")
+    dataRateInterfaceTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/" + dataRateInterfaceTemplate.EntityData.SegmentPath
     dataRateInterfaceTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterfaceTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterfaceTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9498,6 +9749,7 @@ func (inputDataRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTempl
     inputDataRate.EntityData.BundleName = "cisco_ios_xr"
     inputDataRate.EntityData.ParentYangName = "data-rate-interface-template"
     inputDataRate.EntityData.SegmentPath = "input-data-rate"
+    inputDataRate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/data-rate-interface-template/" + inputDataRate.EntityData.SegmentPath
     inputDataRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputDataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputDataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9552,6 +9804,7 @@ func (bandwidth *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "data-rate-interface-template"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/data-rate-interface-template/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9606,6 +9859,7 @@ func (outputPacketRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTe
     outputPacketRate.EntityData.BundleName = "cisco_ios_xr"
     outputPacketRate.EntityData.ParentYangName = "data-rate-interface-template"
     outputPacketRate.EntityData.SegmentPath = "output-packet-rate"
+    outputPacketRate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/data-rate-interface-template/" + outputPacketRate.EntityData.SegmentPath
     outputPacketRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputPacketRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputPacketRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9660,6 +9914,7 @@ func (inputPeakPkts *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTempl
     inputPeakPkts.EntityData.BundleName = "cisco_ios_xr"
     inputPeakPkts.EntityData.ParentYangName = "data-rate-interface-template"
     inputPeakPkts.EntityData.SegmentPath = "input-peak-pkts"
+    inputPeakPkts.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/data-rate-interface-template/" + inputPeakPkts.EntityData.SegmentPath
     inputPeakPkts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputPeakPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputPeakPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9714,6 +9969,7 @@ func (outputPeakRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemp
     outputPeakRate.EntityData.BundleName = "cisco_ios_xr"
     outputPeakRate.EntityData.ParentYangName = "data-rate-interface-template"
     outputPeakRate.EntityData.SegmentPath = "output-peak-rate"
+    outputPeakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/data-rate-interface-template/" + outputPeakRate.EntityData.SegmentPath
     outputPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9768,6 +10024,7 @@ func (outputDataRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemp
     outputDataRate.EntityData.BundleName = "cisco_ios_xr"
     outputDataRate.EntityData.ParentYangName = "data-rate-interface-template"
     outputDataRate.EntityData.SegmentPath = "output-data-rate"
+    outputDataRate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/data-rate-interface-template/" + outputDataRate.EntityData.SegmentPath
     outputDataRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputDataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputDataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9822,6 +10079,7 @@ func (inputPacketRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTem
     inputPacketRate.EntityData.BundleName = "cisco_ios_xr"
     inputPacketRate.EntityData.ParentYangName = "data-rate-interface-template"
     inputPacketRate.EntityData.SegmentPath = "input-packet-rate"
+    inputPacketRate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/data-rate-interface-template/" + inputPacketRate.EntityData.SegmentPath
     inputPacketRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputPacketRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputPacketRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9876,6 +10134,7 @@ func (outputPeakPkts *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemp
     outputPeakPkts.EntityData.BundleName = "cisco_ios_xr"
     outputPeakPkts.EntityData.ParentYangName = "data-rate-interface-template"
     outputPeakPkts.EntityData.SegmentPath = "output-peak-pkts"
+    outputPeakPkts.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/data-rate-interface-template/" + outputPeakPkts.EntityData.SegmentPath
     outputPeakPkts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputPeakPkts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputPeakPkts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9930,6 +10189,7 @@ func (inputPeakRate *PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTempl
     inputPeakRate.EntityData.BundleName = "cisco_ios_xr"
     inputPeakRate.EntityData.ParentYangName = "data-rate-interface-template"
     inputPeakRate.EntityData.SegmentPath = "input-peak-rate"
+    inputPeakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/data-rate-interface-template/" + inputPeakRate.EntityData.SegmentPath
     inputPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9964,6 +10224,7 @@ func (processNode *PerfMgmt_Threshold_ProcessNode) GetEntityData() *types.Common
     processNode.EntityData.BundleName = "cisco_ios_xr"
     processNode.EntityData.ParentYangName = "threshold"
     processNode.EntityData.SegmentPath = "process-node"
+    processNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/" + processNode.EntityData.SegmentPath
     processNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9994,6 +10255,7 @@ func (processNodeTemplates *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates)
     processNodeTemplates.EntityData.BundleName = "cisco_ios_xr"
     processNodeTemplates.EntityData.ParentYangName = "process-node"
     processNodeTemplates.EntityData.SegmentPath = "process-node-templates"
+    processNodeTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/process-node/" + processNodeTemplates.EntityData.SegmentPath
     processNodeTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processNodeTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNodeTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10015,6 +10277,7 @@ func (processNodeTemplates *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates)
 type PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNodeTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -10040,6 +10303,7 @@ func (processNodeTemplate *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_P
     processNodeTemplate.EntityData.BundleName = "cisco_ios_xr"
     processNodeTemplate.EntityData.ParentYangName = "process-node-templates"
     processNodeTemplate.EntityData.SegmentPath = "process-node-template" + types.AddKeyToken(processNodeTemplate.TemplateName, "template-name")
+    processNodeTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/process-node/process-node-templates/" + processNodeTemplate.EntityData.SegmentPath
     processNodeTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processNodeTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processNodeTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10093,6 +10357,7 @@ func (averageCpuUsed *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_Proces
     averageCpuUsed.EntityData.BundleName = "cisco_ios_xr"
     averageCpuUsed.EntityData.ParentYangName = "process-node-template"
     averageCpuUsed.EntityData.SegmentPath = "average-cpu-used"
+    averageCpuUsed.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/process-node/process-node-templates/process-node-template/" + averageCpuUsed.EntityData.SegmentPath
     averageCpuUsed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     averageCpuUsed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     averageCpuUsed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10147,6 +10412,7 @@ func (peakMemory *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNod
     peakMemory.EntityData.BundleName = "cisco_ios_xr"
     peakMemory.EntityData.ParentYangName = "process-node-template"
     peakMemory.EntityData.SegmentPath = "peak-memory"
+    peakMemory.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/process-node/process-node-templates/process-node-template/" + peakMemory.EntityData.SegmentPath
     peakMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peakMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10201,6 +10467,7 @@ func (noThreads *PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNode
     noThreads.EntityData.BundleName = "cisco_ios_xr"
     noThreads.EntityData.ParentYangName = "process-node-template"
     noThreads.EntityData.SegmentPath = "no-threads"
+    noThreads.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/process-node/process-node-templates/process-node-template/" + noThreads.EntityData.SegmentPath
     noThreads.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     noThreads.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     noThreads.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10235,6 +10502,7 @@ func (memoryNode *PerfMgmt_Threshold_MemoryNode) GetEntityData() *types.CommonEn
     memoryNode.EntityData.BundleName = "cisco_ios_xr"
     memoryNode.EntityData.ParentYangName = "threshold"
     memoryNode.EntityData.SegmentPath = "memory-node"
+    memoryNode.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/" + memoryNode.EntityData.SegmentPath
     memoryNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10265,6 +10533,7 @@ func (memoryNodeTemplates *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates) Ge
     memoryNodeTemplates.EntityData.BundleName = "cisco_ios_xr"
     memoryNodeTemplates.EntityData.ParentYangName = "memory-node"
     memoryNodeTemplates.EntityData.SegmentPath = "memory-node-templates"
+    memoryNodeTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/memory-node/" + memoryNodeTemplates.EntityData.SegmentPath
     memoryNodeTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryNodeTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNodeTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10287,6 +10556,7 @@ func (memoryNodeTemplates *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates) Ge
 type PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -10309,6 +10579,7 @@ func (memoryNodeTemplate *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_Memo
     memoryNodeTemplate.EntityData.BundleName = "cisco_ios_xr"
     memoryNodeTemplate.EntityData.ParentYangName = "memory-node-templates"
     memoryNodeTemplate.EntityData.SegmentPath = "memory-node-template" + types.AddKeyToken(memoryNodeTemplate.TemplateName, "template-name")
+    memoryNodeTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/memory-node/memory-node-templates/" + memoryNodeTemplate.EntityData.SegmentPath
     memoryNodeTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryNodeTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryNodeTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10361,6 +10632,7 @@ func (peakMemory *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTe
     peakMemory.EntityData.BundleName = "cisco_ios_xr"
     peakMemory.EntityData.ParentYangName = "memory-node-template"
     peakMemory.EntityData.SegmentPath = "peak-memory"
+    peakMemory.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/memory-node/memory-node-templates/memory-node-template/" + peakMemory.EntityData.SegmentPath
     peakMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peakMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10415,6 +10687,7 @@ func (currMemory *PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTe
     currMemory.EntityData.BundleName = "cisco_ios_xr"
     currMemory.EntityData.ParentYangName = "memory-node-template"
     currMemory.EntityData.SegmentPath = "curr-memory"
+    currMemory.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/memory-node/memory-node-templates/memory-node-template/" + currMemory.EntityData.SegmentPath
     currMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     currMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     currMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10449,6 +10722,7 @@ func (ospfv3Protocol *PerfMgmt_Threshold_Ospfv3Protocol) GetEntityData() *types.
     ospfv3Protocol.EntityData.BundleName = "cisco_ios_xr"
     ospfv3Protocol.EntityData.ParentYangName = "threshold"
     ospfv3Protocol.EntityData.SegmentPath = "ospfv3-protocol"
+    ospfv3Protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/" + ospfv3Protocol.EntityData.SegmentPath
     ospfv3Protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3Protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3Protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10479,6 +10753,7 @@ func (ospfv3ProtocolTemplates *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolT
     ospfv3ProtocolTemplates.EntityData.BundleName = "cisco_ios_xr"
     ospfv3ProtocolTemplates.EntityData.ParentYangName = "ospfv3-protocol"
     ospfv3ProtocolTemplates.EntityData.SegmentPath = "ospfv3-protocol-templates"
+    ospfv3ProtocolTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/" + ospfv3ProtocolTemplates.EntityData.SegmentPath
     ospfv3ProtocolTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3ProtocolTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10500,6 +10775,7 @@ func (ospfv3ProtocolTemplates *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolT
 type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -10576,6 +10852,7 @@ func (ospfv3ProtocolTemplate *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTe
     ospfv3ProtocolTemplate.EntityData.BundleName = "cisco_ios_xr"
     ospfv3ProtocolTemplate.EntityData.ParentYangName = "ospfv3-protocol-templates"
     ospfv3ProtocolTemplate.EntityData.SegmentPath = "ospfv3-protocol-template" + types.AddKeyToken(ospfv3ProtocolTemplate.TemplateName, "template-name")
+    ospfv3ProtocolTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/" + ospfv3ProtocolTemplate.EntityData.SegmentPath
     ospfv3ProtocolTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3ProtocolTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10646,6 +10923,7 @@ func (inputLsaAcksLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates
     inputLsaAcksLsa.EntityData.BundleName = "cisco_ios_xr"
     inputLsaAcksLsa.EntityData.ParentYangName = "ospfv3-protocol-template"
     inputLsaAcksLsa.EntityData.SegmentPath = "input-lsa-acks-lsa"
+    inputLsaAcksLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + inputLsaAcksLsa.EntityData.SegmentPath
     inputLsaAcksLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsaAcksLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaAcksLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10700,6 +10978,7 @@ func (outputDbDsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_O
     outputDbDsLsa.EntityData.BundleName = "cisco_ios_xr"
     outputDbDsLsa.EntityData.ParentYangName = "ospfv3-protocol-template"
     outputDbDsLsa.EntityData.SegmentPath = "output-db-ds-lsa"
+    outputDbDsLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + outputDbDsLsa.EntityData.SegmentPath
     outputDbDsLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputDbDsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputDbDsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10754,6 +11033,7 @@ func (inputDbDsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Os
     inputDbDsLsa.EntityData.BundleName = "cisco_ios_xr"
     inputDbDsLsa.EntityData.ParentYangName = "ospfv3-protocol-template"
     inputDbDsLsa.EntityData.SegmentPath = "input-db-ds-lsa"
+    inputDbDsLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + inputDbDsLsa.EntityData.SegmentPath
     inputDbDsLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputDbDsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputDbDsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10808,6 +11088,7 @@ func (inputLsaUpdates *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates
     inputLsaUpdates.EntityData.BundleName = "cisco_ios_xr"
     inputLsaUpdates.EntityData.ParentYangName = "ospfv3-protocol-template"
     inputLsaUpdates.EntityData.SegmentPath = "input-lsa-updates"
+    inputLsaUpdates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + inputLsaUpdates.EntityData.SegmentPath
     inputLsaUpdates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsaUpdates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaUpdates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10862,6 +11143,7 @@ func (outputDbDs *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospf
     outputDbDs.EntityData.BundleName = "cisco_ios_xr"
     outputDbDs.EntityData.ParentYangName = "ospfv3-protocol-template"
     outputDbDs.EntityData.SegmentPath = "output-db-ds"
+    outputDbDs.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + outputDbDs.EntityData.SegmentPath
     outputDbDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputDbDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputDbDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10916,6 +11198,7 @@ func (outputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempl
     outputLsaUpdatesLsa.EntityData.BundleName = "cisco_ios_xr"
     outputLsaUpdatesLsa.EntityData.ParentYangName = "ospfv3-protocol-template"
     outputLsaUpdatesLsa.EntityData.SegmentPath = "output-lsa-updates-lsa"
+    outputLsaUpdatesLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + outputLsaUpdatesLsa.EntityData.SegmentPath
     outputLsaUpdatesLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsaUpdatesLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaUpdatesLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10970,6 +11253,7 @@ func (inputDbDs *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv
     inputDbDs.EntityData.BundleName = "cisco_ios_xr"
     inputDbDs.EntityData.ParentYangName = "ospfv3-protocol-template"
     inputDbDs.EntityData.SegmentPath = "input-db-ds"
+    inputDbDs.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + inputDbDs.EntityData.SegmentPath
     inputDbDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputDbDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputDbDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11024,6 +11308,7 @@ func (inputLsaUpdatesLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempla
     inputLsaUpdatesLsa.EntityData.BundleName = "cisco_ios_xr"
     inputLsaUpdatesLsa.EntityData.ParentYangName = "ospfv3-protocol-template"
     inputLsaUpdatesLsa.EntityData.SegmentPath = "input-lsa-updates-lsa"
+    inputLsaUpdatesLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + inputLsaUpdatesLsa.EntityData.SegmentPath
     inputLsaUpdatesLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsaUpdatesLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaUpdatesLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11078,6 +11363,7 @@ func (outputPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_O
     outputPackets.EntityData.BundleName = "cisco_ios_xr"
     outputPackets.EntityData.ParentYangName = "ospfv3-protocol-template"
     outputPackets.EntityData.SegmentPath = "output-packets"
+    outputPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + outputPackets.EntityData.SegmentPath
     outputPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11132,6 +11418,7 @@ func (inputPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Os
     inputPackets.EntityData.BundleName = "cisco_ios_xr"
     inputPackets.EntityData.ParentYangName = "ospfv3-protocol-template"
     inputPackets.EntityData.SegmentPath = "input-packets"
+    inputPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + inputPackets.EntityData.SegmentPath
     inputPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11186,6 +11473,7 @@ func (outputHelloPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempla
     outputHelloPackets.EntityData.BundleName = "cisco_ios_xr"
     outputHelloPackets.EntityData.ParentYangName = "ospfv3-protocol-template"
     outputHelloPackets.EntityData.SegmentPath = "output-hello-packets"
+    outputHelloPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + outputHelloPackets.EntityData.SegmentPath
     outputHelloPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputHelloPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputHelloPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11240,6 +11528,7 @@ func (inputHelloPackets *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplat
     inputHelloPackets.EntityData.BundleName = "cisco_ios_xr"
     inputHelloPackets.EntityData.ParentYangName = "ospfv3-protocol-template"
     inputHelloPackets.EntityData.SegmentPath = "input-hello-packets"
+    inputHelloPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + inputHelloPackets.EntityData.SegmentPath
     inputHelloPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputHelloPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputHelloPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11294,6 +11583,7 @@ func (outputLsRequests *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplate
     outputLsRequests.EntityData.BundleName = "cisco_ios_xr"
     outputLsRequests.EntityData.ParentYangName = "ospfv3-protocol-template"
     outputLsRequests.EntityData.SegmentPath = "output-ls-requests"
+    outputLsRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + outputLsRequests.EntityData.SegmentPath
     outputLsRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11348,6 +11638,7 @@ func (outputLsaAcksLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplate
     outputLsaAcksLsa.EntityData.BundleName = "cisco_ios_xr"
     outputLsaAcksLsa.EntityData.ParentYangName = "ospfv3-protocol-template"
     outputLsaAcksLsa.EntityData.SegmentPath = "output-lsa-acks-lsa"
+    outputLsaAcksLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + outputLsaAcksLsa.EntityData.SegmentPath
     outputLsaAcksLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsaAcksLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaAcksLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11402,6 +11693,7 @@ func (outputLsaAcks *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_O
     outputLsaAcks.EntityData.BundleName = "cisco_ios_xr"
     outputLsaAcks.EntityData.ParentYangName = "ospfv3-protocol-template"
     outputLsaAcks.EntityData.SegmentPath = "output-lsa-acks"
+    outputLsaAcks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + outputLsaAcks.EntityData.SegmentPath
     outputLsaAcks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsaAcks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaAcks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11456,6 +11748,7 @@ func (inputLsaAcks *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Os
     inputLsaAcks.EntityData.BundleName = "cisco_ios_xr"
     inputLsaAcks.EntityData.ParentYangName = "ospfv3-protocol-template"
     inputLsaAcks.EntityData.SegmentPath = "input-lsa-acks"
+    inputLsaAcks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + inputLsaAcks.EntityData.SegmentPath
     inputLsaAcks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsaAcks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsaAcks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11510,6 +11803,7 @@ func (outputLsaUpdates *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplate
     outputLsaUpdates.EntityData.BundleName = "cisco_ios_xr"
     outputLsaUpdates.EntityData.ParentYangName = "ospfv3-protocol-template"
     outputLsaUpdates.EntityData.SegmentPath = "output-lsa-updates"
+    outputLsaUpdates.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + outputLsaUpdates.EntityData.SegmentPath
     outputLsaUpdates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsaUpdates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsaUpdates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11564,6 +11858,7 @@ func (outputLsRequestsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempl
     outputLsRequestsLsa.EntityData.BundleName = "cisco_ios_xr"
     outputLsRequestsLsa.EntityData.ParentYangName = "ospfv3-protocol-template"
     outputLsRequestsLsa.EntityData.SegmentPath = "output-ls-requests-lsa"
+    outputLsRequestsLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + outputLsRequestsLsa.EntityData.SegmentPath
     outputLsRequestsLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputLsRequestsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputLsRequestsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11618,6 +11913,7 @@ func (inputLsRequestsLsa *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTempla
     inputLsRequestsLsa.EntityData.BundleName = "cisco_ios_xr"
     inputLsRequestsLsa.EntityData.ParentYangName = "ospfv3-protocol-template"
     inputLsRequestsLsa.EntityData.SegmentPath = "input-ls-requests-lsa"
+    inputLsRequestsLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + inputLsRequestsLsa.EntityData.SegmentPath
     inputLsRequestsLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsRequestsLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsRequestsLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11672,6 +11968,7 @@ func (inputLsRequests *PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates
     inputLsRequests.EntityData.BundleName = "cisco_ios_xr"
     inputLsRequests.EntityData.ParentYangName = "ospfv3-protocol-template"
     inputLsRequests.EntityData.SegmentPath = "input-ls-requests"
+    inputLsRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/ospfv3-protocol-template/" + inputLsRequests.EntityData.SegmentPath
     inputLsRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputLsRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputLsRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

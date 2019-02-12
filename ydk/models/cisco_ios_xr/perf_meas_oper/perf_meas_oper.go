@@ -163,6 +163,7 @@ func (performanceMeasurement *PerformanceMeasurement) GetEntityData() *types.Com
     performanceMeasurement.EntityData.BundleName = "cisco_ios_xr"
     performanceMeasurement.EntityData.ParentYangName = "Cisco-IOS-XR-perf-meas-oper"
     performanceMeasurement.EntityData.SegmentPath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement"
+    performanceMeasurement.EntityData.AbsolutePath = performanceMeasurement.EntityData.SegmentPath
     performanceMeasurement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     performanceMeasurement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     performanceMeasurement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -193,6 +194,7 @@ func (nodes *PerformanceMeasurement_Nodes) GetEntityData() *types.CommonEntityDa
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "performance-measurement"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -214,6 +216,7 @@ func (nodes *PerformanceMeasurement_Nodes) GetEntityData() *types.CommonEntityDa
 type PerformanceMeasurement_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -232,6 +235,7 @@ func (node *PerformanceMeasurement_Nodes_Node) GetEntityData() *types.CommonEnti
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -267,6 +271,7 @@ func (summary *PerformanceMeasurement_Nodes_Node_Summary) GetEntityData() *types
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -300,6 +305,7 @@ func (delaySummary *PerformanceMeasurement_Nodes_Node_Summary_DelaySummary) GetE
     delaySummary.EntityData.BundleName = "cisco_ios_xr"
     delaySummary.EntityData.ParentYangName = "summary"
     delaySummary.EntityData.SegmentPath = "delay-summary"
+    delaySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/summary/" + delaySummary.EntityData.SegmentPath
     delaySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delaySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delaySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -337,6 +343,7 @@ func (interfaceDelaySummary *PerformanceMeasurement_Nodes_Node_Summary_DelaySumm
     interfaceDelaySummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceDelaySummary.EntityData.ParentYangName = "delay-summary"
     interfaceDelaySummary.EntityData.SegmentPath = "interface-delay-summary"
+    interfaceDelaySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/summary/delay-summary/" + interfaceDelaySummary.EntityData.SegmentPath
     interfaceDelaySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDelaySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDelaySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -407,6 +414,7 @@ func (delayProfile *PerformanceMeasurement_Nodes_Node_Summary_DelaySummary_Inter
     delayProfile.EntityData.BundleName = "cisco_ios_xr"
     delayProfile.EntityData.ParentYangName = "interface-delay-summary"
     delayProfile.EntityData.SegmentPath = "delay-profile"
+    delayProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/summary/delay-summary/interface-delay-summary/" + delayProfile.EntityData.SegmentPath
     delayProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -450,6 +458,7 @@ func (delayTransportCounters *PerformanceMeasurement_Nodes_Node_Summary_DelaySum
     delayTransportCounters.EntityData.BundleName = "cisco_ios_xr"
     delayTransportCounters.EntityData.ParentYangName = "interface-delay-summary"
     delayTransportCounters.EntityData.SegmentPath = "delay-transport-counters"
+    delayTransportCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/summary/delay-summary/interface-delay-summary/" + delayTransportCounters.EntityData.SegmentPath
     delayTransportCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayTransportCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayTransportCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -541,6 +550,7 @@ func (genericCounters *PerformanceMeasurement_Nodes_Node_Summary_DelaySummary_In
     genericCounters.EntityData.BundleName = "cisco_ios_xr"
     genericCounters.EntityData.ParentYangName = "delay-transport-counters"
     genericCounters.EntityData.SegmentPath = "generic-counters"
+    genericCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/summary/delay-summary/interface-delay-summary/delay-transport-counters/" + genericCounters.EntityData.SegmentPath
     genericCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -588,6 +598,7 @@ func (exclusiveCounters *PerformanceMeasurement_Nodes_Node_Summary_DelaySummary_
     exclusiveCounters.EntityData.BundleName = "cisco_ios_xr"
     exclusiveCounters.EntityData.ParentYangName = "delay-transport-counters"
     exclusiveCounters.EntityData.SegmentPath = "exclusive-counters"
+    exclusiveCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/summary/delay-summary/interface-delay-summary/delay-transport-counters/" + exclusiveCounters.EntityData.SegmentPath
     exclusiveCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exclusiveCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclusiveCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -623,6 +634,7 @@ func (interfaceExclusiveCounters *PerformanceMeasurement_Nodes_Node_Summary_Dela
     interfaceExclusiveCounters.EntityData.BundleName = "cisco_ios_xr"
     interfaceExclusiveCounters.EntityData.ParentYangName = "exclusive-counters"
     interfaceExclusiveCounters.EntityData.SegmentPath = "interface-exclusive-counters"
+    interfaceExclusiveCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/summary/delay-summary/interface-delay-summary/delay-transport-counters/exclusive-counters/" + interfaceExclusiveCounters.EntityData.SegmentPath
     interfaceExclusiveCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceExclusiveCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceExclusiveCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -666,6 +678,7 @@ func (delayGlobalCounters *PerformanceMeasurement_Nodes_Node_Summary_DelaySummar
     delayGlobalCounters.EntityData.BundleName = "cisco_ios_xr"
     delayGlobalCounters.EntityData.ParentYangName = "delay-summary"
     delayGlobalCounters.EntityData.SegmentPath = "delay-global-counters"
+    delayGlobalCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/summary/delay-summary/" + delayGlobalCounters.EntityData.SegmentPath
     delayGlobalCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayGlobalCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayGlobalCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -701,6 +714,7 @@ func (interfaces *PerformanceMeasurement_Nodes_Node_Interfaces) GetEntityData() 
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -732,6 +746,7 @@ func (interfaceDetails *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDe
     interfaceDetails.EntityData.BundleName = "cisco_ios_xr"
     interfaceDetails.EntityData.ParentYangName = "interfaces"
     interfaceDetails.EntityData.SegmentPath = "interface-details"
+    interfaceDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/" + interfaceDetails.EntityData.SegmentPath
     interfaceDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -753,6 +768,7 @@ func (interfaceDetails *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDe
 type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDetails_InterfaceDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -796,6 +812,7 @@ func (interfaceDetail *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDet
     interfaceDetail.EntityData.BundleName = "cisco_ios_xr"
     interfaceDetail.EntityData.ParentYangName = "interface-details"
     interfaceDetail.EntityData.SegmentPath = "interface-detail" + types.AddKeyToken(interfaceDetail.InterfaceName, "interface-name")
+    interfaceDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/" + interfaceDetail.EntityData.SegmentPath
     interfaceDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -803,6 +820,7 @@ func (interfaceDetail *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDet
     interfaceDetail.EntityData.Children = types.NewOrderedMap()
     interfaceDetail.EntityData.Children.Append("delay-measurement-session", types.YChild{"DelayMeasurementSession", nil})
     for i := range interfaceDetail.DelayMeasurementSession {
+        types.SetYListKey(interfaceDetail.DelayMeasurementSession[i], i)
         interfaceDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceDetail.DelayMeasurementSession[i]), types.YChild{"DelayMeasurementSession", interfaceDetail.DelayMeasurementSession[i]})
     }
     interfaceDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -826,6 +844,7 @@ func (interfaceDetail *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDet
 type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDetails_InterfaceDetail_DelayMeasurementSession struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -868,7 +887,8 @@ func (delayMeasurementSession *PerformanceMeasurement_Nodes_Node_Interfaces_Inte
     delayMeasurementSession.EntityData.YangName = "delay-measurement-session"
     delayMeasurementSession.EntityData.BundleName = "cisco_ios_xr"
     delayMeasurementSession.EntityData.ParentYangName = "interface-detail"
-    delayMeasurementSession.EntityData.SegmentPath = "delay-measurement-session"
+    delayMeasurementSession.EntityData.SegmentPath = "delay-measurement-session" + types.AddNoKeyToken(delayMeasurementSession)
+    delayMeasurementSession.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/" + delayMeasurementSession.EntityData.SegmentPath
     delayMeasurementSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayMeasurementSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayMeasurementSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -882,6 +902,7 @@ func (delayMeasurementSession *PerformanceMeasurement_Nodes_Node_Interfaces_Inte
     delayMeasurementSession.EntityData.Children.Append("last-error-control-code", types.YChild{"LastErrorControlCode", &delayMeasurementSession.LastErrorControlCode})
     delayMeasurementSession.EntityData.Children.Append("probe-history", types.YChild{"ProbeHistory", nil})
     for i := range delayMeasurementSession.ProbeHistory {
+        types.SetYListKey(delayMeasurementSession.ProbeHistory[i], i)
         delayMeasurementSession.EntityData.Children.Append(types.GetSegmentPath(delayMeasurementSession.ProbeHistory[i]), types.YChild{"ProbeHistory", delayMeasurementSession.ProbeHistory[i]})
     }
     delayMeasurementSession.EntityData.Leafs = types.NewOrderedMap()
@@ -935,6 +956,7 @@ func (currentProbe *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDetail
     currentProbe.EntityData.BundleName = "cisco_ios_xr"
     currentProbe.EntityData.ParentYangName = "delay-measurement-session"
     currentProbe.EntityData.SegmentPath = "current-probe"
+    currentProbe.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/" + currentProbe.EntityData.SegmentPath
     currentProbe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     currentProbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     currentProbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -979,6 +1001,7 @@ func (probeResults *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDetail
     probeResults.EntityData.BundleName = "cisco_ios_xr"
     probeResults.EntityData.ParentYangName = "current-probe"
     probeResults.EntityData.SegmentPath = "probe-results"
+    probeResults.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/current-probe/" + probeResults.EntityData.SegmentPath
     probeResults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     probeResults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     probeResults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1014,6 +1037,7 @@ func (sessionCounters *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDet
     sessionCounters.EntityData.BundleName = "cisco_ios_xr"
     sessionCounters.EntityData.ParentYangName = "delay-measurement-session"
     sessionCounters.EntityData.SegmentPath = "session-counters"
+    sessionCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/" + sessionCounters.EntityData.SegmentPath
     sessionCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1105,6 +1129,7 @@ func (genericCounters *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDet
     genericCounters.EntityData.BundleName = "cisco_ios_xr"
     genericCounters.EntityData.ParentYangName = "session-counters"
     genericCounters.EntityData.SegmentPath = "generic-counters"
+    genericCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/session-counters/" + genericCounters.EntityData.SegmentPath
     genericCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1152,6 +1177,7 @@ func (exclusiveCounters *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceD
     exclusiveCounters.EntityData.BundleName = "cisco_ios_xr"
     exclusiveCounters.EntityData.ParentYangName = "session-counters"
     exclusiveCounters.EntityData.SegmentPath = "exclusive-counters"
+    exclusiveCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/session-counters/" + exclusiveCounters.EntityData.SegmentPath
     exclusiveCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exclusiveCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclusiveCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1187,6 +1213,7 @@ func (interfaceExclusiveCounters *PerformanceMeasurement_Nodes_Node_Interfaces_I
     interfaceExclusiveCounters.EntityData.BundleName = "cisco_ios_xr"
     interfaceExclusiveCounters.EntityData.ParentYangName = "exclusive-counters"
     interfaceExclusiveCounters.EntityData.SegmentPath = "interface-exclusive-counters"
+    interfaceExclusiveCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/session-counters/exclusive-counters/" + interfaceExclusiveCounters.EntityData.SegmentPath
     interfaceExclusiveCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceExclusiveCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceExclusiveCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1224,6 +1251,7 @@ func (lastAdvertisementInformation *PerformanceMeasurement_Nodes_Node_Interfaces
     lastAdvertisementInformation.EntityData.BundleName = "cisco_ios_xr"
     lastAdvertisementInformation.EntityData.ParentYangName = "delay-measurement-session"
     lastAdvertisementInformation.EntityData.SegmentPath = "last-advertisement-information"
+    lastAdvertisementInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/" + lastAdvertisementInformation.EntityData.SegmentPath
     lastAdvertisementInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastAdvertisementInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastAdvertisementInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1264,6 +1292,7 @@ func (advertisedValues *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDe
     advertisedValues.EntityData.BundleName = "cisco_ios_xr"
     advertisedValues.EntityData.ParentYangName = "last-advertisement-information"
     advertisedValues.EntityData.SegmentPath = "advertised-values"
+    advertisedValues.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/last-advertisement-information/" + advertisedValues.EntityData.SegmentPath
     advertisedValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertisedValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisedValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1304,6 +1333,7 @@ func (nextAdvertisementInformation *PerformanceMeasurement_Nodes_Node_Interfaces
     nextAdvertisementInformation.EntityData.BundleName = "cisco_ios_xr"
     nextAdvertisementInformation.EntityData.ParentYangName = "delay-measurement-session"
     nextAdvertisementInformation.EntityData.SegmentPath = "next-advertisement-information"
+    nextAdvertisementInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/" + nextAdvertisementInformation.EntityData.SegmentPath
     nextAdvertisementInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextAdvertisementInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextAdvertisementInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1344,6 +1374,7 @@ func (advertisementIntervalValues *PerformanceMeasurement_Nodes_Node_Interfaces_
     advertisementIntervalValues.EntityData.BundleName = "cisco_ios_xr"
     advertisementIntervalValues.EntityData.ParentYangName = "next-advertisement-information"
     advertisementIntervalValues.EntityData.SegmentPath = "advertisement-interval-values"
+    advertisementIntervalValues.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/next-advertisement-information/" + advertisementIntervalValues.EntityData.SegmentPath
     advertisementIntervalValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertisementIntervalValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementIntervalValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1381,6 +1412,7 @@ func (lastNotificationControlCode *PerformanceMeasurement_Nodes_Node_Interfaces_
     lastNotificationControlCode.EntityData.BundleName = "cisco_ios_xr"
     lastNotificationControlCode.EntityData.ParentYangName = "delay-measurement-session"
     lastNotificationControlCode.EntityData.SegmentPath = "last-notification-control-code"
+    lastNotificationControlCode.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/" + lastNotificationControlCode.EntityData.SegmentPath
     lastNotificationControlCode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastNotificationControlCode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastNotificationControlCode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1416,6 +1448,7 @@ func (lastErrorControlCode *PerformanceMeasurement_Nodes_Node_Interfaces_Interfa
     lastErrorControlCode.EntityData.BundleName = "cisco_ios_xr"
     lastErrorControlCode.EntityData.ParentYangName = "delay-measurement-session"
     lastErrorControlCode.EntityData.SegmentPath = "last-error-control-code"
+    lastErrorControlCode.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/" + lastErrorControlCode.EntityData.SegmentPath
     lastErrorControlCode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErrorControlCode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErrorControlCode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1435,6 +1468,7 @@ func (lastErrorControlCode *PerformanceMeasurement_Nodes_Node_Interfaces_Interfa
 type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDetails_InterfaceDetail_DelayMeasurementSession_ProbeHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Measurement value (nsec). The type is interface{} with range:
     // 0..18446744073709551615.
@@ -1451,7 +1485,8 @@ func (probeHistory *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDetail
     probeHistory.EntityData.YangName = "probe-history"
     probeHistory.EntityData.BundleName = "cisco_ios_xr"
     probeHistory.EntityData.ParentYangName = "delay-measurement-session"
-    probeHistory.EntityData.SegmentPath = "probe-history"
+    probeHistory.EntityData.SegmentPath = "probe-history" + types.AddNoKeyToken(probeHistory)
+    probeHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail/delay-measurement-session/" + probeHistory.EntityData.SegmentPath
     probeHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     probeHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     probeHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1494,6 +1529,7 @@ func (interfaceDelay *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDela
     interfaceDelay.EntityData.BundleName = "cisco_ios_xr"
     interfaceDelay.EntityData.ParentYangName = "interfaces"
     interfaceDelay.EntityData.SegmentPath = "interface-delay"
+    interfaceDelay.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/" + interfaceDelay.EntityData.SegmentPath
     interfaceDelay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1528,6 +1564,7 @@ func (interfaceLastAggregations *PerformanceMeasurement_Nodes_Node_Interfaces_In
     interfaceLastAggregations.EntityData.BundleName = "cisco_ios_xr"
     interfaceLastAggregations.EntityData.ParentYangName = "interface-delay"
     interfaceLastAggregations.EntityData.SegmentPath = "interface-last-aggregations"
+    interfaceLastAggregations.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/" + interfaceLastAggregations.EntityData.SegmentPath
     interfaceLastAggregations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceLastAggregations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLastAggregations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1549,6 +1586,7 @@ func (interfaceLastAggregations *PerformanceMeasurement_Nodes_Node_Interfaces_In
 type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceLastAggregations_InterfaceLastAggregation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1564,6 +1602,7 @@ func (interfaceLastAggregation *PerformanceMeasurement_Nodes_Node_Interfaces_Int
     interfaceLastAggregation.EntityData.BundleName = "cisco_ios_xr"
     interfaceLastAggregation.EntityData.ParentYangName = "interface-last-aggregations"
     interfaceLastAggregation.EntityData.SegmentPath = "interface-last-aggregation" + types.AddKeyToken(interfaceLastAggregation.InterfaceName, "interface-name")
+    interfaceLastAggregation.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-last-aggregations/" + interfaceLastAggregation.EntityData.SegmentPath
     interfaceLastAggregation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceLastAggregation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLastAggregation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1601,6 +1640,7 @@ func (lastAggregation *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDel
     lastAggregation.EntityData.BundleName = "cisco_ios_xr"
     lastAggregation.EntityData.ParentYangName = "interface-last-aggregation"
     lastAggregation.EntityData.SegmentPath = "last-aggregation"
+    lastAggregation.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-last-aggregations/interface-last-aggregation/" + lastAggregation.EntityData.SegmentPath
     lastAggregation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastAggregation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastAggregation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1641,6 +1681,7 @@ func (aggregatedProbeValues *PerformanceMeasurement_Nodes_Node_Interfaces_Interf
     aggregatedProbeValues.EntityData.BundleName = "cisco_ios_xr"
     aggregatedProbeValues.EntityData.ParentYangName = "last-aggregation"
     aggregatedProbeValues.EntityData.SegmentPath = "aggregated-probe-values"
+    aggregatedProbeValues.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-last-aggregations/interface-last-aggregation/last-aggregation/" + aggregatedProbeValues.EntityData.SegmentPath
     aggregatedProbeValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregatedProbeValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregatedProbeValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1674,6 +1715,7 @@ func (interfaceProbeHistories *PerformanceMeasurement_Nodes_Node_Interfaces_Inte
     interfaceProbeHistories.EntityData.BundleName = "cisco_ios_xr"
     interfaceProbeHistories.EntityData.ParentYangName = "interface-delay"
     interfaceProbeHistories.EntityData.SegmentPath = "interface-probe-histories"
+    interfaceProbeHistories.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/" + interfaceProbeHistories.EntityData.SegmentPath
     interfaceProbeHistories.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProbeHistories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProbeHistories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1695,6 +1737,7 @@ func (interfaceProbeHistories *PerformanceMeasurement_Nodes_Node_Interfaces_Inte
 type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceProbeHistories_InterfaceProbeHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1717,6 +1760,7 @@ func (interfaceProbeHistory *PerformanceMeasurement_Nodes_Node_Interfaces_Interf
     interfaceProbeHistory.EntityData.BundleName = "cisco_ios_xr"
     interfaceProbeHistory.EntityData.ParentYangName = "interface-probe-histories"
     interfaceProbeHistory.EntityData.SegmentPath = "interface-probe-history" + types.AddKeyToken(interfaceProbeHistory.InterfaceName, "interface-name")
+    interfaceProbeHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-probe-histories/" + interfaceProbeHistory.EntityData.SegmentPath
     interfaceProbeHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProbeHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProbeHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1724,6 +1768,7 @@ func (interfaceProbeHistory *PerformanceMeasurement_Nodes_Node_Interfaces_Interf
     interfaceProbeHistory.EntityData.Children = types.NewOrderedMap()
     interfaceProbeHistory.EntityData.Children.Append("history", types.YChild{"History", nil})
     for i := range interfaceProbeHistory.History {
+        types.SetYListKey(interfaceProbeHistory.History[i], i)
         interfaceProbeHistory.EntityData.Children.Append(types.GetSegmentPath(interfaceProbeHistory.History[i]), types.YChild{"History", interfaceProbeHistory.History[i]})
     }
     interfaceProbeHistory.EntityData.Leafs = types.NewOrderedMap()
@@ -1741,6 +1786,7 @@ func (interfaceProbeHistory *PerformanceMeasurement_Nodes_Node_Interfaces_Interf
 type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceProbeHistories_InterfaceProbeHistory_History struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time last probe started (milliseconds since Jan. 1, 1970). The type is
     // interface{} with range: 0..18446744073709551615. Units are millisecond.
@@ -1761,7 +1807,8 @@ func (history *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_Inter
     history.EntityData.YangName = "history"
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "interface-probe-history"
-    history.EntityData.SegmentPath = "history"
+    history.EntityData.SegmentPath = "history" + types.AddNoKeyToken(history)
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-probe-histories/interface-probe-history/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1803,6 +1850,7 @@ func (probeValues *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_I
     probeValues.EntityData.BundleName = "cisco_ios_xr"
     probeValues.EntityData.ParentYangName = "history"
     probeValues.EntityData.SegmentPath = "probe-values"
+    probeValues.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-probe-histories/interface-probe-history/history/" + probeValues.EntityData.SegmentPath
     probeValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     probeValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     probeValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1836,6 +1884,7 @@ func (interfaceAggregatedHistories *PerformanceMeasurement_Nodes_Node_Interfaces
     interfaceAggregatedHistories.EntityData.BundleName = "cisco_ios_xr"
     interfaceAggregatedHistories.EntityData.ParentYangName = "interface-delay"
     interfaceAggregatedHistories.EntityData.SegmentPath = "interface-aggregated-histories"
+    interfaceAggregatedHistories.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/" + interfaceAggregatedHistories.EntityData.SegmentPath
     interfaceAggregatedHistories.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAggregatedHistories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAggregatedHistories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1857,6 +1906,7 @@ func (interfaceAggregatedHistories *PerformanceMeasurement_Nodes_Node_Interfaces
 type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceAggregatedHistories_InterfaceAggregatedHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1879,6 +1929,7 @@ func (interfaceAggregatedHistory *PerformanceMeasurement_Nodes_Node_Interfaces_I
     interfaceAggregatedHistory.EntityData.BundleName = "cisco_ios_xr"
     interfaceAggregatedHistory.EntityData.ParentYangName = "interface-aggregated-histories"
     interfaceAggregatedHistory.EntityData.SegmentPath = "interface-aggregated-history" + types.AddKeyToken(interfaceAggregatedHistory.InterfaceName, "interface-name")
+    interfaceAggregatedHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-aggregated-histories/" + interfaceAggregatedHistory.EntityData.SegmentPath
     interfaceAggregatedHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAggregatedHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAggregatedHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1886,6 +1937,7 @@ func (interfaceAggregatedHistory *PerformanceMeasurement_Nodes_Node_Interfaces_I
     interfaceAggregatedHistory.EntityData.Children = types.NewOrderedMap()
     interfaceAggregatedHistory.EntityData.Children.Append("history", types.YChild{"History", nil})
     for i := range interfaceAggregatedHistory.History {
+        types.SetYListKey(interfaceAggregatedHistory.History[i], i)
         interfaceAggregatedHistory.EntityData.Children.Append(types.GetSegmentPath(interfaceAggregatedHistory.History[i]), types.YChild{"History", interfaceAggregatedHistory.History[i]})
     }
     interfaceAggregatedHistory.EntityData.Leafs = types.NewOrderedMap()
@@ -1903,6 +1955,7 @@ func (interfaceAggregatedHistory *PerformanceMeasurement_Nodes_Node_Interfaces_I
 type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceAggregatedHistories_InterfaceAggregatedHistory_History struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time probe aggregation was done (milliseconds since Jan. 1, 1970). The type
     // is interface{} with range: 0..18446744073709551615. Units are millisecond.
@@ -1920,7 +1973,8 @@ func (history *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_Inter
     history.EntityData.YangName = "history"
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "interface-aggregated-history"
-    history.EntityData.SegmentPath = "history"
+    history.EntityData.SegmentPath = "history" + types.AddNoKeyToken(history)
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-aggregated-histories/interface-aggregated-history/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1961,6 +2015,7 @@ func (aggregatedProbeValues *PerformanceMeasurement_Nodes_Node_Interfaces_Interf
     aggregatedProbeValues.EntityData.BundleName = "cisco_ios_xr"
     aggregatedProbeValues.EntityData.ParentYangName = "history"
     aggregatedProbeValues.EntityData.SegmentPath = "aggregated-probe-values"
+    aggregatedProbeValues.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-aggregated-histories/interface-aggregated-history/history/" + aggregatedProbeValues.EntityData.SegmentPath
     aggregatedProbeValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregatedProbeValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregatedProbeValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1994,6 +2049,7 @@ func (interfaceLastProbes *PerformanceMeasurement_Nodes_Node_Interfaces_Interfac
     interfaceLastProbes.EntityData.BundleName = "cisco_ios_xr"
     interfaceLastProbes.EntityData.ParentYangName = "interface-delay"
     interfaceLastProbes.EntityData.SegmentPath = "interface-last-probes"
+    interfaceLastProbes.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/" + interfaceLastProbes.EntityData.SegmentPath
     interfaceLastProbes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceLastProbes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLastProbes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2015,6 +2071,7 @@ func (interfaceLastProbes *PerformanceMeasurement_Nodes_Node_Interfaces_Interfac
 type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceLastProbes_InterfaceLastProbe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -2030,6 +2087,7 @@ func (interfaceLastProbe *PerformanceMeasurement_Nodes_Node_Interfaces_Interface
     interfaceLastProbe.EntityData.BundleName = "cisco_ios_xr"
     interfaceLastProbe.EntityData.ParentYangName = "interface-last-probes"
     interfaceLastProbe.EntityData.SegmentPath = "interface-last-probe" + types.AddKeyToken(interfaceLastProbe.InterfaceName, "interface-name")
+    interfaceLastProbe.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-last-probes/" + interfaceLastProbe.EntityData.SegmentPath
     interfaceLastProbe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceLastProbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLastProbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2070,6 +2128,7 @@ func (lastProbe *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_Int
     lastProbe.EntityData.BundleName = "cisco_ios_xr"
     lastProbe.EntityData.ParentYangName = "interface-last-probe"
     lastProbe.EntityData.SegmentPath = "last-probe"
+    lastProbe.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-last-probes/interface-last-probe/" + lastProbe.EntityData.SegmentPath
     lastProbe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastProbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastProbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2111,6 +2170,7 @@ func (probeValues *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_I
     probeValues.EntityData.BundleName = "cisco_ios_xr"
     probeValues.EntityData.ParentYangName = "last-probe"
     probeValues.EntityData.SegmentPath = "probe-values"
+    probeValues.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-last-probes/interface-last-probe/last-probe/" + probeValues.EntityData.SegmentPath
     probeValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     probeValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     probeValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2144,6 +2204,7 @@ func (interfaceLastAdvertisements *PerformanceMeasurement_Nodes_Node_Interfaces_
     interfaceLastAdvertisements.EntityData.BundleName = "cisco_ios_xr"
     interfaceLastAdvertisements.EntityData.ParentYangName = "interface-delay"
     interfaceLastAdvertisements.EntityData.SegmentPath = "interface-last-advertisements"
+    interfaceLastAdvertisements.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/" + interfaceLastAdvertisements.EntityData.SegmentPath
     interfaceLastAdvertisements.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceLastAdvertisements.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLastAdvertisements.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2165,6 +2226,7 @@ func (interfaceLastAdvertisements *PerformanceMeasurement_Nodes_Node_Interfaces_
 type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceLastAdvertisements_InterfaceLastAdvertisement struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -2180,6 +2242,7 @@ func (interfaceLastAdvertisement *PerformanceMeasurement_Nodes_Node_Interfaces_I
     interfaceLastAdvertisement.EntityData.BundleName = "cisco_ios_xr"
     interfaceLastAdvertisement.EntityData.ParentYangName = "interface-last-advertisements"
     interfaceLastAdvertisement.EntityData.SegmentPath = "interface-last-advertisement" + types.AddKeyToken(interfaceLastAdvertisement.InterfaceName, "interface-name")
+    interfaceLastAdvertisement.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-last-advertisements/" + interfaceLastAdvertisement.EntityData.SegmentPath
     interfaceLastAdvertisement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceLastAdvertisement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLastAdvertisement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2217,6 +2280,7 @@ func (lastAdvertisement *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceD
     lastAdvertisement.EntityData.BundleName = "cisco_ios_xr"
     lastAdvertisement.EntityData.ParentYangName = "interface-last-advertisement"
     lastAdvertisement.EntityData.SegmentPath = "last-advertisement"
+    lastAdvertisement.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-last-advertisements/interface-last-advertisement/" + lastAdvertisement.EntityData.SegmentPath
     lastAdvertisement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastAdvertisement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastAdvertisement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2257,6 +2321,7 @@ func (advertisedValues *PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDe
     advertisedValues.EntityData.BundleName = "cisco_ios_xr"
     advertisedValues.EntityData.ParentYangName = "last-advertisement"
     advertisedValues.EntityData.SegmentPath = "advertised-values"
+    advertisedValues.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-delay/interface-last-advertisements/interface-last-advertisement/last-advertisement/" + advertisedValues.EntityData.SegmentPath
     advertisedValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertisedValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisedValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2289,6 +2354,7 @@ func (performanceMeasurementResponder *PerformanceMeasurementResponder) GetEntit
     performanceMeasurementResponder.EntityData.BundleName = "cisco_ios_xr"
     performanceMeasurementResponder.EntityData.ParentYangName = "Cisco-IOS-XR-perf-meas-oper"
     performanceMeasurementResponder.EntityData.SegmentPath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement-responder"
+    performanceMeasurementResponder.EntityData.AbsolutePath = performanceMeasurementResponder.EntityData.SegmentPath
     performanceMeasurementResponder.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     performanceMeasurementResponder.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     performanceMeasurementResponder.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2319,6 +2385,7 @@ func (nodes *PerformanceMeasurementResponder_Nodes) GetEntityData() *types.Commo
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "performance-measurement-responder"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement-responder/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2340,6 +2407,7 @@ func (nodes *PerformanceMeasurementResponder_Nodes) GetEntityData() *types.Commo
 type PerformanceMeasurementResponder_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -2358,6 +2426,7 @@ func (node *PerformanceMeasurementResponder_Nodes_Node) GetEntityData() *types.C
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement-responder/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2401,6 +2470,7 @@ func (summary *PerformanceMeasurementResponder_Nodes_Node_Summary) GetEntityData
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement-responder/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2478,6 +2548,7 @@ func (responderCounters *PerformanceMeasurementResponder_Nodes_Node_Summary_Resp
     responderCounters.EntityData.BundleName = "cisco_ios_xr"
     responderCounters.EntityData.ParentYangName = "summary"
     responderCounters.EntityData.SegmentPath = "responder-counters"
+    responderCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement-responder/nodes/node/summary/" + responderCounters.EntityData.SegmentPath
     responderCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     responderCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     responderCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2519,6 +2590,7 @@ func (interfaces *PerformanceMeasurementResponder_Nodes_Node_Interfaces) GetEnti
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement-responder/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2540,6 +2612,7 @@ func (interfaces *PerformanceMeasurementResponder_Nodes_Node_Interfaces) GetEnti
 type PerformanceMeasurementResponder_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2580,6 +2653,7 @@ func (self *PerformanceMeasurementResponder_Nodes_Node_Interfaces_Interface) Get
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement-responder/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2662,6 +2736,7 @@ func (interfaceCounters *PerformanceMeasurementResponder_Nodes_Node_Interfaces_I
     interfaceCounters.EntityData.BundleName = "cisco_ios_xr"
     interfaceCounters.EntityData.ParentYangName = "interface"
     interfaceCounters.EntityData.SegmentPath = "interface-counters"
+    interfaceCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-perf-meas-oper:performance-measurement-responder/nodes/node/interfaces/interface/" + interfaceCounters.EntityData.SegmentPath
     interfaceCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

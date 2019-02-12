@@ -105,6 +105,7 @@ func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetEntityData() *types.CommonEnt
     cISCOIPLOCALPOOLMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIPLOCALPOOLMIB.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
     cISCOIPLOCALPOOLMIB.EntityData.SegmentPath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB"
+    cISCOIPLOCALPOOLMIB.EntityData.AbsolutePath = cISCOIPLOCALPOOLMIB.EntityData.SegmentPath
     cISCOIPLOCALPOOLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIPLOCALPOOLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPLOCALPOOLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -139,6 +140,7 @@ func (cIpLocalPoolConfig *CISCOIPLOCALPOOLMIB_CIpLocalPoolConfig) GetEntityData(
     cIpLocalPoolConfig.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolConfig.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
     cIpLocalPoolConfig.EntityData.SegmentPath = "cIpLocalPoolConfig"
+    cIpLocalPoolConfig.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/" + cIpLocalPoolConfig.EntityData.SegmentPath
     cIpLocalPoolConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -182,6 +184,7 @@ func (cIpLocalPoolConfigTable *CISCOIPLOCALPOOLMIB_CIpLocalPoolConfigTable) GetE
     cIpLocalPoolConfigTable.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolConfigTable.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
     cIpLocalPoolConfigTable.EntityData.SegmentPath = "cIpLocalPoolConfigTable"
+    cIpLocalPoolConfigTable.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/" + cIpLocalPoolConfigTable.EntityData.SegmentPath
     cIpLocalPoolConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -204,6 +207,7 @@ func (cIpLocalPoolConfigTable *CISCOIPLOCALPOOLMIB_CIpLocalPoolConfigTable) GetE
 type CISCOIPLOCALPOOLMIB_CIpLocalPoolConfigTable_CIpLocalPoolConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary non-empty string that uniquely
     // identifies the IP local pool.  This name must be unique among all the local
@@ -260,6 +264,7 @@ func (cIpLocalPoolConfigEntry *CISCOIPLOCALPOOLMIB_CIpLocalPoolConfigTable_CIpLo
     cIpLocalPoolConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolConfigEntry.EntityData.ParentYangName = "cIpLocalPoolConfigTable"
     cIpLocalPoolConfigEntry.EntityData.SegmentPath = "cIpLocalPoolConfigEntry" + types.AddKeyToken(cIpLocalPoolConfigEntry.CIpLocalPoolName, "cIpLocalPoolName") + types.AddKeyToken(cIpLocalPoolConfigEntry.CIpLocalPoolAddrType, "cIpLocalPoolAddrType") + types.AddKeyToken(cIpLocalPoolConfigEntry.CIpLocalPoolAddressLo, "cIpLocalPoolAddressLo")
+    cIpLocalPoolConfigEntry.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolConfigTable/" + cIpLocalPoolConfigEntry.EntityData.SegmentPath
     cIpLocalPoolConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -315,6 +320,7 @@ func (cIpLocalPoolGroupContainsTable *CISCOIPLOCALPOOLMIB_CIpLocalPoolGroupConta
     cIpLocalPoolGroupContainsTable.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolGroupContainsTable.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
     cIpLocalPoolGroupContainsTable.EntityData.SegmentPath = "cIpLocalPoolGroupContainsTable"
+    cIpLocalPoolGroupContainsTable.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/" + cIpLocalPoolGroupContainsTable.EntityData.SegmentPath
     cIpLocalPoolGroupContainsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolGroupContainsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolGroupContainsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -342,6 +348,7 @@ func (cIpLocalPoolGroupContainsTable *CISCOIPLOCALPOOLMIB_CIpLocalPoolGroupConta
 type CISCOIPLOCALPOOLMIB_CIpLocalPoolGroupContainsTable_CIpLocalPoolGroupContainsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique group name that identifies the IP pool
     // group.  The null string represents the base IP pool group. The type is
@@ -359,6 +366,7 @@ func (cIpLocalPoolGroupContainsEntry *CISCOIPLOCALPOOLMIB_CIpLocalPoolGroupConta
     cIpLocalPoolGroupContainsEntry.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolGroupContainsEntry.EntityData.ParentYangName = "cIpLocalPoolGroupContainsTable"
     cIpLocalPoolGroupContainsEntry.EntityData.SegmentPath = "cIpLocalPoolGroupContainsEntry" + types.AddKeyToken(cIpLocalPoolGroupContainsEntry.CIpLocalPoolGroupName, "cIpLocalPoolGroupName") + types.AddKeyToken(cIpLocalPoolGroupContainsEntry.CIpLocalPoolChildIndex, "cIpLocalPoolChildIndex")
+    cIpLocalPoolGroupContainsEntry.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolGroupContainsTable/" + cIpLocalPoolGroupContainsEntry.EntityData.SegmentPath
     cIpLocalPoolGroupContainsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolGroupContainsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolGroupContainsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -401,6 +409,7 @@ func (cIpLocalPoolGroupTable *CISCOIPLOCALPOOLMIB_CIpLocalPoolGroupTable) GetEnt
     cIpLocalPoolGroupTable.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolGroupTable.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
     cIpLocalPoolGroupTable.EntityData.SegmentPath = "cIpLocalPoolGroupTable"
+    cIpLocalPoolGroupTable.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/" + cIpLocalPoolGroupTable.EntityData.SegmentPath
     cIpLocalPoolGroupTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolGroupTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -424,6 +433,7 @@ func (cIpLocalPoolGroupTable *CISCOIPLOCALPOOLMIB_CIpLocalPoolGroupTable) GetEnt
 type CISCOIPLOCALPOOLMIB_CIpLocalPoolGroupTable_CIpLocalPoolGroupEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..48. Refers to
     // cisco_ip_local_pool_mib.CISCOIPLOCALPOOLMIB_CIpLocalPoolGroupContainsTable_CIpLocalPoolGroupContainsEntry_CIpLocalPoolGroupName
@@ -444,6 +454,7 @@ func (cIpLocalPoolGroupEntry *CISCOIPLOCALPOOLMIB_CIpLocalPoolGroupTable_CIpLoca
     cIpLocalPoolGroupEntry.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolGroupEntry.EntityData.ParentYangName = "cIpLocalPoolGroupTable"
     cIpLocalPoolGroupEntry.EntityData.SegmentPath = "cIpLocalPoolGroupEntry" + types.AddKeyToken(cIpLocalPoolGroupEntry.CIpLocalPoolGroupName, "cIpLocalPoolGroupName")
+    cIpLocalPoolGroupEntry.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolGroupTable/" + cIpLocalPoolGroupEntry.EntityData.SegmentPath
     cIpLocalPoolGroupEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolGroupEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolGroupEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -488,6 +499,7 @@ func (cIpLocalPoolStatsTable *CISCOIPLOCALPOOLMIB_CIpLocalPoolStatsTable) GetEnt
     cIpLocalPoolStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolStatsTable.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
     cIpLocalPoolStatsTable.EntityData.SegmentPath = "cIpLocalPoolStatsTable"
+    cIpLocalPoolStatsTable.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/" + cIpLocalPoolStatsTable.EntityData.SegmentPath
     cIpLocalPoolStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -511,6 +523,7 @@ func (cIpLocalPoolStatsTable *CISCOIPLOCALPOOLMIB_CIpLocalPoolStatsTable) GetEnt
 type CISCOIPLOCALPOOLMIB_CIpLocalPoolStatsTable_CIpLocalPoolStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..48. Refers to
     // cisco_ip_local_pool_mib.CISCOIPLOCALPOOLMIB_CIpLocalPoolConfigTable_CIpLocalPoolConfigEntry_CIpLocalPoolName
@@ -577,6 +590,7 @@ func (cIpLocalPoolStatsEntry *CISCOIPLOCALPOOLMIB_CIpLocalPoolStatsTable_CIpLoca
     cIpLocalPoolStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolStatsEntry.EntityData.ParentYangName = "cIpLocalPoolStatsTable"
     cIpLocalPoolStatsEntry.EntityData.SegmentPath = "cIpLocalPoolStatsEntry" + types.AddKeyToken(cIpLocalPoolStatsEntry.CIpLocalPoolName, "cIpLocalPoolName")
+    cIpLocalPoolStatsEntry.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolStatsTable/" + cIpLocalPoolStatsEntry.EntityData.SegmentPath
     cIpLocalPoolStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -629,6 +643,7 @@ func (cIpLocalPoolAllocTable *CISCOIPLOCALPOOLMIB_CIpLocalPoolAllocTable) GetEnt
     cIpLocalPoolAllocTable.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolAllocTable.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
     cIpLocalPoolAllocTable.EntityData.SegmentPath = "cIpLocalPoolAllocTable"
+    cIpLocalPoolAllocTable.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/" + cIpLocalPoolAllocTable.EntityData.SegmentPath
     cIpLocalPoolAllocTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolAllocTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolAllocTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -652,6 +667,7 @@ func (cIpLocalPoolAllocTable *CISCOIPLOCALPOOLMIB_CIpLocalPoolAllocTable) GetEnt
 type CISCOIPLOCALPOOLMIB_CIpLocalPoolAllocTable_CIpLocalPoolAllocEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..48. Refers to
     // cisco_ip_local_pool_mib.CISCOIPLOCALPOOLMIB_CIpLocalPoolConfigTable_CIpLocalPoolConfigEntry_CIpLocalPoolName
@@ -684,6 +700,7 @@ func (cIpLocalPoolAllocEntry *CISCOIPLOCALPOOLMIB_CIpLocalPoolAllocTable_CIpLoca
     cIpLocalPoolAllocEntry.EntityData.BundleName = "cisco_ios_xe"
     cIpLocalPoolAllocEntry.EntityData.ParentYangName = "cIpLocalPoolAllocTable"
     cIpLocalPoolAllocEntry.EntityData.SegmentPath = "cIpLocalPoolAllocEntry" + types.AddKeyToken(cIpLocalPoolAllocEntry.CIpLocalPoolName, "cIpLocalPoolName") + types.AddKeyToken(cIpLocalPoolAllocEntry.CIpLocalPoolAllocAddrType, "cIpLocalPoolAllocAddrType") + types.AddKeyToken(cIpLocalPoolAllocEntry.CIpLocalPoolAllocAddr, "cIpLocalPoolAllocAddr")
+    cIpLocalPoolAllocEntry.EntityData.AbsolutePath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolAllocTable/" + cIpLocalPoolAllocEntry.EntityData.SegmentPath
     cIpLocalPoolAllocEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIpLocalPoolAllocEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIpLocalPoolAllocEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

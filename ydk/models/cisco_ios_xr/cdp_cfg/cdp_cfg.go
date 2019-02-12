@@ -59,6 +59,7 @@ func (cdp *Cdp) GetEntityData() *types.CommonEntityData {
     cdp.EntityData.BundleName = "cisco_ios_xr"
     cdp.EntityData.ParentYangName = "Cisco-IOS-XR-cdp-cfg"
     cdp.EntityData.SegmentPath = "Cisco-IOS-XR-cdp-cfg:cdp"
+    cdp.EntityData.AbsolutePath = cdp.EntityData.SegmentPath
     cdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

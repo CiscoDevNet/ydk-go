@@ -70,6 +70,7 @@ func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetEntityData() *types.CommonEntityData {
     cISCOSYSLOGMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOSYSLOGMIB.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
     cISCOSYSLOGMIB.EntityData.SegmentPath = "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB"
+    cISCOSYSLOGMIB.EntityData.AbsolutePath = cISCOSYSLOGMIB.EntityData.SegmentPath
     cISCOSYSLOGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOSYSLOGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOSYSLOGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -167,6 +168,7 @@ func (clogBasic *CISCOSYSLOGMIB_ClogBasic) GetEntityData() *types.CommonEntityDa
     clogBasic.EntityData.BundleName = "cisco_ios_xe"
     clogBasic.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
     clogBasic.EntityData.SegmentPath = "clogBasic"
+    clogBasic.EntityData.AbsolutePath = "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/" + clogBasic.EntityData.SegmentPath
     clogBasic.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clogBasic.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clogBasic.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -229,6 +231,7 @@ func (clogHistory *CISCOSYSLOGMIB_ClogHistory) GetEntityData() *types.CommonEnti
     clogHistory.EntityData.BundleName = "cisco_ios_xe"
     clogHistory.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
     clogHistory.EntityData.SegmentPath = "clogHistory"
+    clogHistory.EntityData.AbsolutePath = "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/" + clogHistory.EntityData.SegmentPath
     clogHistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clogHistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clogHistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -261,6 +264,7 @@ func (clogServer *CISCOSYSLOGMIB_ClogServer) GetEntityData() *types.CommonEntity
     clogServer.EntityData.BundleName = "cisco_ios_xe"
     clogServer.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
     clogServer.EntityData.SegmentPath = "clogServer"
+    clogServer.EntityData.AbsolutePath = "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/" + clogServer.EntityData.SegmentPath
     clogServer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clogServer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clogServer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -294,6 +298,7 @@ func (clogHistoryTable *CISCOSYSLOGMIB_ClogHistoryTable) GetEntityData() *types.
     clogHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     clogHistoryTable.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
     clogHistoryTable.EntityData.SegmentPath = "clogHistoryTable"
+    clogHistoryTable.EntityData.AbsolutePath = "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/" + clogHistoryTable.EntityData.SegmentPath
     clogHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clogHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clogHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -316,6 +321,7 @@ func (clogHistoryTable *CISCOSYSLOGMIB_ClogHistoryTable) GetEntityData() *types.
 type CISCOSYSLOGMIB_ClogHistoryTable_ClogHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A monotonically increasing integer for the sole
     // purpose of indexing messages.  When it reaches the maximum value the agent
@@ -352,6 +358,7 @@ func (clogHistoryEntry *CISCOSYSLOGMIB_ClogHistoryTable_ClogHistoryEntry) GetEnt
     clogHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     clogHistoryEntry.EntityData.ParentYangName = "clogHistoryTable"
     clogHistoryEntry.EntityData.SegmentPath = "clogHistoryEntry" + types.AddKeyToken(clogHistoryEntry.ClogHistIndex, "clogHistIndex")
+    clogHistoryEntry.EntityData.AbsolutePath = "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/clogHistoryTable/" + clogHistoryEntry.EntityData.SegmentPath
     clogHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clogHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clogHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -393,6 +400,7 @@ func (clogServerConfigTable *CISCOSYSLOGMIB_ClogServerConfigTable) GetEntityData
     clogServerConfigTable.EntityData.BundleName = "cisco_ios_xe"
     clogServerConfigTable.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
     clogServerConfigTable.EntityData.SegmentPath = "clogServerConfigTable"
+    clogServerConfigTable.EntityData.AbsolutePath = "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/" + clogServerConfigTable.EntityData.SegmentPath
     clogServerConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clogServerConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clogServerConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -415,6 +423,7 @@ func (clogServerConfigTable *CISCOSYSLOGMIB_ClogServerConfigTable) GetEntityData
 type CISCOSYSLOGMIB_ClogServerConfigTable_ClogServerConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of Internet address of this syslog
     // server. The type is InetAddressType.
@@ -437,6 +446,7 @@ func (clogServerConfigEntry *CISCOSYSLOGMIB_ClogServerConfigTable_ClogServerConf
     clogServerConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     clogServerConfigEntry.EntityData.ParentYangName = "clogServerConfigTable"
     clogServerConfigEntry.EntityData.SegmentPath = "clogServerConfigEntry" + types.AddKeyToken(clogServerConfigEntry.ClogServerAddrType, "clogServerAddrType") + types.AddKeyToken(clogServerConfigEntry.ClogServerAddr, "clogServerAddr")
+    clogServerConfigEntry.EntityData.AbsolutePath = "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/clogServerConfigTable/" + clogServerConfigEntry.EntityData.SegmentPath
     clogServerConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clogServerConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clogServerConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

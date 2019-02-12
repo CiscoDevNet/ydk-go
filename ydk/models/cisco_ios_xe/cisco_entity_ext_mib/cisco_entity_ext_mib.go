@@ -73,6 +73,7 @@ func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetEntityData() *types.CommonEntityD
     cISCOENTITYEXTMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOENTITYEXTMIB.EntityData.ParentYangName = "CISCO-ENTITY-EXT-MIB"
     cISCOENTITYEXTMIB.EntityData.SegmentPath = "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB"
+    cISCOENTITYEXTMIB.EntityData.AbsolutePath = cISCOENTITYEXTMIB.EntityData.SegmentPath
     cISCOENTITYEXTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOENTITYEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOENTITYEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -117,6 +118,7 @@ func (ceExtPhysicalProcessorTable *CISCOENTITYEXTMIB_CeExtPhysicalProcessorTable
     ceExtPhysicalProcessorTable.EntityData.BundleName = "cisco_ios_xe"
     ceExtPhysicalProcessorTable.EntityData.ParentYangName = "CISCO-ENTITY-EXT-MIB"
     ceExtPhysicalProcessorTable.EntityData.SegmentPath = "ceExtPhysicalProcessorTable"
+    ceExtPhysicalProcessorTable.EntityData.AbsolutePath = "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/" + ceExtPhysicalProcessorTable.EntityData.SegmentPath
     ceExtPhysicalProcessorTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceExtPhysicalProcessorTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceExtPhysicalProcessorTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -159,6 +161,7 @@ func (ceExtPhysicalProcessorTable *CISCOENTITYEXTMIB_CeExtPhysicalProcessorTable
 type CISCOENTITYEXTMIB_CeExtPhysicalProcessorTable_CeExtPhysicalProcessorEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -198,6 +201,7 @@ func (ceExtPhysicalProcessorEntry *CISCOENTITYEXTMIB_CeExtPhysicalProcessorTable
     ceExtPhysicalProcessorEntry.EntityData.BundleName = "cisco_ios_xe"
     ceExtPhysicalProcessorEntry.EntityData.ParentYangName = "ceExtPhysicalProcessorTable"
     ceExtPhysicalProcessorEntry.EntityData.SegmentPath = "ceExtPhysicalProcessorEntry" + types.AddKeyToken(ceExtPhysicalProcessorEntry.EntPhysicalIndex, "entPhysicalIndex")
+    ceExtPhysicalProcessorEntry.EntityData.AbsolutePath = "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtPhysicalProcessorTable/" + ceExtPhysicalProcessorEntry.EntityData.SegmentPath
     ceExtPhysicalProcessorEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceExtPhysicalProcessorEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceExtPhysicalProcessorEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -237,6 +241,7 @@ func (ceExtConfigRegTable *CISCOENTITYEXTMIB_CeExtConfigRegTable) GetEntityData(
     ceExtConfigRegTable.EntityData.BundleName = "cisco_ios_xe"
     ceExtConfigRegTable.EntityData.ParentYangName = "CISCO-ENTITY-EXT-MIB"
     ceExtConfigRegTable.EntityData.SegmentPath = "ceExtConfigRegTable"
+    ceExtConfigRegTable.EntityData.AbsolutePath = "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/" + ceExtConfigRegTable.EntityData.SegmentPath
     ceExtConfigRegTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceExtConfigRegTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceExtConfigRegTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -266,6 +271,7 @@ func (ceExtConfigRegTable *CISCOENTITYEXTMIB_CeExtConfigRegTable) GetEntityData(
 type CISCOENTITYEXTMIB_CeExtConfigRegTable_CeExtConfigRegEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -296,6 +302,7 @@ func (ceExtConfigRegEntry *CISCOENTITYEXTMIB_CeExtConfigRegTable_CeExtConfigRegE
     ceExtConfigRegEntry.EntityData.BundleName = "cisco_ios_xe"
     ceExtConfigRegEntry.EntityData.ParentYangName = "ceExtConfigRegTable"
     ceExtConfigRegEntry.EntityData.SegmentPath = "ceExtConfigRegEntry" + types.AddKeyToken(ceExtConfigRegEntry.EntPhysicalIndex, "entPhysicalIndex")
+    ceExtConfigRegEntry.EntityData.AbsolutePath = "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtConfigRegTable/" + ceExtConfigRegEntry.EntityData.SegmentPath
     ceExtConfigRegEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceExtConfigRegEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceExtConfigRegEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -331,6 +338,7 @@ func (ceExtEntityLEDTable *CISCOENTITYEXTMIB_CeExtEntityLEDTable) GetEntityData(
     ceExtEntityLEDTable.EntityData.BundleName = "cisco_ios_xe"
     ceExtEntityLEDTable.EntityData.ParentYangName = "CISCO-ENTITY-EXT-MIB"
     ceExtEntityLEDTable.EntityData.SegmentPath = "ceExtEntityLEDTable"
+    ceExtEntityLEDTable.EntityData.AbsolutePath = "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/" + ceExtEntityLEDTable.EntityData.SegmentPath
     ceExtEntityLEDTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceExtEntityLEDTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceExtEntityLEDTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -354,6 +362,7 @@ func (ceExtEntityLEDTable *CISCOENTITYEXTMIB_CeExtEntityLEDTable) GetEntityData(
 type CISCOENTITYEXTMIB_CeExtEntityLEDTable_CeExtEntityLEDEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -378,6 +387,7 @@ func (ceExtEntityLEDEntry *CISCOENTITYEXTMIB_CeExtEntityLEDTable_CeExtEntityLEDE
     ceExtEntityLEDEntry.EntityData.BundleName = "cisco_ios_xe"
     ceExtEntityLEDEntry.EntityData.ParentYangName = "ceExtEntityLEDTable"
     ceExtEntityLEDEntry.EntityData.SegmentPath = "ceExtEntityLEDEntry" + types.AddKeyToken(ceExtEntityLEDEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(ceExtEntityLEDEntry.CeExtEntityLEDType, "ceExtEntityLEDType")
+    ceExtEntityLEDEntry.EntityData.AbsolutePath = "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtEntityLEDTable/" + ceExtEntityLEDEntry.EntityData.SegmentPath
     ceExtEntityLEDEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceExtEntityLEDEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceExtEntityLEDEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

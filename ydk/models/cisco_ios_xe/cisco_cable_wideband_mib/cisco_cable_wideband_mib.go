@@ -147,6 +147,7 @@ func (cISCOCABLEWIDEBANDMIB *CISCOCABLEWIDEBANDMIB) GetEntityData() *types.Commo
     cISCOCABLEWIDEBANDMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOCABLEWIDEBANDMIB.EntityData.ParentYangName = "CISCO-CABLE-WIDEBAND-MIB"
     cISCOCABLEWIDEBANDMIB.EntityData.SegmentPath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB"
+    cISCOCABLEWIDEBANDMIB.EntityData.AbsolutePath = cISCOCABLEWIDEBANDMIB.EntityData.SegmentPath
     cISCOCABLEWIDEBANDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOCABLEWIDEBANDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCABLEWIDEBANDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -192,6 +193,7 @@ func (ciscoCableWidebandMIBObjects *CISCOCABLEWIDEBANDMIB_CiscoCableWidebandMIBO
     ciscoCableWidebandMIBObjects.EntityData.BundleName = "cisco_ios_xe"
     ciscoCableWidebandMIBObjects.EntityData.ParentYangName = "CISCO-CABLE-WIDEBAND-MIB"
     ciscoCableWidebandMIBObjects.EntityData.SegmentPath = "ciscoCableWidebandMIBObjects"
+    ciscoCableWidebandMIBObjects.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/" + ciscoCableWidebandMIBObjects.EntityData.SegmentPath
     ciscoCableWidebandMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoCableWidebandMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoCableWidebandMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -235,6 +237,7 @@ func (ccwbRFChannelTable *CISCOCABLEWIDEBANDMIB_CcwbRFChannelTable) GetEntityDat
     ccwbRFChannelTable.EntityData.BundleName = "cisco_ios_xe"
     ccwbRFChannelTable.EntityData.ParentYangName = "CISCO-CABLE-WIDEBAND-MIB"
     ccwbRFChannelTable.EntityData.SegmentPath = "ccwbRFChannelTable"
+    ccwbRFChannelTable.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/" + ccwbRFChannelTable.EntityData.SegmentPath
     ccwbRFChannelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbRFChannelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbRFChannelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -265,6 +268,7 @@ func (ccwbRFChannelTable *CISCOCABLEWIDEBANDMIB_CcwbRFChannelTable) GetEntityDat
 type CISCOCABLEWIDEBANDMIB_CcwbRFChannelTable_CcwbRFChannelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -398,6 +402,7 @@ func (ccwbRFChannelEntry *CISCOCABLEWIDEBANDMIB_CcwbRFChannelTable_CcwbRFChannel
     ccwbRFChannelEntry.EntityData.BundleName = "cisco_ios_xe"
     ccwbRFChannelEntry.EntityData.ParentYangName = "ccwbRFChannelTable"
     ccwbRFChannelEntry.EntityData.SegmentPath = "ccwbRFChannelEntry" + types.AddKeyToken(ccwbRFChannelEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(ccwbRFChannelEntry.CcwbRFChannelNum, "ccwbRFChannelNum")
+    ccwbRFChannelEntry.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/ccwbRFChannelTable/" + ccwbRFChannelEntry.EntityData.SegmentPath
     ccwbRFChannelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbRFChannelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbRFChannelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -480,6 +485,7 @@ func (ccwbWBtoRFMappingTable *CISCOCABLEWIDEBANDMIB_CcwbWBtoRFMappingTable) GetE
     ccwbWBtoRFMappingTable.EntityData.BundleName = "cisco_ios_xe"
     ccwbWBtoRFMappingTable.EntityData.ParentYangName = "CISCO-CABLE-WIDEBAND-MIB"
     ccwbWBtoRFMappingTable.EntityData.SegmentPath = "ccwbWBtoRFMappingTable"
+    ccwbWBtoRFMappingTable.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/" + ccwbWBtoRFMappingTable.EntityData.SegmentPath
     ccwbWBtoRFMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbWBtoRFMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbWBtoRFMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -511,6 +517,7 @@ func (ccwbWBtoRFMappingTable *CISCOCABLEWIDEBANDMIB_CcwbWBtoRFMappingTable) GetE
 type CISCOCABLEWIDEBANDMIB_CcwbWBtoRFMappingTable_CcwbWBtoRFMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -545,6 +552,7 @@ func (ccwbWBtoRFMappingEntry *CISCOCABLEWIDEBANDMIB_CcwbWBtoRFMappingTable_CcwbW
     ccwbWBtoRFMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     ccwbWBtoRFMappingEntry.EntityData.ParentYangName = "ccwbWBtoRFMappingTable"
     ccwbWBtoRFMappingEntry.EntityData.SegmentPath = "ccwbWBtoRFMappingEntry" + types.AddKeyToken(ccwbWBtoRFMappingEntry.IfIndex, "ifIndex") + types.AddKeyToken(ccwbWBtoRFMappingEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(ccwbWBtoRFMappingEntry.CcwbRFChannelNum, "ccwbRFChannelNum")
+    ccwbWBtoRFMappingEntry.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/ccwbWBtoRFMappingTable/" + ccwbWBtoRFMappingEntry.EntityData.SegmentPath
     ccwbWBtoRFMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbWBtoRFMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbWBtoRFMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -591,6 +599,7 @@ func (ccwbWBtoNBMappingTable *CISCOCABLEWIDEBANDMIB_CcwbWBtoNBMappingTable) GetE
     ccwbWBtoNBMappingTable.EntityData.BundleName = "cisco_ios_xe"
     ccwbWBtoNBMappingTable.EntityData.ParentYangName = "CISCO-CABLE-WIDEBAND-MIB"
     ccwbWBtoNBMappingTable.EntityData.SegmentPath = "ccwbWBtoNBMappingTable"
+    ccwbWBtoNBMappingTable.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/" + ccwbWBtoNBMappingTable.EntityData.SegmentPath
     ccwbWBtoNBMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbWBtoNBMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbWBtoNBMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -619,6 +628,7 @@ func (ccwbWBtoNBMappingTable *CISCOCABLEWIDEBANDMIB_CcwbWBtoNBMappingTable) GetE
 type CISCOCABLEWIDEBANDMIB_CcwbWBtoNBMappingTable_CcwbWBtoNBMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -645,6 +655,7 @@ func (ccwbWBtoNBMappingEntry *CISCOCABLEWIDEBANDMIB_CcwbWBtoNBMappingTable_CcwbW
     ccwbWBtoNBMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     ccwbWBtoNBMappingEntry.EntityData.ParentYangName = "ccwbWBtoNBMappingTable"
     ccwbWBtoNBMappingEntry.EntityData.SegmentPath = "ccwbWBtoNBMappingEntry" + types.AddKeyToken(ccwbWBtoNBMappingEntry.IfIndex, "ifIndex") + types.AddKeyToken(ccwbWBtoNBMappingEntry.CcwbWBtoNBifIndexForNB, "ccwbWBtoNBifIndexForNB")
+    ccwbWBtoNBMappingEntry.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/ccwbWBtoNBMappingTable/" + ccwbWBtoNBMappingEntry.EntityData.SegmentPath
     ccwbWBtoNBMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbWBtoNBMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbWBtoNBMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -685,6 +696,7 @@ func (ccwbWBBondGrpTable *CISCOCABLEWIDEBANDMIB_CcwbWBBondGrpTable) GetEntityDat
     ccwbWBBondGrpTable.EntityData.BundleName = "cisco_ios_xe"
     ccwbWBBondGrpTable.EntityData.ParentYangName = "CISCO-CABLE-WIDEBAND-MIB"
     ccwbWBBondGrpTable.EntityData.SegmentPath = "ccwbWBBondGrpTable"
+    ccwbWBBondGrpTable.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/" + ccwbWBBondGrpTable.EntityData.SegmentPath
     ccwbWBBondGrpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbWBBondGrpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbWBBondGrpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -708,6 +720,7 @@ func (ccwbWBBondGrpTable *CISCOCABLEWIDEBANDMIB_CcwbWBBondGrpTable) GetEntityDat
 type CISCOCABLEWIDEBANDMIB_CcwbWBBondGrpTable_CcwbWBBondGrpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -724,6 +737,7 @@ func (ccwbWBBondGrpEntry *CISCOCABLEWIDEBANDMIB_CcwbWBBondGrpTable_CcwbWBBondGrp
     ccwbWBBondGrpEntry.EntityData.BundleName = "cisco_ios_xe"
     ccwbWBBondGrpEntry.EntityData.ParentYangName = "ccwbWBBondGrpTable"
     ccwbWBBondGrpEntry.EntityData.SegmentPath = "ccwbWBBondGrpEntry" + types.AddKeyToken(ccwbWBBondGrpEntry.IfIndex, "ifIndex")
+    ccwbWBBondGrpEntry.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/ccwbWBBondGrpTable/" + ccwbWBBondGrpEntry.EntityData.SegmentPath
     ccwbWBBondGrpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbWBBondGrpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbWBBondGrpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -759,6 +773,7 @@ func (ccwbWBCmStatusTable *CISCOCABLEWIDEBANDMIB_CcwbWBCmStatusTable) GetEntityD
     ccwbWBCmStatusTable.EntityData.BundleName = "cisco_ios_xe"
     ccwbWBCmStatusTable.EntityData.ParentYangName = "CISCO-CABLE-WIDEBAND-MIB"
     ccwbWBCmStatusTable.EntityData.SegmentPath = "ccwbWBCmStatusTable"
+    ccwbWBCmStatusTable.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/" + ccwbWBCmStatusTable.EntityData.SegmentPath
     ccwbWBCmStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbWBCmStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbWBCmStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -782,6 +797,7 @@ func (ccwbWBCmStatusTable *CISCOCABLEWIDEBANDMIB_CcwbWBCmStatusTable) GetEntityD
 type CISCOCABLEWIDEBANDMIB_CcwbWBCmStatusTable_CcwbWBCmStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -865,6 +881,7 @@ func (ccwbWBCmStatusEntry *CISCOCABLEWIDEBANDMIB_CcwbWBCmStatusTable_CcwbWBCmSta
     ccwbWBCmStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     ccwbWBCmStatusEntry.EntityData.ParentYangName = "ccwbWBCmStatusTable"
     ccwbWBCmStatusEntry.EntityData.SegmentPath = "ccwbWBCmStatusEntry" + types.AddKeyToken(ccwbWBCmStatusEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex")
+    ccwbWBCmStatusEntry.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/ccwbWBCmStatusTable/" + ccwbWBCmStatusEntry.EntityData.SegmentPath
     ccwbWBCmStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbWBCmStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbWBCmStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -981,6 +998,7 @@ func (ccwbWBCmStatusExtTable *CISCOCABLEWIDEBANDMIB_CcwbWBCmStatusExtTable) GetE
     ccwbWBCmStatusExtTable.EntityData.BundleName = "cisco_ios_xe"
     ccwbWBCmStatusExtTable.EntityData.ParentYangName = "CISCO-CABLE-WIDEBAND-MIB"
     ccwbWBCmStatusExtTable.EntityData.SegmentPath = "ccwbWBCmStatusExtTable"
+    ccwbWBCmStatusExtTable.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/" + ccwbWBCmStatusExtTable.EntityData.SegmentPath
     ccwbWBCmStatusExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbWBCmStatusExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbWBCmStatusExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1003,6 +1021,7 @@ func (ccwbWBCmStatusExtTable *CISCOCABLEWIDEBANDMIB_CcwbWBCmStatusExtTable) GetE
 type CISCOCABLEWIDEBANDMIB_CcwbWBCmStatusExtTable_CcwbWBCmStatusExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1025,6 +1044,7 @@ func (ccwbWBCmStatusExtEntry *CISCOCABLEWIDEBANDMIB_CcwbWBCmStatusExtTable_CcwbW
     ccwbWBCmStatusExtEntry.EntityData.BundleName = "cisco_ios_xe"
     ccwbWBCmStatusExtEntry.EntityData.ParentYangName = "ccwbWBCmStatusExtTable"
     ccwbWBCmStatusExtEntry.EntityData.SegmentPath = "ccwbWBCmStatusExtEntry" + types.AddKeyToken(ccwbWBCmStatusExtEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex") + types.AddKeyToken(ccwbWBCmStatusExtEntry.CcwbWBCmStatusExtIndex, "ccwbWBCmStatusExtIndex")
+    ccwbWBCmStatusExtEntry.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/ccwbWBCmStatusExtTable/" + ccwbWBCmStatusExtEntry.EntityData.SegmentPath
     ccwbWBCmStatusExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbWBCmStatusExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbWBCmStatusExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1060,6 +1080,7 @@ func (ccwbFiberNodeDescrTable *CISCOCABLEWIDEBANDMIB_CcwbFiberNodeDescrTable) Ge
     ccwbFiberNodeDescrTable.EntityData.BundleName = "cisco_ios_xe"
     ccwbFiberNodeDescrTable.EntityData.ParentYangName = "CISCO-CABLE-WIDEBAND-MIB"
     ccwbFiberNodeDescrTable.EntityData.SegmentPath = "ccwbFiberNodeDescrTable"
+    ccwbFiberNodeDescrTable.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/" + ccwbFiberNodeDescrTable.EntityData.SegmentPath
     ccwbFiberNodeDescrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbFiberNodeDescrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbFiberNodeDescrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1082,6 +1103,7 @@ func (ccwbFiberNodeDescrTable *CISCOCABLEWIDEBANDMIB_CcwbFiberNodeDescrTable) Ge
 type CISCOCABLEWIDEBANDMIB_CcwbFiberNodeDescrTable_CcwbFiberNodeDescrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..1000. Refers to
     // cisco_cable_wideband_mib.CISCOCABLEWIDEBANDMIB_CcwbFiberNodeTable_CcwbFiberNodeEntry_CcwbFiberNodeID
@@ -1106,6 +1128,7 @@ func (ccwbFiberNodeDescrEntry *CISCOCABLEWIDEBANDMIB_CcwbFiberNodeDescrTable_Ccw
     ccwbFiberNodeDescrEntry.EntityData.BundleName = "cisco_ios_xe"
     ccwbFiberNodeDescrEntry.EntityData.ParentYangName = "ccwbFiberNodeDescrTable"
     ccwbFiberNodeDescrEntry.EntityData.SegmentPath = "ccwbFiberNodeDescrEntry" + types.AddKeyToken(ccwbFiberNodeDescrEntry.CcwbFiberNodeID, "ccwbFiberNodeID")
+    ccwbFiberNodeDescrEntry.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/ccwbFiberNodeDescrTable/" + ccwbFiberNodeDescrEntry.EntityData.SegmentPath
     ccwbFiberNodeDescrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbFiberNodeDescrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbFiberNodeDescrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1144,6 +1167,7 @@ func (ccwbFiberNodeTable *CISCOCABLEWIDEBANDMIB_CcwbFiberNodeTable) GetEntityDat
     ccwbFiberNodeTable.EntityData.BundleName = "cisco_ios_xe"
     ccwbFiberNodeTable.EntityData.ParentYangName = "CISCO-CABLE-WIDEBAND-MIB"
     ccwbFiberNodeTable.EntityData.SegmentPath = "ccwbFiberNodeTable"
+    ccwbFiberNodeTable.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/" + ccwbFiberNodeTable.EntityData.SegmentPath
     ccwbFiberNodeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbFiberNodeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbFiberNodeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1169,6 +1193,7 @@ func (ccwbFiberNodeTable *CISCOCABLEWIDEBANDMIB_CcwbFiberNodeTable) GetEntityDat
 type CISCOCABLEWIDEBANDMIB_CcwbFiberNodeTable_CcwbFiberNodeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object represents the Fiber node ID. Each
     // Fiber node configuration on the CMTS is assigned a unique Fiber node ID.
@@ -1212,6 +1237,7 @@ func (ccwbFiberNodeEntry *CISCOCABLEWIDEBANDMIB_CcwbFiberNodeTable_CcwbFiberNode
     ccwbFiberNodeEntry.EntityData.BundleName = "cisco_ios_xe"
     ccwbFiberNodeEntry.EntityData.ParentYangName = "ccwbFiberNodeTable"
     ccwbFiberNodeEntry.EntityData.SegmentPath = "ccwbFiberNodeEntry" + types.AddKeyToken(ccwbFiberNodeEntry.CcwbFiberNodeID, "ccwbFiberNodeID") + types.AddKeyToken(ccwbFiberNodeEntry.CcwbFiberNodeGlobRFID, "ccwbFiberNodeGlobRFID")
+    ccwbFiberNodeEntry.EntityData.AbsolutePath = "CISCO-CABLE-WIDEBAND-MIB:CISCO-CABLE-WIDEBAND-MIB/ccwbFiberNodeTable/" + ccwbFiberNodeEntry.EntityData.SegmentPath
     ccwbFiberNodeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccwbFiberNodeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccwbFiberNodeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

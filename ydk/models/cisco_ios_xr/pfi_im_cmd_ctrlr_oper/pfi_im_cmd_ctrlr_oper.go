@@ -102,6 +102,7 @@ func (controllers *Controllers) GetEntityData() *types.CommonEntityData {
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper"
     controllers.EntityData.SegmentPath = "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper:controllers"
+    controllers.EntityData.AbsolutePath = controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -132,6 +133,7 @@ func (controllers *Controllers_Controllers) GetEntityData() *types.CommonEntityD
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "controllers"
     controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper:controllers/" + controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -153,6 +155,7 @@ func (controllers *Controllers_Controllers) GetEntityData() *types.CommonEntityD
 type Controllers_Controllers_Controller struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the controller. The type is string
     // with pattern: [a-zA-Z0-9._/-]+.
@@ -175,6 +178,7 @@ func (controller *Controllers_Controllers_Controller) GetEntityData() *types.Com
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
     controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.InterafceName, "interafce-name")
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper:controllers/controllers/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

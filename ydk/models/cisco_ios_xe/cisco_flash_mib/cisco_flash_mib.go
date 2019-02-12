@@ -98,6 +98,7 @@ func (cISCOFLASHMIB *CISCOFLASHMIB) GetEntityData() *types.CommonEntityData {
     cISCOFLASHMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOFLASHMIB.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     cISCOFLASHMIB.EntityData.SegmentPath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB"
+    cISCOFLASHMIB.EntityData.AbsolutePath = cISCOFLASHMIB.EntityData.SegmentPath
     cISCOFLASHMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOFLASHMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOFLASHMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -138,6 +139,7 @@ func (ciscoFlashDevice *CISCOFLASHMIB_CiscoFlashDevice) GetEntityData() *types.C
     ciscoFlashDevice.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashDevice.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     ciscoFlashDevice.EntityData.SegmentPath = "ciscoFlashDevice"
+    ciscoFlashDevice.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/" + ciscoFlashDevice.EntityData.SegmentPath
     ciscoFlashDevice.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashDevice.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashDevice.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -196,6 +198,7 @@ func (ciscoFlashCfg *CISCOFLASHMIB_CiscoFlashCfg) GetEntityData() *types.CommonE
     ciscoFlashCfg.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashCfg.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     ciscoFlashCfg.EntityData.SegmentPath = "ciscoFlashCfg"
+    ciscoFlashCfg.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/" + ciscoFlashCfg.EntityData.SegmentPath
     ciscoFlashCfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashCfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashCfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -258,6 +261,7 @@ func (ciscoFlashDeviceTable *CISCOFLASHMIB_CiscoFlashDeviceTable) GetEntityData(
     ciscoFlashDeviceTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashDeviceTable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     ciscoFlashDeviceTable.EntityData.SegmentPath = "ciscoFlashDeviceTable"
+    ciscoFlashDeviceTable.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/" + ciscoFlashDeviceTable.EntityData.SegmentPath
     ciscoFlashDeviceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashDeviceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashDeviceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -286,6 +290,7 @@ func (ciscoFlashDeviceTable *CISCOFLASHMIB_CiscoFlashDeviceTable) GetEntityData(
 type CISCOFLASHMIB_CiscoFlashDeviceTable_CiscoFlashDeviceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Flash device sequence number to index within the
     // table of initialized flash devices. The lowest value should be 1. The
@@ -480,6 +485,7 @@ func (ciscoFlashDeviceEntry *CISCOFLASHMIB_CiscoFlashDeviceTable_CiscoFlashDevic
     ciscoFlashDeviceEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashDeviceEntry.EntityData.ParentYangName = "ciscoFlashDeviceTable"
     ciscoFlashDeviceEntry.EntityData.SegmentPath = "ciscoFlashDeviceEntry" + types.AddKeyToken(ciscoFlashDeviceEntry.CiscoFlashDeviceIndex, "ciscoFlashDeviceIndex")
+    ciscoFlashDeviceEntry.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashDeviceTable/" + ciscoFlashDeviceEntry.EntityData.SegmentPath
     ciscoFlashDeviceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashDeviceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashDeviceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -542,6 +548,7 @@ func (ciscoFlashChipTable *CISCOFLASHMIB_CiscoFlashChipTable) GetEntityData() *t
     ciscoFlashChipTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashChipTable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     ciscoFlashChipTable.EntityData.SegmentPath = "ciscoFlashChipTable"
+    ciscoFlashChipTable.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/" + ciscoFlashChipTable.EntityData.SegmentPath
     ciscoFlashChipTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashChipTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashChipTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -567,6 +574,7 @@ func (ciscoFlashChipTable *CISCOFLASHMIB_CiscoFlashChipTable) GetEntityData() *t
 type CISCOFLASHMIB_CiscoFlashChipTable_CiscoFlashChipEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -642,6 +650,7 @@ func (ciscoFlashChipEntry *CISCOFLASHMIB_CiscoFlashChipTable_CiscoFlashChipEntry
     ciscoFlashChipEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashChipEntry.EntityData.ParentYangName = "ciscoFlashChipTable"
     ciscoFlashChipEntry.EntityData.SegmentPath = "ciscoFlashChipEntry" + types.AddKeyToken(ciscoFlashChipEntry.CiscoFlashDeviceIndex, "ciscoFlashDeviceIndex") + types.AddKeyToken(ciscoFlashChipEntry.CiscoFlashChipIndex, "ciscoFlashChipIndex")
+    ciscoFlashChipEntry.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashChipTable/" + ciscoFlashChipEntry.EntityData.SegmentPath
     ciscoFlashChipEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashChipEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashChipEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -685,6 +694,7 @@ func (ciscoFlashPartitionTable *CISCOFLASHMIB_CiscoFlashPartitionTable) GetEntit
     ciscoFlashPartitionTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashPartitionTable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     ciscoFlashPartitionTable.EntityData.SegmentPath = "ciscoFlashPartitionTable"
+    ciscoFlashPartitionTable.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/" + ciscoFlashPartitionTable.EntityData.SegmentPath
     ciscoFlashPartitionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashPartitionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashPartitionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -709,6 +719,7 @@ func (ciscoFlashPartitionTable *CISCOFLASHMIB_CiscoFlashPartitionTable) GetEntit
 type CISCOFLASHMIB_CiscoFlashPartitionTable_CiscoFlashPartitionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -885,6 +896,7 @@ func (ciscoFlashPartitionEntry *CISCOFLASHMIB_CiscoFlashPartitionTable_CiscoFlas
     ciscoFlashPartitionEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashPartitionEntry.EntityData.ParentYangName = "ciscoFlashPartitionTable"
     ciscoFlashPartitionEntry.EntityData.SegmentPath = "ciscoFlashPartitionEntry" + types.AddKeyToken(ciscoFlashPartitionEntry.CiscoFlashDeviceIndex, "ciscoFlashDeviceIndex") + types.AddKeyToken(ciscoFlashPartitionEntry.CiscoFlashPartitionIndex, "ciscoFlashPartitionIndex")
+    ciscoFlashPartitionEntry.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashPartitionTable/" + ciscoFlashPartitionEntry.EntityData.SegmentPath
     ciscoFlashPartitionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashPartitionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashPartitionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -966,6 +978,7 @@ func (ciscoFlashFileTable *CISCOFLASHMIB_CiscoFlashFileTable) GetEntityData() *t
     ciscoFlashFileTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashFileTable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     ciscoFlashFileTable.EntityData.SegmentPath = "ciscoFlashFileTable"
+    ciscoFlashFileTable.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/" + ciscoFlashFileTable.EntityData.SegmentPath
     ciscoFlashFileTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashFileTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashFileTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -992,6 +1005,7 @@ func (ciscoFlashFileTable *CISCOFLASHMIB_CiscoFlashFileTable) GetEntityData() *t
 type CISCOFLASHMIB_CiscoFlashFileTable_CiscoFlashFileEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1051,6 +1065,7 @@ func (ciscoFlashFileEntry *CISCOFLASHMIB_CiscoFlashFileTable_CiscoFlashFileEntry
     ciscoFlashFileEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashFileEntry.EntityData.ParentYangName = "ciscoFlashFileTable"
     ciscoFlashFileEntry.EntityData.SegmentPath = "ciscoFlashFileEntry" + types.AddKeyToken(ciscoFlashFileEntry.CiscoFlashDeviceIndex, "ciscoFlashDeviceIndex") + types.AddKeyToken(ciscoFlashFileEntry.CiscoFlashPartitionIndex, "ciscoFlashPartitionIndex") + types.AddKeyToken(ciscoFlashFileEntry.CiscoFlashFileIndex, "ciscoFlashFileIndex")
+    ciscoFlashFileEntry.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashFileTable/" + ciscoFlashFileEntry.EntityData.SegmentPath
     ciscoFlashFileEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashFileEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashFileEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1108,6 +1123,7 @@ func (ciscoFlashFileByTypeTable *CISCOFLASHMIB_CiscoFlashFileByTypeTable) GetEnt
     ciscoFlashFileByTypeTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashFileByTypeTable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     ciscoFlashFileByTypeTable.EntityData.SegmentPath = "ciscoFlashFileByTypeTable"
+    ciscoFlashFileByTypeTable.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/" + ciscoFlashFileByTypeTable.EntityData.SegmentPath
     ciscoFlashFileByTypeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashFileByTypeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashFileByTypeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1142,6 +1158,7 @@ func (ciscoFlashFileByTypeTable *CISCOFLASHMIB_CiscoFlashFileByTypeTable) GetEnt
 type CISCOFLASHMIB_CiscoFlashFileByTypeTable_CiscoFlashFileByTypeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is FlashFileType. Refers to
     // cisco_flash_mib.CISCOFLASHMIB_CiscoFlashFileTable_CiscoFlashFileEntry_CiscoFlashFileType
@@ -1190,6 +1207,7 @@ func (ciscoFlashFileByTypeEntry *CISCOFLASHMIB_CiscoFlashFileByTypeTable_CiscoFl
     ciscoFlashFileByTypeEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashFileByTypeEntry.EntityData.ParentYangName = "ciscoFlashFileByTypeTable"
     ciscoFlashFileByTypeEntry.EntityData.SegmentPath = "ciscoFlashFileByTypeEntry" + types.AddKeyToken(ciscoFlashFileByTypeEntry.CiscoFlashFileType, "ciscoFlashFileType") + types.AddKeyToken(ciscoFlashFileByTypeEntry.CiscoFlashDeviceIndex, "ciscoFlashDeviceIndex") + types.AddKeyToken(ciscoFlashFileByTypeEntry.CiscoFlashPartitionIndex, "ciscoFlashPartitionIndex") + types.AddKeyToken(ciscoFlashFileByTypeEntry.CiscoFlashFileIndex, "ciscoFlashFileIndex")
+    ciscoFlashFileByTypeEntry.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashFileByTypeTable/" + ciscoFlashFileByTypeEntry.EntityData.SegmentPath
     ciscoFlashFileByTypeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashFileByTypeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashFileByTypeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1260,6 +1278,7 @@ func (ciscoFlashCopyTable *CISCOFLASHMIB_CiscoFlashCopyTable) GetEntityData() *t
     ciscoFlashCopyTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashCopyTable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     ciscoFlashCopyTable.EntityData.SegmentPath = "ciscoFlashCopyTable"
+    ciscoFlashCopyTable.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/" + ciscoFlashCopyTable.EntityData.SegmentPath
     ciscoFlashCopyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashCopyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashCopyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1312,6 +1331,7 @@ func (ciscoFlashCopyTable *CISCOFLASHMIB_CiscoFlashCopyTable) GetEntityData() *t
 type CISCOFLASHMIB_CiscoFlashCopyTable_CiscoFlashCopyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object which specifies a unique entry in the
     // table. A management station wishing to initiate a copy operation should use
@@ -1486,6 +1506,7 @@ func (ciscoFlashCopyEntry *CISCOFLASHMIB_CiscoFlashCopyTable_CiscoFlashCopyEntry
     ciscoFlashCopyEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashCopyEntry.EntityData.ParentYangName = "ciscoFlashCopyTable"
     ciscoFlashCopyEntry.EntityData.SegmentPath = "ciscoFlashCopyEntry" + types.AddKeyToken(ciscoFlashCopyEntry.CiscoFlashCopySerialNumber, "ciscoFlashCopySerialNumber")
+    ciscoFlashCopyEntry.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashCopyTable/" + ciscoFlashCopyEntry.EntityData.SegmentPath
     ciscoFlashCopyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashCopyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashCopyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1625,6 +1646,7 @@ func (ciscoFlashPartitioningTable *CISCOFLASHMIB_CiscoFlashPartitioningTable) Ge
     ciscoFlashPartitioningTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashPartitioningTable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     ciscoFlashPartitioningTable.EntityData.SegmentPath = "ciscoFlashPartitioningTable"
+    ciscoFlashPartitioningTable.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/" + ciscoFlashPartitioningTable.EntityData.SegmentPath
     ciscoFlashPartitioningTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashPartitioningTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashPartitioningTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1676,6 +1698,7 @@ func (ciscoFlashPartitioningTable *CISCOFLASHMIB_CiscoFlashPartitioningTable) Ge
 type CISCOFLASHMIB_CiscoFlashPartitioningTable_CiscoFlashPartitioningEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object which specifies a unique entry in the
     // partitioning operations table. A management station wishing to initiate a
@@ -1764,6 +1787,7 @@ func (ciscoFlashPartitioningEntry *CISCOFLASHMIB_CiscoFlashPartitioningTable_Cis
     ciscoFlashPartitioningEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashPartitioningEntry.EntityData.ParentYangName = "ciscoFlashPartitioningTable"
     ciscoFlashPartitioningEntry.EntityData.SegmentPath = "ciscoFlashPartitioningEntry" + types.AddKeyToken(ciscoFlashPartitioningEntry.CiscoFlashPartitioningSerialNumber, "ciscoFlashPartitioningSerialNumber")
+    ciscoFlashPartitioningEntry.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashPartitioningTable/" + ciscoFlashPartitioningEntry.EntityData.SegmentPath
     ciscoFlashPartitioningEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashPartitioningEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashPartitioningEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1856,6 +1880,7 @@ func (ciscoFlashMiscOpTable *CISCOFLASHMIB_CiscoFlashMiscOpTable) GetEntityData(
     ciscoFlashMiscOpTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashMiscOpTable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
     ciscoFlashMiscOpTable.EntityData.SegmentPath = "ciscoFlashMiscOpTable"
+    ciscoFlashMiscOpTable.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/" + ciscoFlashMiscOpTable.EntityData.SegmentPath
     ciscoFlashMiscOpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashMiscOpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashMiscOpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1906,6 +1931,7 @@ func (ciscoFlashMiscOpTable *CISCOFLASHMIB_CiscoFlashMiscOpTable) GetEntityData(
 type CISCOFLASHMIB_CiscoFlashMiscOpTable_CiscoFlashMiscOpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object which specifies a unique entry in the
     // table. A management station wishing to initiate a flash operation should
@@ -1998,6 +2024,7 @@ func (ciscoFlashMiscOpEntry *CISCOFLASHMIB_CiscoFlashMiscOpTable_CiscoFlashMiscO
     ciscoFlashMiscOpEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoFlashMiscOpEntry.EntityData.ParentYangName = "ciscoFlashMiscOpTable"
     ciscoFlashMiscOpEntry.EntityData.SegmentPath = "ciscoFlashMiscOpEntry" + types.AddKeyToken(ciscoFlashMiscOpEntry.CiscoFlashMiscOpSerialNumber, "ciscoFlashMiscOpSerialNumber")
+    ciscoFlashMiscOpEntry.EntityData.AbsolutePath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashMiscOpTable/" + ciscoFlashMiscOpEntry.EntityData.SegmentPath
     ciscoFlashMiscOpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoFlashMiscOpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoFlashMiscOpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

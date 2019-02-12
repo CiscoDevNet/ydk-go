@@ -46,6 +46,7 @@ func (sNMPFRAMEWORKMIB *SNMPFRAMEWORKMIB) GetEntityData() *types.CommonEntityDat
     sNMPFRAMEWORKMIB.EntityData.BundleName = "cisco_ios_xr"
     sNMPFRAMEWORKMIB.EntityData.ParentYangName = "SNMP-FRAMEWORK-MIB"
     sNMPFRAMEWORKMIB.EntityData.SegmentPath = "SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB"
+    sNMPFRAMEWORKMIB.EntityData.AbsolutePath = sNMPFRAMEWORKMIB.EntityData.SegmentPath
     sNMPFRAMEWORKMIB.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sNMPFRAMEWORKMIB.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sNMPFRAMEWORKMIB.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -83,6 +84,7 @@ func (snmpEngine *SNMPFRAMEWORKMIB_SnmpEngine) GetEntityData() *types.CommonEnti
     snmpEngine.EntityData.BundleName = "cisco_ios_xr"
     snmpEngine.EntityData.ParentYangName = "SNMP-FRAMEWORK-MIB"
     snmpEngine.EntityData.SegmentPath = "snmpEngine"
+    snmpEngine.EntityData.AbsolutePath = "SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB/" + snmpEngine.EntityData.SegmentPath
     snmpEngine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snmpEngine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpEngine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

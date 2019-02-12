@@ -289,6 +289,7 @@ func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetEntityData() *types.C
     cISCOUNIFIEDFIREWALLMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOUNIFIEDFIREWALLMIB.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cISCOUNIFIEDFIREWALLMIB.EntityData.SegmentPath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB"
+    cISCOUNIFIEDFIREWALLMIB.EntityData.AbsolutePath = cISCOUNIFIEDFIREWALLMIB.EntityData.SegmentPath
     cISCOUNIFIEDFIREWALLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOUNIFIEDFIREWALLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOUNIFIEDFIREWALLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -420,6 +421,7 @@ func (cuFwConnectionGlobals *CISCOUNIFIEDFIREWALLMIB_CuFwConnectionGlobals) GetE
     cuFwConnectionGlobals.EntityData.BundleName = "cisco_ios_xe"
     cuFwConnectionGlobals.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cuFwConnectionGlobals.EntityData.SegmentPath = "cuFwConnectionGlobals"
+    cuFwConnectionGlobals.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cuFwConnectionGlobals.EntityData.SegmentPath
     cuFwConnectionGlobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cuFwConnectionGlobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cuFwConnectionGlobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -476,6 +478,7 @@ func (cuFwConnectionResources *CISCOUNIFIEDFIREWALLMIB_CuFwConnectionResources) 
     cuFwConnectionResources.EntityData.BundleName = "cisco_ios_xe"
     cuFwConnectionResources.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cuFwConnectionResources.EntityData.SegmentPath = "cuFwConnectionResources"
+    cuFwConnectionResources.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cuFwConnectionResources.EntityData.SegmentPath
     cuFwConnectionResources.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cuFwConnectionResources.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cuFwConnectionResources.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -517,6 +520,7 @@ func (cuFwConnectionReportSettings *CISCOUNIFIEDFIREWALLMIB_CuFwConnectionReport
     cuFwConnectionReportSettings.EntityData.BundleName = "cisco_ios_xe"
     cuFwConnectionReportSettings.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cuFwConnectionReportSettings.EntityData.SegmentPath = "cuFwConnectionReportSettings"
+    cuFwConnectionReportSettings.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cuFwConnectionReportSettings.EntityData.SegmentPath
     cuFwConnectionReportSettings.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cuFwConnectionReportSettings.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cuFwConnectionReportSettings.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -551,6 +555,7 @@ func (cuFwApplInspectionGrp *CISCOUNIFIEDFIREWALLMIB_CuFwApplInspectionGrp) GetE
     cuFwApplInspectionGrp.EntityData.BundleName = "cisco_ios_xe"
     cuFwApplInspectionGrp.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cuFwApplInspectionGrp.EntityData.SegmentPath = "cuFwApplInspectionGrp"
+    cuFwApplInspectionGrp.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cuFwApplInspectionGrp.EntityData.SegmentPath
     cuFwApplInspectionGrp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cuFwApplInspectionGrp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cuFwApplInspectionGrp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -719,6 +724,7 @@ func (cufwUrlFilterGlobals *CISCOUNIFIEDFIREWALLMIB_CufwUrlFilterGlobals) GetEnt
     cufwUrlFilterGlobals.EntityData.BundleName = "cisco_ios_xe"
     cufwUrlFilterGlobals.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwUrlFilterGlobals.EntityData.SegmentPath = "cufwUrlFilterGlobals"
+    cufwUrlFilterGlobals.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwUrlFilterGlobals.EntityData.SegmentPath
     cufwUrlFilterGlobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwUrlFilterGlobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwUrlFilterGlobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -773,6 +779,7 @@ func (cufwUrlFilterResourceUsage *CISCOUNIFIEDFIREWALLMIB_CufwUrlFilterResourceU
     cufwUrlFilterResourceUsage.EntityData.BundleName = "cisco_ios_xe"
     cufwUrlFilterResourceUsage.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwUrlFilterResourceUsage.EntityData.SegmentPath = "cufwUrlFilterResourceUsage"
+    cufwUrlFilterResourceUsage.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwUrlFilterResourceUsage.EntityData.SegmentPath
     cufwUrlFilterResourceUsage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwUrlFilterResourceUsage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwUrlFilterResourceUsage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -829,6 +836,7 @@ func (cufwAaicGlobals *CISCOUNIFIEDFIREWALLMIB_CufwAaicGlobals) GetEntityData() 
     cufwAaicGlobals.EntityData.BundleName = "cisco_ios_xe"
     cufwAaicGlobals.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwAaicGlobals.EntityData.SegmentPath = "cufwAaicGlobals"
+    cufwAaicGlobals.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwAaicGlobals.EntityData.SegmentPath
     cufwAaicGlobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwAaicGlobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwAaicGlobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -918,6 +926,7 @@ func (cufwAaicHttpProtocolStats *CISCOUNIFIEDFIREWALLMIB_CufwAaicHttpProtocolSta
     cufwAaicHttpProtocolStats.EntityData.BundleName = "cisco_ios_xe"
     cufwAaicHttpProtocolStats.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwAaicHttpProtocolStats.EntityData.SegmentPath = "cufwAaicHttpProtocolStats"
+    cufwAaicHttpProtocolStats.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwAaicHttpProtocolStats.EntityData.SegmentPath
     cufwAaicHttpProtocolStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwAaicHttpProtocolStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwAaicHttpProtocolStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1008,6 +1017,7 @@ func (cufwL2FwGlobals *CISCOUNIFIEDFIREWALLMIB_CufwL2FwGlobals) GetEntityData() 
     cufwL2FwGlobals.EntityData.BundleName = "cisco_ios_xe"
     cufwL2FwGlobals.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwL2FwGlobals.EntityData.SegmentPath = "cufwL2FwGlobals"
+    cufwL2FwGlobals.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwL2FwGlobals.EntityData.SegmentPath
     cufwL2FwGlobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwL2FwGlobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwL2FwGlobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1057,6 +1067,7 @@ func (cuFwNotifCntlGrp *CISCOUNIFIEDFIREWALLMIB_CuFwNotifCntlGrp) GetEntityData(
     cuFwNotifCntlGrp.EntityData.BundleName = "cisco_ios_xe"
     cuFwNotifCntlGrp.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cuFwNotifCntlGrp.EntityData.SegmentPath = "cuFwNotifCntlGrp"
+    cuFwNotifCntlGrp.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cuFwNotifCntlGrp.EntityData.SegmentPath
     cuFwNotifCntlGrp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cuFwNotifCntlGrp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cuFwNotifCntlGrp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1101,6 +1112,7 @@ func (cufwConnSummaryTable *CISCOUNIFIEDFIREWALLMIB_CufwConnSummaryTable) GetEnt
     cufwConnSummaryTable.EntityData.BundleName = "cisco_ios_xe"
     cufwConnSummaryTable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwConnSummaryTable.EntityData.SegmentPath = "cufwConnSummaryTable"
+    cufwConnSummaryTable.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwConnSummaryTable.EntityData.SegmentPath
     cufwConnSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwConnSummaryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwConnSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1123,6 +1135,7 @@ func (cufwConnSummaryTable *CISCOUNIFIEDFIREWALLMIB_CufwConnSummaryTable) GetEnt
 type CISCOUNIFIEDFIREWALLMIB_CufwConnSummaryTable_CufwConnSummaryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The (L3-L4) protocol for which this conceptual 
     // row summarizes the connection activity on the managed entity. The type is
@@ -1193,6 +1206,7 @@ func (cufwConnSummaryEntry *CISCOUNIFIEDFIREWALLMIB_CufwConnSummaryTable_CufwCon
     cufwConnSummaryEntry.EntityData.BundleName = "cisco_ios_xe"
     cufwConnSummaryEntry.EntityData.ParentYangName = "cufwConnSummaryTable"
     cufwConnSummaryEntry.EntityData.SegmentPath = "cufwConnSummaryEntry" + types.AddKeyToken(cufwConnSummaryEntry.CufwConnProtocol, "cufwConnProtocol")
+    cufwConnSummaryEntry.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwConnSummaryTable/" + cufwConnSummaryEntry.EntityData.SegmentPath
     cufwConnSummaryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwConnSummaryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwConnSummaryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1247,6 +1261,7 @@ func (cufwAppConnSummaryTable *CISCOUNIFIEDFIREWALLMIB_CufwAppConnSummaryTable) 
     cufwAppConnSummaryTable.EntityData.BundleName = "cisco_ios_xe"
     cufwAppConnSummaryTable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwAppConnSummaryTable.EntityData.SegmentPath = "cufwAppConnSummaryTable"
+    cufwAppConnSummaryTable.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwAppConnSummaryTable.EntityData.SegmentPath
     cufwAppConnSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwAppConnSummaryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwAppConnSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1270,6 +1285,7 @@ func (cufwAppConnSummaryTable *CISCOUNIFIEDFIREWALLMIB_CufwAppConnSummaryTable) 
 type CISCOUNIFIEDFIREWALLMIB_CufwAppConnSummaryTable_CufwAppConnSummaryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The layer7 protocol for which this conceptual  row
     // summarizes the connection activity for this  firewall. The type is
@@ -1346,6 +1362,7 @@ func (cufwAppConnSummaryEntry *CISCOUNIFIEDFIREWALLMIB_CufwAppConnSummaryTable_C
     cufwAppConnSummaryEntry.EntityData.BundleName = "cisco_ios_xe"
     cufwAppConnSummaryEntry.EntityData.ParentYangName = "cufwAppConnSummaryTable"
     cufwAppConnSummaryEntry.EntityData.SegmentPath = "cufwAppConnSummaryEntry" + types.AddKeyToken(cufwAppConnSummaryEntry.CufwAppConnProtocol, "cufwAppConnProtocol")
+    cufwAppConnSummaryEntry.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwAppConnSummaryTable/" + cufwAppConnSummaryEntry.EntityData.SegmentPath
     cufwAppConnSummaryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwAppConnSummaryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwAppConnSummaryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1407,6 +1424,7 @@ func (cufwPolicyConnSummaryTable *CISCOUNIFIEDFIREWALLMIB_CufwPolicyConnSummaryT
     cufwPolicyConnSummaryTable.EntityData.BundleName = "cisco_ios_xe"
     cufwPolicyConnSummaryTable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwPolicyConnSummaryTable.EntityData.SegmentPath = "cufwPolicyConnSummaryTable"
+    cufwPolicyConnSummaryTable.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwPolicyConnSummaryTable.EntityData.SegmentPath
     cufwPolicyConnSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwPolicyConnSummaryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwPolicyConnSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1430,6 +1448,7 @@ func (cufwPolicyConnSummaryTable *CISCOUNIFIEDFIREWALLMIB_CufwPolicyConnSummaryT
 type CISCOUNIFIEDFIREWALLMIB_CufwPolicyConnSummaryTable_CufwPolicyConnSummaryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identity of the firewall policy for which this
     // conceptual row contains the connection  activity summary. The type is
@@ -1516,6 +1535,7 @@ func (cufwPolicyConnSummaryEntry *CISCOUNIFIEDFIREWALLMIB_CufwPolicyConnSummaryT
     cufwPolicyConnSummaryEntry.EntityData.BundleName = "cisco_ios_xe"
     cufwPolicyConnSummaryEntry.EntityData.ParentYangName = "cufwPolicyConnSummaryTable"
     cufwPolicyConnSummaryEntry.EntityData.SegmentPath = "cufwPolicyConnSummaryEntry" + types.AddKeyToken(cufwPolicyConnSummaryEntry.CufwPolConnPolicy, "cufwPolConnPolicy") + types.AddKeyToken(cufwPolicyConnSummaryEntry.CufwPolConnPolicyTargetType, "cufwPolConnPolicyTargetType") + types.AddKeyToken(cufwPolicyConnSummaryEntry.CufwPolConnPolicyTarget, "cufwPolConnPolicyTarget") + types.AddKeyToken(cufwPolicyConnSummaryEntry.CufwPolConnProtocol, "cufwPolConnProtocol")
+    cufwPolicyConnSummaryEntry.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwPolicyConnSummaryTable/" + cufwPolicyConnSummaryEntry.EntityData.SegmentPath
     cufwPolicyConnSummaryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwPolicyConnSummaryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwPolicyConnSummaryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1579,6 +1599,7 @@ func (cufwPolicyAppConnSummaryTable *CISCOUNIFIEDFIREWALLMIB_CufwPolicyAppConnSu
     cufwPolicyAppConnSummaryTable.EntityData.BundleName = "cisco_ios_xe"
     cufwPolicyAppConnSummaryTable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwPolicyAppConnSummaryTable.EntityData.SegmentPath = "cufwPolicyAppConnSummaryTable"
+    cufwPolicyAppConnSummaryTable.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwPolicyAppConnSummaryTable.EntityData.SegmentPath
     cufwPolicyAppConnSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwPolicyAppConnSummaryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwPolicyAppConnSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1603,6 +1624,7 @@ func (cufwPolicyAppConnSummaryTable *CISCOUNIFIEDFIREWALLMIB_CufwPolicyAppConnSu
 type CISCOUNIFIEDFIREWALLMIB_CufwPolicyAppConnSummaryTable_CufwPolicyAppConnSummaryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identity of the firewall policy for which this
     // conceptual row contains the connection  activity summary. The type is
@@ -1697,6 +1719,7 @@ func (cufwPolicyAppConnSummaryEntry *CISCOUNIFIEDFIREWALLMIB_CufwPolicyAppConnSu
     cufwPolicyAppConnSummaryEntry.EntityData.BundleName = "cisco_ios_xe"
     cufwPolicyAppConnSummaryEntry.EntityData.ParentYangName = "cufwPolicyAppConnSummaryTable"
     cufwPolicyAppConnSummaryEntry.EntityData.SegmentPath = "cufwPolicyAppConnSummaryEntry" + types.AddKeyToken(cufwPolicyAppConnSummaryEntry.CufwPolAppConnPolicy, "cufwPolAppConnPolicy") + types.AddKeyToken(cufwPolicyAppConnSummaryEntry.CufwPolAppConnPolicyTargetType, "cufwPolAppConnPolicyTargetType") + types.AddKeyToken(cufwPolicyAppConnSummaryEntry.CufwPolAppConnPolicyTarget, "cufwPolAppConnPolicyTarget") + types.AddKeyToken(cufwPolicyAppConnSummaryEntry.CufwPolAppConnProtocol, "cufwPolAppConnProtocol")
+    cufwPolicyAppConnSummaryEntry.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwPolicyAppConnSummaryTable/" + cufwPolicyAppConnSummaryEntry.EntityData.SegmentPath
     cufwPolicyAppConnSummaryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwPolicyAppConnSummaryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwPolicyAppConnSummaryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1747,6 +1770,7 @@ func (cufwInspectionTable *CISCOUNIFIEDFIREWALLMIB_CufwInspectionTable) GetEntit
     cufwInspectionTable.EntityData.BundleName = "cisco_ios_xe"
     cufwInspectionTable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwInspectionTable.EntityData.SegmentPath = "cufwInspectionTable"
+    cufwInspectionTable.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwInspectionTable.EntityData.SegmentPath
     cufwInspectionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwInspectionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwInspectionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1769,6 +1793,7 @@ func (cufwInspectionTable *CISCOUNIFIEDFIREWALLMIB_CufwInspectionTable) GetEntit
 type CISCOUNIFIEDFIREWALLMIB_CufwInspectionTable_CufwInspectionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the policy that configures the device
     // inspect the protocol specified by    'cufwInspectionProtocol'. The type is
@@ -1791,6 +1816,7 @@ func (cufwInspectionEntry *CISCOUNIFIEDFIREWALLMIB_CufwInspectionTable_CufwInspe
     cufwInspectionEntry.EntityData.BundleName = "cisco_ios_xe"
     cufwInspectionEntry.EntityData.ParentYangName = "cufwInspectionTable"
     cufwInspectionEntry.EntityData.SegmentPath = "cufwInspectionEntry" + types.AddKeyToken(cufwInspectionEntry.CufwInspectionPolicyName, "cufwInspectionPolicyName") + types.AddKeyToken(cufwInspectionEntry.CufwInspectionProtocol, "cufwInspectionProtocol")
+    cufwInspectionEntry.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwInspectionTable/" + cufwInspectionEntry.EntityData.SegmentPath
     cufwInspectionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwInspectionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwInspectionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1829,6 +1855,7 @@ func (cufwUrlfServerTable *CISCOUNIFIEDFIREWALLMIB_CufwUrlfServerTable) GetEntit
     cufwUrlfServerTable.EntityData.BundleName = "cisco_ios_xe"
     cufwUrlfServerTable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
     cufwUrlfServerTable.EntityData.SegmentPath = "cufwUrlfServerTable"
+    cufwUrlfServerTable.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/" + cufwUrlfServerTable.EntityData.SegmentPath
     cufwUrlfServerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwUrlfServerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwUrlfServerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1851,6 +1878,7 @@ func (cufwUrlfServerTable *CISCOUNIFIEDFIREWALLMIB_CufwUrlfServerTable) GetEntit
 type CISCOUNIFIEDFIREWALLMIB_CufwUrlfServerTable_CufwUrlfServerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the IP address of the URL filtering
     // server. The type is InetAddressType.
@@ -1939,6 +1967,7 @@ func (cufwUrlfServerEntry *CISCOUNIFIEDFIREWALLMIB_CufwUrlfServerTable_CufwUrlfS
     cufwUrlfServerEntry.EntityData.BundleName = "cisco_ios_xe"
     cufwUrlfServerEntry.EntityData.ParentYangName = "cufwUrlfServerTable"
     cufwUrlfServerEntry.EntityData.SegmentPath = "cufwUrlfServerEntry" + types.AddKeyToken(cufwUrlfServerEntry.CufwUrlfServerAddrType, "cufwUrlfServerAddrType") + types.AddKeyToken(cufwUrlfServerEntry.CufwUrlfServerAddress, "cufwUrlfServerAddress") + types.AddKeyToken(cufwUrlfServerEntry.CufwUrlfServerPort, "cufwUrlfServerPort")
+    cufwUrlfServerEntry.EntityData.AbsolutePath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB/cufwUrlfServerTable/" + cufwUrlfServerEntry.EntityData.SegmentPath
     cufwUrlfServerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cufwUrlfServerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cufwUrlfServerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

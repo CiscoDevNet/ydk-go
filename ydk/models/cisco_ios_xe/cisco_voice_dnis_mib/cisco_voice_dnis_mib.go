@@ -51,6 +51,7 @@ func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetEntityData() *types.CommonEntityD
     cISCOVOICEDNISMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOVOICEDNISMIB.EntityData.ParentYangName = "CISCO-VOICE-DNIS-MIB"
     cISCOVOICEDNISMIB.EntityData.SegmentPath = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB"
+    cISCOVOICEDNISMIB.EntityData.AbsolutePath = cISCOVOICEDNISMIB.EntityData.SegmentPath
     cISCOVOICEDNISMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOVOICEDNISMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOVOICEDNISMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -99,6 +100,7 @@ func (cvDnisMappingTable *CISCOVOICEDNISMIB_CvDnisMappingTable) GetEntityData() 
     cvDnisMappingTable.EntityData.BundleName = "cisco_ios_xe"
     cvDnisMappingTable.EntityData.ParentYangName = "CISCO-VOICE-DNIS-MIB"
     cvDnisMappingTable.EntityData.SegmentPath = "cvDnisMappingTable"
+    cvDnisMappingTable.EntityData.AbsolutePath = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/" + cvDnisMappingTable.EntityData.SegmentPath
     cvDnisMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvDnisMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvDnisMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -146,6 +148,7 @@ func (cvDnisMappingTable *CISCOVOICEDNISMIB_CvDnisMappingTable) GetEntityData() 
 type CISCOVOICEDNISMIB_CvDnisMappingTable_CvDnisMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name which uniquely identifies a DNIS mapping.
     // . The type is string with length: 1..32.
@@ -200,6 +203,7 @@ func (cvDnisMappingEntry *CISCOVOICEDNISMIB_CvDnisMappingTable_CvDnisMappingEntr
     cvDnisMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     cvDnisMappingEntry.EntityData.ParentYangName = "cvDnisMappingTable"
     cvDnisMappingEntry.EntityData.SegmentPath = "cvDnisMappingEntry" + types.AddKeyToken(cvDnisMappingEntry.CvDnisMappingName, "cvDnisMappingName")
+    cvDnisMappingEntry.EntityData.AbsolutePath = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisMappingTable/" + cvDnisMappingEntry.EntityData.SegmentPath
     cvDnisMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvDnisMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvDnisMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -249,6 +253,7 @@ func (cvDnisNodeTable *CISCOVOICEDNISMIB_CvDnisNodeTable) GetEntityData() *types
     cvDnisNodeTable.EntityData.BundleName = "cisco_ios_xe"
     cvDnisNodeTable.EntityData.ParentYangName = "CISCO-VOICE-DNIS-MIB"
     cvDnisNodeTable.EntityData.SegmentPath = "cvDnisNodeTable"
+    cvDnisNodeTable.EntityData.AbsolutePath = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/" + cvDnisNodeTable.EntityData.SegmentPath
     cvDnisNodeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvDnisNodeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvDnisNodeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -279,6 +284,7 @@ func (cvDnisNodeTable *CISCOVOICEDNISMIB_CvDnisNodeTable) GetEntityData() *types
 type CISCOVOICEDNISMIB_CvDnisNodeTable_CvDnisNodeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..32. Refers to
     // cisco_voice_dnis_mib.CISCOVOICEDNISMIB_CvDnisMappingTable_CvDnisMappingEntry_CvDnisMappingName
@@ -315,6 +321,7 @@ func (cvDnisNodeEntry *CISCOVOICEDNISMIB_CvDnisNodeTable_CvDnisNodeEntry) GetEnt
     cvDnisNodeEntry.EntityData.BundleName = "cisco_ios_xe"
     cvDnisNodeEntry.EntityData.ParentYangName = "cvDnisNodeTable"
     cvDnisNodeEntry.EntityData.SegmentPath = "cvDnisNodeEntry" + types.AddKeyToken(cvDnisNodeEntry.CvDnisMappingName, "cvDnisMappingName") + types.AddKeyToken(cvDnisNodeEntry.CvDnisNumber, "cvDnisNumber")
+    cvDnisNodeEntry.EntityData.AbsolutePath = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisNodeTable/" + cvDnisNodeEntry.EntityData.SegmentPath
     cvDnisNodeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvDnisNodeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvDnisNodeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -61,6 +61,7 @@ func (aps *Aps) GetEntityData() *types.CommonEntityData {
     aps.EntityData.BundleName = "openconfig"
     aps.EntityData.ParentYangName = "openconfig-transport-line-protection"
     aps.EntityData.SegmentPath = "openconfig-transport-line-protection:aps"
+    aps.EntityData.AbsolutePath = aps.EntityData.SegmentPath
     aps.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aps.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aps.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -92,6 +93,7 @@ func (apsModules *Aps_ApsModules) GetEntityData() *types.CommonEntityData {
     apsModules.EntityData.BundleName = "openconfig"
     apsModules.EntityData.ParentYangName = "aps"
     apsModules.EntityData.SegmentPath = "aps-modules"
+    apsModules.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/" + apsModules.EntityData.SegmentPath
     apsModules.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     apsModules.EntityData.NamespaceTable = openconfig.GetNamespaces()
     apsModules.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -114,6 +116,7 @@ func (apsModules *Aps_ApsModules) GetEntityData() *types.CommonEntityData {
 type Aps_ApsModules_ApsModule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the config name list key. The type is
     // string. Refers to
@@ -136,6 +139,7 @@ func (apsModule *Aps_ApsModules_ApsModule) GetEntityData() *types.CommonEntityDa
     apsModule.EntityData.BundleName = "openconfig"
     apsModule.EntityData.ParentYangName = "aps-modules"
     apsModule.EntityData.SegmentPath = "aps-module" + types.AddKeyToken(apsModule.Name, "name")
+    apsModule.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/" + apsModule.EntityData.SegmentPath
     apsModule.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     apsModule.EntityData.NamespaceTable = openconfig.GetNamespaces()
     apsModule.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -211,6 +215,7 @@ func (config *Aps_ApsModules_ApsModule_Config) GetEntityData() *types.CommonEnti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "aps-module"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -293,6 +298,7 @@ func (state *Aps_ApsModules_ApsModule_State) GetEntityData() *types.CommonEntity
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "aps-module"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -343,6 +349,7 @@ func (ports *Aps_ApsModules_ApsModule_Ports) GetEntityData() *types.CommonEntity
     ports.EntityData.BundleName = "openconfig"
     ports.EntityData.ParentYangName = "aps-module"
     ports.EntityData.SegmentPath = "ports"
+    ports.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/" + ports.EntityData.SegmentPath
     ports.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ports.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -381,6 +388,7 @@ func (linePrimaryIn *Aps_ApsModules_ApsModule_Ports_LinePrimaryIn) GetEntityData
     linePrimaryIn.EntityData.BundleName = "openconfig"
     linePrimaryIn.EntityData.ParentYangName = "ports"
     linePrimaryIn.EntityData.SegmentPath = "line-primary-in"
+    linePrimaryIn.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/" + linePrimaryIn.EntityData.SegmentPath
     linePrimaryIn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linePrimaryIn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linePrimaryIn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -418,6 +426,7 @@ func (config *Aps_ApsModules_ApsModule_Ports_LinePrimaryIn_Config) GetEntityData
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "line-primary-in"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-primary-in/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -467,6 +476,7 @@ func (state *Aps_ApsModules_ApsModule_Ports_LinePrimaryIn_State) GetEntityData()
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "line-primary-in"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-primary-in/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -520,6 +530,7 @@ func (opticalPower *Aps_ApsModules_ApsModule_Ports_LinePrimaryIn_State_OpticalPo
     opticalPower.EntityData.BundleName = "openconfig"
     opticalPower.EntityData.ParentYangName = "state"
     opticalPower.EntityData.SegmentPath = "optical-power"
+    opticalPower.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-primary-in/state/" + opticalPower.EntityData.SegmentPath
     opticalPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     opticalPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -556,6 +567,7 @@ func (linePrimaryOut *Aps_ApsModules_ApsModule_Ports_LinePrimaryOut) GetEntityDa
     linePrimaryOut.EntityData.BundleName = "openconfig"
     linePrimaryOut.EntityData.ParentYangName = "ports"
     linePrimaryOut.EntityData.SegmentPath = "line-primary-out"
+    linePrimaryOut.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/" + linePrimaryOut.EntityData.SegmentPath
     linePrimaryOut.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linePrimaryOut.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linePrimaryOut.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -588,6 +600,7 @@ func (config *Aps_ApsModules_ApsModule_Ports_LinePrimaryOut_Config) GetEntityDat
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "line-primary-out"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-primary-out/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -631,6 +644,7 @@ func (state *Aps_ApsModules_ApsModule_Ports_LinePrimaryOut_State) GetEntityData(
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "line-primary-out"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-primary-out/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -683,6 +697,7 @@ func (opticalPower *Aps_ApsModules_ApsModule_Ports_LinePrimaryOut_State_OpticalP
     opticalPower.EntityData.BundleName = "openconfig"
     opticalPower.EntityData.ParentYangName = "state"
     opticalPower.EntityData.SegmentPath = "optical-power"
+    opticalPower.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-primary-out/state/" + opticalPower.EntityData.SegmentPath
     opticalPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     opticalPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -719,6 +734,7 @@ func (lineSecondaryIn *Aps_ApsModules_ApsModule_Ports_LineSecondaryIn) GetEntity
     lineSecondaryIn.EntityData.BundleName = "openconfig"
     lineSecondaryIn.EntityData.ParentYangName = "ports"
     lineSecondaryIn.EntityData.SegmentPath = "line-secondary-in"
+    lineSecondaryIn.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/" + lineSecondaryIn.EntityData.SegmentPath
     lineSecondaryIn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lineSecondaryIn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lineSecondaryIn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -756,6 +772,7 @@ func (config *Aps_ApsModules_ApsModule_Ports_LineSecondaryIn_Config) GetEntityDa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "line-secondary-in"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-secondary-in/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -805,6 +822,7 @@ func (state *Aps_ApsModules_ApsModule_Ports_LineSecondaryIn_State) GetEntityData
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "line-secondary-in"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-secondary-in/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -858,6 +876,7 @@ func (opticalPower *Aps_ApsModules_ApsModule_Ports_LineSecondaryIn_State_Optical
     opticalPower.EntityData.BundleName = "openconfig"
     opticalPower.EntityData.ParentYangName = "state"
     opticalPower.EntityData.SegmentPath = "optical-power"
+    opticalPower.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-secondary-in/state/" + opticalPower.EntityData.SegmentPath
     opticalPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     opticalPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -894,6 +913,7 @@ func (lineSecondaryOut *Aps_ApsModules_ApsModule_Ports_LineSecondaryOut) GetEnti
     lineSecondaryOut.EntityData.BundleName = "openconfig"
     lineSecondaryOut.EntityData.ParentYangName = "ports"
     lineSecondaryOut.EntityData.SegmentPath = "line-secondary-out"
+    lineSecondaryOut.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/" + lineSecondaryOut.EntityData.SegmentPath
     lineSecondaryOut.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lineSecondaryOut.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lineSecondaryOut.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -926,6 +946,7 @@ func (config *Aps_ApsModules_ApsModule_Ports_LineSecondaryOut_Config) GetEntityD
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "line-secondary-out"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-secondary-out/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -969,6 +990,7 @@ func (state *Aps_ApsModules_ApsModule_Ports_LineSecondaryOut_State) GetEntityDat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "line-secondary-out"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-secondary-out/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1021,6 +1043,7 @@ func (opticalPower *Aps_ApsModules_ApsModule_Ports_LineSecondaryOut_State_Optica
     opticalPower.EntityData.BundleName = "openconfig"
     opticalPower.EntityData.ParentYangName = "state"
     opticalPower.EntityData.SegmentPath = "optical-power"
+    opticalPower.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/line-secondary-out/state/" + opticalPower.EntityData.SegmentPath
     opticalPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     opticalPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1057,6 +1080,7 @@ func (commonIn *Aps_ApsModules_ApsModule_Ports_CommonIn) GetEntityData() *types.
     commonIn.EntityData.BundleName = "openconfig"
     commonIn.EntityData.ParentYangName = "ports"
     commonIn.EntityData.SegmentPath = "common-in"
+    commonIn.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/" + commonIn.EntityData.SegmentPath
     commonIn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     commonIn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     commonIn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1094,6 +1118,7 @@ func (config *Aps_ApsModules_ApsModule_Ports_CommonIn_Config) GetEntityData() *t
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "common-in"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/common-in/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1143,6 +1168,7 @@ func (state *Aps_ApsModules_ApsModule_Ports_CommonIn_State) GetEntityData() *typ
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "common-in"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/common-in/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1196,6 +1222,7 @@ func (opticalPower *Aps_ApsModules_ApsModule_Ports_CommonIn_State_OpticalPower) 
     opticalPower.EntityData.BundleName = "openconfig"
     opticalPower.EntityData.ParentYangName = "state"
     opticalPower.EntityData.SegmentPath = "optical-power"
+    opticalPower.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/common-in/state/" + opticalPower.EntityData.SegmentPath
     opticalPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     opticalPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1232,6 +1259,7 @@ func (commonOutput *Aps_ApsModules_ApsModule_Ports_CommonOutput) GetEntityData()
     commonOutput.EntityData.BundleName = "openconfig"
     commonOutput.EntityData.ParentYangName = "ports"
     commonOutput.EntityData.SegmentPath = "common-output"
+    commonOutput.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/" + commonOutput.EntityData.SegmentPath
     commonOutput.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     commonOutput.EntityData.NamespaceTable = openconfig.GetNamespaces()
     commonOutput.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1264,6 +1292,7 @@ func (config *Aps_ApsModules_ApsModule_Ports_CommonOutput_Config) GetEntityData(
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "common-output"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/common-output/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1307,6 +1336,7 @@ func (state *Aps_ApsModules_ApsModule_Ports_CommonOutput_State) GetEntityData() 
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "common-output"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/common-output/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1359,6 +1389,7 @@ func (opticalPower *Aps_ApsModules_ApsModule_Ports_CommonOutput_State_OpticalPow
     opticalPower.EntityData.BundleName = "openconfig"
     opticalPower.EntityData.ParentYangName = "state"
     opticalPower.EntityData.SegmentPath = "optical-power"
+    opticalPower.EntityData.AbsolutePath = "openconfig-transport-line-protection:aps/aps-modules/aps-module/ports/common-output/state/" + opticalPower.EntityData.SegmentPath
     opticalPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     opticalPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

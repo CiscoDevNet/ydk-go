@@ -683,6 +683,7 @@ func (udp *Udp) GetEntityData() *types.CommonEntityData {
     udp.EntityData.BundleName = "cisco_ios_xr"
     udp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-udp-oper"
     udp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-udp-oper:udp"
+    udp.EntityData.AbsolutePath = udp.EntityData.SegmentPath
     udp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -713,6 +714,7 @@ func (nodes *Udp_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "udp"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -734,6 +736,7 @@ func (nodes *Udp_Nodes) GetEntityData() *types.CommonEntityData {
 type Udp_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -749,6 +752,7 @@ func (node *Udp_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -782,6 +786,7 @@ func (statistics *Udp_Nodes_Node_Statistics) GetEntityData() *types.CommonEntity
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "node"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp/nodes/node/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -828,6 +833,7 @@ func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetEntityData() *types
     ipv4Traffic.EntityData.BundleName = "cisco_ios_xr"
     ipv4Traffic.EntityData.ParentYangName = "statistics"
     ipv4Traffic.EntityData.SegmentPath = "ipv4-traffic"
+    ipv4Traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp/nodes/node/statistics/" + ipv4Traffic.EntityData.SegmentPath
     ipv4Traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -878,6 +884,7 @@ func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetEntityData() *types
     ipv6Traffic.EntityData.BundleName = "cisco_ios_xr"
     ipv6Traffic.EntityData.ParentYangName = "statistics"
     ipv6Traffic.EntityData.SegmentPath = "ipv6-traffic"
+    ipv6Traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp/nodes/node/statistics/" + ipv6Traffic.EntityData.SegmentPath
     ipv6Traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -912,6 +919,7 @@ func (udpConnection *UdpConnection) GetEntityData() *types.CommonEntityData {
     udpConnection.EntityData.BundleName = "cisco_ios_xr"
     udpConnection.EntityData.ParentYangName = "Cisco-IOS-XR-ip-udp-oper"
     udpConnection.EntityData.SegmentPath = "Cisco-IOS-XR-ip-udp-oper:udp-connection"
+    udpConnection.EntityData.AbsolutePath = udpConnection.EntityData.SegmentPath
     udpConnection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpConnection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpConnection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -942,6 +950,7 @@ func (nodes *UdpConnection_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "udp-connection"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -963,6 +972,7 @@ func (nodes *UdpConnection_Nodes) GetEntityData() *types.CommonEntityData {
 type UdpConnection_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -987,6 +997,7 @@ func (node *UdpConnection_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1026,6 +1037,7 @@ func (statistics *UdpConnection_Nodes_Node_Statistics) GetEntityData() *types.Co
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "node"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1058,6 +1070,7 @@ func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetEntityData() *typ
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "statistics"
     clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/statistics/" + clients.EntityData.SegmentPath
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1079,6 +1092,7 @@ func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetEntityData() *typ
 type UdpConnection_Nodes_Node_Statistics_Clients_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Displaying client's aggregated statistics. The
     // type is interface{} with range: 0..4294967295.
@@ -1114,6 +1128,7 @@ func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetEntityData(
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "clients"
     client.EntityData.SegmentPath = "client" + types.AddKeyToken(client.ClientId, "client-id")
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/statistics/clients/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1183,6 +1198,7 @@ func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetEntityData() *typ
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "statistics"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/statistics/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1223,6 +1239,7 @@ func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetEntit
     pcbStatistics.EntityData.BundleName = "cisco_ios_xr"
     pcbStatistics.EntityData.ParentYangName = "statistics"
     pcbStatistics.EntityData.SegmentPath = "pcb-statistics"
+    pcbStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/statistics/" + pcbStatistics.EntityData.SegmentPath
     pcbStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcbStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcbStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1244,6 +1261,7 @@ func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetEntit
 type UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Protocol Control Block address. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1268,6 +1286,7 @@ func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatist
     pcbStatistic.EntityData.BundleName = "cisco_ios_xr"
     pcbStatistic.EntityData.ParentYangName = "pcb-statistics"
     pcbStatistic.EntityData.SegmentPath = "pcb-statistic" + types.AddKeyToken(pcbStatistic.PcbAddress, "pcb-address")
+    pcbStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/statistics/pcb-statistics/" + pcbStatistic.EntityData.SegmentPath
     pcbStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcbStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcbStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1322,6 +1341,7 @@ func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send)
     send.EntityData.BundleName = "cisco_ios_xr"
     send.EntityData.ParentYangName = "pcb-statistic"
     send.EntityData.SegmentPath = "send"
+    send.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/statistics/pcb-statistics/pcb-statistic/" + send.EntityData.SegmentPath
     send.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     send.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     send.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1373,6 +1393,7 @@ func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Re
     receive.EntityData.BundleName = "cisco_ios_xr"
     receive.EntityData.ParentYangName = "pcb-statistic"
     receive.EntityData.SegmentPath = "receive"
+    receive.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/statistics/pcb-statistics/pcb-statistic/" + receive.EntityData.SegmentPath
     receive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1406,6 +1427,7 @@ func (lpts *UdpConnection_Nodes_Node_Lpts) GetEntityData() *types.CommonEntityDa
     lpts.EntityData.BundleName = "cisco_ios_xr"
     lpts.EntityData.ParentYangName = "node"
     lpts.EntityData.SegmentPath = "lpts"
+    lpts.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/" + lpts.EntityData.SegmentPath
     lpts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1436,6 +1458,7 @@ func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetEntityData() *types.Com
     queries.EntityData.BundleName = "cisco_ios_xr"
     queries.EntityData.ParentYangName = "lpts"
     queries.EntityData.SegmentPath = "queries"
+    queries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/" + queries.EntityData.SegmentPath
     queries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1457,6 +1480,7 @@ func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetEntityData() *types.Com
 type UdpConnection_Nodes_Node_Lpts_Queries_Query struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Query option. The type is LptsPcbQuery.
     QueryName interface{}
@@ -1471,6 +1495,7 @@ func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetEntityData() *types
     query.EntityData.BundleName = "cisco_ios_xr"
     query.EntityData.ParentYangName = "queries"
     query.EntityData.SegmentPath = "query" + types.AddKeyToken(query.QueryName, "query-name")
+    query.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/" + query.EntityData.SegmentPath
     query.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     query.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     query.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1502,6 +1527,7 @@ func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetEntityData() *t
     pcbs.EntityData.BundleName = "cisco_ios_xr"
     pcbs.EntityData.ParentYangName = "query"
     pcbs.EntityData.SegmentPath = "pcbs"
+    pcbs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/" + pcbs.EntityData.SegmentPath
     pcbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1523,6 +1549,7 @@ func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetEntityData() *t
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. PCB address. The type is interface{} with range:
     // 0..4294967295.
@@ -1553,6 +1580,7 @@ func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetEntityData()
     pcb.EntityData.BundleName = "cisco_ios_xr"
     pcb.EntityData.ParentYangName = "pcbs"
     pcb.EntityData.SegmentPath = "pcb" + types.AddKeyToken(pcb.PcbAddress, "pcb-address")
+    pcb.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/" + pcb.EntityData.SegmentPath
     pcb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1596,6 +1624,7 @@ func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAd
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "pcb"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1635,6 +1664,7 @@ func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Forei
     foreignAddress.EntityData.BundleName = "cisco_ios_xr"
     foreignAddress.EntityData.ParentYangName = "pcb"
     foreignAddress.EntityData.SegmentPath = "foreign-address"
+    foreignAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/" + foreignAddress.EntityData.SegmentPath
     foreignAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreignAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreignAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1669,6 +1699,7 @@ func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetEn
     common.EntityData.BundleName = "cisco_ios_xr"
     common.EntityData.ParentYangName = "pcb"
     common.EntityData.SegmentPath = "common"
+    common.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/" + common.EntityData.SegmentPath
     common.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     common.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     common.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1715,6 +1746,7 @@ func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsP
     lptsPcb.EntityData.BundleName = "cisco_ios_xr"
     lptsPcb.EntityData.ParentYangName = "common"
     lptsPcb.EntityData.SegmentPath = "lpts-pcb"
+    lptsPcb.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/common/" + lptsPcb.EntityData.SegmentPath
     lptsPcb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lptsPcb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lptsPcb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1725,6 +1757,7 @@ func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsP
     lptsPcb.EntityData.Children.Append("accept-mask", types.YChild{"AcceptMask", &lptsPcb.AcceptMask})
     lptsPcb.EntityData.Children.Append("filter", types.YChild{"Filter", nil})
     for i := range lptsPcb.Filter {
+        types.SetYListKey(lptsPcb.Filter[i], i)
         lptsPcb.EntityData.Children.Append(types.GetSegmentPath(lptsPcb.Filter[i]), types.YChild{"Filter", lptsPcb.Filter[i]})
     }
     lptsPcb.EntityData.Leafs = types.NewOrderedMap()
@@ -1755,6 +1788,7 @@ func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsP
     options.EntityData.BundleName = "cisco_ios_xr"
     options.EntityData.ParentYangName = "lpts-pcb"
     options.EntityData.SegmentPath = "options"
+    options.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/common/lpts-pcb/" + options.EntityData.SegmentPath
     options.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1791,6 +1825,7 @@ func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_Lpt
     lptsFlags.EntityData.BundleName = "cisco_ios_xr"
     lptsFlags.EntityData.ParentYangName = "lpts-pcb"
     lptsFlags.EntityData.SegmentPath = "lpts-flags"
+    lptsFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/common/lpts-pcb/" + lptsFlags.EntityData.SegmentPath
     lptsFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lptsFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lptsFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1837,6 +1872,7 @@ func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_Lp
     acceptMask.EntityData.BundleName = "cisco_ios_xr"
     acceptMask.EntityData.ParentYangName = "lpts-pcb"
     acceptMask.EntityData.SegmentPath = "accept-mask"
+    acceptMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/common/lpts-pcb/" + acceptMask.EntityData.SegmentPath
     acceptMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acceptMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acceptMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1860,6 +1896,7 @@ func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_Lp
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -1900,7 +1937,8 @@ func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPc
     filter.EntityData.YangName = "filter"
     filter.EntityData.BundleName = "cisco_ios_xr"
     filter.EntityData.ParentYangName = "lpts-pcb"
-    filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.SegmentPath = "filter" + types.AddNoKeyToken(filter)
+    filter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/common/lpts-pcb/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1952,6 +1990,7 @@ func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_Lp
     packetType.EntityData.BundleName = "cisco_ios_xr"
     packetType.EntityData.ParentYangName = "filter"
     packetType.EntityData.SegmentPath = "packet-type"
+    packetType.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/common/lpts-pcb/filter/" + packetType.EntityData.SegmentPath
     packetType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1993,6 +2032,7 @@ func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common
     remoteAddress.EntityData.BundleName = "cisco_ios_xr"
     remoteAddress.EntityData.ParentYangName = "filter"
     remoteAddress.EntityData.SegmentPath = "remote-address"
+    remoteAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/common/lpts-pcb/filter/" + remoteAddress.EntityData.SegmentPath
     remoteAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2032,6 +2072,7 @@ func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "filter"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/lpts/queries/query/pcbs/pcb/common/lpts-pcb/filter/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2065,6 +2106,7 @@ func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetEntityData() *types.Co
     pcbDetails.EntityData.BundleName = "cisco_ios_xr"
     pcbDetails.EntityData.ParentYangName = "node"
     pcbDetails.EntityData.SegmentPath = "pcb-details"
+    pcbDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/" + pcbDetails.EntityData.SegmentPath
     pcbDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcbDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcbDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2086,6 +2128,7 @@ func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetEntityData() *types.Co
 type UdpConnection_Nodes_Node_PcbDetails_PcbDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Protocol Control Block address. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -2125,6 +2168,7 @@ func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetEntityData() 
     pcbDetail.EntityData.BundleName = "cisco_ios_xr"
     pcbDetail.EntityData.ParentYangName = "pcb-details"
     pcbDetail.EntityData.SegmentPath = "pcb-detail" + types.AddKeyToken(pcbDetail.PcbAddress, "pcb-address")
+    pcbDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/pcb-details/" + pcbDetail.EntityData.SegmentPath
     pcbDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcbDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcbDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2171,6 +2215,7 @@ func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) 
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "pcb-detail"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/pcb-details/pcb-detail/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2210,6 +2255,7 @@ func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddre
     foreignAddress.EntityData.BundleName = "cisco_ios_xr"
     foreignAddress.EntityData.ParentYangName = "pcb-detail"
     foreignAddress.EntityData.SegmentPath = "foreign-address"
+    foreignAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/pcb-details/pcb-detail/" + foreignAddress.EntityData.SegmentPath
     foreignAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreignAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreignAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2242,6 +2288,7 @@ func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetEntityData() *types.Comm
     pcbBriefs.EntityData.BundleName = "cisco_ios_xr"
     pcbBriefs.EntityData.ParentYangName = "node"
     pcbBriefs.EntityData.SegmentPath = "pcb-briefs"
+    pcbBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/" + pcbBriefs.EntityData.SegmentPath
     pcbBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcbBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcbBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2263,6 +2310,7 @@ func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetEntityData() *types.Comm
 type UdpConnection_Nodes_Node_PcbBriefs_PcbBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Protocol Control Block address. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -2299,6 +2347,7 @@ func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetEntityData() *ty
     pcbBrief.EntityData.BundleName = "cisco_ios_xr"
     pcbBrief.EntityData.ParentYangName = "pcb-briefs"
     pcbBrief.EntityData.SegmentPath = "pcb-brief" + types.AddKeyToken(pcbBrief.PcbAddress, "pcb-address")
+    pcbBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/pcb-briefs/" + pcbBrief.EntityData.SegmentPath
     pcbBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcbBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcbBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2344,6 +2393,7 @@ func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) Ge
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "pcb-brief"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/pcb-briefs/pcb-brief/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2383,6 +2433,7 @@ func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress
     foreignAddress.EntityData.BundleName = "cisco_ios_xr"
     foreignAddress.EntityData.ParentYangName = "pcb-brief"
     foreignAddress.EntityData.SegmentPath = "foreign-address"
+    foreignAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/pcb-briefs/pcb-brief/" + foreignAddress.EntityData.SegmentPath
     foreignAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreignAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreignAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

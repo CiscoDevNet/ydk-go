@@ -37,6 +37,7 @@ func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetEntityData() *types.C
     cISCOIETFMPLSIDSTD03MIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIETFMPLSIDSTD03MIB.EntityData.ParentYangName = "CISCO-IETF-MPLS-ID-STD-03-MIB"
     cISCOIETFMPLSIDSTD03MIB.EntityData.SegmentPath = "CISCO-IETF-MPLS-ID-STD-03-MIB:CISCO-IETF-MPLS-ID-STD-03-MIB"
+    cISCOIETFMPLSIDSTD03MIB.EntityData.AbsolutePath = cISCOIETFMPLSIDSTD03MIB.EntityData.SegmentPath
     cISCOIETFMPLSIDSTD03MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIETFMPLSIDSTD03MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFMPLSIDSTD03MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -76,6 +77,7 @@ func (cmplsIdObjects *CISCOIETFMPLSIDSTD03MIB_CmplsIdObjects) GetEntityData() *t
     cmplsIdObjects.EntityData.BundleName = "cisco_ios_xe"
     cmplsIdObjects.EntityData.ParentYangName = "CISCO-IETF-MPLS-ID-STD-03-MIB"
     cmplsIdObjects.EntityData.SegmentPath = "cmplsIdObjects"
+    cmplsIdObjects.EntityData.AbsolutePath = "CISCO-IETF-MPLS-ID-STD-03-MIB:CISCO-IETF-MPLS-ID-STD-03-MIB/" + cmplsIdObjects.EntityData.SegmentPath
     cmplsIdObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsIdObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsIdObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

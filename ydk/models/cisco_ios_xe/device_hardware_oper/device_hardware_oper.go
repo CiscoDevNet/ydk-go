@@ -90,6 +90,7 @@ func (deviceHardwareData *DeviceHardwareData) GetEntityData() *types.CommonEntit
     deviceHardwareData.EntityData.BundleName = "cisco_ios_xe"
     deviceHardwareData.EntityData.ParentYangName = "Cisco-IOS-XE-device-hardware-oper"
     deviceHardwareData.EntityData.SegmentPath = "Cisco-IOS-XE-device-hardware-oper:device-hardware-data"
+    deviceHardwareData.EntityData.AbsolutePath = deviceHardwareData.EntityData.SegmentPath
     deviceHardwareData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     deviceHardwareData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deviceHardwareData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -129,6 +130,7 @@ func (deviceHardware *DeviceHardwareData_DeviceHardware) GetEntityData() *types.
     deviceHardware.EntityData.BundleName = "cisco_ios_xe"
     deviceHardware.EntityData.ParentYangName = "device-hardware-data"
     deviceHardware.EntityData.SegmentPath = "device-hardware"
+    deviceHardware.EntityData.AbsolutePath = "Cisco-IOS-XE-device-hardware-oper:device-hardware-data/" + deviceHardware.EntityData.SegmentPath
     deviceHardware.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     deviceHardware.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deviceHardware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -155,6 +157,7 @@ func (deviceHardware *DeviceHardwareData_DeviceHardware) GetEntityData() *types.
 type DeviceHardwareData_DeviceHardware_DeviceInventory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Type of the hardware being represented. The type
     // is HwType.
@@ -185,6 +188,7 @@ func (deviceInventory *DeviceHardwareData_DeviceHardware_DeviceInventory) GetEnt
     deviceInventory.EntityData.BundleName = "cisco_ios_xe"
     deviceInventory.EntityData.ParentYangName = "device-hardware"
     deviceInventory.EntityData.SegmentPath = "device-inventory" + types.AddKeyToken(deviceInventory.HwType, "hw-type") + types.AddKeyToken(deviceInventory.HwDevIndex, "hw-dev-index")
+    deviceInventory.EntityData.AbsolutePath = "Cisco-IOS-XE-device-hardware-oper:device-hardware-data/device-hardware/" + deviceInventory.EntityData.SegmentPath
     deviceInventory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     deviceInventory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deviceInventory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -208,6 +212,7 @@ func (deviceInventory *DeviceHardwareData_DeviceHardware_DeviceInventory) GetEnt
 type DeviceHardwareData_DeviceHardware_DeviceAlarm struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Alarm Identifier. The type is interface{} with
     // range: 0..4294967295.
@@ -238,6 +243,7 @@ func (deviceAlarm *DeviceHardwareData_DeviceHardware_DeviceAlarm) GetEntityData(
     deviceAlarm.EntityData.BundleName = "cisco_ios_xe"
     deviceAlarm.EntityData.ParentYangName = "device-hardware"
     deviceAlarm.EntityData.SegmentPath = "device-alarm" + types.AddKeyToken(deviceAlarm.AlarmId, "alarm-id") + types.AddKeyToken(deviceAlarm.AlarmInstance, "alarm-instance")
+    deviceAlarm.EntityData.AbsolutePath = "Cisco-IOS-XE-device-hardware-oper:device-hardware-data/device-hardware/" + deviceAlarm.EntityData.SegmentPath
     deviceAlarm.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     deviceAlarm.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deviceAlarm.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -290,6 +296,7 @@ func (deviceSystemData *DeviceHardwareData_DeviceHardware_DeviceSystemData) GetE
     deviceSystemData.EntityData.BundleName = "cisco_ios_xe"
     deviceSystemData.EntityData.ParentYangName = "device-hardware"
     deviceSystemData.EntityData.SegmentPath = "device-system-data"
+    deviceSystemData.EntityData.AbsolutePath = "Cisco-IOS-XE-device-hardware-oper:device-hardware-data/device-hardware/" + deviceSystemData.EntityData.SegmentPath
     deviceSystemData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     deviceSystemData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deviceSystemData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

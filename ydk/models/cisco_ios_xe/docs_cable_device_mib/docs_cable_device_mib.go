@@ -172,6 +172,7 @@ func (dOCSCABLEDEVICEMIB *DOCSCABLEDEVICEMIB) GetEntityData() *types.CommonEntit
     dOCSCABLEDEVICEMIB.EntityData.BundleName = "cisco_ios_xe"
     dOCSCABLEDEVICEMIB.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     dOCSCABLEDEVICEMIB.EntityData.SegmentPath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB"
+    dOCSCABLEDEVICEMIB.EntityData.AbsolutePath = dOCSCABLEDEVICEMIB.EntityData.SegmentPath
     dOCSCABLEDEVICEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dOCSCABLEDEVICEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dOCSCABLEDEVICEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -264,6 +265,7 @@ func (docsDevBase *DOCSCABLEDEVICEMIB_DocsDevBase) GetEntityData() *types.Common
     docsDevBase.EntityData.BundleName = "cisco_ios_xe"
     docsDevBase.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevBase.EntityData.SegmentPath = "docsDevBase"
+    docsDevBase.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevBase.EntityData.SegmentPath
     docsDevBase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevBase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevBase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -408,6 +410,7 @@ func (docsDevSoftware *DOCSCABLEDEVICEMIB_DocsDevSoftware) GetEntityData() *type
     docsDevSoftware.EntityData.BundleName = "cisco_ios_xe"
     docsDevSoftware.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevSoftware.EntityData.SegmentPath = "docsDevSoftware"
+    docsDevSoftware.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevSoftware.EntityData.SegmentPath
     docsDevSoftware.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevSoftware.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevSoftware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -559,6 +562,7 @@ func (docsDevServer *DOCSCABLEDEVICEMIB_DocsDevServer) GetEntityData() *types.Co
     docsDevServer.EntityData.BundleName = "cisco_ios_xe"
     docsDevServer.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevServer.EntityData.SegmentPath = "docsDevServer"
+    docsDevServer.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevServer.EntityData.SegmentPath
     docsDevServer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevServer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevServer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -688,6 +692,7 @@ func (docsDevEvent *DOCSCABLEDEVICEMIB_DocsDevEvent) GetEntityData() *types.Comm
     docsDevEvent.EntityData.BundleName = "cisco_ios_xe"
     docsDevEvent.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevEvent.EntityData.SegmentPath = "docsDevEvent"
+    docsDevEvent.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevEvent.EntityData.SegmentPath
     docsDevEvent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevEvent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevEvent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -765,6 +770,7 @@ func (docsDevFilter *DOCSCABLEDEVICEMIB_DocsDevFilter) GetEntityData() *types.Co
     docsDevFilter.EntityData.BundleName = "cisco_ios_xe"
     docsDevFilter.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevFilter.EntityData.SegmentPath = "docsDevFilter"
+    docsDevFilter.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevFilter.EntityData.SegmentPath
     docsDevFilter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevFilter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevFilter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -826,6 +832,7 @@ func (docsDevCpe *DOCSCABLEDEVICEMIB_DocsDevCpe) GetEntityData() *types.CommonEn
     docsDevCpe.EntityData.BundleName = "cisco_ios_xe"
     docsDevCpe.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevCpe.EntityData.SegmentPath = "docsDevCpe"
+    docsDevCpe.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevCpe.EntityData.SegmentPath
     docsDevCpe.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevCpe.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevCpe.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -888,6 +895,7 @@ func (docsDevNmAccessTable *DOCSCABLEDEVICEMIB_DocsDevNmAccessTable) GetEntityDa
     docsDevNmAccessTable.EntityData.BundleName = "cisco_ios_xe"
     docsDevNmAccessTable.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevNmAccessTable.EntityData.SegmentPath = "docsDevNmAccessTable"
+    docsDevNmAccessTable.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevNmAccessTable.EntityData.SegmentPath
     docsDevNmAccessTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevNmAccessTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevNmAccessTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -916,6 +924,7 @@ func (docsDevNmAccessTable *DOCSCABLEDEVICEMIB_DocsDevNmAccessTable) GetEntityDa
 type DOCSCABLEDEVICEMIB_DocsDevNmAccessTable_DocsDevNmAccessEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index used to order the application of access
     // entries. The type is interface{} with range: 1..2147483647.
@@ -990,6 +999,7 @@ func (docsDevNmAccessEntry *DOCSCABLEDEVICEMIB_DocsDevNmAccessTable_DocsDevNmAcc
     docsDevNmAccessEntry.EntityData.BundleName = "cisco_ios_xe"
     docsDevNmAccessEntry.EntityData.ParentYangName = "docsDevNmAccessTable"
     docsDevNmAccessEntry.EntityData.SegmentPath = "docsDevNmAccessEntry" + types.AddKeyToken(docsDevNmAccessEntry.DocsDevNmAccessIndex, "docsDevNmAccessIndex")
+    docsDevNmAccessEntry.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/docsDevNmAccessTable/" + docsDevNmAccessEntry.EntityData.SegmentPath
     docsDevNmAccessEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevNmAccessEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevNmAccessEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1062,6 +1072,7 @@ func (docsDevEvControlTable *DOCSCABLEDEVICEMIB_DocsDevEvControlTable) GetEntity
     docsDevEvControlTable.EntityData.BundleName = "cisco_ios_xe"
     docsDevEvControlTable.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevEvControlTable.EntityData.SegmentPath = "docsDevEvControlTable"
+    docsDevEvControlTable.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevEvControlTable.EntityData.SegmentPath
     docsDevEvControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevEvControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevEvControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1084,6 +1095,7 @@ func (docsDevEvControlTable *DOCSCABLEDEVICEMIB_DocsDevEvControlTable) GetEntity
 type DOCSCABLEDEVICEMIB_DocsDevEvControlTable_DocsDevEvControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The priority level that is controlled by this
     // entry. These are ordered from most (emergency) to least (debug) critical. 
@@ -1128,6 +1140,7 @@ func (docsDevEvControlEntry *DOCSCABLEDEVICEMIB_DocsDevEvControlTable_DocsDevEvC
     docsDevEvControlEntry.EntityData.BundleName = "cisco_ios_xe"
     docsDevEvControlEntry.EntityData.ParentYangName = "docsDevEvControlTable"
     docsDevEvControlEntry.EntityData.SegmentPath = "docsDevEvControlEntry" + types.AddKeyToken(docsDevEvControlEntry.DocsDevEvPriority, "docsDevEvPriority")
+    docsDevEvControlEntry.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/docsDevEvControlTable/" + docsDevEvControlEntry.EntityData.SegmentPath
     docsDevEvControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevEvControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevEvControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1188,6 +1201,7 @@ func (docsDevEventTable *DOCSCABLEDEVICEMIB_DocsDevEventTable) GetEntityData() *
     docsDevEventTable.EntityData.BundleName = "cisco_ios_xe"
     docsDevEventTable.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevEventTable.EntityData.SegmentPath = "docsDevEventTable"
+    docsDevEventTable.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevEventTable.EntityData.SegmentPath
     docsDevEventTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevEventTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevEventTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1218,6 +1232,7 @@ func (docsDevEventTable *DOCSCABLEDEVICEMIB_DocsDevEventTable) GetEntityData() *
 type DOCSCABLEDEVICEMIB_DocsDevEventTable_DocsDevEventEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Provides relative ordering of the objects in the
     // event log. This object will always increase except when (a) the log is
@@ -1277,6 +1292,7 @@ func (docsDevEventEntry *DOCSCABLEDEVICEMIB_DocsDevEventTable_DocsDevEventEntry)
     docsDevEventEntry.EntityData.BundleName = "cisco_ios_xe"
     docsDevEventEntry.EntityData.ParentYangName = "docsDevEventTable"
     docsDevEventEntry.EntityData.SegmentPath = "docsDevEventEntry" + types.AddKeyToken(docsDevEventEntry.DocsDevEvIndex, "docsDevEvIndex")
+    docsDevEventEntry.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/docsDevEventTable/" + docsDevEventEntry.EntityData.SegmentPath
     docsDevEventEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevEventEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevEventEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1342,6 +1358,7 @@ func (docsDevFilterLLCTable *DOCSCABLEDEVICEMIB_DocsDevFilterLLCTable) GetEntity
     docsDevFilterLLCTable.EntityData.BundleName = "cisco_ios_xe"
     docsDevFilterLLCTable.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevFilterLLCTable.EntityData.SegmentPath = "docsDevFilterLLCTable"
+    docsDevFilterLLCTable.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevFilterLLCTable.EntityData.SegmentPath
     docsDevFilterLLCTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevFilterLLCTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevFilterLLCTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1364,6 +1381,7 @@ func (docsDevFilterLLCTable *DOCSCABLEDEVICEMIB_DocsDevFilterLLCTable) GetEntity
 type DOCSCABLEDEVICEMIB_DocsDevFilterLLCTable_DocsDevFilterLLCEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index used for the identification of filters (note
     // that LLC filter order is irrelevant). The type is interface{} with range:
@@ -1412,6 +1430,7 @@ func (docsDevFilterLLCEntry *DOCSCABLEDEVICEMIB_DocsDevFilterLLCTable_DocsDevFil
     docsDevFilterLLCEntry.EntityData.BundleName = "cisco_ios_xe"
     docsDevFilterLLCEntry.EntityData.ParentYangName = "docsDevFilterLLCTable"
     docsDevFilterLLCEntry.EntityData.SegmentPath = "docsDevFilterLLCEntry" + types.AddKeyToken(docsDevFilterLLCEntry.DocsDevFilterLLCIndex, "docsDevFilterLLCIndex")
+    docsDevFilterLLCEntry.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/docsDevFilterLLCTable/" + docsDevFilterLLCEntry.EntityData.SegmentPath
     docsDevFilterLLCEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevFilterLLCEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevFilterLLCEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1514,6 +1533,7 @@ func (docsDevFilterIpTable *DOCSCABLEDEVICEMIB_DocsDevFilterIpTable) GetEntityDa
     docsDevFilterIpTable.EntityData.BundleName = "cisco_ios_xe"
     docsDevFilterIpTable.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevFilterIpTable.EntityData.SegmentPath = "docsDevFilterIpTable"
+    docsDevFilterIpTable.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevFilterIpTable.EntityData.SegmentPath
     docsDevFilterIpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevFilterIpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevFilterIpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1543,6 +1563,7 @@ func (docsDevFilterIpTable *DOCSCABLEDEVICEMIB_DocsDevFilterIpTable) GetEntityDa
 type DOCSCABLEDEVICEMIB_DocsDevFilterIpTable_DocsDevFilterIpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index used to order the application of filters.
     // The filter with the lowest index is always applied first. The type is
@@ -1684,6 +1705,7 @@ func (docsDevFilterIpEntry *DOCSCABLEDEVICEMIB_DocsDevFilterIpTable_DocsDevFilte
     docsDevFilterIpEntry.EntityData.BundleName = "cisco_ios_xe"
     docsDevFilterIpEntry.EntityData.ParentYangName = "docsDevFilterIpTable"
     docsDevFilterIpEntry.EntityData.SegmentPath = "docsDevFilterIpEntry" + types.AddKeyToken(docsDevFilterIpEntry.DocsDevFilterIpIndex, "docsDevFilterIpIndex")
+    docsDevFilterIpEntry.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/docsDevFilterIpTable/" + docsDevFilterIpEntry.EntityData.SegmentPath
     docsDevFilterIpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevFilterIpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevFilterIpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1787,6 +1809,7 @@ func (docsDevFilterPolicyTable *DOCSCABLEDEVICEMIB_DocsDevFilterPolicyTable) Get
     docsDevFilterPolicyTable.EntityData.BundleName = "cisco_ios_xe"
     docsDevFilterPolicyTable.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevFilterPolicyTable.EntityData.SegmentPath = "docsDevFilterPolicyTable"
+    docsDevFilterPolicyTable.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevFilterPolicyTable.EntityData.SegmentPath
     docsDevFilterPolicyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevFilterPolicyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevFilterPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1810,6 +1833,7 @@ func (docsDevFilterPolicyTable *DOCSCABLEDEVICEMIB_DocsDevFilterPolicyTable) Get
 type DOCSCABLEDEVICEMIB_DocsDevFilterPolicyTable_DocsDevFilterPolicyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index value for the table. The type is interface{}
     // with range: 1..2147483647.
@@ -1848,6 +1872,7 @@ func (docsDevFilterPolicyEntry *DOCSCABLEDEVICEMIB_DocsDevFilterPolicyTable_Docs
     docsDevFilterPolicyEntry.EntityData.BundleName = "cisco_ios_xe"
     docsDevFilterPolicyEntry.EntityData.ParentYangName = "docsDevFilterPolicyTable"
     docsDevFilterPolicyEntry.EntityData.SegmentPath = "docsDevFilterPolicyEntry" + types.AddKeyToken(docsDevFilterPolicyEntry.DocsDevFilterPolicyIndex, "docsDevFilterPolicyIndex")
+    docsDevFilterPolicyEntry.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/docsDevFilterPolicyTable/" + docsDevFilterPolicyEntry.EntityData.SegmentPath
     docsDevFilterPolicyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevFilterPolicyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevFilterPolicyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1903,6 +1928,7 @@ func (docsDevFilterTosTable *DOCSCABLEDEVICEMIB_DocsDevFilterTosTable) GetEntity
     docsDevFilterTosTable.EntityData.BundleName = "cisco_ios_xe"
     docsDevFilterTosTable.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevFilterTosTable.EntityData.SegmentPath = "docsDevFilterTosTable"
+    docsDevFilterTosTable.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevFilterTosTable.EntityData.SegmentPath
     docsDevFilterTosTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevFilterTosTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevFilterTosTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1924,6 +1950,7 @@ func (docsDevFilterTosTable *DOCSCABLEDEVICEMIB_DocsDevFilterTosTable) GetEntity
 type DOCSCABLEDEVICEMIB_DocsDevFilterTosTable_DocsDevFilterTosEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The unique index for this row.  There are no
     // ordering requirements for this table, and any valid index may be specified.
@@ -1953,6 +1980,7 @@ func (docsDevFilterTosEntry *DOCSCABLEDEVICEMIB_DocsDevFilterTosTable_DocsDevFil
     docsDevFilterTosEntry.EntityData.BundleName = "cisco_ios_xe"
     docsDevFilterTosEntry.EntityData.ParentYangName = "docsDevFilterTosTable"
     docsDevFilterTosEntry.EntityData.SegmentPath = "docsDevFilterTosEntry" + types.AddKeyToken(docsDevFilterTosEntry.DocsDevFilterTosIndex, "docsDevFilterTosIndex")
+    docsDevFilterTosEntry.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/docsDevFilterTosTable/" + docsDevFilterTosEntry.EntityData.SegmentPath
     docsDevFilterTosEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevFilterTosEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevFilterTosEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2012,6 +2040,7 @@ func (docsDevCpeTable *DOCSCABLEDEVICEMIB_DocsDevCpeTable) GetEntityData() *type
     docsDevCpeTable.EntityData.BundleName = "cisco_ios_xe"
     docsDevCpeTable.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevCpeTable.EntityData.SegmentPath = "docsDevCpeTable"
+    docsDevCpeTable.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevCpeTable.EntityData.SegmentPath
     docsDevCpeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevCpeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevCpeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2049,6 +2078,7 @@ func (docsDevCpeTable *DOCSCABLEDEVICEMIB_DocsDevCpeTable) GetEntityData() *type
 type DOCSCABLEDEVICEMIB_DocsDevCpeTable_DocsDevCpeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPv4 address to which this entry applies. 
     // N.B.  Attempts to set all zeros or all ones address values MUST be
@@ -2077,6 +2107,7 @@ func (docsDevCpeEntry *DOCSCABLEDEVICEMIB_DocsDevCpeTable_DocsDevCpeEntry) GetEn
     docsDevCpeEntry.EntityData.BundleName = "cisco_ios_xe"
     docsDevCpeEntry.EntityData.ParentYangName = "docsDevCpeTable"
     docsDevCpeEntry.EntityData.SegmentPath = "docsDevCpeEntry" + types.AddKeyToken(docsDevCpeEntry.DocsDevCpeIp, "docsDevCpeIp")
+    docsDevCpeEntry.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/docsDevCpeTable/" + docsDevCpeEntry.EntityData.SegmentPath
     docsDevCpeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevCpeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevCpeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2149,6 +2180,7 @@ func (docsDevCpeInetTable *DOCSCABLEDEVICEMIB_DocsDevCpeInetTable) GetEntityData
     docsDevCpeInetTable.EntityData.BundleName = "cisco_ios_xe"
     docsDevCpeInetTable.EntityData.ParentYangName = "DOCS-CABLE-DEVICE-MIB"
     docsDevCpeInetTable.EntityData.SegmentPath = "docsDevCpeInetTable"
+    docsDevCpeInetTable.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/" + docsDevCpeInetTable.EntityData.SegmentPath
     docsDevCpeInetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevCpeInetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevCpeInetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2189,6 +2221,7 @@ func (docsDevCpeInetTable *DOCSCABLEDEVICEMIB_DocsDevCpeInetTable) GetEntityData
 type DOCSCABLEDEVICEMIB_DocsDevCpeInetTable_DocsDevCpeInetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of internet address of
     // docsDevCpeInetAddr. The type is InetAddressType.
@@ -2222,6 +2255,7 @@ func (docsDevCpeInetEntry *DOCSCABLEDEVICEMIB_DocsDevCpeInetTable_DocsDevCpeInet
     docsDevCpeInetEntry.EntityData.BundleName = "cisco_ios_xe"
     docsDevCpeInetEntry.EntityData.ParentYangName = "docsDevCpeInetTable"
     docsDevCpeInetEntry.EntityData.SegmentPath = "docsDevCpeInetEntry" + types.AddKeyToken(docsDevCpeInetEntry.DocsDevCpeInetType, "docsDevCpeInetType") + types.AddKeyToken(docsDevCpeInetEntry.DocsDevCpeInetAddr, "docsDevCpeInetAddr")
+    docsDevCpeInetEntry.EntityData.AbsolutePath = "DOCS-CABLE-DEVICE-MIB:DOCS-CABLE-DEVICE-MIB/docsDevCpeInetTable/" + docsDevCpeInetEntry.EntityData.SegmentPath
     docsDevCpeInetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsDevCpeInetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsDevCpeInetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

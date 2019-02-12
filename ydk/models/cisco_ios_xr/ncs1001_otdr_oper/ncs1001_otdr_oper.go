@@ -133,6 +133,7 @@ func (hwModule *HwModule) GetEntityData() *types.CommonEntityData {
     hwModule.EntityData.BundleName = "cisco_ios_xr"
     hwModule.EntityData.ParentYangName = "Cisco-IOS-XR-ncs1001-otdr-oper"
     hwModule.EntityData.SegmentPath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module"
+    hwModule.EntityData.AbsolutePath = hwModule.EntityData.SegmentPath
     hwModule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -163,6 +164,7 @@ func (otdrDetails *HwModule_OtdrDetails) GetEntityData() *types.CommonEntityData
     otdrDetails.EntityData.BundleName = "cisco_ios_xr"
     otdrDetails.EntityData.ParentYangName = "hw-module"
     otdrDetails.EntityData.SegmentPath = "otdr-details"
+    otdrDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/" + otdrDetails.EntityData.SegmentPath
     otdrDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -184,6 +186,7 @@ func (otdrDetails *HwModule_OtdrDetails) GetEntityData() *types.CommonEntityData
 type HwModule_OtdrDetails_OtdrDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Details associated with a particular slot number.
     // The type is interface{} with range: 1..3.
@@ -200,6 +203,7 @@ func (otdrDetail *HwModule_OtdrDetails_OtdrDetail) GetEntityData() *types.Common
     otdrDetail.EntityData.BundleName = "cisco_ios_xr"
     otdrDetail.EntityData.ParentYangName = "otdr-details"
     otdrDetail.EntityData.SegmentPath = "otdr-detail" + types.AddKeyToken(otdrDetail.SlotId, "slot-id")
+    otdrDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdr-details/" + otdrDetail.EntityData.SegmentPath
     otdrDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -222,6 +226,7 @@ func (otdrDetail *HwModule_OtdrDetails_OtdrDetail) GetEntityData() *types.Common
 type HwModule_OtdrDetails_OtdrDetail_DataTypeDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Details associated with a particular Data type.
     // The type is OtsOtdrDataTypeDetails.
@@ -238,6 +243,7 @@ func (dataTypeDetail *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail) GetEntityD
     dataTypeDetail.EntityData.BundleName = "cisco_ios_xr"
     dataTypeDetail.EntityData.ParentYangName = "otdr-detail"
     dataTypeDetail.EntityData.SegmentPath = "data-type-detail" + types.AddKeyToken(dataTypeDetail.OtdrDataTypeDetails, "otdr-data-type-details")
+    dataTypeDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdr-details/otdr-detail/" + dataTypeDetail.EntityData.SegmentPath
     dataTypeDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataTypeDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataTypeDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -260,6 +266,7 @@ func (dataTypeDetail *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail) GetEntityD
 type HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Dispaly details. The type is interface{} with
     // range: 0..4294967295.
@@ -283,6 +290,7 @@ func (identifier *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier) Get
     identifier.EntityData.BundleName = "cisco_ios_xr"
     identifier.EntityData.ParentYangName = "data-type-detail"
     identifier.EntityData.SegmentPath = "identifier" + types.AddKeyToken(identifier.ScanDetail, "scan-detail")
+    identifier.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdr-details/otdr-detail/data-type-detail/" + identifier.EntityData.SegmentPath
     identifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     identifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     identifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -291,10 +299,12 @@ func (identifier *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier) Get
     identifier.EntityData.Children.Append("otdr-item", types.YChild{"OtdrItem", &identifier.OtdrItem})
     identifier.EntityData.Children.Append("otdr-scan", types.YChild{"OtdrScan", nil})
     for i := range identifier.OtdrScan {
+        types.SetYListKey(identifier.OtdrScan[i], i)
         identifier.EntityData.Children.Append(types.GetSegmentPath(identifier.OtdrScan[i]), types.YChild{"OtdrScan", identifier.OtdrScan[i]})
     }
     identifier.EntityData.Children.Append("otdr-status", types.YChild{"OtdrStatus", nil})
     for i := range identifier.OtdrStatus {
+        types.SetYListKey(identifier.OtdrStatus[i], i)
         identifier.EntityData.Children.Append(types.GetSegmentPath(identifier.OtdrStatus[i]), types.YChild{"OtdrStatus", identifier.OtdrStatus[i]})
     }
     identifier.EntityData.Leafs = types.NewOrderedMap()
@@ -346,6 +356,7 @@ func (otdrItem *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_OtdrIt
     otdrItem.EntityData.BundleName = "cisco_ios_xr"
     otdrItem.EntityData.ParentYangName = "identifier"
     otdrItem.EntityData.SegmentPath = "otdr-item"
+    otdrItem.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdr-details/otdr-detail/data-type-detail/identifier/" + otdrItem.EntityData.SegmentPath
     otdrItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -353,6 +364,7 @@ func (otdrItem *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_OtdrIt
     otdrItem.EntityData.Children = types.NewOrderedMap()
     otdrItem.EntityData.Children.Append("otdr-event", types.YChild{"OtdrEvent", nil})
     for i := range otdrItem.OtdrEvent {
+        types.SetYListKey(otdrItem.OtdrEvent[i], i)
         otdrItem.EntityData.Children.Append(types.GetSegmentPath(otdrItem.OtdrEvent[i]), types.YChild{"OtdrEvent", otdrItem.OtdrEvent[i]})
     }
     otdrItem.EntityData.Leafs = types.NewOrderedMap()
@@ -375,6 +387,7 @@ func (otdrItem *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_OtdrIt
 type HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_OtdrItem_OtdrEvent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Event Id. The type is interface{} with range: 0..65535.
     EventId interface{}
@@ -407,7 +420,8 @@ func (otdrEvent *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_OtdrI
     otdrEvent.EntityData.YangName = "otdr-event"
     otdrEvent.EntityData.BundleName = "cisco_ios_xr"
     otdrEvent.EntityData.ParentYangName = "otdr-item"
-    otdrEvent.EntityData.SegmentPath = "otdr-event"
+    otdrEvent.EntityData.SegmentPath = "otdr-event" + types.AddNoKeyToken(otdrEvent)
+    otdrEvent.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdr-details/otdr-detail/data-type-detail/identifier/otdr-item/" + otdrEvent.EntityData.SegmentPath
     otdrEvent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrEvent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrEvent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -433,6 +447,7 @@ func (otdrEvent *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_OtdrI
 type HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_OtdrScan struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Index. The type is interface{} with range: 0..65535.
     Index interface{}
@@ -458,7 +473,8 @@ func (otdrScan *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_OtdrSc
     otdrScan.EntityData.YangName = "otdr-scan"
     otdrScan.EntityData.BundleName = "cisco_ios_xr"
     otdrScan.EntityData.ParentYangName = "identifier"
-    otdrScan.EntityData.SegmentPath = "otdr-scan"
+    otdrScan.EntityData.SegmentPath = "otdr-scan" + types.AddNoKeyToken(otdrScan)
+    otdrScan.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdr-details/otdr-detail/data-type-detail/identifier/" + otdrScan.EntityData.SegmentPath
     otdrScan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrScan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrScan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -482,6 +498,7 @@ func (otdrScan *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_OtdrSc
 type HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_OtdrStatus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Otdr Id. The type is interface{} with range: 0..255.
     OtdrId interface{}
@@ -507,7 +524,8 @@ func (otdrStatus *HwModule_OtdrDetails_OtdrDetail_DataTypeDetail_Identifier_Otdr
     otdrStatus.EntityData.YangName = "otdr-status"
     otdrStatus.EntityData.BundleName = "cisco_ios_xr"
     otdrStatus.EntityData.ParentYangName = "identifier"
-    otdrStatus.EntityData.SegmentPath = "otdr-status"
+    otdrStatus.EntityData.SegmentPath = "otdr-status" + types.AddNoKeyToken(otdrStatus)
+    otdrStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdr-details/otdr-detail/data-type-detail/identifier/" + otdrStatus.EntityData.SegmentPath
     otdrStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -542,6 +560,7 @@ func (otdrs *HwModule_Otdrs) GetEntityData() *types.CommonEntityData {
     otdrs.EntityData.BundleName = "cisco_ios_xr"
     otdrs.EntityData.ParentYangName = "hw-module"
     otdrs.EntityData.SegmentPath = "otdrs"
+    otdrs.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/" + otdrs.EntityData.SegmentPath
     otdrs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -563,6 +582,7 @@ func (otdrs *HwModule_Otdrs) GetEntityData() *types.CommonEntityData {
 type HwModule_Otdrs_Otdr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Details associated with a particular slot number.
     // The type is interface{} with range: 1..3.
@@ -578,6 +598,7 @@ func (otdr *HwModule_Otdrs_Otdr) GetEntityData() *types.CommonEntityData {
     otdr.EntityData.BundleName = "cisco_ios_xr"
     otdr.EntityData.ParentYangName = "otdrs"
     otdr.EntityData.SegmentPath = "otdr" + types.AddKeyToken(otdr.SlotId, "slot-id")
+    otdr.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdrs/" + otdr.EntityData.SegmentPath
     otdr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -600,6 +621,7 @@ func (otdr *HwModule_Otdrs_Otdr) GetEntityData() *types.CommonEntityData {
 type HwModule_Otdrs_Otdr_DataType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Details associated with a particular Data type.
     // The type is OtsOtdrData.
@@ -621,6 +643,7 @@ func (dataType *HwModule_Otdrs_Otdr_DataType) GetEntityData() *types.CommonEntit
     dataType.EntityData.BundleName = "cisco_ios_xr"
     dataType.EntityData.ParentYangName = "otdr"
     dataType.EntityData.SegmentPath = "data-type" + types.AddKeyToken(dataType.OtdrDataType, "otdr-data-type")
+    dataType.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdrs/otdr/" + dataType.EntityData.SegmentPath
     dataType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -629,10 +652,12 @@ func (dataType *HwModule_Otdrs_Otdr_DataType) GetEntityData() *types.CommonEntit
     dataType.EntityData.Children.Append("otdr-item", types.YChild{"OtdrItem", &dataType.OtdrItem})
     dataType.EntityData.Children.Append("otdr-scan", types.YChild{"OtdrScan", nil})
     for i := range dataType.OtdrScan {
+        types.SetYListKey(dataType.OtdrScan[i], i)
         dataType.EntityData.Children.Append(types.GetSegmentPath(dataType.OtdrScan[i]), types.YChild{"OtdrScan", dataType.OtdrScan[i]})
     }
     dataType.EntityData.Children.Append("otdr-status", types.YChild{"OtdrStatus", nil})
     for i := range dataType.OtdrStatus {
+        types.SetYListKey(dataType.OtdrStatus[i], i)
         dataType.EntityData.Children.Append(types.GetSegmentPath(dataType.OtdrStatus[i]), types.YChild{"OtdrStatus", dataType.OtdrStatus[i]})
     }
     dataType.EntityData.Leafs = types.NewOrderedMap()
@@ -684,6 +709,7 @@ func (otdrItem *HwModule_Otdrs_Otdr_DataType_OtdrItem) GetEntityData() *types.Co
     otdrItem.EntityData.BundleName = "cisco_ios_xr"
     otdrItem.EntityData.ParentYangName = "data-type"
     otdrItem.EntityData.SegmentPath = "otdr-item"
+    otdrItem.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdrs/otdr/data-type/" + otdrItem.EntityData.SegmentPath
     otdrItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -691,6 +717,7 @@ func (otdrItem *HwModule_Otdrs_Otdr_DataType_OtdrItem) GetEntityData() *types.Co
     otdrItem.EntityData.Children = types.NewOrderedMap()
     otdrItem.EntityData.Children.Append("otdr-event", types.YChild{"OtdrEvent", nil})
     for i := range otdrItem.OtdrEvent {
+        types.SetYListKey(otdrItem.OtdrEvent[i], i)
         otdrItem.EntityData.Children.Append(types.GetSegmentPath(otdrItem.OtdrEvent[i]), types.YChild{"OtdrEvent", otdrItem.OtdrEvent[i]})
     }
     otdrItem.EntityData.Leafs = types.NewOrderedMap()
@@ -713,6 +740,7 @@ func (otdrItem *HwModule_Otdrs_Otdr_DataType_OtdrItem) GetEntityData() *types.Co
 type HwModule_Otdrs_Otdr_DataType_OtdrItem_OtdrEvent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Event Id. The type is interface{} with range: 0..65535.
     EventId interface{}
@@ -745,7 +773,8 @@ func (otdrEvent *HwModule_Otdrs_Otdr_DataType_OtdrItem_OtdrEvent) GetEntityData(
     otdrEvent.EntityData.YangName = "otdr-event"
     otdrEvent.EntityData.BundleName = "cisco_ios_xr"
     otdrEvent.EntityData.ParentYangName = "otdr-item"
-    otdrEvent.EntityData.SegmentPath = "otdr-event"
+    otdrEvent.EntityData.SegmentPath = "otdr-event" + types.AddNoKeyToken(otdrEvent)
+    otdrEvent.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdrs/otdr/data-type/otdr-item/" + otdrEvent.EntityData.SegmentPath
     otdrEvent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrEvent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrEvent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -771,6 +800,7 @@ func (otdrEvent *HwModule_Otdrs_Otdr_DataType_OtdrItem_OtdrEvent) GetEntityData(
 type HwModule_Otdrs_Otdr_DataType_OtdrScan struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Index. The type is interface{} with range: 0..65535.
     Index interface{}
@@ -796,7 +826,8 @@ func (otdrScan *HwModule_Otdrs_Otdr_DataType_OtdrScan) GetEntityData() *types.Co
     otdrScan.EntityData.YangName = "otdr-scan"
     otdrScan.EntityData.BundleName = "cisco_ios_xr"
     otdrScan.EntityData.ParentYangName = "data-type"
-    otdrScan.EntityData.SegmentPath = "otdr-scan"
+    otdrScan.EntityData.SegmentPath = "otdr-scan" + types.AddNoKeyToken(otdrScan)
+    otdrScan.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdrs/otdr/data-type/" + otdrScan.EntityData.SegmentPath
     otdrScan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrScan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrScan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -820,6 +851,7 @@ func (otdrScan *HwModule_Otdrs_Otdr_DataType_OtdrScan) GetEntityData() *types.Co
 type HwModule_Otdrs_Otdr_DataType_OtdrStatus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Otdr Id. The type is interface{} with range: 0..255.
     OtdrId interface{}
@@ -845,7 +877,8 @@ func (otdrStatus *HwModule_Otdrs_Otdr_DataType_OtdrStatus) GetEntityData() *type
     otdrStatus.EntityData.YangName = "otdr-status"
     otdrStatus.EntityData.BundleName = "cisco_ios_xr"
     otdrStatus.EntityData.ParentYangName = "data-type"
-    otdrStatus.EntityData.SegmentPath = "otdr-status"
+    otdrStatus.EntityData.SegmentPath = "otdr-status" + types.AddNoKeyToken(otdrStatus)
+    otdrStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-otdr-oper:hw-module/otdrs/otdr/data-type/" + otdrStatus.EntityData.SegmentPath
     otdrStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

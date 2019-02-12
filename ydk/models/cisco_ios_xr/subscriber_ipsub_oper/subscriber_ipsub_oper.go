@@ -135,6 +135,7 @@ func (ipSubscriber *IpSubscriber) GetEntityData() *types.CommonEntityData {
     ipSubscriber.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriber.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-ipsub-oper"
     ipSubscriber.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber"
+    ipSubscriber.EntityData.AbsolutePath = ipSubscriber.EntityData.SegmentPath
     ipSubscriber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -165,6 +166,7 @@ func (nodes *IpSubscriber_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "ip-subscriber"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -186,6 +188,7 @@ func (nodes *IpSubscriber_Nodes) GetEntityData() *types.CommonEntityData {
 type IpSubscriber_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node ID to filter on. For eg., 0/1/CPU0. The
     // type is string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -207,6 +210,7 @@ func (node *IpSubscriber_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -246,6 +250,7 @@ func (summary *IpSubscriber_Nodes_Node_Summary) GetEntityData() *types.CommonEnt
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -255,6 +260,7 @@ func (summary *IpSubscriber_Nodes_Node_Summary) GetEntityData() *types.CommonEnt
     summary.EntityData.Children.Append("interface-counts", types.YChild{"InterfaceCounts", &summary.InterfaceCounts})
     summary.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range summary.Vrf {
+        types.SetYListKey(summary.Vrf[i], i)
         summary.EntityData.Children.Append(types.GetSegmentPath(summary.Vrf[i]), types.YChild{"Vrf", summary.Vrf[i]})
     }
     summary.EntityData.Leafs = types.NewOrderedMap()
@@ -287,6 +293,7 @@ func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSum
     accessInterfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     accessInterfaceSummary.EntityData.ParentYangName = "summary"
     accessInterfaceSummary.EntityData.SegmentPath = "access-interface-summary"
+    accessInterfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/" + accessInterfaceSummary.EntityData.SegmentPath
     accessInterfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -321,6 +328,7 @@ func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiat
     initiators.EntityData.BundleName = "cisco_ios_xr"
     initiators.EntityData.ParentYangName = "access-interface-summary"
     initiators.EntityData.SegmentPath = "initiators"
+    initiators.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/access-interface-summary/" + initiators.EntityData.SegmentPath
     initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -356,6 +364,7 @@ func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dh
     dhcp.EntityData.BundleName = "cisco_ios_xr"
     dhcp.EntityData.ParentYangName = "initiators"
     dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/access-interface-summary/initiators/" + dhcp.EntityData.SegmentPath
     dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -391,6 +400,7 @@ func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Init
     packetTrigger.EntityData.BundleName = "cisco_ios_xr"
     packetTrigger.EntityData.ParentYangName = "initiators"
     packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/access-interface-summary/initiators/" + packetTrigger.EntityData.SegmentPath
     packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -424,6 +434,7 @@ func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv
     ipv6Initiators.EntityData.BundleName = "cisco_ios_xr"
     ipv6Initiators.EntityData.ParentYangName = "access-interface-summary"
     ipv6Initiators.EntityData.SegmentPath = "ipv6-initiators"
+    ipv6Initiators.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/access-interface-summary/" + ipv6Initiators.EntityData.SegmentPath
     ipv6Initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -459,6 +470,7 @@ func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiator
     dhcp.EntityData.BundleName = "cisco_ios_xr"
     dhcp.EntityData.ParentYangName = "ipv6-initiators"
     dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/access-interface-summary/ipv6-initiators/" + dhcp.EntityData.SegmentPath
     dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -494,6 +506,7 @@ func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6
     packetTrigger.EntityData.BundleName = "cisco_ios_xr"
     packetTrigger.EntityData.ParentYangName = "ipv6-initiators"
     packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/access-interface-summary/ipv6-initiators/" + packetTrigger.EntityData.SegmentPath
     packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -527,6 +540,7 @@ func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetEntit
     interfaceCounts.EntityData.BundleName = "cisco_ios_xr"
     interfaceCounts.EntityData.ParentYangName = "summary"
     interfaceCounts.EntityData.SegmentPath = "interface-counts"
+    interfaceCounts.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/" + interfaceCounts.EntityData.SegmentPath
     interfaceCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -560,6 +574,7 @@ func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) Ge
     initiators.EntityData.BundleName = "cisco_ios_xr"
     initiators.EntityData.ParentYangName = "interface-counts"
     initiators.EntityData.SegmentPath = "initiators"
+    initiators.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/interface-counts/" + initiators.EntityData.SegmentPath
     initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -636,6 +651,7 @@ func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) Get
     dhcp.EntityData.BundleName = "cisco_ios_xr"
     dhcp.EntityData.ParentYangName = "initiators"
     dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/interface-counts/initiators/" + dhcp.EntityData.SegmentPath
     dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -725,6 +741,7 @@ func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_
     packetTrigger.EntityData.BundleName = "cisco_ios_xr"
     packetTrigger.EntityData.ParentYangName = "initiators"
     packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/interface-counts/initiators/" + packetTrigger.EntityData.SegmentPath
     packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -771,6 +788,7 @@ func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initia
     ipv6Initiators.EntityData.BundleName = "cisco_ios_xr"
     ipv6Initiators.EntityData.ParentYangName = "interface-counts"
     ipv6Initiators.EntityData.SegmentPath = "ipv6-initiators"
+    ipv6Initiators.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/interface-counts/" + ipv6Initiators.EntityData.SegmentPath
     ipv6Initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -847,6 +865,7 @@ func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp)
     dhcp.EntityData.BundleName = "cisco_ios_xr"
     dhcp.EntityData.ParentYangName = "ipv6-initiators"
     dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/interface-counts/ipv6-initiators/" + dhcp.EntityData.SegmentPath
     dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -936,6 +955,7 @@ func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiat
     packetTrigger.EntityData.BundleName = "cisco_ios_xr"
     packetTrigger.EntityData.ParentYangName = "ipv6-initiators"
     packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/interface-counts/ipv6-initiators/" + packetTrigger.EntityData.SegmentPath
     packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -968,6 +988,7 @@ func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiat
 type IpSubscriber_Nodes_Node_Summary_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IPv4 VRF. The type is string.
     VrfName interface{}
@@ -989,7 +1010,8 @@ func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetEntityData() *types.CommonEnt
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "summary"
-    vrf.EntityData.SegmentPath = "vrf"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddNoKeyToken(vrf)
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/summary/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1023,6 +1045,7 @@ func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetEntityData() *types.Com
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1044,6 +1067,7 @@ func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetEntityData() *types.Com
 type IpSubscriber_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1128,6 +1152,7 @@ func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetEntityData() *types
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1181,6 +1206,7 @@ func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetEntityData() *ty
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "interface"
     vrf.EntityData.SegmentPath = "vrf"
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/interfaces/interface/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1214,6 +1240,7 @@ func (ipv6vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6vrf) GetEntityDa
     ipv6vrf.EntityData.BundleName = "cisco_ios_xr"
     ipv6vrf.EntityData.ParentYangName = "interface"
     ipv6vrf.EntityData.SegmentPath = "ipv6vrf"
+    ipv6vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/interfaces/interface/" + ipv6vrf.EntityData.SegmentPath
     ipv6vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1245,6 +1272,7 @@ func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetEntityData(
     accessInterfaces.EntityData.BundleName = "cisco_ios_xr"
     accessInterfaces.EntityData.ParentYangName = "node"
     accessInterfaces.EntityData.SegmentPath = "access-interfaces"
+    accessInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/" + accessInterfaces.EntityData.SegmentPath
     accessInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1266,6 +1294,7 @@ func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetEntityData(
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1309,6 +1338,7 @@ func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface)
     accessInterface.EntityData.BundleName = "cisco_ios_xr"
     accessInterface.EntityData.ParentYangName = "access-interfaces"
     accessInterface.EntityData.SegmentPath = "access-interface" + types.AddKeyToken(accessInterface.InterfaceName, "interface-name")
+    accessInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/access-interfaces/" + accessInterface.EntityData.SegmentPath
     accessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1352,6 +1382,7 @@ func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initi
     initiators.EntityData.BundleName = "cisco_ios_xr"
     initiators.EntityData.ParentYangName = "access-interface"
     initiators.EntityData.SegmentPath = "initiators"
+    initiators.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/access-interfaces/access-interface/" + initiators.EntityData.SegmentPath
     initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1425,6 +1456,7 @@ func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_
     dhcp.EntityData.BundleName = "cisco_ios_xr"
     dhcp.EntityData.ParentYangName = "initiators"
     dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/access-interfaces/access-interface/initiators/" + dhcp.EntityData.SegmentPath
     dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1506,6 +1538,7 @@ func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_In
     packetTrigger.EntityData.BundleName = "cisco_ios_xr"
     packetTrigger.EntityData.ParentYangName = "initiators"
     packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/access-interfaces/access-interface/initiators/" + packetTrigger.EntityData.SegmentPath
     packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1549,6 +1582,7 @@ func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_I
     ipv6Initiators.EntityData.BundleName = "cisco_ios_xr"
     ipv6Initiators.EntityData.ParentYangName = "access-interface"
     ipv6Initiators.EntityData.SegmentPath = "ipv6-initiators"
+    ipv6Initiators.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/access-interfaces/access-interface/" + ipv6Initiators.EntityData.SegmentPath
     ipv6Initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1622,6 +1656,7 @@ func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiat
     dhcp.EntityData.BundleName = "cisco_ios_xr"
     dhcp.EntityData.ParentYangName = "ipv6-initiators"
     dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/access-interfaces/access-interface/ipv6-initiators/" + dhcp.EntityData.SegmentPath
     dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1703,6 +1738,7 @@ func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ip
     packetTrigger.EntityData.BundleName = "cisco_ios_xr"
     packetTrigger.EntityData.ParentYangName = "ipv6-initiators"
     packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/access-interfaces/access-interface/ipv6-initiators/" + packetTrigger.EntityData.SegmentPath
     packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1745,6 +1781,7 @@ func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ses
     sessionLimit.EntityData.BundleName = "cisco_ios_xr"
     sessionLimit.EntityData.ParentYangName = "access-interface"
     sessionLimit.EntityData.SegmentPath = "session-limit"
+    sessionLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/access-interfaces/access-interface/" + sessionLimit.EntityData.SegmentPath
     sessionLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1775,6 +1812,7 @@ func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterfa
     unclassifiedSource.EntityData.BundleName = "cisco_ios_xr"
     unclassifiedSource.EntityData.ParentYangName = "session-limit"
     unclassifiedSource.EntityData.SegmentPath = "unclassified-source"
+    unclassifiedSource.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/access-interfaces/access-interface/session-limit/" + unclassifiedSource.EntityData.SegmentPath
     unclassifiedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unclassifiedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unclassifiedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1804,6 +1842,7 @@ func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLim
     total.EntityData.BundleName = "cisco_ios_xr"
     total.EntityData.ParentYangName = "session-limit"
     total.EntityData.SegmentPath = "total"
+    total.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/node/access-interfaces/access-interface/session-limit/" + total.EntityData.SegmentPath
     total.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

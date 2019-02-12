@@ -40,6 +40,7 @@ func (lawfulIntercept *LawfulIntercept) GetEntityData() *types.CommonEntityData 
     lawfulIntercept.EntityData.BundleName = "cisco_ios_xr"
     lawfulIntercept.EntityData.ParentYangName = "Cisco-IOS-XR-li-cfg"
     lawfulIntercept.EntityData.SegmentPath = "Cisco-IOS-XR-li-cfg:lawful-intercept"
+    lawfulIntercept.EntityData.AbsolutePath = lawfulIntercept.EntityData.SegmentPath
     lawfulIntercept.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lawfulIntercept.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lawfulIntercept.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

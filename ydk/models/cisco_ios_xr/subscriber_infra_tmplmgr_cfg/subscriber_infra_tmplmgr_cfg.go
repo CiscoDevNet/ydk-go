@@ -46,6 +46,7 @@ func (dynamicTemplate *DynamicTemplate) GetEntityData() *types.CommonEntityData 
     dynamicTemplate.EntityData.BundleName = "cisco_ios_xr"
     dynamicTemplate.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg"
     dynamicTemplate.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template"
+    dynamicTemplate.EntityData.AbsolutePath = dynamicTemplate.EntityData.SegmentPath
     dynamicTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -77,6 +78,7 @@ func (ppps *DynamicTemplate_Ppps) GetEntityData() *types.CommonEntityData {
     ppps.EntityData.BundleName = "cisco_ios_xr"
     ppps.EntityData.ParentYangName = "dynamic-template"
     ppps.EntityData.SegmentPath = "ppps"
+    ppps.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/" + ppps.EntityData.SegmentPath
     ppps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ppps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ppps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -98,6 +100,7 @@ func (ppps *DynamicTemplate_Ppps) GetEntityData() *types.CommonEntityData {
 type DynamicTemplate_Ppps_Ppp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the template. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -109,20 +112,20 @@ type DynamicTemplate_Ppps_Ppp struct {
     // PPPoE template configuration data.
     PppoeTemplate DynamicTemplate_Ppps_Ppp_PppoeTemplate
 
-    // Interface dhcpv6 configuration data.
-    Dhcpv6 DynamicTemplate_Ppps_Ppp_Dhcpv6
-
     // Dynamic Template PBR configuration.
     Pbr DynamicTemplate_Ppps_Ppp_Pbr
+
+    // Interface IPv4 Network configuration data.
+    Ipv4Network DynamicTemplate_Ppps_Ppp_Ipv4Network
+
+    // Interface dhcpv6 configuration data.
+    Dhcpv6 DynamicTemplate_Ppps_Ppp_Dhcpv6
 
     // Interface IPv6 Network configuration data.
     Ipv6Neighbor DynamicTemplate_Ppps_Ppp_Ipv6Neighbor
 
-    // IGMPconfiguration.
-    Igmp DynamicTemplate_Ppps_Ppp_Igmp
-
-    // Interface IPv4 Network configuration data.
-    Ipv4Network DynamicTemplate_Ppps_Ppp_Ipv4Network
+    // Subscriber accounting dynamic-template commands.
+    Accounting DynamicTemplate_Ppps_Ppp_Accounting
 
     // IPv4 Packet Filtering configuration for the template.
     Ipv4PacketFilter DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter
@@ -133,11 +136,11 @@ type DynamicTemplate_Ppps_Ppp struct {
     // Interface IPv6 Network configuration data.
     Ipv6Network DynamicTemplate_Ppps_Ppp_Ipv6Network
 
+    // IGMPconfiguration.
+    Igmp DynamicTemplate_Ppps_Ppp_Igmp
+
     // PPP template configuration data.
     PppTemplate DynamicTemplate_Ppps_Ppp_PppTemplate
-
-    // Subscriber accounting dynamic-template commands.
-    Accounting DynamicTemplate_Ppps_Ppp_Accounting
 }
 
 func (ppp *DynamicTemplate_Ppps_Ppp) GetEntityData() *types.CommonEntityData {
@@ -146,22 +149,23 @@ func (ppp *DynamicTemplate_Ppps_Ppp) GetEntityData() *types.CommonEntityData {
     ppp.EntityData.BundleName = "cisco_ios_xr"
     ppp.EntityData.ParentYangName = "ppps"
     ppp.EntityData.SegmentPath = "ppp" + types.AddKeyToken(ppp.TemplateName, "template-name")
+    ppp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/" + ppp.EntityData.SegmentPath
     ppp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ppp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ppp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ppp.EntityData.Children = types.NewOrderedMap()
     ppp.EntityData.Children.Append("Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template", types.YChild{"PppoeTemplate", &ppp.PppoeTemplate})
-    ppp.EntityData.Children.Append("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", types.YChild{"Dhcpv6", &ppp.Dhcpv6})
     ppp.EntityData.Children.Append("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", types.YChild{"Pbr", &ppp.Pbr})
-    ppp.EntityData.Children.Append("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", types.YChild{"Ipv6Neighbor", &ppp.Ipv6Neighbor})
-    ppp.EntityData.Children.Append("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", types.YChild{"Igmp", &ppp.Igmp})
     ppp.EntityData.Children.Append("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", types.YChild{"Ipv4Network", &ppp.Ipv4Network})
+    ppp.EntityData.Children.Append("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", types.YChild{"Dhcpv6", &ppp.Dhcpv6})
+    ppp.EntityData.Children.Append("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", types.YChild{"Ipv6Neighbor", &ppp.Ipv6Neighbor})
+    ppp.EntityData.Children.Append("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", types.YChild{"Accounting", &ppp.Accounting})
     ppp.EntityData.Children.Append("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", types.YChild{"Ipv4PacketFilter", &ppp.Ipv4PacketFilter})
     ppp.EntityData.Children.Append("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", types.YChild{"Ipv6PacketFilter", &ppp.Ipv6PacketFilter})
     ppp.EntityData.Children.Append("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", types.YChild{"Ipv6Network", &ppp.Ipv6Network})
+    ppp.EntityData.Children.Append("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", types.YChild{"Igmp", &ppp.Igmp})
     ppp.EntityData.Children.Append("Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template", types.YChild{"PppTemplate", &ppp.PppTemplate})
-    ppp.EntityData.Children.Append("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", types.YChild{"Accounting", &ppp.Accounting})
     ppp.EntityData.Leafs = types.NewOrderedMap()
     ppp.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ppp.TemplateName})
     ppp.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", ppp.Vrf})
@@ -190,6 +194,7 @@ func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetEntityData() *ty
     pppoeTemplate.EntityData.BundleName = "cisco_ios_xr"
     pppoeTemplate.EntityData.ParentYangName = "ppp"
     pppoeTemplate.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template"
+    pppoeTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + pppoeTemplate.EntityData.SegmentPath
     pppoeTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoeTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoeTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +206,115 @@ func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetEntityData() *ty
     pppoeTemplate.EntityData.YListKeys = []string {}
 
     return &(pppoeTemplate.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Pbr
+// Dynamic Template PBR configuration
+type DynamicTemplate_Ppps_Ppp_Pbr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Class for subscriber ingress policy. The type is string.
+    ServicePolicyIn interface{}
+
+    // PBR service policy configuration.
+    ServicePolicy DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy
+}
+
+func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetEntityData() *types.CommonEntityData {
+    pbr.EntityData.YFilter = pbr.YFilter
+    pbr.EntityData.YangName = "pbr"
+    pbr.EntityData.BundleName = "cisco_ios_xr"
+    pbr.EntityData.ParentYangName = "ppp"
+    pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+    pbr.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + pbr.EntityData.SegmentPath
+    pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbr.EntityData.Children = types.NewOrderedMap()
+    pbr.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", &pbr.ServicePolicy})
+    pbr.EntityData.Leafs = types.NewOrderedMap()
+    pbr.EntityData.Leafs.Append("service-policy-in", types.YLeaf{"ServicePolicyIn", pbr.ServicePolicyIn})
+
+    pbr.EntityData.YListKeys = []string {}
+
+    return &(pbr.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy
+// PBR service policy configuration
+type DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Ingress service policy. The type is string.
+    Input interface{}
+}
+
+func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "pbr"
+    servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-pbr-subscriber-cfg:pbr/" + servicePolicy.EntityData.SegmentPath
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servicePolicy.EntityData.Children = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("input", types.YLeaf{"Input", servicePolicy.Input})
+
+    servicePolicy.EntityData.YListKeys = []string {}
+
+    return &(servicePolicy.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Ipv4Network
+// Interface IPv4 Network configuration data
+type DynamicTemplate_Ppps_Ppp_Ipv4Network struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable IP processing without an explicit address. The type is string.
+    Unnumbered interface{}
+
+    // The IP Maximum Transmission Unit. The type is interface{} with range:
+    // 68..65535. Units are byte.
+    Mtu interface{}
+
+    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
+    // false.
+    Unreachables interface{}
+
+    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
+    // true.
+    Rpf interface{}
+}
+
+func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetEntityData() *types.CommonEntityData {
+    ipv4Network.EntityData.YFilter = ipv4Network.YFilter
+    ipv4Network.EntityData.YangName = "ipv4-network"
+    ipv4Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Network.EntityData.ParentYangName = "ppp"
+    ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+    ipv4Network.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + ipv4Network.EntityData.SegmentPath
+    ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Network.EntityData.Children = types.NewOrderedMap()
+    ipv4Network.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Network.EntityData.Leafs.Append("unnumbered", types.YLeaf{"Unnumbered", ipv4Network.Unnumbered})
+    ipv4Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv4Network.Mtu})
+    ipv4Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv4Network.Unreachables})
+    ipv4Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv4Network.Rpf})
+
+    ipv4Network.EntityData.YListKeys = []string {}
+
+    return &(ipv4Network.EntityData)
 }
 
 // DynamicTemplate_Ppps_Ppp_Dhcpv6
@@ -247,6 +361,7 @@ func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetEntityData() *types.CommonEnti
     dhcpv6.EntityData.BundleName = "cisco_ios_xr"
     dhcpv6.EntityData.ParentYangName = "ppp"
     dhcpv6.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6"
+    dhcpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + dhcpv6.EntityData.SegmentPath
     dhcpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -292,6 +407,7 @@ func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetEntit
     delegatedPrefix.EntityData.BundleName = "cisco_ios_xr"
     delegatedPrefix.EntityData.ParentYangName = "dhcpv6"
     delegatedPrefix.EntityData.SegmentPath = "delegated-prefix"
+    delegatedPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6/" + delegatedPrefix.EntityData.SegmentPath
     delegatedPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delegatedPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delegatedPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -304,68 +420,6 @@ func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetEntit
     delegatedPrefix.EntityData.YListKeys = []string {}
 
     return &(delegatedPrefix.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Pbr
-// Dynamic Template PBR configuration
-type DynamicTemplate_Ppps_Ppp_Pbr struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Class for subscriber ingress policy. The type is string.
-    ServicePolicyIn interface{}
-
-    // PBR service policy configuration.
-    ServicePolicy DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy
-}
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetEntityData() *types.CommonEntityData {
-    pbr.EntityData.YFilter = pbr.YFilter
-    pbr.EntityData.YangName = "pbr"
-    pbr.EntityData.BundleName = "cisco_ios_xr"
-    pbr.EntityData.ParentYangName = "ppp"
-    pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
-    pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pbr.EntityData.Children = types.NewOrderedMap()
-    pbr.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", &pbr.ServicePolicy})
-    pbr.EntityData.Leafs = types.NewOrderedMap()
-    pbr.EntityData.Leafs.Append("service-policy-in", types.YLeaf{"ServicePolicyIn", pbr.ServicePolicyIn})
-
-    pbr.EntityData.YListKeys = []string {}
-
-    return &(pbr.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy
-// PBR service policy configuration
-type DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Ingress service policy. The type is string.
-    Input interface{}
-}
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetEntityData() *types.CommonEntityData {
-    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
-    servicePolicy.EntityData.YangName = "service-policy"
-    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
-    servicePolicy.EntityData.ParentYangName = "pbr"
-    servicePolicy.EntityData.SegmentPath = "service-policy"
-    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    servicePolicy.EntityData.Children = types.NewOrderedMap()
-    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
-    servicePolicy.EntityData.Leafs.Append("input", types.YLeaf{"Input", servicePolicy.Input})
-
-    servicePolicy.EntityData.YListKeys = []string {}
-
-    return &(servicePolicy.EntityData)
 }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6Neighbor
@@ -442,6 +496,7 @@ func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetEntityData() *type
     ipv6Neighbor.EntityData.BundleName = "cisco_ios_xr"
     ipv6Neighbor.EntityData.ParentYangName = "ppp"
     ipv6Neighbor.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
+    ipv6Neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + ipv6Neighbor.EntityData.SegmentPath
     ipv6Neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -496,6 +551,7 @@ func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetEntityDat
     raInterval.EntityData.BundleName = "cisco_ios_xr"
     raInterval.EntityData.ParentYangName = "ipv6-neighbor"
     raInterval.EntityData.SegmentPath = "ra-interval"
+    raInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + raInterval.EntityData.SegmentPath
     raInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     raInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     raInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -534,6 +590,7 @@ func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetEntit
     framedPrefix.EntityData.BundleName = "cisco_ios_xr"
     framedPrefix.EntityData.ParentYangName = "ipv6-neighbor"
     framedPrefix.EntityData.SegmentPath = "framed-prefix"
+    framedPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + framedPrefix.EntityData.SegmentPath
     framedPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     framedPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     framedPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -565,6 +622,7 @@ func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_Duplicate
     duplicateAddressDetection.EntityData.BundleName = "cisco_ios_xr"
     duplicateAddressDetection.EntityData.ParentYangName = "ipv6-neighbor"
     duplicateAddressDetection.EntityData.SegmentPath = "duplicate-address-detection"
+    duplicateAddressDetection.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + duplicateAddressDetection.EntityData.SegmentPath
     duplicateAddressDetection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     duplicateAddressDetection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duplicateAddressDetection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -601,6 +659,7 @@ func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetEntityData(
     raInitial.EntityData.BundleName = "cisco_ios_xr"
     raInitial.EntityData.ParentYangName = "ipv6-neighbor"
     raInitial.EntityData.SegmentPath = "ra-initial"
+    raInitial.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + raInitial.EntityData.SegmentPath
     raInitial.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     raInitial.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     raInitial.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -613,6 +672,523 @@ func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetEntityData(
     raInitial.EntityData.YListKeys = []string {}
 
     return &(raInitial.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Accounting
+// Subscriber accounting dynamic-template commands
+type DynamicTemplate_Ppps_Ppp_Accounting struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Subscriber monitor feature. The type is string.
+    MonitorFeature interface{}
+
+    // Subscriber accounting prepaid feature. The type is string.
+    PrepaidFeature interface{}
+
+    // Subscriber accounting idle timeout.
+    IdleTimeout DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout
+
+    // Subscriber accounting session accounting.
+    Session DynamicTemplate_Ppps_Ppp_Accounting_Session
+
+    // Subscriber accounting service accounting.
+    ServiceAccounting DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting
+}
+
+func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "ppp"
+    accounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + accounting.EntityData.SegmentPath
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Children.Append("idle-timeout", types.YChild{"IdleTimeout", &accounting.IdleTimeout})
+    accounting.EntityData.Children.Append("session", types.YChild{"Session", &accounting.Session})
+    accounting.EntityData.Children.Append("service-accounting", types.YChild{"ServiceAccounting", &accounting.ServiceAccounting})
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+    accounting.EntityData.Leafs.Append("monitor-feature", types.YLeaf{"MonitorFeature", accounting.MonitorFeature})
+    accounting.EntityData.Leafs.Append("prepaid-feature", types.YLeaf{"PrepaidFeature", accounting.PrepaidFeature})
+
+    accounting.EntityData.YListKeys = []string {}
+
+    return &(accounting.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout
+// Subscriber accounting idle timeout
+type DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Idle timeout value in seconds. The type is interface{} with range:
+    // 60..4320000.
+    TimeoutValue interface{}
+
+    // Threshold in minute(s) per packet. The type is interface{} with range:
+    // 1..10000.
+    Threshold interface{}
+
+    // Idle timeout traffic direction. The type is string.
+    Direction interface{}
+}
+
+func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetEntityData() *types.CommonEntityData {
+    idleTimeout.EntityData.YFilter = idleTimeout.YFilter
+    idleTimeout.EntityData.YangName = "idle-timeout"
+    idleTimeout.EntityData.BundleName = "cisco_ios_xr"
+    idleTimeout.EntityData.ParentYangName = "accounting"
+    idleTimeout.EntityData.SegmentPath = "idle-timeout"
+    idleTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-subscriber-accounting-cfg:accounting/" + idleTimeout.EntityData.SegmentPath
+    idleTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    idleTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    idleTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    idleTimeout.EntityData.Children = types.NewOrderedMap()
+    idleTimeout.EntityData.Leafs = types.NewOrderedMap()
+    idleTimeout.EntityData.Leafs.Append("timeout-value", types.YLeaf{"TimeoutValue", idleTimeout.TimeoutValue})
+    idleTimeout.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", idleTimeout.Threshold})
+    idleTimeout.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", idleTimeout.Direction})
+
+    idleTimeout.EntityData.YListKeys = []string {}
+
+    return &(idleTimeout.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Accounting_Session
+// Subscriber accounting session accounting
+type DynamicTemplate_Ppps_Ppp_Accounting_Session struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Session accounting method list name. The type is string.
+    MethodListName interface{}
+
+    // Interim accounting interval in minutes. The type is interface{} with range:
+    // 0..4294967295.
+    PeriodicInterval interface{}
+
+    // Dual stack wait delay in seconds. The type is interface{} with range:
+    // 0..4294967295.
+    DualStackDelay interface{}
+
+    // Hold Accounting start based on IA_PD. The type is HoldAcctStart.
+    HoldAcctStart interface{}
+}
+
+func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "accounting"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-subscriber-accounting-cfg:accounting/" + session.EntityData.SegmentPath
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", session.MethodListName})
+    session.EntityData.Leafs.Append("periodic-interval", types.YLeaf{"PeriodicInterval", session.PeriodicInterval})
+    session.EntityData.Leafs.Append("dual-stack-delay", types.YLeaf{"DualStackDelay", session.DualStackDelay})
+    session.EntityData.Leafs.Append("hold-acct-start", types.YLeaf{"HoldAcctStart", session.HoldAcctStart})
+
+    session.EntityData.YListKeys = []string {}
+
+    return &(session.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Accounting_Session_HoldAcctStart represents Hold Accounting start based on IA_PD
+type DynamicTemplate_Ppps_Ppp_Accounting_Session_HoldAcctStart string
+
+const (
+    // Based on ipv6 delegated prefix
+    DynamicTemplate_Ppps_Ppp_Accounting_Session_HoldAcctStart_ipv6_prefix_delegation DynamicTemplate_Ppps_Ppp_Accounting_Session_HoldAcctStart = "ipv6-prefix-delegation"
+)
+
+// DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting
+// Subscriber accounting service accounting
+type DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Service accounting method list name. The type is string.
+    MethodListName interface{}
+
+    // Accounting interim interval in minutes. The type is interface{} with range:
+    // 0..4294967295.
+    AccountingInterimInterval interface{}
+}
+
+func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetEntityData() *types.CommonEntityData {
+    serviceAccounting.EntityData.YFilter = serviceAccounting.YFilter
+    serviceAccounting.EntityData.YangName = "service-accounting"
+    serviceAccounting.EntityData.BundleName = "cisco_ios_xr"
+    serviceAccounting.EntityData.ParentYangName = "accounting"
+    serviceAccounting.EntityData.SegmentPath = "service-accounting"
+    serviceAccounting.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-subscriber-accounting-cfg:accounting/" + serviceAccounting.EntityData.SegmentPath
+    serviceAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serviceAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serviceAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    serviceAccounting.EntityData.Children = types.NewOrderedMap()
+    serviceAccounting.EntityData.Leafs = types.NewOrderedMap()
+    serviceAccounting.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", serviceAccounting.MethodListName})
+    serviceAccounting.EntityData.Leafs.Append("accounting-interim-interval", types.YLeaf{"AccountingInterimInterval", serviceAccounting.AccountingInterimInterval})
+
+    serviceAccounting.EntityData.YListKeys = []string {}
+
+    return &(serviceAccounting.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter
+// IPv4 Packet Filtering configuration for the
+// template
+type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 Packet filter to be applied to outbound packets.
+    Outbound DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound
+
+    // IPv4 Packet filter to be applied to inbound packets.
+    Inbound DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound
+}
+
+func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv4PacketFilter.EntityData.YFilter = ipv4PacketFilter.YFilter
+    ipv4PacketFilter.EntityData.YangName = "ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv4PacketFilter.EntityData.ParentYangName = "ppp"
+    ipv4PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + ipv4PacketFilter.EntityData.SegmentPath
+    ipv4PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4PacketFilter.EntityData.Children = types.NewOrderedMap()
+    ipv4PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv4PacketFilter.Outbound})
+    ipv4PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv4PacketFilter.Inbound})
+    ipv4PacketFilter.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4PacketFilter.EntityData.YListKeys = []string {}
+
+    return &(ipv4PacketFilter.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound
+// IPv4 Packet filter to be applied to outbound
+// packets
+type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv4 Packet Filter Name to be applied to Outbound packets. The type is
+    // string with length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    HardwareCount interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter/" + outbound.EntityData.SegmentPath
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    outbound.EntityData.Children = types.NewOrderedMap()
+    outbound.EntityData.Leafs = types.NewOrderedMap()
+    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
+    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
+    outbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", outbound.HardwareCount})
+    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
+
+    outbound.EntityData.YListKeys = []string {}
+
+    return &(outbound.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound
+// IPv4 Packet filter to be applied to inbound
+// packets
+type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv4 Packet Filter Name to be applied to Inbound packets NOTE: This
+    // parameter is mandatory if 'CommonACLName' is not specified. The type is
+    // string with length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    HardwareCount interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter/" + inbound.EntityData.SegmentPath
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    inbound.EntityData.Children = types.NewOrderedMap()
+    inbound.EntityData.Leafs = types.NewOrderedMap()
+    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
+    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
+    inbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", inbound.HardwareCount})
+    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
+
+    inbound.EntityData.YListKeys = []string {}
+
+    return &(inbound.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter
+// IPv6 Packet Filtering configuration for the
+// interface
+type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 Packet filter to be applied to inbound packets.
+    Inbound DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound
+
+    // IPv6 Packet filter to be applied to outbound packets.
+    Outbound DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound
+}
+
+func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv6PacketFilter.EntityData.YFilter = ipv6PacketFilter.YFilter
+    ipv6PacketFilter.EntityData.YangName = "ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv6PacketFilter.EntityData.ParentYangName = "ppp"
+    ipv6PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + ipv6PacketFilter.EntityData.SegmentPath
+    ipv6PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6PacketFilter.EntityData.Children = types.NewOrderedMap()
+    ipv6PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv6PacketFilter.Inbound})
+    ipv6PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv6PacketFilter.Outbound})
+    ipv6PacketFilter.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6PacketFilter.EntityData.YListKeys = []string {}
+
+    return &(ipv6PacketFilter.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound
+// IPv6 Packet filter to be applied to inbound
+// packets
+type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv6 Packet Filter Name to be applied to Inbound  NOTE: This parameter is
+    // mandatory if 'CommonACLName' is not specified. The type is string with
+    // length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter/" + inbound.EntityData.SegmentPath
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    inbound.EntityData.Children = types.NewOrderedMap()
+    inbound.EntityData.Leafs = types.NewOrderedMap()
+    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
+    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
+    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
+
+    inbound.EntityData.YListKeys = []string {}
+
+    return &(inbound.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound
+// IPv6 Packet filter to be applied to outbound
+// packets
+type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv6 Packet Filter Name to be applied to Outbound packets. The type is
+    // string with length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter/" + outbound.EntityData.SegmentPath
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    outbound.EntityData.Children = types.NewOrderedMap()
+    outbound.EntityData.Leafs = types.NewOrderedMap()
+    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
+    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
+    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
+
+    outbound.EntityData.YListKeys = []string {}
+
+    return &(outbound.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Ipv6Network
+// Interface IPv6 Network configuration data
+type DynamicTemplate_Ppps_Ppp_Ipv6Network struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MTU Setting of Interface. The type is interface{} with range: 1280..65535.
+    // Units are byte.
+    Mtu interface{}
+
+    // TRUE if enabled, FALSE if disabled. The type is bool.
+    Rpf interface{}
+
+    // Override Sending of ICMP Unreachable Messages. The type is interface{}.
+    Unreachables interface{}
+
+    // Set the IPv6 address of an interface.
+    Addresses DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses
+}
+
+func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetEntityData() *types.CommonEntityData {
+    ipv6Network.EntityData.YFilter = ipv6Network.YFilter
+    ipv6Network.EntityData.YangName = "ipv6-network"
+    ipv6Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Network.EntityData.ParentYangName = "ppp"
+    ipv6Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
+    ipv6Network.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + ipv6Network.EntityData.SegmentPath
+    ipv6Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Network.EntityData.Children = types.NewOrderedMap()
+    ipv6Network.EntityData.Children.Append("addresses", types.YChild{"Addresses", &ipv6Network.Addresses})
+    ipv6Network.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv6Network.Mtu})
+    ipv6Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv6Network.Rpf})
+    ipv6Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv6Network.Unreachables})
+
+    ipv6Network.EntityData.YListKeys = []string {}
+
+    return &(ipv6Network.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses
+// Set the IPv6 address of an interface
+type DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Auto IPv6 Interface Configuration.
+    AutoConfiguration DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration
+}
+
+func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetEntityData() *types.CommonEntityData {
+    addresses.EntityData.YFilter = addresses.YFilter
+    addresses.EntityData.YangName = "addresses"
+    addresses.EntityData.BundleName = "cisco_ios_xr"
+    addresses.EntityData.ParentYangName = "ipv6-network"
+    addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network/" + addresses.EntityData.SegmentPath
+    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addresses.EntityData.Children = types.NewOrderedMap()
+    addresses.EntityData.Children.Append("auto-configuration", types.YChild{"AutoConfiguration", &addresses.AutoConfiguration})
+    addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    addresses.EntityData.YListKeys = []string {}
+
+    return &(addresses.EntityData)
+}
+
+// DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration
+// Auto IPv6 Interface Configuration
+type DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The flag to enable auto ipv6 interface configuration. The type is
+    // interface{}.
+    Enable interface{}
+}
+
+func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetEntityData() *types.CommonEntityData {
+    autoConfiguration.EntityData.YFilter = autoConfiguration.YFilter
+    autoConfiguration.EntityData.YangName = "auto-configuration"
+    autoConfiguration.EntityData.BundleName = "cisco_ios_xr"
+    autoConfiguration.EntityData.ParentYangName = "addresses"
+    autoConfiguration.EntityData.SegmentPath = "auto-configuration"
+    autoConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network/addresses/" + autoConfiguration.EntityData.SegmentPath
+    autoConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    autoConfiguration.EntityData.Children = types.NewOrderedMap()
+    autoConfiguration.EntityData.Leafs = types.NewOrderedMap()
+    autoConfiguration.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoConfiguration.Enable})
+
+    autoConfiguration.EntityData.YListKeys = []string {}
+
+    return &(autoConfiguration.EntityData)
 }
 
 // DynamicTemplate_Ppps_Ppp_Igmp
@@ -631,6 +1207,7 @@ func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetEntityData() *types.CommonEntityDa
     igmp.EntityData.BundleName = "cisco_ios_xr"
     igmp.EntityData.ParentYangName = "ppp"
     igmp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"
+    igmp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + igmp.EntityData.SegmentPath
     igmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -683,6 +1260,7 @@ func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetEntityData() *typ
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "igmp"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -725,6 +1303,7 @@ func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTrackin
     explicitTracking.EntityData.BundleName = "cisco_ios_xr"
     explicitTracking.EntityData.ParentYangName = "default-vrf"
     explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp/default-vrf/" + explicitTracking.EntityData.SegmentPath
     explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -737,385 +1316,6 @@ func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTrackin
     explicitTracking.EntityData.YListKeys = []string {}
 
     return &(explicitTracking.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Ipv4Network
-// Interface IPv4 Network configuration data
-type DynamicTemplate_Ppps_Ppp_Ipv4Network struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable IP processing without an explicit address. The type is string.
-    Unnumbered interface{}
-
-    // The IP Maximum Transmission Unit. The type is interface{} with range:
-    // 68..65535. Units are byte.
-    Mtu interface{}
-
-    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
-    // false.
-    Unreachables interface{}
-
-    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
-    // true.
-    Rpf interface{}
-}
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetEntityData() *types.CommonEntityData {
-    ipv4Network.EntityData.YFilter = ipv4Network.YFilter
-    ipv4Network.EntityData.YangName = "ipv4-network"
-    ipv4Network.EntityData.BundleName = "cisco_ios_xr"
-    ipv4Network.EntityData.ParentYangName = "ppp"
-    ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
-    ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv4Network.EntityData.Children = types.NewOrderedMap()
-    ipv4Network.EntityData.Leafs = types.NewOrderedMap()
-    ipv4Network.EntityData.Leafs.Append("unnumbered", types.YLeaf{"Unnumbered", ipv4Network.Unnumbered})
-    ipv4Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv4Network.Mtu})
-    ipv4Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv4Network.Unreachables})
-    ipv4Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv4Network.Rpf})
-
-    ipv4Network.EntityData.YListKeys = []string {}
-
-    return &(ipv4Network.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter
-// IPv4 Packet Filtering configuration for the
-// template
-type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // IPv4 Packet filter to be applied to outbound packets.
-    Outbound DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound
-
-    // IPv4 Packet filter to be applied to inbound packets.
-    Inbound DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound
-}
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetEntityData() *types.CommonEntityData {
-    ipv4PacketFilter.EntityData.YFilter = ipv4PacketFilter.YFilter
-    ipv4PacketFilter.EntityData.YangName = "ipv4-packet-filter"
-    ipv4PacketFilter.EntityData.BundleName = "cisco_ios_xr"
-    ipv4PacketFilter.EntityData.ParentYangName = "ppp"
-    ipv4PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
-    ipv4PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv4PacketFilter.EntityData.Children = types.NewOrderedMap()
-    ipv4PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv4PacketFilter.Outbound})
-    ipv4PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv4PacketFilter.Inbound})
-    ipv4PacketFilter.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv4PacketFilter.EntityData.YListKeys = []string {}
-
-    return &(ipv4PacketFilter.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound
-// IPv4 Packet filter to be applied to outbound
-// packets
-type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv4 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    HardwareCount interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
-    outbound.EntityData.YFilter = outbound.YFilter
-    outbound.EntityData.YangName = "outbound"
-    outbound.EntityData.BundleName = "cisco_ios_xr"
-    outbound.EntityData.ParentYangName = "ipv4-packet-filter"
-    outbound.EntityData.SegmentPath = "outbound"
-    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    outbound.EntityData.Children = types.NewOrderedMap()
-    outbound.EntityData.Leafs = types.NewOrderedMap()
-    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
-    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
-    outbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", outbound.HardwareCount})
-    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
-
-    outbound.EntityData.YListKeys = []string {}
-
-    return &(outbound.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound
-// IPv4 Packet filter to be applied to inbound
-// packets
-type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv4 Packet Filter Name to be applied to Inbound packets NOTE: This
-    // parameter is mandatory if 'CommonACLName' is not specified. The type is
-    // string with length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    HardwareCount interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
-    inbound.EntityData.YFilter = inbound.YFilter
-    inbound.EntityData.YangName = "inbound"
-    inbound.EntityData.BundleName = "cisco_ios_xr"
-    inbound.EntityData.ParentYangName = "ipv4-packet-filter"
-    inbound.EntityData.SegmentPath = "inbound"
-    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    inbound.EntityData.Children = types.NewOrderedMap()
-    inbound.EntityData.Leafs = types.NewOrderedMap()
-    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
-    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
-    inbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", inbound.HardwareCount})
-    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
-
-    inbound.EntityData.YListKeys = []string {}
-
-    return &(inbound.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter
-// IPv6 Packet Filtering configuration for the
-// interface
-type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // IPv6 Packet filter to be applied to inbound packets.
-    Inbound DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound
-
-    // IPv6 Packet filter to be applied to outbound packets.
-    Outbound DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound
-}
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetEntityData() *types.CommonEntityData {
-    ipv6PacketFilter.EntityData.YFilter = ipv6PacketFilter.YFilter
-    ipv6PacketFilter.EntityData.YangName = "ipv6-packet-filter"
-    ipv6PacketFilter.EntityData.BundleName = "cisco_ios_xr"
-    ipv6PacketFilter.EntityData.ParentYangName = "ppp"
-    ipv6PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
-    ipv6PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv6PacketFilter.EntityData.Children = types.NewOrderedMap()
-    ipv6PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv6PacketFilter.Inbound})
-    ipv6PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv6PacketFilter.Outbound})
-    ipv6PacketFilter.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv6PacketFilter.EntityData.YListKeys = []string {}
-
-    return &(ipv6PacketFilter.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound
-// IPv6 Packet filter to be applied to inbound
-// packets
-type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv6 Packet Filter Name to be applied to Inbound  NOTE: This parameter is
-    // mandatory if 'CommonACLName' is not specified. The type is string with
-    // length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
-    inbound.EntityData.YFilter = inbound.YFilter
-    inbound.EntityData.YangName = "inbound"
-    inbound.EntityData.BundleName = "cisco_ios_xr"
-    inbound.EntityData.ParentYangName = "ipv6-packet-filter"
-    inbound.EntityData.SegmentPath = "inbound"
-    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    inbound.EntityData.Children = types.NewOrderedMap()
-    inbound.EntityData.Leafs = types.NewOrderedMap()
-    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
-    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
-    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
-
-    inbound.EntityData.YListKeys = []string {}
-
-    return &(inbound.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound
-// IPv6 Packet filter to be applied to outbound
-// packets
-type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv6 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
-    outbound.EntityData.YFilter = outbound.YFilter
-    outbound.EntityData.YangName = "outbound"
-    outbound.EntityData.BundleName = "cisco_ios_xr"
-    outbound.EntityData.ParentYangName = "ipv6-packet-filter"
-    outbound.EntityData.SegmentPath = "outbound"
-    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    outbound.EntityData.Children = types.NewOrderedMap()
-    outbound.EntityData.Leafs = types.NewOrderedMap()
-    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
-    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
-    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
-
-    outbound.EntityData.YListKeys = []string {}
-
-    return &(outbound.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Ipv6Network
-// Interface IPv6 Network configuration data
-type DynamicTemplate_Ppps_Ppp_Ipv6Network struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // MTU Setting of Interface. The type is interface{} with range: 1280..65535.
-    // Units are byte.
-    Mtu interface{}
-
-    // TRUE if enabled, FALSE if disabled. The type is bool.
-    Rpf interface{}
-
-    // Override Sending of ICMP Unreachable Messages. The type is interface{}.
-    Unreachables interface{}
-
-    // Set the IPv6 address of an interface.
-    Addresses DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses
-}
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetEntityData() *types.CommonEntityData {
-    ipv6Network.EntityData.YFilter = ipv6Network.YFilter
-    ipv6Network.EntityData.YangName = "ipv6-network"
-    ipv6Network.EntityData.BundleName = "cisco_ios_xr"
-    ipv6Network.EntityData.ParentYangName = "ppp"
-    ipv6Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
-    ipv6Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv6Network.EntityData.Children = types.NewOrderedMap()
-    ipv6Network.EntityData.Children.Append("addresses", types.YChild{"Addresses", &ipv6Network.Addresses})
-    ipv6Network.EntityData.Leafs = types.NewOrderedMap()
-    ipv6Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv6Network.Mtu})
-    ipv6Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv6Network.Rpf})
-    ipv6Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv6Network.Unreachables})
-
-    ipv6Network.EntityData.YListKeys = []string {}
-
-    return &(ipv6Network.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses
-// Set the IPv6 address of an interface
-type DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Auto IPv6 Interface Configuration.
-    AutoConfiguration DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration
-}
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetEntityData() *types.CommonEntityData {
-    addresses.EntityData.YFilter = addresses.YFilter
-    addresses.EntityData.YangName = "addresses"
-    addresses.EntityData.BundleName = "cisco_ios_xr"
-    addresses.EntityData.ParentYangName = "ipv6-network"
-    addresses.EntityData.SegmentPath = "addresses"
-    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    addresses.EntityData.Children = types.NewOrderedMap()
-    addresses.EntityData.Children.Append("auto-configuration", types.YChild{"AutoConfiguration", &addresses.AutoConfiguration})
-    addresses.EntityData.Leafs = types.NewOrderedMap()
-
-    addresses.EntityData.YListKeys = []string {}
-
-    return &(addresses.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration
-// Auto IPv6 Interface Configuration
-type DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The flag to enable auto ipv6 interface configuration. The type is
-    // interface{}.
-    Enable interface{}
-}
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetEntityData() *types.CommonEntityData {
-    autoConfiguration.EntityData.YFilter = autoConfiguration.YFilter
-    autoConfiguration.EntityData.YangName = "auto-configuration"
-    autoConfiguration.EntityData.BundleName = "cisco_ios_xr"
-    autoConfiguration.EntityData.ParentYangName = "addresses"
-    autoConfiguration.EntityData.SegmentPath = "auto-configuration"
-    autoConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    autoConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    autoConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    autoConfiguration.EntityData.Children = types.NewOrderedMap()
-    autoConfiguration.EntityData.Leafs = types.NewOrderedMap()
-    autoConfiguration.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoConfiguration.Enable})
-
-    autoConfiguration.EntityData.YListKeys = []string {}
-
-    return &(autoConfiguration.EntityData)
 }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate
@@ -1143,6 +1343,7 @@ func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetEntityData() *types.
     pppTemplate.EntityData.BundleName = "cisco_ios_xr"
     pppTemplate.EntityData.ParentYangName = "ppp"
     pppTemplate.EntityData.SegmentPath = "Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template"
+    pppTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/" + pppTemplate.EntityData.SegmentPath
     pppTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1189,6 +1390,7 @@ func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetEntityData() *types.Comm
     fsm.EntityData.BundleName = "cisco_ios_xr"
     fsm.EntityData.ParentYangName = "ppp-template"
     fsm.EntityData.SegmentPath = "fsm"
+    fsm.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/" + fsm.EntityData.SegmentPath
     fsm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fsm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fsm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1245,6 +1447,7 @@ func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetEntityData() *types.Comm
     lcp.EntityData.BundleName = "cisco_ios_xr"
     lcp.EntityData.ParentYangName = "ppp-template"
     lcp.EntityData.SegmentPath = "lcp"
+    lcp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/" + lcp.EntityData.SegmentPath
     lcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1285,6 +1488,7 @@ func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout)
     absoluteTimeout.EntityData.BundleName = "cisco_ios_xr"
     absoluteTimeout.EntityData.ParentYangName = "lcp"
     absoluteTimeout.EntityData.SegmentPath = "absolute-timeout"
+    absoluteTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/lcp/" + absoluteTimeout.EntityData.SegmentPath
     absoluteTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     absoluteTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     absoluteTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1319,6 +1523,7 @@ func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetEntityData() *ty
     delay.EntityData.BundleName = "cisco_ios_xr"
     delay.EntityData.ParentYangName = "lcp"
     delay.EntityData.SegmentPath = "delay"
+    delay.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/lcp/" + delay.EntityData.SegmentPath
     delay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1367,6 +1572,7 @@ func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) G
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "lcp"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/lcp/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1403,6 +1609,7 @@ func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) 
     methods.EntityData.BundleName = "cisco_ios_xr"
     methods.EntityData.ParentYangName = "authentication"
     methods.EntityData.SegmentPath = "methods"
+    methods.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/lcp/authentication/" + methods.EntityData.SegmentPath
     methods.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     methods.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     methods.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1442,6 +1649,7 @@ func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetEntityDa
     keepalive.EntityData.BundleName = "cisco_ios_xr"
     keepalive.EntityData.ParentYangName = "lcp"
     keepalive.EntityData.SegmentPath = "keepalive"
+    keepalive.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/lcp/" + keepalive.EntityData.SegmentPath
     keepalive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keepalive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepalive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1483,6 +1691,7 @@ func (ipv6cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6cp) GetEntityData() *type
     ipv6cp.EntityData.BundleName = "cisco_ios_xr"
     ipv6cp.EntityData.ParentYangName = "ppp-template"
     ipv6cp.EntityData.SegmentPath = "ipv6cp"
+    ipv6cp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/" + ipv6cp.EntityData.SegmentPath
     ipv6cp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6cp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6cp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1536,6 +1745,7 @@ func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetEntityData() *types.Co
     ipcp.EntityData.BundleName = "cisco_ios_xr"
     ipcp.EntityData.ParentYangName = "ppp-template"
     ipcp.EntityData.SegmentPath = "ipcp"
+    ipcp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/" + ipcp.EntityData.SegmentPath
     ipcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1571,6 +1781,7 @@ func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetEntityData() *typ
     wins.EntityData.BundleName = "cisco_ios_xr"
     wins.EntityData.ParentYangName = "ipcp"
     wins.EntityData.SegmentPath = "wins"
+    wins.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/ipcp/" + wins.EntityData.SegmentPath
     wins.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1605,6 +1816,7 @@ func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresse
     winsAddresses.EntityData.BundleName = "cisco_ios_xr"
     winsAddresses.EntityData.ParentYangName = "wins"
     winsAddresses.EntityData.SegmentPath = "wins-addresses"
+    winsAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/ipcp/wins/" + winsAddresses.EntityData.SegmentPath
     winsAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     winsAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     winsAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1635,6 +1847,7 @@ func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetEntityData() *types
     dns.EntityData.BundleName = "cisco_ios_xr"
     dns.EntityData.ParentYangName = "ipcp"
     dns.EntityData.SegmentPath = "dns"
+    dns.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/ipcp/" + dns.EntityData.SegmentPath
     dns.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dns.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dns.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1669,6 +1882,7 @@ func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) 
     dnsAddresses.EntityData.BundleName = "cisco_ios_xr"
     dnsAddresses.EntityData.ParentYangName = "dns"
     dnsAddresses.EntityData.SegmentPath = "dns-addresses"
+    dnsAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/ipcp/dns/" + dnsAddresses.EntityData.SegmentPath
     dnsAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnsAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnsAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1705,6 +1919,7 @@ func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetEnt
     peerAddress.EntityData.BundleName = "cisco_ios_xr"
     peerAddress.EntityData.ParentYangName = "ipcp"
     peerAddress.EntityData.SegmentPath = "peer-address"
+    peerAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/ppp/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template/ipcp/" + peerAddress.EntityData.SegmentPath
     peerAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1717,175 +1932,6 @@ func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetEnt
     peerAddress.EntityData.YListKeys = []string {}
 
     return &(peerAddress.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Accounting
-// Subscriber accounting dynamic-template commands
-type DynamicTemplate_Ppps_Ppp_Accounting struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Subscriber monitor feature. The type is string.
-    MonitorFeature interface{}
-
-    // Subscriber accounting prepaid feature. The type is string.
-    PrepaidFeature interface{}
-
-    // Subscriber accounting idle timeout.
-    IdleTimeout DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout
-
-    // Subscriber accounting session accounting.
-    Session DynamicTemplate_Ppps_Ppp_Accounting_Session
-
-    // Subscriber accounting service accounting.
-    ServiceAccounting DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting
-}
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetEntityData() *types.CommonEntityData {
-    accounting.EntityData.YFilter = accounting.YFilter
-    accounting.EntityData.YangName = "accounting"
-    accounting.EntityData.BundleName = "cisco_ios_xr"
-    accounting.EntityData.ParentYangName = "ppp"
-    accounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    accounting.EntityData.Children = types.NewOrderedMap()
-    accounting.EntityData.Children.Append("idle-timeout", types.YChild{"IdleTimeout", &accounting.IdleTimeout})
-    accounting.EntityData.Children.Append("session", types.YChild{"Session", &accounting.Session})
-    accounting.EntityData.Children.Append("service-accounting", types.YChild{"ServiceAccounting", &accounting.ServiceAccounting})
-    accounting.EntityData.Leafs = types.NewOrderedMap()
-    accounting.EntityData.Leafs.Append("monitor-feature", types.YLeaf{"MonitorFeature", accounting.MonitorFeature})
-    accounting.EntityData.Leafs.Append("prepaid-feature", types.YLeaf{"PrepaidFeature", accounting.PrepaidFeature})
-
-    accounting.EntityData.YListKeys = []string {}
-
-    return &(accounting.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout
-// Subscriber accounting idle timeout
-type DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Idle timeout value in seconds. The type is interface{} with range:
-    // 60..4320000.
-    TimeoutValue interface{}
-
-    // Threshold in minute(s) per packet. The type is interface{} with range:
-    // 1..10000.
-    Threshold interface{}
-
-    // Idle timeout traffic direction. The type is string.
-    Direction interface{}
-}
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetEntityData() *types.CommonEntityData {
-    idleTimeout.EntityData.YFilter = idleTimeout.YFilter
-    idleTimeout.EntityData.YangName = "idle-timeout"
-    idleTimeout.EntityData.BundleName = "cisco_ios_xr"
-    idleTimeout.EntityData.ParentYangName = "accounting"
-    idleTimeout.EntityData.SegmentPath = "idle-timeout"
-    idleTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    idleTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    idleTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    idleTimeout.EntityData.Children = types.NewOrderedMap()
-    idleTimeout.EntityData.Leafs = types.NewOrderedMap()
-    idleTimeout.EntityData.Leafs.Append("timeout-value", types.YLeaf{"TimeoutValue", idleTimeout.TimeoutValue})
-    idleTimeout.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", idleTimeout.Threshold})
-    idleTimeout.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", idleTimeout.Direction})
-
-    idleTimeout.EntityData.YListKeys = []string {}
-
-    return &(idleTimeout.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Accounting_Session
-// Subscriber accounting session accounting
-type DynamicTemplate_Ppps_Ppp_Accounting_Session struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Session accounting method list name. The type is string.
-    MethodListName interface{}
-
-    // Interim accounting interval in minutes. The type is interface{} with range:
-    // 0..4294967295.
-    PeriodicInterval interface{}
-
-    // Dual stack wait delay in seconds. The type is interface{} with range:
-    // 0..4294967295.
-    DualStackDelay interface{}
-
-    // Hold Accounting start based on IA_PD. The type is HoldAcctStart.
-    HoldAcctStart interface{}
-}
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetEntityData() *types.CommonEntityData {
-    session.EntityData.YFilter = session.YFilter
-    session.EntityData.YangName = "session"
-    session.EntityData.BundleName = "cisco_ios_xr"
-    session.EntityData.ParentYangName = "accounting"
-    session.EntityData.SegmentPath = "session"
-    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    session.EntityData.Children = types.NewOrderedMap()
-    session.EntityData.Leafs = types.NewOrderedMap()
-    session.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", session.MethodListName})
-    session.EntityData.Leafs.Append("periodic-interval", types.YLeaf{"PeriodicInterval", session.PeriodicInterval})
-    session.EntityData.Leafs.Append("dual-stack-delay", types.YLeaf{"DualStackDelay", session.DualStackDelay})
-    session.EntityData.Leafs.Append("hold-acct-start", types.YLeaf{"HoldAcctStart", session.HoldAcctStart})
-
-    session.EntityData.YListKeys = []string {}
-
-    return &(session.EntityData)
-}
-
-// DynamicTemplate_Ppps_Ppp_Accounting_Session_HoldAcctStart represents Hold Accounting start based on IA_PD
-type DynamicTemplate_Ppps_Ppp_Accounting_Session_HoldAcctStart string
-
-const (
-    // Based on ipv6 delegated prefix
-    DynamicTemplate_Ppps_Ppp_Accounting_Session_HoldAcctStart_ipv6_prefix_delegation DynamicTemplate_Ppps_Ppp_Accounting_Session_HoldAcctStart = "ipv6-prefix-delegation"
-)
-
-// DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting
-// Subscriber accounting service accounting
-type DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Service accounting method list name. The type is string.
-    MethodListName interface{}
-
-    // Accounting interim interval in minutes. The type is interface{} with range:
-    // 0..4294967295.
-    AccountingInterimInterval interface{}
-}
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetEntityData() *types.CommonEntityData {
-    serviceAccounting.EntityData.YFilter = serviceAccounting.YFilter
-    serviceAccounting.EntityData.YangName = "service-accounting"
-    serviceAccounting.EntityData.BundleName = "cisco_ios_xr"
-    serviceAccounting.EntityData.ParentYangName = "accounting"
-    serviceAccounting.EntityData.SegmentPath = "service-accounting"
-    serviceAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    serviceAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    serviceAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    serviceAccounting.EntityData.Children = types.NewOrderedMap()
-    serviceAccounting.EntityData.Leafs = types.NewOrderedMap()
-    serviceAccounting.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", serviceAccounting.MethodListName})
-    serviceAccounting.EntityData.Leafs.Append("accounting-interim-interval", types.YLeaf{"AccountingInterimInterval", serviceAccounting.AccountingInterimInterval})
-
-    serviceAccounting.EntityData.YListKeys = []string {}
-
-    return &(serviceAccounting.EntityData)
 }
 
 // DynamicTemplate_IpSubscribers
@@ -1905,6 +1951,7 @@ func (ipSubscribers *DynamicTemplate_IpSubscribers) GetEntityData() *types.Commo
     ipSubscribers.EntityData.BundleName = "cisco_ios_xr"
     ipSubscribers.EntityData.ParentYangName = "dynamic-template"
     ipSubscribers.EntityData.SegmentPath = "ip-subscribers"
+    ipSubscribers.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/" + ipSubscribers.EntityData.SegmentPath
     ipSubscribers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscribers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscribers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1926,6 +1973,7 @@ func (ipSubscribers *DynamicTemplate_IpSubscribers) GetEntityData() *types.Commo
 type DynamicTemplate_IpSubscribers_IpSubscriber struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the template. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1934,23 +1982,23 @@ type DynamicTemplate_IpSubscribers_IpSubscriber struct {
     // Assign the interface to a VRF . The type is string with length: 1..32.
     Vrf interface{}
 
-    // Interface dhcpv6 configuration data.
-    Dhcpv6 DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6
-
     // Dynamic Template PBR configuration.
     Pbr DynamicTemplate_IpSubscribers_IpSubscriber_Pbr
+
+    // Interface IPv4 Network configuration data.
+    Ipv4Network DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network
+
+    // Interface dhcpv6 configuration data.
+    Dhcpv6 DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6
 
     // Interface IPv6 Network configuration data.
     Ipv6Neighbor DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor
 
-    // IGMPconfiguration.
-    Igmp DynamicTemplate_IpSubscribers_IpSubscriber_Igmp
+    // Subscriber accounting dynamic-template commands.
+    Accounting DynamicTemplate_IpSubscribers_IpSubscriber_Accounting
 
     // Interface dhcpv4 configuration data.
     Dhcpd DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd
-
-    // Interface IPv4 Network configuration data.
-    Ipv4Network DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network
 
     // IPv4 Packet Filtering configuration for the template.
     Ipv4PacketFilter DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter
@@ -1961,8 +2009,8 @@ type DynamicTemplate_IpSubscribers_IpSubscriber struct {
     // Interface IPv6 Network configuration data.
     Ipv6Network DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network
 
-    // Subscriber accounting dynamic-template commands.
-    Accounting DynamicTemplate_IpSubscribers_IpSubscriber_Accounting
+    // IGMPconfiguration.
+    Igmp DynamicTemplate_IpSubscribers_IpSubscriber_Igmp
 }
 
 func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetEntityData() *types.CommonEntityData {
@@ -1971,21 +2019,22 @@ func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetEntityData() 
     ipSubscriber.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriber.EntityData.ParentYangName = "ip-subscribers"
     ipSubscriber.EntityData.SegmentPath = "ip-subscriber" + types.AddKeyToken(ipSubscriber.TemplateName, "template-name")
+    ipSubscriber.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/" + ipSubscriber.EntityData.SegmentPath
     ipSubscriber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipSubscriber.EntityData.Children = types.NewOrderedMap()
-    ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", types.YChild{"Dhcpv6", &ipSubscriber.Dhcpv6})
     ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", types.YChild{"Pbr", &ipSubscriber.Pbr})
-    ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", types.YChild{"Ipv6Neighbor", &ipSubscriber.Ipv6Neighbor})
-    ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", types.YChild{"Igmp", &ipSubscriber.Igmp})
-    ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd", types.YChild{"Dhcpd", &ipSubscriber.Dhcpd})
     ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", types.YChild{"Ipv4Network", &ipSubscriber.Ipv4Network})
+    ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6", types.YChild{"Dhcpv6", &ipSubscriber.Dhcpv6})
+    ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", types.YChild{"Ipv6Neighbor", &ipSubscriber.Ipv6Neighbor})
+    ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", types.YChild{"Accounting", &ipSubscriber.Accounting})
+    ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd", types.YChild{"Dhcpd", &ipSubscriber.Dhcpd})
     ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", types.YChild{"Ipv4PacketFilter", &ipSubscriber.Ipv4PacketFilter})
     ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", types.YChild{"Ipv6PacketFilter", &ipSubscriber.Ipv6PacketFilter})
     ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", types.YChild{"Ipv6Network", &ipSubscriber.Ipv6Network})
-    ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", types.YChild{"Accounting", &ipSubscriber.Accounting})
+    ipSubscriber.EntityData.Children.Append("Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp", types.YChild{"Igmp", &ipSubscriber.Igmp})
     ipSubscriber.EntityData.Leafs = types.NewOrderedMap()
     ipSubscriber.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", ipSubscriber.TemplateName})
     ipSubscriber.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", ipSubscriber.Vrf})
@@ -1993,6 +2042,115 @@ func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetEntityData() 
     ipSubscriber.EntityData.YListKeys = []string {"TemplateName"}
 
     return &(ipSubscriber.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Pbr
+// Dynamic Template PBR configuration
+type DynamicTemplate_IpSubscribers_IpSubscriber_Pbr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Class for subscriber ingress policy. The type is string.
+    ServicePolicyIn interface{}
+
+    // PBR service policy configuration.
+    ServicePolicy DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy
+}
+
+func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetEntityData() *types.CommonEntityData {
+    pbr.EntityData.YFilter = pbr.YFilter
+    pbr.EntityData.YangName = "pbr"
+    pbr.EntityData.BundleName = "cisco_ios_xr"
+    pbr.EntityData.ParentYangName = "ip-subscriber"
+    pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+    pbr.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/" + pbr.EntityData.SegmentPath
+    pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbr.EntityData.Children = types.NewOrderedMap()
+    pbr.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", &pbr.ServicePolicy})
+    pbr.EntityData.Leafs = types.NewOrderedMap()
+    pbr.EntityData.Leafs.Append("service-policy-in", types.YLeaf{"ServicePolicyIn", pbr.ServicePolicyIn})
+
+    pbr.EntityData.YListKeys = []string {}
+
+    return &(pbr.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy
+// PBR service policy configuration
+type DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Ingress service policy. The type is string.
+    Input interface{}
+}
+
+func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "pbr"
+    servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-pbr-subscriber-cfg:pbr/" + servicePolicy.EntityData.SegmentPath
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servicePolicy.EntityData.Children = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("input", types.YLeaf{"Input", servicePolicy.Input})
+
+    servicePolicy.EntityData.YListKeys = []string {}
+
+    return &(servicePolicy.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network
+// Interface IPv4 Network configuration data
+type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable IP processing without an explicit address. The type is string.
+    Unnumbered interface{}
+
+    // The IP Maximum Transmission Unit. The type is interface{} with range:
+    // 68..65535. Units are byte.
+    Mtu interface{}
+
+    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
+    // false.
+    Unreachables interface{}
+
+    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
+    // true.
+    Rpf interface{}
+}
+
+func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetEntityData() *types.CommonEntityData {
+    ipv4Network.EntityData.YFilter = ipv4Network.YFilter
+    ipv4Network.EntityData.YangName = "ipv4-network"
+    ipv4Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Network.EntityData.ParentYangName = "ip-subscriber"
+    ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+    ipv4Network.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/" + ipv4Network.EntityData.SegmentPath
+    ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Network.EntityData.Children = types.NewOrderedMap()
+    ipv4Network.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Network.EntityData.Leafs.Append("unnumbered", types.YLeaf{"Unnumbered", ipv4Network.Unnumbered})
+    ipv4Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv4Network.Mtu})
+    ipv4Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv4Network.Unreachables})
+    ipv4Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv4Network.Rpf})
+
+    ipv4Network.EntityData.YListKeys = []string {}
+
+    return &(ipv4Network.EntityData)
 }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6
@@ -2039,6 +2197,7 @@ func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetEntityData()
     dhcpv6.EntityData.BundleName = "cisco_ios_xr"
     dhcpv6.EntityData.ParentYangName = "ip-subscriber"
     dhcpv6.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6"
+    dhcpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/" + dhcpv6.EntityData.SegmentPath
     dhcpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2084,6 +2243,7 @@ func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_Delegat
     delegatedPrefix.EntityData.BundleName = "cisco_ios_xr"
     delegatedPrefix.EntityData.ParentYangName = "dhcpv6"
     delegatedPrefix.EntityData.SegmentPath = "delegated-prefix"
+    delegatedPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6/" + delegatedPrefix.EntityData.SegmentPath
     delegatedPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delegatedPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delegatedPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2096,68 +2256,6 @@ func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_Delegat
     delegatedPrefix.EntityData.YListKeys = []string {}
 
     return &(delegatedPrefix.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Pbr
-// Dynamic Template PBR configuration
-type DynamicTemplate_IpSubscribers_IpSubscriber_Pbr struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Class for subscriber ingress policy. The type is string.
-    ServicePolicyIn interface{}
-
-    // PBR service policy configuration.
-    ServicePolicy DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy
-}
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetEntityData() *types.CommonEntityData {
-    pbr.EntityData.YFilter = pbr.YFilter
-    pbr.EntityData.YangName = "pbr"
-    pbr.EntityData.BundleName = "cisco_ios_xr"
-    pbr.EntityData.ParentYangName = "ip-subscriber"
-    pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
-    pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pbr.EntityData.Children = types.NewOrderedMap()
-    pbr.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", &pbr.ServicePolicy})
-    pbr.EntityData.Leafs = types.NewOrderedMap()
-    pbr.EntityData.Leafs.Append("service-policy-in", types.YLeaf{"ServicePolicyIn", pbr.ServicePolicyIn})
-
-    pbr.EntityData.YListKeys = []string {}
-
-    return &(pbr.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy
-// PBR service policy configuration
-type DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Ingress service policy. The type is string.
-    Input interface{}
-}
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetEntityData() *types.CommonEntityData {
-    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
-    servicePolicy.EntityData.YangName = "service-policy"
-    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
-    servicePolicy.EntityData.ParentYangName = "pbr"
-    servicePolicy.EntityData.SegmentPath = "service-policy"
-    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    servicePolicy.EntityData.Children = types.NewOrderedMap()
-    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
-    servicePolicy.EntityData.Leafs.Append("input", types.YLeaf{"Input", servicePolicy.Input})
-
-    servicePolicy.EntityData.YListKeys = []string {}
-
-    return &(servicePolicy.EntityData)
 }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor
@@ -2234,6 +2332,7 @@ func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) Get
     ipv6Neighbor.EntityData.BundleName = "cisco_ios_xr"
     ipv6Neighbor.EntityData.ParentYangName = "ip-subscriber"
     ipv6Neighbor.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
+    ipv6Neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/" + ipv6Neighbor.EntityData.SegmentPath
     ipv6Neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2288,6 +2387,7 @@ func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInte
     raInterval.EntityData.BundleName = "cisco_ios_xr"
     raInterval.EntityData.ParentYangName = "ipv6-neighbor"
     raInterval.EntityData.SegmentPath = "ra-interval"
+    raInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + raInterval.EntityData.SegmentPath
     raInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     raInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     raInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2326,6 +2426,7 @@ func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_Fram
     framedPrefix.EntityData.BundleName = "cisco_ios_xr"
     framedPrefix.EntityData.ParentYangName = "ipv6-neighbor"
     framedPrefix.EntityData.SegmentPath = "framed-prefix"
+    framedPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + framedPrefix.EntityData.SegmentPath
     framedPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     framedPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     framedPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2357,6 +2458,7 @@ func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6
     duplicateAddressDetection.EntityData.BundleName = "cisco_ios_xr"
     duplicateAddressDetection.EntityData.ParentYangName = "ipv6-neighbor"
     duplicateAddressDetection.EntityData.SegmentPath = "duplicate-address-detection"
+    duplicateAddressDetection.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + duplicateAddressDetection.EntityData.SegmentPath
     duplicateAddressDetection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     duplicateAddressDetection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duplicateAddressDetection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2393,6 +2495,7 @@ func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaIniti
     raInitial.EntityData.BundleName = "cisco_ios_xr"
     raInitial.EntityData.ParentYangName = "ipv6-neighbor"
     raInitial.EntityData.SegmentPath = "ra-initial"
+    raInitial.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + raInitial.EntityData.SegmentPath
     raInitial.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     raInitial.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     raInitial.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2405,6 +2508,572 @@ func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaIniti
     raInitial.EntityData.YListKeys = []string {}
 
     return &(raInitial.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Accounting
+// Subscriber accounting dynamic-template commands
+type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Subscriber monitor feature. The type is string.
+    MonitorFeature interface{}
+
+    // Subscriber accounting prepaid feature. The type is string.
+    PrepaidFeature interface{}
+
+    // Subscriber accounting service accounting.
+    ServiceAccounting DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting
+
+    // Subscriber accounting session accounting.
+    Session DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session
+
+    // Subscriber accounting idle timeout.
+    IdleTimeout DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout
+}
+
+func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "ip-subscriber"
+    accounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/" + accounting.EntityData.SegmentPath
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Children.Append("service-accounting", types.YChild{"ServiceAccounting", &accounting.ServiceAccounting})
+    accounting.EntityData.Children.Append("session", types.YChild{"Session", &accounting.Session})
+    accounting.EntityData.Children.Append("idle-timeout", types.YChild{"IdleTimeout", &accounting.IdleTimeout})
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+    accounting.EntityData.Leafs.Append("monitor-feature", types.YLeaf{"MonitorFeature", accounting.MonitorFeature})
+    accounting.EntityData.Leafs.Append("prepaid-feature", types.YLeaf{"PrepaidFeature", accounting.PrepaidFeature})
+
+    accounting.EntityData.YListKeys = []string {}
+
+    return &(accounting.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting
+// Subscriber accounting service accounting
+type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Service accounting method list name. The type is string.
+    MethodListName interface{}
+
+    // Accounting interim interval in minutes. The type is interface{} with range:
+    // 0..4294967295. Units are minute.
+    AccountingInterimInterval interface{}
+}
+
+func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetEntityData() *types.CommonEntityData {
+    serviceAccounting.EntityData.YFilter = serviceAccounting.YFilter
+    serviceAccounting.EntityData.YangName = "service-accounting"
+    serviceAccounting.EntityData.BundleName = "cisco_ios_xr"
+    serviceAccounting.EntityData.ParentYangName = "accounting"
+    serviceAccounting.EntityData.SegmentPath = "service-accounting"
+    serviceAccounting.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-subscriber-accounting-cfg:accounting/" + serviceAccounting.EntityData.SegmentPath
+    serviceAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serviceAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serviceAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    serviceAccounting.EntityData.Children = types.NewOrderedMap()
+    serviceAccounting.EntityData.Leafs = types.NewOrderedMap()
+    serviceAccounting.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", serviceAccounting.MethodListName})
+    serviceAccounting.EntityData.Leafs.Append("accounting-interim-interval", types.YLeaf{"AccountingInterimInterval", serviceAccounting.AccountingInterimInterval})
+
+    serviceAccounting.EntityData.YListKeys = []string {}
+
+    return &(serviceAccounting.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session
+// Subscriber accounting session accounting
+type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Session accounting method list name. The type is string.
+    MethodListName interface{}
+
+    // Interim accounting interval in minutes. The type is interface{} with range:
+    // 0..4294967295. Units are minute.
+    PeriodicInterval interface{}
+
+    // Dual stack wait delay in seconds. The type is interface{} with range:
+    // 0..4294967295. Units are second.
+    DualStackDelay interface{}
+
+    // Hold Accounting start based on IA_PD. The type is HoldAcctStart.
+    HoldAcctStart interface{}
+}
+
+func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "accounting"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-subscriber-accounting-cfg:accounting/" + session.EntityData.SegmentPath
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    session.EntityData.Children = types.NewOrderedMap()
+    session.EntityData.Leafs = types.NewOrderedMap()
+    session.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", session.MethodListName})
+    session.EntityData.Leafs.Append("periodic-interval", types.YLeaf{"PeriodicInterval", session.PeriodicInterval})
+    session.EntityData.Leafs.Append("dual-stack-delay", types.YLeaf{"DualStackDelay", session.DualStackDelay})
+    session.EntityData.Leafs.Append("hold-acct-start", types.YLeaf{"HoldAcctStart", session.HoldAcctStart})
+
+    session.EntityData.YListKeys = []string {}
+
+    return &(session.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session_HoldAcctStart represents Hold Accounting start based on IA_PD
+type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session_HoldAcctStart string
+
+const (
+    // Based on ipv6 delegated prefix
+    DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session_HoldAcctStart_ipv6_prefix_delegation DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session_HoldAcctStart = "ipv6-prefix-delegation"
+)
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout
+// Subscriber accounting idle timeout
+type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Idle timeout value in seconds. The type is interface{} with range:
+    // 60..4320000. Units are second.
+    TimeoutValue interface{}
+
+    // Threshold in minute(s) per packet. The type is interface{} with range:
+    // 1..10000.
+    Threshold interface{}
+
+    // Idle timeout traffic direction. The type is string.
+    Direction interface{}
+}
+
+func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetEntityData() *types.CommonEntityData {
+    idleTimeout.EntityData.YFilter = idleTimeout.YFilter
+    idleTimeout.EntityData.YangName = "idle-timeout"
+    idleTimeout.EntityData.BundleName = "cisco_ios_xr"
+    idleTimeout.EntityData.ParentYangName = "accounting"
+    idleTimeout.EntityData.SegmentPath = "idle-timeout"
+    idleTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-subscriber-accounting-cfg:accounting/" + idleTimeout.EntityData.SegmentPath
+    idleTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    idleTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    idleTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    idleTimeout.EntityData.Children = types.NewOrderedMap()
+    idleTimeout.EntityData.Leafs = types.NewOrderedMap()
+    idleTimeout.EntityData.Leafs.Append("timeout-value", types.YLeaf{"TimeoutValue", idleTimeout.TimeoutValue})
+    idleTimeout.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", idleTimeout.Threshold})
+    idleTimeout.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", idleTimeout.Direction})
+
+    idleTimeout.EntityData.YListKeys = []string {}
+
+    return &(idleTimeout.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd
+// Interface dhcpv4 configuration data
+type DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Cisco VSA to configure any dhcp4 ip lease per subscriber. The type is
+    // string.
+    Dhcpv4Iplease interface{}
+
+    // The class to be used for proxy/server profile. The type is string.
+    Class interface{}
+
+    // The Default Gateway IP address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    DefaultGateway interface{}
+
+    // The pool to be used for Prefix Delegation. The type is interface{} with
+    // range: 0..4294967295.
+    SessionLimit interface{}
+
+    // Cisco VSA to configure any dhcp4 option per subscriber. The type is string.
+    Dhcpv4Option interface{}
+}
+
+func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetEntityData() *types.CommonEntityData {
+    dhcpd.EntityData.YFilter = dhcpd.YFilter
+    dhcpd.EntityData.YangName = "dhcpd"
+    dhcpd.EntityData.BundleName = "cisco_ios_xr"
+    dhcpd.EntityData.ParentYangName = "ip-subscriber"
+    dhcpd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd"
+    dhcpd.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/" + dhcpd.EntityData.SegmentPath
+    dhcpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dhcpd.EntityData.Children = types.NewOrderedMap()
+    dhcpd.EntityData.Leafs = types.NewOrderedMap()
+    dhcpd.EntityData.Leafs.Append("dhcpv4-iplease", types.YLeaf{"Dhcpv4Iplease", dhcpd.Dhcpv4Iplease})
+    dhcpd.EntityData.Leafs.Append("class", types.YLeaf{"Class", dhcpd.Class})
+    dhcpd.EntityData.Leafs.Append("default-gateway", types.YLeaf{"DefaultGateway", dhcpd.DefaultGateway})
+    dhcpd.EntityData.Leafs.Append("session-limit", types.YLeaf{"SessionLimit", dhcpd.SessionLimit})
+    dhcpd.EntityData.Leafs.Append("dhcpv4-option", types.YLeaf{"Dhcpv4Option", dhcpd.Dhcpv4Option})
+
+    dhcpd.EntityData.YListKeys = []string {}
+
+    return &(dhcpd.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter
+// IPv4 Packet Filtering configuration for the
+// template
+type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 Packet filter to be applied to outbound packets.
+    Outbound DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound
+
+    // IPv4 Packet filter to be applied to inbound packets.
+    Inbound DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound
+}
+
+func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv4PacketFilter.EntityData.YFilter = ipv4PacketFilter.YFilter
+    ipv4PacketFilter.EntityData.YangName = "ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv4PacketFilter.EntityData.ParentYangName = "ip-subscriber"
+    ipv4PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/" + ipv4PacketFilter.EntityData.SegmentPath
+    ipv4PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4PacketFilter.EntityData.Children = types.NewOrderedMap()
+    ipv4PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv4PacketFilter.Outbound})
+    ipv4PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv4PacketFilter.Inbound})
+    ipv4PacketFilter.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4PacketFilter.EntityData.YListKeys = []string {}
+
+    return &(ipv4PacketFilter.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound
+// IPv4 Packet filter to be applied to outbound
+// packets
+type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv4 Packet Filter Name to be applied to Outbound packets. The type is
+    // string with length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    HardwareCount interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter/" + outbound.EntityData.SegmentPath
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    outbound.EntityData.Children = types.NewOrderedMap()
+    outbound.EntityData.Leafs = types.NewOrderedMap()
+    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
+    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
+    outbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", outbound.HardwareCount})
+    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
+
+    outbound.EntityData.YListKeys = []string {}
+
+    return &(outbound.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound
+// IPv4 Packet filter to be applied to inbound
+// packets
+type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv4 Packet Filter Name to be applied to Inbound packets NOTE: This
+    // parameter is mandatory if 'CommonACLName' is not specified. The type is
+    // string with length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    HardwareCount interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter/" + inbound.EntityData.SegmentPath
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    inbound.EntityData.Children = types.NewOrderedMap()
+    inbound.EntityData.Leafs = types.NewOrderedMap()
+    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
+    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
+    inbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", inbound.HardwareCount})
+    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
+
+    inbound.EntityData.YListKeys = []string {}
+
+    return &(inbound.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter
+// IPv6 Packet Filtering configuration for the
+// interface
+type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 Packet filter to be applied to inbound packets.
+    Inbound DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound
+
+    // IPv6 Packet filter to be applied to outbound packets.
+    Outbound DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound
+}
+
+func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv6PacketFilter.EntityData.YFilter = ipv6PacketFilter.YFilter
+    ipv6PacketFilter.EntityData.YangName = "ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv6PacketFilter.EntityData.ParentYangName = "ip-subscriber"
+    ipv6PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/" + ipv6PacketFilter.EntityData.SegmentPath
+    ipv6PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6PacketFilter.EntityData.Children = types.NewOrderedMap()
+    ipv6PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv6PacketFilter.Inbound})
+    ipv6PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv6PacketFilter.Outbound})
+    ipv6PacketFilter.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6PacketFilter.EntityData.YListKeys = []string {}
+
+    return &(ipv6PacketFilter.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound
+// IPv6 Packet filter to be applied to inbound
+// packets
+type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv6 Packet Filter Name to be applied to Inbound  NOTE: This parameter is
+    // mandatory if 'CommonACLName' is not specified. The type is string with
+    // length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter/" + inbound.EntityData.SegmentPath
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    inbound.EntityData.Children = types.NewOrderedMap()
+    inbound.EntityData.Leafs = types.NewOrderedMap()
+    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
+    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
+    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
+
+    inbound.EntityData.YListKeys = []string {}
+
+    return &(inbound.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound
+// IPv6 Packet filter to be applied to outbound
+// packets
+type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv6 Packet Filter Name to be applied to Outbound packets. The type is
+    // string with length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter/" + outbound.EntityData.SegmentPath
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    outbound.EntityData.Children = types.NewOrderedMap()
+    outbound.EntityData.Leafs = types.NewOrderedMap()
+    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
+    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
+    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
+
+    outbound.EntityData.YListKeys = []string {}
+
+    return &(outbound.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network
+// Interface IPv6 Network configuration data
+type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MTU Setting of Interface. The type is interface{} with range: 1280..65535.
+    // Units are byte.
+    Mtu interface{}
+
+    // TRUE if enabled, FALSE if disabled. The type is bool.
+    Rpf interface{}
+
+    // Override Sending of ICMP Unreachable Messages. The type is interface{}.
+    Unreachables interface{}
+
+    // Set the IPv6 address of an interface.
+    Addresses DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses
+}
+
+func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetEntityData() *types.CommonEntityData {
+    ipv6Network.EntityData.YFilter = ipv6Network.YFilter
+    ipv6Network.EntityData.YangName = "ipv6-network"
+    ipv6Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Network.EntityData.ParentYangName = "ip-subscriber"
+    ipv6Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
+    ipv6Network.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/" + ipv6Network.EntityData.SegmentPath
+    ipv6Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Network.EntityData.Children = types.NewOrderedMap()
+    ipv6Network.EntityData.Children.Append("addresses", types.YChild{"Addresses", &ipv6Network.Addresses})
+    ipv6Network.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv6Network.Mtu})
+    ipv6Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv6Network.Rpf})
+    ipv6Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv6Network.Unreachables})
+
+    ipv6Network.EntityData.YListKeys = []string {}
+
+    return &(ipv6Network.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses
+// Set the IPv6 address of an interface
+type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Auto IPv6 Interface Configuration.
+    AutoConfiguration DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration
+}
+
+func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetEntityData() *types.CommonEntityData {
+    addresses.EntityData.YFilter = addresses.YFilter
+    addresses.EntityData.YangName = "addresses"
+    addresses.EntityData.BundleName = "cisco_ios_xr"
+    addresses.EntityData.ParentYangName = "ipv6-network"
+    addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network/" + addresses.EntityData.SegmentPath
+    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addresses.EntityData.Children = types.NewOrderedMap()
+    addresses.EntityData.Children.Append("auto-configuration", types.YChild{"AutoConfiguration", &addresses.AutoConfiguration})
+    addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    addresses.EntityData.YListKeys = []string {}
+
+    return &(addresses.EntityData)
+}
+
+// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration
+// Auto IPv6 Interface Configuration
+type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The flag to enable auto ipv6 interface configuration. The type is
+    // interface{}.
+    Enable interface{}
+}
+
+func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetEntityData() *types.CommonEntityData {
+    autoConfiguration.EntityData.YFilter = autoConfiguration.YFilter
+    autoConfiguration.EntityData.YangName = "auto-configuration"
+    autoConfiguration.EntityData.BundleName = "cisco_ios_xr"
+    autoConfiguration.EntityData.ParentYangName = "addresses"
+    autoConfiguration.EntityData.SegmentPath = "auto-configuration"
+    autoConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network/addresses/" + autoConfiguration.EntityData.SegmentPath
+    autoConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    autoConfiguration.EntityData.Children = types.NewOrderedMap()
+    autoConfiguration.EntityData.Leafs = types.NewOrderedMap()
+    autoConfiguration.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoConfiguration.Enable})
+
+    autoConfiguration.EntityData.YListKeys = []string {}
+
+    return &(autoConfiguration.EntityData)
 }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Igmp
@@ -2423,6 +3092,7 @@ func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetEntityData() *ty
     igmp.EntityData.BundleName = "cisco_ios_xr"
     igmp.EntityData.ParentYangName = "ip-subscriber"
     igmp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"
+    igmp.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/" + igmp.EntityData.SegmentPath
     igmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2475,6 +3145,7 @@ func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) Ge
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "igmp"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2517,6 +3188,7 @@ func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultV
     explicitTracking.EntityData.BundleName = "cisco_ios_xr"
     explicitTracking.EntityData.ParentYangName = "default-vrf"
     explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/ip-subscriber/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp/default-vrf/" + explicitTracking.EntityData.SegmentPath
     explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2529,602 +3201,6 @@ func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultV
     explicitTracking.EntityData.YListKeys = []string {}
 
     return &(explicitTracking.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd
-// Interface dhcpv4 configuration data
-type DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Cisco VSA to configure any dhcp4 ip lease per subscriber. The type is
-    // string.
-    Dhcpv4Iplease interface{}
-
-    // The class to be used for proxy/server profile. The type is string.
-    Class interface{}
-
-    // The Default Gateway IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    DefaultGateway interface{}
-
-    // The pool to be used for Prefix Delegation. The type is interface{} with
-    // range: 0..4294967295.
-    SessionLimit interface{}
-
-    // Cisco VSA to configure any dhcp4 option per subscriber. The type is string.
-    Dhcpv4Option interface{}
-}
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetEntityData() *types.CommonEntityData {
-    dhcpd.EntityData.YFilter = dhcpd.YFilter
-    dhcpd.EntityData.YangName = "dhcpd"
-    dhcpd.EntityData.BundleName = "cisco_ios_xr"
-    dhcpd.EntityData.ParentYangName = "ip-subscriber"
-    dhcpd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd"
-    dhcpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    dhcpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    dhcpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    dhcpd.EntityData.Children = types.NewOrderedMap()
-    dhcpd.EntityData.Leafs = types.NewOrderedMap()
-    dhcpd.EntityData.Leafs.Append("dhcpv4-iplease", types.YLeaf{"Dhcpv4Iplease", dhcpd.Dhcpv4Iplease})
-    dhcpd.EntityData.Leafs.Append("class", types.YLeaf{"Class", dhcpd.Class})
-    dhcpd.EntityData.Leafs.Append("default-gateway", types.YLeaf{"DefaultGateway", dhcpd.DefaultGateway})
-    dhcpd.EntityData.Leafs.Append("session-limit", types.YLeaf{"SessionLimit", dhcpd.SessionLimit})
-    dhcpd.EntityData.Leafs.Append("dhcpv4-option", types.YLeaf{"Dhcpv4Option", dhcpd.Dhcpv4Option})
-
-    dhcpd.EntityData.YListKeys = []string {}
-
-    return &(dhcpd.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network
-// Interface IPv4 Network configuration data
-type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable IP processing without an explicit address. The type is string.
-    Unnumbered interface{}
-
-    // The IP Maximum Transmission Unit. The type is interface{} with range:
-    // 68..65535. Units are byte.
-    Mtu interface{}
-
-    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
-    // false.
-    Unreachables interface{}
-
-    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
-    // true.
-    Rpf interface{}
-}
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetEntityData() *types.CommonEntityData {
-    ipv4Network.EntityData.YFilter = ipv4Network.YFilter
-    ipv4Network.EntityData.YangName = "ipv4-network"
-    ipv4Network.EntityData.BundleName = "cisco_ios_xr"
-    ipv4Network.EntityData.ParentYangName = "ip-subscriber"
-    ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
-    ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv4Network.EntityData.Children = types.NewOrderedMap()
-    ipv4Network.EntityData.Leafs = types.NewOrderedMap()
-    ipv4Network.EntityData.Leafs.Append("unnumbered", types.YLeaf{"Unnumbered", ipv4Network.Unnumbered})
-    ipv4Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv4Network.Mtu})
-    ipv4Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv4Network.Unreachables})
-    ipv4Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv4Network.Rpf})
-
-    ipv4Network.EntityData.YListKeys = []string {}
-
-    return &(ipv4Network.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter
-// IPv4 Packet Filtering configuration for the
-// template
-type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // IPv4 Packet filter to be applied to outbound packets.
-    Outbound DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound
-
-    // IPv4 Packet filter to be applied to inbound packets.
-    Inbound DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound
-}
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetEntityData() *types.CommonEntityData {
-    ipv4PacketFilter.EntityData.YFilter = ipv4PacketFilter.YFilter
-    ipv4PacketFilter.EntityData.YangName = "ipv4-packet-filter"
-    ipv4PacketFilter.EntityData.BundleName = "cisco_ios_xr"
-    ipv4PacketFilter.EntityData.ParentYangName = "ip-subscriber"
-    ipv4PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
-    ipv4PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv4PacketFilter.EntityData.Children = types.NewOrderedMap()
-    ipv4PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv4PacketFilter.Outbound})
-    ipv4PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv4PacketFilter.Inbound})
-    ipv4PacketFilter.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv4PacketFilter.EntityData.YListKeys = []string {}
-
-    return &(ipv4PacketFilter.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound
-// IPv4 Packet filter to be applied to outbound
-// packets
-type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv4 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    HardwareCount interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
-    outbound.EntityData.YFilter = outbound.YFilter
-    outbound.EntityData.YangName = "outbound"
-    outbound.EntityData.BundleName = "cisco_ios_xr"
-    outbound.EntityData.ParentYangName = "ipv4-packet-filter"
-    outbound.EntityData.SegmentPath = "outbound"
-    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    outbound.EntityData.Children = types.NewOrderedMap()
-    outbound.EntityData.Leafs = types.NewOrderedMap()
-    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
-    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
-    outbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", outbound.HardwareCount})
-    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
-
-    outbound.EntityData.YListKeys = []string {}
-
-    return &(outbound.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound
-// IPv4 Packet filter to be applied to inbound
-// packets
-type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv4 Packet Filter Name to be applied to Inbound packets NOTE: This
-    // parameter is mandatory if 'CommonACLName' is not specified. The type is
-    // string with length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    HardwareCount interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
-    inbound.EntityData.YFilter = inbound.YFilter
-    inbound.EntityData.YangName = "inbound"
-    inbound.EntityData.BundleName = "cisco_ios_xr"
-    inbound.EntityData.ParentYangName = "ipv4-packet-filter"
-    inbound.EntityData.SegmentPath = "inbound"
-    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    inbound.EntityData.Children = types.NewOrderedMap()
-    inbound.EntityData.Leafs = types.NewOrderedMap()
-    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
-    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
-    inbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", inbound.HardwareCount})
-    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
-
-    inbound.EntityData.YListKeys = []string {}
-
-    return &(inbound.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter
-// IPv6 Packet Filtering configuration for the
-// interface
-type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // IPv6 Packet filter to be applied to inbound packets.
-    Inbound DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound
-
-    // IPv6 Packet filter to be applied to outbound packets.
-    Outbound DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound
-}
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetEntityData() *types.CommonEntityData {
-    ipv6PacketFilter.EntityData.YFilter = ipv6PacketFilter.YFilter
-    ipv6PacketFilter.EntityData.YangName = "ipv6-packet-filter"
-    ipv6PacketFilter.EntityData.BundleName = "cisco_ios_xr"
-    ipv6PacketFilter.EntityData.ParentYangName = "ip-subscriber"
-    ipv6PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
-    ipv6PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv6PacketFilter.EntityData.Children = types.NewOrderedMap()
-    ipv6PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv6PacketFilter.Inbound})
-    ipv6PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv6PacketFilter.Outbound})
-    ipv6PacketFilter.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv6PacketFilter.EntityData.YListKeys = []string {}
-
-    return &(ipv6PacketFilter.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound
-// IPv6 Packet filter to be applied to inbound
-// packets
-type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv6 Packet Filter Name to be applied to Inbound  NOTE: This parameter is
-    // mandatory if 'CommonACLName' is not specified. The type is string with
-    // length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
-    inbound.EntityData.YFilter = inbound.YFilter
-    inbound.EntityData.YangName = "inbound"
-    inbound.EntityData.BundleName = "cisco_ios_xr"
-    inbound.EntityData.ParentYangName = "ipv6-packet-filter"
-    inbound.EntityData.SegmentPath = "inbound"
-    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    inbound.EntityData.Children = types.NewOrderedMap()
-    inbound.EntityData.Leafs = types.NewOrderedMap()
-    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
-    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
-    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
-
-    inbound.EntityData.YListKeys = []string {}
-
-    return &(inbound.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound
-// IPv6 Packet filter to be applied to outbound
-// packets
-type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv6 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
-    outbound.EntityData.YFilter = outbound.YFilter
-    outbound.EntityData.YangName = "outbound"
-    outbound.EntityData.BundleName = "cisco_ios_xr"
-    outbound.EntityData.ParentYangName = "ipv6-packet-filter"
-    outbound.EntityData.SegmentPath = "outbound"
-    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    outbound.EntityData.Children = types.NewOrderedMap()
-    outbound.EntityData.Leafs = types.NewOrderedMap()
-    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
-    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
-    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
-
-    outbound.EntityData.YListKeys = []string {}
-
-    return &(outbound.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network
-// Interface IPv6 Network configuration data
-type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // MTU Setting of Interface. The type is interface{} with range: 1280..65535.
-    // Units are byte.
-    Mtu interface{}
-
-    // TRUE if enabled, FALSE if disabled. The type is bool.
-    Rpf interface{}
-
-    // Override Sending of ICMP Unreachable Messages. The type is interface{}.
-    Unreachables interface{}
-
-    // Set the IPv6 address of an interface.
-    Addresses DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses
-}
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetEntityData() *types.CommonEntityData {
-    ipv6Network.EntityData.YFilter = ipv6Network.YFilter
-    ipv6Network.EntityData.YangName = "ipv6-network"
-    ipv6Network.EntityData.BundleName = "cisco_ios_xr"
-    ipv6Network.EntityData.ParentYangName = "ip-subscriber"
-    ipv6Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
-    ipv6Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv6Network.EntityData.Children = types.NewOrderedMap()
-    ipv6Network.EntityData.Children.Append("addresses", types.YChild{"Addresses", &ipv6Network.Addresses})
-    ipv6Network.EntityData.Leafs = types.NewOrderedMap()
-    ipv6Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv6Network.Mtu})
-    ipv6Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv6Network.Rpf})
-    ipv6Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv6Network.Unreachables})
-
-    ipv6Network.EntityData.YListKeys = []string {}
-
-    return &(ipv6Network.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses
-// Set the IPv6 address of an interface
-type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Auto IPv6 Interface Configuration.
-    AutoConfiguration DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration
-}
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetEntityData() *types.CommonEntityData {
-    addresses.EntityData.YFilter = addresses.YFilter
-    addresses.EntityData.YangName = "addresses"
-    addresses.EntityData.BundleName = "cisco_ios_xr"
-    addresses.EntityData.ParentYangName = "ipv6-network"
-    addresses.EntityData.SegmentPath = "addresses"
-    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    addresses.EntityData.Children = types.NewOrderedMap()
-    addresses.EntityData.Children.Append("auto-configuration", types.YChild{"AutoConfiguration", &addresses.AutoConfiguration})
-    addresses.EntityData.Leafs = types.NewOrderedMap()
-
-    addresses.EntityData.YListKeys = []string {}
-
-    return &(addresses.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration
-// Auto IPv6 Interface Configuration
-type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The flag to enable auto ipv6 interface configuration. The type is
-    // interface{}.
-    Enable interface{}
-}
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetEntityData() *types.CommonEntityData {
-    autoConfiguration.EntityData.YFilter = autoConfiguration.YFilter
-    autoConfiguration.EntityData.YangName = "auto-configuration"
-    autoConfiguration.EntityData.BundleName = "cisco_ios_xr"
-    autoConfiguration.EntityData.ParentYangName = "addresses"
-    autoConfiguration.EntityData.SegmentPath = "auto-configuration"
-    autoConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    autoConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    autoConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    autoConfiguration.EntityData.Children = types.NewOrderedMap()
-    autoConfiguration.EntityData.Leafs = types.NewOrderedMap()
-    autoConfiguration.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoConfiguration.Enable})
-
-    autoConfiguration.EntityData.YListKeys = []string {}
-
-    return &(autoConfiguration.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Accounting
-// Subscriber accounting dynamic-template commands
-type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Subscriber monitor feature. The type is string.
-    MonitorFeature interface{}
-
-    // Subscriber accounting prepaid feature. The type is string.
-    PrepaidFeature interface{}
-
-    // Subscriber accounting service accounting.
-    ServiceAccounting DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting
-
-    // Subscriber accounting session accounting.
-    Session DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session
-
-    // Subscriber accounting idle timeout.
-    IdleTimeout DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout
-}
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetEntityData() *types.CommonEntityData {
-    accounting.EntityData.YFilter = accounting.YFilter
-    accounting.EntityData.YangName = "accounting"
-    accounting.EntityData.BundleName = "cisco_ios_xr"
-    accounting.EntityData.ParentYangName = "ip-subscriber"
-    accounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    accounting.EntityData.Children = types.NewOrderedMap()
-    accounting.EntityData.Children.Append("service-accounting", types.YChild{"ServiceAccounting", &accounting.ServiceAccounting})
-    accounting.EntityData.Children.Append("session", types.YChild{"Session", &accounting.Session})
-    accounting.EntityData.Children.Append("idle-timeout", types.YChild{"IdleTimeout", &accounting.IdleTimeout})
-    accounting.EntityData.Leafs = types.NewOrderedMap()
-    accounting.EntityData.Leafs.Append("monitor-feature", types.YLeaf{"MonitorFeature", accounting.MonitorFeature})
-    accounting.EntityData.Leafs.Append("prepaid-feature", types.YLeaf{"PrepaidFeature", accounting.PrepaidFeature})
-
-    accounting.EntityData.YListKeys = []string {}
-
-    return &(accounting.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting
-// Subscriber accounting service accounting
-type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Service accounting method list name. The type is string.
-    MethodListName interface{}
-
-    // Accounting interim interval in minutes. The type is interface{} with range:
-    // 0..4294967295. Units are minute.
-    AccountingInterimInterval interface{}
-}
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetEntityData() *types.CommonEntityData {
-    serviceAccounting.EntityData.YFilter = serviceAccounting.YFilter
-    serviceAccounting.EntityData.YangName = "service-accounting"
-    serviceAccounting.EntityData.BundleName = "cisco_ios_xr"
-    serviceAccounting.EntityData.ParentYangName = "accounting"
-    serviceAccounting.EntityData.SegmentPath = "service-accounting"
-    serviceAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    serviceAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    serviceAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    serviceAccounting.EntityData.Children = types.NewOrderedMap()
-    serviceAccounting.EntityData.Leafs = types.NewOrderedMap()
-    serviceAccounting.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", serviceAccounting.MethodListName})
-    serviceAccounting.EntityData.Leafs.Append("accounting-interim-interval", types.YLeaf{"AccountingInterimInterval", serviceAccounting.AccountingInterimInterval})
-
-    serviceAccounting.EntityData.YListKeys = []string {}
-
-    return &(serviceAccounting.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session
-// Subscriber accounting session accounting
-type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Session accounting method list name. The type is string.
-    MethodListName interface{}
-
-    // Interim accounting interval in minutes. The type is interface{} with range:
-    // 0..4294967295. Units are minute.
-    PeriodicInterval interface{}
-
-    // Dual stack wait delay in seconds. The type is interface{} with range:
-    // 0..4294967295. Units are second.
-    DualStackDelay interface{}
-
-    // Hold Accounting start based on IA_PD. The type is HoldAcctStart.
-    HoldAcctStart interface{}
-}
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetEntityData() *types.CommonEntityData {
-    session.EntityData.YFilter = session.YFilter
-    session.EntityData.YangName = "session"
-    session.EntityData.BundleName = "cisco_ios_xr"
-    session.EntityData.ParentYangName = "accounting"
-    session.EntityData.SegmentPath = "session"
-    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    session.EntityData.Children = types.NewOrderedMap()
-    session.EntityData.Leafs = types.NewOrderedMap()
-    session.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", session.MethodListName})
-    session.EntityData.Leafs.Append("periodic-interval", types.YLeaf{"PeriodicInterval", session.PeriodicInterval})
-    session.EntityData.Leafs.Append("dual-stack-delay", types.YLeaf{"DualStackDelay", session.DualStackDelay})
-    session.EntityData.Leafs.Append("hold-acct-start", types.YLeaf{"HoldAcctStart", session.HoldAcctStart})
-
-    session.EntityData.YListKeys = []string {}
-
-    return &(session.EntityData)
-}
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session_HoldAcctStart represents Hold Accounting start based on IA_PD
-type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session_HoldAcctStart string
-
-const (
-    // Based on ipv6 delegated prefix
-    DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session_HoldAcctStart_ipv6_prefix_delegation DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session_HoldAcctStart = "ipv6-prefix-delegation"
-)
-
-// DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout
-// Subscriber accounting idle timeout
-type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Idle timeout value in seconds. The type is interface{} with range:
-    // 60..4320000. Units are second.
-    TimeoutValue interface{}
-
-    // Threshold in minute(s) per packet. The type is interface{} with range:
-    // 1..10000.
-    Threshold interface{}
-
-    // Idle timeout traffic direction. The type is string.
-    Direction interface{}
-}
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetEntityData() *types.CommonEntityData {
-    idleTimeout.EntityData.YFilter = idleTimeout.YFilter
-    idleTimeout.EntityData.YangName = "idle-timeout"
-    idleTimeout.EntityData.BundleName = "cisco_ios_xr"
-    idleTimeout.EntityData.ParentYangName = "accounting"
-    idleTimeout.EntityData.SegmentPath = "idle-timeout"
-    idleTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    idleTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    idleTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    idleTimeout.EntityData.Children = types.NewOrderedMap()
-    idleTimeout.EntityData.Leafs = types.NewOrderedMap()
-    idleTimeout.EntityData.Leafs.Append("timeout-value", types.YLeaf{"TimeoutValue", idleTimeout.TimeoutValue})
-    idleTimeout.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", idleTimeout.Threshold})
-    idleTimeout.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", idleTimeout.Direction})
-
-    idleTimeout.EntityData.YListKeys = []string {}
-
-    return &(idleTimeout.EntityData)
 }
 
 // DynamicTemplate_SubscriberServices
@@ -3144,6 +3220,7 @@ func (subscriberServices *DynamicTemplate_SubscriberServices) GetEntityData() *t
     subscriberServices.EntityData.BundleName = "cisco_ios_xr"
     subscriberServices.EntityData.ParentYangName = "dynamic-template"
     subscriberServices.EntityData.SegmentPath = "subscriber-services"
+    subscriberServices.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/" + subscriberServices.EntityData.SegmentPath
     subscriberServices.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberServices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberServices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3165,6 +3242,7 @@ func (subscriberServices *DynamicTemplate_SubscriberServices) GetEntityData() *t
 type DynamicTemplate_SubscriberServices_SubscriberService struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the template. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -3176,11 +3254,14 @@ type DynamicTemplate_SubscriberServices_SubscriberService struct {
     // Dynamic Template PBR configuration.
     Pbr DynamicTemplate_SubscriberServices_SubscriberService_Pbr
 
+    // Interface IPv4 Network configuration data.
+    Ipv4Network DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network
+
     // Interface IPv6 Network configuration data.
     Ipv6Neighbor DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor
 
-    // Interface IPv4 Network configuration data.
-    Ipv4Network DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network
+    // Subscriber accounting dynamic-template commands.
+    Accounting DynamicTemplate_SubscriberServices_SubscriberService_Accounting
 
     // IPv4 Packet Filtering configuration for the template.
     Ipv4PacketFilter DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter
@@ -3190,9 +3271,6 @@ type DynamicTemplate_SubscriberServices_SubscriberService struct {
 
     // Interface IPv6 Network configuration data.
     Ipv6Network DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network
-
-    // Subscriber accounting dynamic-template commands.
-    Accounting DynamicTemplate_SubscriberServices_SubscriberService_Accounting
 }
 
 func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetEntityData() *types.CommonEntityData {
@@ -3201,18 +3279,19 @@ func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) G
     subscriberService.EntityData.BundleName = "cisco_ios_xr"
     subscriberService.EntityData.ParentYangName = "subscriber-services"
     subscriberService.EntityData.SegmentPath = "subscriber-service" + types.AddKeyToken(subscriberService.TemplateName, "template-name")
+    subscriberService.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/" + subscriberService.EntityData.SegmentPath
     subscriberService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     subscriberService.EntityData.Children = types.NewOrderedMap()
     subscriberService.EntityData.Children.Append("Cisco-IOS-XR-pbr-subscriber-cfg:pbr", types.YChild{"Pbr", &subscriberService.Pbr})
-    subscriberService.EntityData.Children.Append("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", types.YChild{"Ipv6Neighbor", &subscriberService.Ipv6Neighbor})
     subscriberService.EntityData.Children.Append("Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network", types.YChild{"Ipv4Network", &subscriberService.Ipv4Network})
+    subscriberService.EntityData.Children.Append("Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor", types.YChild{"Ipv6Neighbor", &subscriberService.Ipv6Neighbor})
+    subscriberService.EntityData.Children.Append("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", types.YChild{"Accounting", &subscriberService.Accounting})
     subscriberService.EntityData.Children.Append("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter", types.YChild{"Ipv4PacketFilter", &subscriberService.Ipv4PacketFilter})
     subscriberService.EntityData.Children.Append("Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter", types.YChild{"Ipv6PacketFilter", &subscriberService.Ipv6PacketFilter})
     subscriberService.EntityData.Children.Append("Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network", types.YChild{"Ipv6Network", &subscriberService.Ipv6Network})
-    subscriberService.EntityData.Children.Append("Cisco-IOS-XR-subscriber-accounting-cfg:accounting", types.YChild{"Accounting", &subscriberService.Accounting})
     subscriberService.EntityData.Leafs = types.NewOrderedMap()
     subscriberService.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", subscriberService.TemplateName})
     subscriberService.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", subscriberService.Vrf})
@@ -3241,6 +3320,7 @@ func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetEntityDa
     pbr.EntityData.BundleName = "cisco_ios_xr"
     pbr.EntityData.ParentYangName = "subscriber-service"
     pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+    pbr.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/" + pbr.EntityData.SegmentPath
     pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3271,6 +3351,7 @@ func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_Se
     servicePolicy.EntityData.BundleName = "cisco_ios_xr"
     servicePolicy.EntityData.ParentYangName = "pbr"
     servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-pbr-subscriber-cfg:pbr/" + servicePolicy.EntityData.SegmentPath
     servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3282,6 +3363,51 @@ func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_Se
     servicePolicy.EntityData.YListKeys = []string {}
 
     return &(servicePolicy.EntityData)
+}
+
+// DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network
+// Interface IPv4 Network configuration data
+type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable IP processing without an explicit address. The type is string.
+    Unnumbered interface{}
+
+    // The IP Maximum Transmission Unit. The type is interface{} with range:
+    // 68..65535. Units are byte.
+    Mtu interface{}
+
+    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
+    // false.
+    Unreachables interface{}
+
+    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
+    // true.
+    Rpf interface{}
+}
+
+func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetEntityData() *types.CommonEntityData {
+    ipv4Network.EntityData.YFilter = ipv4Network.YFilter
+    ipv4Network.EntityData.YangName = "ipv4-network"
+    ipv4Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Network.EntityData.ParentYangName = "subscriber-service"
+    ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+    ipv4Network.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/" + ipv4Network.EntityData.SegmentPath
+    ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Network.EntityData.Children = types.NewOrderedMap()
+    ipv4Network.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Network.EntityData.Leafs.Append("unnumbered", types.YLeaf{"Unnumbered", ipv4Network.Unnumbered})
+    ipv4Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv4Network.Mtu})
+    ipv4Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv4Network.Unreachables})
+    ipv4Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv4Network.Rpf})
+
+    ipv4Network.EntityData.YListKeys = []string {}
+
+    return &(ipv4Network.EntityData)
 }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor
@@ -3358,6 +3484,7 @@ func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Nei
     ipv6Neighbor.EntityData.BundleName = "cisco_ios_xr"
     ipv6Neighbor.EntityData.ParentYangName = "subscriber-service"
     ipv6Neighbor.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
+    ipv6Neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/" + ipv6Neighbor.EntityData.SegmentPath
     ipv6Neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3412,6 +3539,7 @@ func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neigh
     raInterval.EntityData.BundleName = "cisco_ios_xr"
     raInterval.EntityData.ParentYangName = "ipv6-neighbor"
     raInterval.EntityData.SegmentPath = "ra-interval"
+    raInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + raInterval.EntityData.SegmentPath
     raInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     raInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     raInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3450,6 +3578,7 @@ func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Nei
     framedPrefix.EntityData.BundleName = "cisco_ios_xr"
     framedPrefix.EntityData.ParentYangName = "ipv6-neighbor"
     framedPrefix.EntityData.SegmentPath = "framed-prefix"
+    framedPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + framedPrefix.EntityData.SegmentPath
     framedPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     framedPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     framedPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3481,6 +3610,7 @@ func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberSe
     duplicateAddressDetection.EntityData.BundleName = "cisco_ios_xr"
     duplicateAddressDetection.EntityData.ParentYangName = "ipv6-neighbor"
     duplicateAddressDetection.EntityData.SegmentPath = "duplicate-address-detection"
+    duplicateAddressDetection.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + duplicateAddressDetection.EntityData.SegmentPath
     duplicateAddressDetection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     duplicateAddressDetection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duplicateAddressDetection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3517,6 +3647,7 @@ func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighb
     raInitial.EntityData.BundleName = "cisco_ios_xr"
     raInitial.EntityData.ParentYangName = "ipv6-neighbor"
     raInitial.EntityData.SegmentPath = "ra-initial"
+    raInitial.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor/" + raInitial.EntityData.SegmentPath
     raInitial.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     raInitial.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     raInitial.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3529,385 +3660,6 @@ func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighb
     raInitial.EntityData.YListKeys = []string {}
 
     return &(raInitial.EntityData)
-}
-
-// DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network
-// Interface IPv4 Network configuration data
-type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable IP processing without an explicit address. The type is string.
-    Unnumbered interface{}
-
-    // The IP Maximum Transmission Unit. The type is interface{} with range:
-    // 68..65535. Units are byte.
-    Mtu interface{}
-
-    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
-    // false.
-    Unreachables interface{}
-
-    // TRUE if enabled, FALSE if disabled. The type is bool. The default value is
-    // true.
-    Rpf interface{}
-}
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetEntityData() *types.CommonEntityData {
-    ipv4Network.EntityData.YFilter = ipv4Network.YFilter
-    ipv4Network.EntityData.YangName = "ipv4-network"
-    ipv4Network.EntityData.BundleName = "cisco_ios_xr"
-    ipv4Network.EntityData.ParentYangName = "subscriber-service"
-    ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
-    ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv4Network.EntityData.Children = types.NewOrderedMap()
-    ipv4Network.EntityData.Leafs = types.NewOrderedMap()
-    ipv4Network.EntityData.Leafs.Append("unnumbered", types.YLeaf{"Unnumbered", ipv4Network.Unnumbered})
-    ipv4Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv4Network.Mtu})
-    ipv4Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv4Network.Unreachables})
-    ipv4Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv4Network.Rpf})
-
-    ipv4Network.EntityData.YListKeys = []string {}
-
-    return &(ipv4Network.EntityData)
-}
-
-// DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter
-// IPv4 Packet Filtering configuration for the
-// template
-type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // IPv4 Packet filter to be applied to outbound packets.
-    Outbound DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound
-
-    // IPv4 Packet filter to be applied to inbound packets.
-    Inbound DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound
-}
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetEntityData() *types.CommonEntityData {
-    ipv4PacketFilter.EntityData.YFilter = ipv4PacketFilter.YFilter
-    ipv4PacketFilter.EntityData.YangName = "ipv4-packet-filter"
-    ipv4PacketFilter.EntityData.BundleName = "cisco_ios_xr"
-    ipv4PacketFilter.EntityData.ParentYangName = "subscriber-service"
-    ipv4PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
-    ipv4PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv4PacketFilter.EntityData.Children = types.NewOrderedMap()
-    ipv4PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv4PacketFilter.Outbound})
-    ipv4PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv4PacketFilter.Inbound})
-    ipv4PacketFilter.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv4PacketFilter.EntityData.YListKeys = []string {}
-
-    return &(ipv4PacketFilter.EntityData)
-}
-
-// DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound
-// IPv4 Packet filter to be applied to outbound
-// packets
-type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv4 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    HardwareCount interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
-    outbound.EntityData.YFilter = outbound.YFilter
-    outbound.EntityData.YangName = "outbound"
-    outbound.EntityData.BundleName = "cisco_ios_xr"
-    outbound.EntityData.ParentYangName = "ipv4-packet-filter"
-    outbound.EntityData.SegmentPath = "outbound"
-    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    outbound.EntityData.Children = types.NewOrderedMap()
-    outbound.EntityData.Leafs = types.NewOrderedMap()
-    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
-    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
-    outbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", outbound.HardwareCount})
-    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
-
-    outbound.EntityData.YListKeys = []string {}
-
-    return &(outbound.EntityData)
-}
-
-// DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound
-// IPv4 Packet filter to be applied to inbound
-// packets
-type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv4 Packet Filter Name to be applied to Inbound packets NOTE: This
-    // parameter is mandatory if 'CommonACLName' is not specified. The type is
-    // string with length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    HardwareCount interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
-    inbound.EntityData.YFilter = inbound.YFilter
-    inbound.EntityData.YangName = "inbound"
-    inbound.EntityData.BundleName = "cisco_ios_xr"
-    inbound.EntityData.ParentYangName = "ipv4-packet-filter"
-    inbound.EntityData.SegmentPath = "inbound"
-    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    inbound.EntityData.Children = types.NewOrderedMap()
-    inbound.EntityData.Leafs = types.NewOrderedMap()
-    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
-    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
-    inbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", inbound.HardwareCount})
-    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
-
-    inbound.EntityData.YListKeys = []string {}
-
-    return &(inbound.EntityData)
-}
-
-// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter
-// IPv6 Packet Filtering configuration for the
-// interface
-type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // IPv6 Packet filter to be applied to inbound packets.
-    Inbound DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound
-
-    // IPv6 Packet filter to be applied to outbound packets.
-    Outbound DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound
-}
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetEntityData() *types.CommonEntityData {
-    ipv6PacketFilter.EntityData.YFilter = ipv6PacketFilter.YFilter
-    ipv6PacketFilter.EntityData.YangName = "ipv6-packet-filter"
-    ipv6PacketFilter.EntityData.BundleName = "cisco_ios_xr"
-    ipv6PacketFilter.EntityData.ParentYangName = "subscriber-service"
-    ipv6PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
-    ipv6PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv6PacketFilter.EntityData.Children = types.NewOrderedMap()
-    ipv6PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv6PacketFilter.Inbound})
-    ipv6PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv6PacketFilter.Outbound})
-    ipv6PacketFilter.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv6PacketFilter.EntityData.YListKeys = []string {}
-
-    return &(ipv6PacketFilter.EntityData)
-}
-
-// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound
-// IPv6 Packet filter to be applied to inbound
-// packets
-type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv6 Packet Filter Name to be applied to Inbound  NOTE: This parameter is
-    // mandatory if 'CommonACLName' is not specified. The type is string with
-    // length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
-    inbound.EntityData.YFilter = inbound.YFilter
-    inbound.EntityData.YangName = "inbound"
-    inbound.EntityData.BundleName = "cisco_ios_xr"
-    inbound.EntityData.ParentYangName = "ipv6-packet-filter"
-    inbound.EntityData.SegmentPath = "inbound"
-    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    inbound.EntityData.Children = types.NewOrderedMap()
-    inbound.EntityData.Leafs = types.NewOrderedMap()
-    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
-    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
-    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
-
-    inbound.EntityData.YListKeys = []string {}
-
-    return &(inbound.EntityData)
-}
-
-// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound
-// IPv6 Packet filter to be applied to outbound
-// packets
-type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Not supported (Leave unspecified). The type is string with length: 1..64.
-    CommonAclName interface{}
-
-    // IPv6 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..64.
-    Name interface{}
-
-    // Not supported (Leave unspecified). The type is interface{}.
-    InterfaceStatistics interface{}
-}
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
-    outbound.EntityData.YFilter = outbound.YFilter
-    outbound.EntityData.YangName = "outbound"
-    outbound.EntityData.BundleName = "cisco_ios_xr"
-    outbound.EntityData.ParentYangName = "ipv6-packet-filter"
-    outbound.EntityData.SegmentPath = "outbound"
-    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    outbound.EntityData.Children = types.NewOrderedMap()
-    outbound.EntityData.Leafs = types.NewOrderedMap()
-    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
-    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
-    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
-
-    outbound.EntityData.YListKeys = []string {}
-
-    return &(outbound.EntityData)
-}
-
-// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network
-// Interface IPv6 Network configuration data
-type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // MTU Setting of Interface. The type is interface{} with range: 1280..65535.
-    // Units are byte.
-    Mtu interface{}
-
-    // TRUE if enabled, FALSE if disabled. The type is bool.
-    Rpf interface{}
-
-    // Override Sending of ICMP Unreachable Messages. The type is interface{}.
-    Unreachables interface{}
-
-    // Set the IPv6 address of an interface.
-    Addresses DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses
-}
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetEntityData() *types.CommonEntityData {
-    ipv6Network.EntityData.YFilter = ipv6Network.YFilter
-    ipv6Network.EntityData.YangName = "ipv6-network"
-    ipv6Network.EntityData.BundleName = "cisco_ios_xr"
-    ipv6Network.EntityData.ParentYangName = "subscriber-service"
-    ipv6Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
-    ipv6Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv6Network.EntityData.Children = types.NewOrderedMap()
-    ipv6Network.EntityData.Children.Append("addresses", types.YChild{"Addresses", &ipv6Network.Addresses})
-    ipv6Network.EntityData.Leafs = types.NewOrderedMap()
-    ipv6Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv6Network.Mtu})
-    ipv6Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv6Network.Rpf})
-    ipv6Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv6Network.Unreachables})
-
-    ipv6Network.EntityData.YListKeys = []string {}
-
-    return &(ipv6Network.EntityData)
-}
-
-// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses
-// Set the IPv6 address of an interface
-type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Auto IPv6 Interface Configuration.
-    AutoConfiguration DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration
-}
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetEntityData() *types.CommonEntityData {
-    addresses.EntityData.YFilter = addresses.YFilter
-    addresses.EntityData.YangName = "addresses"
-    addresses.EntityData.BundleName = "cisco_ios_xr"
-    addresses.EntityData.ParentYangName = "ipv6-network"
-    addresses.EntityData.SegmentPath = "addresses"
-    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    addresses.EntityData.Children = types.NewOrderedMap()
-    addresses.EntityData.Children.Append("auto-configuration", types.YChild{"AutoConfiguration", &addresses.AutoConfiguration})
-    addresses.EntityData.Leafs = types.NewOrderedMap()
-
-    addresses.EntityData.YListKeys = []string {}
-
-    return &(addresses.EntityData)
-}
-
-// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration
-// Auto IPv6 Interface Configuration
-type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The flag to enable auto ipv6 interface configuration. The type is
-    // interface{}.
-    Enable interface{}
-}
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetEntityData() *types.CommonEntityData {
-    autoConfiguration.EntityData.YFilter = autoConfiguration.YFilter
-    autoConfiguration.EntityData.YangName = "auto-configuration"
-    autoConfiguration.EntityData.BundleName = "cisco_ios_xr"
-    autoConfiguration.EntityData.ParentYangName = "addresses"
-    autoConfiguration.EntityData.SegmentPath = "auto-configuration"
-    autoConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    autoConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    autoConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    autoConfiguration.EntityData.Children = types.NewOrderedMap()
-    autoConfiguration.EntityData.Leafs = types.NewOrderedMap()
-    autoConfiguration.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoConfiguration.Enable})
-
-    autoConfiguration.EntityData.YListKeys = []string {}
-
-    return &(autoConfiguration.EntityData)
 }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Accounting
@@ -3938,6 +3690,7 @@ func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accountin
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "subscriber-service"
     accounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3975,6 +3728,7 @@ func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Ac
     serviceAccounting.EntityData.BundleName = "cisco_ios_xr"
     serviceAccounting.EntityData.ParentYangName = "accounting"
     serviceAccounting.EntityData.SegmentPath = "service-accounting"
+    serviceAccounting.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-subscriber-accounting-cfg:accounting/" + serviceAccounting.EntityData.SegmentPath
     serviceAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4016,6 +3770,7 @@ func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_S
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "accounting"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-subscriber-accounting-cfg:accounting/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4064,6 +3819,7 @@ func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounti
     idleTimeout.EntityData.BundleName = "cisco_ios_xr"
     idleTimeout.EntityData.ParentYangName = "accounting"
     idleTimeout.EntityData.SegmentPath = "idle-timeout"
+    idleTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-subscriber-accounting-cfg:accounting/" + idleTimeout.EntityData.SegmentPath
     idleTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idleTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idleTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4077,5 +3833,349 @@ func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounti
     idleTimeout.EntityData.YListKeys = []string {}
 
     return &(idleTimeout.EntityData)
+}
+
+// DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter
+// IPv4 Packet Filtering configuration for the
+// template
+type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 Packet filter to be applied to outbound packets.
+    Outbound DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound
+
+    // IPv4 Packet filter to be applied to inbound packets.
+    Inbound DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound
+}
+
+func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv4PacketFilter.EntityData.YFilter = ipv4PacketFilter.YFilter
+    ipv4PacketFilter.EntityData.YangName = "ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv4PacketFilter.EntityData.ParentYangName = "subscriber-service"
+    ipv4PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/" + ipv4PacketFilter.EntityData.SegmentPath
+    ipv4PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4PacketFilter.EntityData.Children = types.NewOrderedMap()
+    ipv4PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv4PacketFilter.Outbound})
+    ipv4PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv4PacketFilter.Inbound})
+    ipv4PacketFilter.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4PacketFilter.EntityData.YListKeys = []string {}
+
+    return &(ipv4PacketFilter.EntityData)
+}
+
+// DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound
+// IPv4 Packet filter to be applied to outbound
+// packets
+type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv4 Packet Filter Name to be applied to Outbound packets. The type is
+    // string with length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    HardwareCount interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter/" + outbound.EntityData.SegmentPath
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    outbound.EntityData.Children = types.NewOrderedMap()
+    outbound.EntityData.Leafs = types.NewOrderedMap()
+    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
+    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
+    outbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", outbound.HardwareCount})
+    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
+
+    outbound.EntityData.YListKeys = []string {}
+
+    return &(outbound.EntityData)
+}
+
+// DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound
+// IPv4 Packet filter to be applied to inbound
+// packets
+type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv4 Packet Filter Name to be applied to Inbound packets NOTE: This
+    // parameter is mandatory if 'CommonACLName' is not specified. The type is
+    // string with length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    HardwareCount interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter/" + inbound.EntityData.SegmentPath
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    inbound.EntityData.Children = types.NewOrderedMap()
+    inbound.EntityData.Leafs = types.NewOrderedMap()
+    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
+    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
+    inbound.EntityData.Leafs.Append("hardware-count", types.YLeaf{"HardwareCount", inbound.HardwareCount})
+    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
+
+    inbound.EntityData.YListKeys = []string {}
+
+    return &(inbound.EntityData)
+}
+
+// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter
+// IPv6 Packet Filtering configuration for the
+// interface
+type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 Packet filter to be applied to inbound packets.
+    Inbound DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound
+
+    // IPv6 Packet filter to be applied to outbound packets.
+    Outbound DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound
+}
+
+func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv6PacketFilter.EntityData.YFilter = ipv6PacketFilter.YFilter
+    ipv6PacketFilter.EntityData.YangName = "ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv6PacketFilter.EntityData.ParentYangName = "subscriber-service"
+    ipv6PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/" + ipv6PacketFilter.EntityData.SegmentPath
+    ipv6PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6PacketFilter.EntityData.Children = types.NewOrderedMap()
+    ipv6PacketFilter.EntityData.Children.Append("inbound", types.YChild{"Inbound", &ipv6PacketFilter.Inbound})
+    ipv6PacketFilter.EntityData.Children.Append("outbound", types.YChild{"Outbound", &ipv6PacketFilter.Outbound})
+    ipv6PacketFilter.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6PacketFilter.EntityData.YListKeys = []string {}
+
+    return &(ipv6PacketFilter.EntityData)
+}
+
+// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound
+// IPv6 Packet filter to be applied to inbound
+// packets
+type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv6 Packet Filter Name to be applied to Inbound  NOTE: This parameter is
+    // mandatory if 'CommonACLName' is not specified. The type is string with
+    // length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter/" + inbound.EntityData.SegmentPath
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    inbound.EntityData.Children = types.NewOrderedMap()
+    inbound.EntityData.Leafs = types.NewOrderedMap()
+    inbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", inbound.CommonAclName})
+    inbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", inbound.Name})
+    inbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics})
+
+    inbound.EntityData.YListKeys = []string {}
+
+    return &(inbound.EntityData)
+}
+
+// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound
+// IPv6 Packet filter to be applied to outbound
+// packets
+type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Not supported (Leave unspecified). The type is string with length: 1..64.
+    CommonAclName interface{}
+
+    // IPv6 Packet Filter Name to be applied to Outbound packets. The type is
+    // string with length: 1..64.
+    Name interface{}
+
+    // Not supported (Leave unspecified). The type is interface{}.
+    InterfaceStatistics interface{}
+}
+
+func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter/" + outbound.EntityData.SegmentPath
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    outbound.EntityData.Children = types.NewOrderedMap()
+    outbound.EntityData.Leafs = types.NewOrderedMap()
+    outbound.EntityData.Leafs.Append("common-acl-name", types.YLeaf{"CommonAclName", outbound.CommonAclName})
+    outbound.EntityData.Leafs.Append("name", types.YLeaf{"Name", outbound.Name})
+    outbound.EntityData.Leafs.Append("interface-statistics", types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics})
+
+    outbound.EntityData.YListKeys = []string {}
+
+    return &(outbound.EntityData)
+}
+
+// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network
+// Interface IPv6 Network configuration data
+type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MTU Setting of Interface. The type is interface{} with range: 1280..65535.
+    // Units are byte.
+    Mtu interface{}
+
+    // TRUE if enabled, FALSE if disabled. The type is bool.
+    Rpf interface{}
+
+    // Override Sending of ICMP Unreachable Messages. The type is interface{}.
+    Unreachables interface{}
+
+    // Set the IPv6 address of an interface.
+    Addresses DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses
+}
+
+func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetEntityData() *types.CommonEntityData {
+    ipv6Network.EntityData.YFilter = ipv6Network.YFilter
+    ipv6Network.EntityData.YangName = "ipv6-network"
+    ipv6Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Network.EntityData.ParentYangName = "subscriber-service"
+    ipv6Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
+    ipv6Network.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/" + ipv6Network.EntityData.SegmentPath
+    ipv6Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Network.EntityData.Children = types.NewOrderedMap()
+    ipv6Network.EntityData.Children.Append("addresses", types.YChild{"Addresses", &ipv6Network.Addresses})
+    ipv6Network.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Network.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv6Network.Mtu})
+    ipv6Network.EntityData.Leafs.Append("rpf", types.YLeaf{"Rpf", ipv6Network.Rpf})
+    ipv6Network.EntityData.Leafs.Append("unreachables", types.YLeaf{"Unreachables", ipv6Network.Unreachables})
+
+    ipv6Network.EntityData.YListKeys = []string {}
+
+    return &(ipv6Network.EntityData)
+}
+
+// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses
+// Set the IPv6 address of an interface
+type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Auto IPv6 Interface Configuration.
+    AutoConfiguration DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration
+}
+
+func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetEntityData() *types.CommonEntityData {
+    addresses.EntityData.YFilter = addresses.YFilter
+    addresses.EntityData.YangName = "addresses"
+    addresses.EntityData.BundleName = "cisco_ios_xr"
+    addresses.EntityData.ParentYangName = "ipv6-network"
+    addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network/" + addresses.EntityData.SegmentPath
+    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addresses.EntityData.Children = types.NewOrderedMap()
+    addresses.EntityData.Children.Append("auto-configuration", types.YChild{"AutoConfiguration", &addresses.AutoConfiguration})
+    addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    addresses.EntityData.YListKeys = []string {}
+
+    return &(addresses.EntityData)
+}
+
+// DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration
+// Auto IPv6 Interface Configuration
+type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The flag to enable auto ipv6 interface configuration. The type is
+    // interface{}.
+    Enable interface{}
+}
+
+func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetEntityData() *types.CommonEntityData {
+    autoConfiguration.EntityData.YFilter = autoConfiguration.YFilter
+    autoConfiguration.EntityData.YangName = "auto-configuration"
+    autoConfiguration.EntityData.BundleName = "cisco_ios_xr"
+    autoConfiguration.EntityData.ParentYangName = "addresses"
+    autoConfiguration.EntityData.SegmentPath = "auto-configuration"
+    autoConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/subscriber-service/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network/addresses/" + autoConfiguration.EntityData.SegmentPath
+    autoConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    autoConfiguration.EntityData.Children = types.NewOrderedMap()
+    autoConfiguration.EntityData.Leafs = types.NewOrderedMap()
+    autoConfiguration.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoConfiguration.Enable})
+
+    autoConfiguration.EntityData.YListKeys = []string {}
+
+    return &(autoConfiguration.EntityData)
 }
 

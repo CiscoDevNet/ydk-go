@@ -40,6 +40,7 @@ func (vty *Vty) GetEntityData() *types.CommonEntityData {
     vty.EntityData.BundleName = "cisco_ios_xr"
     vty.EntityData.ParentYangName = "Cisco-IOS-XR-tty-vty-cfg"
     vty.EntityData.SegmentPath = "Cisco-IOS-XR-tty-vty-cfg:vty"
+    vty.EntityData.AbsolutePath = vty.EntityData.SegmentPath
     vty.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (vtyPools *Vty_VtyPools) GetEntityData() *types.CommonEntityData {
     vtyPools.EntityData.BundleName = "cisco_ios_xr"
     vtyPools.EntityData.ParentYangName = "vty"
     vtyPools.EntityData.SegmentPath = "vty-pools"
+    vtyPools.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-vty-cfg:vty/" + vtyPools.EntityData.SegmentPath
     vtyPools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vtyPools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vtyPools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (vtyPools *Vty_VtyPools) GetEntityData() *types.CommonEntityData {
 type Vty_VtyPools_VtyPool struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. For configuring range for default pool use
     // 'default',For configuring range for fault-manager pool use 'fm',For
@@ -120,6 +123,7 @@ func (vtyPool *Vty_VtyPools_VtyPool) GetEntityData() *types.CommonEntityData {
     vtyPool.EntityData.BundleName = "cisco_ios_xr"
     vtyPool.EntityData.ParentYangName = "vty-pools"
     vtyPool.EntityData.SegmentPath = "vty-pool" + types.AddKeyToken(vtyPool.PoolName, "pool-name")
+    vtyPool.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-vty-cfg:vty/vty-pools/" + vtyPool.EntityData.SegmentPath
     vtyPool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vtyPool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vtyPool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

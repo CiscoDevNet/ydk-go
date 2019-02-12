@@ -63,6 +63,7 @@ func (igmp *Igmp) GetEntityData() *types.CommonEntityData {
     igmp.EntityData.BundleName = "cisco_ios_xr"
     igmp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-igmp-cfg"
     igmp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp"
+    igmp.EntityData.AbsolutePath = igmp.EntityData.SegmentPath
     igmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -93,6 +94,7 @@ func (vrfs *Igmp_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "igmp"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -114,6 +116,7 @@ func (vrfs *Igmp_Vrfs) GetEntityData() *types.CommonEntityData {
 type Igmp_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name for this vrf. The type is string with length:
     // 1..32.
@@ -148,6 +151,7 @@ func (vrf *Igmp_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -184,6 +188,7 @@ func (traffic *Igmp_Vrfs_Vrf_Traffic) GetEntityData() *types.CommonEntityData {
     traffic.EntityData.BundleName = "cisco_ios_xr"
     traffic.EntityData.ParentYangName = "vrf"
     traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/" + traffic.EntityData.SegmentPath
     traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -240,6 +245,7 @@ func (inheritableDefaults *Igmp_Vrfs_Vrf_InheritableDefaults) GetEntityData() *t
     inheritableDefaults.EntityData.BundleName = "cisco_ios_xr"
     inheritableDefaults.EntityData.ParentYangName = "vrf"
     inheritableDefaults.EntityData.SegmentPath = "inheritable-defaults"
+    inheritableDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/" + inheritableDefaults.EntityData.SegmentPath
     inheritableDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -288,6 +294,7 @@ func (maximumGroupsPerInterfaceOor *Igmp_Vrfs_Vrf_InheritableDefaults_MaximumGro
     maximumGroupsPerInterfaceOor.EntityData.BundleName = "cisco_ios_xr"
     maximumGroupsPerInterfaceOor.EntityData.ParentYangName = "inheritable-defaults"
     maximumGroupsPerInterfaceOor.EntityData.SegmentPath = "maximum-groups-per-interface-oor"
+    maximumGroupsPerInterfaceOor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/inheritable-defaults/" + maximumGroupsPerInterfaceOor.EntityData.SegmentPath
     maximumGroupsPerInterfaceOor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -326,6 +333,7 @@ func (explicitTracking *Igmp_Vrfs_Vrf_InheritableDefaults_ExplicitTracking) GetE
     explicitTracking.EntityData.BundleName = "cisco_ios_xr"
     explicitTracking.EntityData.ParentYangName = "inheritable-defaults"
     explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/inheritable-defaults/" + explicitTracking.EntityData.SegmentPath
     explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -357,6 +365,7 @@ func (ssmAccessGroups *Igmp_Vrfs_Vrf_SsmAccessGroups) GetEntityData() *types.Com
     ssmAccessGroups.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroups.EntityData.ParentYangName = "vrf"
     ssmAccessGroups.EntityData.SegmentPath = "ssm-access-groups"
+    ssmAccessGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/" + ssmAccessGroups.EntityData.SegmentPath
     ssmAccessGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -378,6 +387,7 @@ func (ssmAccessGroups *Igmp_Vrfs_Vrf_SsmAccessGroups) GetEntityData() *types.Com
 type Igmp_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
@@ -397,6 +407,7 @@ func (ssmAccessGroup *Igmp_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup) GetEntityDat
     ssmAccessGroup.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroup.EntityData.ParentYangName = "ssm-access-groups"
     ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + types.AddKeyToken(ssmAccessGroup.SourceAddress, "source-address")
+    ssmAccessGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/ssm-access-groups/" + ssmAccessGroup.EntityData.SegmentPath
     ssmAccessGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -428,6 +439,7 @@ func (maximum *Igmp_Vrfs_Vrf_Maximum) GetEntityData() *types.CommonEntityData {
     maximum.EntityData.BundleName = "cisco_ios_xr"
     maximum.EntityData.ParentYangName = "vrf"
     maximum.EntityData.SegmentPath = "maximum"
+    maximum.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/" + maximum.EntityData.SegmentPath
     maximum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -458,6 +470,7 @@ func (interfaces *Igmp_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityD
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "vrf"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -479,6 +492,7 @@ func (interfaces *Igmp_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityD
 type Igmp_Vrfs_Vrf_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -527,6 +541,7 @@ func (self *Igmp_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnt
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -573,6 +588,7 @@ func (joinGroups *Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups) GetEntityData()
     joinGroups.EntityData.BundleName = "cisco_ios_xr"
     joinGroups.EntityData.ParentYangName = "interface"
     joinGroups.EntityData.SegmentPath = "join-groups"
+    joinGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/" + joinGroups.EntityData.SegmentPath
     joinGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -599,6 +615,7 @@ func (joinGroups *Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups) GetEntityData()
 type Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -617,6 +634,7 @@ func (joinGroup *Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup) GetEnt
     joinGroup.EntityData.BundleName = "cisco_ios_xr"
     joinGroup.EntityData.ParentYangName = "join-groups"
     joinGroup.EntityData.SegmentPath = "join-group" + types.AddKeyToken(joinGroup.GroupAddress, "group-address")
+    joinGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/join-groups/" + joinGroup.EntityData.SegmentPath
     joinGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -637,6 +655,7 @@ func (joinGroup *Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup) GetEnt
 type Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -662,6 +681,7 @@ func (joinGroupSourceAddress *Igmp_Vrfs_Vrf_Interfaces_Interface_JoinGroups_Join
     joinGroupSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     joinGroupSourceAddress.EntityData.ParentYangName = "join-groups"
     joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + types.AddKeyToken(joinGroupSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(joinGroupSourceAddress.SourceAddress, "source-address")
+    joinGroupSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/join-groups/" + joinGroupSourceAddress.EntityData.SegmentPath
     joinGroupSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroupSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroupSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -720,6 +740,7 @@ func (staticGroupGroupAddresses *Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupG
     staticGroupGroupAddresses.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddresses.EntityData.ParentYangName = "interface"
     staticGroupGroupAddresses.EntityData.SegmentPath = "static-group-group-addresses"
+    staticGroupGroupAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/" + staticGroupGroupAddresses.EntityData.SegmentPath
     staticGroupGroupAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -762,6 +783,7 @@ func (staticGroupGroupAddresses *Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupG
 type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -788,6 +810,7 @@ func (staticGroupGroupAddress *Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGro
     staticGroupGroupAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + types.AddKeyToken(staticGroupGroupAddress.GroupAddress, "group-address")
+    staticGroupGroupAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddress.EntityData.SegmentPath
     staticGroupGroupAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -810,6 +833,7 @@ func (staticGroupGroupAddress *Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGro
 type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -843,6 +867,7 @@ func (staticGroupGroupAddressSourceAddress *Igmp_Vrfs_Vrf_Interfaces_Interface_S
     staticGroupGroupAddressSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + types.AddKeyToken(staticGroupGroupAddressSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddress.SourceAddress, "source-address")
+    staticGroupGroupAddressSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressSourceAddress.EntityData.SegmentPath
     staticGroupGroupAddressSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -866,6 +891,7 @@ func (staticGroupGroupAddressSourceAddress *Igmp_Vrfs_Vrf_Interfaces_Interface_S
 type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -906,6 +932,7 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Igmp_Vrfs_Vrf_Inter
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -930,6 +957,7 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Igmp_Vrfs_Vrf_Inter
 type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -963,6 +991,7 @@ func (staticGroupGroupAddressGroupAddressMask *Igmp_Vrfs_Vrf_Interfaces_Interfac
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddressMask, "group-address-mask")
+    staticGroupGroupAddressGroupAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -986,6 +1015,7 @@ func (staticGroupGroupAddressGroupAddressMask *Igmp_Vrfs_Vrf_Interfaces_Interfac
 type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -1026,6 +1056,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Igmp_Vrfs_Vrf_Interf
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress, "source-address")
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1050,6 +1081,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Igmp_Vrfs_Vrf_Interf
 type Igmp_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -1097,6 +1129,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Igm
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1144,6 +1177,7 @@ func (maximumGroupsPerInterfaceOor *Igmp_Vrfs_Vrf_Interfaces_Interface_MaximumGr
     maximumGroupsPerInterfaceOor.EntityData.BundleName = "cisco_ios_xr"
     maximumGroupsPerInterfaceOor.EntityData.ParentYangName = "interface"
     maximumGroupsPerInterfaceOor.EntityData.SegmentPath = "maximum-groups-per-interface-oor"
+    maximumGroupsPerInterfaceOor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/" + maximumGroupsPerInterfaceOor.EntityData.SegmentPath
     maximumGroupsPerInterfaceOor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1182,6 +1216,7 @@ func (explicitTracking *Igmp_Vrfs_Vrf_Interfaces_Interface_ExplicitTracking) Get
     explicitTracking.EntityData.BundleName = "cisco_ios_xr"
     explicitTracking.EntityData.ParentYangName = "interface"
     explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/vrf/interfaces/interface/" + explicitTracking.EntityData.SegmentPath
     explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1242,6 +1277,7 @@ func (defaultContext *Igmp_DefaultContext) GetEntityData() *types.CommonEntityDa
     defaultContext.EntityData.BundleName = "cisco_ios_xr"
     defaultContext.EntityData.ParentYangName = "igmp"
     defaultContext.EntityData.SegmentPath = "default-context"
+    defaultContext.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/" + defaultContext.EntityData.SegmentPath
     defaultContext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1281,6 +1317,7 @@ func (nsf *Igmp_DefaultContext_Nsf) GetEntityData() *types.CommonEntityData {
     nsf.EntityData.BundleName = "cisco_ios_xr"
     nsf.EntityData.ParentYangName = "default-context"
     nsf.EntityData.SegmentPath = "nsf"
+    nsf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/" + nsf.EntityData.SegmentPath
     nsf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1321,6 +1358,7 @@ func (unicastQosAdjust *Igmp_DefaultContext_UnicastQosAdjust) GetEntityData() *t
     unicastQosAdjust.EntityData.BundleName = "cisco_ios_xr"
     unicastQosAdjust.EntityData.ParentYangName = "default-context"
     unicastQosAdjust.EntityData.SegmentPath = "unicast-qos-adjust"
+    unicastQosAdjust.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/" + unicastQosAdjust.EntityData.SegmentPath
     unicastQosAdjust.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unicastQosAdjust.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastQosAdjust.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1354,6 +1392,7 @@ func (accounting *Igmp_DefaultContext_Accounting) GetEntityData() *types.CommonE
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "default-context"
     accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1383,6 +1422,7 @@ func (traffic *Igmp_DefaultContext_Traffic) GetEntityData() *types.CommonEntityD
     traffic.EntityData.BundleName = "cisco_ios_xr"
     traffic.EntityData.ParentYangName = "default-context"
     traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/" + traffic.EntityData.SegmentPath
     traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1439,6 +1479,7 @@ func (inheritableDefaults *Igmp_DefaultContext_InheritableDefaults) GetEntityDat
     inheritableDefaults.EntityData.BundleName = "cisco_ios_xr"
     inheritableDefaults.EntityData.ParentYangName = "default-context"
     inheritableDefaults.EntityData.SegmentPath = "inheritable-defaults"
+    inheritableDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/" + inheritableDefaults.EntityData.SegmentPath
     inheritableDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1487,6 +1528,7 @@ func (maximumGroupsPerInterfaceOor *Igmp_DefaultContext_InheritableDefaults_Maxi
     maximumGroupsPerInterfaceOor.EntityData.BundleName = "cisco_ios_xr"
     maximumGroupsPerInterfaceOor.EntityData.ParentYangName = "inheritable-defaults"
     maximumGroupsPerInterfaceOor.EntityData.SegmentPath = "maximum-groups-per-interface-oor"
+    maximumGroupsPerInterfaceOor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/inheritable-defaults/" + maximumGroupsPerInterfaceOor.EntityData.SegmentPath
     maximumGroupsPerInterfaceOor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1525,6 +1567,7 @@ func (explicitTracking *Igmp_DefaultContext_InheritableDefaults_ExplicitTracking
     explicitTracking.EntityData.BundleName = "cisco_ios_xr"
     explicitTracking.EntityData.ParentYangName = "inheritable-defaults"
     explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/inheritable-defaults/" + explicitTracking.EntityData.SegmentPath
     explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1556,6 +1599,7 @@ func (ssmAccessGroups *Igmp_DefaultContext_SsmAccessGroups) GetEntityData() *typ
     ssmAccessGroups.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroups.EntityData.ParentYangName = "default-context"
     ssmAccessGroups.EntityData.SegmentPath = "ssm-access-groups"
+    ssmAccessGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/" + ssmAccessGroups.EntityData.SegmentPath
     ssmAccessGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1577,6 +1621,7 @@ func (ssmAccessGroups *Igmp_DefaultContext_SsmAccessGroups) GetEntityData() *typ
 type Igmp_DefaultContext_SsmAccessGroups_SsmAccessGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
@@ -1596,6 +1641,7 @@ func (ssmAccessGroup *Igmp_DefaultContext_SsmAccessGroups_SsmAccessGroup) GetEnt
     ssmAccessGroup.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroup.EntityData.ParentYangName = "ssm-access-groups"
     ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + types.AddKeyToken(ssmAccessGroup.SourceAddress, "source-address")
+    ssmAccessGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/ssm-access-groups/" + ssmAccessGroup.EntityData.SegmentPath
     ssmAccessGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1627,6 +1673,7 @@ func (maximum *Igmp_DefaultContext_Maximum) GetEntityData() *types.CommonEntityD
     maximum.EntityData.BundleName = "cisco_ios_xr"
     maximum.EntityData.ParentYangName = "default-context"
     maximum.EntityData.SegmentPath = "maximum"
+    maximum.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/" + maximum.EntityData.SegmentPath
     maximum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1657,6 +1704,7 @@ func (interfaces *Igmp_DefaultContext_Interfaces) GetEntityData() *types.CommonE
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "default-context"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1678,6 +1726,7 @@ func (interfaces *Igmp_DefaultContext_Interfaces) GetEntityData() *types.CommonE
 type Igmp_DefaultContext_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1726,6 +1775,7 @@ func (self *Igmp_DefaultContext_Interfaces_Interface) GetEntityData() *types.Com
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1773,6 +1823,7 @@ func (joinGroups *Igmp_DefaultContext_Interfaces_Interface_JoinGroups) GetEntity
     joinGroups.EntityData.BundleName = "cisco_ios_xr"
     joinGroups.EntityData.ParentYangName = "interface"
     joinGroups.EntityData.SegmentPath = "join-groups"
+    joinGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/" + joinGroups.EntityData.SegmentPath
     joinGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1799,6 +1850,7 @@ func (joinGroups *Igmp_DefaultContext_Interfaces_Interface_JoinGroups) GetEntity
 type Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -1817,6 +1869,7 @@ func (joinGroup *Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup) 
     joinGroup.EntityData.BundleName = "cisco_ios_xr"
     joinGroup.EntityData.ParentYangName = "join-groups"
     joinGroup.EntityData.SegmentPath = "join-group" + types.AddKeyToken(joinGroup.GroupAddress, "group-address")
+    joinGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/join-groups/" + joinGroup.EntityData.SegmentPath
     joinGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1837,6 +1890,7 @@ func (joinGroup *Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup) 
 type Igmp_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -1862,6 +1916,7 @@ func (joinGroupSourceAddress *Igmp_DefaultContext_Interfaces_Interface_JoinGroup
     joinGroupSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     joinGroupSourceAddress.EntityData.ParentYangName = "join-groups"
     joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + types.AddKeyToken(joinGroupSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(joinGroupSourceAddress.SourceAddress, "source-address")
+    joinGroupSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/join-groups/" + joinGroupSourceAddress.EntityData.SegmentPath
     joinGroupSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroupSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroupSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1920,6 +1975,7 @@ func (staticGroupGroupAddresses *Igmp_DefaultContext_Interfaces_Interface_Static
     staticGroupGroupAddresses.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddresses.EntityData.ParentYangName = "interface"
     staticGroupGroupAddresses.EntityData.SegmentPath = "static-group-group-addresses"
+    staticGroupGroupAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/" + staticGroupGroupAddresses.EntityData.SegmentPath
     staticGroupGroupAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1962,6 +2018,7 @@ func (staticGroupGroupAddresses *Igmp_DefaultContext_Interfaces_Interface_Static
 type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -1988,6 +2045,7 @@ func (staticGroupGroupAddress *Igmp_DefaultContext_Interfaces_Interface_StaticGr
     staticGroupGroupAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + types.AddKeyToken(staticGroupGroupAddress.GroupAddress, "group-address")
+    staticGroupGroupAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddress.EntityData.SegmentPath
     staticGroupGroupAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2010,6 +2068,7 @@ func (staticGroupGroupAddress *Igmp_DefaultContext_Interfaces_Interface_StaticGr
 type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -2043,6 +2102,7 @@ func (staticGroupGroupAddressSourceAddress *Igmp_DefaultContext_Interfaces_Inter
     staticGroupGroupAddressSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + types.AddKeyToken(staticGroupGroupAddressSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddress.SourceAddress, "source-address")
+    staticGroupGroupAddressSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressSourceAddress.EntityData.SegmentPath
     staticGroupGroupAddressSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2066,6 +2126,7 @@ func (staticGroupGroupAddressSourceAddress *Igmp_DefaultContext_Interfaces_Inter
 type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -2106,6 +2167,7 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Igmp_DefaultContext
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2130,6 +2192,7 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Igmp_DefaultContext
 type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -2163,6 +2226,7 @@ func (staticGroupGroupAddressGroupAddressMask *Igmp_DefaultContext_Interfaces_In
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddressMask, "group-address-mask")
+    staticGroupGroupAddressGroupAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2186,6 +2250,7 @@ func (staticGroupGroupAddressGroupAddressMask *Igmp_DefaultContext_Interfaces_In
 type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -2226,6 +2291,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Igmp_DefaultContext_
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress, "source-address")
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2250,6 +2316,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Igmp_DefaultContext_
 type Igmp_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -2297,6 +2364,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Igm
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2344,6 +2412,7 @@ func (maximumGroupsPerInterfaceOor *Igmp_DefaultContext_Interfaces_Interface_Max
     maximumGroupsPerInterfaceOor.EntityData.BundleName = "cisco_ios_xr"
     maximumGroupsPerInterfaceOor.EntityData.ParentYangName = "interface"
     maximumGroupsPerInterfaceOor.EntityData.SegmentPath = "maximum-groups-per-interface-oor"
+    maximumGroupsPerInterfaceOor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/" + maximumGroupsPerInterfaceOor.EntityData.SegmentPath
     maximumGroupsPerInterfaceOor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2382,6 +2451,7 @@ func (explicitTracking *Igmp_DefaultContext_Interfaces_Interface_ExplicitTrackin
     explicitTracking.EntityData.BundleName = "cisco_ios_xr"
     explicitTracking.EntityData.ParentYangName = "interface"
     explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/interface/" + explicitTracking.EntityData.SegmentPath
     explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2451,6 +2521,7 @@ func (amt *Amt) GetEntityData() *types.CommonEntityData {
     amt.EntityData.BundleName = "cisco_ios_xr"
     amt.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-igmp-cfg"
     amt.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-igmp-cfg:amt"
+    amt.EntityData.AbsolutePath = amt.EntityData.SegmentPath
     amt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     amt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     amt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2499,6 +2570,7 @@ func (relayAdvAdd *Amt_RelayAdvAdd) GetEntityData() *types.CommonEntityData {
     relayAdvAdd.EntityData.BundleName = "cisco_ios_xr"
     relayAdvAdd.EntityData.ParentYangName = "amt"
     relayAdvAdd.EntityData.SegmentPath = "relay-adv-add"
+    relayAdvAdd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:amt/" + relayAdvAdd.EntityData.SegmentPath
     relayAdvAdd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relayAdvAdd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relayAdvAdd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2536,6 +2608,7 @@ func (relayAnycastPrefix *Amt_RelayAnycastPrefix) GetEntityData() *types.CommonE
     relayAnycastPrefix.EntityData.BundleName = "cisco_ios_xr"
     relayAnycastPrefix.EntityData.ParentYangName = "amt"
     relayAnycastPrefix.EntityData.SegmentPath = "relay-anycast-prefix"
+    relayAnycastPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:amt/" + relayAnycastPrefix.EntityData.SegmentPath
     relayAnycastPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relayAnycastPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relayAnycastPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2569,6 +2642,7 @@ func (mld *Mld) GetEntityData() *types.CommonEntityData {
     mld.EntityData.BundleName = "cisco_ios_xr"
     mld.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-igmp-cfg"
     mld.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld"
+    mld.EntityData.AbsolutePath = mld.EntityData.SegmentPath
     mld.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mld.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mld.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2599,6 +2673,7 @@ func (vrfs *Mld_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "mld"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2620,6 +2695,7 @@ func (vrfs *Mld_Vrfs) GetEntityData() *types.CommonEntityData {
 type Mld_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name for this vrf. The type is string with length:
     // 1..32.
@@ -2654,6 +2730,7 @@ func (vrf *Mld_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2690,6 +2767,7 @@ func (traffic *Mld_Vrfs_Vrf_Traffic) GetEntityData() *types.CommonEntityData {
     traffic.EntityData.BundleName = "cisco_ios_xr"
     traffic.EntityData.ParentYangName = "vrf"
     traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/" + traffic.EntityData.SegmentPath
     traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2746,6 +2824,7 @@ func (inheritableDefaults *Mld_Vrfs_Vrf_InheritableDefaults) GetEntityData() *ty
     inheritableDefaults.EntityData.BundleName = "cisco_ios_xr"
     inheritableDefaults.EntityData.ParentYangName = "vrf"
     inheritableDefaults.EntityData.SegmentPath = "inheritable-defaults"
+    inheritableDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/" + inheritableDefaults.EntityData.SegmentPath
     inheritableDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2794,6 +2873,7 @@ func (maximumGroupsPerInterfaceOor *Mld_Vrfs_Vrf_InheritableDefaults_MaximumGrou
     maximumGroupsPerInterfaceOor.EntityData.BundleName = "cisco_ios_xr"
     maximumGroupsPerInterfaceOor.EntityData.ParentYangName = "inheritable-defaults"
     maximumGroupsPerInterfaceOor.EntityData.SegmentPath = "maximum-groups-per-interface-oor"
+    maximumGroupsPerInterfaceOor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/inheritable-defaults/" + maximumGroupsPerInterfaceOor.EntityData.SegmentPath
     maximumGroupsPerInterfaceOor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2832,6 +2912,7 @@ func (explicitTracking *Mld_Vrfs_Vrf_InheritableDefaults_ExplicitTracking) GetEn
     explicitTracking.EntityData.BundleName = "cisco_ios_xr"
     explicitTracking.EntityData.ParentYangName = "inheritable-defaults"
     explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/inheritable-defaults/" + explicitTracking.EntityData.SegmentPath
     explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2863,6 +2944,7 @@ func (ssmAccessGroups *Mld_Vrfs_Vrf_SsmAccessGroups) GetEntityData() *types.Comm
     ssmAccessGroups.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroups.EntityData.ParentYangName = "vrf"
     ssmAccessGroups.EntityData.SegmentPath = "ssm-access-groups"
+    ssmAccessGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/" + ssmAccessGroups.EntityData.SegmentPath
     ssmAccessGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2884,6 +2966,7 @@ func (ssmAccessGroups *Mld_Vrfs_Vrf_SsmAccessGroups) GetEntityData() *types.Comm
 type Mld_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
@@ -2903,6 +2986,7 @@ func (ssmAccessGroup *Mld_Vrfs_Vrf_SsmAccessGroups_SsmAccessGroup) GetEntityData
     ssmAccessGroup.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroup.EntityData.ParentYangName = "ssm-access-groups"
     ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + types.AddKeyToken(ssmAccessGroup.SourceAddress, "source-address")
+    ssmAccessGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/ssm-access-groups/" + ssmAccessGroup.EntityData.SegmentPath
     ssmAccessGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2934,6 +3018,7 @@ func (maximum *Mld_Vrfs_Vrf_Maximum) GetEntityData() *types.CommonEntityData {
     maximum.EntityData.BundleName = "cisco_ios_xr"
     maximum.EntityData.ParentYangName = "vrf"
     maximum.EntityData.SegmentPath = "maximum"
+    maximum.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/" + maximum.EntityData.SegmentPath
     maximum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2964,6 +3049,7 @@ func (interfaces *Mld_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityDa
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "vrf"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2985,6 +3071,7 @@ func (interfaces *Mld_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityDa
 type Mld_Vrfs_Vrf_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -3033,6 +3120,7 @@ func (self *Mld_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnti
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3079,6 +3167,7 @@ func (joinGroups *Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups) GetEntityData() 
     joinGroups.EntityData.BundleName = "cisco_ios_xr"
     joinGroups.EntityData.ParentYangName = "interface"
     joinGroups.EntityData.SegmentPath = "join-groups"
+    joinGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/" + joinGroups.EntityData.SegmentPath
     joinGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3105,6 +3194,7 @@ func (joinGroups *Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups) GetEntityData() 
 type Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -3123,6 +3213,7 @@ func (joinGroup *Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup) GetEnti
     joinGroup.EntityData.BundleName = "cisco_ios_xr"
     joinGroup.EntityData.ParentYangName = "join-groups"
     joinGroup.EntityData.SegmentPath = "join-group" + types.AddKeyToken(joinGroup.GroupAddress, "group-address")
+    joinGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/join-groups/" + joinGroup.EntityData.SegmentPath
     joinGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3143,6 +3234,7 @@ func (joinGroup *Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroup) GetEnti
 type Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -3168,6 +3260,7 @@ func (joinGroupSourceAddress *Mld_Vrfs_Vrf_Interfaces_Interface_JoinGroups_JoinG
     joinGroupSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     joinGroupSourceAddress.EntityData.ParentYangName = "join-groups"
     joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + types.AddKeyToken(joinGroupSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(joinGroupSourceAddress.SourceAddress, "source-address")
+    joinGroupSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/join-groups/" + joinGroupSourceAddress.EntityData.SegmentPath
     joinGroupSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroupSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroupSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3226,6 +3319,7 @@ func (staticGroupGroupAddresses *Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGr
     staticGroupGroupAddresses.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddresses.EntityData.ParentYangName = "interface"
     staticGroupGroupAddresses.EntityData.SegmentPath = "static-group-group-addresses"
+    staticGroupGroupAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/" + staticGroupGroupAddresses.EntityData.SegmentPath
     staticGroupGroupAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3268,6 +3362,7 @@ func (staticGroupGroupAddresses *Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGr
 type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -3294,6 +3389,7 @@ func (staticGroupGroupAddress *Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGrou
     staticGroupGroupAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + types.AddKeyToken(staticGroupGroupAddress.GroupAddress, "group-address")
+    staticGroupGroupAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddress.EntityData.SegmentPath
     staticGroupGroupAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3316,6 +3412,7 @@ func (staticGroupGroupAddress *Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGrou
 type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -3349,6 +3446,7 @@ func (staticGroupGroupAddressSourceAddress *Mld_Vrfs_Vrf_Interfaces_Interface_St
     staticGroupGroupAddressSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + types.AddKeyToken(staticGroupGroupAddressSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddress.SourceAddress, "source-address")
+    staticGroupGroupAddressSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressSourceAddress.EntityData.SegmentPath
     staticGroupGroupAddressSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3372,6 +3470,7 @@ func (staticGroupGroupAddressSourceAddress *Mld_Vrfs_Vrf_Interfaces_Interface_St
 type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -3412,6 +3511,7 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Mld_Vrfs_Vrf_Interf
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3436,6 +3536,7 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Mld_Vrfs_Vrf_Interf
 type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -3469,6 +3570,7 @@ func (staticGroupGroupAddressGroupAddressMask *Mld_Vrfs_Vrf_Interfaces_Interface
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddressMask, "group-address-mask")
+    staticGroupGroupAddressGroupAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3492,6 +3594,7 @@ func (staticGroupGroupAddressGroupAddressMask *Mld_Vrfs_Vrf_Interfaces_Interface
 type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -3532,6 +3635,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Mld_Vrfs_Vrf_Interfa
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress, "source-address")
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3556,6 +3660,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Mld_Vrfs_Vrf_Interfa
 type Mld_Vrfs_Vrf_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -3603,6 +3708,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Mld
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3650,6 +3756,7 @@ func (maximumGroupsPerInterfaceOor *Mld_Vrfs_Vrf_Interfaces_Interface_MaximumGro
     maximumGroupsPerInterfaceOor.EntityData.BundleName = "cisco_ios_xr"
     maximumGroupsPerInterfaceOor.EntityData.ParentYangName = "interface"
     maximumGroupsPerInterfaceOor.EntityData.SegmentPath = "maximum-groups-per-interface-oor"
+    maximumGroupsPerInterfaceOor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/" + maximumGroupsPerInterfaceOor.EntityData.SegmentPath
     maximumGroupsPerInterfaceOor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3688,6 +3795,7 @@ func (explicitTracking *Mld_Vrfs_Vrf_Interfaces_Interface_ExplicitTracking) GetE
     explicitTracking.EntityData.BundleName = "cisco_ios_xr"
     explicitTracking.EntityData.ParentYangName = "interface"
     explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/vrf/interfaces/interface/" + explicitTracking.EntityData.SegmentPath
     explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3748,6 +3856,7 @@ func (defaultContext *Mld_DefaultContext) GetEntityData() *types.CommonEntityDat
     defaultContext.EntityData.BundleName = "cisco_ios_xr"
     defaultContext.EntityData.ParentYangName = "mld"
     defaultContext.EntityData.SegmentPath = "default-context"
+    defaultContext.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/" + defaultContext.EntityData.SegmentPath
     defaultContext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3787,6 +3896,7 @@ func (nsf *Mld_DefaultContext_Nsf) GetEntityData() *types.CommonEntityData {
     nsf.EntityData.BundleName = "cisco_ios_xr"
     nsf.EntityData.ParentYangName = "default-context"
     nsf.EntityData.SegmentPath = "nsf"
+    nsf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/" + nsf.EntityData.SegmentPath
     nsf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3827,6 +3937,7 @@ func (unicastQosAdjust *Mld_DefaultContext_UnicastQosAdjust) GetEntityData() *ty
     unicastQosAdjust.EntityData.BundleName = "cisco_ios_xr"
     unicastQosAdjust.EntityData.ParentYangName = "default-context"
     unicastQosAdjust.EntityData.SegmentPath = "unicast-qos-adjust"
+    unicastQosAdjust.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/" + unicastQosAdjust.EntityData.SegmentPath
     unicastQosAdjust.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unicastQosAdjust.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastQosAdjust.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3860,6 +3971,7 @@ func (accounting *Mld_DefaultContext_Accounting) GetEntityData() *types.CommonEn
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "default-context"
     accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3889,6 +4001,7 @@ func (traffic *Mld_DefaultContext_Traffic) GetEntityData() *types.CommonEntityDa
     traffic.EntityData.BundleName = "cisco_ios_xr"
     traffic.EntityData.ParentYangName = "default-context"
     traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/" + traffic.EntityData.SegmentPath
     traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3945,6 +4058,7 @@ func (inheritableDefaults *Mld_DefaultContext_InheritableDefaults) GetEntityData
     inheritableDefaults.EntityData.BundleName = "cisco_ios_xr"
     inheritableDefaults.EntityData.ParentYangName = "default-context"
     inheritableDefaults.EntityData.SegmentPath = "inheritable-defaults"
+    inheritableDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/" + inheritableDefaults.EntityData.SegmentPath
     inheritableDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3993,6 +4107,7 @@ func (maximumGroupsPerInterfaceOor *Mld_DefaultContext_InheritableDefaults_Maxim
     maximumGroupsPerInterfaceOor.EntityData.BundleName = "cisco_ios_xr"
     maximumGroupsPerInterfaceOor.EntityData.ParentYangName = "inheritable-defaults"
     maximumGroupsPerInterfaceOor.EntityData.SegmentPath = "maximum-groups-per-interface-oor"
+    maximumGroupsPerInterfaceOor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/inheritable-defaults/" + maximumGroupsPerInterfaceOor.EntityData.SegmentPath
     maximumGroupsPerInterfaceOor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4031,6 +4146,7 @@ func (explicitTracking *Mld_DefaultContext_InheritableDefaults_ExplicitTracking)
     explicitTracking.EntityData.BundleName = "cisco_ios_xr"
     explicitTracking.EntityData.ParentYangName = "inheritable-defaults"
     explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/inheritable-defaults/" + explicitTracking.EntityData.SegmentPath
     explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4062,6 +4178,7 @@ func (ssmAccessGroups *Mld_DefaultContext_SsmAccessGroups) GetEntityData() *type
     ssmAccessGroups.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroups.EntityData.ParentYangName = "default-context"
     ssmAccessGroups.EntityData.SegmentPath = "ssm-access-groups"
+    ssmAccessGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/" + ssmAccessGroups.EntityData.SegmentPath
     ssmAccessGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4083,6 +4200,7 @@ func (ssmAccessGroups *Mld_DefaultContext_SsmAccessGroups) GetEntityData() *type
 type Mld_DefaultContext_SsmAccessGroups_SsmAccessGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP source address. The type is one of the
     // following types: string with pattern:
@@ -4102,6 +4220,7 @@ func (ssmAccessGroup *Mld_DefaultContext_SsmAccessGroups_SsmAccessGroup) GetEnti
     ssmAccessGroup.EntityData.BundleName = "cisco_ios_xr"
     ssmAccessGroup.EntityData.ParentYangName = "ssm-access-groups"
     ssmAccessGroup.EntityData.SegmentPath = "ssm-access-group" + types.AddKeyToken(ssmAccessGroup.SourceAddress, "source-address")
+    ssmAccessGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/ssm-access-groups/" + ssmAccessGroup.EntityData.SegmentPath
     ssmAccessGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmAccessGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmAccessGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4133,6 +4252,7 @@ func (maximum *Mld_DefaultContext_Maximum) GetEntityData() *types.CommonEntityDa
     maximum.EntityData.BundleName = "cisco_ios_xr"
     maximum.EntityData.ParentYangName = "default-context"
     maximum.EntityData.SegmentPath = "maximum"
+    maximum.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/" + maximum.EntityData.SegmentPath
     maximum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4163,6 +4283,7 @@ func (interfaces *Mld_DefaultContext_Interfaces) GetEntityData() *types.CommonEn
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "default-context"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4184,6 +4305,7 @@ func (interfaces *Mld_DefaultContext_Interfaces) GetEntityData() *types.CommonEn
 type Mld_DefaultContext_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -4232,6 +4354,7 @@ func (self *Mld_DefaultContext_Interfaces_Interface) GetEntityData() *types.Comm
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4279,6 +4402,7 @@ func (joinGroups *Mld_DefaultContext_Interfaces_Interface_JoinGroups) GetEntityD
     joinGroups.EntityData.BundleName = "cisco_ios_xr"
     joinGroups.EntityData.ParentYangName = "interface"
     joinGroups.EntityData.SegmentPath = "join-groups"
+    joinGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/" + joinGroups.EntityData.SegmentPath
     joinGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4305,6 +4429,7 @@ func (joinGroups *Mld_DefaultContext_Interfaces_Interface_JoinGroups) GetEntityD
 type Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -4323,6 +4448,7 @@ func (joinGroup *Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup) G
     joinGroup.EntityData.BundleName = "cisco_ios_xr"
     joinGroup.EntityData.ParentYangName = "join-groups"
     joinGroup.EntityData.SegmentPath = "join-group" + types.AddKeyToken(joinGroup.GroupAddress, "group-address")
+    joinGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/join-groups/" + joinGroup.EntityData.SegmentPath
     joinGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4343,6 +4469,7 @@ func (joinGroup *Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroup) G
 type Mld_DefaultContext_Interfaces_Interface_JoinGroups_JoinGroupSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -4368,6 +4495,7 @@ func (joinGroupSourceAddress *Mld_DefaultContext_Interfaces_Interface_JoinGroups
     joinGroupSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     joinGroupSourceAddress.EntityData.ParentYangName = "join-groups"
     joinGroupSourceAddress.EntityData.SegmentPath = "join-group-source-address" + types.AddKeyToken(joinGroupSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(joinGroupSourceAddress.SourceAddress, "source-address")
+    joinGroupSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/join-groups/" + joinGroupSourceAddress.EntityData.SegmentPath
     joinGroupSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     joinGroupSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     joinGroupSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4426,6 +4554,7 @@ func (staticGroupGroupAddresses *Mld_DefaultContext_Interfaces_Interface_StaticG
     staticGroupGroupAddresses.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddresses.EntityData.ParentYangName = "interface"
     staticGroupGroupAddresses.EntityData.SegmentPath = "static-group-group-addresses"
+    staticGroupGroupAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/" + staticGroupGroupAddresses.EntityData.SegmentPath
     staticGroupGroupAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4468,6 +4597,7 @@ func (staticGroupGroupAddresses *Mld_DefaultContext_Interfaces_Interface_StaticG
 type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -4494,6 +4624,7 @@ func (staticGroupGroupAddress *Mld_DefaultContext_Interfaces_Interface_StaticGro
     staticGroupGroupAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddress.EntityData.SegmentPath = "static-group-group-address" + types.AddKeyToken(staticGroupGroupAddress.GroupAddress, "group-address")
+    staticGroupGroupAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddress.EntityData.SegmentPath
     staticGroupGroupAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4516,6 +4647,7 @@ func (staticGroupGroupAddress *Mld_DefaultContext_Interfaces_Interface_StaticGro
 type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -4549,6 +4681,7 @@ func (staticGroupGroupAddressSourceAddress *Mld_DefaultContext_Interfaces_Interf
     staticGroupGroupAddressSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressSourceAddress.EntityData.SegmentPath = "static-group-group-address-source-address" + types.AddKeyToken(staticGroupGroupAddressSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddress.SourceAddress, "source-address")
+    staticGroupGroupAddressSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressSourceAddress.EntityData.SegmentPath
     staticGroupGroupAddressSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4572,6 +4705,7 @@ func (staticGroupGroupAddressSourceAddress *Mld_DefaultContext_Interfaces_Interf
 type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressSourceAddressSourceAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -4612,6 +4746,7 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Mld_DefaultContext_
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
+    staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4636,6 +4771,7 @@ func (staticGroupGroupAddressSourceAddressSourceAddressMask *Mld_DefaultContext_
 type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -4669,6 +4805,7 @@ func (staticGroupGroupAddressGroupAddressMask *Mld_DefaultContext_Interfaces_Int
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMask.GroupAddressMask, "group-address-mask")
+    staticGroupGroupAddressGroupAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4692,6 +4829,7 @@ func (staticGroupGroupAddressGroupAddressMask *Mld_DefaultContext_Interfaces_Int
 type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -4732,6 +4870,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Mld_DefaultContext_I
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddress.SourceAddress, "source-address")
+    staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4756,6 +4895,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddress *Mld_DefaultContext_I
 type Mld_DefaultContext_Interfaces_Interface_StaticGroupGroupAddresses_StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP group address. The type is one of the following
     // types: string with pattern:
@@ -4803,6 +4943,7 @@ func (staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask *Mld
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleName = "cisco_ios_xr"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.ParentYangName = "static-group-group-addresses"
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath = "static-group-group-address-group-address-mask-source-address-source-address-mask" + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddress, "group-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.GroupAddressMask, "group-address-mask") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddress, "source-address") + types.AddKeyToken(staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.SourceAddressMask, "source-address-mask")
+    staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/static-group-group-addresses/" + staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.SegmentPath
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4850,6 +4991,7 @@ func (maximumGroupsPerInterfaceOor *Mld_DefaultContext_Interfaces_Interface_Maxi
     maximumGroupsPerInterfaceOor.EntityData.BundleName = "cisco_ios_xr"
     maximumGroupsPerInterfaceOor.EntityData.ParentYangName = "interface"
     maximumGroupsPerInterfaceOor.EntityData.SegmentPath = "maximum-groups-per-interface-oor"
+    maximumGroupsPerInterfaceOor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/" + maximumGroupsPerInterfaceOor.EntityData.SegmentPath
     maximumGroupsPerInterfaceOor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumGroupsPerInterfaceOor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumGroupsPerInterfaceOor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4888,6 +5030,7 @@ func (explicitTracking *Mld_DefaultContext_Interfaces_Interface_ExplicitTracking
     explicitTracking.EntityData.BundleName = "cisco_ios_xr"
     explicitTracking.EntityData.ParentYangName = "interface"
     explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/interface/" + explicitTracking.EntityData.SegmentPath
     explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

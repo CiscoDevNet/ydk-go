@@ -102,6 +102,7 @@ func (cISCOCONFIGMANMIB *CISCOCONFIGMANMIB) GetEntityData() *types.CommonEntityD
     cISCOCONFIGMANMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOCONFIGMANMIB.EntityData.ParentYangName = "CISCO-CONFIG-MAN-MIB"
     cISCOCONFIGMANMIB.EntityData.SegmentPath = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB"
+    cISCOCONFIGMANMIB.EntityData.AbsolutePath = cISCOCONFIGMANMIB.EntityData.SegmentPath
     cISCOCONFIGMANMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOCONFIGMANMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCONFIGMANMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -166,6 +167,7 @@ func (ccmHistory *CISCOCONFIGMANMIB_CcmHistory) GetEntityData() *types.CommonEnt
     ccmHistory.EntityData.BundleName = "cisco_ios_xe"
     ccmHistory.EntityData.ParentYangName = "CISCO-CONFIG-MAN-MIB"
     ccmHistory.EntityData.SegmentPath = "ccmHistory"
+    ccmHistory.EntityData.AbsolutePath = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/" + ccmHistory.EntityData.SegmentPath
     ccmHistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccmHistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccmHistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -212,6 +214,7 @@ func (ccmCLIHistory *CISCOCONFIGMANMIB_CcmCLIHistory) GetEntityData() *types.Com
     ccmCLIHistory.EntityData.BundleName = "cisco_ios_xe"
     ccmCLIHistory.EntityData.ParentYangName = "CISCO-CONFIG-MAN-MIB"
     ccmCLIHistory.EntityData.SegmentPath = "ccmCLIHistory"
+    ccmCLIHistory.EntityData.AbsolutePath = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/" + ccmCLIHistory.EntityData.SegmentPath
     ccmCLIHistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccmCLIHistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccmCLIHistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -244,6 +247,7 @@ func (ccmCLICfg *CISCOCONFIGMANMIB_CcmCLICfg) GetEntityData() *types.CommonEntit
     ccmCLICfg.EntityData.BundleName = "cisco_ios_xe"
     ccmCLICfg.EntityData.ParentYangName = "CISCO-CONFIG-MAN-MIB"
     ccmCLICfg.EntityData.SegmentPath = "ccmCLICfg"
+    ccmCLICfg.EntityData.AbsolutePath = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/" + ccmCLICfg.EntityData.SegmentPath
     ccmCLICfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccmCLICfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccmCLICfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -287,6 +291,7 @@ func (ccmCTIDObjects *CISCOCONFIGMANMIB_CcmCTIDObjects) GetEntityData() *types.C
     ccmCTIDObjects.EntityData.BundleName = "cisco_ios_xe"
     ccmCTIDObjects.EntityData.ParentYangName = "CISCO-CONFIG-MAN-MIB"
     ccmCTIDObjects.EntityData.SegmentPath = "ccmCTIDObjects"
+    ccmCTIDObjects.EntityData.AbsolutePath = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/" + ccmCTIDObjects.EntityData.SegmentPath
     ccmCTIDObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccmCTIDObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccmCTIDObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -320,6 +325,7 @@ func (ccmHistoryEventTable *CISCOCONFIGMANMIB_CcmHistoryEventTable) GetEntityDat
     ccmHistoryEventTable.EntityData.BundleName = "cisco_ios_xe"
     ccmHistoryEventTable.EntityData.ParentYangName = "CISCO-CONFIG-MAN-MIB"
     ccmHistoryEventTable.EntityData.SegmentPath = "ccmHistoryEventTable"
+    ccmHistoryEventTable.EntityData.AbsolutePath = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/" + ccmHistoryEventTable.EntityData.SegmentPath
     ccmHistoryEventTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccmHistoryEventTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccmHistoryEventTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -342,6 +348,7 @@ func (ccmHistoryEventTable *CISCOCONFIGMANMIB_CcmHistoryEventTable) GetEntityDat
 type CISCOCONFIGMANMIB_CcmHistoryEventTable_CcmHistoryEventEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A monotonically increasing integer for the sole
     // purpose of indexing events.  When it reaches the  maximum value, an
@@ -458,6 +465,7 @@ func (ccmHistoryEventEntry *CISCOCONFIGMANMIB_CcmHistoryEventTable_CcmHistoryEve
     ccmHistoryEventEntry.EntityData.BundleName = "cisco_ios_xe"
     ccmHistoryEventEntry.EntityData.ParentYangName = "ccmHistoryEventTable"
     ccmHistoryEventEntry.EntityData.SegmentPath = "ccmHistoryEventEntry" + types.AddKeyToken(ccmHistoryEventEntry.CcmHistoryEventIndex, "ccmHistoryEventIndex")
+    ccmHistoryEventEntry.EntityData.AbsolutePath = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/ccmHistoryEventTable/" + ccmHistoryEventEntry.EntityData.SegmentPath
     ccmHistoryEventEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccmHistoryEventEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccmHistoryEventEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -539,6 +547,7 @@ func (ccmCLIHistoryCommandTable *CISCOCONFIGMANMIB_CcmCLIHistoryCommandTable) Ge
     ccmCLIHistoryCommandTable.EntityData.BundleName = "cisco_ios_xe"
     ccmCLIHistoryCommandTable.EntityData.ParentYangName = "CISCO-CONFIG-MAN-MIB"
     ccmCLIHistoryCommandTable.EntityData.SegmentPath = "ccmCLIHistoryCommandTable"
+    ccmCLIHistoryCommandTable.EntityData.AbsolutePath = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/" + ccmCLIHistoryCommandTable.EntityData.SegmentPath
     ccmCLIHistoryCommandTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccmCLIHistoryCommandTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccmCLIHistoryCommandTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -572,6 +581,7 @@ func (ccmCLIHistoryCommandTable *CISCOCONFIGMANMIB_CcmCLIHistoryCommandTable) Ge
 type CISCOCONFIGMANMIB_CcmCLIHistoryCommandTable_CcmCLIHistoryCommandEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -594,6 +604,7 @@ func (ccmCLIHistoryCommandEntry *CISCOCONFIGMANMIB_CcmCLIHistoryCommandTable_Ccm
     ccmCLIHistoryCommandEntry.EntityData.BundleName = "cisco_ios_xe"
     ccmCLIHistoryCommandEntry.EntityData.ParentYangName = "ccmCLIHistoryCommandTable"
     ccmCLIHistoryCommandEntry.EntityData.SegmentPath = "ccmCLIHistoryCommandEntry" + types.AddKeyToken(ccmCLIHistoryCommandEntry.CcmHistoryEventIndex, "ccmHistoryEventIndex") + types.AddKeyToken(ccmCLIHistoryCommandEntry.CcmCLIHistoryCommandIndex, "ccmCLIHistoryCommandIndex")
+    ccmCLIHistoryCommandEntry.EntityData.AbsolutePath = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/ccmCLIHistoryCommandTable/" + ccmCLIHistoryCommandEntry.EntityData.SegmentPath
     ccmCLIHistoryCommandEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccmCLIHistoryCommandEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccmCLIHistoryCommandEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -79,6 +79,7 @@ func (tOKENRINGMIB *TOKENRINGMIB) GetEntityData() *types.CommonEntityData {
     tOKENRINGMIB.EntityData.BundleName = "cisco_ios_xe"
     tOKENRINGMIB.EntityData.ParentYangName = "TOKENRING-MIB"
     tOKENRINGMIB.EntityData.SegmentPath = "TOKENRING-MIB:TOKENRING-MIB"
+    tOKENRINGMIB.EntityData.AbsolutePath = tOKENRINGMIB.EntityData.SegmentPath
     tOKENRINGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tOKENRINGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tOKENRINGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -113,6 +114,7 @@ func (dot5Table *TOKENRINGMIB_Dot5Table) GetEntityData() *types.CommonEntityData
     dot5Table.EntityData.BundleName = "cisco_ios_xe"
     dot5Table.EntityData.ParentYangName = "TOKENRING-MIB"
     dot5Table.EntityData.SegmentPath = "dot5Table"
+    dot5Table.EntityData.AbsolutePath = "TOKENRING-MIB:TOKENRING-MIB/" + dot5Table.EntityData.SegmentPath
     dot5Table.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot5Table.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot5Table.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -135,6 +137,7 @@ func (dot5Table *TOKENRINGMIB_Dot5Table) GetEntityData() *types.CommonEntityData
 type TOKENRINGMIB_Dot5Table_Dot5Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object identifies the 802.5
     // interface for which this entry contains management information.  The value
@@ -218,6 +221,7 @@ func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetEntityData() *types.Common
     dot5Entry.EntityData.BundleName = "cisco_ios_xe"
     dot5Entry.EntityData.ParentYangName = "dot5Table"
     dot5Entry.EntityData.SegmentPath = "dot5Entry" + types.AddKeyToken(dot5Entry.Dot5IfIndex, "dot5IfIndex")
+    dot5Entry.EntityData.AbsolutePath = "TOKENRING-MIB:TOKENRING-MIB/dot5Table/" + dot5Entry.EntityData.SegmentPath
     dot5Entry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot5Entry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot5Entry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -345,6 +349,7 @@ func (dot5StatsTable *TOKENRINGMIB_Dot5StatsTable) GetEntityData() *types.Common
     dot5StatsTable.EntityData.BundleName = "cisco_ios_xe"
     dot5StatsTable.EntityData.ParentYangName = "TOKENRING-MIB"
     dot5StatsTable.EntityData.SegmentPath = "dot5StatsTable"
+    dot5StatsTable.EntityData.AbsolutePath = "TOKENRING-MIB:TOKENRING-MIB/" + dot5StatsTable.EntityData.SegmentPath
     dot5StatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot5StatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot5StatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -367,6 +372,7 @@ func (dot5StatsTable *TOKENRINGMIB_Dot5StatsTable) GetEntityData() *types.Common
 type TOKENRINGMIB_Dot5StatsTable_Dot5StatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object identifies the 802.5
     // interface for which this entry contains management information.  The value
@@ -480,6 +486,7 @@ func (dot5StatsEntry *TOKENRINGMIB_Dot5StatsTable_Dot5StatsEntry) GetEntityData(
     dot5StatsEntry.EntityData.BundleName = "cisco_ios_xe"
     dot5StatsEntry.EntityData.ParentYangName = "dot5StatsTable"
     dot5StatsEntry.EntityData.SegmentPath = "dot5StatsEntry" + types.AddKeyToken(dot5StatsEntry.Dot5StatsIfIndex, "dot5StatsIfIndex")
+    dot5StatsEntry.EntityData.AbsolutePath = "TOKENRING-MIB:TOKENRING-MIB/dot5StatsTable/" + dot5StatsEntry.EntityData.SegmentPath
     dot5StatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot5StatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot5StatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -530,6 +537,7 @@ func (dot5TimerTable *TOKENRINGMIB_Dot5TimerTable) GetEntityData() *types.Common
     dot5TimerTable.EntityData.BundleName = "cisco_ios_xe"
     dot5TimerTable.EntityData.ParentYangName = "TOKENRING-MIB"
     dot5TimerTable.EntityData.SegmentPath = "dot5TimerTable"
+    dot5TimerTable.EntityData.AbsolutePath = "TOKENRING-MIB:TOKENRING-MIB/" + dot5TimerTable.EntityData.SegmentPath
     dot5TimerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot5TimerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot5TimerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -552,6 +560,7 @@ func (dot5TimerTable *TOKENRINGMIB_Dot5TimerTable) GetEntityData() *types.Common
 type TOKENRINGMIB_Dot5TimerTable_Dot5TimerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object identifies the 802.5
     // interface for which this entry contains timer values.  The value of   this
@@ -622,6 +631,7 @@ func (dot5TimerEntry *TOKENRINGMIB_Dot5TimerTable_Dot5TimerEntry) GetEntityData(
     dot5TimerEntry.EntityData.BundleName = "cisco_ios_xe"
     dot5TimerEntry.EntityData.ParentYangName = "dot5TimerTable"
     dot5TimerEntry.EntityData.SegmentPath = "dot5TimerEntry" + types.AddKeyToken(dot5TimerEntry.Dot5TimerIfIndex, "dot5TimerIfIndex")
+    dot5TimerEntry.EntityData.AbsolutePath = "TOKENRING-MIB:TOKENRING-MIB/dot5TimerTable/" + dot5TimerEntry.EntityData.SegmentPath
     dot5TimerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot5TimerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot5TimerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

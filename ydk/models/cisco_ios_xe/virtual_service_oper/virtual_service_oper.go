@@ -36,6 +36,7 @@ func (virtualServices *VirtualServices) GetEntityData() *types.CommonEntityData 
     virtualServices.EntityData.BundleName = "cisco_ios_xe"
     virtualServices.EntityData.ParentYangName = "Cisco-IOS-XE-virtual-service-oper"
     virtualServices.EntityData.SegmentPath = "Cisco-IOS-XE-virtual-service-oper:virtual-services"
+    virtualServices.EntityData.AbsolutePath = virtualServices.EntityData.SegmentPath
     virtualServices.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     virtualServices.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     virtualServices.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -57,6 +58,7 @@ func (virtualServices *VirtualServices) GetEntityData() *types.CommonEntityData 
 type VirtualServices_VirtualService struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Virtual service name. The type is string.
     Name interface{}
@@ -92,6 +94,7 @@ func (virtualService *VirtualServices_VirtualService) GetEntityData() *types.Com
     virtualService.EntityData.BundleName = "cisco_ios_xe"
     virtualService.EntityData.ParentYangName = "virtual-services"
     virtualService.EntityData.SegmentPath = "virtual-service" + types.AddKeyToken(virtualService.Name, "name")
+    virtualService.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/" + virtualService.EntityData.SegmentPath
     virtualService.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     virtualService.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     virtualService.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -147,6 +150,7 @@ func (details *VirtualServices_VirtualService_Details) GetEntityData() *types.Co
     details.EntityData.BundleName = "cisco_ios_xe"
     details.EntityData.ParentYangName = "virtual-service"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -194,6 +198,7 @@ func (packageInformation *VirtualServices_VirtualService_Details_PackageInformat
     packageInformation.EntityData.BundleName = "cisco_ios_xe"
     packageInformation.EntityData.ParentYangName = "details"
     packageInformation.EntityData.SegmentPath = "package-information"
+    packageInformation.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/details/" + packageInformation.EntityData.SegmentPath
     packageInformation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     packageInformation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     packageInformation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -239,6 +244,7 @@ func (application *VirtualServices_VirtualService_Details_PackageInformation_App
     application.EntityData.BundleName = "cisco_ios_xe"
     application.EntityData.ParentYangName = "package-information"
     application.EntityData.SegmentPath = "application"
+    application.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/details/package-information/" + application.EntityData.SegmentPath
     application.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     application.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     application.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -275,6 +281,7 @@ func (signing *VirtualServices_VirtualService_Details_PackageInformation_Signing
     signing.EntityData.BundleName = "cisco_ios_xe"
     signing.EntityData.ParentYangName = "package-information"
     signing.EntityData.SegmentPath = "signing"
+    signing.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/details/package-information/" + signing.EntityData.SegmentPath
     signing.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     signing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     signing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -308,6 +315,7 @@ func (licensing *VirtualServices_VirtualService_Details_PackageInformation_Licen
     licensing.EntityData.BundleName = "cisco_ios_xe"
     licensing.EntityData.ParentYangName = "package-information"
     licensing.EntityData.SegmentPath = "licensing"
+    licensing.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/details/package-information/" + licensing.EntityData.SegmentPath
     licensing.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     licensing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     licensing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -338,6 +346,7 @@ func (detailedGuestStatus *VirtualServices_VirtualService_Details_DetailedGuestS
     detailedGuestStatus.EntityData.BundleName = "cisco_ios_xe"
     detailedGuestStatus.EntityData.ParentYangName = "details"
     detailedGuestStatus.EntityData.SegmentPath = "detailed-guest-status"
+    detailedGuestStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/details/" + detailedGuestStatus.EntityData.SegmentPath
     detailedGuestStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     detailedGuestStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     detailedGuestStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -379,6 +388,7 @@ func (processes *VirtualServices_VirtualService_Details_DetailedGuestStatus_Proc
     processes.EntityData.BundleName = "cisco_ios_xe"
     processes.EntityData.ParentYangName = "detailed-guest-status"
     processes.EntityData.SegmentPath = "processes"
+    processes.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/details/detailed-guest-status/" + processes.EntityData.SegmentPath
     processes.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     processes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -421,6 +431,7 @@ func (resourceReservation *VirtualServices_VirtualService_Details_ResourceReserv
     resourceReservation.EntityData.BundleName = "cisco_ios_xe"
     resourceReservation.EntityData.ParentYangName = "details"
     resourceReservation.EntityData.SegmentPath = "resource-reservation"
+    resourceReservation.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/details/" + resourceReservation.EntityData.SegmentPath
     resourceReservation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     resourceReservation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     resourceReservation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -467,6 +478,7 @@ func (resourceAdmission *VirtualServices_VirtualService_Details_ResourceAdmissio
     resourceAdmission.EntityData.BundleName = "cisco_ios_xe"
     resourceAdmission.EntityData.ParentYangName = "details"
     resourceAdmission.EntityData.SegmentPath = "resource-admission"
+    resourceAdmission.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/details/" + resourceAdmission.EntityData.SegmentPath
     resourceAdmission.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     resourceAdmission.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     resourceAdmission.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -506,6 +518,7 @@ func (utilization *VirtualServices_VirtualService_Utilization) GetEntityData() *
     utilization.EntityData.BundleName = "cisco_ios_xe"
     utilization.EntityData.ParentYangName = "virtual-service"
     utilization.EntityData.SegmentPath = "utilization"
+    utilization.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/" + utilization.EntityData.SegmentPath
     utilization.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     utilization.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utilization.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -545,6 +558,7 @@ func (cpuUtil *VirtualServices_VirtualService_Utilization_CpuUtil) GetEntityData
     cpuUtil.EntityData.BundleName = "cisco_ios_xe"
     cpuUtil.EntityData.ParentYangName = "utilization"
     cpuUtil.EntityData.SegmentPath = "cpu-util"
+    cpuUtil.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/utilization/" + cpuUtil.EntityData.SegmentPath
     cpuUtil.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpuUtil.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpuUtil.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -580,6 +594,7 @@ func (memoryUtil *VirtualServices_VirtualService_Utilization_MemoryUtil) GetEnti
     memoryUtil.EntityData.BundleName = "cisco_ios_xe"
     memoryUtil.EntityData.ParentYangName = "utilization"
     memoryUtil.EntityData.SegmentPath = "memory-util"
+    memoryUtil.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/utilization/" + memoryUtil.EntityData.SegmentPath
     memoryUtil.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     memoryUtil.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryUtil.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -611,6 +626,7 @@ func (networkUtils *VirtualServices_VirtualService_NetworkUtils) GetEntityData()
     networkUtils.EntityData.BundleName = "cisco_ios_xe"
     networkUtils.EntityData.ParentYangName = "virtual-service"
     networkUtils.EntityData.SegmentPath = "network-utils"
+    networkUtils.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/" + networkUtils.EntityData.SegmentPath
     networkUtils.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkUtils.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkUtils.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -632,6 +648,7 @@ func (networkUtils *VirtualServices_VirtualService_NetworkUtils) GetEntityData()
 type VirtualServices_VirtualService_NetworkUtils_NetworkUtil struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the network used for the virtual service.
     // The type is string.
@@ -671,6 +688,7 @@ func (networkUtil *VirtualServices_VirtualService_NetworkUtils_NetworkUtil) GetE
     networkUtil.EntityData.BundleName = "cisco_ios_xe"
     networkUtil.EntityData.ParentYangName = "network-utils"
     networkUtil.EntityData.SegmentPath = "network-util" + types.AddKeyToken(networkUtil.Name, "name")
+    networkUtil.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/network-utils/" + networkUtil.EntityData.SegmentPath
     networkUtil.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkUtil.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkUtil.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -708,6 +726,7 @@ func (storageUtils *VirtualServices_VirtualService_StorageUtils) GetEntityData()
     storageUtils.EntityData.BundleName = "cisco_ios_xe"
     storageUtils.EntityData.ParentYangName = "virtual-service"
     storageUtils.EntityData.SegmentPath = "storage-utils"
+    storageUtils.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/" + storageUtils.EntityData.SegmentPath
     storageUtils.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     storageUtils.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     storageUtils.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -729,6 +748,7 @@ func (storageUtils *VirtualServices_VirtualService_StorageUtils) GetEntityData()
 type VirtualServices_VirtualService_StorageUtils_StorageUtil struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the storage device used for the virtual
     // service. The type is string.
@@ -780,6 +800,7 @@ func (storageUtil *VirtualServices_VirtualService_StorageUtils_StorageUtil) GetE
     storageUtil.EntityData.BundleName = "cisco_ios_xe"
     storageUtil.EntityData.ParentYangName = "storage-utils"
     storageUtil.EntityData.SegmentPath = "storage-util" + types.AddKeyToken(storageUtil.Name, "name")
+    storageUtil.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/storage-utils/" + storageUtil.EntityData.SegmentPath
     storageUtil.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     storageUtil.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     storageUtil.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -820,6 +841,7 @@ func (processes *VirtualServices_VirtualService_Processes) GetEntityData() *type
     processes.EntityData.BundleName = "cisco_ios_xe"
     processes.EntityData.ParentYangName = "virtual-service"
     processes.EntityData.SegmentPath = "processes"
+    processes.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/" + processes.EntityData.SegmentPath
     processes.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     processes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -841,6 +863,7 @@ func (processes *VirtualServices_VirtualService_Processes) GetEntityData() *type
 type VirtualServices_VirtualService_Processes_Process struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Process name. The type is string.
     Name interface{}
@@ -864,6 +887,7 @@ func (process *VirtualServices_VirtualService_Processes_Process) GetEntityData()
     process.EntityData.BundleName = "cisco_ios_xe"
     process.EntityData.ParentYangName = "processes"
     process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.Name, "name")
+    process.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/processes/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -898,6 +922,7 @@ func (attachedDevices *VirtualServices_VirtualService_AttachedDevices) GetEntity
     attachedDevices.EntityData.BundleName = "cisco_ios_xe"
     attachedDevices.EntityData.ParentYangName = "virtual-service"
     attachedDevices.EntityData.SegmentPath = "attached-devices"
+    attachedDevices.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/" + attachedDevices.EntityData.SegmentPath
     attachedDevices.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     attachedDevices.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     attachedDevices.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -919,6 +944,7 @@ func (attachedDevices *VirtualServices_VirtualService_AttachedDevices) GetEntity
 type VirtualServices_VirtualService_AttachedDevices_AttachedDevice struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Attached device name. The type is string.
     Name interface{}
@@ -936,6 +962,7 @@ func (attachedDevice *VirtualServices_VirtualService_AttachedDevices_AttachedDev
     attachedDevice.EntityData.BundleName = "cisco_ios_xe"
     attachedDevice.EntityData.ParentYangName = "attached-devices"
     attachedDevice.EntityData.SegmentPath = "attached-device" + types.AddKeyToken(attachedDevice.Name, "name")
+    attachedDevice.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/attached-devices/" + attachedDevice.EntityData.SegmentPath
     attachedDevice.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     attachedDevice.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     attachedDevice.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -968,6 +995,7 @@ func (networkInterfaces *VirtualServices_VirtualService_NetworkInterfaces) GetEn
     networkInterfaces.EntityData.BundleName = "cisco_ios_xe"
     networkInterfaces.EntityData.ParentYangName = "virtual-service"
     networkInterfaces.EntityData.SegmentPath = "network-interfaces"
+    networkInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/" + networkInterfaces.EntityData.SegmentPath
     networkInterfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkInterfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -989,6 +1017,7 @@ func (networkInterfaces *VirtualServices_VirtualService_NetworkInterfaces) GetEn
 type VirtualServices_VirtualService_NetworkInterfaces_NetworkInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MAC address for the network interface. The type is
     // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -1008,6 +1037,7 @@ func (networkInterface *VirtualServices_VirtualService_NetworkInterfaces_Network
     networkInterface.EntityData.BundleName = "cisco_ios_xe"
     networkInterface.EntityData.ParentYangName = "network-interfaces"
     networkInterface.EntityData.SegmentPath = "network-interface" + types.AddKeyToken(networkInterface.MacAddress, "mac-address")
+    networkInterface.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/network-interfaces/" + networkInterface.EntityData.SegmentPath
     networkInterface.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkInterface.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkInterface.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1040,6 +1070,7 @@ func (guestRoutes *VirtualServices_VirtualService_GuestRoutes) GetEntityData() *
     guestRoutes.EntityData.BundleName = "cisco_ios_xe"
     guestRoutes.EntityData.ParentYangName = "virtual-service"
     guestRoutes.EntityData.SegmentPath = "guest-routes"
+    guestRoutes.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/" + guestRoutes.EntityData.SegmentPath
     guestRoutes.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     guestRoutes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     guestRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1061,6 +1092,7 @@ func (guestRoutes *VirtualServices_VirtualService_GuestRoutes) GetEntityData() *
 type VirtualServices_VirtualService_GuestRoutes_GuestRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Guest route of the guest interface. The type is
     // string.
@@ -1073,6 +1105,7 @@ func (guestRoute *VirtualServices_VirtualService_GuestRoutes_GuestRoute) GetEnti
     guestRoute.EntityData.BundleName = "cisco_ios_xe"
     guestRoute.EntityData.ParentYangName = "guest-routes"
     guestRoute.EntityData.SegmentPath = "guest-route" + types.AddKeyToken(guestRoute.Route, "route")
+    guestRoute.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-oper:virtual-services/virtual-service/guest-routes/" + guestRoute.EntityData.SegmentPath
     guestRoute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     guestRoute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     guestRoute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -373,6 +373,7 @@ func (fia *Fia) GetEntityData() *types.CommonEntityData {
     fia.EntityData.BundleName = "cisco_ios_xr"
     fia.EntityData.ParentYangName = "Cisco-IOS-XR-dnx-driver-oper"
     fia.EntityData.SegmentPath = "Cisco-IOS-XR-dnx-driver-oper:fia"
+    fia.EntityData.AbsolutePath = fia.EntityData.SegmentPath
     fia.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fia.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fia.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -403,6 +404,7 @@ func (nodes *Fia_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "fia"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -424,6 +426,7 @@ func (nodes *Fia_Nodes) GetEntityData() *types.CommonEntityData {
 type Fia_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -457,6 +460,7 @@ func (node *Fia_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -493,6 +497,7 @@ func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetEntityData() *type
     rxLinkInformation.EntityData.BundleName = "cisco_ios_xr"
     rxLinkInformation.EntityData.ParentYangName = "node"
     rxLinkInformation.EntityData.SegmentPath = "rx-link-information"
+    rxLinkInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/" + rxLinkInformation.EntityData.SegmentPath
     rxLinkInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxLinkInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLinkInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -523,6 +528,7 @@ func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetEntityData()
     linkOptions.EntityData.BundleName = "cisco_ios_xr"
     linkOptions.EntityData.ParentYangName = "rx-link-information"
     linkOptions.EntityData.SegmentPath = "link-options"
+    linkOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/" + linkOptions.EntityData.SegmentPath
     linkOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -544,6 +550,7 @@ func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetEntityData()
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link option. The type is string with pattern:
     // (flap)|(topo).
@@ -559,6 +566,7 @@ func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetEn
     linkOption.EntityData.BundleName = "cisco_ios_xr"
     linkOption.EntityData.ParentYangName = "link-options"
     linkOption.EntityData.SegmentPath = "link-option" + types.AddKeyToken(linkOption.Option, "option")
+    linkOption.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/" + linkOption.EntityData.SegmentPath
     linkOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -590,6 +598,7 @@ func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_R
     rxAsicInstances.EntityData.BundleName = "cisco_ios_xr"
     rxAsicInstances.EntityData.ParentYangName = "link-option"
     rxAsicInstances.EntityData.SegmentPath = "rx-asic-instances"
+    rxAsicInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/" + rxAsicInstances.EntityData.SegmentPath
     rxAsicInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxAsicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxAsicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -611,6 +620,7 @@ func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_R
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Receive instance. The type is interface{} with
     // range: 0..255.
@@ -626,6 +636,7 @@ func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_Rx
     rxAsicInstance.EntityData.BundleName = "cisco_ios_xr"
     rxAsicInstance.EntityData.ParentYangName = "rx-asic-instances"
     rxAsicInstance.EntityData.SegmentPath = "rx-asic-instance" + types.AddKeyToken(rxAsicInstance.Instance, "instance")
+    rxAsicInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/" + rxAsicInstance.EntityData.SegmentPath
     rxAsicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxAsicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxAsicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -657,6 +668,7 @@ func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicIns
     rxLinks.EntityData.BundleName = "cisco_ios_xr"
     rxLinks.EntityData.ParentYangName = "rx-asic-instance"
     rxLinks.EntityData.SegmentPath = "rx-links"
+    rxLinks.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/" + rxLinks.EntityData.SegmentPath
     rxLinks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxLinks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLinks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -664,6 +676,7 @@ func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicIns
     rxLinks.EntityData.Children = types.NewOrderedMap()
     rxLinks.EntityData.Children.Append("rx-link", types.YChild{"RxLink", nil})
     for i := range rxLinks.RxLink {
+        types.SetYListKey(rxLinks.RxLink[i], i)
         rxLinks.EntityData.Children.Append(types.GetSegmentPath(rxLinks.RxLink[i]), types.YChild{"RxLink", rxLinks.RxLink[i]})
     }
     rxLinks.EntityData.Leafs = types.NewOrderedMap()
@@ -678,6 +691,7 @@ func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicIns
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Start number. The type is interface{} with range: 0..47.
     StartNumber interface{}
@@ -699,7 +713,8 @@ func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInst
     rxLink.EntityData.YangName = "rx-link"
     rxLink.EntityData.BundleName = "cisco_ios_xr"
     rxLink.EntityData.ParentYangName = "rx-links"
-    rxLink.EntityData.SegmentPath = "rx-link"
+    rxLink.EntityData.SegmentPath = "rx-link" + types.AddNoKeyToken(rxLink)
+    rxLink.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/rx-links/" + rxLink.EntityData.SegmentPath
     rxLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -724,6 +739,7 @@ func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInst
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Single link. The type is interface{} with range:
     // 0..4294967295.
@@ -786,6 +802,7 @@ func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInst
     rxLink.EntityData.BundleName = "cisco_ios_xr"
     rxLink.EntityData.ParentYangName = "rx-link"
     rxLink.EntityData.SegmentPath = "rx-link" + types.AddKeyToken(rxLink.Link, "link")
+    rxLink.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/rx-links/rx-link/" + rxLink.EntityData.SegmentPath
     rxLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -843,6 +860,7 @@ func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicIn
     thisLink.EntityData.BundleName = "cisco_ios_xr"
     thisLink.EntityData.ParentYangName = "rx-link"
     thisLink.EntityData.SegmentPath = "this-link"
+    thisLink.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/rx-links/rx-link/rx-link/" + thisLink.EntityData.SegmentPath
     thisLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thisLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thisLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -888,6 +906,7 @@ func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInst
     asicId.EntityData.BundleName = "cisco_ios_xr"
     asicId.EntityData.ParentYangName = "this-link"
     asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/rx-links/rx-link/rx-link/this-link/" + asicId.EntityData.SegmentPath
     asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -933,6 +952,7 @@ func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsic
     farEndLink.EntityData.BundleName = "cisco_ios_xr"
     farEndLink.EntityData.ParentYangName = "rx-link"
     farEndLink.EntityData.SegmentPath = "far-end-link"
+    farEndLink.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/rx-links/rx-link/rx-link/" + farEndLink.EntityData.SegmentPath
     farEndLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     farEndLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     farEndLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -978,6 +998,7 @@ func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInst
     asicId.EntityData.BundleName = "cisco_ios_xr"
     asicId.EntityData.ParentYangName = "far-end-link"
     asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/rx-links/rx-link/rx-link/far-end-link/" + asicId.EntityData.SegmentPath
     asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1023,6 +1044,7 @@ func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_Rx
     farEndLinkInHw.EntityData.BundleName = "cisco_ios_xr"
     farEndLinkInHw.EntityData.ParentYangName = "rx-link"
     farEndLinkInHw.EntityData.SegmentPath = "far-end-link-in-hw"
+    farEndLinkInHw.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/rx-links/rx-link/rx-link/" + farEndLinkInHw.EntityData.SegmentPath
     farEndLinkInHw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     farEndLinkInHw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     farEndLinkInHw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1068,6 +1090,7 @@ func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInst
     asicId.EntityData.BundleName = "cisco_ios_xr"
     asicId.EntityData.ParentYangName = "far-end-link-in-hw"
     asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/rx-links/rx-link/rx-link/far-end-link-in-hw/" + asicId.EntityData.SegmentPath
     asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1108,6 +1131,7 @@ func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicIns
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "rx-link"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/rx-links/rx-link/rx-link/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1115,6 +1139,7 @@ func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicIns
     history.EntityData.Children = types.NewOrderedMap()
     history.EntityData.Children.Append("hist", types.YChild{"Hist", nil})
     for i := range history.Hist {
+        types.SetYListKey(history.Hist[i], i)
         history.EntityData.Children.Append(types.GetSegmentPath(history.Hist[i]), types.YChild{"Hist", history.Hist[i]})
     }
     history.EntityData.Leafs = types.NewOrderedMap()
@@ -1131,6 +1156,7 @@ func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicIns
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Admin State. The type is AdminState.
     AdminState interface{}
@@ -1153,7 +1179,8 @@ func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstan
     hist.EntityData.YangName = "hist"
     hist.EntityData.BundleName = "cisco_ios_xr"
     hist.EntityData.ParentYangName = "history"
-    hist.EntityData.SegmentPath = "hist"
+    hist.EntityData.SegmentPath = "hist" + types.AddNoKeyToken(hist)
+    hist.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/rx-link-information/link-options/link-option/rx-asic-instances/rx-asic-instance/rx-links/rx-link/rx-link/history/" + hist.EntityData.SegmentPath
     hist.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hist.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hist.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1341,6 +1368,7 @@ func (driverInformation *Fia_Nodes_Node_DriverInformation) GetEntityData() *type
     driverInformation.EntityData.BundleName = "cisco_ios_xr"
     driverInformation.EntityData.ParentYangName = "node"
     driverInformation.EntityData.SegmentPath = "driver-information"
+    driverInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/" + driverInformation.EntityData.SegmentPath
     driverInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     driverInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     driverInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1348,10 +1376,12 @@ func (driverInformation *Fia_Nodes_Node_DriverInformation) GetEntityData() *type
     driverInformation.EntityData.Children = types.NewOrderedMap()
     driverInformation.EntityData.Children.Append("device-info", types.YChild{"DeviceInfo", nil})
     for i := range driverInformation.DeviceInfo {
+        types.SetYListKey(driverInformation.DeviceInfo[i], i)
         driverInformation.EntityData.Children.Append(types.GetSegmentPath(driverInformation.DeviceInfo[i]), types.YChild{"DeviceInfo", driverInformation.DeviceInfo[i]})
     }
     driverInformation.EntityData.Children.Append("card-info", types.YChild{"CardInfo", nil})
     for i := range driverInformation.CardInfo {
+        types.SetYListKey(driverInformation.CardInfo[i], i)
         driverInformation.EntityData.Children.Append(types.GetSegmentPath(driverInformation.CardInfo[i]), types.YChild{"CardInfo", driverInformation.CardInfo[i]})
     }
     driverInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -1415,6 +1445,7 @@ func (driverInformation *Fia_Nodes_Node_DriverInformation) GetEntityData() *type
 type Fia_Nodes_Node_DriverInformation_DeviceInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // is valid. The type is bool.
     IsValid interface{}
@@ -1476,7 +1507,8 @@ func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetEntityData() *
     deviceInfo.EntityData.YangName = "device-info"
     deviceInfo.EntityData.BundleName = "cisco_ios_xr"
     deviceInfo.EntityData.ParentYangName = "driver-information"
-    deviceInfo.EntityData.SegmentPath = "device-info"
+    deviceInfo.EntityData.SegmentPath = "device-info" + types.AddNoKeyToken(deviceInfo)
+    deviceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/driver-information/" + deviceInfo.EntityData.SegmentPath
     deviceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     deviceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     deviceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1535,6 +1567,7 @@ func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetEntityData(
     asicId.EntityData.BundleName = "cisco_ios_xr"
     asicId.EntityData.ParentYangName = "device-info"
     asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/driver-information/device-info/" + asicId.EntityData.SegmentPath
     asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1557,6 +1590,7 @@ func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetEntityData(
 type Fia_Nodes_Node_DriverInformation_CardInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // card type. The type is interface{} with range: -2147483648..2147483647.
     CardType interface{}
@@ -1614,7 +1648,8 @@ func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetEntityData() *type
     cardInfo.EntityData.YangName = "card-info"
     cardInfo.EntityData.BundleName = "cisco_ios_xr"
     cardInfo.EntityData.ParentYangName = "driver-information"
-    cardInfo.EntityData.SegmentPath = "card-info"
+    cardInfo.EntityData.SegmentPath = "card-info" + types.AddNoKeyToken(cardInfo)
+    cardInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/driver-information/" + cardInfo.EntityData.SegmentPath
     cardInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1669,6 +1704,7 @@ func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBu
     oirCircularBuffer.EntityData.BundleName = "cisco_ios_xr"
     oirCircularBuffer.EntityData.ParentYangName = "card-info"
     oirCircularBuffer.EntityData.SegmentPath = "oir-circular-buffer"
+    oirCircularBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/driver-information/card-info/" + oirCircularBuffer.EntityData.SegmentPath
     oirCircularBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oirCircularBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oirCircularBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1676,6 +1712,7 @@ func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBu
     oirCircularBuffer.EntityData.Children = types.NewOrderedMap()
     oirCircularBuffer.EntityData.Children.Append("fia-oir-info", types.YChild{"FiaOirInfo", nil})
     for i := range oirCircularBuffer.FiaOirInfo {
+        types.SetYListKey(oirCircularBuffer.FiaOirInfo[i], i)
         oirCircularBuffer.EntityData.Children.Append(types.GetSegmentPath(oirCircularBuffer.FiaOirInfo[i]), types.YChild{"FiaOirInfo", oirCircularBuffer.FiaOirInfo[i]})
     }
     oirCircularBuffer.EntityData.Leafs = types.NewOrderedMap()
@@ -1693,6 +1730,7 @@ func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBu
 type Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // card flag. The type is interface{} with range: -2147483648..2147483647.
     CardFlag interface{}
@@ -1722,7 +1760,8 @@ func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_Fi
     fiaOirInfo.EntityData.YangName = "fia-oir-info"
     fiaOirInfo.EntityData.BundleName = "cisco_ios_xr"
     fiaOirInfo.EntityData.ParentYangName = "oir-circular-buffer"
-    fiaOirInfo.EntityData.SegmentPath = "fia-oir-info"
+    fiaOirInfo.EntityData.SegmentPath = "fia-oir-info" + types.AddNoKeyToken(fiaOirInfo)
+    fiaOirInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/driver-information/card-info/oir-circular-buffer/" + fiaOirInfo.EntityData.SegmentPath
     fiaOirInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fiaOirInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fiaOirInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1758,6 +1797,7 @@ func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetEntityData() *types.Co
     clearStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearStatistics.EntityData.ParentYangName = "node"
     clearStatistics.EntityData.SegmentPath = "clear-statistics"
+    clearStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/" + clearStatistics.EntityData.SegmentPath
     clearStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1789,6 +1829,7 @@ func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetEntityData
     asicInstances.EntityData.BundleName = "cisco_ios_xr"
     asicInstances.EntityData.ParentYangName = "clear-statistics"
     asicInstances.EntityData.SegmentPath = "asic-instances"
+    asicInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/clear-statistics/" + asicInstances.EntityData.SegmentPath
     asicInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1810,6 +1851,7 @@ func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetEntityData
 type Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Asic instance. The type is interface{} with range:
     // 0..255.
@@ -1826,6 +1868,7 @@ func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) G
     asicInstance.EntityData.BundleName = "cisco_ios_xr"
     asicInstance.EntityData.ParentYangName = "asic-instances"
     asicInstance.EntityData.SegmentPath = "asic-instance" + types.AddKeyToken(asicInstance.AsicInstance, "asic-instance")
+    asicInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/clear-statistics/asic-instances/" + asicInstance.EntityData.SegmentPath
     asicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1856,6 +1899,7 @@ func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetEntityData() *type
     txLinkInformation.EntityData.BundleName = "cisco_ios_xr"
     txLinkInformation.EntityData.ParentYangName = "node"
     txLinkInformation.EntityData.SegmentPath = "tx-link-information"
+    txLinkInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/" + txLinkInformation.EntityData.SegmentPath
     txLinkInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txLinkInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLinkInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1885,6 +1929,7 @@ func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable)
     txStatusOptionTable.EntityData.BundleName = "cisco_ios_xr"
     txStatusOptionTable.EntityData.ParentYangName = "tx-link-information"
     txStatusOptionTable.EntityData.SegmentPath = "tx-status-option-table"
+    txStatusOptionTable.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/" + txStatusOptionTable.EntityData.SegmentPath
     txStatusOptionTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txStatusOptionTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txStatusOptionTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1914,6 +1959,7 @@ func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxSta
     txStatusOption.EntityData.BundleName = "cisco_ios_xr"
     txStatusOption.EntityData.ParentYangName = "tx-status-option-table"
     txStatusOption.EntityData.SegmentPath = "tx-status-option"
+    txStatusOption.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/" + txStatusOption.EntityData.SegmentPath
     txStatusOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txStatusOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txStatusOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1944,6 +1990,7 @@ func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxSt
     txAsicInstances.EntityData.BundleName = "cisco_ios_xr"
     txAsicInstances.EntityData.ParentYangName = "tx-status-option"
     txAsicInstances.EntityData.SegmentPath = "tx-asic-instances"
+    txAsicInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/" + txAsicInstances.EntityData.SegmentPath
     txAsicInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txAsicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txAsicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1965,6 +2012,7 @@ func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxSt
 type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Transmit instance. The type is interface{} with
     // range: 0..255.
@@ -1980,6 +2028,7 @@ func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxSta
     txAsicInstance.EntityData.BundleName = "cisco_ios_xr"
     txAsicInstance.EntityData.ParentYangName = "tx-asic-instances"
     txAsicInstance.EntityData.SegmentPath = "tx-asic-instance" + types.AddKeyToken(txAsicInstance.Instance, "instance")
+    txAsicInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/" + txAsicInstance.EntityData.SegmentPath
     txAsicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txAsicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txAsicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2011,6 +2060,7 @@ func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOpti
     txLinks.EntityData.BundleName = "cisco_ios_xr"
     txLinks.EntityData.ParentYangName = "tx-asic-instance"
     txLinks.EntityData.SegmentPath = "tx-links"
+    txLinks.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/tx-asic-instance/" + txLinks.EntityData.SegmentPath
     txLinks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txLinks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLinks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2018,6 +2068,7 @@ func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOpti
     txLinks.EntityData.Children = types.NewOrderedMap()
     txLinks.EntityData.Children.Append("tx-link", types.YChild{"TxLink", nil})
     for i := range txLinks.TxLink {
+        types.SetYListKey(txLinks.TxLink[i], i)
         txLinks.EntityData.Children.Append(types.GetSegmentPath(txLinks.TxLink[i]), types.YChild{"TxLink", txLinks.TxLink[i]})
     }
     txLinks.EntityData.Leafs = types.NewOrderedMap()
@@ -2032,6 +2083,7 @@ func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOpti
 type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Start number. The type is interface{} with range: 0..47.
     StartNumber interface{}
@@ -2049,7 +2101,8 @@ func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOptio
     txLink.EntityData.YangName = "tx-link"
     txLink.EntityData.BundleName = "cisco_ios_xr"
     txLink.EntityData.ParentYangName = "tx-links"
-    txLink.EntityData.SegmentPath = "tx-link"
+    txLink.EntityData.SegmentPath = "tx-link" + types.AddNoKeyToken(txLink)
+    txLink.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/tx-asic-instance/tx-links/" + txLink.EntityData.SegmentPath
     txLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2073,6 +2126,7 @@ func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOptio
 type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Single Link. The type is interface{} with range:
     // 0..4294967295.
@@ -2130,6 +2184,7 @@ func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOptio
     txLink.EntityData.BundleName = "cisco_ios_xr"
     txLink.EntityData.ParentYangName = "tx-link"
     txLink.EntityData.SegmentPath = "tx-link" + types.AddKeyToken(txLink.Link, "link")
+    txLink.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/tx-asic-instance/tx-links/tx-link/" + txLink.EntityData.SegmentPath
     txLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2186,6 +2241,7 @@ func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOpt
     thisLink.EntityData.BundleName = "cisco_ios_xr"
     thisLink.EntityData.ParentYangName = "tx-link"
     thisLink.EntityData.SegmentPath = "this-link"
+    thisLink.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/tx-asic-instance/tx-links/tx-link/tx-link/" + thisLink.EntityData.SegmentPath
     thisLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thisLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thisLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2231,6 +2287,7 @@ func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOptio
     asicId.EntityData.BundleName = "cisco_ios_xr"
     asicId.EntityData.ParentYangName = "this-link"
     asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/tx-asic-instance/tx-links/tx-link/tx-link/this-link/" + asicId.EntityData.SegmentPath
     asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2276,6 +2333,7 @@ func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusO
     farEndLink.EntityData.BundleName = "cisco_ios_xr"
     farEndLink.EntityData.ParentYangName = "tx-link"
     farEndLink.EntityData.SegmentPath = "far-end-link"
+    farEndLink.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/tx-asic-instance/tx-links/tx-link/tx-link/" + farEndLink.EntityData.SegmentPath
     farEndLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     farEndLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     farEndLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2321,6 +2379,7 @@ func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOptio
     asicId.EntityData.BundleName = "cisco_ios_xr"
     asicId.EntityData.ParentYangName = "far-end-link"
     asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/tx-asic-instance/tx-links/tx-link/tx-link/far-end-link/" + asicId.EntityData.SegmentPath
     asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2354,6 +2413,7 @@ func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "tx-link"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/tx-asic-instance/tx-links/tx-link/tx-link/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2390,6 +2450,7 @@ func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOpti
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "tx-link"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/tx-asic-instance/tx-links/tx-link/tx-link/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2397,6 +2458,7 @@ func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOpti
     history.EntityData.Children = types.NewOrderedMap()
     history.EntityData.Children.Append("hist", types.YChild{"Hist", nil})
     for i := range history.Hist {
+        types.SetYListKey(history.Hist[i], i)
         history.EntityData.Children.Append(types.GetSegmentPath(history.Hist[i]), types.YChild{"Hist", history.Hist[i]})
     }
     history.EntityData.Leafs = types.NewOrderedMap()
@@ -2413,6 +2475,7 @@ func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOpti
 type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Admin State. The type is AdminState.
     AdminState interface{}
@@ -2435,7 +2498,8 @@ func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_
     hist.EntityData.YangName = "hist"
     hist.EntityData.BundleName = "cisco_ios_xr"
     hist.EntityData.ParentYangName = "history"
-    hist.EntityData.SegmentPath = "hist"
+    hist.EntityData.SegmentPath = "hist" + types.AddNoKeyToken(hist)
+    hist.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/tx-link-information/tx-status-option-table/tx-status-option/tx-asic-instances/tx-asic-instance/tx-links/tx-link/tx-link/history/" + hist.EntityData.SegmentPath
     hist.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hist.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hist.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2469,6 +2533,7 @@ func (diagShell *Fia_Nodes_Node_DiagShell) GetEntityData() *types.CommonEntityDa
     diagShell.EntityData.BundleName = "cisco_ios_xr"
     diagShell.EntityData.ParentYangName = "node"
     diagShell.EntityData.SegmentPath = "diag-shell"
+    diagShell.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/" + diagShell.EntityData.SegmentPath
     diagShell.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     diagShell.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diagShell.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2499,6 +2564,7 @@ func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetEntityData() *
     diagShellUnits.EntityData.BundleName = "cisco_ios_xr"
     diagShellUnits.EntityData.ParentYangName = "diag-shell"
     diagShellUnits.EntityData.SegmentPath = "diag-shell-units"
+    diagShellUnits.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/diag-shell/" + diagShellUnits.EntityData.SegmentPath
     diagShellUnits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     diagShellUnits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diagShellUnits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2520,6 +2586,7 @@ func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetEntityData() *
 type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unit number. The type is interface{} with range:
     // 0..63.
@@ -2535,6 +2602,7 @@ func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetE
     diagShellUnit.EntityData.BundleName = "cisco_ios_xr"
     diagShellUnit.EntityData.ParentYangName = "diag-shell-units"
     diagShellUnit.EntityData.SegmentPath = "diag-shell-unit" + types.AddKeyToken(diagShellUnit.Unit, "unit")
+    diagShellUnit.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/diag-shell/diag-shell-units/" + diagShellUnit.EntityData.SegmentPath
     diagShellUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     diagShellUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diagShellUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2566,6 +2634,7 @@ func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) 
     commands.EntityData.BundleName = "cisco_ios_xr"
     commands.EntityData.ParentYangName = "diag-shell-unit"
     commands.EntityData.SegmentPath = "commands"
+    commands.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/diag-shell/diag-shell-units/diag-shell-unit/" + commands.EntityData.SegmentPath
     commands.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commands.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commands.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2587,6 +2656,7 @@ func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) 
 type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Shell command. The type is string.
     Cmd interface{}
@@ -2602,6 +2672,7 @@ func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Co
     command.EntityData.BundleName = "cisco_ios_xr"
     command.EntityData.ParentYangName = "commands"
     command.EntityData.SegmentPath = "command" + types.AddKeyToken(command.Cmd, "cmd")
+    command.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/diag-shell/diag-shell-units/diag-shell-unit/commands/" + command.EntityData.SegmentPath
     command.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     command.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     command.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2624,6 +2695,7 @@ func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Co
 type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. First line. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2639,6 +2711,7 @@ func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Com
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "command"
     output.EntityData.SegmentPath = "output" + types.AddKeyToken(output.Output, "output")
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/diag-shell/diag-shell-units/diag-shell-unit/commands/command/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2669,6 +2742,7 @@ func (oirHistory *Fia_Nodes_Node_OirHistory) GetEntityData() *types.CommonEntity
     oirHistory.EntityData.BundleName = "cisco_ios_xr"
     oirHistory.EntityData.ParentYangName = "node"
     oirHistory.EntityData.SegmentPath = "oir-history"
+    oirHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/" + oirHistory.EntityData.SegmentPath
     oirHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oirHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oirHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2699,6 +2773,7 @@ func (flags *Fia_Nodes_Node_OirHistory_Flags) GetEntityData() *types.CommonEntit
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "oir-history"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/oir-history/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2720,6 +2795,7 @@ func (flags *Fia_Nodes_Node_OirHistory_Flags) GetEntityData() *types.CommonEntit
 type Fia_Nodes_Node_OirHistory_Flags_Flag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Flag value. The type is interface{} with range:
     // 0..4294967295.
@@ -2735,6 +2811,7 @@ func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetEntityData() *types.CommonE
     flag.EntityData.BundleName = "cisco_ios_xr"
     flag.EntityData.ParentYangName = "flags"
     flag.EntityData.SegmentPath = "flag" + types.AddKeyToken(flag.Flag, "flag")
+    flag.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/oir-history/flags/" + flag.EntityData.SegmentPath
     flag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2766,6 +2843,7 @@ func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetEntityData() *types.
     slots.EntityData.BundleName = "cisco_ios_xr"
     slots.EntityData.ParentYangName = "flag"
     slots.EntityData.SegmentPath = "slots"
+    slots.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/oir-history/flags/flag/" + slots.EntityData.SegmentPath
     slots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2787,6 +2865,7 @@ func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetEntityData() *types.
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Slot number. The type is interface{} with range:
     // 0..4294967295.
@@ -2957,6 +3036,7 @@ func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetEntityData() *ty
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
     slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Slot, "slot")
+    slot.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/oir-history/flags/flag/slots/" + slot.EntityData.SegmentPath
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2964,10 +3044,12 @@ func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetEntityData() *ty
     slot.EntityData.Children = types.NewOrderedMap()
     slot.EntityData.Children.Append("device-info", types.YChild{"DeviceInfo", nil})
     for i := range slot.DeviceInfo {
+        types.SetYListKey(slot.DeviceInfo[i], i)
         slot.EntityData.Children.Append(types.GetSegmentPath(slot.DeviceInfo[i]), types.YChild{"DeviceInfo", slot.DeviceInfo[i]})
     }
     slot.EntityData.Children.Append("card-info", types.YChild{"CardInfo", nil})
     for i := range slot.CardInfo {
+        types.SetYListKey(slot.CardInfo[i], i)
         slot.EntityData.Children.Append(types.GetSegmentPath(slot.CardInfo[i]), types.YChild{"CardInfo", slot.CardInfo[i]})
     }
     slot.EntityData.Leafs = types.NewOrderedMap()
@@ -3032,6 +3114,7 @@ func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetEntityData() *ty
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // is valid. The type is bool.
     IsValid interface{}
@@ -3093,7 +3176,8 @@ func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) Ge
     deviceInfo.EntityData.YangName = "device-info"
     deviceInfo.EntityData.BundleName = "cisco_ios_xr"
     deviceInfo.EntityData.ParentYangName = "slot"
-    deviceInfo.EntityData.SegmentPath = "device-info"
+    deviceInfo.EntityData.SegmentPath = "device-info" + types.AddNoKeyToken(deviceInfo)
+    deviceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/oir-history/flags/flag/slots/slot/" + deviceInfo.EntityData.SegmentPath
     deviceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     deviceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     deviceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3152,6 +3236,7 @@ func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId)
     asicId.EntityData.BundleName = "cisco_ios_xr"
     asicId.EntityData.ParentYangName = "device-info"
     asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/oir-history/flags/flag/slots/slot/device-info/" + asicId.EntityData.SegmentPath
     asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3174,6 +3259,7 @@ func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId)
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // card type. The type is interface{} with range: -2147483648..2147483647.
     CardType interface{}
@@ -3231,7 +3317,8 @@ func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetEnt
     cardInfo.EntityData.YangName = "card-info"
     cardInfo.EntityData.BundleName = "cisco_ios_xr"
     cardInfo.EntityData.ParentYangName = "slot"
-    cardInfo.EntityData.SegmentPath = "card-info"
+    cardInfo.EntityData.SegmentPath = "card-info" + types.AddNoKeyToken(cardInfo)
+    cardInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/oir-history/flags/flag/slots/slot/" + cardInfo.EntityData.SegmentPath
     cardInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3286,6 +3373,7 @@ func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInf
     oirCircularBuffer.EntityData.BundleName = "cisco_ios_xr"
     oirCircularBuffer.EntityData.ParentYangName = "card-info"
     oirCircularBuffer.EntityData.SegmentPath = "oir-circular-buffer"
+    oirCircularBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/oir-history/flags/flag/slots/slot/card-info/" + oirCircularBuffer.EntityData.SegmentPath
     oirCircularBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oirCircularBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oirCircularBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3293,6 +3381,7 @@ func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInf
     oirCircularBuffer.EntityData.Children = types.NewOrderedMap()
     oirCircularBuffer.EntityData.Children.Append("fia-oir-info", types.YChild{"FiaOirInfo", nil})
     for i := range oirCircularBuffer.FiaOirInfo {
+        types.SetYListKey(oirCircularBuffer.FiaOirInfo[i], i)
         oirCircularBuffer.EntityData.Children.Append(types.GetSegmentPath(oirCircularBuffer.FiaOirInfo[i]), types.YChild{"FiaOirInfo", oirCircularBuffer.FiaOirInfo[i]})
     }
     oirCircularBuffer.EntityData.Leafs = types.NewOrderedMap()
@@ -3310,6 +3399,7 @@ func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInf
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // card flag. The type is interface{} with range: -2147483648..2147483647.
     CardFlag interface{}
@@ -3339,7 +3429,8 @@ func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCi
     fiaOirInfo.EntityData.YangName = "fia-oir-info"
     fiaOirInfo.EntityData.BundleName = "cisco_ios_xr"
     fiaOirInfo.EntityData.ParentYangName = "oir-circular-buffer"
-    fiaOirInfo.EntityData.SegmentPath = "fia-oir-info"
+    fiaOirInfo.EntityData.SegmentPath = "fia-oir-info" + types.AddNoKeyToken(fiaOirInfo)
+    fiaOirInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/oir-history/flags/flag/slots/slot/card-info/oir-circular-buffer/" + fiaOirInfo.EntityData.SegmentPath
     fiaOirInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fiaOirInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fiaOirInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3375,6 +3466,7 @@ func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetEntityData() *types.Comm
     asicStatistics.EntityData.BundleName = "cisco_ios_xr"
     asicStatistics.EntityData.ParentYangName = "node"
     asicStatistics.EntityData.SegmentPath = "asic-statistics"
+    asicStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/" + asicStatistics.EntityData.SegmentPath
     asicStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3405,6 +3497,7 @@ func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInsta
     statisticsAsicInstances.EntityData.BundleName = "cisco_ios_xr"
     statisticsAsicInstances.EntityData.ParentYangName = "asic-statistics"
     statisticsAsicInstances.EntityData.SegmentPath = "statistics-asic-instances"
+    statisticsAsicInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/" + statisticsAsicInstances.EntityData.SegmentPath
     statisticsAsicInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsAsicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsAsicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3426,6 +3519,7 @@ func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInsta
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Asic instance. The type is interface{} with range:
     // 0..255.
@@ -3444,6 +3538,7 @@ func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstan
     statisticsAsicInstance.EntityData.BundleName = "cisco_ios_xr"
     statisticsAsicInstance.EntityData.ParentYangName = "statistics-asic-instances"
     statisticsAsicInstance.EntityData.SegmentPath = "statistics-asic-instance" + types.AddKeyToken(statisticsAsicInstance.Instance, "instance")
+    statisticsAsicInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/" + statisticsAsicInstance.EntityData.SegmentPath
     statisticsAsicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsAsicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsAsicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3475,6 +3570,7 @@ func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Stati
     pbcStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbcStatistics.EntityData.ParentYangName = "statistics-asic-instance"
     pbcStatistics.EntityData.SegmentPath = "pbc-statistics"
+    pbcStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/" + pbcStatistics.EntityData.SegmentPath
     pbcStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbcStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbcStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3519,6 +3615,7 @@ func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistics
     pbcStats.EntityData.BundleName = "cisco_ios_xr"
     pbcStats.EntityData.ParentYangName = "pbc-statistics"
     pbcStats.EntityData.SegmentPath = "pbc-stats"
+    pbcStats.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/pbc-statistics/" + pbcStats.EntityData.SegmentPath
     pbcStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbcStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbcStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3557,6 +3654,7 @@ func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     statsInfo.EntityData.BundleName = "cisco_ios_xr"
     statsInfo.EntityData.ParentYangName = "pbc-stats"
     statsInfo.EntityData.SegmentPath = "stats-info"
+    statsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/pbc-statistics/pbc-stats/" + statsInfo.EntityData.SegmentPath
     statsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3564,6 +3662,7 @@ func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     statsInfo.EntityData.Children = types.NewOrderedMap()
     statsInfo.EntityData.Children.Append("block-info", types.YChild{"BlockInfo", nil})
     for i := range statsInfo.BlockInfo {
+        types.SetYListKey(statsInfo.BlockInfo[i], i)
         statsInfo.EntityData.Children.Append(types.GetSegmentPath(statsInfo.BlockInfo[i]), types.YChild{"BlockInfo", statsInfo.BlockInfo[i]})
     }
     statsInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -3579,6 +3678,7 @@ func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Block Name. The type is string with length: 0..10.
     BlockName interface{}
@@ -3596,7 +3696,8 @@ func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     blockInfo.EntityData.YangName = "block-info"
     blockInfo.EntityData.BundleName = "cisco_ios_xr"
     blockInfo.EntityData.ParentYangName = "stats-info"
-    blockInfo.EntityData.SegmentPath = "block-info"
+    blockInfo.EntityData.SegmentPath = "block-info" + types.AddNoKeyToken(blockInfo)
+    blockInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/pbc-statistics/pbc-stats/stats-info/" + blockInfo.EntityData.SegmentPath
     blockInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     blockInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     blockInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3604,6 +3705,7 @@ func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     blockInfo.EntityData.Children = types.NewOrderedMap()
     blockInfo.EntityData.Children.Append("field-info", types.YChild{"FieldInfo", nil})
     for i := range blockInfo.FieldInfo {
+        types.SetYListKey(blockInfo.FieldInfo[i], i)
         blockInfo.EntityData.Children.Append(types.GetSegmentPath(blockInfo.FieldInfo[i]), types.YChild{"FieldInfo", blockInfo.FieldInfo[i]})
     }
     blockInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -3620,6 +3722,7 @@ func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Field Name. The type is string with length: 0..80.
     FieldName interface{}
@@ -3636,7 +3739,8 @@ func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     fieldInfo.EntityData.YangName = "field-info"
     fieldInfo.EntityData.BundleName = "cisco_ios_xr"
     fieldInfo.EntityData.ParentYangName = "block-info"
-    fieldInfo.EntityData.SegmentPath = "field-info"
+    fieldInfo.EntityData.SegmentPath = "field-info" + types.AddNoKeyToken(fieldInfo)
+    fieldInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/pbc-statistics/pbc-stats/stats-info/block-info/" + fieldInfo.EntityData.SegmentPath
     fieldInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fieldInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fieldInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3668,6 +3772,7 @@ func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Stat
     fmacStatistics.EntityData.BundleName = "cisco_ios_xr"
     fmacStatistics.EntityData.ParentYangName = "statistics-asic-instance"
     fmacStatistics.EntityData.SegmentPath = "fmac-statistics"
+    fmacStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/" + fmacStatistics.EntityData.SegmentPath
     fmacStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmacStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmacStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3698,6 +3803,7 @@ func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     fmacLinks.EntityData.BundleName = "cisco_ios_xr"
     fmacLinks.EntityData.ParentYangName = "fmac-statistics"
     fmacLinks.EntityData.SegmentPath = "fmac-links"
+    fmacLinks.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/" + fmacLinks.EntityData.SegmentPath
     fmacLinks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmacLinks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmacLinks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3719,6 +3825,7 @@ func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link number. The type is interface{} with range:
     // 0..4294967295.
@@ -3735,6 +3842,7 @@ func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistics
     fmacLink.EntityData.BundleName = "cisco_ios_xr"
     fmacLink.EntityData.ParentYangName = "fmac-links"
     fmacLink.EntityData.SegmentPath = "fmac-link" + types.AddKeyToken(fmacLink.Link, "link")
+    fmacLink.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/fmac-links/" + fmacLink.EntityData.SegmentPath
     fmacLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmacLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmacLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3757,6 +3865,7 @@ func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistics
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Single asic. The type is interface{} with range:
     // 0..4294967295.
@@ -3793,6 +3902,7 @@ func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistics
     fmacAsic.EntityData.BundleName = "cisco_ios_xr"
     fmacAsic.EntityData.ParentYangName = "fmac-link"
     fmacAsic.EntityData.SegmentPath = "fmac-asic" + types.AddKeyToken(fmacAsic.Asic, "asic")
+    fmacAsic.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/fmac-links/fmac-link/" + fmacAsic.EntityData.SegmentPath
     fmacAsic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmacAsic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmacAsic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3836,6 +3946,7 @@ func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     aggrStats.EntityData.BundleName = "cisco_ios_xr"
     aggrStats.EntityData.ParentYangName = "fmac-asic"
     aggrStats.EntityData.SegmentPath = "aggr-stats"
+    aggrStats.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/fmac-links/fmac-link/fmac-asic/" + aggrStats.EntityData.SegmentPath
     aggrStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggrStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggrStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3889,6 +4000,7 @@ func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Sta
     linkErrorStatus.EntityData.BundleName = "cisco_ios_xr"
     linkErrorStatus.EntityData.ParentYangName = "aggr-stats"
     linkErrorStatus.EntityData.SegmentPath = "link-error-status"
+    linkErrorStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/fmac-links/fmac-link/fmac-asic/aggr-stats/" + linkErrorStatus.EntityData.SegmentPath
     linkErrorStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkErrorStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkErrorStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3978,6 +4090,7 @@ func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statis
     linkCounters.EntityData.BundleName = "cisco_ios_xr"
     linkCounters.EntityData.ParentYangName = "aggr-stats"
     linkCounters.EntityData.SegmentPath = "link-counters"
+    linkCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/fmac-links/fmac-link/fmac-asic/aggr-stats/" + linkCounters.EntityData.SegmentPath
     linkCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4059,6 +4172,7 @@ func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     ovfStatus.EntityData.BundleName = "cisco_ios_xr"
     ovfStatus.EntityData.ParentYangName = "aggr-stats"
     ovfStatus.EntityData.SegmentPath = "ovf-status"
+    ovfStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/fmac-links/fmac-link/fmac-asic/aggr-stats/" + ovfStatus.EntityData.SegmentPath
     ovfStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ovfStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ovfStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4107,6 +4221,7 @@ func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     incrStats.EntityData.BundleName = "cisco_ios_xr"
     incrStats.EntityData.ParentYangName = "fmac-asic"
     incrStats.EntityData.SegmentPath = "incr-stats"
+    incrStats.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/fmac-links/fmac-link/fmac-asic/" + incrStats.EntityData.SegmentPath
     incrStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     incrStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incrStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4160,6 +4275,7 @@ func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Sta
     linkErrorStatus.EntityData.BundleName = "cisco_ios_xr"
     linkErrorStatus.EntityData.ParentYangName = "incr-stats"
     linkErrorStatus.EntityData.SegmentPath = "link-error-status"
+    linkErrorStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/fmac-links/fmac-link/fmac-asic/incr-stats/" + linkErrorStatus.EntityData.SegmentPath
     linkErrorStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkErrorStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkErrorStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4249,6 +4365,7 @@ func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statis
     linkCounters.EntityData.BundleName = "cisco_ios_xr"
     linkCounters.EntityData.ParentYangName = "incr-stats"
     linkCounters.EntityData.SegmentPath = "link-counters"
+    linkCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/fmac-links/fmac-link/fmac-asic/incr-stats/" + linkCounters.EntityData.SegmentPath
     linkCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4330,6 +4447,7 @@ func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_Statistic
     ovfStatus.EntityData.BundleName = "cisco_ios_xr"
     ovfStatus.EntityData.ParentYangName = "incr-stats"
     ovfStatus.EntityData.SegmentPath = "ovf-status"
+    ovfStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/node/asic-statistics/statistics-asic-instances/statistics-asic-instance/fmac-statistics/fmac-links/fmac-link/fmac-asic/incr-stats/" + ovfStatus.EntityData.SegmentPath
     ovfStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ovfStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ovfStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

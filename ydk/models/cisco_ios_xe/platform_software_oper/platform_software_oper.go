@@ -53,6 +53,7 @@ func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetEntityData() *types.Commo
     ciscoPlatformSoftware.EntityData.BundleName = "cisco_ios_xe"
     ciscoPlatformSoftware.EntityData.ParentYangName = "Cisco-IOS-XE-platform-software-oper"
     ciscoPlatformSoftware.EntityData.SegmentPath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software"
+    ciscoPlatformSoftware.EntityData.AbsolutePath = ciscoPlatformSoftware.EntityData.SegmentPath
     ciscoPlatformSoftware.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoPlatformSoftware.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoPlatformSoftware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -88,6 +89,7 @@ func (systemUsages *CiscoPlatformSoftware_SystemUsages) GetEntityData() *types.C
     systemUsages.EntityData.BundleName = "cisco_ios_xe"
     systemUsages.EntityData.ParentYangName = "cisco-platform-software"
     systemUsages.EntityData.SegmentPath = "system-usages"
+    systemUsages.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/" + systemUsages.EntityData.SegmentPath
     systemUsages.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     systemUsages.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     systemUsages.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -109,6 +111,7 @@ func (systemUsages *CiscoPlatformSoftware_SystemUsages) GetEntityData() *types.C
 type CiscoPlatformSoftware_SystemUsages_SystemUsage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Field replaceable unit. The type is BFru.
     Fru interface{}
@@ -135,6 +138,7 @@ func (systemUsage *CiscoPlatformSoftware_SystemUsages_SystemUsage) GetEntityData
     systemUsage.EntityData.BundleName = "cisco_ios_xe"
     systemUsage.EntityData.ParentYangName = "system-usages"
     systemUsage.EntityData.SegmentPath = "system-usage" + types.AddKeyToken(systemUsage.Fru, "fru") + types.AddKeyToken(systemUsage.Slotnum, "slotnum") + types.AddKeyToken(systemUsage.Baynum, "baynum") + types.AddKeyToken(systemUsage.Chassisnum, "chassisnum")
+    systemUsage.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/system-usages/" + systemUsage.EntityData.SegmentPath
     systemUsage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     systemUsage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     systemUsage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -169,6 +173,7 @@ func (processSystemUsages *CiscoPlatformSoftware_SystemUsages_SystemUsage_Proces
     processSystemUsages.EntityData.BundleName = "cisco_ios_xe"
     processSystemUsages.EntityData.ParentYangName = "system-usage"
     processSystemUsages.EntityData.SegmentPath = "process-system-usages"
+    processSystemUsages.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/system-usages/system-usage/" + processSystemUsages.EntityData.SegmentPath
     processSystemUsages.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     processSystemUsages.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     processSystemUsages.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -190,6 +195,7 @@ func (processSystemUsages *CiscoPlatformSoftware_SystemUsages_SystemUsage_Proces
 type CiscoPlatformSoftware_SystemUsages_SystemUsage_ProcessSystemUsages_ProcessSystemUsage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The pid of the process. The type is interface{}
     // with range: 0..4294967295.
@@ -221,6 +227,7 @@ func (processSystemUsage *CiscoPlatformSoftware_SystemUsages_SystemUsage_Process
     processSystemUsage.EntityData.BundleName = "cisco_ios_xe"
     processSystemUsage.EntityData.ParentYangName = "process-system-usages"
     processSystemUsage.EntityData.SegmentPath = "process-system-usage" + types.AddKeyToken(processSystemUsage.Pid, "pid")
+    processSystemUsage.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/system-usages/system-usage/process-system-usages/" + processSystemUsage.EntityData.SegmentPath
     processSystemUsage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     processSystemUsage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     processSystemUsage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -256,6 +263,7 @@ func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetEntityData() 
     controlProcesses.EntityData.BundleName = "cisco_ios_xe"
     controlProcesses.EntityData.ParentYangName = "cisco-platform-software"
     controlProcesses.EntityData.SegmentPath = "control-processes"
+    controlProcesses.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/" + controlProcesses.EntityData.SegmentPath
     controlProcesses.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     controlProcesses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     controlProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -277,6 +285,7 @@ func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetEntityData() 
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Field replaceable unit. The type is BFru.
     Fru interface{}
@@ -319,6 +328,7 @@ func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) Get
     controlProcess.EntityData.BundleName = "cisco_ios_xe"
     controlProcess.EntityData.ParentYangName = "control-processes"
     controlProcess.EntityData.SegmentPath = "control-process" + types.AddKeyToken(controlProcess.Fru, "fru") + types.AddKeyToken(controlProcess.Slotnum, "slotnum") + types.AddKeyToken(controlProcess.Baynum, "baynum") + types.AddKeyToken(controlProcess.Chassisnum, "chassisnum")
+    controlProcess.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/" + controlProcess.EntityData.SegmentPath
     controlProcess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     controlProcess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     controlProcess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -357,6 +367,7 @@ func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_Lo
     loadAverageStats.EntityData.BundleName = "cisco_ios_xe"
     loadAverageStats.EntityData.ParentYangName = "control-process"
     loadAverageStats.EntityData.SegmentPath = "load-average-stats"
+    loadAverageStats.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/control-process/" + loadAverageStats.EntityData.SegmentPath
     loadAverageStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     loadAverageStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     loadAverageStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -387,6 +398,7 @@ func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_Load
     loadAvgMinutes.EntityData.BundleName = "cisco_ios_xe"
     loadAvgMinutes.EntityData.ParentYangName = "control-process"
     loadAvgMinutes.EntityData.SegmentPath = "load-avg-minutes"
+    loadAvgMinutes.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/control-process/" + loadAvgMinutes.EntityData.SegmentPath
     loadAvgMinutes.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     loadAvgMinutes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     loadAvgMinutes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -408,6 +420,7 @@ func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_Load
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The number of minutes the average was calculated
     // on. The type is interface{} with range: 0..18446744073709551615.
@@ -427,6 +440,7 @@ func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadA
     loadAvgMinute.EntityData.BundleName = "cisco_ios_xe"
     loadAvgMinute.EntityData.ParentYangName = "load-avg-minutes"
     loadAvgMinute.EntityData.SegmentPath = "load-avg-minute" + types.AddKeyToken(loadAvgMinute.Number, "number")
+    loadAvgMinute.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/control-process/load-avg-minutes/" + loadAvgMinute.EntityData.SegmentPath
     loadAvgMinute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     loadAvgMinute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     loadAvgMinute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -465,6 +479,7 @@ func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinut
     status.EntityData.BundleName = "cisco_ios_xe"
     status.EntityData.ParentYangName = "load-avg-minute"
     status.EntityData.SegmentPath = "status"
+    status.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/control-process/load-avg-minutes/load-avg-minute/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -535,6 +550,7 @@ func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryS
     memoryStats.EntityData.BundleName = "cisco_ios_xe"
     memoryStats.EntityData.ParentYangName = "control-process"
     memoryStats.EntityData.SegmentPath = "memory-stats"
+    memoryStats.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/control-process/" + memoryStats.EntityData.SegmentPath
     memoryStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     memoryStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -579,6 +595,7 @@ func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_
     status.EntityData.BundleName = "cisco_ios_xe"
     status.EntityData.ParentYangName = "memory-stats"
     status.EntityData.SegmentPath = "status"
+    status.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/control-process/memory-stats/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -610,6 +627,7 @@ func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCor
     perCoreStats.EntityData.BundleName = "cisco_ios_xe"
     perCoreStats.EntityData.ParentYangName = "control-process"
     perCoreStats.EntityData.SegmentPath = "per-core-stats"
+    perCoreStats.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/control-process/" + perCoreStats.EntityData.SegmentPath
     perCoreStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     perCoreStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     perCoreStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -631,6 +649,7 @@ func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCor
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier of the core. The type is
     // interface{} with range: 0..4294967295.
@@ -671,6 +690,7 @@ func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCore
     perCoreStat.EntityData.BundleName = "cisco_ios_xe"
     perCoreStat.EntityData.ParentYangName = "per-core-stats"
     perCoreStat.EntityData.SegmentPath = "per-core-stat" + types.AddKeyToken(perCoreStat.Name, "name")
+    perCoreStat.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/control-process/per-core-stats/" + perCoreStat.EntityData.SegmentPath
     perCoreStat.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     perCoreStat.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     perCoreStat.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -696,6 +716,7 @@ func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCore
 type CiscoPlatformSoftware_QFilesystem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Field replaceable unit. The type is BFru.
     Fru interface{}
@@ -727,6 +748,7 @@ func (qFilesystem *CiscoPlatformSoftware_QFilesystem) GetEntityData() *types.Com
     qFilesystem.EntityData.BundleName = "cisco_ios_xe"
     qFilesystem.EntityData.ParentYangName = "cisco-platform-software"
     qFilesystem.EntityData.SegmentPath = "q-filesystem" + types.AddKeyToken(qFilesystem.Fru, "fru") + types.AddKeyToken(qFilesystem.Slotnum, "slotnum") + types.AddKeyToken(qFilesystem.Baynum, "baynum") + types.AddKeyToken(qFilesystem.Chassisnum, "chassisnum")
+    qFilesystem.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/" + qFilesystem.EntityData.SegmentPath
     qFilesystem.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qFilesystem.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qFilesystem.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -756,6 +778,7 @@ func (qFilesystem *CiscoPlatformSoftware_QFilesystem) GetEntityData() *types.Com
 type CiscoPlatformSoftware_QFilesystem_Partitions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the partition. The type is string.
     Name interface{}
@@ -775,6 +798,7 @@ func (partitions *CiscoPlatformSoftware_QFilesystem_Partitions) GetEntityData() 
     partitions.EntityData.BundleName = "cisco_ios_xe"
     partitions.EntityData.ParentYangName = "q-filesystem"
     partitions.EntityData.SegmentPath = "partitions" + types.AddKeyToken(partitions.Name, "name")
+    partitions.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/q-filesystem/" + partitions.EntityData.SegmentPath
     partitions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     partitions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     partitions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -795,6 +819,7 @@ func (partitions *CiscoPlatformSoftware_QFilesystem_Partitions) GetEntityData() 
 type CiscoPlatformSoftware_QFilesystem_CoreFiles struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The core filename. The type is string.
     Filename interface{}
@@ -810,6 +835,7 @@ func (coreFiles *CiscoPlatformSoftware_QFilesystem_CoreFiles) GetEntityData() *t
     coreFiles.EntityData.BundleName = "cisco_ios_xe"
     coreFiles.EntityData.ParentYangName = "q-filesystem"
     coreFiles.EntityData.SegmentPath = "core-files" + types.AddKeyToken(coreFiles.Filename, "filename")
+    coreFiles.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/q-filesystem/" + coreFiles.EntityData.SegmentPath
     coreFiles.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     coreFiles.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     coreFiles.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

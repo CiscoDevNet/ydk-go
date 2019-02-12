@@ -46,6 +46,7 @@ func (cfmStatistics *CfmStatistics) GetEntityData() *types.CommonEntityData {
     cfmStatistics.EntityData.BundleName = "cisco_ios_xe"
     cfmStatistics.EntityData.ParentYangName = "Cisco-IOS-XE-cfm-oper"
     cfmStatistics.EntityData.SegmentPath = "Cisco-IOS-XE-cfm-oper:cfm-statistics"
+    cfmStatistics.EntityData.AbsolutePath = cfmStatistics.EntityData.SegmentPath
     cfmStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cfmStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cfmStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -76,6 +77,7 @@ func (cfmMeps *CfmStatistics_CfmMeps) GetEntityData() *types.CommonEntityData {
     cfmMeps.EntityData.BundleName = "cisco_ios_xe"
     cfmMeps.EntityData.ParentYangName = "cfm-statistics"
     cfmMeps.EntityData.SegmentPath = "cfm-meps"
+    cfmMeps.EntityData.AbsolutePath = "Cisco-IOS-XE-cfm-oper:cfm-statistics/" + cfmMeps.EntityData.SegmentPath
     cfmMeps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cfmMeps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cfmMeps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -97,6 +99,7 @@ func (cfmMeps *CfmStatistics_CfmMeps) GetEntityData() *types.CommonEntityData {
 type CfmStatistics_CfmMeps_CfmMep struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the Domain corresponding the the MEP.
     // The type is string.
@@ -148,6 +151,7 @@ func (cfmMep *CfmStatistics_CfmMeps_CfmMep) GetEntityData() *types.CommonEntityD
     cfmMep.EntityData.BundleName = "cisco_ios_xe"
     cfmMep.EntityData.ParentYangName = "cfm-meps"
     cfmMep.EntityData.SegmentPath = "cfm-mep" + types.AddKeyToken(cfmMep.DomainName, "domain-name") + types.AddKeyToken(cfmMep.MaName, "ma-name") + types.AddKeyToken(cfmMep.Mpid, "mpid")
+    cfmMep.EntityData.AbsolutePath = "Cisco-IOS-XE-cfm-oper:cfm-statistics/cfm-meps/" + cfmMep.EntityData.SegmentPath
     cfmMep.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cfmMep.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cfmMep.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -191,6 +195,7 @@ func (lastCleared *CfmStatistics_CfmMeps_CfmMep_LastCleared) GetEntityData() *ty
     lastCleared.EntityData.BundleName = "cisco_ios_xe"
     lastCleared.EntityData.ParentYangName = "cfm-mep"
     lastCleared.EntityData.SegmentPath = "last-cleared"
+    lastCleared.EntityData.AbsolutePath = "Cisco-IOS-XE-cfm-oper:cfm-statistics/cfm-meps/cfm-mep/" + lastCleared.EntityData.SegmentPath
     lastCleared.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lastCleared.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lastCleared.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

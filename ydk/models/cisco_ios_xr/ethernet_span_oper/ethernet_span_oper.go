@@ -191,6 +191,7 @@ func (spanMonitorSession *SpanMonitorSession) GetEntityData() *types.CommonEntit
     spanMonitorSession.EntityData.BundleName = "cisco_ios_xr"
     spanMonitorSession.EntityData.ParentYangName = "Cisco-IOS-XR-Ethernet-SPAN-oper"
     spanMonitorSession.EntityData.SegmentPath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session"
+    spanMonitorSession.EntityData.AbsolutePath = spanMonitorSession.EntityData.SegmentPath
     spanMonitorSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spanMonitorSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spanMonitorSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -224,6 +225,7 @@ func (global *SpanMonitorSession_Global) GetEntityData() *types.CommonEntityData
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "span-monitor-session"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -255,6 +257,7 @@ func (statistics *SpanMonitorSession_Global_Statistics) GetEntityData() *types.C
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "global"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -276,6 +279,7 @@ func (statistics *SpanMonitorSession_Global_Statistics) GetEntityData() *types.C
 type SpanMonitorSession_Global_Statistics_Statistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session Name. The type is string with length:
     // 1..79.
@@ -316,6 +320,7 @@ func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetEntityData()
     statistic.EntityData.BundleName = "cisco_ios_xr"
     statistic.EntityData.ParentYangName = "statistics"
     statistic.EntityData.SegmentPath = "statistic" + types.AddKeyToken(statistic.Session, "session") + types.AddKeyToken(statistic.Interface, "interface")
+    statistic.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/statistics/" + statistic.EntityData.SegmentPath
     statistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -353,6 +358,7 @@ func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetEntityData() 
     globalSessions.EntityData.BundleName = "cisco_ios_xr"
     globalSessions.EntityData.ParentYangName = "global"
     globalSessions.EntityData.SegmentPath = "global-sessions"
+    globalSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/" + globalSessions.EntityData.SegmentPath
     globalSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -375,6 +381,7 @@ func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetEntityData() 
 type SpanMonitorSession_Global_GlobalSessions_GlobalSession struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session Name. The type is string with length:
     // 1..79.
@@ -422,6 +429,7 @@ func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) Get
     globalSession.EntityData.BundleName = "cisco_ios_xr"
     globalSession.EntityData.ParentYangName = "global-sessions"
     globalSession.EntityData.SegmentPath = "global-session" + types.AddKeyToken(globalSession.Session, "session")
+    globalSession.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/" + globalSession.EntityData.SegmentPath
     globalSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -476,6 +484,7 @@ func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_De
     destinationData.EntityData.BundleName = "cisco_ios_xr"
     destinationData.EntityData.ParentYangName = "global-session"
     destinationData.EntityData.SegmentPath = "destination-data"
+    destinationData.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/global-session/" + destinationData.EntityData.SegmentPath
     destinationData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -513,6 +522,7 @@ func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_Dest
     interfaceData.EntityData.BundleName = "cisco_ios_xr"
     interfaceData.EntityData.ParentYangName = "destination-data"
     interfaceData.EntityData.SegmentPath = "interface-data"
+    interfaceData.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/global-session/destination-data/" + interfaceData.EntityData.SegmentPath
     interfaceData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -546,6 +556,7 @@ func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_Des
     pseudowireData.EntityData.BundleName = "cisco_ios_xr"
     pseudowireData.EntityData.ParentYangName = "destination-data"
     pseudowireData.EntityData.SegmentPath = "pseudowire-data"
+    pseudowireData.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/global-session/destination-data/" + pseudowireData.EntityData.SegmentPath
     pseudowireData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -583,6 +594,7 @@ func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_De
     nextHopIpv4Data.EntityData.BundleName = "cisco_ios_xr"
     nextHopIpv4Data.EntityData.ParentYangName = "destination-data"
     nextHopIpv4Data.EntityData.SegmentPath = "next-hop-ipv4-data"
+    nextHopIpv4Data.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/global-session/destination-data/" + nextHopIpv4Data.EntityData.SegmentPath
     nextHopIpv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHopIpv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHopIpv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -621,6 +633,7 @@ func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_De
     nextHopIpv6Data.EntityData.BundleName = "cisco_ios_xr"
     nextHopIpv6Data.EntityData.ParentYangName = "destination-data"
     nextHopIpv6Data.EntityData.SegmentPath = "next-hop-ipv6-data"
+    nextHopIpv6Data.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/global-session/destination-data/" + nextHopIpv6Data.EntityData.SegmentPath
     nextHopIpv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHopIpv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHopIpv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -667,6 +680,7 @@ func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_Dest
     destinationId.EntityData.BundleName = "cisco_ios_xr"
     destinationId.EntityData.ParentYangName = "global-session"
     destinationId.EntityData.SegmentPath = "destination-id"
+    destinationId.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/global-session/" + destinationId.EntityData.SegmentPath
     destinationId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -705,6 +719,7 @@ func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_
     ipv4AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressAndVrf.EntityData.ParentYangName = "destination-id"
     ipv4AddressAndVrf.EntityData.SegmentPath = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/global-session/destination-id/" + ipv4AddressAndVrf.EntityData.SegmentPath
     ipv4AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -739,6 +754,7 @@ func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_
     ipv6AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
     ipv6AddressAndVrf.EntityData.ParentYangName = "destination-id"
     ipv6AddressAndVrf.EntityData.SegmentPath = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/global-session/destination-id/" + ipv6AddressAndVrf.EntityData.SegmentPath
     ipv6AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -769,6 +785,7 @@ func (injectInterface *SpanMonitorSession_Global_GlobalSessions_GlobalSession_In
     injectInterface.EntityData.BundleName = "cisco_ios_xr"
     injectInterface.EntityData.ParentYangName = "global-session"
     injectInterface.EntityData.SegmentPath = "inject-interface"
+    injectInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/global-session/" + injectInterface.EntityData.SegmentPath
     injectInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     injectInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     injectInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -799,6 +816,7 @@ func (nodes *SpanMonitorSession_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "span-monitor-session"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -820,6 +838,7 @@ func (nodes *SpanMonitorSession_Nodes) GetEntityData() *types.CommonEntityData {
 type SpanMonitorSession_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -845,6 +864,7 @@ func (node *SpanMonitorSession_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -880,6 +900,7 @@ func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetEntityData() *t
     attachments.EntityData.BundleName = "cisco_ios_xr"
     attachments.EntityData.ParentYangName = "node"
     attachments.EntityData.SegmentPath = "attachments"
+    attachments.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/" + attachments.EntityData.SegmentPath
     attachments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attachments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attachments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -903,6 +924,7 @@ func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetEntityData() *t
 type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session Name. The type is string with length:
     // 1..79.
@@ -966,6 +988,7 @@ func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetEntit
     attachment.EntityData.BundleName = "cisco_ios_xr"
     attachment.EntityData.ParentYangName = "attachments"
     attachment.EntityData.SegmentPath = "attachment" + types.AddKeyToken(attachment.Session, "session") + types.AddKeyToken(attachment.Interface, "interface")
+    attachment.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/attachments/" + attachment.EntityData.SegmentPath
     attachment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attachment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attachment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1026,6 +1049,7 @@ func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_Tr
     trafficParameters.EntityData.BundleName = "cisco_ios_xr"
     trafficParameters.EntityData.ParentYangName = "attachment"
     trafficParameters.EntityData.SegmentPath = "traffic-parameters"
+    trafficParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/attachments/attachment/" + trafficParameters.EntityData.SegmentPath
     trafficParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1075,6 +1099,7 @@ func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_Destin
     destinationId.EntityData.BundleName = "cisco_ios_xr"
     destinationId.EntityData.ParentYangName = "attachment"
     destinationId.EntityData.SegmentPath = "destination-id"
+    destinationId.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/attachments/attachment/" + destinationId.EntityData.SegmentPath
     destinationId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1113,6 +1138,7 @@ func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_De
     ipv4AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressAndVrf.EntityData.ParentYangName = "destination-id"
     ipv4AddressAndVrf.EntityData.SegmentPath = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/attachments/attachment/destination-id/" + ipv4AddressAndVrf.EntityData.SegmentPath
     ipv4AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1147,6 +1173,7 @@ func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_De
     ipv6AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
     ipv6AddressAndVrf.EntityData.ParentYangName = "destination-id"
     ipv6AddressAndVrf.EntityData.SegmentPath = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/attachments/attachment/destination-id/" + ipv6AddressAndVrf.EntityData.SegmentPath
     ipv6AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1183,6 +1210,7 @@ func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetEntit
     hardwareSessions.EntityData.BundleName = "cisco_ios_xr"
     hardwareSessions.EntityData.ParentYangName = "node"
     hardwareSessions.EntityData.SegmentPath = "hardware-sessions"
+    hardwareSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/" + hardwareSessions.EntityData.SegmentPath
     hardwareSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1190,6 +1218,7 @@ func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetEntit
     hardwareSessions.EntityData.Children = types.NewOrderedMap()
     hardwareSessions.EntityData.Children.Append("hardware-session", types.YChild{"HardwareSession", nil})
     for i := range hardwareSessions.HardwareSession {
+        types.SetYListKey(hardwareSessions.HardwareSession[i], i)
         hardwareSessions.EntityData.Children.Append(types.GetSegmentPath(hardwareSessions.HardwareSession[i]), types.YChild{"HardwareSession", hardwareSessions.HardwareSession[i]})
     }
     hardwareSessions.EntityData.Leafs = types.NewOrderedMap()
@@ -1205,6 +1234,7 @@ func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetEntit
 type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sesssion class. The type is SpanSessionClass.
     SessionClass interface{}
@@ -1252,7 +1282,8 @@ func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSe
     hardwareSession.EntityData.YangName = "hardware-session"
     hardwareSession.EntityData.BundleName = "cisco_ios_xr"
     hardwareSession.EntityData.ParentYangName = "hardware-sessions"
-    hardwareSession.EntityData.SegmentPath = "hardware-session"
+    hardwareSession.EntityData.SegmentPath = "hardware-session" + types.AddNoKeyToken(hardwareSession)
+    hardwareSession.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/hardware-sessions/" + hardwareSession.EntityData.SegmentPath
     hardwareSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1307,6 +1338,7 @@ func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSess
     destinationId.EntityData.BundleName = "cisco_ios_xr"
     destinationId.EntityData.ParentYangName = "hardware-session"
     destinationId.EntityData.SegmentPath = "destination-id"
+    destinationId.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/hardware-sessions/hardware-session/" + destinationId.EntityData.SegmentPath
     destinationId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1345,6 +1377,7 @@ func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_Hardware
     ipv4AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressAndVrf.EntityData.ParentYangName = "destination-id"
     ipv4AddressAndVrf.EntityData.SegmentPath = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/hardware-sessions/hardware-session/destination-id/" + ipv4AddressAndVrf.EntityData.SegmentPath
     ipv4AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1379,6 +1412,7 @@ func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_Hardware
     ipv6AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
     ipv6AddressAndVrf.EntityData.ParentYangName = "destination-id"
     ipv6AddressAndVrf.EntityData.SegmentPath = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/hardware-sessions/hardware-session/destination-id/" + ipv6AddressAndVrf.EntityData.SegmentPath
     ipv6AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1413,6 +1447,7 @@ func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetEntityData() *typ
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1435,6 +1470,7 @@ func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetEntityData() *typ
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1472,6 +1508,7 @@ func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetEntityData() 
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1481,6 +1518,7 @@ func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetEntityData() 
     self.EntityData.Children.Append("traffic-mirroring-parameters", types.YChild{"TrafficMirroringParameters", &self.TrafficMirroringParameters})
     self.EntityData.Children.Append("attachment", types.YChild{"Attachment", nil})
     for i := range self.Attachment {
+        types.SetYListKey(self.Attachment[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.Attachment[i]), types.YChild{"Attachment", self.Attachment[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -1526,6 +1564,7 @@ func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Destinat
     destinationId.EntityData.BundleName = "cisco_ios_xr"
     destinationId.EntityData.ParentYangName = "interface"
     destinationId.EntityData.SegmentPath = "destination-id"
+    destinationId.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/interfaces/interface/" + destinationId.EntityData.SegmentPath
     destinationId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1564,6 +1603,7 @@ func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Dest
     ipv4AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressAndVrf.EntityData.ParentYangName = "destination-id"
     ipv4AddressAndVrf.EntityData.SegmentPath = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/interfaces/interface/destination-id/" + ipv4AddressAndVrf.EntityData.SegmentPath
     ipv4AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1598,6 +1638,7 @@ func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Dest
     ipv6AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
     ipv6AddressAndVrf.EntityData.ParentYangName = "destination-id"
     ipv6AddressAndVrf.EntityData.SegmentPath = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/interfaces/interface/destination-id/" + ipv6AddressAndVrf.EntityData.SegmentPath
     ipv6AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1645,6 +1686,7 @@ func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Inter
     trafficMirroringParameters.EntityData.BundleName = "cisco_ios_xr"
     trafficMirroringParameters.EntityData.ParentYangName = "interface"
     trafficMirroringParameters.EntityData.SegmentPath = "traffic-mirroring-parameters"
+    trafficMirroringParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/interfaces/interface/" + trafficMirroringParameters.EntityData.SegmentPath
     trafficMirroringParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficMirroringParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficMirroringParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1668,6 +1710,7 @@ func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Inter
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Attachment class. The type is SessionClass.
     Class interface{}
@@ -1684,7 +1727,8 @@ func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment)
     attachment.EntityData.YangName = "attachment"
     attachment.EntityData.BundleName = "cisco_ios_xr"
     attachment.EntityData.ParentYangName = "interface"
-    attachment.EntityData.SegmentPath = "attachment"
+    attachment.EntityData.SegmentPath = "attachment" + types.AddNoKeyToken(attachment)
+    attachment.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/interfaces/interface/" + attachment.EntityData.SegmentPath
     attachment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attachment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attachment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1731,6 +1775,7 @@ func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachme
     destinationId.EntityData.BundleName = "cisco_ios_xr"
     destinationId.EntityData.ParentYangName = "attachment"
     destinationId.EntityData.SegmentPath = "destination-id"
+    destinationId.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/interfaces/interface/attachment/" + destinationId.EntityData.SegmentPath
     destinationId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1769,6 +1814,7 @@ func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Atta
     ipv4AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressAndVrf.EntityData.ParentYangName = "destination-id"
     ipv4AddressAndVrf.EntityData.SegmentPath = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/interfaces/interface/attachment/destination-id/" + ipv4AddressAndVrf.EntityData.SegmentPath
     ipv4AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1803,6 +1849,7 @@ func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Atta
     ipv6AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
     ipv6AddressAndVrf.EntityData.ParentYangName = "destination-id"
     ipv6AddressAndVrf.EntityData.SegmentPath = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/interfaces/interface/attachment/destination-id/" + ipv6AddressAndVrf.EntityData.SegmentPath
     ipv6AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1849,6 +1896,7 @@ func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Inter
     trafficMirroringParameters.EntityData.BundleName = "cisco_ios_xr"
     trafficMirroringParameters.EntityData.ParentYangName = "attachment"
     trafficMirroringParameters.EntityData.SegmentPath = "traffic-mirroring-parameters"
+    trafficMirroringParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/node/interfaces/interface/attachment/" + trafficMirroringParameters.EntityData.SegmentPath
     trafficMirroringParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficMirroringParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficMirroringParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

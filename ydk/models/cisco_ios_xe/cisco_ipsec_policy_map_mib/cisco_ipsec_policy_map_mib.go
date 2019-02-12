@@ -72,6 +72,7 @@ func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetEntityData() *types.Com
     cISCOIPSECPOLICYMAPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIPSECPOLICYMAPMIB.EntityData.ParentYangName = "CISCO-IPSEC-POLICY-MAP-MIB"
     cISCOIPSECPOLICYMAPMIB.EntityData.SegmentPath = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB"
+    cISCOIPSECPOLICYMAPMIB.EntityData.AbsolutePath = cISCOIPSECPOLICYMAPMIB.EntityData.SegmentPath
     cISCOIPSECPOLICYMAPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIPSECPOLICYMAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPSECPOLICYMAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -107,6 +108,7 @@ func (ikePolMapTable *CISCOIPSECPOLICYMAPMIB_IkePolMapTable) GetEntityData() *ty
     ikePolMapTable.EntityData.BundleName = "cisco_ios_xe"
     ikePolMapTable.EntityData.ParentYangName = "CISCO-IPSEC-POLICY-MAP-MIB"
     ikePolMapTable.EntityData.SegmentPath = "ikePolMapTable"
+    ikePolMapTable.EntityData.AbsolutePath = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/" + ikePolMapTable.EntityData.SegmentPath
     ikePolMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ikePolMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ikePolMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -130,6 +132,7 @@ func (ikePolMapTable *CISCOIPSECPOLICYMAPMIB_IkePolMapTable) GetEntityData() *ty
 type CISCOIPSECPOLICYMAPMIB_IkePolMapTable_IkePolMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the IPSec Phase-1 Tunnel to Policy
     // Map Table.  The value of the index is the number used to represent this
@@ -152,6 +155,7 @@ func (ikePolMapEntry *CISCOIPSECPOLICYMAPMIB_IkePolMapTable_IkePolMapEntry) GetE
     ikePolMapEntry.EntityData.BundleName = "cisco_ios_xe"
     ikePolMapEntry.EntityData.ParentYangName = "ikePolMapTable"
     ikePolMapEntry.EntityData.SegmentPath = "ikePolMapEntry" + types.AddKeyToken(ikePolMapEntry.IkePolMapTunIndex, "ikePolMapTunIndex")
+    ikePolMapEntry.EntityData.AbsolutePath = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ikePolMapTable/" + ikePolMapEntry.EntityData.SegmentPath
     ikePolMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ikePolMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ikePolMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -186,6 +190,7 @@ func (ipSecPolMapTable *CISCOIPSECPOLICYMAPMIB_IpSecPolMapTable) GetEntityData()
     ipSecPolMapTable.EntityData.BundleName = "cisco_ios_xe"
     ipSecPolMapTable.EntityData.ParentYangName = "CISCO-IPSEC-POLICY-MAP-MIB"
     ipSecPolMapTable.EntityData.SegmentPath = "ipSecPolMapTable"
+    ipSecPolMapTable.EntityData.AbsolutePath = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/" + ipSecPolMapTable.EntityData.SegmentPath
     ipSecPolMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipSecPolMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipSecPolMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -209,6 +214,7 @@ func (ipSecPolMapTable *CISCOIPSECPOLICYMAPMIB_IpSecPolMapTable) GetEntityData()
 type CISCOIPSECPOLICYMAPMIB_IpSecPolMapTable_IpSecPolMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the IPSec Phase-2 Tunnel to Policy
     // Map Table. The value of the index is the number used to represent this
@@ -268,6 +274,7 @@ func (ipSecPolMapEntry *CISCOIPSECPOLICYMAPMIB_IpSecPolMapTable_IpSecPolMapEntry
     ipSecPolMapEntry.EntityData.BundleName = "cisco_ios_xe"
     ipSecPolMapEntry.EntityData.ParentYangName = "ipSecPolMapTable"
     ipSecPolMapEntry.EntityData.SegmentPath = "ipSecPolMapEntry" + types.AddKeyToken(ipSecPolMapEntry.IpSecPolMapTunIndex, "ipSecPolMapTunIndex")
+    ipSecPolMapEntry.EntityData.AbsolutePath = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ipSecPolMapTable/" + ipSecPolMapEntry.EntityData.SegmentPath
     ipSecPolMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipSecPolMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipSecPolMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -43,6 +43,7 @@ func (dot1x *Dot1x) GetEntityData() *types.CommonEntityData {
     dot1x.EntityData.BundleName = "cisco_ios_xr"
     dot1x.EntityData.ParentYangName = "Cisco-IOS-XR-dot1x-cfg"
     dot1x.EntityData.SegmentPath = "Cisco-IOS-XR-dot1x-cfg:dot1x"
+    dot1x.EntityData.AbsolutePath = dot1x.EntityData.SegmentPath
     dot1x.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dot1x.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dot1x.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -64,6 +65,7 @@ func (dot1x *Dot1x) GetEntityData() *types.CommonEntityData {
 type Dot1x_Dot1xProfile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Dot1x Profile. The type is string with
     // length: 1..63.
@@ -86,6 +88,7 @@ func (dot1xProfile *Dot1x_Dot1xProfile) GetEntityData() *types.CommonEntityData 
     dot1xProfile.EntityData.BundleName = "cisco_ios_xr"
     dot1xProfile.EntityData.ParentYangName = "dot1x"
     dot1xProfile.EntityData.SegmentPath = "dot1x-profile" + types.AddKeyToken(dot1xProfile.ProfileName, "profile-name")
+    dot1xProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-cfg:dot1x/" + dot1xProfile.EntityData.SegmentPath
     dot1xProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dot1xProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dot1xProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -118,6 +121,7 @@ func (supplicant *Dot1x_Dot1xProfile_Supplicant) GetEntityData() *types.CommonEn
     supplicant.EntityData.BundleName = "cisco_ios_xr"
     supplicant.EntityData.ParentYangName = "dot1x-profile"
     supplicant.EntityData.SegmentPath = "supplicant"
+    supplicant.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-cfg:dot1x/dot1x-profile/" + supplicant.EntityData.SegmentPath
     supplicant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     supplicant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     supplicant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -150,6 +154,7 @@ func (authenticator *Dot1x_Dot1xProfile_Authenticator) GetEntityData() *types.Co
     authenticator.EntityData.BundleName = "cisco_ios_xr"
     authenticator.EntityData.ParentYangName = "dot1x-profile"
     authenticator.EntityData.SegmentPath = "authenticator"
+    authenticator.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-cfg:dot1x/dot1x-profile/" + authenticator.EntityData.SegmentPath
     authenticator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -180,6 +185,7 @@ func (timers *Dot1x_Dot1xProfile_Authenticator_Timers) GetEntityData() *types.Co
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "authenticator"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-cfg:dot1x/dot1x-profile/authenticator/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -215,6 +221,7 @@ func (reauthTime *Dot1x_Dot1xProfile_Authenticator_Timers_ReauthTime) GetEntityD
     reauthTime.EntityData.BundleName = "cisco_ios_xr"
     reauthTime.EntityData.ParentYangName = "timers"
     reauthTime.EntityData.SegmentPath = "reauth-time"
+    reauthTime.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-cfg:dot1x/dot1x-profile/authenticator/timers/" + reauthTime.EntityData.SegmentPath
     reauthTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reauthTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reauthTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -245,6 +252,7 @@ func (eap *Eap) GetEntityData() *types.CommonEntityData {
     eap.EntityData.BundleName = "cisco_ios_xr"
     eap.EntityData.ParentYangName = "Cisco-IOS-XR-dot1x-cfg"
     eap.EntityData.SegmentPath = "Cisco-IOS-XR-dot1x-cfg:eap"
+    eap.EntityData.AbsolutePath = eap.EntityData.SegmentPath
     eap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -266,6 +274,7 @@ func (eap *Eap) GetEntityData() *types.CommonEntityData {
 type Eap_EapProfile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the EAP Profile. The type is string with
     // length: 1..63.
@@ -284,6 +293,7 @@ func (eapProfile *Eap_EapProfile) GetEntityData() *types.CommonEntityData {
     eapProfile.EntityData.BundleName = "cisco_ios_xr"
     eapProfile.EntityData.ParentYangName = "eap"
     eapProfile.EntityData.SegmentPath = "eap-profile" + types.AddKeyToken(eapProfile.ProfileName, "profile-name")
+    eapProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-cfg:eap/" + eapProfile.EntityData.SegmentPath
     eapProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eapProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eapProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -315,6 +325,7 @@ func (eaptls *Eap_EapProfile_Eaptls) GetEntityData() *types.CommonEntityData {
     eaptls.EntityData.BundleName = "cisco_ios_xr"
     eaptls.EntityData.ParentYangName = "eap-profile"
     eaptls.EntityData.SegmentPath = "eaptls"
+    eaptls.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-cfg:eap/eap-profile/" + eaptls.EntityData.SegmentPath
     eaptls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eaptls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eaptls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

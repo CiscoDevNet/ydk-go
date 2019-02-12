@@ -231,6 +231,7 @@ func (dIFFSERVMIB *DIFFSERVMIB) GetEntityData() *types.CommonEntityData {
     dIFFSERVMIB.EntityData.BundleName = "cisco_ios_xe"
     dIFFSERVMIB.EntityData.ParentYangName = "DIFFSERV-MIB"
     dIFFSERVMIB.EntityData.SegmentPath = "DIFFSERV-MIB:DIFFSERV-MIB"
+    dIFFSERVMIB.EntityData.AbsolutePath = dIFFSERVMIB.EntityData.SegmentPath
     dIFFSERVMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dIFFSERVMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dIFFSERVMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -292,6 +293,7 @@ func (diffServClassifier *DIFFSERVMIB_DiffServClassifier) GetEntityData() *types
     diffServClassifier.EntityData.BundleName = "cisco_ios_xe"
     diffServClassifier.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServClassifier.EntityData.SegmentPath = "diffServClassifier"
+    diffServClassifier.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServClassifier.EntityData.SegmentPath
     diffServClassifier.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServClassifier.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServClassifier.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -324,6 +326,7 @@ func (diffServMeter *DIFFSERVMIB_DiffServMeter) GetEntityData() *types.CommonEnt
     diffServMeter.EntityData.BundleName = "cisco_ios_xe"
     diffServMeter.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServMeter.EntityData.SegmentPath = "diffServMeter"
+    diffServMeter.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServMeter.EntityData.SegmentPath
     diffServMeter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServMeter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServMeter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -354,6 +357,7 @@ func (diffServTBParam *DIFFSERVMIB_DiffServTBParam) GetEntityData() *types.Commo
     diffServTBParam.EntityData.BundleName = "cisco_ios_xe"
     diffServTBParam.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServTBParam.EntityData.SegmentPath = "diffServTBParam"
+    diffServTBParam.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServTBParam.EntityData.SegmentPath
     diffServTBParam.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServTBParam.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServTBParam.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -389,6 +393,7 @@ func (diffServAction *DIFFSERVMIB_DiffServAction) GetEntityData() *types.CommonE
     diffServAction.EntityData.BundleName = "cisco_ios_xe"
     diffServAction.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServAction.EntityData.SegmentPath = "diffServAction"
+    diffServAction.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServAction.EntityData.SegmentPath
     diffServAction.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServAction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServAction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -425,6 +430,7 @@ func (diffServAlgDrop *DIFFSERVMIB_DiffServAlgDrop) GetEntityData() *types.Commo
     diffServAlgDrop.EntityData.BundleName = "cisco_ios_xe"
     diffServAlgDrop.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServAlgDrop.EntityData.SegmentPath = "diffServAlgDrop"
+    diffServAlgDrop.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServAlgDrop.EntityData.SegmentPath
     diffServAlgDrop.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServAlgDrop.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServAlgDrop.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -455,6 +461,7 @@ func (diffServQueue *DIFFSERVMIB_DiffServQueue) GetEntityData() *types.CommonEnt
     diffServQueue.EntityData.BundleName = "cisco_ios_xe"
     diffServQueue.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServQueue.EntityData.SegmentPath = "diffServQueue"
+    diffServQueue.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServQueue.EntityData.SegmentPath
     diffServQueue.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServQueue.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServQueue.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -495,6 +502,7 @@ func (diffServScheduler *DIFFSERVMIB_DiffServScheduler) GetEntityData() *types.C
     diffServScheduler.EntityData.BundleName = "cisco_ios_xe"
     diffServScheduler.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServScheduler.EntityData.SegmentPath = "diffServScheduler"
+    diffServScheduler.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServScheduler.EntityData.SegmentPath
     diffServScheduler.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServScheduler.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServScheduler.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -538,6 +546,7 @@ func (diffServDataPathTable *DIFFSERVMIB_DiffServDataPathTable) GetEntityData() 
     diffServDataPathTable.EntityData.BundleName = "cisco_ios_xe"
     diffServDataPathTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServDataPathTable.EntityData.SegmentPath = "diffServDataPathTable"
+    diffServDataPathTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServDataPathTable.EntityData.SegmentPath
     diffServDataPathTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServDataPathTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServDataPathTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -571,6 +580,7 @@ func (diffServDataPathTable *DIFFSERVMIB_DiffServDataPathTable) GetEntityData() 
 type DIFFSERVMIB_DiffServDataPathTable_DiffServDataPathEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -610,6 +620,7 @@ func (diffServDataPathEntry *DIFFSERVMIB_DiffServDataPathTable_DiffServDataPathE
     diffServDataPathEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServDataPathEntry.EntityData.ParentYangName = "diffServDataPathTable"
     diffServDataPathEntry.EntityData.SegmentPath = "diffServDataPathEntry" + types.AddKeyToken(diffServDataPathEntry.IfIndex, "ifIndex") + types.AddKeyToken(diffServDataPathEntry.DiffServDataPathIfDirection, "diffServDataPathIfDirection")
+    diffServDataPathEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServDataPathTable/" + diffServDataPathEntry.EntityData.SegmentPath
     diffServDataPathEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServDataPathEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServDataPathEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -666,6 +677,7 @@ func (diffServClfrTable *DIFFSERVMIB_DiffServClfrTable) GetEntityData() *types.C
     diffServClfrTable.EntityData.BundleName = "cisco_ios_xe"
     diffServClfrTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServClfrTable.EntityData.SegmentPath = "diffServClfrTable"
+    diffServClfrTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServClfrTable.EntityData.SegmentPath
     diffServClfrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServClfrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServClfrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -689,6 +701,7 @@ func (diffServClfrTable *DIFFSERVMIB_DiffServClfrTable) GetEntityData() *types.C
 type DIFFSERVMIB_DiffServClfrTable_DiffServClfrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the classifier entries. 
     // Managers should obtain new values for row creation in this table by reading
@@ -713,6 +726,7 @@ func (diffServClfrEntry *DIFFSERVMIB_DiffServClfrTable_DiffServClfrEntry) GetEnt
     diffServClfrEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServClfrEntry.EntityData.ParentYangName = "diffServClfrTable"
     diffServClfrEntry.EntityData.SegmentPath = "diffServClfrEntry" + types.AddKeyToken(diffServClfrEntry.DiffServClfrId, "diffServClfrId")
+    diffServClfrEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServClfrTable/" + diffServClfrEntry.EntityData.SegmentPath
     diffServClfrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServClfrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServClfrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -765,6 +779,7 @@ func (diffServClfrElementTable *DIFFSERVMIB_DiffServClfrElementTable) GetEntityD
     diffServClfrElementTable.EntityData.BundleName = "cisco_ios_xe"
     diffServClfrElementTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServClfrElementTable.EntityData.SegmentPath = "diffServClfrElementTable"
+    diffServClfrElementTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServClfrElementTable.EntityData.SegmentPath
     diffServClfrElementTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServClfrElementTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServClfrElementTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -787,6 +802,7 @@ func (diffServClfrElementTable *DIFFSERVMIB_DiffServClfrElementTable) GetEntityD
 type DIFFSERVMIB_DiffServClfrElementTable_DiffServClfrElementEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -857,6 +873,7 @@ func (diffServClfrElementEntry *DIFFSERVMIB_DiffServClfrElementTable_DiffServClf
     diffServClfrElementEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServClfrElementEntry.EntityData.ParentYangName = "diffServClfrElementTable"
     diffServClfrElementEntry.EntityData.SegmentPath = "diffServClfrElementEntry" + types.AddKeyToken(diffServClfrElementEntry.DiffServClfrId, "diffServClfrId") + types.AddKeyToken(diffServClfrElementEntry.DiffServClfrElementId, "diffServClfrElementId")
+    diffServClfrElementEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServClfrElementTable/" + diffServClfrElementEntry.EntityData.SegmentPath
     diffServClfrElementEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServClfrElementEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServClfrElementEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -898,6 +915,7 @@ func (diffServMultiFieldClfrTable *DIFFSERVMIB_DiffServMultiFieldClfrTable) GetE
     diffServMultiFieldClfrTable.EntityData.BundleName = "cisco_ios_xe"
     diffServMultiFieldClfrTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServMultiFieldClfrTable.EntityData.SegmentPath = "diffServMultiFieldClfrTable"
+    diffServMultiFieldClfrTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServMultiFieldClfrTable.EntityData.SegmentPath
     diffServMultiFieldClfrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServMultiFieldClfrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServMultiFieldClfrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -919,6 +937,7 @@ func (diffServMultiFieldClfrTable *DIFFSERVMIB_DiffServMultiFieldClfrTable) GetE
 type DIFFSERVMIB_DiffServMultiFieldClfrTable_DiffServMultiFieldClfrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the MultiField Classifier
     // filter entries.  Managers obtain new values for row creation in this table
@@ -1018,6 +1037,7 @@ func (diffServMultiFieldClfrEntry *DIFFSERVMIB_DiffServMultiFieldClfrTable_DiffS
     diffServMultiFieldClfrEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServMultiFieldClfrEntry.EntityData.ParentYangName = "diffServMultiFieldClfrTable"
     diffServMultiFieldClfrEntry.EntityData.SegmentPath = "diffServMultiFieldClfrEntry" + types.AddKeyToken(diffServMultiFieldClfrEntry.DiffServMultiFieldClfrId, "diffServMultiFieldClfrId")
+    diffServMultiFieldClfrEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServMultiFieldClfrTable/" + diffServMultiFieldClfrEntry.EntityData.SegmentPath
     diffServMultiFieldClfrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServMultiFieldClfrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServMultiFieldClfrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1071,6 +1091,7 @@ func (diffServMeterTable *DIFFSERVMIB_DiffServMeterTable) GetEntityData() *types
     diffServMeterTable.EntityData.BundleName = "cisco_ios_xe"
     diffServMeterTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServMeterTable.EntityData.SegmentPath = "diffServMeterTable"
+    diffServMeterTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServMeterTable.EntityData.SegmentPath
     diffServMeterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServMeterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServMeterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1093,6 +1114,7 @@ func (diffServMeterTable *DIFFSERVMIB_DiffServMeterTable) GetEntityData() *types
 type DIFFSERVMIB_DiffServMeterTable_DiffServMeterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the Meter entries. 
     // Managers obtain new values for row creation in this table by reading
@@ -1158,6 +1180,7 @@ func (diffServMeterEntry *DIFFSERVMIB_DiffServMeterTable_DiffServMeterEntry) Get
     diffServMeterEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServMeterEntry.EntityData.ParentYangName = "diffServMeterTable"
     diffServMeterEntry.EntityData.SegmentPath = "diffServMeterEntry" + types.AddKeyToken(diffServMeterEntry.DiffServMeterId, "diffServMeterId")
+    diffServMeterEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServMeterTable/" + diffServMeterEntry.EntityData.SegmentPath
     diffServMeterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServMeterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServMeterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1197,6 +1220,7 @@ func (diffServTBParamTable *DIFFSERVMIB_DiffServTBParamTable) GetEntityData() *t
     diffServTBParamTable.EntityData.BundleName = "cisco_ios_xe"
     diffServTBParamTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServTBParamTable.EntityData.SegmentPath = "diffServTBParamTable"
+    diffServTBParamTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServTBParamTable.EntityData.SegmentPath
     diffServTBParamTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServTBParamTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServTBParamTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1219,6 +1243,7 @@ func (diffServTBParamTable *DIFFSERVMIB_DiffServTBParamTable) GetEntityData() *t
 type DIFFSERVMIB_DiffServTBParamTable_DiffServTBParamEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the Token Bucket
     // Parameter entries. Managers obtain new values for row creation in this
@@ -1275,6 +1300,7 @@ func (diffServTBParamEntry *DIFFSERVMIB_DiffServTBParamTable_DiffServTBParamEntr
     diffServTBParamEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServTBParamEntry.EntityData.ParentYangName = "diffServTBParamTable"
     diffServTBParamEntry.EntityData.SegmentPath = "diffServTBParamEntry" + types.AddKeyToken(diffServTBParamEntry.DiffServTBParamId, "diffServTBParamId")
+    diffServTBParamEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServTBParamTable/" + diffServTBParamEntry.EntityData.SegmentPath
     diffServTBParamEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServTBParamEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServTBParamEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1319,6 +1345,7 @@ func (diffServActionTable *DIFFSERVMIB_DiffServActionTable) GetEntityData() *typ
     diffServActionTable.EntityData.BundleName = "cisco_ios_xe"
     diffServActionTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServActionTable.EntityData.SegmentPath = "diffServActionTable"
+    diffServActionTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServActionTable.EntityData.SegmentPath
     diffServActionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServActionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServActionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1341,6 +1368,7 @@ func (diffServActionTable *DIFFSERVMIB_DiffServActionTable) GetEntityData() *typ
 type DIFFSERVMIB_DiffServActionTable_DiffServActionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the Action entries. 
     // Managers obtain new values for row creation in this table by reading
@@ -1404,6 +1432,7 @@ func (diffServActionEntry *DIFFSERVMIB_DiffServActionTable_DiffServActionEntry) 
     diffServActionEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServActionEntry.EntityData.ParentYangName = "diffServActionTable"
     diffServActionEntry.EntityData.SegmentPath = "diffServActionEntry" + types.AddKeyToken(diffServActionEntry.DiffServActionId, "diffServActionId")
+    diffServActionEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServActionTable/" + diffServActionEntry.EntityData.SegmentPath
     diffServActionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServActionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServActionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1442,6 +1471,7 @@ func (diffServDscpMarkActTable *DIFFSERVMIB_DiffServDscpMarkActTable) GetEntityD
     diffServDscpMarkActTable.EntityData.BundleName = "cisco_ios_xe"
     diffServDscpMarkActTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServDscpMarkActTable.EntityData.SegmentPath = "diffServDscpMarkActTable"
+    diffServDscpMarkActTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServDscpMarkActTable.EntityData.SegmentPath
     diffServDscpMarkActTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServDscpMarkActTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServDscpMarkActTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1464,6 +1494,7 @@ func (diffServDscpMarkActTable *DIFFSERVMIB_DiffServDscpMarkActTable) GetEntityD
 type DIFFSERVMIB_DiffServDscpMarkActTable_DiffServDscpMarkActEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The DSCP that this Action will store into the DSCP
     // field of the subject. It is quite possible that the only packets subject to
@@ -1481,6 +1512,7 @@ func (diffServDscpMarkActEntry *DIFFSERVMIB_DiffServDscpMarkActTable_DiffServDsc
     diffServDscpMarkActEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServDscpMarkActEntry.EntityData.ParentYangName = "diffServDscpMarkActTable"
     diffServDscpMarkActEntry.EntityData.SegmentPath = "diffServDscpMarkActEntry" + types.AddKeyToken(diffServDscpMarkActEntry.DiffServDscpMarkActDscp, "diffServDscpMarkActDscp")
+    diffServDscpMarkActEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServDscpMarkActTable/" + diffServDscpMarkActEntry.EntityData.SegmentPath
     diffServDscpMarkActEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServDscpMarkActEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServDscpMarkActEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1513,6 +1545,7 @@ func (diffServCountActTable *DIFFSERVMIB_DiffServCountActTable) GetEntityData() 
     diffServCountActTable.EntityData.BundleName = "cisco_ios_xe"
     diffServCountActTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServCountActTable.EntityData.SegmentPath = "diffServCountActTable"
+    diffServCountActTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServCountActTable.EntityData.SegmentPath
     diffServCountActTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServCountActTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServCountActTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1535,6 +1568,7 @@ func (diffServCountActTable *DIFFSERVMIB_DiffServCountActTable) GetEntityData() 
 type DIFFSERVMIB_DiffServCountActTable_DiffServCountActEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the Count Action entries.
     // Managers obtain new values for row creation in this table by reading   
@@ -1574,6 +1608,7 @@ func (diffServCountActEntry *DIFFSERVMIB_DiffServCountActTable_DiffServCountActE
     diffServCountActEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServCountActEntry.EntityData.ParentYangName = "diffServCountActTable"
     diffServCountActEntry.EntityData.SegmentPath = "diffServCountActEntry" + types.AddKeyToken(diffServCountActEntry.DiffServCountActId, "diffServCountActId")
+    diffServCountActEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServCountActTable/" + diffServCountActEntry.EntityData.SegmentPath
     diffServCountActEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServCountActEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServCountActEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1612,6 +1647,7 @@ func (diffServAlgDropTable *DIFFSERVMIB_DiffServAlgDropTable) GetEntityData() *t
     diffServAlgDropTable.EntityData.BundleName = "cisco_ios_xe"
     diffServAlgDropTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServAlgDropTable.EntityData.SegmentPath = "diffServAlgDropTable"
+    diffServAlgDropTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServAlgDropTable.EntityData.SegmentPath
     diffServAlgDropTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServAlgDropTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServAlgDropTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1636,6 +1672,7 @@ func (diffServAlgDropTable *DIFFSERVMIB_DiffServAlgDropTable) GetEntityData() *t
 type DIFFSERVMIB_DiffServAlgDropTable_DiffServAlgDropEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the Algorithmic Dropper
     // entries. Managers obtain new values for row creation in this table by
@@ -1764,6 +1801,7 @@ func (diffServAlgDropEntry *DIFFSERVMIB_DiffServAlgDropTable_DiffServAlgDropEntr
     diffServAlgDropEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServAlgDropEntry.EntityData.ParentYangName = "diffServAlgDropTable"
     diffServAlgDropEntry.EntityData.SegmentPath = "diffServAlgDropEntry" + types.AddKeyToken(diffServAlgDropEntry.DiffServAlgDropId, "diffServAlgDropId")
+    diffServAlgDropEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServAlgDropTable/" + diffServAlgDropEntry.EntityData.SegmentPath
     diffServAlgDropEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServAlgDropEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServAlgDropEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1823,6 +1861,7 @@ func (diffServRandomDropTable *DIFFSERVMIB_DiffServRandomDropTable) GetEntityDat
     diffServRandomDropTable.EntityData.BundleName = "cisco_ios_xe"
     diffServRandomDropTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServRandomDropTable.EntityData.SegmentPath = "diffServRandomDropTable"
+    diffServRandomDropTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServRandomDropTable.EntityData.SegmentPath
     diffServRandomDropTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServRandomDropTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServRandomDropTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1845,6 +1884,7 @@ func (diffServRandomDropTable *DIFFSERVMIB_DiffServRandomDropTable) GetEntityDat
 type DIFFSERVMIB_DiffServRandomDropTable_DiffServRandomDropEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the Random Drop entries. 
     // Managers obtain new values for row creation in this table by reading
@@ -1922,6 +1962,7 @@ func (diffServRandomDropEntry *DIFFSERVMIB_DiffServRandomDropTable_DiffServRando
     diffServRandomDropEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServRandomDropEntry.EntityData.ParentYangName = "diffServRandomDropTable"
     diffServRandomDropEntry.EntityData.SegmentPath = "diffServRandomDropEntry" + types.AddKeyToken(diffServRandomDropEntry.DiffServRandomDropId, "diffServRandomDropId")
+    diffServRandomDropEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServRandomDropTable/" + diffServRandomDropEntry.EntityData.SegmentPath
     diffServRandomDropEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServRandomDropEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServRandomDropEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1965,6 +2006,7 @@ func (diffServQTable *DIFFSERVMIB_DiffServQTable) GetEntityData() *types.CommonE
     diffServQTable.EntityData.BundleName = "cisco_ios_xe"
     diffServQTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServQTable.EntityData.SegmentPath = "diffServQTable"
+    diffServQTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServQTable.EntityData.SegmentPath
     diffServQTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServQTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServQTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1987,6 +2029,7 @@ func (diffServQTable *DIFFSERVMIB_DiffServQTable) GetEntityData() *types.CommonE
 type DIFFSERVMIB_DiffServQTable_DiffServQEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the Queue entries. 
     // Managers obtain new values for row creation in this table by reading
@@ -2042,6 +2085,7 @@ func (diffServQEntry *DIFFSERVMIB_DiffServQTable_DiffServQEntry) GetEntityData()
     diffServQEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServQEntry.EntityData.ParentYangName = "diffServQTable"
     diffServQEntry.EntityData.SegmentPath = "diffServQEntry" + types.AddKeyToken(diffServQEntry.DiffServQId, "diffServQId")
+    diffServQEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServQTable/" + diffServQEntry.EntityData.SegmentPath
     diffServQEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServQEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServQEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2080,6 +2124,7 @@ func (diffServSchedulerTable *DIFFSERVMIB_DiffServSchedulerTable) GetEntityData(
     diffServSchedulerTable.EntityData.BundleName = "cisco_ios_xe"
     diffServSchedulerTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServSchedulerTable.EntityData.SegmentPath = "diffServSchedulerTable"
+    diffServSchedulerTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServSchedulerTable.EntityData.SegmentPath
     diffServSchedulerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServSchedulerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServSchedulerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2102,6 +2147,7 @@ func (diffServSchedulerTable *DIFFSERVMIB_DiffServSchedulerTable) GetEntityData(
 type DIFFSERVMIB_DiffServSchedulerTable_DiffServSchedulerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the Scheduler entries. 
     // Managers obtain new values for row creation in this table by reading
@@ -2178,6 +2224,7 @@ func (diffServSchedulerEntry *DIFFSERVMIB_DiffServSchedulerTable_DiffServSchedul
     diffServSchedulerEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServSchedulerEntry.EntityData.ParentYangName = "diffServSchedulerTable"
     diffServSchedulerEntry.EntityData.SegmentPath = "diffServSchedulerEntry" + types.AddKeyToken(diffServSchedulerEntry.DiffServSchedulerId, "diffServSchedulerId")
+    diffServSchedulerEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServSchedulerTable/" + diffServSchedulerEntry.EntityData.SegmentPath
     diffServSchedulerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServSchedulerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServSchedulerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2217,6 +2264,7 @@ func (diffServMinRateTable *DIFFSERVMIB_DiffServMinRateTable) GetEntityData() *t
     diffServMinRateTable.EntityData.BundleName = "cisco_ios_xe"
     diffServMinRateTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServMinRateTable.EntityData.SegmentPath = "diffServMinRateTable"
+    diffServMinRateTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServMinRateTable.EntityData.SegmentPath
     diffServMinRateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServMinRateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServMinRateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2240,6 +2288,7 @@ func (diffServMinRateTable *DIFFSERVMIB_DiffServMinRateTable) GetEntityData() *t
 type DIFFSERVMIB_DiffServMinRateTable_DiffServMinRateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the Scheduler Parameter
     // entries. Managers obtain new values for row creation in this table by
@@ -2298,6 +2347,7 @@ func (diffServMinRateEntry *DIFFSERVMIB_DiffServMinRateTable_DiffServMinRateEntr
     diffServMinRateEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServMinRateEntry.EntityData.ParentYangName = "diffServMinRateTable"
     diffServMinRateEntry.EntityData.SegmentPath = "diffServMinRateEntry" + types.AddKeyToken(diffServMinRateEntry.DiffServMinRateId, "diffServMinRateId")
+    diffServMinRateEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServMinRateTable/" + diffServMinRateEntry.EntityData.SegmentPath
     diffServMinRateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServMinRateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServMinRateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2336,6 +2386,7 @@ func (diffServMaxRateTable *DIFFSERVMIB_DiffServMaxRateTable) GetEntityData() *t
     diffServMaxRateTable.EntityData.BundleName = "cisco_ios_xe"
     diffServMaxRateTable.EntityData.ParentYangName = "DIFFSERV-MIB"
     diffServMaxRateTable.EntityData.SegmentPath = "diffServMaxRateTable"
+    diffServMaxRateTable.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/" + diffServMaxRateTable.EntityData.SegmentPath
     diffServMaxRateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServMaxRateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServMaxRateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2359,6 +2410,7 @@ func (diffServMaxRateTable *DIFFSERVMIB_DiffServMaxRateTable) GetEntityData() *t
 type DIFFSERVMIB_DiffServMaxRateTable_DiffServMaxRateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that enumerates the Maximum Rate
     // Parameter entries. Managers obtain new values for row creation in this
@@ -2430,6 +2482,7 @@ func (diffServMaxRateEntry *DIFFSERVMIB_DiffServMaxRateTable_DiffServMaxRateEntr
     diffServMaxRateEntry.EntityData.BundleName = "cisco_ios_xe"
     diffServMaxRateEntry.EntityData.ParentYangName = "diffServMaxRateTable"
     diffServMaxRateEntry.EntityData.SegmentPath = "diffServMaxRateEntry" + types.AddKeyToken(diffServMaxRateEntry.DiffServMaxRateId, "diffServMaxRateId") + types.AddKeyToken(diffServMaxRateEntry.DiffServMaxRateLevel, "diffServMaxRateLevel")
+    diffServMaxRateEntry.EntityData.AbsolutePath = "DIFFSERV-MIB:DIFFSERV-MIB/diffServMaxRateTable/" + diffServMaxRateEntry.EntityData.SegmentPath
     diffServMaxRateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffServMaxRateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffServMaxRateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -94,6 +94,7 @@ func (lacp *Lacp) GetEntityData() *types.CommonEntityData {
     lacp.EntityData.BundleName = "openconfig"
     lacp.EntityData.ParentYangName = "openconfig-lacp"
     lacp.EntityData.SegmentPath = "openconfig-lacp:lacp"
+    lacp.EntityData.AbsolutePath = lacp.EntityData.SegmentPath
     lacp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lacp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lacp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -127,6 +128,7 @@ func (config *Lacp_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "lacp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-lacp:lacp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -158,6 +160,7 @@ func (state *Lacp_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "lacp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-lacp:lacp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -189,6 +192,7 @@ func (interfaces *Lacp_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "openconfig"
     interfaces.EntityData.ParentYangName = "lacp"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "openconfig-lacp:lacp/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -210,6 +214,7 @@ func (interfaces *Lacp_Interfaces) GetEntityData() *types.CommonEntityData {
 type Lacp_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the list key. The type is string.
     // Refers to lacp.Lacp_Interfaces_Interface_Config_Name
@@ -233,6 +238,7 @@ func (self *Lacp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "openconfig-lacp:lacp/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -286,6 +292,7 @@ func (config *Lacp_Interfaces_Interface_Config) GetEntityData() *types.CommonEnt
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-lacp:lacp/interfaces/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -341,6 +348,7 @@ func (state *Lacp_Interfaces_Interface_State) GetEntityData() *types.CommonEntit
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-lacp:lacp/interfaces/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -379,6 +387,7 @@ func (members *Lacp_Interfaces_Interface_Members) GetEntityData() *types.CommonE
     members.EntityData.BundleName = "openconfig"
     members.EntityData.ParentYangName = "interface"
     members.EntityData.SegmentPath = "members"
+    members.EntityData.AbsolutePath = "openconfig-lacp:lacp/interfaces/interface/" + members.EntityData.SegmentPath
     members.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     members.EntityData.NamespaceTable = openconfig.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -403,6 +412,7 @@ func (members *Lacp_Interfaces_Interface_Members) GetEntityData() *types.CommonE
 type Lacp_Interfaces_Interface_Members_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to aggregate member interface. The type
     // is string. Refers to
@@ -419,6 +429,7 @@ func (member *Lacp_Interfaces_Interface_Members_Member) GetEntityData() *types.C
     member.EntityData.BundleName = "openconfig"
     member.EntityData.ParentYangName = "members"
     member.EntityData.SegmentPath = "member" + types.AddKeyToken(member.Interface, "interface")
+    member.EntityData.AbsolutePath = "openconfig-lacp:lacp/interfaces/interface/members/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     member.EntityData.NamespaceTable = openconfig.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -493,6 +504,7 @@ func (state *Lacp_Interfaces_Interface_Members_Member_State) GetEntityData() *ty
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "member"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-lacp:lacp/interfaces/interface/members/member/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -554,6 +566,7 @@ func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetEnti
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-lacp:lacp/interfaces/interface/members/member/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

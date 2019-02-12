@@ -65,6 +65,7 @@ func (netconf *Netconf) GetEntityData() *types.CommonEntityData {
     netconf.EntityData.BundleName = "cisco_ios_xr"
     netconf.EntityData.ParentYangName = "Cisco-IOS-XR-man-xml-ttyagent-oper"
     netconf.EntityData.SegmentPath = "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf"
+    netconf.EntityData.AbsolutePath = netconf.EntityData.SegmentPath
     netconf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netconf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -94,6 +95,7 @@ func (agent *Netconf_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.BundleName = "cisco_ios_xr"
     agent.EntityData.ParentYangName = "netconf"
     agent.EntityData.SegmentPath = "agent"
+    agent.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/" + agent.EntityData.SegmentPath
     agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -123,6 +125,7 @@ func (tty *Netconf_Agent_Tty) GetEntityData() *types.CommonEntityData {
     tty.EntityData.BundleName = "cisco_ios_xr"
     tty.EntityData.ParentYangName = "agent"
     tty.EntityData.SegmentPath = "tty"
+    tty.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/" + tty.EntityData.SegmentPath
     tty.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -153,6 +156,7 @@ func (sessions *Netconf_Agent_Tty_Sessions) GetEntityData() *types.CommonEntityD
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "tty"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/tty/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -174,6 +178,7 @@ func (sessions *Netconf_Agent_Tty_Sessions) GetEntityData() *types.CommonEntityD
 type Netconf_Agent_Tty_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session ID. The type is interface{} with range:
     // 0..4294967295.
@@ -223,6 +228,7 @@ func (session *Netconf_Agent_Tty_Sessions_Session) GetEntityData() *types.Common
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/tty/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -263,6 +269,7 @@ func (xrXml *XrXml) GetEntityData() *types.CommonEntityData {
     xrXml.EntityData.BundleName = "cisco_ios_xr"
     xrXml.EntityData.ParentYangName = "Cisco-IOS-XR-man-xml-ttyagent-oper"
     xrXml.EntityData.SegmentPath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml"
+    xrXml.EntityData.AbsolutePath = xrXml.EntityData.SegmentPath
     xrXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -298,6 +305,7 @@ func (agent *XrXml_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.BundleName = "cisco_ios_xr"
     agent.EntityData.ParentYangName = "xr-xml"
     agent.EntityData.SegmentPath = "agent"
+    agent.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/" + agent.EntityData.SegmentPath
     agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -329,6 +337,7 @@ func (tty *XrXml_Agent_Tty) GetEntityData() *types.CommonEntityData {
     tty.EntityData.BundleName = "cisco_ios_xr"
     tty.EntityData.ParentYangName = "agent"
     tty.EntityData.SegmentPath = "tty"
+    tty.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/" + tty.EntityData.SegmentPath
     tty.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -359,6 +368,7 @@ func (sessions *XrXml_Agent_Tty_Sessions) GetEntityData() *types.CommonEntityDat
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "tty"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/tty/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -380,6 +390,7 @@ func (sessions *XrXml_Agent_Tty_Sessions) GetEntityData() *types.CommonEntityDat
 type XrXml_Agent_Tty_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session Id. The type is interface{} with range:
     // 0..4294967295.
@@ -429,6 +440,7 @@ func (session *XrXml_Agent_Tty_Sessions_Session) GetEntityData() *types.CommonEn
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/tty/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -469,6 +481,7 @@ func (self *XrXml_Agent_Default) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "agent"
     self.EntityData.SegmentPath = "default"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -499,6 +512,7 @@ func (sessions *XrXml_Agent_Default_Sessions) GetEntityData() *types.CommonEntit
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "default"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/default/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -520,6 +534,7 @@ func (sessions *XrXml_Agent_Default_Sessions) GetEntityData() *types.CommonEntit
 type XrXml_Agent_Default_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session Id. The type is interface{} with range:
     // 0..4294967295.
@@ -569,6 +584,7 @@ func (session *XrXml_Agent_Default_Sessions_Session) GetEntityData() *types.Comm
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/default/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -609,6 +625,7 @@ func (ssl *XrXml_Agent_Ssl) GetEntityData() *types.CommonEntityData {
     ssl.EntityData.BundleName = "cisco_ios_xr"
     ssl.EntityData.ParentYangName = "agent"
     ssl.EntityData.SegmentPath = "ssl"
+    ssl.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/" + ssl.EntityData.SegmentPath
     ssl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -639,6 +656,7 @@ func (sessions *XrXml_Agent_Ssl_Sessions) GetEntityData() *types.CommonEntityDat
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "ssl"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/ssl/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -660,6 +678,7 @@ func (sessions *XrXml_Agent_Ssl_Sessions) GetEntityData() *types.CommonEntityDat
 type XrXml_Agent_Ssl_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session Id. The type is interface{} with range:
     // 0..4294967295.
@@ -709,6 +728,7 @@ func (session *XrXml_Agent_Ssl_Sessions_Session) GetEntityData() *types.CommonEn
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/ssl/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

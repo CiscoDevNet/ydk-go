@@ -85,6 +85,7 @@ func (ipv4Network *Ipv4Network) GetEntityData() *types.CommonEntityData {
     ipv4Network.EntityData.BundleName = "cisco_ios_xr"
     ipv4Network.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-io-oper"
     ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network"
+    ipv4Network.EntityData.AbsolutePath = ipv4Network.EntityData.SegmentPath
     ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -116,6 +117,7 @@ func (nodes *Ipv4Network_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "ipv4-network"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -138,6 +140,7 @@ func (nodes *Ipv4Network_Nodes) GetEntityData() *types.CommonEntityData {
 type Ipv4Network_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -156,6 +159,7 @@ func (node *Ipv4Network_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -190,6 +194,7 @@ func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetEntityData() *type
     interfaceData.EntityData.BundleName = "cisco_ios_xr"
     interfaceData.EntityData.ParentYangName = "node"
     interfaceData.EntityData.SegmentPath = "interface-data"
+    interfaceData.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/" + interfaceData.EntityData.SegmentPath
     interfaceData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -222,6 +227,7 @@ func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetEntityData() *types.Co
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "interface-data"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -243,6 +249,7 @@ func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetEntityData() *types.Co
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -261,6 +268,7 @@ func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetEntityData() *types
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -294,6 +302,7 @@ func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetEntityDat
     briefs.EntityData.BundleName = "cisco_ios_xr"
     briefs.EntityData.ParentYangName = "vrf"
     briefs.EntityData.SegmentPath = "briefs"
+    briefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/" + briefs.EntityData.SegmentPath
     briefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     briefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -316,6 +325,7 @@ func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetEntityDat
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -341,6 +351,7 @@ func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetEnti
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "briefs"
     brief.EntityData.SegmentPath = "brief" + types.AddKeyToken(brief.InterfaceName, "interface-name")
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/briefs/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -376,6 +387,7 @@ func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetEntityD
     details.EntityData.BundleName = "cisco_ios_xr"
     details.EntityData.ParentYangName = "vrf"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -398,6 +410,7 @@ func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetEntityD
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -534,6 +547,7 @@ func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetE
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "details"
     detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.InterfaceName, "interface-name")
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -551,10 +565,12 @@ func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetE
     detail.EntityData.Children.Append("fwd-dis-utime", types.YChild{"FwdDisUtime", &detail.FwdDisUtime})
     detail.EntityData.Children.Append("multicast-group", types.YChild{"MulticastGroup", nil})
     for i := range detail.MulticastGroup {
+        types.SetYListKey(detail.MulticastGroup[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.MulticastGroup[i]), types.YChild{"MulticastGroup", detail.MulticastGroup[i]})
     }
     detail.EntityData.Children.Append("secondary-address", types.YChild{"SecondaryAddress", nil})
     for i := range detail.SecondaryAddress {
+        types.SetYListKey(detail.SecondaryAddress[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.SecondaryAddress[i]), types.YChild{"SecondaryAddress", detail.SecondaryAddress[i]})
     }
     detail.EntityData.Leafs = types.NewOrderedMap()
@@ -616,6 +632,7 @@ func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) Get
     acl.EntityData.BundleName = "cisco_ios_xr"
     acl.EntityData.ParentYangName = "detail"
     acl.EntityData.SegmentPath = "acl"
+    acl.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + acl.EntityData.SegmentPath
     acl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -657,6 +674,7 @@ func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Mul
     multiAcl.EntityData.BundleName = "cisco_ios_xr"
     multiAcl.EntityData.ParentYangName = "detail"
     multiAcl.EntityData.SegmentPath = "multi-acl"
+    multiAcl.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + multiAcl.EntityData.SegmentPath
     multiAcl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multiAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multiAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -664,14 +682,17 @@ func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Mul
     multiAcl.EntityData.Children = types.NewOrderedMap()
     multiAcl.EntityData.Children.Append("inbound", types.YChild{"Inbound", nil})
     for i := range multiAcl.Inbound {
+        types.SetYListKey(multiAcl.Inbound[i], i)
         multiAcl.EntityData.Children.Append(types.GetSegmentPath(multiAcl.Inbound[i]), types.YChild{"Inbound", multiAcl.Inbound[i]})
     }
     multiAcl.EntityData.Children.Append("outbound", types.YChild{"Outbound", nil})
     for i := range multiAcl.Outbound {
+        types.SetYListKey(multiAcl.Outbound[i], i)
         multiAcl.EntityData.Children.Append(types.GetSegmentPath(multiAcl.Outbound[i]), types.YChild{"Outbound", multiAcl.Outbound[i]})
     }
     multiAcl.EntityData.Children.Append("common", types.YChild{"Common", nil})
     for i := range multiAcl.Common {
+        types.SetYListKey(multiAcl.Common[i], i)
         multiAcl.EntityData.Children.Append(types.GetSegmentPath(multiAcl.Common[i]), types.YChild{"Common", multiAcl.Common[i]})
     }
     multiAcl.EntityData.Leafs = types.NewOrderedMap()
@@ -686,6 +707,7 @@ func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Mul
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string.
     Entry interface{}
@@ -696,7 +718,8 @@ func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Mult
     inbound.EntityData.YangName = "inbound"
     inbound.EntityData.BundleName = "cisco_ios_xr"
     inbound.EntityData.ParentYangName = "multi-acl"
-    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.SegmentPath = "inbound" + types.AddNoKeyToken(inbound)
+    inbound.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/multi-acl/" + inbound.EntityData.SegmentPath
     inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -715,6 +738,7 @@ func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Mult
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string.
     Entry interface{}
@@ -725,7 +749,8 @@ func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Mul
     outbound.EntityData.YangName = "outbound"
     outbound.EntityData.BundleName = "cisco_ios_xr"
     outbound.EntityData.ParentYangName = "multi-acl"
-    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.SegmentPath = "outbound" + types.AddNoKeyToken(outbound)
+    outbound.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/multi-acl/" + outbound.EntityData.SegmentPath
     outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -744,6 +769,7 @@ func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Mul
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string.
     Entry interface{}
@@ -754,7 +780,8 @@ func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Multi
     common.EntityData.YangName = "common"
     common.EntityData.BundleName = "cisco_ios_xr"
     common.EntityData.ParentYangName = "multi-acl"
-    common.EntityData.SegmentPath = "common"
+    common.EntityData.SegmentPath = "common" + types.AddNoKeyToken(common)
+    common.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/multi-acl/" + common.EntityData.SegmentPath
     common.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     common.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     common.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -785,6 +812,7 @@ func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detai
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "detail"
     helperAddress.EntityData.SegmentPath = "helper-address"
+    helperAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + helperAddress.EntityData.SegmentPath
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -792,6 +820,7 @@ func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detai
     helperAddress.EntityData.Children = types.NewOrderedMap()
     helperAddress.EntityData.Children.Append("address-array", types.YChild{"AddressArray", nil})
     for i := range helperAddress.AddressArray {
+        types.SetYListKey(helperAddress.AddressArray[i], i)
         helperAddress.EntityData.Children.Append(types.GetSegmentPath(helperAddress.AddressArray[i]), types.YChild{"AddressArray", helperAddress.AddressArray[i]})
     }
     helperAddress.EntityData.Leafs = types.NewOrderedMap()
@@ -806,6 +835,7 @@ func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detai
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -817,7 +847,8 @@ func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail
     addressArray.EntityData.YangName = "address-array"
     addressArray.EntityData.BundleName = "cisco_ios_xr"
     addressArray.EntityData.ParentYangName = "helper-address"
-    addressArray.EntityData.SegmentPath = "address-array"
+    addressArray.EntityData.SegmentPath = "address-array" + types.AddNoKeyToken(addressArray)
+    addressArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/helper-address/" + addressArray.EntityData.SegmentPath
     addressArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -856,6 +887,7 @@ func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) Get
     rpf.EntityData.BundleName = "cisco_ios_xr"
     rpf.EntityData.ParentYangName = "detail"
     rpf.EntityData.SegmentPath = "rpf"
+    rpf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + rpf.EntityData.SegmentPath
     rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -891,6 +923,7 @@ func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa)
     bgpPa.EntityData.BundleName = "cisco_ios_xr"
     bgpPa.EntityData.ParentYangName = "detail"
     bgpPa.EntityData.SegmentPath = "bgp-pa"
+    bgpPa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + bgpPa.EntityData.SegmentPath
     bgpPa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpPa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpPa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -927,6 +960,7 @@ func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "bgp-pa"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/bgp-pa/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -964,6 +998,7 @@ func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "bgp-pa"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/bgp-pa/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -992,6 +1027,7 @@ func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Pub
     pubUtime.EntityData.BundleName = "cisco_ios_xr"
     pubUtime.EntityData.ParentYangName = "detail"
     pubUtime.EntityData.SegmentPath = "pub-utime"
+    pubUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + pubUtime.EntityData.SegmentPath
     pubUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pubUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pubUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1017,6 +1053,7 @@ func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Idb
     idbUtime.EntityData.BundleName = "cisco_ios_xr"
     idbUtime.EntityData.ParentYangName = "detail"
     idbUtime.EntityData.SegmentPath = "idb-utime"
+    idbUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + idbUtime.EntityData.SegmentPath
     idbUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idbUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idbUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1042,6 +1079,7 @@ func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Ca
     capsUtime.EntityData.BundleName = "cisco_ios_xr"
     capsUtime.EntityData.ParentYangName = "detail"
     capsUtime.EntityData.SegmentPath = "caps-utime"
+    capsUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + capsUtime.EntityData.SegmentPath
     capsUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     capsUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capsUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1067,6 +1105,7 @@ func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_F
     fwdEnUtime.EntityData.BundleName = "cisco_ios_xr"
     fwdEnUtime.EntityData.ParentYangName = "detail"
     fwdEnUtime.EntityData.SegmentPath = "fwd-en-utime"
+    fwdEnUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + fwdEnUtime.EntityData.SegmentPath
     fwdEnUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fwdEnUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwdEnUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1092,6 +1131,7 @@ func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_
     fwdDisUtime.EntityData.BundleName = "cisco_ios_xr"
     fwdDisUtime.EntityData.ParentYangName = "detail"
     fwdDisUtime.EntityData.SegmentPath = "fwd-dis-utime"
+    fwdDisUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + fwdDisUtime.EntityData.SegmentPath
     fwdDisUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fwdDisUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwdDisUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1109,6 +1149,7 @@ func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Address of multicast group. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1120,7 +1161,8 @@ func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Deta
     multicastGroup.EntityData.YangName = "multicast-group"
     multicastGroup.EntityData.BundleName = "cisco_ios_xr"
     multicastGroup.EntityData.ParentYangName = "detail"
-    multicastGroup.EntityData.SegmentPath = "multicast-group"
+    multicastGroup.EntityData.SegmentPath = "multicast-group" + types.AddNoKeyToken(multicastGroup)
+    multicastGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + multicastGroup.EntityData.SegmentPath
     multicastGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1139,6 +1181,7 @@ func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Deta
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1158,7 +1201,8 @@ func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_De
     secondaryAddress.EntityData.YangName = "secondary-address"
     secondaryAddress.EntityData.BundleName = "cisco_ios_xr"
     secondaryAddress.EntityData.ParentYangName = "detail"
-    secondaryAddress.EntityData.SegmentPath = "secondary-address"
+    secondaryAddress.EntityData.SegmentPath = "secondary-address" + types.AddNoKeyToken(secondaryAddress)
+    secondaryAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + secondaryAddress.EntityData.SegmentPath
     secondaryAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1204,6 +1248,7 @@ func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetEntityData() *ty
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "interface-data"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1246,6 +1291,7 @@ func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetEntityData
     ifUpUp.EntityData.BundleName = "cisco_ios_xr"
     ifUpUp.EntityData.ParentYangName = "summary"
     ifUpUp.EntityData.SegmentPath = "if-up-up"
+    ifUpUp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/summary/" + ifUpUp.EntityData.SegmentPath
     ifUpUp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ifUpUp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifUpUp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1286,6 +1332,7 @@ func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetEntity
     ifUpDown.EntityData.BundleName = "cisco_ios_xr"
     ifUpDown.EntityData.ParentYangName = "summary"
     ifUpDown.EntityData.SegmentPath = "if-up-down"
+    ifUpDown.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/summary/" + ifUpDown.EntityData.SegmentPath
     ifUpDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ifUpDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifUpDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1326,6 +1373,7 @@ func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetEn
     ifDownDown.EntityData.BundleName = "cisco_ios_xr"
     ifDownDown.EntityData.ParentYangName = "summary"
     ifDownDown.EntityData.SegmentPath = "if-down-down"
+    ifDownDown.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/summary/" + ifDownDown.EntityData.SegmentPath
     ifDownDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ifDownDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifDownDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1366,6 +1414,7 @@ func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDow
     ifShutdownDown.EntityData.BundleName = "cisco_ios_xr"
     ifShutdownDown.EntityData.ParentYangName = "summary"
     ifShutdownDown.EntityData.SegmentPath = "if-shutdown-down"
+    ifShutdownDown.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/summary/" + ifShutdownDown.EntityData.SegmentPath
     ifShutdownDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ifShutdownDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifShutdownDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1398,6 +1447,7 @@ func (statistics *Ipv4Network_Nodes_Node_Statistics) GetEntityData() *types.Comm
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "node"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1430,6 +1480,7 @@ func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetEntityData() *types
     traffic.EntityData.BundleName = "cisco_ios_xr"
     traffic.EntityData.ParentYangName = "statistics"
     traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/statistics/" + traffic.EntityData.SegmentPath
     traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1599,6 +1650,7 @@ func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetEntityD
     ipv4Stats.EntityData.BundleName = "cisco_ios_xr"
     ipv4Stats.EntityData.ParentYangName = "traffic"
     ipv4Stats.EntityData.SegmentPath = "ipv4-stats"
+    ipv4Stats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/statistics/traffic/" + ipv4Stats.EntityData.SegmentPath
     ipv4Stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1799,6 +1851,7 @@ func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetEntityD
     icmpStats.EntityData.BundleName = "cisco_ios_xr"
     icmpStats.EntityData.ParentYangName = "traffic"
     icmpStats.EntityData.SegmentPath = "icmp-stats"
+    icmpStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/statistics/traffic/" + icmpStats.EntityData.SegmentPath
     icmpStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1865,6 +1918,7 @@ func (interfaces *Ipv4Network_Interfaces) GetEntityData() *types.CommonEntityDat
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ipv4-network"
     interfaces.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-oper:interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1886,6 +1940,7 @@ func (interfaces *Ipv4Network_Interfaces) GetEntityData() *types.CommonEntityDat
 type Ipv4Network_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1901,6 +1956,7 @@ func (self *Ipv4Network_Interfaces_Interface) GetEntityData() *types.CommonEntit
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1932,6 +1988,7 @@ func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetEntityData() *types.Common
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "interface"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1953,6 +2010,7 @@ func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetEntityData() *types.Common
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1971,6 +2029,7 @@ func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetEntityData() *types.Com
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2124,6 +2183,7 @@ func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetEntityData() 
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "vrf"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2141,10 +2201,12 @@ func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetEntityData() 
     detail.EntityData.Children.Append("fwd-dis-utime", types.YChild{"FwdDisUtime", &detail.FwdDisUtime})
     detail.EntityData.Children.Append("multicast-group", types.YChild{"MulticastGroup", nil})
     for i := range detail.MulticastGroup {
+        types.SetYListKey(detail.MulticastGroup[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.MulticastGroup[i]), types.YChild{"MulticastGroup", detail.MulticastGroup[i]})
     }
     detail.EntityData.Children.Append("secondary-address", types.YChild{"SecondaryAddress", nil})
     for i := range detail.SecondaryAddress {
+        types.SetYListKey(detail.SecondaryAddress[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.SecondaryAddress[i]), types.YChild{"SecondaryAddress", detail.SecondaryAddress[i]})
     }
     detail.EntityData.Leafs = types.NewOrderedMap()
@@ -2205,6 +2267,7 @@ func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetEntityData()
     acl.EntityData.BundleName = "cisco_ios_xr"
     acl.EntityData.ParentYangName = "detail"
     acl.EntityData.SegmentPath = "acl"
+    acl.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + acl.EntityData.SegmentPath
     acl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2246,6 +2309,7 @@ func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetEn
     multiAcl.EntityData.BundleName = "cisco_ios_xr"
     multiAcl.EntityData.ParentYangName = "detail"
     multiAcl.EntityData.SegmentPath = "multi-acl"
+    multiAcl.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + multiAcl.EntityData.SegmentPath
     multiAcl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multiAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multiAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2253,14 +2317,17 @@ func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetEn
     multiAcl.EntityData.Children = types.NewOrderedMap()
     multiAcl.EntityData.Children.Append("inbound", types.YChild{"Inbound", nil})
     for i := range multiAcl.Inbound {
+        types.SetYListKey(multiAcl.Inbound[i], i)
         multiAcl.EntityData.Children.Append(types.GetSegmentPath(multiAcl.Inbound[i]), types.YChild{"Inbound", multiAcl.Inbound[i]})
     }
     multiAcl.EntityData.Children.Append("outbound", types.YChild{"Outbound", nil})
     for i := range multiAcl.Outbound {
+        types.SetYListKey(multiAcl.Outbound[i], i)
         multiAcl.EntityData.Children.Append(types.GetSegmentPath(multiAcl.Outbound[i]), types.YChild{"Outbound", multiAcl.Outbound[i]})
     }
     multiAcl.EntityData.Children.Append("common", types.YChild{"Common", nil})
     for i := range multiAcl.Common {
+        types.SetYListKey(multiAcl.Common[i], i)
         multiAcl.EntityData.Children.Append(types.GetSegmentPath(multiAcl.Common[i]), types.YChild{"Common", multiAcl.Common[i]})
     }
     multiAcl.EntityData.Leafs = types.NewOrderedMap()
@@ -2275,6 +2342,7 @@ func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetEn
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Inbound struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string.
     Entry interface{}
@@ -2285,7 +2353,8 @@ func (inbound *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Inbound
     inbound.EntityData.YangName = "inbound"
     inbound.EntityData.BundleName = "cisco_ios_xr"
     inbound.EntityData.ParentYangName = "multi-acl"
-    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.SegmentPath = "inbound" + types.AddNoKeyToken(inbound)
+    inbound.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/multi-acl/" + inbound.EntityData.SegmentPath
     inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2304,6 +2373,7 @@ func (inbound *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Inbound
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Outbound struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string.
     Entry interface{}
@@ -2314,7 +2384,8 @@ func (outbound *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Outbou
     outbound.EntityData.YangName = "outbound"
     outbound.EntityData.BundleName = "cisco_ios_xr"
     outbound.EntityData.ParentYangName = "multi-acl"
-    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.SegmentPath = "outbound" + types.AddNoKeyToken(outbound)
+    outbound.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/multi-acl/" + outbound.EntityData.SegmentPath
     outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2333,6 +2404,7 @@ func (outbound *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Outbou
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Common struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string.
     Entry interface{}
@@ -2343,7 +2415,8 @@ func (common *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Common) 
     common.EntityData.YangName = "common"
     common.EntityData.BundleName = "cisco_ios_xr"
     common.EntityData.ParentYangName = "multi-acl"
-    common.EntityData.SegmentPath = "common"
+    common.EntityData.SegmentPath = "common" + types.AddNoKeyToken(common)
+    common.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/multi-acl/" + common.EntityData.SegmentPath
     common.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     common.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     common.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2374,6 +2447,7 @@ func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddr
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "detail"
     helperAddress.EntityData.SegmentPath = "helper-address"
+    helperAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + helperAddress.EntityData.SegmentPath
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2381,6 +2455,7 @@ func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddr
     helperAddress.EntityData.Children = types.NewOrderedMap()
     helperAddress.EntityData.Children.Append("address-array", types.YChild{"AddressArray", nil})
     for i := range helperAddress.AddressArray {
+        types.SetYListKey(helperAddress.AddressArray[i], i)
         helperAddress.EntityData.Children.Append(types.GetSegmentPath(helperAddress.AddressArray[i]), types.YChild{"AddressArray", helperAddress.AddressArray[i]})
     }
     helperAddress.EntityData.Leafs = types.NewOrderedMap()
@@ -2395,6 +2470,7 @@ func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddr
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress_AddressArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2406,7 +2482,8 @@ func (addressArray *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddre
     addressArray.EntityData.YangName = "address-array"
     addressArray.EntityData.BundleName = "cisco_ios_xr"
     addressArray.EntityData.ParentYangName = "helper-address"
-    addressArray.EntityData.SegmentPath = "address-array"
+    addressArray.EntityData.SegmentPath = "address-array" + types.AddNoKeyToken(addressArray)
+    addressArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/helper-address/" + addressArray.EntityData.SegmentPath
     addressArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2445,6 +2522,7 @@ func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetEntityData()
     rpf.EntityData.BundleName = "cisco_ios_xr"
     rpf.EntityData.ParentYangName = "detail"
     rpf.EntityData.SegmentPath = "rpf"
+    rpf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + rpf.EntityData.SegmentPath
     rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2480,6 +2558,7 @@ func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetEntityDa
     bgpPa.EntityData.BundleName = "cisco_ios_xr"
     bgpPa.EntityData.ParentYangName = "detail"
     bgpPa.EntityData.SegmentPath = "bgp-pa"
+    bgpPa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + bgpPa.EntityData.SegmentPath
     bgpPa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpPa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpPa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2516,6 +2595,7 @@ func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "bgp-pa"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/bgp-pa/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2553,6 +2633,7 @@ func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) Get
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "bgp-pa"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/bgp-pa/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2581,6 +2662,7 @@ func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetEn
     pubUtime.EntityData.BundleName = "cisco_ios_xr"
     pubUtime.EntityData.ParentYangName = "detail"
     pubUtime.EntityData.SegmentPath = "pub-utime"
+    pubUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + pubUtime.EntityData.SegmentPath
     pubUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pubUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pubUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2606,6 +2688,7 @@ func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetEn
     idbUtime.EntityData.BundleName = "cisco_ios_xr"
     idbUtime.EntityData.ParentYangName = "detail"
     idbUtime.EntityData.SegmentPath = "idb-utime"
+    idbUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + idbUtime.EntityData.SegmentPath
     idbUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idbUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idbUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2631,6 +2714,7 @@ func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) Get
     capsUtime.EntityData.BundleName = "cisco_ios_xr"
     capsUtime.EntityData.ParentYangName = "detail"
     capsUtime.EntityData.SegmentPath = "caps-utime"
+    capsUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + capsUtime.EntityData.SegmentPath
     capsUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     capsUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capsUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2656,6 +2740,7 @@ func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) G
     fwdEnUtime.EntityData.BundleName = "cisco_ios_xr"
     fwdEnUtime.EntityData.ParentYangName = "detail"
     fwdEnUtime.EntityData.SegmentPath = "fwd-en-utime"
+    fwdEnUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + fwdEnUtime.EntityData.SegmentPath
     fwdEnUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fwdEnUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwdEnUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2681,6 +2766,7 @@ func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime)
     fwdDisUtime.EntityData.BundleName = "cisco_ios_xr"
     fwdDisUtime.EntityData.ParentYangName = "detail"
     fwdDisUtime.EntityData.SegmentPath = "fwd-dis-utime"
+    fwdDisUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + fwdDisUtime.EntityData.SegmentPath
     fwdDisUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fwdDisUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwdDisUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2698,6 +2784,7 @@ func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime)
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Address of multicast group. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2709,7 +2796,8 @@ func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Multicast
     multicastGroup.EntityData.YangName = "multicast-group"
     multicastGroup.EntityData.BundleName = "cisco_ios_xr"
     multicastGroup.EntityData.ParentYangName = "detail"
-    multicastGroup.EntityData.SegmentPath = "multicast-group"
+    multicastGroup.EntityData.SegmentPath = "multicast-group" + types.AddNoKeyToken(multicastGroup)
+    multicastGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + multicastGroup.EntityData.SegmentPath
     multicastGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2728,6 +2816,7 @@ func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Multicast
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2747,7 +2836,8 @@ func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Seconda
     secondaryAddress.EntityData.YangName = "secondary-address"
     secondaryAddress.EntityData.BundleName = "cisco_ios_xr"
     secondaryAddress.EntityData.ParentYangName = "detail"
-    secondaryAddress.EntityData.SegmentPath = "secondary-address"
+    secondaryAddress.EntityData.SegmentPath = "secondary-address" + types.AddNoKeyToken(secondaryAddress)
+    secondaryAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + secondaryAddress.EntityData.SegmentPath
     secondaryAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2790,6 +2880,7 @@ func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetEntityData() *t
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "vrf"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

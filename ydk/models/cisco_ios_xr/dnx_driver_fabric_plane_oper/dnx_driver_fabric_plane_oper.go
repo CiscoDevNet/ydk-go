@@ -85,6 +85,7 @@ func (fabric *Fabric) GetEntityData() *types.CommonEntityData {
     fabric.EntityData.BundleName = "cisco_ios_xr"
     fabric.EntityData.ParentYangName = "Cisco-IOS-XR-dnx-driver-fabric-plane-oper"
     fabric.EntityData.SegmentPath = "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric"
+    fabric.EntityData.AbsolutePath = fabric.EntityData.SegmentPath
     fabric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fabric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fabric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -117,6 +118,7 @@ func (planeTable *Fabric_PlaneTable) GetEntityData() *types.CommonEntityData {
     planeTable.EntityData.BundleName = "cisco_ios_xr"
     planeTable.EntityData.ParentYangName = "fabric"
     planeTable.EntityData.SegmentPath = "plane-table"
+    planeTable.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric/" + planeTable.EntityData.SegmentPath
     planeTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     planeTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     planeTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -148,6 +150,7 @@ func (statistics *Fabric_PlaneTable_Statistics) GetEntityData() *types.CommonEnt
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "plane-table"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric/plane-table/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -155,6 +158,7 @@ func (statistics *Fabric_PlaneTable_Statistics) GetEntityData() *types.CommonEnt
     statistics.EntityData.Children = types.NewOrderedMap()
     statistics.EntityData.Children.Append("plane-stats-info", types.YChild{"PlaneStatsInfo", nil})
     for i := range statistics.PlaneStatsInfo {
+        types.SetYListKey(statistics.PlaneStatsInfo[i], i)
         statistics.EntityData.Children.Append(types.GetSegmentPath(statistics.PlaneStatsInfo[i]), types.YChild{"PlaneStatsInfo", statistics.PlaneStatsInfo[i]})
     }
     statistics.EntityData.Leafs = types.NewOrderedMap()
@@ -169,6 +173,7 @@ func (statistics *Fabric_PlaneTable_Statistics) GetEntityData() *types.CommonEnt
 type Fabric_PlaneTable_Statistics_PlaneStatsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // plane id. The type is interface{} with range: 0..4294967295.
     PlaneId interface{}
@@ -195,7 +200,8 @@ func (planeStatsInfo *Fabric_PlaneTable_Statistics_PlaneStatsInfo) GetEntityData
     planeStatsInfo.EntityData.YangName = "plane-stats-info"
     planeStatsInfo.EntityData.BundleName = "cisco_ios_xr"
     planeStatsInfo.EntityData.ParentYangName = "statistics"
-    planeStatsInfo.EntityData.SegmentPath = "plane-stats-info"
+    planeStatsInfo.EntityData.SegmentPath = "plane-stats-info" + types.AddNoKeyToken(planeStatsInfo)
+    planeStatsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric/plane-table/statistics/" + planeStatsInfo.EntityData.SegmentPath
     planeStatsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     planeStatsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     planeStatsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -231,6 +237,7 @@ func (plane *Fabric_PlaneTable_Plane) GetEntityData() *types.CommonEntityData {
     plane.EntityData.BundleName = "cisco_ios_xr"
     plane.EntityData.ParentYangName = "plane-table"
     plane.EntityData.SegmentPath = "plane"
+    plane.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric/plane-table/" + plane.EntityData.SegmentPath
     plane.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     plane.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     plane.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -238,6 +245,7 @@ func (plane *Fabric_PlaneTable_Plane) GetEntityData() *types.CommonEntityData {
     plane.EntityData.Children = types.NewOrderedMap()
     plane.EntityData.Children.Append("detail-plane-info", types.YChild{"DetailPlaneInfo", nil})
     for i := range plane.DetailPlaneInfo {
+        types.SetYListKey(plane.DetailPlaneInfo[i], i)
         plane.EntityData.Children.Append(types.GetSegmentPath(plane.DetailPlaneInfo[i]), types.YChild{"DetailPlaneInfo", plane.DetailPlaneInfo[i]})
     }
     plane.EntityData.Leafs = types.NewOrderedMap()
@@ -252,6 +260,7 @@ func (plane *Fabric_PlaneTable_Plane) GetEntityData() *types.CommonEntityData {
 type Fabric_PlaneTable_Plane_DetailPlaneInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // plane id. The type is interface{} with range: 0..4294967295.
     PlaneId interface{}
@@ -287,7 +296,8 @@ func (detailPlaneInfo *Fabric_PlaneTable_Plane_DetailPlaneInfo) GetEntityData() 
     detailPlaneInfo.EntityData.YangName = "detail-plane-info"
     detailPlaneInfo.EntityData.BundleName = "cisco_ios_xr"
     detailPlaneInfo.EntityData.ParentYangName = "plane"
-    detailPlaneInfo.EntityData.SegmentPath = "detail-plane-info"
+    detailPlaneInfo.EntityData.SegmentPath = "detail-plane-info" + types.AddNoKeyToken(detailPlaneInfo)
+    detailPlaneInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric/plane-table/plane/" + detailPlaneInfo.EntityData.SegmentPath
     detailPlaneInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailPlaneInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailPlaneInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

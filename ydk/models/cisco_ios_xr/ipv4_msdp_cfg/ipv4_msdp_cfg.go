@@ -73,6 +73,7 @@ func (msdp *Msdp) GetEntityData() *types.CommonEntityData {
     msdp.EntityData.BundleName = "cisco_ios_xr"
     msdp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-msdp-cfg"
     msdp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp"
+    msdp.EntityData.AbsolutePath = msdp.EntityData.SegmentPath
     msdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -105,6 +106,7 @@ func (vrfs *Msdp_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "msdp"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -126,6 +128,7 @@ func (vrfs *Msdp_Vrfs) GetEntityData() *types.CommonEntityData {
 type Msdp_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with length: 1..32.
     VrfName interface{}
@@ -173,6 +176,7 @@ func (vrf *Msdp_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -219,6 +223,7 @@ func (cacheState *Msdp_Vrfs_Vrf_CacheState) GetEntityData() *types.CommonEntityD
     cacheState.EntityData.BundleName = "cisco_ios_xr"
     cacheState.EntityData.ParentYangName = "vrf"
     cacheState.EntityData.SegmentPath = "cache-state"
+    cacheState.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/vrf/" + cacheState.EntityData.SegmentPath
     cacheState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cacheState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cacheState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -257,6 +262,7 @@ func (keepAlive *Msdp_Vrfs_Vrf_KeepAlive) GetEntityData() *types.CommonEntityDat
     keepAlive.EntityData.BundleName = "cisco_ios_xr"
     keepAlive.EntityData.ParentYangName = "vrf"
     keepAlive.EntityData.SegmentPath = "keep-alive"
+    keepAlive.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/vrf/" + keepAlive.EntityData.SegmentPath
     keepAlive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keepAlive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepAlive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -287,6 +293,7 @@ func (peers *Msdp_Vrfs_Vrf_Peers) GetEntityData() *types.CommonEntityData {
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "vrf"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/vrf/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -308,6 +315,7 @@ func (peers *Msdp_Vrfs_Vrf_Peers) GetEntityData() *types.CommonEntityData {
 type Msdp_Vrfs_Vrf_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Peer address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -361,6 +369,7 @@ func (peer *Msdp_Vrfs_Vrf_Peers_Peer) GetEntityData() *types.CommonEntityData {
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.PeerAddress, "peer-address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/vrf/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -409,6 +418,7 @@ func (remoteAs *Msdp_Vrfs_Vrf_Peers_Peer_RemoteAs) GetEntityData() *types.Common
     remoteAs.EntityData.BundleName = "cisco_ios_xr"
     remoteAs.EntityData.ParentYangName = "peer"
     remoteAs.EntityData.SegmentPath = "remote-as"
+    remoteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/vrf/peers/peer/" + remoteAs.EntityData.SegmentPath
     remoteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -446,6 +456,7 @@ func (keepAlive *Msdp_Vrfs_Vrf_Peers_Peer_KeepAlive) GetEntityData() *types.Comm
     keepAlive.EntityData.BundleName = "cisco_ios_xr"
     keepAlive.EntityData.ParentYangName = "peer"
     keepAlive.EntityData.SegmentPath = "keep-alive"
+    keepAlive.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/vrf/peers/peer/" + keepAlive.EntityData.SegmentPath
     keepAlive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keepAlive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepAlive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -477,6 +488,7 @@ func (saFilters *Msdp_Vrfs_Vrf_Peers_Peer_SaFilters) GetEntityData() *types.Comm
     saFilters.EntityData.BundleName = "cisco_ios_xr"
     saFilters.EntityData.ParentYangName = "peer"
     saFilters.EntityData.SegmentPath = "sa-filters"
+    saFilters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/vrf/peers/peer/" + saFilters.EntityData.SegmentPath
     saFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -498,6 +510,7 @@ func (saFilters *Msdp_Vrfs_Vrf_Peers_Peer_SaFilters) GetEntityData() *types.Comm
 type Msdp_Vrfs_Vrf_Peers_Peer_SaFilters_SaFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Src List/RP List. The type is MsdpListTypeVrf.
     List interface{}
@@ -517,6 +530,7 @@ func (saFilter *Msdp_Vrfs_Vrf_Peers_Peer_SaFilters_SaFilter) GetEntityData() *ty
     saFilter.EntityData.BundleName = "cisco_ios_xr"
     saFilter.EntityData.ParentYangName = "sa-filters"
     saFilter.EntityData.SegmentPath = "sa-filter" + types.AddKeyToken(saFilter.List, "list") + types.AddKeyToken(saFilter.FilterType, "filter-type")
+    saFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/vrf/peers/peer/sa-filters/" + saFilter.EntityData.SegmentPath
     saFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -549,6 +563,7 @@ func (saFilters *Msdp_Vrfs_Vrf_SaFilters) GetEntityData() *types.CommonEntityDat
     saFilters.EntityData.BundleName = "cisco_ios_xr"
     saFilters.EntityData.ParentYangName = "vrf"
     saFilters.EntityData.SegmentPath = "sa-filters"
+    saFilters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/vrf/" + saFilters.EntityData.SegmentPath
     saFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -570,6 +585,7 @@ func (saFilters *Msdp_Vrfs_Vrf_SaFilters) GetEntityData() *types.CommonEntityDat
 type Msdp_Vrfs_Vrf_SaFilters_SaFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Src List/RP List. The type is MsdpListTypeVrf.
     List interface{}
@@ -589,6 +605,7 @@ func (saFilter *Msdp_Vrfs_Vrf_SaFilters_SaFilter) GetEntityData() *types.CommonE
     saFilter.EntityData.BundleName = "cisco_ios_xr"
     saFilter.EntityData.ParentYangName = "sa-filters"
     saFilter.EntityData.SegmentPath = "sa-filter" + types.AddKeyToken(saFilter.List, "list") + types.AddKeyToken(saFilter.FilterType, "filter-type")
+    saFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/vrf/sa-filters/" + saFilter.EntityData.SegmentPath
     saFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -653,6 +670,7 @@ func (defaultContext *Msdp_DefaultContext) GetEntityData() *types.CommonEntityDa
     defaultContext.EntityData.BundleName = "cisco_ios_xr"
     defaultContext.EntityData.ParentYangName = "msdp"
     defaultContext.EntityData.SegmentPath = "default-context"
+    defaultContext.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/" + defaultContext.EntityData.SegmentPath
     defaultContext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -698,6 +716,7 @@ func (cacheState *Msdp_DefaultContext_CacheState) GetEntityData() *types.CommonE
     cacheState.EntityData.BundleName = "cisco_ios_xr"
     cacheState.EntityData.ParentYangName = "default-context"
     cacheState.EntityData.SegmentPath = "cache-state"
+    cacheState.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/" + cacheState.EntityData.SegmentPath
     cacheState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cacheState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cacheState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -736,6 +755,7 @@ func (keepAlive *Msdp_DefaultContext_KeepAlive) GetEntityData() *types.CommonEnt
     keepAlive.EntityData.BundleName = "cisco_ios_xr"
     keepAlive.EntityData.ParentYangName = "default-context"
     keepAlive.EntityData.SegmentPath = "keep-alive"
+    keepAlive.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/" + keepAlive.EntityData.SegmentPath
     keepAlive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keepAlive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepAlive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -766,6 +786,7 @@ func (peers *Msdp_DefaultContext_Peers) GetEntityData() *types.CommonEntityData 
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "default-context"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -787,6 +808,7 @@ func (peers *Msdp_DefaultContext_Peers) GetEntityData() *types.CommonEntityData 
 type Msdp_DefaultContext_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Peer address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -840,6 +862,7 @@ func (peer *Msdp_DefaultContext_Peers_Peer) GetEntityData() *types.CommonEntityD
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.PeerAddress, "peer-address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -888,6 +911,7 @@ func (remoteAs *Msdp_DefaultContext_Peers_Peer_RemoteAs) GetEntityData() *types.
     remoteAs.EntityData.BundleName = "cisco_ios_xr"
     remoteAs.EntityData.ParentYangName = "peer"
     remoteAs.EntityData.SegmentPath = "remote-as"
+    remoteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/peers/peer/" + remoteAs.EntityData.SegmentPath
     remoteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -925,6 +949,7 @@ func (keepAlive *Msdp_DefaultContext_Peers_Peer_KeepAlive) GetEntityData() *type
     keepAlive.EntityData.BundleName = "cisco_ios_xr"
     keepAlive.EntityData.ParentYangName = "peer"
     keepAlive.EntityData.SegmentPath = "keep-alive"
+    keepAlive.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/peers/peer/" + keepAlive.EntityData.SegmentPath
     keepAlive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keepAlive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keepAlive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -956,6 +981,7 @@ func (saFilters *Msdp_DefaultContext_Peers_Peer_SaFilters) GetEntityData() *type
     saFilters.EntityData.BundleName = "cisco_ios_xr"
     saFilters.EntityData.ParentYangName = "peer"
     saFilters.EntityData.SegmentPath = "sa-filters"
+    saFilters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/peers/peer/" + saFilters.EntityData.SegmentPath
     saFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -977,6 +1003,7 @@ func (saFilters *Msdp_DefaultContext_Peers_Peer_SaFilters) GetEntityData() *type
 type Msdp_DefaultContext_Peers_Peer_SaFilters_SaFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Src List/RP List. The type is MsdpListTypeVrf.
     List interface{}
@@ -996,6 +1023,7 @@ func (saFilter *Msdp_DefaultContext_Peers_Peer_SaFilters_SaFilter) GetEntityData
     saFilter.EntityData.BundleName = "cisco_ios_xr"
     saFilter.EntityData.ParentYangName = "sa-filters"
     saFilter.EntityData.SegmentPath = "sa-filter" + types.AddKeyToken(saFilter.List, "list") + types.AddKeyToken(saFilter.FilterType, "filter-type")
+    saFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/peers/peer/sa-filters/" + saFilter.EntityData.SegmentPath
     saFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1028,6 +1056,7 @@ func (saFilters *Msdp_DefaultContext_SaFilters) GetEntityData() *types.CommonEnt
     saFilters.EntityData.BundleName = "cisco_ios_xr"
     saFilters.EntityData.ParentYangName = "default-context"
     saFilters.EntityData.SegmentPath = "sa-filters"
+    saFilters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/" + saFilters.EntityData.SegmentPath
     saFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1049,6 +1078,7 @@ func (saFilters *Msdp_DefaultContext_SaFilters) GetEntityData() *types.CommonEnt
 type Msdp_DefaultContext_SaFilters_SaFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Src List/RP List. The type is MsdpListTypeVrf.
     List interface{}
@@ -1068,6 +1098,7 @@ func (saFilter *Msdp_DefaultContext_SaFilters_SaFilter) GetEntityData() *types.C
     saFilter.EntityData.BundleName = "cisco_ios_xr"
     saFilter.EntityData.ParentYangName = "sa-filters"
     saFilter.EntityData.SegmentPath = "sa-filter" + types.AddKeyToken(saFilter.List, "list") + types.AddKeyToken(saFilter.FilterType, "filter-type")
+    saFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/sa-filters/" + saFilter.EntityData.SegmentPath
     saFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

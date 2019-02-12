@@ -90,6 +90,7 @@ func (arp *Arp) GetEntityData() *types.CommonEntityData {
     arp.EntityData.BundleName = "cisco_ios_xr"
     arp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-arp-cfg"
     arp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-arp-cfg:arp"
+    arp.EntityData.AbsolutePath = arp.EntityData.SegmentPath
     arp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -124,6 +125,7 @@ func (iedgeCfg *IedgeCfg) GetEntityData() *types.CommonEntityData {
     iedgeCfg.EntityData.BundleName = "cisco_ios_xr"
     iedgeCfg.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-arp-cfg"
     iedgeCfg.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-arp-cfg:iedge-cfg"
+    iedgeCfg.EntityData.AbsolutePath = iedgeCfg.EntityData.SegmentPath
     iedgeCfg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iedgeCfg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iedgeCfg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -155,6 +157,7 @@ func (arpgmp *Arpgmp) GetEntityData() *types.CommonEntityData {
     arpgmp.EntityData.BundleName = "cisco_ios_xr"
     arpgmp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-arp-cfg"
     arpgmp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-arp-cfg:arpgmp"
+    arpgmp.EntityData.AbsolutePath = arpgmp.EntityData.SegmentPath
     arpgmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arpgmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arpgmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -177,6 +180,7 @@ func (arpgmp *Arpgmp) GetEntityData() *types.CommonEntityData {
 type Arpgmp_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -192,6 +196,7 @@ func (vrf *Arpgmp_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "arpgmp"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arpgmp/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -223,6 +228,7 @@ func (entries *Arpgmp_Vrf_Entries) GetEntityData() *types.CommonEntityData {
     entries.EntityData.BundleName = "cisco_ios_xr"
     entries.EntityData.ParentYangName = "vrf"
     entries.EntityData.SegmentPath = "entries"
+    entries.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arpgmp/vrf/" + entries.EntityData.SegmentPath
     entries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -244,6 +250,7 @@ func (entries *Arpgmp_Vrf_Entries) GetEntityData() *types.CommonEntityData {
 type Arpgmp_Vrf_Entries_Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -269,6 +276,7 @@ func (entry *Arpgmp_Vrf_Entries_Entry) GetEntityData() *types.CommonEntityData {
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "entries"
     entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.Address, "address")
+    entry.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arpgmp/vrf/entries/" + entry.EntityData.SegmentPath
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -302,6 +310,7 @@ func (arpRedundancy *ArpRedundancy) GetEntityData() *types.CommonEntityData {
     arpRedundancy.EntityData.BundleName = "cisco_ios_xr"
     arpRedundancy.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-arp-cfg"
     arpRedundancy.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy"
+    arpRedundancy.EntityData.AbsolutePath = arpRedundancy.EntityData.SegmentPath
     arpRedundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arpRedundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arpRedundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -338,6 +347,7 @@ func (redundancy *ArpRedundancy_Redundancy) GetEntityData() *types.CommonEntityD
     redundancy.EntityData.BundleName = "cisco_ios_xr"
     redundancy.EntityData.ParentYangName = "arp-redundancy"
     redundancy.EntityData.SegmentPath = "redundancy"
+    redundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/" + redundancy.EntityData.SegmentPath
     redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -368,6 +378,7 @@ func (groups *ArpRedundancy_Redundancy_Groups) GetEntityData() *types.CommonEnti
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "redundancy"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/redundancy/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -389,6 +400,7 @@ func (groups *ArpRedundancy_Redundancy_Groups) GetEntityData() *types.CommonEnti
 type ArpRedundancy_Redundancy_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group ID. The type is interface{} with range:
     // 1..32.
@@ -410,6 +422,7 @@ func (group *ArpRedundancy_Redundancy_Groups_Group) GetEntityData() *types.Commo
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupId, "group-id")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/redundancy/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -443,6 +456,7 @@ func (peers *ArpRedundancy_Redundancy_Groups_Group_Peers) GetEntityData() *types
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "group"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/redundancy/groups/group/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -464,6 +478,7 @@ func (peers *ArpRedundancy_Redundancy_Groups_Group_Peers) GetEntityData() *types
 type ArpRedundancy_Redundancy_Groups_Group_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IPv4 address. The type is one of the
     // following types: string with pattern:
@@ -479,6 +494,7 @@ func (peer *ArpRedundancy_Redundancy_Groups_Group_Peers_Peer) GetEntityData() *t
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.PrefixString, "prefix-string")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/redundancy/groups/group/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -515,6 +531,7 @@ func (interfaceList *ArpRedundancy_Redundancy_Groups_Group_InterfaceList) GetEnt
     interfaceList.EntityData.BundleName = "cisco_ios_xr"
     interfaceList.EntityData.ParentYangName = "group"
     interfaceList.EntityData.SegmentPath = "interface-list"
+    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/redundancy/groups/group/" + interfaceList.EntityData.SegmentPath
     interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -546,6 +563,7 @@ func (interfaces *ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interface-list"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/redundancy/groups/group/interface-list/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -567,6 +585,7 @@ func (interfaces *ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces
 type ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -583,6 +602,7 @@ func (self *ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces_Inter
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/redundancy/groups/group/interface-list/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

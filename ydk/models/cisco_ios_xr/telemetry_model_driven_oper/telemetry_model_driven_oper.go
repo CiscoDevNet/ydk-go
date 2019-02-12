@@ -240,6 +240,7 @@ func (telemetryModelDriven *TelemetryModelDriven) GetEntityData() *types.CommonE
     telemetryModelDriven.EntityData.BundleName = "cisco_ios_xr"
     telemetryModelDriven.EntityData.ParentYangName = "Cisco-IOS-XR-telemetry-model-driven-oper"
     telemetryModelDriven.EntityData.SegmentPath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven"
+    telemetryModelDriven.EntityData.AbsolutePath = telemetryModelDriven.EntityData.SegmentPath
     telemetryModelDriven.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     telemetryModelDriven.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telemetryModelDriven.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +274,7 @@ func (destinations *TelemetryModelDriven_Destinations) GetEntityData() *types.Co
     destinations.EntityData.BundleName = "cisco_ios_xr"
     destinations.EntityData.ParentYangName = "telemetry-model-driven"
     destinations.EntityData.SegmentPath = "destinations"
+    destinations.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/" + destinations.EntityData.SegmentPath
     destinations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -294,6 +296,7 @@ func (destinations *TelemetryModelDriven_Destinations) GetEntityData() *types.Co
 type TelemetryModelDriven_Destinations_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Id of the destination. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -317,6 +320,7 @@ func (destination *TelemetryModelDriven_Destinations_Destination) GetEntityData(
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "destinations"
     destination.EntityData.SegmentPath = "destination" + types.AddKeyToken(destination.DestinationId, "destination-id")
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/destinations/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -324,6 +328,7 @@ func (destination *TelemetryModelDriven_Destinations_Destination) GetEntityData(
     destination.EntityData.Children = types.NewOrderedMap()
     destination.EntityData.Children.Append("destination", types.YChild{"Destination", nil})
     for i := range destination.Destination {
+        types.SetYListKey(destination.Destination[i], i)
         destination.EntityData.Children.Append(types.GetSegmentPath(destination.Destination[i]), types.YChild{"Destination", destination.Destination[i]})
     }
     destination.EntityData.Leafs = types.NewOrderedMap()
@@ -341,6 +346,7 @@ func (destination *TelemetryModelDriven_Destinations_Destination) GetEntityData(
 type TelemetryModelDriven_Destinations_Destination_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination.
     Destination TelemetryModelDriven_Destinations_Destination_Destination_Destination
@@ -355,7 +361,8 @@ func (destination *TelemetryModelDriven_Destinations_Destination_Destination) Ge
     destination.EntityData.YangName = "destination"
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "destination"
-    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.SegmentPath = "destination" + types.AddNoKeyToken(destination)
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/destinations/destination/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -364,6 +371,7 @@ func (destination *TelemetryModelDriven_Destinations_Destination_Destination) Ge
     destination.EntityData.Children.Append("destination", types.YChild{"Destination", &destination.Destination})
     destination.EntityData.Children.Append("collection-group", types.YChild{"CollectionGroup", nil})
     for i := range destination.CollectionGroup {
+        types.SetYListKey(destination.CollectionGroup[i], i)
         destination.EntityData.Children.Append(types.GetSegmentPath(destination.CollectionGroup[i]), types.YChild{"CollectionGroup", destination.CollectionGroup[i]})
     }
     destination.EntityData.Leafs = types.NewOrderedMap()
@@ -445,6 +453,7 @@ func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Des
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "destination"
     destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/destinations/destination/destination/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -498,6 +507,7 @@ func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_D
     destIpAddress.EntityData.BundleName = "cisco_ios_xr"
     destIpAddress.EntityData.ParentYangName = "destination"
     destIpAddress.EntityData.SegmentPath = "dest-ip-address"
+    destIpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/destinations/destination/destination/destination/" + destIpAddress.EntityData.SegmentPath
     destIpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -519,6 +529,7 @@ func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_D
 type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Collection Group id. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -601,7 +612,8 @@ func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination
     collectionGroup.EntityData.YangName = "collection-group"
     collectionGroup.EntityData.BundleName = "cisco_ios_xr"
     collectionGroup.EntityData.ParentYangName = "destination"
-    collectionGroup.EntityData.SegmentPath = "collection-group"
+    collectionGroup.EntityData.SegmentPath = "collection-group" + types.AddNoKeyToken(collectionGroup)
+    collectionGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/destinations/destination/destination/" + collectionGroup.EntityData.SegmentPath
     collectionGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -609,10 +621,12 @@ func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination
     collectionGroup.EntityData.Children = types.NewOrderedMap()
     collectionGroup.EntityData.Children.Append("collection-path", types.YChild{"CollectionPath", nil})
     for i := range collectionGroup.CollectionPath {
+        types.SetYListKey(collectionGroup.CollectionPath[i], i)
         collectionGroup.EntityData.Children.Append(types.GetSegmentPath(collectionGroup.CollectionPath[i]), types.YChild{"CollectionPath", collectionGroup.CollectionPath[i]})
     }
     collectionGroup.EntityData.Children.Append("internal-collection-group", types.YChild{"InternalCollectionGroup", nil})
     for i := range collectionGroup.InternalCollectionGroup {
+        types.SetYListKey(collectionGroup.InternalCollectionGroup[i], i)
         collectionGroup.EntityData.Children.Append(types.GetSegmentPath(collectionGroup.InternalCollectionGroup[i]), types.YChild{"InternalCollectionGroup", collectionGroup.InternalCollectionGroup[i]})
     }
     collectionGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -645,6 +659,7 @@ func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination
 type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sensor Path. The type is string.
     Path interface{}
@@ -662,7 +677,8 @@ func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_
     collectionPath.EntityData.YangName = "collection-path"
     collectionPath.EntityData.BundleName = "cisco_ios_xr"
     collectionPath.EntityData.ParentYangName = "collection-group"
-    collectionPath.EntityData.SegmentPath = "collection-path"
+    collectionPath.EntityData.SegmentPath = "collection-path" + types.AddNoKeyToken(collectionPath)
+    collectionPath.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/destinations/destination/destination/collection-group/" + collectionPath.EntityData.SegmentPath
     collectionPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collectionPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectionPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -684,6 +700,7 @@ func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_
 type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sysdb Path. The type is string.
     Path interface{}
@@ -797,7 +814,8 @@ func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Des
     internalCollectionGroup.EntityData.YangName = "internal-collection-group"
     internalCollectionGroup.EntityData.BundleName = "cisco_ios_xr"
     internalCollectionGroup.EntityData.ParentYangName = "collection-group"
-    internalCollectionGroup.EntityData.SegmentPath = "internal-collection-group"
+    internalCollectionGroup.EntityData.SegmentPath = "internal-collection-group" + types.AddNoKeyToken(internalCollectionGroup)
+    internalCollectionGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/destinations/destination/destination/collection-group/" + internalCollectionGroup.EntityData.SegmentPath
     internalCollectionGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalCollectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalCollectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -854,6 +872,7 @@ func (subscriptions *TelemetryModelDriven_Subscriptions) GetEntityData() *types.
     subscriptions.EntityData.BundleName = "cisco_ios_xr"
     subscriptions.EntityData.ParentYangName = "telemetry-model-driven"
     subscriptions.EntityData.SegmentPath = "subscriptions"
+    subscriptions.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/" + subscriptions.EntityData.SegmentPath
     subscriptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -875,6 +894,7 @@ func (subscriptions *TelemetryModelDriven_Subscriptions) GetEntityData() *types.
 type TelemetryModelDriven_Subscriptions_Subscription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Id of the subscription. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -894,6 +914,7 @@ func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetEntityDa
     subscription.EntityData.BundleName = "cisco_ios_xr"
     subscription.EntityData.ParentYangName = "subscriptions"
     subscription.EntityData.SegmentPath = "subscription" + types.AddKeyToken(subscription.SubscriptionId, "subscription-id")
+    subscription.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/" + subscription.EntityData.SegmentPath
     subscription.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -902,6 +923,7 @@ func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetEntityDa
     subscription.EntityData.Children.Append("subscription", types.YChild{"Subscription", &subscription.Subscription})
     subscription.EntityData.Children.Append("collection-group", types.YChild{"CollectionGroup", nil})
     for i := range subscription.CollectionGroup {
+        types.SetYListKey(subscription.CollectionGroup[i], i)
         subscription.EntityData.Children.Append(types.GetSegmentPath(subscription.CollectionGroup[i]), types.YChild{"CollectionGroup", subscription.CollectionGroup[i]})
     }
     subscription.EntityData.Leafs = types.NewOrderedMap()
@@ -945,6 +967,7 @@ func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription
     subscription.EntityData.BundleName = "cisco_ios_xr"
     subscription.EntityData.ParentYangName = "subscription"
     subscription.EntityData.SegmentPath = "subscription"
+    subscription.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/" + subscription.EntityData.SegmentPath
     subscription.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -953,10 +976,12 @@ func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription
     subscription.EntityData.Children.Append("source-interface", types.YChild{"SourceInterface", &subscription.SourceInterface})
     subscription.EntityData.Children.Append("sensor-profile", types.YChild{"SensorProfile", nil})
     for i := range subscription.SensorProfile {
+        types.SetYListKey(subscription.SensorProfile[i], i)
         subscription.EntityData.Children.Append(types.GetSegmentPath(subscription.SensorProfile[i]), types.YChild{"SensorProfile", subscription.SensorProfile[i]})
     }
     subscription.EntityData.Children.Append("destination-grp", types.YChild{"DestinationGrp", nil})
     for i := range subscription.DestinationGrp {
+        types.SetYListKey(subscription.DestinationGrp[i], i)
         subscription.EntityData.Children.Append(types.GetSegmentPath(subscription.DestinationGrp[i]), types.YChild{"DestinationGrp", subscription.DestinationGrp[i]})
     }
     subscription.EntityData.Leafs = types.NewOrderedMap()
@@ -999,6 +1024,7 @@ func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscript
     sourceInterface.EntityData.BundleName = "cisco_ios_xr"
     sourceInterface.EntityData.ParentYangName = "subscription"
     sourceInterface.EntityData.SegmentPath = "source-interface"
+    sourceInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/subscription/" + sourceInterface.EntityData.SegmentPath
     sourceInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1021,6 +1047,7 @@ func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscript
 type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sample interval for the sensor group (ms). The type is interface{} with
     // range: 0..4294967295.
@@ -1042,7 +1069,8 @@ func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscriptio
     sensorProfile.EntityData.YangName = "sensor-profile"
     sensorProfile.EntityData.BundleName = "cisco_ios_xr"
     sensorProfile.EntityData.ParentYangName = "subscription"
-    sensorProfile.EntityData.SegmentPath = "sensor-profile"
+    sensorProfile.EntityData.SegmentPath = "sensor-profile" + types.AddNoKeyToken(sensorProfile)
+    sensorProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/subscription/" + sensorProfile.EntityData.SegmentPath
     sensorProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1084,6 +1112,7 @@ func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_
     sensorGroup.EntityData.BundleName = "cisco_ios_xr"
     sensorGroup.EntityData.ParentYangName = "sensor-profile"
     sensorGroup.EntityData.SegmentPath = "sensor-group"
+    sensorGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/subscription/sensor-profile/" + sensorGroup.EntityData.SegmentPath
     sensorGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1091,6 +1120,7 @@ func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_
     sensorGroup.EntityData.Children = types.NewOrderedMap()
     sensorGroup.EntityData.Children.Append("sensor-path", types.YChild{"SensorPath", nil})
     for i := range sensorGroup.SensorPath {
+        types.SetYListKey(sensorGroup.SensorPath[i], i)
         sensorGroup.EntityData.Children.Append(types.GetSegmentPath(sensorGroup.SensorPath[i]), types.YChild{"SensorPath", sensorGroup.SensorPath[i]})
     }
     sensorGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -1108,6 +1138,7 @@ func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_
 type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sensor Path. The type is string.
     Path interface{}
@@ -1125,7 +1156,8 @@ func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_S
     sensorPath.EntityData.YangName = "sensor-path"
     sensorPath.EntityData.BundleName = "cisco_ios_xr"
     sensorPath.EntityData.ParentYangName = "sensor-group"
-    sensorPath.EntityData.SegmentPath = "sensor-path"
+    sensorPath.EntityData.SegmentPath = "sensor-path" + types.AddNoKeyToken(sensorPath)
+    sensorPath.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/subscription/sensor-profile/sensor-group/" + sensorPath.EntityData.SegmentPath
     sensorPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1146,6 +1178,7 @@ func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_S
 type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Group name. The type is string.
     Id interface{}
@@ -1164,7 +1197,8 @@ func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscripti
     destinationGrp.EntityData.YangName = "destination-grp"
     destinationGrp.EntityData.BundleName = "cisco_ios_xr"
     destinationGrp.EntityData.ParentYangName = "subscription"
-    destinationGrp.EntityData.SegmentPath = "destination-grp"
+    destinationGrp.EntityData.SegmentPath = "destination-grp" + types.AddNoKeyToken(destinationGrp)
+    destinationGrp.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/subscription/" + destinationGrp.EntityData.SegmentPath
     destinationGrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationGrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationGrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1172,6 +1206,7 @@ func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscripti
     destinationGrp.EntityData.Children = types.NewOrderedMap()
     destinationGrp.EntityData.Children.Append("destination", types.YChild{"Destination", nil})
     for i := range destinationGrp.Destination {
+        types.SetYListKey(destinationGrp.Destination[i], i)
         destinationGrp.EntityData.Children.Append(types.GetSegmentPath(destinationGrp.Destination[i]), types.YChild{"Destination", destinationGrp.Destination[i]})
     }
     destinationGrp.EntityData.Leafs = types.NewOrderedMap()
@@ -1188,6 +1223,7 @@ func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscripti
 type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Id. The type is string.
     Id interface{}
@@ -1254,7 +1290,8 @@ func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_
     destination.EntityData.YangName = "destination"
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "destination-grp"
-    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.SegmentPath = "destination" + types.AddNoKeyToken(destination)
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/subscription/destination-grp/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1308,6 +1345,7 @@ func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscriptio
     destIpAddress.EntityData.BundleName = "cisco_ios_xr"
     destIpAddress.EntityData.ParentYangName = "destination"
     destIpAddress.EntityData.SegmentPath = "dest-ip-address"
+    destIpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/subscription/destination-grp/destination/" + destIpAddress.EntityData.SegmentPath
     destIpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1329,6 +1367,7 @@ func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscriptio
 type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Collection Group id. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -1411,7 +1450,8 @@ func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_Collectio
     collectionGroup.EntityData.YangName = "collection-group"
     collectionGroup.EntityData.BundleName = "cisco_ios_xr"
     collectionGroup.EntityData.ParentYangName = "subscription"
-    collectionGroup.EntityData.SegmentPath = "collection-group"
+    collectionGroup.EntityData.SegmentPath = "collection-group" + types.AddNoKeyToken(collectionGroup)
+    collectionGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/" + collectionGroup.EntityData.SegmentPath
     collectionGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1419,10 +1459,12 @@ func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_Collectio
     collectionGroup.EntityData.Children = types.NewOrderedMap()
     collectionGroup.EntityData.Children.Append("collection-path", types.YChild{"CollectionPath", nil})
     for i := range collectionGroup.CollectionPath {
+        types.SetYListKey(collectionGroup.CollectionPath[i], i)
         collectionGroup.EntityData.Children.Append(types.GetSegmentPath(collectionGroup.CollectionPath[i]), types.YChild{"CollectionPath", collectionGroup.CollectionPath[i]})
     }
     collectionGroup.EntityData.Children.Append("internal-collection-group", types.YChild{"InternalCollectionGroup", nil})
     for i := range collectionGroup.InternalCollectionGroup {
+        types.SetYListKey(collectionGroup.InternalCollectionGroup[i], i)
         collectionGroup.EntityData.Children.Append(types.GetSegmentPath(collectionGroup.InternalCollectionGroup[i]), types.YChild{"InternalCollectionGroup", collectionGroup.InternalCollectionGroup[i]})
     }
     collectionGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -1455,6 +1497,7 @@ func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_Collectio
 type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sensor Path. The type is string.
     Path interface{}
@@ -1472,7 +1515,8 @@ func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_Collection
     collectionPath.EntityData.YangName = "collection-path"
     collectionPath.EntityData.BundleName = "cisco_ios_xr"
     collectionPath.EntityData.ParentYangName = "collection-group"
-    collectionPath.EntityData.SegmentPath = "collection-path"
+    collectionPath.EntityData.SegmentPath = "collection-path" + types.AddNoKeyToken(collectionPath)
+    collectionPath.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/collection-group/" + collectionPath.EntityData.SegmentPath
     collectionPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collectionPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectionPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1494,6 +1538,7 @@ func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_Collection
 type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sysdb Path. The type is string.
     Path interface{}
@@ -1607,7 +1652,8 @@ func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_C
     internalCollectionGroup.EntityData.YangName = "internal-collection-group"
     internalCollectionGroup.EntityData.BundleName = "cisco_ios_xr"
     internalCollectionGroup.EntityData.ParentYangName = "collection-group"
-    internalCollectionGroup.EntityData.SegmentPath = "internal-collection-group"
+    internalCollectionGroup.EntityData.SegmentPath = "internal-collection-group" + types.AddNoKeyToken(internalCollectionGroup)
+    internalCollectionGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/subscription/collection-group/" + internalCollectionGroup.EntityData.SegmentPath
     internalCollectionGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalCollectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalCollectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1664,6 +1710,7 @@ func (sensorGroups *TelemetryModelDriven_SensorGroups) GetEntityData() *types.Co
     sensorGroups.EntityData.BundleName = "cisco_ios_xr"
     sensorGroups.EntityData.ParentYangName = "telemetry-model-driven"
     sensorGroups.EntityData.SegmentPath = "sensor-groups"
+    sensorGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/" + sensorGroups.EntityData.SegmentPath
     sensorGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1685,6 +1732,7 @@ func (sensorGroups *TelemetryModelDriven_SensorGroups) GetEntityData() *types.Co
 type TelemetryModelDriven_SensorGroups_SensorGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Id of the sensor group. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1708,6 +1756,7 @@ func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetEntityData(
     sensorGroup.EntityData.BundleName = "cisco_ios_xr"
     sensorGroup.EntityData.ParentYangName = "sensor-groups"
     sensorGroup.EntityData.SegmentPath = "sensor-group" + types.AddKeyToken(sensorGroup.SensorGroupId, "sensor-group-id")
+    sensorGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/sensor-groups/" + sensorGroup.EntityData.SegmentPath
     sensorGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1715,6 +1764,7 @@ func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetEntityData(
     sensorGroup.EntityData.Children = types.NewOrderedMap()
     sensorGroup.EntityData.Children.Append("sensor-path", types.YChild{"SensorPath", nil})
     for i := range sensorGroup.SensorPath {
+        types.SetYListKey(sensorGroup.SensorPath[i], i)
         sensorGroup.EntityData.Children.Append(types.GetSegmentPath(sensorGroup.SensorPath[i]), types.YChild{"SensorPath", sensorGroup.SensorPath[i]})
     }
     sensorGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -1733,6 +1783,7 @@ func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetEntityData(
 type TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sensor Path. The type is string.
     Path interface{}
@@ -1750,7 +1801,8 @@ func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetE
     sensorPath.EntityData.YangName = "sensor-path"
     sensorPath.EntityData.BundleName = "cisco_ios_xr"
     sensorPath.EntityData.ParentYangName = "sensor-group"
-    sensorPath.EntityData.SegmentPath = "sensor-path"
+    sensorPath.EntityData.SegmentPath = "sensor-path" + types.AddNoKeyToken(sensorPath)
+    sensorPath.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/sensor-groups/sensor-group/" + sensorPath.EntityData.SegmentPath
     sensorPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1855,6 +1907,7 @@ func (summary *TelemetryModelDriven_Summary) GetEntityData() *types.CommonEntity
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "telemetry-model-driven"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

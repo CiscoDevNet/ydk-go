@@ -148,6 +148,7 @@ func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetEntityData() *types.CommonEntityData {
     cISCOSIPUAMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOSIPUAMIB.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cISCOSIPUAMIB.EntityData.SegmentPath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB"
+    cISCOSIPUAMIB.EntityData.AbsolutePath = cISCOSIPUAMIB.EntityData.SegmentPath
     cISCOSIPUAMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOSIPUAMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOSIPUAMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -313,6 +314,7 @@ func (cSipCfgBase *CISCOSIPUAMIB_CSipCfgBase) GetEntityData() *types.CommonEntit
     cSipCfgBase.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgBase.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgBase.EntityData.SegmentPath = "cSipCfgBase"
+    cSipCfgBase.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgBase.EntityData.SegmentPath
     cSipCfgBase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgBase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgBase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -483,6 +485,7 @@ func (cSipCfgTimer *CISCOSIPUAMIB_CSipCfgTimer) GetEntityData() *types.CommonEnt
     cSipCfgTimer.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgTimer.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgTimer.EntityData.SegmentPath = "cSipCfgTimer"
+    cSipCfgTimer.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgTimer.EntityData.SegmentPath
     cSipCfgTimer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgTimer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgTimer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -570,6 +573,7 @@ func (cSipCfgRetry *CISCOSIPUAMIB_CSipCfgRetry) GetEntityData() *types.CommonEnt
     cSipCfgRetry.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgRetry.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgRetry.EntityData.SegmentPath = "cSipCfgRetry"
+    cSipCfgRetry.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgRetry.EntityData.SegmentPath
     cSipCfgRetry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgRetry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgRetry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -636,6 +640,7 @@ func (cSipCfgPeer *CISCOSIPUAMIB_CSipCfgPeer) GetEntityData() *types.CommonEntit
     cSipCfgPeer.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgPeer.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgPeer.EntityData.SegmentPath = "cSipCfgPeer"
+    cSipCfgPeer.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgPeer.EntityData.SegmentPath
     cSipCfgPeer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgPeer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgPeer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -697,6 +702,7 @@ func (cSipCfgAaa *CISCOSIPUAMIB_CSipCfgAaa) GetEntityData() *types.CommonEntityD
     cSipCfgAaa.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgAaa.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgAaa.EntityData.SegmentPath = "cSipCfgAaa"
+    cSipCfgAaa.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgAaa.EntityData.SegmentPath
     cSipCfgAaa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgAaa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgAaa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -754,6 +760,7 @@ func (cSipCfgVoiceServiceVoip *CISCOSIPUAMIB_CSipCfgVoiceServiceVoip) GetEntityD
     cSipCfgVoiceServiceVoip.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgVoiceServiceVoip.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgVoiceServiceVoip.EntityData.SegmentPath = "cSipCfgVoiceServiceVoip"
+    cSipCfgVoiceServiceVoip.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgVoiceServiceVoip.EntityData.SegmentPath
     cSipCfgVoiceServiceVoip.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgVoiceServiceVoip.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgVoiceServiceVoip.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -865,6 +872,7 @@ func (cSipStatsInfo *CISCOSIPUAMIB_CSipStatsInfo) GetEntityData() *types.CommonE
     cSipStatsInfo.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsInfo.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsInfo.EntityData.SegmentPath = "cSipStatsInfo"
+    cSipStatsInfo.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsInfo.EntityData.SegmentPath
     cSipStatsInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -935,6 +943,7 @@ func (cSipStatsSuccess *CISCOSIPUAMIB_CSipStatsSuccess) GetEntityData() *types.C
     cSipStatsSuccess.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsSuccess.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsSuccess.EntityData.SegmentPath = "cSipStatsSuccess"
+    cSipStatsSuccess.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsSuccess.EntityData.SegmentPath
     cSipStatsSuccess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsSuccess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsSuccess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1022,6 +1031,7 @@ func (cSipStatsRedirect *CISCOSIPUAMIB_CSipStatsRedirect) GetEntityData() *types
     cSipStatsRedirect.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsRedirect.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsRedirect.EntityData.SegmentPath = "cSipStatsRedirect"
+    cSipStatsRedirect.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsRedirect.EntityData.SegmentPath
     cSipStatsRedirect.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsRedirect.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsRedirect.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1431,6 +1441,7 @@ func (cSipStatsErrClient *CISCOSIPUAMIB_CSipStatsErrClient) GetEntityData() *typ
     cSipStatsErrClient.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsErrClient.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsErrClient.EntityData.SegmentPath = "cSipStatsErrClient"
+    cSipStatsErrClient.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsErrClient.EntityData.SegmentPath
     cSipStatsErrClient.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsErrClient.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsErrClient.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1605,6 +1616,7 @@ func (cSipStatsErrServer *CISCOSIPUAMIB_CSipStatsErrServer) GetEntityData() *typ
     cSipStatsErrServer.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsErrServer.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsErrServer.EntityData.SegmentPath = "cSipStatsErrServer"
+    cSipStatsErrServer.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsErrServer.EntityData.SegmentPath
     cSipStatsErrServer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsErrServer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsErrServer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1700,6 +1712,7 @@ func (cSipStatsGlobalFail *CISCOSIPUAMIB_CSipStatsGlobalFail) GetEntityData() *t
     cSipStatsGlobalFail.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsGlobalFail.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsGlobalFail.EntityData.SegmentPath = "cSipStatsGlobalFail"
+    cSipStatsGlobalFail.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsGlobalFail.EntityData.SegmentPath
     cSipStatsGlobalFail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsGlobalFail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsGlobalFail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1857,6 +1870,7 @@ func (cSipStatsTraffic *CISCOSIPUAMIB_CSipStatsTraffic) GetEntityData() *types.C
     cSipStatsTraffic.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsTraffic.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsTraffic.EntityData.SegmentPath = "cSipStatsTraffic"
+    cSipStatsTraffic.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsTraffic.EntityData.SegmentPath
     cSipStatsTraffic.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsTraffic.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsTraffic.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1969,6 +1983,7 @@ func (cSipStatsRetry *CISCOSIPUAMIB_CSipStatsRetry) GetEntityData() *types.Commo
     cSipStatsRetry.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsRetry.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsRetry.EntityData.SegmentPath = "cSipStatsRetry"
+    cSipStatsRetry.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsRetry.EntityData.SegmentPath
     cSipStatsRetry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsRetry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsRetry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2010,6 +2025,7 @@ func (cSipStatsMisc *CISCOSIPUAMIB_CSipStatsMisc) GetEntityData() *types.CommonE
     cSipStatsMisc.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsMisc.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsMisc.EntityData.SegmentPath = "cSipStatsMisc"
+    cSipStatsMisc.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsMisc.EntityData.SegmentPath
     cSipStatsMisc.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsMisc.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsMisc.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2073,6 +2089,7 @@ func (cSipStatsConnection *CISCOSIPUAMIB_CSipStatsConnection) GetEntityData() *t
     cSipStatsConnection.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsConnection.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsConnection.EntityData.SegmentPath = "cSipStatsConnection"
+    cSipStatsConnection.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsConnection.EntityData.SegmentPath
     cSipStatsConnection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsConnection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsConnection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2117,6 +2134,7 @@ func (cSipCfgEarlyMediaTable *CISCOSIPUAMIB_CSipCfgEarlyMediaTable) GetEntityDat
     cSipCfgEarlyMediaTable.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgEarlyMediaTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgEarlyMediaTable.EntityData.SegmentPath = "cSipCfgEarlyMediaTable"
+    cSipCfgEarlyMediaTable.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgEarlyMediaTable.EntityData.SegmentPath
     cSipCfgEarlyMediaTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgEarlyMediaTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgEarlyMediaTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2142,6 +2160,7 @@ func (cSipCfgEarlyMediaTable *CISCOSIPUAMIB_CSipCfgEarlyMediaTable) GetEntityDat
 type CISCOSIPUAMIB_CSipCfgEarlyMediaTable_CSipCfgEarlyMediaEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique identifier of a row in this table and a
     // valid SIP status code. The type is interface{} with range: 1..2147483647.
@@ -2165,6 +2184,7 @@ func (cSipCfgEarlyMediaEntry *CISCOSIPUAMIB_CSipCfgEarlyMediaTable_CSipCfgEarlyM
     cSipCfgEarlyMediaEntry.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgEarlyMediaEntry.EntityData.ParentYangName = "cSipCfgEarlyMediaTable"
     cSipCfgEarlyMediaEntry.EntityData.SegmentPath = "cSipCfgEarlyMediaEntry" + types.AddKeyToken(cSipCfgEarlyMediaEntry.CSipCfgEarlyMediaStatusCodeIndex, "cSipCfgEarlyMediaStatusCodeIndex")
+    cSipCfgEarlyMediaEntry.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgEarlyMediaTable/" + cSipCfgEarlyMediaEntry.EntityData.SegmentPath
     cSipCfgEarlyMediaEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgEarlyMediaEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgEarlyMediaEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2204,6 +2224,7 @@ func (cSipCfgBindSourceAddrTable *CISCOSIPUAMIB_CSipCfgBindSourceAddrTable) GetE
     cSipCfgBindSourceAddrTable.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgBindSourceAddrTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgBindSourceAddrTable.EntityData.SegmentPath = "cSipCfgBindSourceAddrTable"
+    cSipCfgBindSourceAddrTable.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgBindSourceAddrTable.EntityData.SegmentPath
     cSipCfgBindSourceAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgBindSourceAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgBindSourceAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2229,6 +2250,7 @@ func (cSipCfgBindSourceAddrTable *CISCOSIPUAMIB_CSipCfgBindSourceAddrTable) GetE
 type CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipCfgBindSourceAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique identifier of a row in this table and
     // specifies the scope of packets to which the source IP address of the
@@ -2250,6 +2272,7 @@ func (cSipCfgBindSourceAddrEntry *CISCOSIPUAMIB_CSipCfgBindSourceAddrTable_CSipC
     cSipCfgBindSourceAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgBindSourceAddrEntry.EntityData.ParentYangName = "cSipCfgBindSourceAddrTable"
     cSipCfgBindSourceAddrEntry.EntityData.SegmentPath = "cSipCfgBindSourceAddrEntry" + types.AddKeyToken(cSipCfgBindSourceAddrEntry.CSipCfgBindSourceAddrScope, "cSipCfgBindSourceAddrScope")
+    cSipCfgBindSourceAddrEntry.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgBindSourceAddrTable/" + cSipCfgBindSourceAddrEntry.EntityData.SegmentPath
     cSipCfgBindSourceAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgBindSourceAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgBindSourceAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2302,6 +2325,7 @@ func (cSipCfgPeerTable *CISCOSIPUAMIB_CSipCfgPeerTable) GetEntityData() *types.C
     cSipCfgPeerTable.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgPeerTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgPeerTable.EntityData.SegmentPath = "cSipCfgPeerTable"
+    cSipCfgPeerTable.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgPeerTable.EntityData.SegmentPath
     cSipCfgPeerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgPeerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgPeerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2323,6 +2347,7 @@ func (cSipCfgPeerTable *CISCOSIPUAMIB_CSipCfgPeerTable) GetEntityData() *types.C
 type CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary index that uniquely identifies a 
     // dial-peer configured for SIP. The type is interface{} with range:
@@ -2376,6 +2401,7 @@ func (cSipCfgPeerEntry *CISCOSIPUAMIB_CSipCfgPeerTable_CSipCfgPeerEntry) GetEnti
     cSipCfgPeerEntry.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgPeerEntry.EntityData.ParentYangName = "cSipCfgPeerTable"
     cSipCfgPeerEntry.EntityData.SegmentPath = "cSipCfgPeerEntry" + types.AddKeyToken(cSipCfgPeerEntry.CSipCfgPeerIndex, "cSipCfgPeerIndex")
+    cSipCfgPeerEntry.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgPeerTable/" + cSipCfgPeerEntry.EntityData.SegmentPath
     cSipCfgPeerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgPeerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgPeerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2452,6 +2478,7 @@ func (cSipCfgStatusCauseTable *CISCOSIPUAMIB_CSipCfgStatusCauseTable) GetEntityD
     cSipCfgStatusCauseTable.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgStatusCauseTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgStatusCauseTable.EntityData.SegmentPath = "cSipCfgStatusCauseTable"
+    cSipCfgStatusCauseTable.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgStatusCauseTable.EntityData.SegmentPath
     cSipCfgStatusCauseTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgStatusCauseTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgStatusCauseTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2474,6 +2501,7 @@ func (cSipCfgStatusCauseTable *CISCOSIPUAMIB_CSipCfgStatusCauseTable) GetEntityD
 type CISCOSIPUAMIB_CSipCfgStatusCauseTable_CSipCfgStatusCauseEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique identifier of a row in this table and a
     // valid SIP status code. The type is interface{} with range: 1..2147483647.
@@ -2498,6 +2526,7 @@ func (cSipCfgStatusCauseEntry *CISCOSIPUAMIB_CSipCfgStatusCauseTable_CSipCfgStat
     cSipCfgStatusCauseEntry.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgStatusCauseEntry.EntityData.ParentYangName = "cSipCfgStatusCauseTable"
     cSipCfgStatusCauseEntry.EntityData.SegmentPath = "cSipCfgStatusCauseEntry" + types.AddKeyToken(cSipCfgStatusCauseEntry.CSipCfgStatusCodeIndex, "cSipCfgStatusCodeIndex")
+    cSipCfgStatusCauseEntry.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgStatusCauseTable/" + cSipCfgStatusCauseEntry.EntityData.SegmentPath
     cSipCfgStatusCauseEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgStatusCauseEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgStatusCauseEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2536,6 +2565,7 @@ func (cSipCfgCauseStatusTable *CISCOSIPUAMIB_CSipCfgCauseStatusTable) GetEntityD
     cSipCfgCauseStatusTable.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgCauseStatusTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipCfgCauseStatusTable.EntityData.SegmentPath = "cSipCfgCauseStatusTable"
+    cSipCfgCauseStatusTable.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipCfgCauseStatusTable.EntityData.SegmentPath
     cSipCfgCauseStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgCauseStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgCauseStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2558,6 +2588,7 @@ func (cSipCfgCauseStatusTable *CISCOSIPUAMIB_CSipCfgCauseStatusTable) GetEntityD
 type CISCOSIPUAMIB_CSipCfgCauseStatusTable_CSipCfgCauseStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique identifier of a row in this table and a
     // valid PSTN cause code. The type is interface{} with range: 1..2147483647.
@@ -2582,6 +2613,7 @@ func (cSipCfgCauseStatusEntry *CISCOSIPUAMIB_CSipCfgCauseStatusTable_CSipCfgCaus
     cSipCfgCauseStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     cSipCfgCauseStatusEntry.EntityData.ParentYangName = "cSipCfgCauseStatusTable"
     cSipCfgCauseStatusEntry.EntityData.SegmentPath = "cSipCfgCauseStatusEntry" + types.AddKeyToken(cSipCfgCauseStatusEntry.CSipCfgPstnCauseIndex, "cSipCfgPstnCauseIndex")
+    cSipCfgCauseStatusEntry.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgCauseStatusTable/" + cSipCfgCauseStatusEntry.EntityData.SegmentPath
     cSipCfgCauseStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipCfgCauseStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipCfgCauseStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2618,6 +2650,7 @@ func (cSipStatsSuccessOkTable *CISCOSIPUAMIB_CSipStatsSuccessOkTable) GetEntityD
     cSipStatsSuccessOkTable.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsSuccessOkTable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
     cSipStatsSuccessOkTable.EntityData.SegmentPath = "cSipStatsSuccessOkTable"
+    cSipStatsSuccessOkTable.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/" + cSipStatsSuccessOkTable.EntityData.SegmentPath
     cSipStatsSuccessOkTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsSuccessOkTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsSuccessOkTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2641,6 +2674,7 @@ func (cSipStatsSuccessOkTable *CISCOSIPUAMIB_CSipStatsSuccessOkTable) GetEntityD
 type CISCOSIPUAMIB_CSipStatsSuccessOkTable_CSipStatsSuccessOkEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object is used for instance identification of
     // objects in this table.  The value reflects a SIP method. The type is string
@@ -2666,6 +2700,7 @@ func (cSipStatsSuccessOkEntry *CISCOSIPUAMIB_CSipStatsSuccessOkTable_CSipStatsSu
     cSipStatsSuccessOkEntry.EntityData.BundleName = "cisco_ios_xe"
     cSipStatsSuccessOkEntry.EntityData.ParentYangName = "cSipStatsSuccessOkTable"
     cSipStatsSuccessOkEntry.EntityData.SegmentPath = "cSipStatsSuccessOkEntry" + types.AddKeyToken(cSipStatsSuccessOkEntry.CSipStatsSuccessOkMethod, "cSipStatsSuccessOkMethod")
+    cSipStatsSuccessOkEntry.EntityData.AbsolutePath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipStatsSuccessOkTable/" + cSipStatsSuccessOkEntry.EntityData.SegmentPath
     cSipStatsSuccessOkEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cSipStatsSuccessOkEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cSipStatsSuccessOkEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

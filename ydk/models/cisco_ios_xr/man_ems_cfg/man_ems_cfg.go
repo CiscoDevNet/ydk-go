@@ -163,6 +163,7 @@ func (grpc *Grpc) GetEntityData() *types.CommonEntityData {
     grpc.EntityData.BundleName = "cisco_ios_xr"
     grpc.EntityData.ParentYangName = "Cisco-IOS-XR-man-ems-cfg"
     grpc.EntityData.SegmentPath = "Cisco-IOS-XR-man-ems-cfg:grpc"
+    grpc.EntityData.AbsolutePath = grpc.EntityData.SegmentPath
     grpc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     grpc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     grpc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -205,6 +206,7 @@ func (serviceLayer *Grpc_ServiceLayer) GetEntityData() *types.CommonEntityData {
     serviceLayer.EntityData.BundleName = "cisco_ios_xr"
     serviceLayer.EntityData.ParentYangName = "grpc"
     serviceLayer.EntityData.SegmentPath = "service-layer"
+    serviceLayer.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ems-cfg:grpc/" + serviceLayer.EntityData.SegmentPath
     serviceLayer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceLayer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceLayer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -240,6 +242,7 @@ func (tlsCipher *Grpc_TlsCipher) GetEntityData() *types.CommonEntityData {
     tlsCipher.EntityData.BundleName = "cisco_ios_xr"
     tlsCipher.EntityData.ParentYangName = "grpc"
     tlsCipher.EntityData.SegmentPath = "tls-cipher"
+    tlsCipher.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ems-cfg:grpc/" + tlsCipher.EntityData.SegmentPath
     tlsCipher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlsCipher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlsCipher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

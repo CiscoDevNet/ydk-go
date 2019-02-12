@@ -32,6 +32,7 @@ func (wdmon *Wdmon) GetEntityData() *types.CommonEntityData {
     wdmon.EntityData.BundleName = "cisco_ios_xr"
     wdmon.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-wdmon"
     wdmon.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-wdmon:wdmon"
+    wdmon.EntityData.AbsolutePath = wdmon.EntityData.SegmentPath
     wdmon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wdmon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wdmon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53,6 +54,7 @@ func (wdmon *Wdmon) GetEntityData() *types.CommonEntityData {
 type Wdmon_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -67,6 +69,7 @@ func (trace *Wdmon_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "wdmon"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-wdmon:wdmon/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -88,6 +91,7 @@ func (trace *Wdmon_Trace) GetEntityData() *types.CommonEntityData {
 type Wdmon_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -102,6 +106,7 @@ func (location *Wdmon_Trace_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-wdmon:wdmon/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -123,6 +128,7 @@ func (location *Wdmon_Trace_Location) GetEntityData() *types.CommonEntityData {
 type Wdmon_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -137,6 +143,7 @@ func (allOptions *Wdmon_Trace_Location_AllOptions) GetEntityData() *types.Common
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-wdmon:wdmon/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -144,6 +151,7 @@ func (allOptions *Wdmon_Trace_Location_AllOptions) GetEntityData() *types.Common
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -158,6 +166,7 @@ func (allOptions *Wdmon_Trace_Location_AllOptions) GetEntityData() *types.Common
 type Wdmon_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -168,7 +177,8 @@ func (traceBlocks *Wdmon_Trace_Location_AllOptions_TraceBlocks) GetEntityData() 
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-wdmon:wdmon/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -197,6 +207,7 @@ func (wdmonInfo *WdmonInfo) GetEntityData() *types.CommonEntityData {
     wdmonInfo.EntityData.BundleName = "cisco_ios_xr"
     wdmonInfo.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-wdmon"
     wdmonInfo.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-wdmon:wdmon-info"
+    wdmonInfo.EntityData.AbsolutePath = wdmonInfo.EntityData.SegmentPath
     wdmonInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wdmonInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wdmonInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -217,6 +228,7 @@ func (wdmonInfo *WdmonInfo) GetEntityData() *types.CommonEntityData {
 type WdmonInfo_AllLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -305,6 +317,7 @@ func (allLocations *WdmonInfo_AllLocations) GetEntityData() *types.CommonEntityD
     allLocations.EntityData.BundleName = "cisco_ios_xr"
     allLocations.EntityData.ParentYangName = "wdmon-info"
     allLocations.EntityData.SegmentPath = "all-locations" + types.AddKeyToken(allLocations.Location, "location")
+    allLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-wdmon:wdmon-info/" + allLocations.EntityData.SegmentPath
     allLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

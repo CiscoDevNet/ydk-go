@@ -40,6 +40,7 @@ func (pfilterMa *PfilterMa) GetEntityData() *types.CommonEntityData {
     pfilterMa.EntityData.BundleName = "cisco_ios_xr"
     pfilterMa.EntityData.ParentYangName = "Cisco-IOS-XR-ip-pfilter-oper"
     pfilterMa.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma"
+    pfilterMa.EntityData.AbsolutePath = pfilterMa.EntityData.SegmentPath
     pfilterMa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pfilterMa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pfilterMa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *PfilterMa_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "pfilter-ma"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +94,7 @@ func (nodes *PfilterMa_Nodes) GetEntityData() *types.CommonEntityData {
 type PfilterMa_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -107,6 +110,7 @@ func (node *PfilterMa_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -140,6 +144,7 @@ func (process *PfilterMa_Nodes_Node_Process) GetEntityData() *types.CommonEntity
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "node"
     process.EntityData.SegmentPath = "process"
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/node/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -170,6 +175,7 @@ func (ipv6 *PfilterMa_Nodes_Node_Process_Ipv6) GetEntityData() *types.CommonEnti
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "process"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/node/process/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -199,6 +205,7 @@ func (aclInfoTable *PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable) GetEntityDat
     aclInfoTable.EntityData.BundleName = "cisco_ios_xr"
     aclInfoTable.EntityData.ParentYangName = "ipv6"
     aclInfoTable.EntityData.SegmentPath = "acl-info-table"
+    aclInfoTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/node/process/ipv6/" + aclInfoTable.EntityData.SegmentPath
     aclInfoTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aclInfoTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aclInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -229,6 +236,7 @@ func (interfaceInfos *PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceIn
     interfaceInfos.EntityData.BundleName = "cisco_ios_xr"
     interfaceInfos.EntityData.ParentYangName = "acl-info-table"
     interfaceInfos.EntityData.SegmentPath = "interface-infos"
+    interfaceInfos.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/node/process/ipv6/acl-info-table/" + interfaceInfos.EntityData.SegmentPath
     interfaceInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +258,7 @@ func (interfaceInfos *PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceIn
 type PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceInfos_InterfaceInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -265,6 +274,7 @@ func (interfaceInfo *PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceInf
     interfaceInfo.EntityData.BundleName = "cisco_ios_xr"
     interfaceInfo.EntityData.ParentYangName = "interface-infos"
     interfaceInfo.EntityData.SegmentPath = "interface-info" + types.AddKeyToken(interfaceInfo.InterfaceName, "interface-name")
+    interfaceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/node/process/ipv6/acl-info-table/interface-infos/" + interfaceInfo.EntityData.SegmentPath
     interfaceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -295,6 +305,7 @@ func (ipv4 *PfilterMa_Nodes_Node_Process_Ipv4) GetEntityData() *types.CommonEnti
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "process"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/node/process/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -324,6 +335,7 @@ func (aclInfoTable *PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable) GetEntityDat
     aclInfoTable.EntityData.BundleName = "cisco_ios_xr"
     aclInfoTable.EntityData.ParentYangName = "ipv4"
     aclInfoTable.EntityData.SegmentPath = "acl-info-table"
+    aclInfoTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/node/process/ipv4/" + aclInfoTable.EntityData.SegmentPath
     aclInfoTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aclInfoTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aclInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -354,6 +366,7 @@ func (interfaceInfos *PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceIn
     interfaceInfos.EntityData.BundleName = "cisco_ios_xr"
     interfaceInfos.EntityData.ParentYangName = "acl-info-table"
     interfaceInfos.EntityData.SegmentPath = "interface-infos"
+    interfaceInfos.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/node/process/ipv4/acl-info-table/" + interfaceInfos.EntityData.SegmentPath
     interfaceInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -375,6 +388,7 @@ func (interfaceInfos *PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceIn
 type PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceInfos_InterfaceInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -390,6 +404,7 @@ func (interfaceInfo *PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceInf
     interfaceInfo.EntityData.BundleName = "cisco_ios_xr"
     interfaceInfo.EntityData.ParentYangName = "interface-infos"
     interfaceInfo.EntityData.SegmentPath = "interface-info" + types.AddKeyToken(interfaceInfo.InterfaceName, "interface-name")
+    interfaceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/node/process/ipv4/acl-info-table/interface-infos/" + interfaceInfo.EntityData.SegmentPath
     interfaceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

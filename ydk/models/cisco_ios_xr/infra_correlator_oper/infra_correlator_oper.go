@@ -107,6 +107,7 @@ func (suppression *Suppression) GetEntityData() *types.CommonEntityData {
     suppression.EntityData.BundleName = "cisco_ios_xr"
     suppression.EntityData.ParentYangName = "Cisco-IOS-XR-infra-correlator-oper"
     suppression.EntityData.SegmentPath = "Cisco-IOS-XR-infra-correlator-oper:suppression"
+    suppression.EntityData.AbsolutePath = suppression.EntityData.SegmentPath
     suppression.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppression.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppression.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -139,6 +140,7 @@ func (ruleSummaries *Suppression_RuleSummaries) GetEntityData() *types.CommonEnt
     ruleSummaries.EntityData.BundleName = "cisco_ios_xr"
     ruleSummaries.EntityData.ParentYangName = "suppression"
     ruleSummaries.EntityData.SegmentPath = "rule-summaries"
+    ruleSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:suppression/" + ruleSummaries.EntityData.SegmentPath
     ruleSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -160,6 +162,7 @@ func (ruleSummaries *Suppression_RuleSummaries) GetEntityData() *types.CommonEnt
 type Suppression_RuleSummaries_RuleSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Suppression Rule Name. The type is string with
     // length: 1..32.
@@ -183,6 +186,7 @@ func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetEntityData() *types
     ruleSummary.EntityData.BundleName = "cisco_ios_xr"
     ruleSummary.EntityData.ParentYangName = "rule-summaries"
     ruleSummary.EntityData.SegmentPath = "rule-summary" + types.AddKeyToken(ruleSummary.RuleName, "rule-name")
+    ruleSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:suppression/rule-summaries/" + ruleSummary.EntityData.SegmentPath
     ruleSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -217,6 +221,7 @@ func (ruleDetails *Suppression_RuleDetails) GetEntityData() *types.CommonEntityD
     ruleDetails.EntityData.BundleName = "cisco_ios_xr"
     ruleDetails.EntityData.ParentYangName = "suppression"
     ruleDetails.EntityData.SegmentPath = "rule-details"
+    ruleDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:suppression/" + ruleDetails.EntityData.SegmentPath
     ruleDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -238,6 +243,7 @@ func (ruleDetails *Suppression_RuleDetails) GetEntityData() *types.CommonEntityD
 type Suppression_RuleDetails_RuleDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Suppression Rule Name. The type is string with
     // length: 1..32.
@@ -267,6 +273,7 @@ func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetEntityData() *types.Com
     ruleDetail.EntityData.BundleName = "cisco_ios_xr"
     ruleDetail.EntityData.ParentYangName = "rule-details"
     ruleDetail.EntityData.SegmentPath = "rule-detail" + types.AddKeyToken(ruleDetail.RuleName, "rule-name")
+    ruleDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:suppression/rule-details/" + ruleDetail.EntityData.SegmentPath
     ruleDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -275,6 +282,7 @@ func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetEntityData() *types.Com
     ruleDetail.EntityData.Children.Append("rule-summary", types.YChild{"RuleSummary", &ruleDetail.RuleSummary})
     ruleDetail.EntityData.Children.Append("codes", types.YChild{"Codes", nil})
     for i := range ruleDetail.Codes {
+        types.SetYListKey(ruleDetail.Codes[i], i)
         ruleDetail.EntityData.Children.Append(types.GetSegmentPath(ruleDetail.Codes[i]), types.YChild{"Codes", ruleDetail.Codes[i]})
     }
     ruleDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -312,6 +320,7 @@ func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetEntityData
     ruleSummary.EntityData.BundleName = "cisco_ios_xr"
     ruleSummary.EntityData.ParentYangName = "rule-detail"
     ruleSummary.EntityData.SegmentPath = "rule-summary"
+    ruleSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:suppression/rule-details/rule-detail/" + ruleSummary.EntityData.SegmentPath
     ruleSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -332,6 +341,7 @@ func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetEntityData
 type Suppression_RuleDetails_RuleDetail_Codes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Category of messages to which this alarm belongs. The type is string.
     Category interface{}
@@ -349,7 +359,8 @@ func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetEntityData() *types.Co
     codes.EntityData.YangName = "codes"
     codes.EntityData.BundleName = "cisco_ios_xr"
     codes.EntityData.ParentYangName = "rule-detail"
-    codes.EntityData.SegmentPath = "codes"
+    codes.EntityData.SegmentPath = "codes" + types.AddNoKeyToken(codes)
+    codes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:suppression/rule-details/rule-detail/" + codes.EntityData.SegmentPath
     codes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     codes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     codes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -399,6 +410,7 @@ func (correlator *Correlator) GetEntityData() *types.CommonEntityData {
     correlator.EntityData.BundleName = "cisco_ios_xr"
     correlator.EntityData.ParentYangName = "Cisco-IOS-XR-infra-correlator-oper"
     correlator.EntityData.SegmentPath = "Cisco-IOS-XR-infra-correlator-oper:correlator"
+    correlator.EntityData.AbsolutePath = correlator.EntityData.SegmentPath
     correlator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     correlator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     correlator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -435,6 +447,7 @@ func (rules *Correlator_Rules) GetEntityData() *types.CommonEntityData {
     rules.EntityData.BundleName = "cisco_ios_xr"
     rules.EntityData.ParentYangName = "correlator"
     rules.EntityData.SegmentPath = "rules"
+    rules.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/" + rules.EntityData.SegmentPath
     rules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -456,6 +469,7 @@ func (rules *Correlator_Rules) GetEntityData() *types.CommonEntityData {
 type Correlator_Rules_Rule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Correlation Rule Name. The type is string with
     // length: 1..32.
@@ -492,6 +506,7 @@ func (rule *Correlator_Rules_Rule) GetEntityData() *types.CommonEntityData {
     rule.EntityData.BundleName = "cisco_ios_xr"
     rule.EntityData.ParentYangName = "rules"
     rule.EntityData.SegmentPath = "rule" + types.AddKeyToken(rule.RuleName, "rule-name")
+    rule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/rules/" + rule.EntityData.SegmentPath
     rule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -499,6 +514,7 @@ func (rule *Correlator_Rules_Rule) GetEntityData() *types.CommonEntityData {
     rule.EntityData.Children = types.NewOrderedMap()
     rule.EntityData.Children.Append("codes", types.YChild{"Codes", nil})
     for i := range rule.Codes {
+        types.SetYListKey(rule.Codes[i], i)
         rule.EntityData.Children.Append(types.GetSegmentPath(rule.Codes[i]), types.YChild{"Codes", rule.Codes[i]})
     }
     rule.EntityData.Leafs = types.NewOrderedMap()
@@ -519,6 +535,7 @@ func (rule *Correlator_Rules_Rule) GetEntityData() *types.CommonEntityData {
 type Correlator_Rules_Rule_Codes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Category of messages to which this alarm belongs. The type is string.
     Category interface{}
@@ -536,7 +553,8 @@ func (codes *Correlator_Rules_Rule_Codes) GetEntityData() *types.CommonEntityDat
     codes.EntityData.YangName = "codes"
     codes.EntityData.BundleName = "cisco_ios_xr"
     codes.EntityData.ParentYangName = "rule"
-    codes.EntityData.SegmentPath = "codes"
+    codes.EntityData.SegmentPath = "codes" + types.AddNoKeyToken(codes)
+    codes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/rules/rule/" + codes.EntityData.SegmentPath
     codes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     codes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     codes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -572,6 +590,7 @@ func (bufferStatus *Correlator_BufferStatus) GetEntityData() *types.CommonEntity
     bufferStatus.EntityData.BundleName = "cisco_ios_xr"
     bufferStatus.EntityData.ParentYangName = "correlator"
     bufferStatus.EntityData.SegmentPath = "buffer-status"
+    bufferStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/" + bufferStatus.EntityData.SegmentPath
     bufferStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bufferStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bufferStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -602,6 +621,7 @@ func (alarms *Correlator_Alarms) GetEntityData() *types.CommonEntityData {
     alarms.EntityData.BundleName = "cisco_ios_xr"
     alarms.EntityData.ParentYangName = "correlator"
     alarms.EntityData.SegmentPath = "alarms"
+    alarms.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/" + alarms.EntityData.SegmentPath
     alarms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -623,6 +643,7 @@ func (alarms *Correlator_Alarms) GetEntityData() *types.CommonEntityData {
 type Correlator_Alarms_Alarm struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Alarm ID. The type is interface{} with range:
     // 0..4294967295.
@@ -644,6 +665,7 @@ func (alarm *Correlator_Alarms_Alarm) GetEntityData() *types.CommonEntityData {
     alarm.EntityData.BundleName = "cisco_ios_xr"
     alarm.EntityData.ParentYangName = "alarms"
     alarm.EntityData.SegmentPath = "alarm" + types.AddKeyToken(alarm.AlarmId, "alarm-id")
+    alarm.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/alarms/" + alarm.EntityData.SegmentPath
     alarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -707,6 +729,7 @@ func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetEntityData() *types.Commo
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "alarm"
     alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/alarms/alarm/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -746,6 +769,7 @@ func (ruleSetSummaries *Correlator_RuleSetSummaries) GetEntityData() *types.Comm
     ruleSetSummaries.EntityData.BundleName = "cisco_ios_xr"
     ruleSetSummaries.EntityData.ParentYangName = "correlator"
     ruleSetSummaries.EntityData.SegmentPath = "rule-set-summaries"
+    ruleSetSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/" + ruleSetSummaries.EntityData.SegmentPath
     ruleSetSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSetSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSetSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -767,6 +791,7 @@ func (ruleSetSummaries *Correlator_RuleSetSummaries) GetEntityData() *types.Comm
 type Correlator_RuleSetSummaries_RuleSetSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ruleset Name. The type is string with length:
     // 1..32.
@@ -782,6 +807,7 @@ func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetEntityData(
     ruleSetSummary.EntityData.BundleName = "cisco_ios_xr"
     ruleSetSummary.EntityData.ParentYangName = "rule-set-summaries"
     ruleSetSummary.EntityData.SegmentPath = "rule-set-summary" + types.AddKeyToken(ruleSetSummary.RuleSetName, "rule-set-name")
+    ruleSetSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-set-summaries/" + ruleSetSummary.EntityData.SegmentPath
     ruleSetSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSetSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSetSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -813,6 +839,7 @@ func (ruleSetDetails *Correlator_RuleSetDetails) GetEntityData() *types.CommonEn
     ruleSetDetails.EntityData.BundleName = "cisco_ios_xr"
     ruleSetDetails.EntityData.ParentYangName = "correlator"
     ruleSetDetails.EntityData.SegmentPath = "rule-set-details"
+    ruleSetDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/" + ruleSetDetails.EntityData.SegmentPath
     ruleSetDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSetDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSetDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -834,6 +861,7 @@ func (ruleSetDetails *Correlator_RuleSetDetails) GetEntityData() *types.CommonEn
 type Correlator_RuleSetDetails_RuleSetDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ruleset Name. The type is string with length:
     // 1..32.
@@ -853,6 +881,7 @@ func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetEntityData() *t
     ruleSetDetail.EntityData.BundleName = "cisco_ios_xr"
     ruleSetDetail.EntityData.ParentYangName = "rule-set-details"
     ruleSetDetail.EntityData.SegmentPath = "rule-set-detail" + types.AddKeyToken(ruleSetDetail.RuleSetName, "rule-set-name")
+    ruleSetDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-set-details/" + ruleSetDetail.EntityData.SegmentPath
     ruleSetDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSetDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSetDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -860,6 +889,7 @@ func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetEntityData() *t
     ruleSetDetail.EntityData.Children = types.NewOrderedMap()
     ruleSetDetail.EntityData.Children.Append("rules", types.YChild{"Rules", nil})
     for i := range ruleSetDetail.Rules {
+        types.SetYListKey(ruleSetDetail.Rules[i], i)
         ruleSetDetail.EntityData.Children.Append(types.GetSegmentPath(ruleSetDetail.Rules[i]), types.YChild{"Rules", ruleSetDetail.Rules[i]})
     }
     ruleSetDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -876,6 +906,7 @@ func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetEntityData() *t
 type Correlator_RuleSetDetails_RuleSetDetail_Rules struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Correlation Rule Name. The type is string.
     RuleNameXr interface{}
@@ -897,7 +928,8 @@ func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetEntityData() *typ
     rules.EntityData.YangName = "rules"
     rules.EntityData.BundleName = "cisco_ios_xr"
     rules.EntityData.ParentYangName = "rule-set-detail"
-    rules.EntityData.SegmentPath = "rules"
+    rules.EntityData.SegmentPath = "rules" + types.AddNoKeyToken(rules)
+    rules.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-set-details/rule-set-detail/" + rules.EntityData.SegmentPath
     rules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -932,6 +964,7 @@ func (ruleDetails *Correlator_RuleDetails) GetEntityData() *types.CommonEntityDa
     ruleDetails.EntityData.BundleName = "cisco_ios_xr"
     ruleDetails.EntityData.ParentYangName = "correlator"
     ruleDetails.EntityData.SegmentPath = "rule-details"
+    ruleDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/" + ruleDetails.EntityData.SegmentPath
     ruleDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -953,6 +986,7 @@ func (ruleDetails *Correlator_RuleDetails) GetEntityData() *types.CommonEntityDa
 type Correlator_RuleDetails_RuleDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Correlation Rule Name. The type is string with
     // length: 1..32.
@@ -1001,6 +1035,7 @@ func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetEntityData() *types.Comm
     ruleDetail.EntityData.BundleName = "cisco_ios_xr"
     ruleDetail.EntityData.ParentYangName = "rule-details"
     ruleDetail.EntityData.SegmentPath = "rule-detail" + types.AddKeyToken(ruleDetail.RuleName, "rule-name")
+    ruleDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-details/" + ruleDetail.EntityData.SegmentPath
     ruleDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1009,6 +1044,7 @@ func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetEntityData() *types.Comm
     ruleDetail.EntityData.Children.Append("rule-summary", types.YChild{"RuleSummary", &ruleDetail.RuleSummary})
     ruleDetail.EntityData.Children.Append("codes", types.YChild{"Codes", nil})
     for i := range ruleDetail.Codes {
+        types.SetYListKey(ruleDetail.Codes[i], i)
         ruleDetail.EntityData.Children.Append(types.GetSegmentPath(ruleDetail.Codes[i]), types.YChild{"Codes", ruleDetail.Codes[i]})
     }
     ruleDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -1054,6 +1090,7 @@ func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetEntityData(
     ruleSummary.EntityData.BundleName = "cisco_ios_xr"
     ruleSummary.EntityData.ParentYangName = "rule-detail"
     ruleSummary.EntityData.SegmentPath = "rule-summary"
+    ruleSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-details/rule-detail/" + ruleSummary.EntityData.SegmentPath
     ruleSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1075,6 +1112,7 @@ func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetEntityData(
 type Correlator_RuleDetails_RuleDetail_Codes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Category of messages to which this alarm belongs. The type is string.
     Category interface{}
@@ -1092,7 +1130,8 @@ func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetEntityData() *types.Com
     codes.EntityData.YangName = "codes"
     codes.EntityData.BundleName = "cisco_ios_xr"
     codes.EntityData.ParentYangName = "rule-detail"
-    codes.EntityData.SegmentPath = "codes"
+    codes.EntityData.SegmentPath = "codes" + types.AddNoKeyToken(codes)
+    codes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-details/rule-detail/" + codes.EntityData.SegmentPath
     codes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     codes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     codes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1126,6 +1165,7 @@ func (ruleSummaries *Correlator_RuleSummaries) GetEntityData() *types.CommonEnti
     ruleSummaries.EntityData.BundleName = "cisco_ios_xr"
     ruleSummaries.EntityData.ParentYangName = "correlator"
     ruleSummaries.EntityData.SegmentPath = "rule-summaries"
+    ruleSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/" + ruleSummaries.EntityData.SegmentPath
     ruleSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1147,6 +1187,7 @@ func (ruleSummaries *Correlator_RuleSummaries) GetEntityData() *types.CommonEnti
 type Correlator_RuleSummaries_RuleSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Correlation Rule Name. The type is string with
     // length: 1..32.
@@ -1173,6 +1214,7 @@ func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetEntityData() *types.
     ruleSummary.EntityData.BundleName = "cisco_ios_xr"
     ruleSummary.EntityData.ParentYangName = "rule-summaries"
     ruleSummary.EntityData.SegmentPath = "rule-summary" + types.AddKeyToken(ruleSummary.RuleName, "rule-name")
+    ruleSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-summaries/" + ruleSummary.EntityData.SegmentPath
     ruleSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

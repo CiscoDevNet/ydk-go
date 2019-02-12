@@ -103,6 +103,7 @@ func (dOCSL2VPNMIB *DOCSL2VPNMIB) GetEntityData() *types.CommonEntityData {
     dOCSL2VPNMIB.EntityData.BundleName = "cisco_ios_xe"
     dOCSL2VPNMIB.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     dOCSL2VPNMIB.EntityData.SegmentPath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB"
+    dOCSL2VPNMIB.EntityData.AbsolutePath = dOCSL2VPNMIB.EntityData.SegmentPath
     dOCSL2VPNMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dOCSL2VPNMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dOCSL2VPNMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -151,6 +152,7 @@ func (docsL2vpnIdToIndexTable *DOCSL2VPNMIB_DocsL2vpnIdToIndexTable) GetEntityDa
     docsL2vpnIdToIndexTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnIdToIndexTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnIdToIndexTable.EntityData.SegmentPath = "docsL2vpnIdToIndexTable"
+    docsL2vpnIdToIndexTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnIdToIndexTable.EntityData.SegmentPath
     docsL2vpnIdToIndexTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnIdToIndexTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnIdToIndexTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -173,6 +175,7 @@ func (docsL2vpnIdToIndexTable *DOCSL2VPNMIB_DocsL2vpnIdToIndexTable) GetEntityDa
 type DOCSL2VPNMIB_DocsL2vpnIdToIndexTable_DocsL2vpnIdToIndexEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An externally configured octet string that
     // identifies an  L2VPN. The type is string.
@@ -189,6 +192,7 @@ func (docsL2vpnIdToIndexEntry *DOCSL2VPNMIB_DocsL2vpnIdToIndexTable_DocsL2vpnIdT
     docsL2vpnIdToIndexEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnIdToIndexEntry.EntityData.ParentYangName = "docsL2vpnIdToIndexTable"
     docsL2vpnIdToIndexEntry.EntityData.SegmentPath = "docsL2vpnIdToIndexEntry" + types.AddKeyToken(docsL2vpnIdToIndexEntry.DocsL2vpnId, "docsL2vpnId")
+    docsL2vpnIdToIndexEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnIdToIndexTable/" + docsL2vpnIdToIndexEntry.EntityData.SegmentPath
     docsL2vpnIdToIndexEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnIdToIndexEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnIdToIndexEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -225,6 +229,7 @@ func (docsL2vpnIndexToIdTable *DOCSL2VPNMIB_DocsL2vpnIndexToIdTable) GetEntityDa
     docsL2vpnIndexToIdTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnIndexToIdTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnIndexToIdTable.EntityData.SegmentPath = "docsL2vpnIndexToIdTable"
+    docsL2vpnIndexToIdTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnIndexToIdTable.EntityData.SegmentPath
     docsL2vpnIndexToIdTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnIndexToIdTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnIndexToIdTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -247,6 +252,7 @@ func (docsL2vpnIndexToIdTable *DOCSL2VPNMIB_DocsL2vpnIndexToIdTable) GetEntityDa
 type DOCSL2VPNMIB_DocsL2vpnIndexToIdTable_DocsL2vpnIndexToIdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An internally assigned index value for a known
     // L2VPN. The type is interface{} with range: 0..4294967295.
@@ -263,6 +269,7 @@ func (docsL2vpnIndexToIdEntry *DOCSL2VPNMIB_DocsL2vpnIndexToIdTable_DocsL2vpnInd
     docsL2vpnIndexToIdEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnIndexToIdEntry.EntityData.ParentYangName = "docsL2vpnIndexToIdTable"
     docsL2vpnIndexToIdEntry.EntityData.SegmentPath = "docsL2vpnIndexToIdEntry" + types.AddKeyToken(docsL2vpnIndexToIdEntry.DocsL2vpnIdx, "docsL2vpnIdx")
+    docsL2vpnIndexToIdEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnIndexToIdTable/" + docsL2vpnIndexToIdEntry.EntityData.SegmentPath
     docsL2vpnIndexToIdEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnIndexToIdEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnIndexToIdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -299,6 +306,7 @@ func (docsL2vpnCmTable *DOCSL2VPNMIB_DocsL2vpnCmTable) GetEntityData() *types.Co
     docsL2vpnCmTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnCmTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnCmTable.EntityData.SegmentPath = "docsL2vpnCmTable"
+    docsL2vpnCmTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnCmTable.EntityData.SegmentPath
     docsL2vpnCmTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnCmTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnCmTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -326,6 +334,7 @@ func (docsL2vpnCmTable *DOCSL2VPNMIB_DocsL2vpnCmTable) GetEntityData() *types.Co
 type DOCSL2VPNMIB_DocsL2vpnCmTable_DocsL2vpnCmEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -376,6 +385,7 @@ func (docsL2vpnCmEntry *DOCSL2VPNMIB_DocsL2vpnCmTable_DocsL2vpnCmEntry) GetEntit
     docsL2vpnCmEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnCmEntry.EntityData.ParentYangName = "docsL2vpnCmTable"
     docsL2vpnCmEntry.EntityData.SegmentPath = "docsL2vpnCmEntry" + types.AddKeyToken(docsL2vpnCmEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex")
+    docsL2vpnCmEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnCmTable/" + docsL2vpnCmEntry.EntityData.SegmentPath
     docsL2vpnCmEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnCmEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnCmEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -412,6 +422,7 @@ func (docsL2vpnVpnCmTable *DOCSL2VPNMIB_DocsL2vpnVpnCmTable) GetEntityData() *ty
     docsL2vpnVpnCmTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnVpnCmTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnVpnCmTable.EntityData.SegmentPath = "docsL2vpnVpnCmTable"
+    docsL2vpnVpnCmTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnVpnCmTable.EntityData.SegmentPath
     docsL2vpnVpnCmTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnVpnCmTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnVpnCmTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -435,6 +446,7 @@ func (docsL2vpnVpnCmTable *DOCSL2VPNMIB_DocsL2vpnVpnCmTable) GetEntityData() *ty
 type DOCSL2VPNMIB_DocsL2vpnVpnCmTable_DocsL2vpnVpnCmEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -474,6 +486,7 @@ func (docsL2vpnVpnCmEntry *DOCSL2VPNMIB_DocsL2vpnVpnCmTable_DocsL2vpnVpnCmEntry)
     docsL2vpnVpnCmEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnVpnCmEntry.EntityData.ParentYangName = "docsL2vpnVpnCmTable"
     docsL2vpnVpnCmEntry.EntityData.SegmentPath = "docsL2vpnVpnCmEntry" + types.AddKeyToken(docsL2vpnVpnCmEntry.DocsL2vpnIdx, "docsL2vpnIdx") + types.AddKeyToken(docsL2vpnVpnCmEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex")
+    docsL2vpnVpnCmEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnVpnCmTable/" + docsL2vpnVpnCmEntry.EntityData.SegmentPath
     docsL2vpnVpnCmEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnVpnCmEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnVpnCmEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -509,6 +522,7 @@ func (docsL2vpnVpnCmStatsTable *DOCSL2VPNMIB_DocsL2vpnVpnCmStatsTable) GetEntity
     docsL2vpnVpnCmStatsTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnVpnCmStatsTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnVpnCmStatsTable.EntityData.SegmentPath = "docsL2vpnVpnCmStatsTable"
+    docsL2vpnVpnCmStatsTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnVpnCmStatsTable.EntityData.SegmentPath
     docsL2vpnVpnCmStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnVpnCmStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnVpnCmStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -530,6 +544,7 @@ func (docsL2vpnVpnCmStatsTable *DOCSL2VPNMIB_DocsL2vpnVpnCmStatsTable) GetEntity
 type DOCSL2VPNMIB_DocsL2vpnVpnCmStatsTable_DocsL2vpnVpnCmStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -578,6 +593,7 @@ func (docsL2vpnVpnCmStatsEntry *DOCSL2VPNMIB_DocsL2vpnVpnCmStatsTable_DocsL2vpnV
     docsL2vpnVpnCmStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnVpnCmStatsEntry.EntityData.ParentYangName = "docsL2vpnVpnCmStatsTable"
     docsL2vpnVpnCmStatsEntry.EntityData.SegmentPath = "docsL2vpnVpnCmStatsEntry" + types.AddKeyToken(docsL2vpnVpnCmStatsEntry.DocsL2vpnIdx, "docsL2vpnIdx") + types.AddKeyToken(docsL2vpnVpnCmStatsEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex")
+    docsL2vpnVpnCmStatsEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnVpnCmStatsTable/" + docsL2vpnVpnCmStatsEntry.EntityData.SegmentPath
     docsL2vpnVpnCmStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnVpnCmStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnVpnCmStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -619,6 +635,7 @@ func (docsL2vpnPortStatusTable *DOCSL2VPNMIB_DocsL2vpnPortStatusTable) GetEntity
     docsL2vpnPortStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnPortStatusTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnPortStatusTable.EntityData.SegmentPath = "docsL2vpnPortStatusTable"
+    docsL2vpnPortStatusTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnPortStatusTable.EntityData.SegmentPath
     docsL2vpnPortStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnPortStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnPortStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -643,6 +660,7 @@ func (docsL2vpnPortStatusTable *DOCSL2VPNMIB_DocsL2vpnPortStatusTable) GetEntity
 type DOCSL2VPNMIB_DocsL2vpnPortStatusTable_DocsL2vpnPortStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // bridge_mib.BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry_Dot1dBasePort
@@ -669,6 +687,7 @@ func (docsL2vpnPortStatusEntry *DOCSL2VPNMIB_DocsL2vpnPortStatusTable_DocsL2vpnP
     docsL2vpnPortStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnPortStatusEntry.EntityData.ParentYangName = "docsL2vpnPortStatusTable"
     docsL2vpnPortStatusEntry.EntityData.SegmentPath = "docsL2vpnPortStatusEntry" + types.AddKeyToken(docsL2vpnPortStatusEntry.Dot1dBasePort, "dot1dBasePort") + types.AddKeyToken(docsL2vpnPortStatusEntry.DocsL2vpnIdx, "docsL2vpnIdx")
+    docsL2vpnPortStatusEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnPortStatusTable/" + docsL2vpnPortStatusEntry.EntityData.SegmentPath
     docsL2vpnPortStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnPortStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnPortStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -709,6 +728,7 @@ func (docsL2vpnSfStatusTable *DOCSL2VPNMIB_DocsL2vpnSfStatusTable) GetEntityData
     docsL2vpnSfStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnSfStatusTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnSfStatusTable.EntityData.SegmentPath = "docsL2vpnSfStatusTable"
+    docsL2vpnSfStatusTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnSfStatusTable.EntityData.SegmentPath
     docsL2vpnSfStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnSfStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnSfStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -732,6 +752,7 @@ func (docsL2vpnSfStatusTable *DOCSL2VPNMIB_DocsL2vpnSfStatusTable) GetEntityData
 type DOCSL2VPNMIB_DocsL2vpnSfStatusTable_DocsL2vpnSfStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -765,6 +786,7 @@ func (docsL2vpnSfStatusEntry *DOCSL2VPNMIB_DocsL2vpnSfStatusTable_DocsL2vpnSfSta
     docsL2vpnSfStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnSfStatusEntry.EntityData.ParentYangName = "docsL2vpnSfStatusTable"
     docsL2vpnSfStatusEntry.EntityData.SegmentPath = "docsL2vpnSfStatusEntry" + types.AddKeyToken(docsL2vpnSfStatusEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsL2vpnSfStatusEntry.DocsQosServiceFlowId, "docsQosServiceFlowId")
+    docsL2vpnSfStatusEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnSfStatusTable/" + docsL2vpnSfStatusEntry.EntityData.SegmentPath
     docsL2vpnSfStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnSfStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnSfStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -804,6 +826,7 @@ func (docsL2vpnPktClassTable *DOCSL2VPNMIB_DocsL2vpnPktClassTable) GetEntityData
     docsL2vpnPktClassTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnPktClassTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnPktClassTable.EntityData.SegmentPath = "docsL2vpnPktClassTable"
+    docsL2vpnPktClassTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnPktClassTable.EntityData.SegmentPath
     docsL2vpnPktClassTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnPktClassTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnPktClassTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -828,6 +851,7 @@ func (docsL2vpnPktClassTable *DOCSL2VPNMIB_DocsL2vpnPktClassTable) GetEntityData
 type DOCSL2VPNMIB_DocsL2vpnPktClassTable_DocsL2vpnPktClassEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -882,6 +906,7 @@ func (docsL2vpnPktClassEntry *DOCSL2VPNMIB_DocsL2vpnPktClassTable_DocsL2vpnPktCl
     docsL2vpnPktClassEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnPktClassEntry.EntityData.ParentYangName = "docsL2vpnPktClassTable"
     docsL2vpnPktClassEntry.EntityData.SegmentPath = "docsL2vpnPktClassEntry" + types.AddKeyToken(docsL2vpnPktClassEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsL2vpnPktClassEntry.DocsQosServiceFlowId, "docsQosServiceFlowId") + types.AddKeyToken(docsL2vpnPktClassEntry.DocsQosPktClassId, "docsQosPktClassId")
+    docsL2vpnPktClassEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnPktClassTable/" + docsL2vpnPktClassEntry.EntityData.SegmentPath
     docsL2vpnPktClassEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnPktClassEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnPktClassEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -925,6 +950,7 @@ func (docsL2vpnCmNsiTable *DOCSL2VPNMIB_DocsL2vpnCmNsiTable) GetEntityData() *ty
     docsL2vpnCmNsiTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnCmNsiTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnCmNsiTable.EntityData.SegmentPath = "docsL2vpnCmNsiTable"
+    docsL2vpnCmNsiTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnCmNsiTable.EntityData.SegmentPath
     docsL2vpnCmNsiTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnCmNsiTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnCmNsiTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -951,6 +977,7 @@ func (docsL2vpnCmNsiTable *DOCSL2VPNMIB_DocsL2vpnCmNsiTable) GetEntityData() *ty
 type DOCSL2VPNMIB_DocsL2vpnCmNsiTable_DocsL2vpnCmNsiEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -994,6 +1021,7 @@ func (docsL2vpnCmNsiEntry *DOCSL2VPNMIB_DocsL2vpnCmNsiTable_DocsL2vpnCmNsiEntry)
     docsL2vpnCmNsiEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnCmNsiEntry.EntityData.ParentYangName = "docsL2vpnCmNsiTable"
     docsL2vpnCmNsiEntry.EntityData.SegmentPath = "docsL2vpnCmNsiEntry" + types.AddKeyToken(docsL2vpnCmNsiEntry.DocsL2vpnIdx, "docsL2vpnIdx") + types.AddKeyToken(docsL2vpnCmNsiEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex")
+    docsL2vpnCmNsiEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnCmNsiTable/" + docsL2vpnCmNsiEntry.EntityData.SegmentPath
     docsL2vpnCmNsiEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnCmNsiEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnCmNsiEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1032,6 +1060,7 @@ func (docsL2vpnCmVpnCpeTable *DOCSL2VPNMIB_DocsL2vpnCmVpnCpeTable) GetEntityData
     docsL2vpnCmVpnCpeTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnCmVpnCpeTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnCmVpnCpeTable.EntityData.SegmentPath = "docsL2vpnCmVpnCpeTable"
+    docsL2vpnCmVpnCpeTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnCmVpnCpeTable.EntityData.SegmentPath
     docsL2vpnCmVpnCpeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnCmVpnCpeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnCmVpnCpeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1054,6 +1083,7 @@ func (docsL2vpnCmVpnCpeTable *DOCSL2VPNMIB_DocsL2vpnCmVpnCpeTable) GetEntityData
 type DOCSL2VPNMIB_DocsL2vpnCmVpnCpeTable_DocsL2vpnCmVpnCpeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1078,6 +1108,7 @@ func (docsL2vpnCmVpnCpeEntry *DOCSL2VPNMIB_DocsL2vpnCmVpnCpeTable_DocsL2vpnCmVpn
     docsL2vpnCmVpnCpeEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnCmVpnCpeEntry.EntityData.ParentYangName = "docsL2vpnCmVpnCpeTable"
     docsL2vpnCmVpnCpeEntry.EntityData.SegmentPath = "docsL2vpnCmVpnCpeEntry" + types.AddKeyToken(docsL2vpnCmVpnCpeEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex") + types.AddKeyToken(docsL2vpnCmVpnCpeEntry.DocsL2vpnIdx, "docsL2vpnIdx") + types.AddKeyToken(docsL2vpnCmVpnCpeEntry.DocsL2vpnCmVpnCpeMacAddress, "docsL2vpnCmVpnCpeMacAddress")
+    docsL2vpnCmVpnCpeEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnCmVpnCpeTable/" + docsL2vpnCmVpnCpeEntry.EntityData.SegmentPath
     docsL2vpnCmVpnCpeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnCmVpnCpeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnCmVpnCpeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1112,6 +1143,7 @@ func (docsL2vpnVpnCmCpeTable *DOCSL2VPNMIB_DocsL2vpnVpnCmCpeTable) GetEntityData
     docsL2vpnVpnCmCpeTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnVpnCmCpeTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnVpnCmCpeTable.EntityData.SegmentPath = "docsL2vpnVpnCmCpeTable"
+    docsL2vpnVpnCmCpeTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnVpnCmCpeTable.EntityData.SegmentPath
     docsL2vpnVpnCmCpeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnVpnCmCpeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnVpnCmCpeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1134,6 +1166,7 @@ func (docsL2vpnVpnCmCpeTable *DOCSL2VPNMIB_DocsL2vpnVpnCmCpeTable) GetEntityData
 type DOCSL2VPNMIB_DocsL2vpnVpnCmCpeTable_DocsL2vpnVpnCmCpeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -1158,6 +1191,7 @@ func (docsL2vpnVpnCmCpeEntry *DOCSL2VPNMIB_DocsL2vpnVpnCmCpeTable_DocsL2vpnVpnCm
     docsL2vpnVpnCmCpeEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnVpnCmCpeEntry.EntityData.ParentYangName = "docsL2vpnVpnCmCpeTable"
     docsL2vpnVpnCmCpeEntry.EntityData.SegmentPath = "docsL2vpnVpnCmCpeEntry" + types.AddKeyToken(docsL2vpnVpnCmCpeEntry.DocsL2vpnIdx, "docsL2vpnIdx") + types.AddKeyToken(docsL2vpnVpnCmCpeEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex") + types.AddKeyToken(docsL2vpnVpnCmCpeEntry.DocsL2vpnVpnCmCpeMacAddress, "docsL2vpnVpnCmCpeMacAddress")
+    docsL2vpnVpnCmCpeEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnVpnCmCpeTable/" + docsL2vpnVpnCmCpeEntry.EntityData.SegmentPath
     docsL2vpnVpnCmCpeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnVpnCmCpeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnVpnCmCpeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1193,6 +1227,7 @@ func (docsL2vpnDot1qTpFdbExtTable *DOCSL2VPNMIB_DocsL2vpnDot1qTpFdbExtTable) Get
     docsL2vpnDot1qTpFdbExtTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnDot1qTpFdbExtTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnDot1qTpFdbExtTable.EntityData.SegmentPath = "docsL2vpnDot1qTpFdbExtTable"
+    docsL2vpnDot1qTpFdbExtTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnDot1qTpFdbExtTable.EntityData.SegmentPath
     docsL2vpnDot1qTpFdbExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnDot1qTpFdbExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnDot1qTpFdbExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1217,6 +1252,7 @@ func (docsL2vpnDot1qTpFdbExtTable *DOCSL2VPNMIB_DocsL2vpnDot1qTpFdbExtTable) Get
 type DOCSL2VPNMIB_DocsL2vpnDot1qTpFdbExtTable_DocsL2vpnDot1qTpFdbExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to q_bridge_mib.QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry_Dot1qFdbId
@@ -1246,6 +1282,7 @@ func (docsL2vpnDot1qTpFdbExtEntry *DOCSL2VPNMIB_DocsL2vpnDot1qTpFdbExtTable_Docs
     docsL2vpnDot1qTpFdbExtEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnDot1qTpFdbExtEntry.EntityData.ParentYangName = "docsL2vpnDot1qTpFdbExtTable"
     docsL2vpnDot1qTpFdbExtEntry.EntityData.SegmentPath = "docsL2vpnDot1qTpFdbExtEntry" + types.AddKeyToken(docsL2vpnDot1qTpFdbExtEntry.Dot1qFdbId, "dot1qFdbId") + types.AddKeyToken(docsL2vpnDot1qTpFdbExtEntry.Dot1qTpFdbAddress, "dot1qTpFdbAddress")
+    docsL2vpnDot1qTpFdbExtEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnDot1qTpFdbExtTable/" + docsL2vpnDot1qTpFdbExtEntry.EntityData.SegmentPath
     docsL2vpnDot1qTpFdbExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnDot1qTpFdbExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnDot1qTpFdbExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1282,6 +1319,7 @@ func (docsL2vpnDot1qTpGroupExtTable *DOCSL2VPNMIB_DocsL2vpnDot1qTpGroupExtTable)
     docsL2vpnDot1qTpGroupExtTable.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnDot1qTpGroupExtTable.EntityData.ParentYangName = "DOCS-L2VPN-MIB"
     docsL2vpnDot1qTpGroupExtTable.EntityData.SegmentPath = "docsL2vpnDot1qTpGroupExtTable"
+    docsL2vpnDot1qTpGroupExtTable.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/" + docsL2vpnDot1qTpGroupExtTable.EntityData.SegmentPath
     docsL2vpnDot1qTpGroupExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnDot1qTpGroupExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnDot1qTpGroupExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1306,6 +1344,7 @@ func (docsL2vpnDot1qTpGroupExtTable *DOCSL2VPNMIB_DocsL2vpnDot1qTpGroupExtTable)
 type DOCSL2VPNMIB_DocsL2vpnDot1qTpGroupExtTable_DocsL2vpnDot1qTpGroupExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -1336,6 +1375,7 @@ func (docsL2vpnDot1qTpGroupExtEntry *DOCSL2VPNMIB_DocsL2vpnDot1qTpGroupExtTable_
     docsL2vpnDot1qTpGroupExtEntry.EntityData.BundleName = "cisco_ios_xe"
     docsL2vpnDot1qTpGroupExtEntry.EntityData.ParentYangName = "docsL2vpnDot1qTpGroupExtTable"
     docsL2vpnDot1qTpGroupExtEntry.EntityData.SegmentPath = "docsL2vpnDot1qTpGroupExtEntry" + types.AddKeyToken(docsL2vpnDot1qTpGroupExtEntry.Dot1qVlanIndex, "dot1qVlanIndex") + types.AddKeyToken(docsL2vpnDot1qTpGroupExtEntry.Dot1qTpGroupAddress, "dot1qTpGroupAddress")
+    docsL2vpnDot1qTpGroupExtEntry.EntityData.AbsolutePath = "DOCS-L2VPN-MIB:DOCS-L2VPN-MIB/docsL2vpnDot1qTpGroupExtTable/" + docsL2vpnDot1qTpGroupExtEntry.EntityData.SegmentPath
     docsL2vpnDot1qTpGroupExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsL2vpnDot1qTpGroupExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsL2vpnDot1qTpGroupExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

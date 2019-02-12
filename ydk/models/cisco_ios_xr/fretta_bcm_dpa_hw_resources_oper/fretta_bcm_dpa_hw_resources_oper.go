@@ -72,6 +72,7 @@ func (dpa *Dpa) GetEntityData() *types.CommonEntityData {
     dpa.EntityData.BundleName = "cisco_ios_xr"
     dpa.EntityData.ParentYangName = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper"
     dpa.EntityData.SegmentPath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa"
+    dpa.EntityData.AbsolutePath = dpa.EntityData.SegmentPath
     dpa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dpa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dpa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -101,6 +102,7 @@ func (stats *Dpa_Stats) GetEntityData() *types.CommonEntityData {
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "dpa"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -131,6 +133,7 @@ func (nodes *Dpa_Stats_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "stats"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -152,6 +155,7 @@ func (nodes *Dpa_Stats_Nodes) GetEntityData() *types.CommonEntityData {
 type Dpa_Stats_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -176,6 +180,7 @@ func (node *Dpa_Stats_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -212,6 +217,7 @@ func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetEntityData() *type
     asicStatistics.EntityData.BundleName = "cisco_ios_xr"
     asicStatistics.EntityData.ParentYangName = "node"
     asicStatistics.EntityData.SegmentPath = "asic-statistics"
+    asicStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/" + asicStatistics.EntityData.SegmentPath
     asicStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -243,6 +249,7 @@ func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicSta
     asicStatisticsDetailForNpuIds.EntityData.BundleName = "cisco_ios_xr"
     asicStatisticsDetailForNpuIds.EntityData.ParentYangName = "asic-statistics"
     asicStatisticsDetailForNpuIds.EntityData.SegmentPath = "asic-statistics-detail-for-npu-ids"
+    asicStatisticsDetailForNpuIds.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/asic-statistics/" + asicStatisticsDetailForNpuIds.EntityData.SegmentPath
     asicStatisticsDetailForNpuIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicStatisticsDetailForNpuIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicStatisticsDetailForNpuIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -265,6 +272,7 @@ func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicSta
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. NPU number. The type is interface{} with range:
     // 0..4294967295.
@@ -295,6 +303,7 @@ func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStat
     asicStatisticsDetailForNpuId.EntityData.BundleName = "cisco_ios_xr"
     asicStatisticsDetailForNpuId.EntityData.ParentYangName = "asic-statistics-detail-for-npu-ids"
     asicStatisticsDetailForNpuId.EntityData.SegmentPath = "asic-statistics-detail-for-npu-id" + types.AddKeyToken(asicStatisticsDetailForNpuId.NpuId, "npu-id")
+    asicStatisticsDetailForNpuId.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/asic-statistics/asic-statistics-detail-for-npu-ids/" + asicStatisticsDetailForNpuId.EntityData.SegmentPath
     asicStatisticsDetailForNpuId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicStatisticsDetailForNpuId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicStatisticsDetailForNpuId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -334,6 +343,7 @@ func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpu
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "asic-statistics-detail-for-npu-id"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/asic-statistics/asic-statistics-detail-for-npu-ids/asic-statistics-detail-for-npu-id/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -341,6 +351,7 @@ func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpu
     statistics.EntityData.Children = types.NewOrderedMap()
     statistics.EntityData.Children.Append("block-info", types.YChild{"BlockInfo", nil})
     for i := range statistics.BlockInfo {
+        types.SetYListKey(statistics.BlockInfo[i], i)
         statistics.EntityData.Children.Append(types.GetSegmentPath(statistics.BlockInfo[i]), types.YChild{"BlockInfo", statistics.BlockInfo[i]})
     }
     statistics.EntityData.Leafs = types.NewOrderedMap()
@@ -356,6 +367,7 @@ func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpu
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Block name. The type is string with length: 0..10.
     BlockName interface{}
@@ -373,7 +385,8 @@ func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuI
     blockInfo.EntityData.YangName = "block-info"
     blockInfo.EntityData.BundleName = "cisco_ios_xr"
     blockInfo.EntityData.ParentYangName = "statistics"
-    blockInfo.EntityData.SegmentPath = "block-info"
+    blockInfo.EntityData.SegmentPath = "block-info" + types.AddNoKeyToken(blockInfo)
+    blockInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/asic-statistics/asic-statistics-detail-for-npu-ids/asic-statistics-detail-for-npu-id/statistics/" + blockInfo.EntityData.SegmentPath
     blockInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     blockInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     blockInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -381,6 +394,7 @@ func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuI
     blockInfo.EntityData.Children = types.NewOrderedMap()
     blockInfo.EntityData.Children.Append("field-info", types.YChild{"FieldInfo", nil})
     for i := range blockInfo.FieldInfo {
+        types.SetYListKey(blockInfo.FieldInfo[i], i)
         blockInfo.EntityData.Children.Append(types.GetSegmentPath(blockInfo.FieldInfo[i]), types.YChild{"FieldInfo", blockInfo.FieldInfo[i]})
     }
     blockInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -397,6 +411,7 @@ func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuI
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Field name. The type is string with length: 0..80.
     FieldName interface{}
@@ -413,7 +428,8 @@ func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuI
     fieldInfo.EntityData.YangName = "field-info"
     fieldInfo.EntityData.BundleName = "cisco_ios_xr"
     fieldInfo.EntityData.ParentYangName = "block-info"
-    fieldInfo.EntityData.SegmentPath = "field-info"
+    fieldInfo.EntityData.SegmentPath = "field-info" + types.AddNoKeyToken(fieldInfo)
+    fieldInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/asic-statistics/asic-statistics-detail-for-npu-ids/asic-statistics-detail-for-npu-id/statistics/block-info/" + fieldInfo.EntityData.SegmentPath
     fieldInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fieldInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fieldInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -446,6 +462,7 @@ func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatistic
     asicStatisticsForNpuIds.EntityData.BundleName = "cisco_ios_xr"
     asicStatisticsForNpuIds.EntityData.ParentYangName = "asic-statistics"
     asicStatisticsForNpuIds.EntityData.SegmentPath = "asic-statistics-for-npu-ids"
+    asicStatisticsForNpuIds.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/asic-statistics/" + asicStatisticsForNpuIds.EntityData.SegmentPath
     asicStatisticsForNpuIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicStatisticsForNpuIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicStatisticsForNpuIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -467,6 +484,7 @@ func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatistic
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. NPU number. The type is interface{} with range:
     // 0..4294967295.
@@ -497,6 +515,7 @@ func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatistics
     asicStatisticsForNpuId.EntityData.BundleName = "cisco_ios_xr"
     asicStatisticsForNpuId.EntityData.ParentYangName = "asic-statistics-for-npu-ids"
     asicStatisticsForNpuId.EntityData.SegmentPath = "asic-statistics-for-npu-id" + types.AddKeyToken(asicStatisticsForNpuId.NpuId, "npu-id")
+    asicStatisticsForNpuId.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/asic-statistics/asic-statistics-for-npu-ids/" + asicStatisticsForNpuId.EntityData.SegmentPath
     asicStatisticsForNpuId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicStatisticsForNpuId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicStatisticsForNpuId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -773,6 +792,7 @@ func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_As
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "asic-statistics-for-npu-id"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/asic-statistics/asic-statistics-for-npu-ids/asic-statistics-for-npu-id/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -863,6 +883,7 @@ func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetEntityData() *types.Common
     npuNumbers.EntityData.BundleName = "cisco_ios_xr"
     npuNumbers.EntityData.ParentYangName = "node"
     npuNumbers.EntityData.SegmentPath = "npu-numbers"
+    npuNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/" + npuNumbers.EntityData.SegmentPath
     npuNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     npuNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npuNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -884,6 +905,7 @@ func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetEntityData() *types.Common
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Npu number. The type is interface{} with range:
     // 0..4294967295.
@@ -899,6 +921,7 @@ func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetEntityData() *typ
     npuNumber.EntityData.BundleName = "cisco_ios_xr"
     npuNumber.EntityData.ParentYangName = "npu-numbers"
     npuNumber.EntityData.SegmentPath = "npu-number" + types.AddKeyToken(npuNumber.NpuId, "npu-id")
+    npuNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/npu-numbers/" + npuNumber.EntityData.SegmentPath
     npuNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     npuNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npuNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -935,6 +958,7 @@ func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetEntityData(
     display.EntityData.BundleName = "cisco_ios_xr"
     display.EntityData.ParentYangName = "npu-number"
     display.EntityData.SegmentPath = "display"
+    display.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/npu-numbers/npu-number/" + display.EntityData.SegmentPath
     display.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     display.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     display.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -967,6 +991,7 @@ func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetEnt
     trapIds.EntityData.BundleName = "cisco_ios_xr"
     trapIds.EntityData.ParentYangName = "display"
     trapIds.EntityData.SegmentPath = "trap-ids"
+    trapIds.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/npu-numbers/npu-number/display/" + trapIds.EntityData.SegmentPath
     trapIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trapIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -988,6 +1013,7 @@ func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetEnt
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Trap ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1051,6 +1077,7 @@ func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) 
     trapId.EntityData.BundleName = "cisco_ios_xr"
     trapId.EntityData.ParentYangName = "trap-ids"
     trapId.EntityData.SegmentPath = "trap-id" + types.AddKeyToken(trapId.TrapId, "trap-id")
+    trapId.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/npu-numbers/npu-number/display/trap-ids/" + trapId.EntityData.SegmentPath
     trapId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trapId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1096,6 +1123,7 @@ func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_Interf
     interfaceHandles.EntityData.BundleName = "cisco_ios_xr"
     interfaceHandles.EntityData.ParentYangName = "display"
     interfaceHandles.EntityData.SegmentPath = "interface-handles"
+    interfaceHandles.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/npu-numbers/npu-number/display/" + interfaceHandles.EntityData.SegmentPath
     interfaceHandles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceHandles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceHandles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1118,6 +1146,7 @@ func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_Interf
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Handle. The type is interface{} with
     // range: 0..4294967295.
@@ -1174,6 +1203,7 @@ func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_Interfa
     interfaceHandle.EntityData.BundleName = "cisco_ios_xr"
     interfaceHandle.EntityData.ParentYangName = "interface-handles"
     interfaceHandle.EntityData.SegmentPath = "interface-handle" + types.AddKeyToken(interfaceHandle.InterfaceHandle, "interface-handle")
+    interfaceHandle.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/npu-numbers/npu-number/display/interface-handles/" + interfaceHandle.EntityData.SegmentPath
     interfaceHandle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceHandle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceHandle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1181,6 +1211,7 @@ func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_Interfa
     interfaceHandle.EntityData.Children = types.NewOrderedMap()
     interfaceHandle.EntityData.Children.Append("voq-stat", types.YChild{"VoqStat", nil})
     for i := range interfaceHandle.VoqStat {
+        types.SetYListKey(interfaceHandle.VoqStat[i], i)
         interfaceHandle.EntityData.Children.Append(types.GetSegmentPath(interfaceHandle.VoqStat[i]), types.YChild{"VoqStat", interfaceHandle.VoqStat[i]})
     }
     interfaceHandle.EntityData.Leafs = types.NewOrderedMap()
@@ -1210,6 +1241,7 @@ func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_Interfa
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bytes Received on the port. The type is interface{} with range:
     // 0..18446744073709551615. Units are byte.
@@ -1233,7 +1265,8 @@ func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandle
     voqStat.EntityData.YangName = "voq-stat"
     voqStat.EntityData.BundleName = "cisco_ios_xr"
     voqStat.EntityData.ParentYangName = "interface-handle"
-    voqStat.EntityData.SegmentPath = "voq-stat"
+    voqStat.EntityData.SegmentPath = "voq-stat" + types.AddNoKeyToken(voqStat)
+    voqStat.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/npu-numbers/npu-number/display/interface-handles/interface-handle/" + voqStat.EntityData.SegmentPath
     voqStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     voqStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     voqStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1267,6 +1300,7 @@ func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers
     baseNumbers.EntityData.BundleName = "cisco_ios_xr"
     baseNumbers.EntityData.ParentYangName = "display"
     baseNumbers.EntityData.SegmentPath = "base-numbers"
+    baseNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/npu-numbers/npu-number/display/" + baseNumbers.EntityData.SegmentPath
     baseNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1288,6 +1322,7 @@ func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface handle. The type is interface{} with
     // range: 0..4294967295.
@@ -1344,6 +1379,7 @@ func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_
     baseNumber.EntityData.BundleName = "cisco_ios_xr"
     baseNumber.EntityData.ParentYangName = "base-numbers"
     baseNumber.EntityData.SegmentPath = "base-number" + types.AddKeyToken(baseNumber.BaseNumber, "base-number")
+    baseNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/npu-numbers/npu-number/display/base-numbers/" + baseNumber.EntityData.SegmentPath
     baseNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1351,6 +1387,7 @@ func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_
     baseNumber.EntityData.Children = types.NewOrderedMap()
     baseNumber.EntityData.Children.Append("voq-stat", types.YChild{"VoqStat", nil})
     for i := range baseNumber.VoqStat {
+        types.SetYListKey(baseNumber.VoqStat[i], i)
         baseNumber.EntityData.Children.Append(types.GetSegmentPath(baseNumber.VoqStat[i]), types.YChild{"VoqStat", baseNumber.VoqStat[i]})
     }
     baseNumber.EntityData.Leafs = types.NewOrderedMap()
@@ -1380,6 +1417,7 @@ func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bytes Received on the port. The type is interface{} with range:
     // 0..18446744073709551615. Units are byte.
@@ -1403,7 +1441,8 @@ func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_Bas
     voqStat.EntityData.YangName = "voq-stat"
     voqStat.EntityData.BundleName = "cisco_ios_xr"
     voqStat.EntityData.ParentYangName = "base-number"
-    voqStat.EntityData.SegmentPath = "voq-stat"
+    voqStat.EntityData.SegmentPath = "voq-stat" + types.AddNoKeyToken(voqStat)
+    voqStat.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/npu-numbers/npu-number/display/base-numbers/base-number/" + voqStat.EntityData.SegmentPath
     voqStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     voqStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     voqStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1437,6 +1476,7 @@ func (statsResourcesDatas *Dpa_Stats_Nodes_Node_StatsResourcesDatas) GetEntityDa
     statsResourcesDatas.EntityData.BundleName = "cisco_ios_xr"
     statsResourcesDatas.EntityData.ParentYangName = "node"
     statsResourcesDatas.EntityData.SegmentPath = "stats-resources-datas"
+    statsResourcesDatas.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/" + statsResourcesDatas.EntityData.SegmentPath
     statsResourcesDatas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statsResourcesDatas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsResourcesDatas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1458,6 +1498,7 @@ func (statsResourcesDatas *Dpa_Stats_Nodes_Node_StatsResourcesDatas) GetEntityDa
 type Dpa_Stats_Nodes_Node_StatsResourcesDatas_StatsResourcesData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Resource type. The type is Resource.
     Resource interface{}
@@ -1482,6 +1523,7 @@ func (statsResourcesData *Dpa_Stats_Nodes_Node_StatsResourcesDatas_StatsResource
     statsResourcesData.EntityData.BundleName = "cisco_ios_xr"
     statsResourcesData.EntityData.ParentYangName = "stats-resources-datas"
     statsResourcesData.EntityData.SegmentPath = "stats-resources-data" + types.AddKeyToken(statsResourcesData.Resource, "resource")
+    statsResourcesData.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/stats-resources-datas/" + statsResourcesData.EntityData.SegmentPath
     statsResourcesData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statsResourcesData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsResourcesData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1489,6 +1531,7 @@ func (statsResourcesData *Dpa_Stats_Nodes_Node_StatsResourcesDatas_StatsResource
     statsResourcesData.EntityData.Children = types.NewOrderedMap()
     statsResourcesData.EntityData.Children.Append("cntr-engine", types.YChild{"CntrEngine", nil})
     for i := range statsResourcesData.CntrEngine {
+        types.SetYListKey(statsResourcesData.CntrEngine[i], i)
         statsResourcesData.EntityData.Children.Append(types.GetSegmentPath(statsResourcesData.CntrEngine[i]), types.YChild{"CntrEngine", statsResourcesData.CntrEngine[i]})
     }
     statsResourcesData.EntityData.Leafs = types.NewOrderedMap()
@@ -1507,6 +1550,7 @@ func (statsResourcesData *Dpa_Stats_Nodes_Node_StatsResourcesDatas_StatsResource
 type Dpa_Stats_Nodes_Node_StatsResourcesDatas_StatsResourcesData_CntrEngine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // state. The type is string.
     State interface{}
@@ -1524,7 +1568,8 @@ func (cntrEngine *Dpa_Stats_Nodes_Node_StatsResourcesDatas_StatsResourcesData_Cn
     cntrEngine.EntityData.YangName = "cntr-engine"
     cntrEngine.EntityData.BundleName = "cisco_ios_xr"
     cntrEngine.EntityData.ParentYangName = "stats-resources-data"
-    cntrEngine.EntityData.SegmentPath = "cntr-engine"
+    cntrEngine.EntityData.SegmentPath = "cntr-engine" + types.AddNoKeyToken(cntrEngine)
+    cntrEngine.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/stats-resources-datas/stats-resources-data/" + cntrEngine.EntityData.SegmentPath
     cntrEngine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cntrEngine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cntrEngine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1532,6 +1577,7 @@ func (cntrEngine *Dpa_Stats_Nodes_Node_StatsResourcesDatas_StatsResourcesData_Cn
     cntrEngine.EntityData.Children = types.NewOrderedMap()
     cntrEngine.EntityData.Children.Append("apps-info", types.YChild{"AppsInfo", nil})
     for i := range cntrEngine.AppsInfo {
+        types.SetYListKey(cntrEngine.AppsInfo[i], i)
         cntrEngine.EntityData.Children.Append(types.GetSegmentPath(cntrEngine.AppsInfo[i]), types.YChild{"AppsInfo", cntrEngine.AppsInfo[i]})
     }
     cntrEngine.EntityData.Leafs = types.NewOrderedMap()
@@ -1548,6 +1594,7 @@ func (cntrEngine *Dpa_Stats_Nodes_Node_StatsResourcesDatas_StatsResourcesData_Cn
 type Dpa_Stats_Nodes_Node_StatsResourcesDatas_StatsResourcesData_CntrEngine_AppsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // app type. The type is string.
     AppType interface{}
@@ -1564,7 +1611,8 @@ func (appsInfo *Dpa_Stats_Nodes_Node_StatsResourcesDatas_StatsResourcesData_Cntr
     appsInfo.EntityData.YangName = "apps-info"
     appsInfo.EntityData.BundleName = "cisco_ios_xr"
     appsInfo.EntityData.ParentYangName = "cntr-engine"
-    appsInfo.EntityData.SegmentPath = "apps-info"
+    appsInfo.EntityData.SegmentPath = "apps-info" + types.AddNoKeyToken(appsInfo)
+    appsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/stats-resources-datas/stats-resources-data/cntr-engine/" + appsInfo.EntityData.SegmentPath
     appsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     appsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     appsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1597,6 +1645,7 @@ func (hwResourcesDatas *Dpa_Stats_Nodes_Node_HwResourcesDatas) GetEntityData() *
     hwResourcesDatas.EntityData.BundleName = "cisco_ios_xr"
     hwResourcesDatas.EntityData.ParentYangName = "node"
     hwResourcesDatas.EntityData.SegmentPath = "hw-resources-datas"
+    hwResourcesDatas.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/" + hwResourcesDatas.EntityData.SegmentPath
     hwResourcesDatas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwResourcesDatas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwResourcesDatas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1618,6 +1667,7 @@ func (hwResourcesDatas *Dpa_Stats_Nodes_Node_HwResourcesDatas) GetEntityData() *
 type Dpa_Stats_Nodes_Node_HwResourcesDatas_HwResourcesData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Resource type. The type is Resource.
     Resource interface{}
@@ -1645,6 +1695,7 @@ func (hwResourcesData *Dpa_Stats_Nodes_Node_HwResourcesDatas_HwResourcesData) Ge
     hwResourcesData.EntityData.BundleName = "cisco_ios_xr"
     hwResourcesData.EntityData.ParentYangName = "hw-resources-datas"
     hwResourcesData.EntityData.SegmentPath = "hw-resources-data" + types.AddKeyToken(hwResourcesData.Resource, "resource")
+    hwResourcesData.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/" + hwResourcesData.EntityData.SegmentPath
     hwResourcesData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwResourcesData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwResourcesData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1652,6 +1703,7 @@ func (hwResourcesData *Dpa_Stats_Nodes_Node_HwResourcesDatas_HwResourcesData) Ge
     hwResourcesData.EntityData.Children = types.NewOrderedMap()
     hwResourcesData.EntityData.Children.Append("npu-hwr", types.YChild{"NpuHwr", nil})
     for i := range hwResourcesData.NpuHwr {
+        types.SetYListKey(hwResourcesData.NpuHwr[i], i)
         hwResourcesData.EntityData.Children.Append(types.GetSegmentPath(hwResourcesData.NpuHwr[i]), types.YChild{"NpuHwr", hwResourcesData.NpuHwr[i]})
     }
     hwResourcesData.EntityData.Leafs = types.NewOrderedMap()
@@ -1671,6 +1723,7 @@ func (hwResourcesData *Dpa_Stats_Nodes_Node_HwResourcesDatas_HwResourcesData) Ge
 type Dpa_Stats_Nodes_Node_HwResourcesDatas_HwResourcesData_NpuHwr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // max allowed. The type is interface{} with range: 0..4294967295.
     MaxAllowed interface{}
@@ -1723,7 +1776,8 @@ func (npuHwr *Dpa_Stats_Nodes_Node_HwResourcesDatas_HwResourcesData_NpuHwr) GetE
     npuHwr.EntityData.YangName = "npu-hwr"
     npuHwr.EntityData.BundleName = "cisco_ios_xr"
     npuHwr.EntityData.ParentYangName = "hw-resources-data"
-    npuHwr.EntityData.SegmentPath = "npu-hwr"
+    npuHwr.EntityData.SegmentPath = "npu-hwr" + types.AddNoKeyToken(npuHwr)
+    npuHwr.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data/" + npuHwr.EntityData.SegmentPath
     npuHwr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     npuHwr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npuHwr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1731,6 +1785,7 @@ func (npuHwr *Dpa_Stats_Nodes_Node_HwResourcesDatas_HwResourcesData_NpuHwr) GetE
     npuHwr.EntityData.Children = types.NewOrderedMap()
     npuHwr.EntityData.Children.Append("lt-hwr", types.YChild{"LtHwr", nil})
     for i := range npuHwr.LtHwr {
+        types.SetYListKey(npuHwr.LtHwr[i], i)
         npuHwr.EntityData.Children.Append(types.GetSegmentPath(npuHwr.LtHwr[i]), types.YChild{"LtHwr", npuHwr.LtHwr[i]})
     }
     npuHwr.EntityData.Leafs = types.NewOrderedMap()
@@ -1758,6 +1813,7 @@ func (npuHwr *Dpa_Stats_Nodes_Node_HwResourcesDatas_HwResourcesData_NpuHwr) GetE
 type Dpa_Stats_Nodes_Node_HwResourcesDatas_HwResourcesData_NpuHwr_LtHwr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // lt id. The type is interface{} with range: 0..4294967295.
     LtId interface{}
@@ -1777,7 +1833,8 @@ func (ltHwr *Dpa_Stats_Nodes_Node_HwResourcesDatas_HwResourcesData_NpuHwr_LtHwr)
     ltHwr.EntityData.YangName = "lt-hwr"
     ltHwr.EntityData.BundleName = "cisco_ios_xr"
     ltHwr.EntityData.ParentYangName = "npu-hwr"
-    ltHwr.EntityData.SegmentPath = "lt-hwr"
+    ltHwr.EntityData.SegmentPath = "lt-hwr" + types.AddNoKeyToken(ltHwr)
+    ltHwr.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data/npu-hwr/" + ltHwr.EntityData.SegmentPath
     ltHwr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ltHwr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ltHwr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

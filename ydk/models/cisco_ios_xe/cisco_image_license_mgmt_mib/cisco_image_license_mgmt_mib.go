@@ -106,6 +106,7 @@ func (cISCOIMAGELICENSEMGMTMIB *CISCOIMAGELICENSEMGMTMIB) GetEntityData() *types
     cISCOIMAGELICENSEMGMTMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIMAGELICENSEMGMTMIB.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
     cISCOIMAGELICENSEMGMTMIB.EntityData.SegmentPath = "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB"
+    cISCOIMAGELICENSEMGMTMIB.EntityData.AbsolutePath = cISCOIMAGELICENSEMGMTMIB.EntityData.SegmentPath
     cISCOIMAGELICENSEMGMTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIMAGELICENSEMGMTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIMAGELICENSEMGMTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -140,6 +141,7 @@ func (ciscoImageLicenseMgmtMIBObjects *CISCOIMAGELICENSEMGMTMIB_CiscoImageLicens
     ciscoImageLicenseMgmtMIBObjects.EntityData.BundleName = "cisco_ios_xe"
     ciscoImageLicenseMgmtMIBObjects.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
     ciscoImageLicenseMgmtMIBObjects.EntityData.SegmentPath = "ciscoImageLicenseMgmtMIBObjects"
+    ciscoImageLicenseMgmtMIBObjects.EntityData.AbsolutePath = "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/" + ciscoImageLicenseMgmtMIBObjects.EntityData.SegmentPath
     ciscoImageLicenseMgmtMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoImageLicenseMgmtMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoImageLicenseMgmtMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -173,6 +175,7 @@ func (cilmNotifCntl *CISCOIMAGELICENSEMGMTMIB_CilmNotifCntl) GetEntityData() *ty
     cilmNotifCntl.EntityData.BundleName = "cisco_ios_xe"
     cilmNotifCntl.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
     cilmNotifCntl.EntityData.SegmentPath = "cilmNotifCntl"
+    cilmNotifCntl.EntityData.AbsolutePath = "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/" + cilmNotifCntl.EntityData.SegmentPath
     cilmNotifCntl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cilmNotifCntl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cilmNotifCntl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -214,6 +217,7 @@ func (cilmBootImageLevelTable *CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable)
     cilmBootImageLevelTable.EntityData.BundleName = "cisco_ios_xe"
     cilmBootImageLevelTable.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
     cilmBootImageLevelTable.EntityData.SegmentPath = "cilmBootImageLevelTable"
+    cilmBootImageLevelTable.EntityData.AbsolutePath = "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/" + cilmBootImageLevelTable.EntityData.SegmentPath
     cilmBootImageLevelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cilmBootImageLevelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cilmBootImageLevelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -246,6 +250,7 @@ func (cilmBootImageLevelTable *CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable)
 type CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable_CilmBootImageLevelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -313,6 +318,7 @@ func (cilmBootImageLevelEntry *CISCOIMAGELICENSEMGMTMIB_CilmBootImageLevelTable_
     cilmBootImageLevelEntry.EntityData.BundleName = "cisco_ios_xe"
     cilmBootImageLevelEntry.EntityData.ParentYangName = "cilmBootImageLevelTable"
     cilmBootImageLevelEntry.EntityData.SegmentPath = "cilmBootImageLevelEntry" + types.AddKeyToken(cilmBootImageLevelEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cilmBootImageLevelEntry.CilmModuleName, "cilmModuleName")
+    cilmBootImageLevelEntry.EntityData.AbsolutePath = "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/cilmBootImageLevelTable/" + cilmBootImageLevelEntry.EntityData.SegmentPath
     cilmBootImageLevelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cilmBootImageLevelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cilmBootImageLevelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -359,6 +365,7 @@ func (cilmImageLevelToLicenseMapTable *CISCOIMAGELICENSEMGMTMIB_CilmImageLevelTo
     cilmImageLevelToLicenseMapTable.EntityData.BundleName = "cisco_ios_xe"
     cilmImageLevelToLicenseMapTable.EntityData.ParentYangName = "CISCO-IMAGE-LICENSE-MGMT-MIB"
     cilmImageLevelToLicenseMapTable.EntityData.SegmentPath = "cilmImageLevelToLicenseMapTable"
+    cilmImageLevelToLicenseMapTable.EntityData.AbsolutePath = "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/" + cilmImageLevelToLicenseMapTable.EntityData.SegmentPath
     cilmImageLevelToLicenseMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cilmImageLevelToLicenseMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cilmImageLevelToLicenseMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -385,6 +392,7 @@ func (cilmImageLevelToLicenseMapTable *CISCOIMAGELICENSEMGMTMIB_CilmImageLevelTo
 type CISCOIMAGELICENSEMGMTMIB_CilmImageLevelToLicenseMapTable_CilmImageLevelToLicenseMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -429,6 +437,7 @@ func (cilmImageLevelToLicenseMapEntry *CISCOIMAGELICENSEMGMTMIB_CilmImageLevelTo
     cilmImageLevelToLicenseMapEntry.EntityData.BundleName = "cisco_ios_xe"
     cilmImageLevelToLicenseMapEntry.EntityData.ParentYangName = "cilmImageLevelToLicenseMapTable"
     cilmImageLevelToLicenseMapEntry.EntityData.SegmentPath = "cilmImageLevelToLicenseMapEntry" + types.AddKeyToken(cilmImageLevelToLicenseMapEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cilmImageLevelToLicenseMapEntry.CilmModuleName, "cilmModuleName") + types.AddKeyToken(cilmImageLevelToLicenseMapEntry.CilmImageLicenseMapIndex, "cilmImageLicenseMapIndex")
+    cilmImageLevelToLicenseMapEntry.EntityData.AbsolutePath = "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/cilmImageLevelToLicenseMapTable/" + cilmImageLevelToLicenseMapEntry.EntityData.SegmentPath
     cilmImageLevelToLicenseMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cilmImageLevelToLicenseMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cilmImageLevelToLicenseMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

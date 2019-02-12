@@ -121,6 +121,7 @@ func (pmipv6 *Pmipv6) GetEntityData() *types.CommonEntityData {
     pmipv6.EntityData.BundleName = "cisco_ios_xr"
     pmipv6.EntityData.ParentYangName = "Cisco-IOS-XR-ip-mobileip-oper"
     pmipv6.EntityData.SegmentPath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6"
+    pmipv6.EntityData.AbsolutePath = pmipv6.EntityData.SegmentPath
     pmipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pmipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pmipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -159,6 +160,7 @@ func (lma *Pmipv6_Lma) GetEntityData() *types.CommonEntityData {
     lma.EntityData.BundleName = "cisco_ios_xr"
     lma.EntityData.ParentYangName = "pmipv6"
     lma.EntityData.SegmentPath = "lma"
+    lma.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/" + lma.EntityData.SegmentPath
     lma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -200,6 +202,7 @@ func (statistics *Pmipv6_Lma_Statistics) GetEntityData() *types.CommonEntityData
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "lma"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -233,6 +236,7 @@ func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetEntityDat
     customerStatistics.EntityData.BundleName = "cisco_ios_xr"
     customerStatistics.EntityData.ParentYangName = "statistics"
     customerStatistics.EntityData.SegmentPath = "customer-statistics"
+    customerStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/" + customerStatistics.EntityData.SegmentPath
     customerStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     customerStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     customerStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -254,6 +258,7 @@ func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetEntityDat
 type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Customer Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -289,6 +294,7 @@ func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatis
     customerStatistic.EntityData.BundleName = "cisco_ios_xr"
     customerStatistic.EntityData.ParentYangName = "customer-statistics"
     customerStatistic.EntityData.SegmentPath = "customer-statistic" + types.AddKeyToken(customerStatistic.CustomerName, "customer-name")
+    customerStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/" + customerStatistic.EntityData.SegmentPath
     customerStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     customerStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     customerStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -340,6 +346,7 @@ func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStati
     protocolStatistics.EntityData.BundleName = "cisco_ios_xr"
     protocolStatistics.EntityData.ParentYangName = "customer-statistic"
     protocolStatistics.EntityData.SegmentPath = "protocol-statistics"
+    protocolStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/customer-statistic/" + protocolStatistics.EntityData.SegmentPath
     protocolStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -377,6 +384,7 @@ func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerSta
     pbuReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbuReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbuReceiveStatistics.EntityData.SegmentPath = "pbu-receive-statistics"
+    pbuReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/customer-statistic/protocol-statistics/" + pbuReceiveStatistics.EntityData.SegmentPath
     pbuReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbuReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbuReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -514,6 +522,7 @@ func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatis
     pbaSendStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbaSendStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbaSendStatistics.EntityData.SegmentPath = "pba-send-statistics"
+    pbaSendStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/customer-statistic/protocol-statistics/" + pbaSendStatistics.EntityData.SegmentPath
     pbaSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbaSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbaSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -614,6 +623,7 @@ func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStati
     pbriSendStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbriSendStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbriSendStatistics.EntityData.SegmentPath = "pbri-send-statistics"
+    pbriSendStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/customer-statistic/protocol-statistics/" + pbriSendStatistics.EntityData.SegmentPath
     pbriSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbriSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbriSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -698,6 +708,7 @@ func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerSt
     pbriReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbriReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbriReceiveStatistics.EntityData.SegmentPath = "pbri-receive-statistics"
+    pbriReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/customer-statistic/protocol-statistics/" + pbriReceiveStatistics.EntityData.SegmentPath
     pbriReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbriReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbriReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -782,6 +793,7 @@ func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStati
     pbraSendStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbraSendStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbraSendStatistics.EntityData.SegmentPath = "pbra-send-statistics"
+    pbraSendStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/customer-statistic/protocol-statistics/" + pbraSendStatistics.EntityData.SegmentPath
     pbraSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbraSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbraSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -866,6 +878,7 @@ func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerSt
     pbraReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbraReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbraReceiveStatistics.EntityData.SegmentPath = "pbra-receive-statistics"
+    pbraReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/customer-statistic/protocol-statistics/" + pbraReceiveStatistics.EntityData.SegmentPath
     pbraReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbraReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbraReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -915,6 +928,7 @@ func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerSta
     accountingStatistics.EntityData.BundleName = "cisco_ios_xr"
     accountingStatistics.EntityData.ParentYangName = "customer-statistic"
     accountingStatistics.EntityData.SegmentPath = "accounting-statistics"
+    accountingStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/customer-statistic/" + accountingStatistics.EntityData.SegmentPath
     accountingStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountingStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -957,6 +971,7 @@ func (license *Pmipv6_Lma_Statistics_License) GetEntityData() *types.CommonEntit
     license.EntityData.BundleName = "cisco_ios_xr"
     license.EntityData.ParentYangName = "statistics"
     license.EntityData.SegmentPath = "license"
+    license.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/" + license.EntityData.SegmentPath
     license.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     license.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     license.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1010,6 +1025,7 @@ func (global *Pmipv6_Lma_Statistics_Global) GetEntityData() *types.CommonEntityD
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "statistics"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1079,6 +1095,7 @@ func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetEntity
     packetStatistics.EntityData.BundleName = "cisco_ios_xr"
     packetStatistics.EntityData.ParentYangName = "global"
     packetStatistics.EntityData.SegmentPath = "packet-statistics"
+    packetStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/" + packetStatistics.EntityData.SegmentPath
     packetStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1131,6 +1148,7 @@ func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetEn
     protocolStatistics.EntityData.BundleName = "cisco_ios_xr"
     protocolStatistics.EntityData.ParentYangName = "global"
     protocolStatistics.EntityData.SegmentPath = "protocol-statistics"
+    protocolStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/" + protocolStatistics.EntityData.SegmentPath
     protocolStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1168,6 +1186,7 @@ func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuR
     pbuReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbuReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbuReceiveStatistics.EntityData.SegmentPath = "pbu-receive-statistics"
+    pbuReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/" + pbuReceiveStatistics.EntityData.SegmentPath
     pbuReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbuReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbuReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1305,6 +1324,7 @@ func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSend
     pbaSendStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbaSendStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbaSendStatistics.EntityData.SegmentPath = "pba-send-statistics"
+    pbaSendStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/" + pbaSendStatistics.EntityData.SegmentPath
     pbaSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbaSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbaSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1405,6 +1425,7 @@ func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSe
     pbriSendStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbriSendStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbriSendStatistics.EntityData.SegmentPath = "pbri-send-statistics"
+    pbriSendStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/" + pbriSendStatistics.EntityData.SegmentPath
     pbriSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbriSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbriSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1489,6 +1510,7 @@ func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_Pbr
     pbriReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbriReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbriReceiveStatistics.EntityData.SegmentPath = "pbri-receive-statistics"
+    pbriReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/" + pbriReceiveStatistics.EntityData.SegmentPath
     pbriReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbriReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbriReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1573,6 +1595,7 @@ func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSe
     pbraSendStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbraSendStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbraSendStatistics.EntityData.SegmentPath = "pbra-send-statistics"
+    pbraSendStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/" + pbraSendStatistics.EntityData.SegmentPath
     pbraSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbraSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbraSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1657,6 +1680,7 @@ func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_Pbr
     pbraReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbraReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbraReceiveStatistics.EntityData.SegmentPath = "pbra-receive-statistics"
+    pbraReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/" + pbraReceiveStatistics.EntityData.SegmentPath
     pbraReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbraReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbraReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1706,6 +1730,7 @@ func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) G
     accountingStatistics.EntityData.BundleName = "cisco_ios_xr"
     accountingStatistics.EntityData.ParentYangName = "global"
     accountingStatistics.EntityData.SegmentPath = "accounting-statistics"
+    accountingStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/" + accountingStatistics.EntityData.SegmentPath
     accountingStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountingStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1738,6 +1763,7 @@ func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetEntityData() *types
     magStatistics.EntityData.BundleName = "cisco_ios_xr"
     magStatistics.EntityData.ParentYangName = "statistics"
     magStatistics.EntityData.SegmentPath = "mag-statistics"
+    magStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/" + magStatistics.EntityData.SegmentPath
     magStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     magStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     magStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1759,6 +1785,7 @@ func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetEntityData() *types
 type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Peer MAG Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1777,6 +1804,7 @@ func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetEntityD
     magStatistic.EntityData.BundleName = "cisco_ios_xr"
     magStatistic.EntityData.ParentYangName = "mag-statistics"
     magStatistic.EntityData.SegmentPath = "mag-statistic" + types.AddKeyToken(magStatistic.MagName, "mag-name")
+    magStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/mag-statistics/" + magStatistic.EntityData.SegmentPath
     magStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     magStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     magStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1823,6 +1851,7 @@ func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_Proto
     protocolStatistics.EntityData.BundleName = "cisco_ios_xr"
     protocolStatistics.EntityData.ParentYangName = "mag-statistic"
     protocolStatistics.EntityData.SegmentPath = "protocol-statistics"
+    protocolStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/mag-statistics/mag-statistic/" + protocolStatistics.EntityData.SegmentPath
     protocolStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1860,6 +1889,7 @@ func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_Pro
     pbuReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbuReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbuReceiveStatistics.EntityData.SegmentPath = "pbu-receive-statistics"
+    pbuReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/mag-statistics/mag-statistic/protocol-statistics/" + pbuReceiveStatistics.EntityData.SegmentPath
     pbuReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbuReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbuReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1997,6 +2027,7 @@ func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_Protoc
     pbaSendStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbaSendStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbaSendStatistics.EntityData.SegmentPath = "pba-send-statistics"
+    pbaSendStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/mag-statistics/mag-statistic/protocol-statistics/" + pbaSendStatistics.EntityData.SegmentPath
     pbaSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbaSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbaSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2097,6 +2128,7 @@ func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_Proto
     pbriSendStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbriSendStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbriSendStatistics.EntityData.SegmentPath = "pbri-send-statistics"
+    pbriSendStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/mag-statistics/mag-statistic/protocol-statistics/" + pbriSendStatistics.EntityData.SegmentPath
     pbriSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbriSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbriSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2181,6 +2213,7 @@ func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_Pr
     pbriReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbriReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbriReceiveStatistics.EntityData.SegmentPath = "pbri-receive-statistics"
+    pbriReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/mag-statistics/mag-statistic/protocol-statistics/" + pbriReceiveStatistics.EntityData.SegmentPath
     pbriReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbriReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbriReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2265,6 +2298,7 @@ func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_Proto
     pbraSendStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbraSendStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbraSendStatistics.EntityData.SegmentPath = "pbra-send-statistics"
+    pbraSendStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/mag-statistics/mag-statistic/protocol-statistics/" + pbraSendStatistics.EntityData.SegmentPath
     pbraSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbraSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbraSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2349,6 +2383,7 @@ func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_Pr
     pbraReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     pbraReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
     pbraReceiveStatistics.EntityData.SegmentPath = "pbra-receive-statistics"
+    pbraReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/mag-statistics/mag-statistic/protocol-statistics/" + pbraReceiveStatistics.EntityData.SegmentPath
     pbraReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbraReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbraReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2389,6 +2424,7 @@ func (bindings *Pmipv6_Lma_Bindings) GetEntityData() *types.CommonEntityData {
     bindings.EntityData.BundleName = "cisco_ios_xr"
     bindings.EntityData.ParentYangName = "lma"
     bindings.EntityData.SegmentPath = "bindings"
+    bindings.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/" + bindings.EntityData.SegmentPath
     bindings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bindings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2396,6 +2432,7 @@ func (bindings *Pmipv6_Lma_Bindings) GetEntityData() *types.CommonEntityData {
     bindings.EntityData.Children = types.NewOrderedMap()
     bindings.EntityData.Children.Append("binding", types.YChild{"Binding", nil})
     for i := range bindings.Binding {
+        types.SetYListKey(bindings.Binding[i], i)
         bindings.EntityData.Children.Append(types.GetSegmentPath(bindings.Binding[i]), types.YChild{"Binding", bindings.Binding[i]})
     }
     bindings.EntityData.Leafs = types.NewOrderedMap()
@@ -2410,6 +2447,7 @@ func (bindings *Pmipv6_Lma_Bindings) GetEntityData() *types.CommonEntityData {
 type Pmipv6_Lma_Bindings_Binding struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer MAG ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     MagName interface{}
@@ -2519,7 +2557,8 @@ func (binding *Pmipv6_Lma_Bindings_Binding) GetEntityData() *types.CommonEntityD
     binding.EntityData.YangName = "binding"
     binding.EntityData.BundleName = "cisco_ios_xr"
     binding.EntityData.ParentYangName = "bindings"
-    binding.EntityData.SegmentPath = "binding"
+    binding.EntityData.SegmentPath = "binding" + types.AddNoKeyToken(binding)
+    binding.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/" + binding.EntityData.SegmentPath
     binding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     binding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     binding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2527,14 +2566,17 @@ func (binding *Pmipv6_Lma_Bindings_Binding) GetEntityData() *types.CommonEntityD
     binding.EntityData.Children = types.NewOrderedMap()
     binding.EntityData.Children.Append("coa", types.YChild{"Coa", nil})
     for i := range binding.Coa {
+        types.SetYListKey(binding.Coa[i], i)
         binding.EntityData.Children.Append(types.GetSegmentPath(binding.Coa[i]), types.YChild{"Coa", binding.Coa[i]})
     }
     binding.EntityData.Children.Append("dmnp-v4", types.YChild{"DmnpV4", nil})
     for i := range binding.DmnpV4 {
+        types.SetYListKey(binding.DmnpV4[i], i)
         binding.EntityData.Children.Append(types.GetSegmentPath(binding.DmnpV4[i]), types.YChild{"DmnpV4", binding.DmnpV4[i]})
     }
     binding.EntityData.Children.Append("dmnp-v6", types.YChild{"DmnpV6", nil})
     for i := range binding.DmnpV6 {
+        types.SetYListKey(binding.DmnpV6[i], i)
         binding.EntityData.Children.Append(types.GetSegmentPath(binding.DmnpV6[i]), types.YChild{"DmnpV6", binding.DmnpV6[i]})
     }
     binding.EntityData.Leafs = types.NewOrderedMap()
@@ -2578,6 +2620,7 @@ func (binding *Pmipv6_Lma_Bindings_Binding) GetEntityData() *types.CommonEntityD
 type Pmipv6_Lma_Bindings_Binding_Coa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Link Layer Identifier. The type is string.
     Llid interface{}
@@ -2651,7 +2694,8 @@ func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetEntityData() *types.CommonEntityD
     coa.EntityData.YangName = "coa"
     coa.EntityData.BundleName = "cisco_ios_xr"
     coa.EntityData.ParentYangName = "binding"
-    coa.EntityData.SegmentPath = "coa"
+    coa.EntityData.SegmentPath = "coa" + types.AddNoKeyToken(coa)
+    coa.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/binding/" + coa.EntityData.SegmentPath
     coa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     coa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     coa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2690,6 +2734,7 @@ func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetEntityData() *types.CommonEntityD
 type Pmipv6_Lma_Bindings_Binding_DmnpV4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
     Pfxlen interface{}
@@ -2704,7 +2749,8 @@ func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetEntityData() *types.CommonE
     dmnpV4.EntityData.YangName = "dmnp-v4"
     dmnpV4.EntityData.BundleName = "cisco_ios_xr"
     dmnpV4.EntityData.ParentYangName = "binding"
-    dmnpV4.EntityData.SegmentPath = "dmnp-v4"
+    dmnpV4.EntityData.SegmentPath = "dmnp-v4" + types.AddNoKeyToken(dmnpV4)
+    dmnpV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/binding/" + dmnpV4.EntityData.SegmentPath
     dmnpV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dmnpV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dmnpV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2724,6 +2770,7 @@ func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetEntityData() *types.CommonE
 type Pmipv6_Lma_Bindings_Binding_DmnpV6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IPv6 prefix length. The type is interface{} with range: 0..255.
     Pfxlen interface{}
@@ -2738,7 +2785,8 @@ func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetEntityData() *types.CommonE
     dmnpV6.EntityData.YangName = "dmnp-v6"
     dmnpV6.EntityData.BundleName = "cisco_ios_xr"
     dmnpV6.EntityData.ParentYangName = "binding"
-    dmnpV6.EntityData.SegmentPath = "dmnp-v6"
+    dmnpV6.EntityData.SegmentPath = "dmnp-v6" + types.AddNoKeyToken(dmnpV6)
+    dmnpV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/binding/" + dmnpV6.EntityData.SegmentPath
     dmnpV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dmnpV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dmnpV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2770,6 +2818,7 @@ func (heartbeats *Pmipv6_Lma_Heartbeats) GetEntityData() *types.CommonEntityData
     heartbeats.EntityData.BundleName = "cisco_ios_xr"
     heartbeats.EntityData.ParentYangName = "lma"
     heartbeats.EntityData.SegmentPath = "heartbeats"
+    heartbeats.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/" + heartbeats.EntityData.SegmentPath
     heartbeats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     heartbeats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     heartbeats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2791,6 +2840,7 @@ func (heartbeats *Pmipv6_Lma_Heartbeats) GetEntityData() *types.CommonEntityData
 type Pmipv6_Lma_Heartbeats_Heartbeat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 or IPv6 address. The type is one of the
     // following types: string with pattern:
@@ -2840,6 +2890,7 @@ func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetEntityData() *types.CommonE
     heartbeat.EntityData.BundleName = "cisco_ios_xr"
     heartbeat.EntityData.ParentYangName = "heartbeats"
     heartbeat.EntityData.SegmentPath = "heartbeat" + types.AddKeyToken(heartbeat.PeerAddr, "peer-addr")
+    heartbeat.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/heartbeats/" + heartbeat.EntityData.SegmentPath
     heartbeat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     heartbeat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     heartbeat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2882,6 +2933,7 @@ func (configVariables *Pmipv6_Lma_ConfigVariables) GetEntityData() *types.Common
     configVariables.EntityData.BundleName = "cisco_ios_xr"
     configVariables.EntityData.ParentYangName = "lma"
     configVariables.EntityData.SegmentPath = "config-variables"
+    configVariables.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/" + configVariables.EntityData.SegmentPath
     configVariables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configVariables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configVariables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2913,6 +2965,7 @@ func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetEntity
     customerVariables.EntityData.BundleName = "cisco_ios_xr"
     customerVariables.EntityData.ParentYangName = "config-variables"
     customerVariables.EntityData.SegmentPath = "customer-variables"
+    customerVariables.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/" + customerVariables.EntityData.SegmentPath
     customerVariables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     customerVariables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     customerVariables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2934,6 +2987,7 @@ func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetEntity
 type Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Customer name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2958,6 +3012,7 @@ func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVar
     customerVariable.EntityData.BundleName = "cisco_ios_xr"
     customerVariable.EntityData.ParentYangName = "customer-variables"
     customerVariable.EntityData.SegmentPath = "customer-variable" + types.AddKeyToken(customerVariable.CustomerName, "customer-name")
+    customerVariable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/customer-variables/" + customerVariable.EntityData.SegmentPath
     customerVariable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     customerVariable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     customerVariable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3020,6 +3075,7 @@ func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_
     mllService.EntityData.BundleName = "cisco_ios_xr"
     mllService.EntityData.ParentYangName = "customer-variable"
     mllService.EntityData.SegmentPath = "mll-service"
+    mllService.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/customer-variables/customer-variable/" + mllService.EntityData.SegmentPath
     mllService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mllService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mllService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3136,6 +3192,7 @@ func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetEntityData
     globalVariables.EntityData.BundleName = "cisco_ios_xr"
     globalVariables.EntityData.ParentYangName = "config-variables"
     globalVariables.EntityData.SegmentPath = "global-variables"
+    globalVariables.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/" + globalVariables.EntityData.SegmentPath
     globalVariables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalVariables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalVariables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3145,18 +3202,22 @@ func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetEntityData
     globalVariables.EntityData.Children.Append("mll-service", types.YChild{"MllService", &globalVariables.MllService})
     globalVariables.EntityData.Children.Append("intf", types.YChild{"Intf", nil})
     for i := range globalVariables.Intf {
+        types.SetYListKey(globalVariables.Intf[i], i)
         globalVariables.EntityData.Children.Append(types.GetSegmentPath(globalVariables.Intf[i]), types.YChild{"Intf", globalVariables.Intf[i]})
     }
     globalVariables.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range globalVariables.Peer {
+        types.SetYListKey(globalVariables.Peer[i], i)
         globalVariables.EntityData.Children.Append(types.GetSegmentPath(globalVariables.Peer[i]), types.YChild{"Peer", globalVariables.Peer[i]})
     }
     globalVariables.EntityData.Children.Append("network", types.YChild{"Network", nil})
     for i := range globalVariables.Network {
+        types.SetYListKey(globalVariables.Network[i], i)
         globalVariables.EntityData.Children.Append(types.GetSegmentPath(globalVariables.Network[i]), types.YChild{"Network", globalVariables.Network[i]})
     }
     globalVariables.EntityData.Children.Append("cust", types.YChild{"Cust", nil})
     for i := range globalVariables.Cust {
+        types.SetYListKey(globalVariables.Cust[i], i)
         globalVariables.EntityData.Children.Append(types.GetSegmentPath(globalVariables.Cust[i]), types.YChild{"Cust", globalVariables.Cust[i]})
     }
     globalVariables.EntityData.Leafs = types.NewOrderedMap()
@@ -3255,6 +3316,7 @@ func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetEnti
     parameters.EntityData.BundleName = "cisco_ios_xr"
     parameters.EntityData.ParentYangName = "global-variables"
     parameters.EntityData.SegmentPath = "parameters"
+    parameters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/" + parameters.EntityData.SegmentPath
     parameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3312,6 +3374,7 @@ func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetE
     selfId.EntityData.BundleName = "cisco_ios_xr"
     selfId.EntityData.ParentYangName = "parameters"
     selfId.EntityData.SegmentPath = "self-id"
+    selfId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/parameters/" + selfId.EntityData.SegmentPath
     selfId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selfId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selfId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3373,6 +3436,7 @@ func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetEnti
     mllService.EntityData.BundleName = "cisco_ios_xr"
     mllService.EntityData.ParentYangName = "global-variables"
     mllService.EntityData.SegmentPath = "mll-service"
+    mllService.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/" + mllService.EntityData.SegmentPath
     mllService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mllService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mllService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3399,6 +3463,7 @@ func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetEnti
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // APN Present. The type is bool.
     Apn interface{}
@@ -3415,7 +3480,8 @@ func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetEntityData() *ty
     intf.EntityData.YangName = "intf"
     intf.EntityData.BundleName = "cisco_ios_xr"
     intf.EntityData.ParentYangName = "global-variables"
-    intf.EntityData.SegmentPath = "intf"
+    intf.EntityData.SegmentPath = "intf" + types.AddNoKeyToken(intf)
+    intf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/" + intf.EntityData.SegmentPath
     intf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3436,6 +3502,7 @@ func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetEntityData() *ty
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer Name. The type is string.
     Peer interface{}
@@ -3464,7 +3531,8 @@ func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetEntityData() *ty
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "global-variables"
-    peer.EntityData.SegmentPath = "peer"
+    peer.EntityData.SegmentPath = "peer" + types.AddNoKeyToken(peer)
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3489,6 +3557,7 @@ func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetEntityData() *ty
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_Network struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IPV4 pool Present. The type is bool.
     V4pool interface{}
@@ -3522,7 +3591,8 @@ func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetEntityData
     network.EntityData.YangName = "network"
     network.EntityData.BundleName = "cisco_ios_xr"
     network.EntityData.ParentYangName = "global-variables"
-    network.EntityData.SegmentPath = "network"
+    network.EntityData.SegmentPath = "network" + types.AddNoKeyToken(network)
+    network.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3548,6 +3618,7 @@ func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetEntityData
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Customer Present. The type is bool.
     Cust interface{}
@@ -3583,7 +3654,8 @@ func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetEntityData() *ty
     cust.EntityData.YangName = "cust"
     cust.EntityData.BundleName = "cisco_ios_xr"
     cust.EntityData.ParentYangName = "global-variables"
-    cust.EntityData.SegmentPath = "cust"
+    cust.EntityData.SegmentPath = "cust" + types.AddNoKeyToken(cust)
+    cust.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/" + cust.EntityData.SegmentPath
     cust.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cust.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cust.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

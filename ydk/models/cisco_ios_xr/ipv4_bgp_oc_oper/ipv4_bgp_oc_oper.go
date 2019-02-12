@@ -85,6 +85,7 @@ func (ocBgp *OcBgp) GetEntityData() *types.CommonEntityData {
     ocBgp.EntityData.BundleName = "cisco_ios_xr"
     ocBgp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-oc-oper"
     ocBgp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp"
+    ocBgp.EntityData.AbsolutePath = ocBgp.EntityData.SegmentPath
     ocBgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ocBgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ocBgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -114,6 +115,7 @@ func (bgpRib *OcBgp_BgpRib) GetEntityData() *types.CommonEntityData {
     bgpRib.EntityData.BundleName = "cisco_ios_xr"
     bgpRib.EntityData.ParentYangName = "oc-bgp"
     bgpRib.EntityData.SegmentPath = "bgp-rib"
+    bgpRib.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/" + bgpRib.EntityData.SegmentPath
     bgpRib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpRib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpRib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -146,6 +148,7 @@ func (afiSafiTable *OcBgp_BgpRib_AfiSafiTable) GetEntityData() *types.CommonEnti
     afiSafiTable.EntityData.BundleName = "cisco_ios_xr"
     afiSafiTable.EntityData.ParentYangName = "bgp-rib"
     afiSafiTable.EntityData.SegmentPath = "afi-safi-table"
+    afiSafiTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/" + afiSafiTable.EntityData.SegmentPath
     afiSafiTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afiSafiTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afiSafiTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -179,6 +182,7 @@ func (ipv4Unicast *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast) GetEntityData() *types
     ipv4Unicast.EntityData.BundleName = "cisco_ios_xr"
     ipv4Unicast.EntityData.ParentYangName = "afi-safi-table"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -212,6 +216,7 @@ func (locRib *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib) GetEntityData() *typ
     locRib.EntityData.BundleName = "cisco_ios_xr"
     locRib.EntityData.ParentYangName = "ipv4-unicast"
     locRib.EntityData.SegmentPath = "loc-rib"
+    locRib.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/" + locRib.EntityData.SegmentPath
     locRib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locRib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locRib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -243,6 +248,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes) GetEntityData
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "loc-rib"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +256,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes) GetEntityData
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -264,6 +271,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes) GetEntityData
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network in prefix/length format. The type is one of the following types:
     // string with pattern:
@@ -312,7 +320,8 @@ func (route *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route) GetEntit
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -355,6 +364,7 @@ func (prefixName *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_Pref
     prefixName.EntityData.BundleName = "cisco_ios_xr"
     prefixName.EntityData.ParentYangName = "route"
     prefixName.EntityData.SegmentPath = "prefix-name"
+    prefixName.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/" + prefixName.EntityData.SegmentPath
     prefixName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -393,6 +403,7 @@ func (prefix *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_PrefixNa
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix-name"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/prefix-name/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -449,6 +460,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_R
     routeAttrList.EntityData.BundleName = "cisco_ios_xr"
     routeAttrList.EntityData.ParentYangName = "route"
     routeAttrList.EntityData.SegmentPath = "route-attr-list"
+    routeAttrList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/" + routeAttrList.EntityData.SegmentPath
     routeAttrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeAttrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeAttrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -458,6 +470,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_R
     routeAttrList.EntityData.Children.Append("aggregrator-attributes", types.YChild{"AggregratorAttributes", &routeAttrList.AggregratorAttributes})
     routeAttrList.EntityData.Children.Append("community", types.YChild{"Community", nil})
     for i := range routeAttrList.Community {
+        types.SetYListKey(routeAttrList.Community[i], i)
         routeAttrList.EntityData.Children.Append(types.GetSegmentPath(routeAttrList.Community[i]), types.YChild{"Community", routeAttrList.Community[i]})
     }
     routeAttrList.EntityData.Leafs = types.NewOrderedMap()
@@ -497,6 +510,7 @@ func (nextHop *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_RouteAt
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "route-attr-list"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/route-attr-list/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -535,6 +549,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes
     aggregratorAttributes.EntityData.BundleName = "cisco_ios_xr"
     aggregratorAttributes.EntityData.ParentYangName = "route-attr-list"
     aggregratorAttributes.EntityData.SegmentPath = "aggregrator-attributes"
+    aggregratorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/route-attr-list/" + aggregratorAttributes.EntityData.SegmentPath
     aggregratorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregratorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregratorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -555,6 +570,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_RouteAttrList_Community struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -565,7 +581,8 @@ func (community *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_Route
     community.EntityData.YangName = "community"
     community.EntityData.BundleName = "cisco_ios_xr"
     community.EntityData.ParentYangName = "route-attr-list"
-    community.EntityData.SegmentPath = "community"
+    community.EntityData.SegmentPath = "community" + types.AddNoKeyToken(community)
+    community.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/route-attr-list/" + community.EntityData.SegmentPath
     community.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     community.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     community.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -614,6 +631,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Rou
     extAttributesList.EntityData.BundleName = "cisco_ios_xr"
     extAttributesList.EntityData.ParentYangName = "route"
     extAttributesList.EntityData.SegmentPath = "ext-attributes-list"
+    extAttributesList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/" + extAttributesList.EntityData.SegmentPath
     extAttributesList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extAttributesList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extAttributesList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -621,10 +639,12 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Rou
     extAttributesList.EntityData.Children = types.NewOrderedMap()
     extAttributesList.EntityData.Children.Append("ext-community", types.YChild{"ExtCommunity", nil})
     for i := range extAttributesList.ExtCommunity {
+        types.SetYListKey(extAttributesList.ExtCommunity[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.ExtCommunity[i]), types.YChild{"ExtCommunity", extAttributesList.ExtCommunity[i]})
     }
     extAttributesList.EntityData.Children.Append("unknown-attributes", types.YChild{"UnknownAttributes", nil})
     for i := range extAttributesList.UnknownAttributes {
+        types.SetYListKey(extAttributesList.UnknownAttributes[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.UnknownAttributes[i]), types.YChild{"UnknownAttributes", extAttributesList.UnknownAttributes[i]})
     }
     extAttributesList.EntityData.Leafs = types.NewOrderedMap()
@@ -643,6 +663,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Rou
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_ExtAttributesList_ExtCommunity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -653,7 +674,8 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_Ex
     extCommunity.EntityData.YangName = "ext-community"
     extCommunity.EntityData.BundleName = "cisco_ios_xr"
     extCommunity.EntityData.ParentYangName = "ext-attributes-list"
-    extCommunity.EntityData.SegmentPath = "ext-community"
+    extCommunity.EntityData.SegmentPath = "ext-community" + types.AddNoKeyToken(extCommunity)
+    extCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/ext-attributes-list/" + extCommunity.EntityData.SegmentPath
     extCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -672,6 +694,7 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_Ex
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Route_ExtAttributesList_UnknownAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AttributeType. The type is interface{} with range: 0..65535.
     AttributeType interface{}
@@ -689,7 +712,8 @@ func (unknownAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Rou
     unknownAttributes.EntityData.YangName = "unknown-attributes"
     unknownAttributes.EntityData.BundleName = "cisco_ios_xr"
     unknownAttributes.EntityData.ParentYangName = "ext-attributes-list"
-    unknownAttributes.EntityData.SegmentPath = "unknown-attributes"
+    unknownAttributes.EntityData.SegmentPath = "unknown-attributes" + types.AddNoKeyToken(unknownAttributes)
+    unknownAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/ext-attributes-list/" + unknownAttributes.EntityData.SegmentPath
     unknownAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -721,6 +745,7 @@ func (lastModifiedDate *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Rout
     lastModifiedDate.EntityData.BundleName = "cisco_ios_xr"
     lastModifiedDate.EntityData.ParentYangName = "route"
     lastModifiedDate.EntityData.SegmentPath = "last-modified-date"
+    lastModifiedDate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/" + lastModifiedDate.EntityData.SegmentPath
     lastModifiedDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastModifiedDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastModifiedDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -750,6 +775,7 @@ func (lastUpdateRecieved *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_Routes_Ro
     lastUpdateRecieved.EntityData.BundleName = "cisco_ios_xr"
     lastUpdateRecieved.EntityData.ParentYangName = "route"
     lastUpdateRecieved.EntityData.SegmentPath = "last-update-recieved"
+    lastUpdateRecieved.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/" + lastUpdateRecieved.EntityData.SegmentPath
     lastUpdateRecieved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpdateRecieved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpdateRecieved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -780,6 +806,7 @@ func (numRoutes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_LocRib_NumRoutes) GetEnti
     numRoutes.EntityData.BundleName = "cisco_ios_xr"
     numRoutes.EntityData.ParentYangName = "loc-rib"
     numRoutes.EntityData.SegmentPath = "num-routes"
+    numRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/" + numRoutes.EntityData.SegmentPath
     numRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -810,6 +837,7 @@ func (openConfigNeighbors *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeigh
     openConfigNeighbors.EntityData.BundleName = "cisco_ios_xr"
     openConfigNeighbors.EntityData.ParentYangName = "ipv4-unicast"
     openConfigNeighbors.EntityData.SegmentPath = "open-config-neighbors"
+    openConfigNeighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/" + openConfigNeighbors.EntityData.SegmentPath
     openConfigNeighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     openConfigNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     openConfigNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -831,6 +859,7 @@ func (openConfigNeighbors *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeigh
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor Address. The type is one of the following
     // types: string with pattern:
@@ -858,6 +887,7 @@ func (openConfigNeighbor *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighb
     openConfigNeighbor.EntityData.BundleName = "cisco_ios_xr"
     openConfigNeighbor.EntityData.ParentYangName = "open-config-neighbors"
     openConfigNeighbor.EntityData.SegmentPath = "open-config-neighbor" + types.AddKeyToken(openConfigNeighbor.NeighborAddress, "neighbor-address")
+    openConfigNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/" + openConfigNeighbor.EntityData.SegmentPath
     openConfigNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     openConfigNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     openConfigNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -894,6 +924,7 @@ func (adjRibInPost *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Op
     adjRibInPost.EntityData.BundleName = "cisco_ios_xr"
     adjRibInPost.EntityData.ParentYangName = "open-config-neighbor"
     adjRibInPost.EntityData.SegmentPath = "adj-rib-in-post"
+    adjRibInPost.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/" + adjRibInPost.EntityData.SegmentPath
     adjRibInPost.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjRibInPost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjRibInPost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -925,6 +956,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "adj-rib-in-post"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -932,6 +964,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -946,6 +979,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPost_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network in prefix/length format. The type is one of the following types:
     // string with pattern:
@@ -994,7 +1028,8 @@ func (route *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfi
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1037,6 +1072,7 @@ func (prefixName *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Open
     prefixName.EntityData.BundleName = "cisco_ios_xr"
     prefixName.EntityData.ParentYangName = "route"
     prefixName.EntityData.SegmentPath = "prefix-name"
+    prefixName.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/" + prefixName.EntityData.SegmentPath
     prefixName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1075,6 +1111,7 @@ func (prefix *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix-name"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/prefix-name/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1131,6 +1168,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.BundleName = "cisco_ios_xr"
     routeAttrList.EntityData.ParentYangName = "route"
     routeAttrList.EntityData.SegmentPath = "route-attr-list"
+    routeAttrList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/" + routeAttrList.EntityData.SegmentPath
     routeAttrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeAttrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeAttrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1140,6 +1178,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.Children.Append("aggregrator-attributes", types.YChild{"AggregratorAttributes", &routeAttrList.AggregratorAttributes})
     routeAttrList.EntityData.Children.Append("community", types.YChild{"Community", nil})
     for i := range routeAttrList.Community {
+        types.SetYListKey(routeAttrList.Community[i], i)
         routeAttrList.EntityData.Children.Append(types.GetSegmentPath(routeAttrList.Community[i]), types.YChild{"Community", routeAttrList.Community[i]})
     }
     routeAttrList.EntityData.Leafs = types.NewOrderedMap()
@@ -1179,6 +1218,7 @@ func (nextHop *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenCon
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "route-attr-list"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/route-attr-list/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1217,6 +1257,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNei
     aggregratorAttributes.EntityData.BundleName = "cisco_ios_xr"
     aggregratorAttributes.EntityData.ParentYangName = "route-attr-list"
     aggregratorAttributes.EntityData.SegmentPath = "aggregrator-attributes"
+    aggregratorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/route-attr-list/" + aggregratorAttributes.EntityData.SegmentPath
     aggregratorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregratorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregratorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1237,6 +1278,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNei
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPost_Routes_Route_RouteAttrList_Community struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -1247,7 +1289,8 @@ func (community *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenC
     community.EntityData.YangName = "community"
     community.EntityData.BundleName = "cisco_ios_xr"
     community.EntityData.ParentYangName = "route-attr-list"
-    community.EntityData.SegmentPath = "community"
+    community.EntityData.SegmentPath = "community" + types.AddNoKeyToken(community)
+    community.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/route-attr-list/" + community.EntityData.SegmentPath
     community.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     community.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     community.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1296,6 +1339,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.BundleName = "cisco_ios_xr"
     extAttributesList.EntityData.ParentYangName = "route"
     extAttributesList.EntityData.SegmentPath = "ext-attributes-list"
+    extAttributesList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/" + extAttributesList.EntityData.SegmentPath
     extAttributesList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extAttributesList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extAttributesList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1303,10 +1347,12 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.Children = types.NewOrderedMap()
     extAttributesList.EntityData.Children.Append("ext-community", types.YChild{"ExtCommunity", nil})
     for i := range extAttributesList.ExtCommunity {
+        types.SetYListKey(extAttributesList.ExtCommunity[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.ExtCommunity[i]), types.YChild{"ExtCommunity", extAttributesList.ExtCommunity[i]})
     }
     extAttributesList.EntityData.Children.Append("unknown-attributes", types.YChild{"UnknownAttributes", nil})
     for i := range extAttributesList.UnknownAttributes {
+        types.SetYListKey(extAttributesList.UnknownAttributes[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.UnknownAttributes[i]), types.YChild{"UnknownAttributes", extAttributesList.UnknownAttributes[i]})
     }
     extAttributesList.EntityData.Leafs = types.NewOrderedMap()
@@ -1325,6 +1371,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPost_Routes_Route_ExtAttributesList_ExtCommunity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -1335,7 +1382,8 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Op
     extCommunity.EntityData.YangName = "ext-community"
     extCommunity.EntityData.BundleName = "cisco_ios_xr"
     extCommunity.EntityData.ParentYangName = "ext-attributes-list"
-    extCommunity.EntityData.SegmentPath = "ext-community"
+    extCommunity.EntityData.SegmentPath = "ext-community" + types.AddNoKeyToken(extCommunity)
+    extCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/ext-attributes-list/" + extCommunity.EntityData.SegmentPath
     extCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1354,6 +1402,7 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Op
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPost_Routes_Route_ExtAttributesList_UnknownAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AttributeType. The type is interface{} with range: 0..65535.
     AttributeType interface{}
@@ -1371,7 +1420,8 @@ func (unknownAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     unknownAttributes.EntityData.YangName = "unknown-attributes"
     unknownAttributes.EntityData.BundleName = "cisco_ios_xr"
     unknownAttributes.EntityData.ParentYangName = "ext-attributes-list"
-    unknownAttributes.EntityData.SegmentPath = "unknown-attributes"
+    unknownAttributes.EntityData.SegmentPath = "unknown-attributes" + types.AddNoKeyToken(unknownAttributes)
+    unknownAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/ext-attributes-list/" + unknownAttributes.EntityData.SegmentPath
     unknownAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1403,6 +1453,7 @@ func (lastModifiedDate *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbor
     lastModifiedDate.EntityData.BundleName = "cisco_ios_xr"
     lastModifiedDate.EntityData.ParentYangName = "route"
     lastModifiedDate.EntityData.SegmentPath = "last-modified-date"
+    lastModifiedDate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/" + lastModifiedDate.EntityData.SegmentPath
     lastModifiedDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastModifiedDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastModifiedDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1432,6 +1483,7 @@ func (lastUpdateRecieved *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighb
     lastUpdateRecieved.EntityData.BundleName = "cisco_ios_xr"
     lastUpdateRecieved.EntityData.ParentYangName = "route"
     lastUpdateRecieved.EntityData.SegmentPath = "last-update-recieved"
+    lastUpdateRecieved.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/" + lastUpdateRecieved.EntityData.SegmentPath
     lastUpdateRecieved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpdateRecieved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpdateRecieved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1462,6 +1514,7 @@ func (numRoutes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenC
     numRoutes.EntityData.BundleName = "cisco_ios_xr"
     numRoutes.EntityData.ParentYangName = "adj-rib-in-post"
     numRoutes.EntityData.SegmentPath = "num-routes"
+    numRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/" + numRoutes.EntityData.SegmentPath
     numRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1494,6 +1547,7 @@ func (adjRibOutPost *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_O
     adjRibOutPost.EntityData.BundleName = "cisco_ios_xr"
     adjRibOutPost.EntityData.ParentYangName = "open-config-neighbor"
     adjRibOutPost.EntityData.SegmentPath = "adj-rib-out-post"
+    adjRibOutPost.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/" + adjRibOutPost.EntityData.SegmentPath
     adjRibOutPost.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjRibOutPost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjRibOutPost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1525,6 +1579,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "adj-rib-out-post"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1532,6 +1587,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -1546,6 +1602,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPost_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network in prefix/length format. The type is one of the following types:
     // string with pattern:
@@ -1594,7 +1651,8 @@ func (route *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfi
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1637,6 +1695,7 @@ func (prefixName *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Open
     prefixName.EntityData.BundleName = "cisco_ios_xr"
     prefixName.EntityData.ParentYangName = "route"
     prefixName.EntityData.SegmentPath = "prefix-name"
+    prefixName.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/" + prefixName.EntityData.SegmentPath
     prefixName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1675,6 +1734,7 @@ func (prefix *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix-name"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/prefix-name/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1731,6 +1791,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.BundleName = "cisco_ios_xr"
     routeAttrList.EntityData.ParentYangName = "route"
     routeAttrList.EntityData.SegmentPath = "route-attr-list"
+    routeAttrList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/" + routeAttrList.EntityData.SegmentPath
     routeAttrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeAttrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeAttrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1740,6 +1801,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.Children.Append("aggregrator-attributes", types.YChild{"AggregratorAttributes", &routeAttrList.AggregratorAttributes})
     routeAttrList.EntityData.Children.Append("community", types.YChild{"Community", nil})
     for i := range routeAttrList.Community {
+        types.SetYListKey(routeAttrList.Community[i], i)
         routeAttrList.EntityData.Children.Append(types.GetSegmentPath(routeAttrList.Community[i]), types.YChild{"Community", routeAttrList.Community[i]})
     }
     routeAttrList.EntityData.Leafs = types.NewOrderedMap()
@@ -1779,6 +1841,7 @@ func (nextHop *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenCon
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "route-attr-list"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/route-attr-list/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1817,6 +1880,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNei
     aggregratorAttributes.EntityData.BundleName = "cisco_ios_xr"
     aggregratorAttributes.EntityData.ParentYangName = "route-attr-list"
     aggregratorAttributes.EntityData.SegmentPath = "aggregrator-attributes"
+    aggregratorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/route-attr-list/" + aggregratorAttributes.EntityData.SegmentPath
     aggregratorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregratorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregratorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1837,6 +1901,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNei
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPost_Routes_Route_RouteAttrList_Community struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -1847,7 +1912,8 @@ func (community *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenC
     community.EntityData.YangName = "community"
     community.EntityData.BundleName = "cisco_ios_xr"
     community.EntityData.ParentYangName = "route-attr-list"
-    community.EntityData.SegmentPath = "community"
+    community.EntityData.SegmentPath = "community" + types.AddNoKeyToken(community)
+    community.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/route-attr-list/" + community.EntityData.SegmentPath
     community.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     community.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     community.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1896,6 +1962,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.BundleName = "cisco_ios_xr"
     extAttributesList.EntityData.ParentYangName = "route"
     extAttributesList.EntityData.SegmentPath = "ext-attributes-list"
+    extAttributesList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/" + extAttributesList.EntityData.SegmentPath
     extAttributesList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extAttributesList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extAttributesList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1903,10 +1970,12 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.Children = types.NewOrderedMap()
     extAttributesList.EntityData.Children.Append("ext-community", types.YChild{"ExtCommunity", nil})
     for i := range extAttributesList.ExtCommunity {
+        types.SetYListKey(extAttributesList.ExtCommunity[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.ExtCommunity[i]), types.YChild{"ExtCommunity", extAttributesList.ExtCommunity[i]})
     }
     extAttributesList.EntityData.Children.Append("unknown-attributes", types.YChild{"UnknownAttributes", nil})
     for i := range extAttributesList.UnknownAttributes {
+        types.SetYListKey(extAttributesList.UnknownAttributes[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.UnknownAttributes[i]), types.YChild{"UnknownAttributes", extAttributesList.UnknownAttributes[i]})
     }
     extAttributesList.EntityData.Leafs = types.NewOrderedMap()
@@ -1925,6 +1994,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPost_Routes_Route_ExtAttributesList_ExtCommunity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -1935,7 +2005,8 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Op
     extCommunity.EntityData.YangName = "ext-community"
     extCommunity.EntityData.BundleName = "cisco_ios_xr"
     extCommunity.EntityData.ParentYangName = "ext-attributes-list"
-    extCommunity.EntityData.SegmentPath = "ext-community"
+    extCommunity.EntityData.SegmentPath = "ext-community" + types.AddNoKeyToken(extCommunity)
+    extCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/ext-attributes-list/" + extCommunity.EntityData.SegmentPath
     extCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1954,6 +2025,7 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Op
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPost_Routes_Route_ExtAttributesList_UnknownAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AttributeType. The type is interface{} with range: 0..65535.
     AttributeType interface{}
@@ -1971,7 +2043,8 @@ func (unknownAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     unknownAttributes.EntityData.YangName = "unknown-attributes"
     unknownAttributes.EntityData.BundleName = "cisco_ios_xr"
     unknownAttributes.EntityData.ParentYangName = "ext-attributes-list"
-    unknownAttributes.EntityData.SegmentPath = "unknown-attributes"
+    unknownAttributes.EntityData.SegmentPath = "unknown-attributes" + types.AddNoKeyToken(unknownAttributes)
+    unknownAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/ext-attributes-list/" + unknownAttributes.EntityData.SegmentPath
     unknownAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2003,6 +2076,7 @@ func (lastModifiedDate *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbor
     lastModifiedDate.EntityData.BundleName = "cisco_ios_xr"
     lastModifiedDate.EntityData.ParentYangName = "route"
     lastModifiedDate.EntityData.SegmentPath = "last-modified-date"
+    lastModifiedDate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/" + lastModifiedDate.EntityData.SegmentPath
     lastModifiedDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastModifiedDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastModifiedDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2032,6 +2106,7 @@ func (lastUpdateRecieved *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighb
     lastUpdateRecieved.EntityData.BundleName = "cisco_ios_xr"
     lastUpdateRecieved.EntityData.ParentYangName = "route"
     lastUpdateRecieved.EntityData.SegmentPath = "last-update-recieved"
+    lastUpdateRecieved.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/" + lastUpdateRecieved.EntityData.SegmentPath
     lastUpdateRecieved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpdateRecieved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpdateRecieved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2062,6 +2137,7 @@ func (numRoutes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenC
     numRoutes.EntityData.BundleName = "cisco_ios_xr"
     numRoutes.EntityData.ParentYangName = "adj-rib-out-post"
     numRoutes.EntityData.SegmentPath = "num-routes"
+    numRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/" + numRoutes.EntityData.SegmentPath
     numRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2094,6 +2170,7 @@ func (adjRibOutPre *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Op
     adjRibOutPre.EntityData.BundleName = "cisco_ios_xr"
     adjRibOutPre.EntityData.ParentYangName = "open-config-neighbor"
     adjRibOutPre.EntityData.SegmentPath = "adj-rib-out-pre"
+    adjRibOutPre.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/" + adjRibOutPre.EntityData.SegmentPath
     adjRibOutPre.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjRibOutPre.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjRibOutPre.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2125,6 +2202,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "adj-rib-out-pre"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2132,6 +2210,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -2146,6 +2225,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPre_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network in prefix/length format. The type is one of the following types:
     // string with pattern:
@@ -2194,7 +2274,8 @@ func (route *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfi
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2237,6 +2318,7 @@ func (prefixName *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Open
     prefixName.EntityData.BundleName = "cisco_ios_xr"
     prefixName.EntityData.ParentYangName = "route"
     prefixName.EntityData.SegmentPath = "prefix-name"
+    prefixName.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/" + prefixName.EntityData.SegmentPath
     prefixName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2275,6 +2357,7 @@ func (prefix *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix-name"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/prefix-name/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2331,6 +2414,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.BundleName = "cisco_ios_xr"
     routeAttrList.EntityData.ParentYangName = "route"
     routeAttrList.EntityData.SegmentPath = "route-attr-list"
+    routeAttrList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/" + routeAttrList.EntityData.SegmentPath
     routeAttrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeAttrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeAttrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2340,6 +2424,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.Children.Append("aggregrator-attributes", types.YChild{"AggregratorAttributes", &routeAttrList.AggregratorAttributes})
     routeAttrList.EntityData.Children.Append("community", types.YChild{"Community", nil})
     for i := range routeAttrList.Community {
+        types.SetYListKey(routeAttrList.Community[i], i)
         routeAttrList.EntityData.Children.Append(types.GetSegmentPath(routeAttrList.Community[i]), types.YChild{"Community", routeAttrList.Community[i]})
     }
     routeAttrList.EntityData.Leafs = types.NewOrderedMap()
@@ -2379,6 +2464,7 @@ func (nextHop *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenCon
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "route-attr-list"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/route-attr-list/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2417,6 +2503,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNei
     aggregratorAttributes.EntityData.BundleName = "cisco_ios_xr"
     aggregratorAttributes.EntityData.ParentYangName = "route-attr-list"
     aggregratorAttributes.EntityData.SegmentPath = "aggregrator-attributes"
+    aggregratorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/route-attr-list/" + aggregratorAttributes.EntityData.SegmentPath
     aggregratorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregratorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregratorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2437,6 +2524,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNei
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPre_Routes_Route_RouteAttrList_Community struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -2447,7 +2535,8 @@ func (community *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenC
     community.EntityData.YangName = "community"
     community.EntityData.BundleName = "cisco_ios_xr"
     community.EntityData.ParentYangName = "route-attr-list"
-    community.EntityData.SegmentPath = "community"
+    community.EntityData.SegmentPath = "community" + types.AddNoKeyToken(community)
+    community.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/route-attr-list/" + community.EntityData.SegmentPath
     community.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     community.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     community.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2496,6 +2585,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.BundleName = "cisco_ios_xr"
     extAttributesList.EntityData.ParentYangName = "route"
     extAttributesList.EntityData.SegmentPath = "ext-attributes-list"
+    extAttributesList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/" + extAttributesList.EntityData.SegmentPath
     extAttributesList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extAttributesList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extAttributesList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2503,10 +2593,12 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.Children = types.NewOrderedMap()
     extAttributesList.EntityData.Children.Append("ext-community", types.YChild{"ExtCommunity", nil})
     for i := range extAttributesList.ExtCommunity {
+        types.SetYListKey(extAttributesList.ExtCommunity[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.ExtCommunity[i]), types.YChild{"ExtCommunity", extAttributesList.ExtCommunity[i]})
     }
     extAttributesList.EntityData.Children.Append("unknown-attributes", types.YChild{"UnknownAttributes", nil})
     for i := range extAttributesList.UnknownAttributes {
+        types.SetYListKey(extAttributesList.UnknownAttributes[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.UnknownAttributes[i]), types.YChild{"UnknownAttributes", extAttributesList.UnknownAttributes[i]})
     }
     extAttributesList.EntityData.Leafs = types.NewOrderedMap()
@@ -2525,6 +2617,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPre_Routes_Route_ExtAttributesList_ExtCommunity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -2535,7 +2628,8 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Op
     extCommunity.EntityData.YangName = "ext-community"
     extCommunity.EntityData.BundleName = "cisco_ios_xr"
     extCommunity.EntityData.ParentYangName = "ext-attributes-list"
-    extCommunity.EntityData.SegmentPath = "ext-community"
+    extCommunity.EntityData.SegmentPath = "ext-community" + types.AddNoKeyToken(extCommunity)
+    extCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/ext-attributes-list/" + extCommunity.EntityData.SegmentPath
     extCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2554,6 +2648,7 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Op
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPre_Routes_Route_ExtAttributesList_UnknownAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AttributeType. The type is interface{} with range: 0..65535.
     AttributeType interface{}
@@ -2571,7 +2666,8 @@ func (unknownAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     unknownAttributes.EntityData.YangName = "unknown-attributes"
     unknownAttributes.EntityData.BundleName = "cisco_ios_xr"
     unknownAttributes.EntityData.ParentYangName = "ext-attributes-list"
-    unknownAttributes.EntityData.SegmentPath = "unknown-attributes"
+    unknownAttributes.EntityData.SegmentPath = "unknown-attributes" + types.AddNoKeyToken(unknownAttributes)
+    unknownAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/ext-attributes-list/" + unknownAttributes.EntityData.SegmentPath
     unknownAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2603,6 +2699,7 @@ func (lastModifiedDate *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbor
     lastModifiedDate.EntityData.BundleName = "cisco_ios_xr"
     lastModifiedDate.EntityData.ParentYangName = "route"
     lastModifiedDate.EntityData.SegmentPath = "last-modified-date"
+    lastModifiedDate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/" + lastModifiedDate.EntityData.SegmentPath
     lastModifiedDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastModifiedDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastModifiedDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2632,6 +2729,7 @@ func (lastUpdateRecieved *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighb
     lastUpdateRecieved.EntityData.BundleName = "cisco_ios_xr"
     lastUpdateRecieved.EntityData.ParentYangName = "route"
     lastUpdateRecieved.EntityData.SegmentPath = "last-update-recieved"
+    lastUpdateRecieved.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/" + lastUpdateRecieved.EntityData.SegmentPath
     lastUpdateRecieved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpdateRecieved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpdateRecieved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2662,6 +2760,7 @@ func (numRoutes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenC
     numRoutes.EntityData.BundleName = "cisco_ios_xr"
     numRoutes.EntityData.ParentYangName = "adj-rib-out-pre"
     numRoutes.EntityData.SegmentPath = "num-routes"
+    numRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/" + numRoutes.EntityData.SegmentPath
     numRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2694,6 +2793,7 @@ func (adjRibInPre *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Ope
     adjRibInPre.EntityData.BundleName = "cisco_ios_xr"
     adjRibInPre.EntityData.ParentYangName = "open-config-neighbor"
     adjRibInPre.EntityData.SegmentPath = "adj-rib-in-pre"
+    adjRibInPre.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/" + adjRibInPre.EntityData.SegmentPath
     adjRibInPre.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjRibInPre.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjRibInPre.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2725,6 +2825,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "adj-rib-in-pre"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2732,6 +2833,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -2746,6 +2848,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPre_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network in prefix/length format. The type is one of the following types:
     // string with pattern:
@@ -2794,7 +2897,8 @@ func (route *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfi
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2837,6 +2941,7 @@ func (prefixName *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Open
     prefixName.EntityData.BundleName = "cisco_ios_xr"
     prefixName.EntityData.ParentYangName = "route"
     prefixName.EntityData.SegmentPath = "prefix-name"
+    prefixName.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/" + prefixName.EntityData.SegmentPath
     prefixName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2875,6 +2980,7 @@ func (prefix *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConf
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix-name"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/prefix-name/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2931,6 +3037,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.BundleName = "cisco_ios_xr"
     routeAttrList.EntityData.ParentYangName = "route"
     routeAttrList.EntityData.SegmentPath = "route-attr-list"
+    routeAttrList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/" + routeAttrList.EntityData.SegmentPath
     routeAttrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeAttrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeAttrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2940,6 +3047,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.Children.Append("aggregrator-attributes", types.YChild{"AggregratorAttributes", &routeAttrList.AggregratorAttributes})
     routeAttrList.EntityData.Children.Append("community", types.YChild{"Community", nil})
     for i := range routeAttrList.Community {
+        types.SetYListKey(routeAttrList.Community[i], i)
         routeAttrList.EntityData.Children.Append(types.GetSegmentPath(routeAttrList.Community[i]), types.YChild{"Community", routeAttrList.Community[i]})
     }
     routeAttrList.EntityData.Leafs = types.NewOrderedMap()
@@ -2979,6 +3087,7 @@ func (nextHop *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenCon
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "route-attr-list"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/route-attr-list/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3017,6 +3126,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNei
     aggregratorAttributes.EntityData.BundleName = "cisco_ios_xr"
     aggregratorAttributes.EntityData.ParentYangName = "route-attr-list"
     aggregratorAttributes.EntityData.SegmentPath = "aggregrator-attributes"
+    aggregratorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/route-attr-list/" + aggregratorAttributes.EntityData.SegmentPath
     aggregratorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregratorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregratorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3037,6 +3147,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNei
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPre_Routes_Route_RouteAttrList_Community struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -3047,7 +3158,8 @@ func (community *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenC
     community.EntityData.YangName = "community"
     community.EntityData.BundleName = "cisco_ios_xr"
     community.EntityData.ParentYangName = "route-attr-list"
-    community.EntityData.SegmentPath = "community"
+    community.EntityData.SegmentPath = "community" + types.AddNoKeyToken(community)
+    community.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/route-attr-list/" + community.EntityData.SegmentPath
     community.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     community.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     community.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3096,6 +3208,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.BundleName = "cisco_ios_xr"
     extAttributesList.EntityData.ParentYangName = "route"
     extAttributesList.EntityData.SegmentPath = "ext-attributes-list"
+    extAttributesList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/" + extAttributesList.EntityData.SegmentPath
     extAttributesList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extAttributesList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extAttributesList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3103,10 +3216,12 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.Children = types.NewOrderedMap()
     extAttributesList.EntityData.Children.Append("ext-community", types.YChild{"ExtCommunity", nil})
     for i := range extAttributesList.ExtCommunity {
+        types.SetYListKey(extAttributesList.ExtCommunity[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.ExtCommunity[i]), types.YChild{"ExtCommunity", extAttributesList.ExtCommunity[i]})
     }
     extAttributesList.EntityData.Children.Append("unknown-attributes", types.YChild{"UnknownAttributes", nil})
     for i := range extAttributesList.UnknownAttributes {
+        types.SetYListKey(extAttributesList.UnknownAttributes[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.UnknownAttributes[i]), types.YChild{"UnknownAttributes", extAttributesList.UnknownAttributes[i]})
     }
     extAttributesList.EntityData.Leafs = types.NewOrderedMap()
@@ -3125,6 +3240,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPre_Routes_Route_ExtAttributesList_ExtCommunity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -3135,7 +3251,8 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Op
     extCommunity.EntityData.YangName = "ext-community"
     extCommunity.EntityData.BundleName = "cisco_ios_xr"
     extCommunity.EntityData.ParentYangName = "ext-attributes-list"
-    extCommunity.EntityData.SegmentPath = "ext-community"
+    extCommunity.EntityData.SegmentPath = "ext-community" + types.AddNoKeyToken(extCommunity)
+    extCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/ext-attributes-list/" + extCommunity.EntityData.SegmentPath
     extCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3154,6 +3271,7 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_Op
 type OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPre_Routes_Route_ExtAttributesList_UnknownAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AttributeType. The type is interface{} with range: 0..65535.
     AttributeType interface{}
@@ -3171,7 +3289,8 @@ func (unknownAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbo
     unknownAttributes.EntityData.YangName = "unknown-attributes"
     unknownAttributes.EntityData.BundleName = "cisco_ios_xr"
     unknownAttributes.EntityData.ParentYangName = "ext-attributes-list"
-    unknownAttributes.EntityData.SegmentPath = "unknown-attributes"
+    unknownAttributes.EntityData.SegmentPath = "unknown-attributes" + types.AddNoKeyToken(unknownAttributes)
+    unknownAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/ext-attributes-list/" + unknownAttributes.EntityData.SegmentPath
     unknownAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3203,6 +3322,7 @@ func (lastModifiedDate *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbor
     lastModifiedDate.EntityData.BundleName = "cisco_ios_xr"
     lastModifiedDate.EntityData.ParentYangName = "route"
     lastModifiedDate.EntityData.SegmentPath = "last-modified-date"
+    lastModifiedDate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/" + lastModifiedDate.EntityData.SegmentPath
     lastModifiedDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastModifiedDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastModifiedDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3232,6 +3352,7 @@ func (lastUpdateRecieved *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighb
     lastUpdateRecieved.EntityData.BundleName = "cisco_ios_xr"
     lastUpdateRecieved.EntityData.ParentYangName = "route"
     lastUpdateRecieved.EntityData.SegmentPath = "last-update-recieved"
+    lastUpdateRecieved.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/" + lastUpdateRecieved.EntityData.SegmentPath
     lastUpdateRecieved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpdateRecieved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpdateRecieved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3262,6 +3383,7 @@ func (numRoutes *OcBgp_BgpRib_AfiSafiTable_Ipv4Unicast_OpenConfigNeighbors_OpenC
     numRoutes.EntityData.BundleName = "cisco_ios_xr"
     numRoutes.EntityData.ParentYangName = "adj-rib-in-pre"
     numRoutes.EntityData.SegmentPath = "num-routes"
+    numRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/" + numRoutes.EntityData.SegmentPath
     numRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3294,6 +3416,7 @@ func (ipv6Unicast *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast) GetEntityData() *types
     ipv6Unicast.EntityData.BundleName = "cisco_ios_xr"
     ipv6Unicast.EntityData.ParentYangName = "afi-safi-table"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3327,6 +3450,7 @@ func (locRib *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib) GetEntityData() *typ
     locRib.EntityData.BundleName = "cisco_ios_xr"
     locRib.EntityData.ParentYangName = "ipv6-unicast"
     locRib.EntityData.SegmentPath = "loc-rib"
+    locRib.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/" + locRib.EntityData.SegmentPath
     locRib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locRib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locRib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3358,6 +3482,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes) GetEntityData
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "loc-rib"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3365,6 +3490,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes) GetEntityData
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -3379,6 +3505,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes) GetEntityData
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network in prefix/length format. The type is one of the following types:
     // string with pattern:
@@ -3427,7 +3554,8 @@ func (route *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route) GetEntit
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3470,6 +3598,7 @@ func (prefixName *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_Pref
     prefixName.EntityData.BundleName = "cisco_ios_xr"
     prefixName.EntityData.ParentYangName = "route"
     prefixName.EntityData.SegmentPath = "prefix-name"
+    prefixName.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/" + prefixName.EntityData.SegmentPath
     prefixName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3508,6 +3637,7 @@ func (prefix *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_PrefixNa
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix-name"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/prefix-name/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3564,6 +3694,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_R
     routeAttrList.EntityData.BundleName = "cisco_ios_xr"
     routeAttrList.EntityData.ParentYangName = "route"
     routeAttrList.EntityData.SegmentPath = "route-attr-list"
+    routeAttrList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/" + routeAttrList.EntityData.SegmentPath
     routeAttrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeAttrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeAttrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3573,6 +3704,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_R
     routeAttrList.EntityData.Children.Append("aggregrator-attributes", types.YChild{"AggregratorAttributes", &routeAttrList.AggregratorAttributes})
     routeAttrList.EntityData.Children.Append("community", types.YChild{"Community", nil})
     for i := range routeAttrList.Community {
+        types.SetYListKey(routeAttrList.Community[i], i)
         routeAttrList.EntityData.Children.Append(types.GetSegmentPath(routeAttrList.Community[i]), types.YChild{"Community", routeAttrList.Community[i]})
     }
     routeAttrList.EntityData.Leafs = types.NewOrderedMap()
@@ -3612,6 +3744,7 @@ func (nextHop *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_RouteAt
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "route-attr-list"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/route-attr-list/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3650,6 +3783,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes
     aggregratorAttributes.EntityData.BundleName = "cisco_ios_xr"
     aggregratorAttributes.EntityData.ParentYangName = "route-attr-list"
     aggregratorAttributes.EntityData.SegmentPath = "aggregrator-attributes"
+    aggregratorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/route-attr-list/" + aggregratorAttributes.EntityData.SegmentPath
     aggregratorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregratorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregratorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3670,6 +3804,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_RouteAttrList_Community struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -3680,7 +3815,8 @@ func (community *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_Route
     community.EntityData.YangName = "community"
     community.EntityData.BundleName = "cisco_ios_xr"
     community.EntityData.ParentYangName = "route-attr-list"
-    community.EntityData.SegmentPath = "community"
+    community.EntityData.SegmentPath = "community" + types.AddNoKeyToken(community)
+    community.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/route-attr-list/" + community.EntityData.SegmentPath
     community.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     community.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     community.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3729,6 +3865,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Rou
     extAttributesList.EntityData.BundleName = "cisco_ios_xr"
     extAttributesList.EntityData.ParentYangName = "route"
     extAttributesList.EntityData.SegmentPath = "ext-attributes-list"
+    extAttributesList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/" + extAttributesList.EntityData.SegmentPath
     extAttributesList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extAttributesList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extAttributesList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3736,10 +3873,12 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Rou
     extAttributesList.EntityData.Children = types.NewOrderedMap()
     extAttributesList.EntityData.Children.Append("ext-community", types.YChild{"ExtCommunity", nil})
     for i := range extAttributesList.ExtCommunity {
+        types.SetYListKey(extAttributesList.ExtCommunity[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.ExtCommunity[i]), types.YChild{"ExtCommunity", extAttributesList.ExtCommunity[i]})
     }
     extAttributesList.EntityData.Children.Append("unknown-attributes", types.YChild{"UnknownAttributes", nil})
     for i := range extAttributesList.UnknownAttributes {
+        types.SetYListKey(extAttributesList.UnknownAttributes[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.UnknownAttributes[i]), types.YChild{"UnknownAttributes", extAttributesList.UnknownAttributes[i]})
     }
     extAttributesList.EntityData.Leafs = types.NewOrderedMap()
@@ -3758,6 +3897,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Rou
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_ExtAttributesList_ExtCommunity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -3768,7 +3908,8 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_Ex
     extCommunity.EntityData.YangName = "ext-community"
     extCommunity.EntityData.BundleName = "cisco_ios_xr"
     extCommunity.EntityData.ParentYangName = "ext-attributes-list"
-    extCommunity.EntityData.SegmentPath = "ext-community"
+    extCommunity.EntityData.SegmentPath = "ext-community" + types.AddNoKeyToken(extCommunity)
+    extCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/ext-attributes-list/" + extCommunity.EntityData.SegmentPath
     extCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3787,6 +3928,7 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_Ex
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Route_ExtAttributesList_UnknownAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AttributeType. The type is interface{} with range: 0..65535.
     AttributeType interface{}
@@ -3804,7 +3946,8 @@ func (unknownAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Rou
     unknownAttributes.EntityData.YangName = "unknown-attributes"
     unknownAttributes.EntityData.BundleName = "cisco_ios_xr"
     unknownAttributes.EntityData.ParentYangName = "ext-attributes-list"
-    unknownAttributes.EntityData.SegmentPath = "unknown-attributes"
+    unknownAttributes.EntityData.SegmentPath = "unknown-attributes" + types.AddNoKeyToken(unknownAttributes)
+    unknownAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/ext-attributes-list/" + unknownAttributes.EntityData.SegmentPath
     unknownAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3836,6 +3979,7 @@ func (lastModifiedDate *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Rout
     lastModifiedDate.EntityData.BundleName = "cisco_ios_xr"
     lastModifiedDate.EntityData.ParentYangName = "route"
     lastModifiedDate.EntityData.SegmentPath = "last-modified-date"
+    lastModifiedDate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/" + lastModifiedDate.EntityData.SegmentPath
     lastModifiedDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastModifiedDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastModifiedDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3865,6 +4009,7 @@ func (lastUpdateRecieved *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_Routes_Ro
     lastUpdateRecieved.EntityData.BundleName = "cisco_ios_xr"
     lastUpdateRecieved.EntityData.ParentYangName = "route"
     lastUpdateRecieved.EntityData.SegmentPath = "last-update-recieved"
+    lastUpdateRecieved.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/" + lastUpdateRecieved.EntityData.SegmentPath
     lastUpdateRecieved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpdateRecieved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpdateRecieved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3895,6 +4040,7 @@ func (numRoutes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_LocRib_NumRoutes) GetEnti
     numRoutes.EntityData.BundleName = "cisco_ios_xr"
     numRoutes.EntityData.ParentYangName = "loc-rib"
     numRoutes.EntityData.SegmentPath = "num-routes"
+    numRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/" + numRoutes.EntityData.SegmentPath
     numRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3925,6 +4071,7 @@ func (openConfigNeighbors *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeigh
     openConfigNeighbors.EntityData.BundleName = "cisco_ios_xr"
     openConfigNeighbors.EntityData.ParentYangName = "ipv6-unicast"
     openConfigNeighbors.EntityData.SegmentPath = "open-config-neighbors"
+    openConfigNeighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/" + openConfigNeighbors.EntityData.SegmentPath
     openConfigNeighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     openConfigNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     openConfigNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3946,6 +4093,7 @@ func (openConfigNeighbors *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeigh
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor Address. The type is one of the following
     // types: string with pattern:
@@ -3973,6 +4121,7 @@ func (openConfigNeighbor *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighb
     openConfigNeighbor.EntityData.BundleName = "cisco_ios_xr"
     openConfigNeighbor.EntityData.ParentYangName = "open-config-neighbors"
     openConfigNeighbor.EntityData.SegmentPath = "open-config-neighbor" + types.AddKeyToken(openConfigNeighbor.NeighborAddress, "neighbor-address")
+    openConfigNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/" + openConfigNeighbor.EntityData.SegmentPath
     openConfigNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     openConfigNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     openConfigNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4009,6 +4158,7 @@ func (adjRibInPost *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Op
     adjRibInPost.EntityData.BundleName = "cisco_ios_xr"
     adjRibInPost.EntityData.ParentYangName = "open-config-neighbor"
     adjRibInPost.EntityData.SegmentPath = "adj-rib-in-post"
+    adjRibInPost.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/" + adjRibInPost.EntityData.SegmentPath
     adjRibInPost.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjRibInPost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjRibInPost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4040,6 +4190,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "adj-rib-in-post"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4047,6 +4198,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -4061,6 +4213,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPost_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network in prefix/length format. The type is one of the following types:
     // string with pattern:
@@ -4109,7 +4262,8 @@ func (route *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfi
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4152,6 +4306,7 @@ func (prefixName *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Open
     prefixName.EntityData.BundleName = "cisco_ios_xr"
     prefixName.EntityData.ParentYangName = "route"
     prefixName.EntityData.SegmentPath = "prefix-name"
+    prefixName.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/" + prefixName.EntityData.SegmentPath
     prefixName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4190,6 +4345,7 @@ func (prefix *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix-name"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/prefix-name/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4246,6 +4402,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.BundleName = "cisco_ios_xr"
     routeAttrList.EntityData.ParentYangName = "route"
     routeAttrList.EntityData.SegmentPath = "route-attr-list"
+    routeAttrList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/" + routeAttrList.EntityData.SegmentPath
     routeAttrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeAttrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeAttrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4255,6 +4412,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.Children.Append("aggregrator-attributes", types.YChild{"AggregratorAttributes", &routeAttrList.AggregratorAttributes})
     routeAttrList.EntityData.Children.Append("community", types.YChild{"Community", nil})
     for i := range routeAttrList.Community {
+        types.SetYListKey(routeAttrList.Community[i], i)
         routeAttrList.EntityData.Children.Append(types.GetSegmentPath(routeAttrList.Community[i]), types.YChild{"Community", routeAttrList.Community[i]})
     }
     routeAttrList.EntityData.Leafs = types.NewOrderedMap()
@@ -4294,6 +4452,7 @@ func (nextHop *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenCon
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "route-attr-list"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/route-attr-list/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4332,6 +4491,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNei
     aggregratorAttributes.EntityData.BundleName = "cisco_ios_xr"
     aggregratorAttributes.EntityData.ParentYangName = "route-attr-list"
     aggregratorAttributes.EntityData.SegmentPath = "aggregrator-attributes"
+    aggregratorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/route-attr-list/" + aggregratorAttributes.EntityData.SegmentPath
     aggregratorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregratorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregratorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4352,6 +4512,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNei
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPost_Routes_Route_RouteAttrList_Community struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -4362,7 +4523,8 @@ func (community *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenC
     community.EntityData.YangName = "community"
     community.EntityData.BundleName = "cisco_ios_xr"
     community.EntityData.ParentYangName = "route-attr-list"
-    community.EntityData.SegmentPath = "community"
+    community.EntityData.SegmentPath = "community" + types.AddNoKeyToken(community)
+    community.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/route-attr-list/" + community.EntityData.SegmentPath
     community.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     community.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     community.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4411,6 +4573,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.BundleName = "cisco_ios_xr"
     extAttributesList.EntityData.ParentYangName = "route"
     extAttributesList.EntityData.SegmentPath = "ext-attributes-list"
+    extAttributesList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/" + extAttributesList.EntityData.SegmentPath
     extAttributesList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extAttributesList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extAttributesList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4418,10 +4581,12 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.Children = types.NewOrderedMap()
     extAttributesList.EntityData.Children.Append("ext-community", types.YChild{"ExtCommunity", nil})
     for i := range extAttributesList.ExtCommunity {
+        types.SetYListKey(extAttributesList.ExtCommunity[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.ExtCommunity[i]), types.YChild{"ExtCommunity", extAttributesList.ExtCommunity[i]})
     }
     extAttributesList.EntityData.Children.Append("unknown-attributes", types.YChild{"UnknownAttributes", nil})
     for i := range extAttributesList.UnknownAttributes {
+        types.SetYListKey(extAttributesList.UnknownAttributes[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.UnknownAttributes[i]), types.YChild{"UnknownAttributes", extAttributesList.UnknownAttributes[i]})
     }
     extAttributesList.EntityData.Leafs = types.NewOrderedMap()
@@ -4440,6 +4605,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPost_Routes_Route_ExtAttributesList_ExtCommunity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -4450,7 +4616,8 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Op
     extCommunity.EntityData.YangName = "ext-community"
     extCommunity.EntityData.BundleName = "cisco_ios_xr"
     extCommunity.EntityData.ParentYangName = "ext-attributes-list"
-    extCommunity.EntityData.SegmentPath = "ext-community"
+    extCommunity.EntityData.SegmentPath = "ext-community" + types.AddNoKeyToken(extCommunity)
+    extCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/ext-attributes-list/" + extCommunity.EntityData.SegmentPath
     extCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4469,6 +4636,7 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Op
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPost_Routes_Route_ExtAttributesList_UnknownAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AttributeType. The type is interface{} with range: 0..65535.
     AttributeType interface{}
@@ -4486,7 +4654,8 @@ func (unknownAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     unknownAttributes.EntityData.YangName = "unknown-attributes"
     unknownAttributes.EntityData.BundleName = "cisco_ios_xr"
     unknownAttributes.EntityData.ParentYangName = "ext-attributes-list"
-    unknownAttributes.EntityData.SegmentPath = "unknown-attributes"
+    unknownAttributes.EntityData.SegmentPath = "unknown-attributes" + types.AddNoKeyToken(unknownAttributes)
+    unknownAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/ext-attributes-list/" + unknownAttributes.EntityData.SegmentPath
     unknownAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4518,6 +4687,7 @@ func (lastModifiedDate *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbor
     lastModifiedDate.EntityData.BundleName = "cisco_ios_xr"
     lastModifiedDate.EntityData.ParentYangName = "route"
     lastModifiedDate.EntityData.SegmentPath = "last-modified-date"
+    lastModifiedDate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/" + lastModifiedDate.EntityData.SegmentPath
     lastModifiedDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastModifiedDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastModifiedDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4547,6 +4717,7 @@ func (lastUpdateRecieved *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighb
     lastUpdateRecieved.EntityData.BundleName = "cisco_ios_xr"
     lastUpdateRecieved.EntityData.ParentYangName = "route"
     lastUpdateRecieved.EntityData.SegmentPath = "last-update-recieved"
+    lastUpdateRecieved.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/routes/route/" + lastUpdateRecieved.EntityData.SegmentPath
     lastUpdateRecieved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpdateRecieved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpdateRecieved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4577,6 +4748,7 @@ func (numRoutes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenC
     numRoutes.EntityData.BundleName = "cisco_ios_xr"
     numRoutes.EntityData.ParentYangName = "adj-rib-in-post"
     numRoutes.EntityData.SegmentPath = "num-routes"
+    numRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/" + numRoutes.EntityData.SegmentPath
     numRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4609,6 +4781,7 @@ func (adjRibOutPost *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_O
     adjRibOutPost.EntityData.BundleName = "cisco_ios_xr"
     adjRibOutPost.EntityData.ParentYangName = "open-config-neighbor"
     adjRibOutPost.EntityData.SegmentPath = "adj-rib-out-post"
+    adjRibOutPost.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/" + adjRibOutPost.EntityData.SegmentPath
     adjRibOutPost.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjRibOutPost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjRibOutPost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4640,6 +4813,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "adj-rib-out-post"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4647,6 +4821,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -4661,6 +4836,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPost_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network in prefix/length format. The type is one of the following types:
     // string with pattern:
@@ -4709,7 +4885,8 @@ func (route *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfi
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4752,6 +4929,7 @@ func (prefixName *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Open
     prefixName.EntityData.BundleName = "cisco_ios_xr"
     prefixName.EntityData.ParentYangName = "route"
     prefixName.EntityData.SegmentPath = "prefix-name"
+    prefixName.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/" + prefixName.EntityData.SegmentPath
     prefixName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4790,6 +4968,7 @@ func (prefix *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix-name"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/prefix-name/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4846,6 +5025,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.BundleName = "cisco_ios_xr"
     routeAttrList.EntityData.ParentYangName = "route"
     routeAttrList.EntityData.SegmentPath = "route-attr-list"
+    routeAttrList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/" + routeAttrList.EntityData.SegmentPath
     routeAttrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeAttrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeAttrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4855,6 +5035,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.Children.Append("aggregrator-attributes", types.YChild{"AggregratorAttributes", &routeAttrList.AggregratorAttributes})
     routeAttrList.EntityData.Children.Append("community", types.YChild{"Community", nil})
     for i := range routeAttrList.Community {
+        types.SetYListKey(routeAttrList.Community[i], i)
         routeAttrList.EntityData.Children.Append(types.GetSegmentPath(routeAttrList.Community[i]), types.YChild{"Community", routeAttrList.Community[i]})
     }
     routeAttrList.EntityData.Leafs = types.NewOrderedMap()
@@ -4894,6 +5075,7 @@ func (nextHop *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenCon
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "route-attr-list"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/route-attr-list/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4932,6 +5114,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNei
     aggregratorAttributes.EntityData.BundleName = "cisco_ios_xr"
     aggregratorAttributes.EntityData.ParentYangName = "route-attr-list"
     aggregratorAttributes.EntityData.SegmentPath = "aggregrator-attributes"
+    aggregratorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/route-attr-list/" + aggregratorAttributes.EntityData.SegmentPath
     aggregratorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregratorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregratorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4952,6 +5135,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNei
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPost_Routes_Route_RouteAttrList_Community struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -4962,7 +5146,8 @@ func (community *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenC
     community.EntityData.YangName = "community"
     community.EntityData.BundleName = "cisco_ios_xr"
     community.EntityData.ParentYangName = "route-attr-list"
-    community.EntityData.SegmentPath = "community"
+    community.EntityData.SegmentPath = "community" + types.AddNoKeyToken(community)
+    community.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/route-attr-list/" + community.EntityData.SegmentPath
     community.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     community.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     community.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5011,6 +5196,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.BundleName = "cisco_ios_xr"
     extAttributesList.EntityData.ParentYangName = "route"
     extAttributesList.EntityData.SegmentPath = "ext-attributes-list"
+    extAttributesList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/" + extAttributesList.EntityData.SegmentPath
     extAttributesList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extAttributesList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extAttributesList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5018,10 +5204,12 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.Children = types.NewOrderedMap()
     extAttributesList.EntityData.Children.Append("ext-community", types.YChild{"ExtCommunity", nil})
     for i := range extAttributesList.ExtCommunity {
+        types.SetYListKey(extAttributesList.ExtCommunity[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.ExtCommunity[i]), types.YChild{"ExtCommunity", extAttributesList.ExtCommunity[i]})
     }
     extAttributesList.EntityData.Children.Append("unknown-attributes", types.YChild{"UnknownAttributes", nil})
     for i := range extAttributesList.UnknownAttributes {
+        types.SetYListKey(extAttributesList.UnknownAttributes[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.UnknownAttributes[i]), types.YChild{"UnknownAttributes", extAttributesList.UnknownAttributes[i]})
     }
     extAttributesList.EntityData.Leafs = types.NewOrderedMap()
@@ -5040,6 +5228,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPost_Routes_Route_ExtAttributesList_ExtCommunity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -5050,7 +5239,8 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Op
     extCommunity.EntityData.YangName = "ext-community"
     extCommunity.EntityData.BundleName = "cisco_ios_xr"
     extCommunity.EntityData.ParentYangName = "ext-attributes-list"
-    extCommunity.EntityData.SegmentPath = "ext-community"
+    extCommunity.EntityData.SegmentPath = "ext-community" + types.AddNoKeyToken(extCommunity)
+    extCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/ext-attributes-list/" + extCommunity.EntityData.SegmentPath
     extCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5069,6 +5259,7 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Op
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPost_Routes_Route_ExtAttributesList_UnknownAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AttributeType. The type is interface{} with range: 0..65535.
     AttributeType interface{}
@@ -5086,7 +5277,8 @@ func (unknownAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     unknownAttributes.EntityData.YangName = "unknown-attributes"
     unknownAttributes.EntityData.BundleName = "cisco_ios_xr"
     unknownAttributes.EntityData.ParentYangName = "ext-attributes-list"
-    unknownAttributes.EntityData.SegmentPath = "unknown-attributes"
+    unknownAttributes.EntityData.SegmentPath = "unknown-attributes" + types.AddNoKeyToken(unknownAttributes)
+    unknownAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/ext-attributes-list/" + unknownAttributes.EntityData.SegmentPath
     unknownAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5118,6 +5310,7 @@ func (lastModifiedDate *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbor
     lastModifiedDate.EntityData.BundleName = "cisco_ios_xr"
     lastModifiedDate.EntityData.ParentYangName = "route"
     lastModifiedDate.EntityData.SegmentPath = "last-modified-date"
+    lastModifiedDate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/" + lastModifiedDate.EntityData.SegmentPath
     lastModifiedDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastModifiedDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastModifiedDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5147,6 +5340,7 @@ func (lastUpdateRecieved *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighb
     lastUpdateRecieved.EntityData.BundleName = "cisco_ios_xr"
     lastUpdateRecieved.EntityData.ParentYangName = "route"
     lastUpdateRecieved.EntityData.SegmentPath = "last-update-recieved"
+    lastUpdateRecieved.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/routes/route/" + lastUpdateRecieved.EntityData.SegmentPath
     lastUpdateRecieved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpdateRecieved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpdateRecieved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5177,6 +5371,7 @@ func (numRoutes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenC
     numRoutes.EntityData.BundleName = "cisco_ios_xr"
     numRoutes.EntityData.ParentYangName = "adj-rib-out-post"
     numRoutes.EntityData.SegmentPath = "num-routes"
+    numRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-post/" + numRoutes.EntityData.SegmentPath
     numRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5209,6 +5404,7 @@ func (adjRibOutPre *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Op
     adjRibOutPre.EntityData.BundleName = "cisco_ios_xr"
     adjRibOutPre.EntityData.ParentYangName = "open-config-neighbor"
     adjRibOutPre.EntityData.SegmentPath = "adj-rib-out-pre"
+    adjRibOutPre.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/" + adjRibOutPre.EntityData.SegmentPath
     adjRibOutPre.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjRibOutPre.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjRibOutPre.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5240,6 +5436,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "adj-rib-out-pre"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5247,6 +5444,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -5261,6 +5459,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPre_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network in prefix/length format. The type is one of the following types:
     // string with pattern:
@@ -5309,7 +5508,8 @@ func (route *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfi
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5352,6 +5552,7 @@ func (prefixName *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Open
     prefixName.EntityData.BundleName = "cisco_ios_xr"
     prefixName.EntityData.ParentYangName = "route"
     prefixName.EntityData.SegmentPath = "prefix-name"
+    prefixName.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/" + prefixName.EntityData.SegmentPath
     prefixName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5390,6 +5591,7 @@ func (prefix *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix-name"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/prefix-name/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5446,6 +5648,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.BundleName = "cisco_ios_xr"
     routeAttrList.EntityData.ParentYangName = "route"
     routeAttrList.EntityData.SegmentPath = "route-attr-list"
+    routeAttrList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/" + routeAttrList.EntityData.SegmentPath
     routeAttrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeAttrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeAttrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5455,6 +5658,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.Children.Append("aggregrator-attributes", types.YChild{"AggregratorAttributes", &routeAttrList.AggregratorAttributes})
     routeAttrList.EntityData.Children.Append("community", types.YChild{"Community", nil})
     for i := range routeAttrList.Community {
+        types.SetYListKey(routeAttrList.Community[i], i)
         routeAttrList.EntityData.Children.Append(types.GetSegmentPath(routeAttrList.Community[i]), types.YChild{"Community", routeAttrList.Community[i]})
     }
     routeAttrList.EntityData.Leafs = types.NewOrderedMap()
@@ -5494,6 +5698,7 @@ func (nextHop *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenCon
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "route-attr-list"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/route-attr-list/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5532,6 +5737,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNei
     aggregratorAttributes.EntityData.BundleName = "cisco_ios_xr"
     aggregratorAttributes.EntityData.ParentYangName = "route-attr-list"
     aggregratorAttributes.EntityData.SegmentPath = "aggregrator-attributes"
+    aggregratorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/route-attr-list/" + aggregratorAttributes.EntityData.SegmentPath
     aggregratorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregratorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregratorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5552,6 +5758,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNei
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPre_Routes_Route_RouteAttrList_Community struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -5562,7 +5769,8 @@ func (community *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenC
     community.EntityData.YangName = "community"
     community.EntityData.BundleName = "cisco_ios_xr"
     community.EntityData.ParentYangName = "route-attr-list"
-    community.EntityData.SegmentPath = "community"
+    community.EntityData.SegmentPath = "community" + types.AddNoKeyToken(community)
+    community.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/route-attr-list/" + community.EntityData.SegmentPath
     community.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     community.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     community.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5611,6 +5819,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.BundleName = "cisco_ios_xr"
     extAttributesList.EntityData.ParentYangName = "route"
     extAttributesList.EntityData.SegmentPath = "ext-attributes-list"
+    extAttributesList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/" + extAttributesList.EntityData.SegmentPath
     extAttributesList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extAttributesList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extAttributesList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5618,10 +5827,12 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.Children = types.NewOrderedMap()
     extAttributesList.EntityData.Children.Append("ext-community", types.YChild{"ExtCommunity", nil})
     for i := range extAttributesList.ExtCommunity {
+        types.SetYListKey(extAttributesList.ExtCommunity[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.ExtCommunity[i]), types.YChild{"ExtCommunity", extAttributesList.ExtCommunity[i]})
     }
     extAttributesList.EntityData.Children.Append("unknown-attributes", types.YChild{"UnknownAttributes", nil})
     for i := range extAttributesList.UnknownAttributes {
+        types.SetYListKey(extAttributesList.UnknownAttributes[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.UnknownAttributes[i]), types.YChild{"UnknownAttributes", extAttributesList.UnknownAttributes[i]})
     }
     extAttributesList.EntityData.Leafs = types.NewOrderedMap()
@@ -5640,6 +5851,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPre_Routes_Route_ExtAttributesList_ExtCommunity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -5650,7 +5862,8 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Op
     extCommunity.EntityData.YangName = "ext-community"
     extCommunity.EntityData.BundleName = "cisco_ios_xr"
     extCommunity.EntityData.ParentYangName = "ext-attributes-list"
-    extCommunity.EntityData.SegmentPath = "ext-community"
+    extCommunity.EntityData.SegmentPath = "ext-community" + types.AddNoKeyToken(extCommunity)
+    extCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/ext-attributes-list/" + extCommunity.EntityData.SegmentPath
     extCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5669,6 +5882,7 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Op
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibOutPre_Routes_Route_ExtAttributesList_UnknownAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AttributeType. The type is interface{} with range: 0..65535.
     AttributeType interface{}
@@ -5686,7 +5900,8 @@ func (unknownAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     unknownAttributes.EntityData.YangName = "unknown-attributes"
     unknownAttributes.EntityData.BundleName = "cisco_ios_xr"
     unknownAttributes.EntityData.ParentYangName = "ext-attributes-list"
-    unknownAttributes.EntityData.SegmentPath = "unknown-attributes"
+    unknownAttributes.EntityData.SegmentPath = "unknown-attributes" + types.AddNoKeyToken(unknownAttributes)
+    unknownAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/ext-attributes-list/" + unknownAttributes.EntityData.SegmentPath
     unknownAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5718,6 +5933,7 @@ func (lastModifiedDate *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbor
     lastModifiedDate.EntityData.BundleName = "cisco_ios_xr"
     lastModifiedDate.EntityData.ParentYangName = "route"
     lastModifiedDate.EntityData.SegmentPath = "last-modified-date"
+    lastModifiedDate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/" + lastModifiedDate.EntityData.SegmentPath
     lastModifiedDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastModifiedDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastModifiedDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5747,6 +5963,7 @@ func (lastUpdateRecieved *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighb
     lastUpdateRecieved.EntityData.BundleName = "cisco_ios_xr"
     lastUpdateRecieved.EntityData.ParentYangName = "route"
     lastUpdateRecieved.EntityData.SegmentPath = "last-update-recieved"
+    lastUpdateRecieved.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/routes/route/" + lastUpdateRecieved.EntityData.SegmentPath
     lastUpdateRecieved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpdateRecieved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpdateRecieved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5777,6 +5994,7 @@ func (numRoutes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenC
     numRoutes.EntityData.BundleName = "cisco_ios_xr"
     numRoutes.EntityData.ParentYangName = "adj-rib-out-pre"
     numRoutes.EntityData.SegmentPath = "num-routes"
+    numRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-out-pre/" + numRoutes.EntityData.SegmentPath
     numRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5809,6 +6027,7 @@ func (adjRibInPre *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Ope
     adjRibInPre.EntityData.BundleName = "cisco_ios_xr"
     adjRibInPre.EntityData.ParentYangName = "open-config-neighbor"
     adjRibInPre.EntityData.SegmentPath = "adj-rib-in-pre"
+    adjRibInPre.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/" + adjRibInPre.EntityData.SegmentPath
     adjRibInPre.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjRibInPre.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjRibInPre.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5840,6 +6059,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "adj-rib-in-pre"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5847,6 +6067,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -5861,6 +6082,7 @@ func (routes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPre_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network in prefix/length format. The type is one of the following types:
     // string with pattern:
@@ -5909,7 +6131,8 @@ func (route *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfi
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5952,6 +6175,7 @@ func (prefixName *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Open
     prefixName.EntityData.BundleName = "cisco_ios_xr"
     prefixName.EntityData.ParentYangName = "route"
     prefixName.EntityData.SegmentPath = "prefix-name"
+    prefixName.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/" + prefixName.EntityData.SegmentPath
     prefixName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5990,6 +6214,7 @@ func (prefix *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConf
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix-name"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/prefix-name/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6046,6 +6271,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.BundleName = "cisco_ios_xr"
     routeAttrList.EntityData.ParentYangName = "route"
     routeAttrList.EntityData.SegmentPath = "route-attr-list"
+    routeAttrList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/" + routeAttrList.EntityData.SegmentPath
     routeAttrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeAttrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeAttrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6055,6 +6281,7 @@ func (routeAttrList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_O
     routeAttrList.EntityData.Children.Append("aggregrator-attributes", types.YChild{"AggregratorAttributes", &routeAttrList.AggregratorAttributes})
     routeAttrList.EntityData.Children.Append("community", types.YChild{"Community", nil})
     for i := range routeAttrList.Community {
+        types.SetYListKey(routeAttrList.Community[i], i)
         routeAttrList.EntityData.Children.Append(types.GetSegmentPath(routeAttrList.Community[i]), types.YChild{"Community", routeAttrList.Community[i]})
     }
     routeAttrList.EntityData.Leafs = types.NewOrderedMap()
@@ -6094,6 +6321,7 @@ func (nextHop *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenCon
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "route-attr-list"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/route-attr-list/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6132,6 +6360,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNei
     aggregratorAttributes.EntityData.BundleName = "cisco_ios_xr"
     aggregratorAttributes.EntityData.ParentYangName = "route-attr-list"
     aggregratorAttributes.EntityData.SegmentPath = "aggregrator-attributes"
+    aggregratorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/route-attr-list/" + aggregratorAttributes.EntityData.SegmentPath
     aggregratorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregratorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregratorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6152,6 +6381,7 @@ func (aggregratorAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNei
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPre_Routes_Route_RouteAttrList_Community struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -6162,7 +6392,8 @@ func (community *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenC
     community.EntityData.YangName = "community"
     community.EntityData.BundleName = "cisco_ios_xr"
     community.EntityData.ParentYangName = "route-attr-list"
-    community.EntityData.SegmentPath = "community"
+    community.EntityData.SegmentPath = "community" + types.AddNoKeyToken(community)
+    community.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/route-attr-list/" + community.EntityData.SegmentPath
     community.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     community.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     community.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6211,6 +6442,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.BundleName = "cisco_ios_xr"
     extAttributesList.EntityData.ParentYangName = "route"
     extAttributesList.EntityData.SegmentPath = "ext-attributes-list"
+    extAttributesList.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/" + extAttributesList.EntityData.SegmentPath
     extAttributesList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extAttributesList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extAttributesList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6218,10 +6450,12 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     extAttributesList.EntityData.Children = types.NewOrderedMap()
     extAttributesList.EntityData.Children.Append("ext-community", types.YChild{"ExtCommunity", nil})
     for i := range extAttributesList.ExtCommunity {
+        types.SetYListKey(extAttributesList.ExtCommunity[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.ExtCommunity[i]), types.YChild{"ExtCommunity", extAttributesList.ExtCommunity[i]})
     }
     extAttributesList.EntityData.Children.Append("unknown-attributes", types.YChild{"UnknownAttributes", nil})
     for i := range extAttributesList.UnknownAttributes {
+        types.SetYListKey(extAttributesList.UnknownAttributes[i], i)
         extAttributesList.EntityData.Children.Append(types.GetSegmentPath(extAttributesList.UnknownAttributes[i]), types.YChild{"UnknownAttributes", extAttributesList.UnknownAttributes[i]})
     }
     extAttributesList.EntityData.Leafs = types.NewOrderedMap()
@@ -6240,6 +6474,7 @@ func (extAttributesList *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPre_Routes_Route_ExtAttributesList_ExtCommunity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // BGP OC objects. The type is string.
     Objects interface{}
@@ -6250,7 +6485,8 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Op
     extCommunity.EntityData.YangName = "ext-community"
     extCommunity.EntityData.BundleName = "cisco_ios_xr"
     extCommunity.EntityData.ParentYangName = "ext-attributes-list"
-    extCommunity.EntityData.SegmentPath = "ext-community"
+    extCommunity.EntityData.SegmentPath = "ext-community" + types.AddNoKeyToken(extCommunity)
+    extCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/ext-attributes-list/" + extCommunity.EntityData.SegmentPath
     extCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6269,6 +6505,7 @@ func (extCommunity *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_Op
 type OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenConfigNeighbor_AdjRibInPre_Routes_Route_ExtAttributesList_UnknownAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AttributeType. The type is interface{} with range: 0..65535.
     AttributeType interface{}
@@ -6286,7 +6523,8 @@ func (unknownAttributes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbo
     unknownAttributes.EntityData.YangName = "unknown-attributes"
     unknownAttributes.EntityData.BundleName = "cisco_ios_xr"
     unknownAttributes.EntityData.ParentYangName = "ext-attributes-list"
-    unknownAttributes.EntityData.SegmentPath = "unknown-attributes"
+    unknownAttributes.EntityData.SegmentPath = "unknown-attributes" + types.AddNoKeyToken(unknownAttributes)
+    unknownAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/ext-attributes-list/" + unknownAttributes.EntityData.SegmentPath
     unknownAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6318,6 +6556,7 @@ func (lastModifiedDate *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbor
     lastModifiedDate.EntityData.BundleName = "cisco_ios_xr"
     lastModifiedDate.EntityData.ParentYangName = "route"
     lastModifiedDate.EntityData.SegmentPath = "last-modified-date"
+    lastModifiedDate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/" + lastModifiedDate.EntityData.SegmentPath
     lastModifiedDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastModifiedDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastModifiedDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6347,6 +6586,7 @@ func (lastUpdateRecieved *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighb
     lastUpdateRecieved.EntityData.BundleName = "cisco_ios_xr"
     lastUpdateRecieved.EntityData.ParentYangName = "route"
     lastUpdateRecieved.EntityData.SegmentPath = "last-update-recieved"
+    lastUpdateRecieved.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/routes/route/" + lastUpdateRecieved.EntityData.SegmentPath
     lastUpdateRecieved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpdateRecieved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpdateRecieved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6377,6 +6617,7 @@ func (numRoutes *OcBgp_BgpRib_AfiSafiTable_Ipv6Unicast_OpenConfigNeighbors_OpenC
     numRoutes.EntityData.BundleName = "cisco_ios_xr"
     numRoutes.EntityData.ParentYangName = "adj-rib-in-pre"
     numRoutes.EntityData.SegmentPath = "num-routes"
+    numRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-pre/" + numRoutes.EntityData.SegmentPath
     numRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

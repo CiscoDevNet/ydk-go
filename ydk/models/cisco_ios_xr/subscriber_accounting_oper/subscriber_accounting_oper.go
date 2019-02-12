@@ -40,6 +40,7 @@ func (subscriberAccounting *SubscriberAccounting) GetEntityData() *types.CommonE
     subscriberAccounting.EntityData.BundleName = "cisco_ios_xr"
     subscriberAccounting.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-accounting-oper"
     subscriberAccounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting"
+    subscriberAccounting.EntityData.AbsolutePath = subscriberAccounting.EntityData.SegmentPath
     subscriberAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -71,6 +72,7 @@ func (nodes *SubscriberAccounting_Nodes) GetEntityData() *types.CommonEntityData
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "subscriber-accounting"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +94,7 @@ func (nodes *SubscriberAccounting_Nodes) GetEntityData() *types.CommonEntityData
 type SubscriberAccounting_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node id to filter on. For example, 0/1/CPU0.
     // The type is string with pattern:
@@ -114,6 +117,7 @@ func (node *SubscriberAccounting_Nodes_Node) GetEntityData() *types.CommonEntity
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -148,6 +152,7 @@ func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_Subsc
     subscriberAccountingSessionFeatures.EntityData.BundleName = "cisco_ios_xr"
     subscriberAccountingSessionFeatures.EntityData.ParentYangName = "node"
     subscriberAccountingSessionFeatures.EntityData.SegmentPath = "subscriber-accounting-session-features"
+    subscriberAccountingSessionFeatures.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/" + subscriberAccountingSessionFeatures.EntityData.SegmentPath
     subscriberAccountingSessionFeatures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberAccountingSessionFeatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberAccountingSessionFeatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -170,6 +175,7 @@ func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_Subsc
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique subscriber label. The type is interface{}
     // with range: 0..4294967295.
@@ -185,6 +191,7 @@ func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_Subscr
     subscriberAccountingSessionFeature.EntityData.BundleName = "cisco_ios_xr"
     subscriberAccountingSessionFeature.EntityData.ParentYangName = "subscriber-accounting-session-features"
     subscriberAccountingSessionFeature.EntityData.SegmentPath = "subscriber-accounting-session-feature" + types.AddKeyToken(subscriberAccountingSessionFeature.SubLabel, "sub-label")
+    subscriberAccountingSessionFeature.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-session-features/" + subscriberAccountingSessionFeature.EntityData.SegmentPath
     subscriberAccountingSessionFeature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberAccountingSessionFeature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberAccountingSessionFeature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -301,6 +308,7 @@ func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSe
     sessionFeatureData.EntityData.BundleName = "cisco_ios_xr"
     sessionFeatureData.EntityData.ParentYangName = "subscriber-accounting-session-feature"
     sessionFeatureData.EntityData.SegmentPath = "session-feature-data"
+    sessionFeatureData.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-session-features/subscriber-accounting-session-feature/" + sessionFeatureData.EntityData.SegmentPath
     sessionFeatureData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionFeatureData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionFeatureData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -308,6 +316,7 @@ func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSe
     sessionFeatureData.EntityData.Children = types.NewOrderedMap()
     sessionFeatureData.EntityData.Children.Append("service-accounting-feature", types.YChild{"ServiceAccountingFeature", nil})
     for i := range sessionFeatureData.ServiceAccountingFeature {
+        types.SetYListKey(sessionFeatureData.ServiceAccountingFeature[i], i)
         sessionFeatureData.EntityData.Children.Append(types.GetSegmentPath(sessionFeatureData.ServiceAccountingFeature[i]), types.YChild{"ServiceAccountingFeature", sessionFeatureData.ServiceAccountingFeature[i]})
     }
     sessionFeatureData.EntityData.Leafs = types.NewOrderedMap()
@@ -345,6 +354,7 @@ func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSe
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // True if service accounting is enabled. The type is bool.
     ServiceAccountingEnabledFlag interface{}
@@ -378,7 +388,8 @@ func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccoun
     serviceAccountingFeature.EntityData.YangName = "service-accounting-feature"
     serviceAccountingFeature.EntityData.BundleName = "cisco_ios_xr"
     serviceAccountingFeature.EntityData.ParentYangName = "session-feature-data"
-    serviceAccountingFeature.EntityData.SegmentPath = "service-accounting-feature"
+    serviceAccountingFeature.EntityData.SegmentPath = "service-accounting-feature" + types.AddNoKeyToken(serviceAccountingFeature)
+    serviceAccountingFeature.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-session-features/subscriber-accounting-session-feature/session-feature-data/" + serviceAccountingFeature.EntityData.SegmentPath
     serviceAccountingFeature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceAccountingFeature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceAccountingFeature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -423,6 +434,7 @@ func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAcc
     subscriberAccountingSummary.EntityData.BundleName = "cisco_ios_xr"
     subscriberAccountingSummary.EntityData.ParentYangName = "node"
     subscriberAccountingSummary.EntityData.SegmentPath = "subscriber-accounting-summary"
+    subscriberAccountingSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/" + subscriberAccountingSummary.EntityData.SegmentPath
     subscriberAccountingSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberAccountingSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberAccountingSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -592,6 +604,7 @@ func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_A
     aaaCounters.EntityData.BundleName = "cisco_ios_xr"
     aaaCounters.EntityData.ParentYangName = "subscriber-accounting-summary"
     aaaCounters.EntityData.SegmentPath = "aaa-counters"
+    aaaCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-summary/" + aaaCounters.EntityData.SegmentPath
     aaaCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaaCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaaCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -683,6 +696,7 @@ func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingS
     idleTimeoutCounters.EntityData.BundleName = "cisco_ios_xr"
     idleTimeoutCounters.EntityData.ParentYangName = "subscriber-accounting-summary"
     idleTimeoutCounters.EntityData.SegmentPath = "idle-timeout-counters"
+    idleTimeoutCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-summary/" + idleTimeoutCounters.EntityData.SegmentPath
     idleTimeoutCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idleTimeoutCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idleTimeoutCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -725,6 +739,7 @@ func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccounti
     sessionTimeoutCounters.EntityData.BundleName = "cisco_ios_xr"
     sessionTimeoutCounters.EntityData.ParentYangName = "subscriber-accounting-summary"
     sessionTimeoutCounters.EntityData.SegmentPath = "session-timeout-counters"
+    sessionTimeoutCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-summary/" + sessionTimeoutCounters.EntityData.SegmentPath
     sessionTimeoutCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionTimeoutCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionTimeoutCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -772,6 +787,7 @@ func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingS
     sessionFlowCounters.EntityData.BundleName = "cisco_ios_xr"
     sessionFlowCounters.EntityData.ParentYangName = "subscriber-accounting-summary"
     sessionFlowCounters.EntityData.SegmentPath = "session-flow-counters"
+    sessionFlowCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-summary/" + sessionFlowCounters.EntityData.SegmentPath
     sessionFlowCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionFlowCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionFlowCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -807,6 +823,7 @@ func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_Subscrib
     subscriberAccountingFlowFeatures.EntityData.BundleName = "cisco_ios_xr"
     subscriberAccountingFlowFeatures.EntityData.ParentYangName = "node"
     subscriberAccountingFlowFeatures.EntityData.SegmentPath = "subscriber-accounting-flow-features"
+    subscriberAccountingFlowFeatures.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/" + subscriberAccountingFlowFeatures.EntityData.SegmentPath
     subscriberAccountingFlowFeatures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberAccountingFlowFeatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberAccountingFlowFeatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -829,6 +846,7 @@ func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_Subscrib
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique subscriber class label. The type is
     // interface{} with range: 0..4294967295.
@@ -844,6 +862,7 @@ func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_Subscribe
     subscriberAccountingFlowFeature.EntityData.BundleName = "cisco_ios_xr"
     subscriberAccountingFlowFeature.EntityData.ParentYangName = "subscriber-accounting-flow-features"
     subscriberAccountingFlowFeature.EntityData.SegmentPath = "subscriber-accounting-flow-feature" + types.AddKeyToken(subscriberAccountingFlowFeature.ClassLabel, "class-label")
+    subscriberAccountingFlowFeature.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-flow-features/" + subscriberAccountingFlowFeature.EntityData.SegmentPath
     subscriberAccountingFlowFeature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberAccountingFlowFeature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberAccountingFlowFeature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1056,6 +1075,7 @@ func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowF
     flowFeatureData.EntityData.BundleName = "cisco_ios_xr"
     flowFeatureData.EntityData.ParentYangName = "subscriber-accounting-flow-feature"
     flowFeatureData.EntityData.SegmentPath = "flow-feature-data"
+    flowFeatureData.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-flow-features/subscriber-accounting-flow-feature/" + flowFeatureData.EntityData.SegmentPath
     flowFeatureData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowFeatureData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowFeatureData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

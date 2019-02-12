@@ -111,6 +111,7 @@ func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetEntityData() *types.C
     cISCODYNAMICTEMPLATEMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCODYNAMICTEMPLATEMIB.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cISCODYNAMICTEMPLATEMIB.EntityData.SegmentPath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB"
+    cISCODYNAMICTEMPLATEMIB.EntityData.AbsolutePath = cISCODYNAMICTEMPLATEMIB.EntityData.SegmentPath
     cISCODYNAMICTEMPLATEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCODYNAMICTEMPLATEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCODYNAMICTEMPLATEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -163,6 +164,7 @@ func (cdtTemplateTable *CISCODYNAMICTEMPLATEMIB_CdtTemplateTable) GetEntityData(
     cdtTemplateTable.EntityData.BundleName = "cisco_ios_xe"
     cdtTemplateTable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cdtTemplateTable.EntityData.SegmentPath = "cdtTemplateTable"
+    cdtTemplateTable.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/" + cdtTemplateTable.EntityData.SegmentPath
     cdtTemplateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtTemplateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtTemplateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -199,6 +201,7 @@ func (cdtTemplateTable *CISCODYNAMICTEMPLATEMIB_CdtTemplateTable) GetEntityData(
 type CISCODYNAMICTEMPLATEMIB_CdtTemplateTable_CdtTemplateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object indicates a string-value that uniquely
     // identifies the dynamic template.  If the corresponding instance of
@@ -249,6 +252,7 @@ func (cdtTemplateEntry *CISCODYNAMICTEMPLATEMIB_CdtTemplateTable_CdtTemplateEntr
     cdtTemplateEntry.EntityData.BundleName = "cisco_ios_xe"
     cdtTemplateEntry.EntityData.ParentYangName = "cdtTemplateTable"
     cdtTemplateEntry.EntityData.SegmentPath = "cdtTemplateEntry" + types.AddKeyToken(cdtTemplateEntry.CdtTemplateName, "cdtTemplateName")
+    cdtTemplateEntry.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateTable/" + cdtTemplateEntry.EntityData.SegmentPath
     cdtTemplateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtTemplateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtTemplateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -304,6 +308,7 @@ func (cdtTemplateTargetTable *CISCODYNAMICTEMPLATEMIB_CdtTemplateTargetTable) Ge
     cdtTemplateTargetTable.EntityData.BundleName = "cisco_ios_xe"
     cdtTemplateTargetTable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cdtTemplateTargetTable.EntityData.SegmentPath = "cdtTemplateTargetTable"
+    cdtTemplateTargetTable.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/" + cdtTemplateTargetTable.EntityData.SegmentPath
     cdtTemplateTargetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtTemplateTargetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtTemplateTargetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -331,6 +336,7 @@ func (cdtTemplateTargetTable *CISCODYNAMICTEMPLATEMIB_CdtTemplateTargetTable) Ge
 type CISCODYNAMICTEMPLATEMIB_CdtTemplateTargetTable_CdtTemplateTargetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object indicates the type of target. The type
     // is DynamicTemplateTargetType.
@@ -361,6 +367,7 @@ func (cdtTemplateTargetEntry *CISCODYNAMICTEMPLATEMIB_CdtTemplateTargetTable_Cdt
     cdtTemplateTargetEntry.EntityData.BundleName = "cisco_ios_xe"
     cdtTemplateTargetEntry.EntityData.ParentYangName = "cdtTemplateTargetTable"
     cdtTemplateTargetEntry.EntityData.SegmentPath = "cdtTemplateTargetEntry" + types.AddKeyToken(cdtTemplateTargetEntry.CdtTemplateTargetType, "cdtTemplateTargetType") + types.AddKeyToken(cdtTemplateTargetEntry.CdtTemplateTargetId, "cdtTemplateTargetId")
+    cdtTemplateTargetEntry.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateTargetTable/" + cdtTemplateTargetEntry.EntityData.SegmentPath
     cdtTemplateTargetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtTemplateTargetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtTemplateTargetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -405,6 +412,7 @@ func (cdtTemplateAssociationTable *CISCODYNAMICTEMPLATEMIB_CdtTemplateAssociatio
     cdtTemplateAssociationTable.EntityData.BundleName = "cisco_ios_xe"
     cdtTemplateAssociationTable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cdtTemplateAssociationTable.EntityData.SegmentPath = "cdtTemplateAssociationTable"
+    cdtTemplateAssociationTable.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/" + cdtTemplateAssociationTable.EntityData.SegmentPath
     cdtTemplateAssociationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtTemplateAssociationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtTemplateAssociationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -441,6 +449,7 @@ func (cdtTemplateAssociationTable *CISCODYNAMICTEMPLATEMIB_CdtTemplateAssociatio
 type CISCODYNAMICTEMPLATEMIB_CdtTemplateAssociationTable_CdtTemplateAssociationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is DynamicTemplateTargetType. Refers to
     // cisco_dynamic_template_mib.CISCODYNAMICTEMPLATEMIB_CdtTemplateTargetTable_CdtTemplateTargetEntry_CdtTemplateTargetType
@@ -466,6 +475,7 @@ func (cdtTemplateAssociationEntry *CISCODYNAMICTEMPLATEMIB_CdtTemplateAssociatio
     cdtTemplateAssociationEntry.EntityData.BundleName = "cisco_ios_xe"
     cdtTemplateAssociationEntry.EntityData.ParentYangName = "cdtTemplateAssociationTable"
     cdtTemplateAssociationEntry.EntityData.SegmentPath = "cdtTemplateAssociationEntry" + types.AddKeyToken(cdtTemplateAssociationEntry.CdtTemplateTargetType, "cdtTemplateTargetType") + types.AddKeyToken(cdtTemplateAssociationEntry.CdtTemplateTargetId, "cdtTemplateTargetId") + types.AddKeyToken(cdtTemplateAssociationEntry.CdtTemplateAssociationName, "cdtTemplateAssociationName")
+    cdtTemplateAssociationEntry.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateAssociationTable/" + cdtTemplateAssociationEntry.EntityData.SegmentPath
     cdtTemplateAssociationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtTemplateAssociationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtTemplateAssociationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -510,6 +520,7 @@ func (cdtTemplateUsageTable *CISCODYNAMICTEMPLATEMIB_CdtTemplateUsageTable) GetE
     cdtTemplateUsageTable.EntityData.BundleName = "cisco_ios_xe"
     cdtTemplateUsageTable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cdtTemplateUsageTable.EntityData.SegmentPath = "cdtTemplateUsageTable"
+    cdtTemplateUsageTable.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/" + cdtTemplateUsageTable.EntityData.SegmentPath
     cdtTemplateUsageTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtTemplateUsageTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtTemplateUsageTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -545,6 +556,7 @@ func (cdtTemplateUsageTable *CISCODYNAMICTEMPLATEMIB_CdtTemplateUsageTable) GetE
 type CISCODYNAMICTEMPLATEMIB_CdtTemplateUsageTable_CdtTemplateUsageEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
     // cisco_dynamic_template_mib.CISCODYNAMICTEMPLATEMIB_CdtTemplateTable_CdtTemplateEntry_CdtTemplateName
@@ -565,6 +577,7 @@ func (cdtTemplateUsageEntry *CISCODYNAMICTEMPLATEMIB_CdtTemplateUsageTable_CdtTe
     cdtTemplateUsageEntry.EntityData.BundleName = "cisco_ios_xe"
     cdtTemplateUsageEntry.EntityData.ParentYangName = "cdtTemplateUsageTable"
     cdtTemplateUsageEntry.EntityData.SegmentPath = "cdtTemplateUsageEntry" + types.AddKeyToken(cdtTemplateUsageEntry.CdtTemplateName, "cdtTemplateName") + types.AddKeyToken(cdtTemplateUsageEntry.CdtTemplateUsageTargetType, "cdtTemplateUsageTargetType") + types.AddKeyToken(cdtTemplateUsageEntry.CdtTemplateUsageTargetId, "cdtTemplateUsageTargetId")
+    cdtTemplateUsageEntry.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateUsageTable/" + cdtTemplateUsageEntry.EntityData.SegmentPath
     cdtTemplateUsageEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtTemplateUsageEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtTemplateUsageEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -616,6 +629,7 @@ func (cdtTemplateCommonTable *CISCODYNAMICTEMPLATEMIB_CdtTemplateCommonTable) Ge
     cdtTemplateCommonTable.EntityData.BundleName = "cisco_ios_xe"
     cdtTemplateCommonTable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cdtTemplateCommonTable.EntityData.SegmentPath = "cdtTemplateCommonTable"
+    cdtTemplateCommonTable.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/" + cdtTemplateCommonTable.EntityData.SegmentPath
     cdtTemplateCommonTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtTemplateCommonTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtTemplateCommonTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -651,6 +665,7 @@ func (cdtTemplateCommonTable *CISCODYNAMICTEMPLATEMIB_CdtTemplateCommonTable) Ge
 type CISCODYNAMICTEMPLATEMIB_CdtTemplateCommonTable_CdtTemplateCommonEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
     // cisco_dynamic_template_mib.CISCODYNAMICTEMPLATEMIB_CdtTemplateTable_CdtTemplateEntry_CdtTemplateName
@@ -772,6 +787,7 @@ func (cdtTemplateCommonEntry *CISCODYNAMICTEMPLATEMIB_CdtTemplateCommonTable_Cdt
     cdtTemplateCommonEntry.EntityData.BundleName = "cisco_ios_xe"
     cdtTemplateCommonEntry.EntityData.ParentYangName = "cdtTemplateCommonTable"
     cdtTemplateCommonEntry.EntityData.SegmentPath = "cdtTemplateCommonEntry" + types.AddKeyToken(cdtTemplateCommonEntry.CdtTemplateName, "cdtTemplateName")
+    cdtTemplateCommonEntry.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateCommonTable/" + cdtTemplateCommonEntry.EntityData.SegmentPath
     cdtTemplateCommonEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtTemplateCommonEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtTemplateCommonEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -833,6 +849,7 @@ func (cdtIfTemplateTable *CISCODYNAMICTEMPLATEMIB_CdtIfTemplateTable) GetEntityD
     cdtIfTemplateTable.EntityData.BundleName = "cisco_ios_xe"
     cdtIfTemplateTable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cdtIfTemplateTable.EntityData.SegmentPath = "cdtIfTemplateTable"
+    cdtIfTemplateTable.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/" + cdtIfTemplateTable.EntityData.SegmentPath
     cdtIfTemplateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtIfTemplateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtIfTemplateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -868,6 +885,7 @@ func (cdtIfTemplateTable *CISCODYNAMICTEMPLATEMIB_CdtIfTemplateTable) GetEntityD
 type CISCODYNAMICTEMPLATEMIB_CdtIfTemplateTable_CdtIfTemplateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
     // cisco_dynamic_template_mib.CISCODYNAMICTEMPLATEMIB_CdtTemplateTable_CdtTemplateEntry_CdtTemplateName
@@ -1140,6 +1158,7 @@ func (cdtIfTemplateEntry *CISCODYNAMICTEMPLATEMIB_CdtIfTemplateTable_CdtIfTempla
     cdtIfTemplateEntry.EntityData.BundleName = "cisco_ios_xe"
     cdtIfTemplateEntry.EntityData.ParentYangName = "cdtIfTemplateTable"
     cdtIfTemplateEntry.EntityData.SegmentPath = "cdtIfTemplateEntry" + types.AddKeyToken(cdtIfTemplateEntry.CdtTemplateName, "cdtTemplateName")
+    cdtIfTemplateEntry.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtIfTemplateTable/" + cdtIfTemplateEntry.EntityData.SegmentPath
     cdtIfTemplateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtIfTemplateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtIfTemplateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1233,6 +1252,7 @@ func (cdtPppTemplateTable *CISCODYNAMICTEMPLATEMIB_CdtPppTemplateTable) GetEntit
     cdtPppTemplateTable.EntityData.BundleName = "cisco_ios_xe"
     cdtPppTemplateTable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cdtPppTemplateTable.EntityData.SegmentPath = "cdtPppTemplateTable"
+    cdtPppTemplateTable.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/" + cdtPppTemplateTable.EntityData.SegmentPath
     cdtPppTemplateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtPppTemplateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtPppTemplateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1266,6 +1286,7 @@ func (cdtPppTemplateTable *CISCODYNAMICTEMPLATEMIB_CdtPppTemplateTable) GetEntit
 type CISCODYNAMICTEMPLATEMIB_CdtPppTemplateTable_CdtPppTemplateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
     // cisco_dynamic_template_mib.CISCODYNAMICTEMPLATEMIB_CdtTemplateTable_CdtTemplateEntry_CdtTemplateName
@@ -1643,6 +1664,7 @@ func (cdtPppTemplateEntry *CISCODYNAMICTEMPLATEMIB_CdtPppTemplateTable_CdtPppTem
     cdtPppTemplateEntry.EntityData.BundleName = "cisco_ios_xe"
     cdtPppTemplateEntry.EntityData.ParentYangName = "cdtPppTemplateTable"
     cdtPppTemplateEntry.EntityData.SegmentPath = "cdtPppTemplateEntry" + types.AddKeyToken(cdtPppTemplateEntry.CdtTemplateName, "cdtTemplateName")
+    cdtPppTemplateEntry.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtPppTemplateTable/" + cdtPppTemplateEntry.EntityData.SegmentPath
     cdtPppTemplateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtPppTemplateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtPppTemplateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1792,6 +1814,7 @@ func (cdtPppPeerIpAddrPoolTable *CISCODYNAMICTEMPLATEMIB_CdtPppPeerIpAddrPoolTab
     cdtPppPeerIpAddrPoolTable.EntityData.BundleName = "cisco_ios_xe"
     cdtPppPeerIpAddrPoolTable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cdtPppPeerIpAddrPoolTable.EntityData.SegmentPath = "cdtPppPeerIpAddrPoolTable"
+    cdtPppPeerIpAddrPoolTable.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/" + cdtPppPeerIpAddrPoolTable.EntityData.SegmentPath
     cdtPppPeerIpAddrPoolTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtPppPeerIpAddrPoolTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtPppPeerIpAddrPoolTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1833,6 +1856,7 @@ func (cdtPppPeerIpAddrPoolTable *CISCODYNAMICTEMPLATEMIB_CdtPppPeerIpAddrPoolTab
 type CISCODYNAMICTEMPLATEMIB_CdtPppPeerIpAddrPoolTable_CdtPppPeerIpAddrPoolEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
     // cisco_dynamic_template_mib.CISCODYNAMICTEMPLATEMIB_CdtTemplateTable_CdtTemplateEntry_CdtTemplateName
@@ -1871,6 +1895,7 @@ func (cdtPppPeerIpAddrPoolEntry *CISCODYNAMICTEMPLATEMIB_CdtPppPeerIpAddrPoolTab
     cdtPppPeerIpAddrPoolEntry.EntityData.BundleName = "cisco_ios_xe"
     cdtPppPeerIpAddrPoolEntry.EntityData.ParentYangName = "cdtPppPeerIpAddrPoolTable"
     cdtPppPeerIpAddrPoolEntry.EntityData.SegmentPath = "cdtPppPeerIpAddrPoolEntry" + types.AddKeyToken(cdtPppPeerIpAddrPoolEntry.CdtTemplateName, "cdtTemplateName") + types.AddKeyToken(cdtPppPeerIpAddrPoolEntry.CdtPppPeerIpAddrPoolPriority, "cdtPppPeerIpAddrPoolPriority")
+    cdtPppPeerIpAddrPoolEntry.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtPppPeerIpAddrPoolTable/" + cdtPppPeerIpAddrPoolEntry.EntityData.SegmentPath
     cdtPppPeerIpAddrPoolEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtPppPeerIpAddrPoolEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtPppPeerIpAddrPoolEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1920,6 +1945,7 @@ func (cdtEthernetTemplateTable *CISCODYNAMICTEMPLATEMIB_CdtEthernetTemplateTable
     cdtEthernetTemplateTable.EntityData.BundleName = "cisco_ios_xe"
     cdtEthernetTemplateTable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cdtEthernetTemplateTable.EntityData.SegmentPath = "cdtEthernetTemplateTable"
+    cdtEthernetTemplateTable.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/" + cdtEthernetTemplateTable.EntityData.SegmentPath
     cdtEthernetTemplateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtEthernetTemplateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtEthernetTemplateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1954,6 +1980,7 @@ func (cdtEthernetTemplateTable *CISCODYNAMICTEMPLATEMIB_CdtEthernetTemplateTable
 type CISCODYNAMICTEMPLATEMIB_CdtEthernetTemplateTable_CdtEthernetTemplateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
     // cisco_dynamic_template_mib.CISCODYNAMICTEMPLATEMIB_CdtTemplateTable_CdtTemplateEntry_CdtTemplateName
@@ -1991,6 +2018,7 @@ func (cdtEthernetTemplateEntry *CISCODYNAMICTEMPLATEMIB_CdtEthernetTemplateTable
     cdtEthernetTemplateEntry.EntityData.BundleName = "cisco_ios_xe"
     cdtEthernetTemplateEntry.EntityData.ParentYangName = "cdtEthernetTemplateTable"
     cdtEthernetTemplateEntry.EntityData.SegmentPath = "cdtEthernetTemplateEntry" + types.AddKeyToken(cdtEthernetTemplateEntry.CdtTemplateName, "cdtTemplateName")
+    cdtEthernetTemplateEntry.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtEthernetTemplateTable/" + cdtEthernetTemplateEntry.EntityData.SegmentPath
     cdtEthernetTemplateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtEthernetTemplateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtEthernetTemplateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2038,6 +2066,7 @@ func (cdtSrvTemplateTable *CISCODYNAMICTEMPLATEMIB_CdtSrvTemplateTable) GetEntit
     cdtSrvTemplateTable.EntityData.BundleName = "cisco_ios_xe"
     cdtSrvTemplateTable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
     cdtSrvTemplateTable.EntityData.SegmentPath = "cdtSrvTemplateTable"
+    cdtSrvTemplateTable.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/" + cdtSrvTemplateTable.EntityData.SegmentPath
     cdtSrvTemplateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtSrvTemplateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtSrvTemplateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2070,6 +2099,7 @@ func (cdtSrvTemplateTable *CISCODYNAMICTEMPLATEMIB_CdtSrvTemplateTable) GetEntit
 type CISCODYNAMICTEMPLATEMIB_CdtSrvTemplateTable_CdtSrvTemplateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
     // cisco_dynamic_template_mib.CISCODYNAMICTEMPLATEMIB_CdtTemplateTable_CdtTemplateEntry_CdtTemplateName
@@ -2141,6 +2171,7 @@ func (cdtSrvTemplateEntry *CISCODYNAMICTEMPLATEMIB_CdtSrvTemplateTable_CdtSrvTem
     cdtSrvTemplateEntry.EntityData.BundleName = "cisco_ios_xe"
     cdtSrvTemplateEntry.EntityData.ParentYangName = "cdtSrvTemplateTable"
     cdtSrvTemplateEntry.EntityData.SegmentPath = "cdtSrvTemplateEntry" + types.AddKeyToken(cdtSrvTemplateEntry.CdtTemplateName, "cdtTemplateName")
+    cdtSrvTemplateEntry.EntityData.AbsolutePath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtSrvTemplateTable/" + cdtSrvTemplateEntry.EntityData.SegmentPath
     cdtSrvTemplateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdtSrvTemplateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdtSrvTemplateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

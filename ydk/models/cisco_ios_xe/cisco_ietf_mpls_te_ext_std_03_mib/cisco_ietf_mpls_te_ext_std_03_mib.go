@@ -84,6 +84,7 @@ func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetEntityData() *t
     cISCOIETFMPLSTEEXTSTD03MIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIETFMPLSTEEXTSTD03MIB.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
     cISCOIETFMPLSTEEXTSTD03MIB.EntityData.SegmentPath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.AbsolutePath = cISCOIETFMPLSTEEXTSTD03MIB.EntityData.SegmentPath
     cISCOIETFMPLSTEEXTSTD03MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIETFMPLSTEEXTSTD03MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFMPLSTEEXTSTD03MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -136,6 +137,7 @@ func (cmplsNodeConfigTable *CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeConfigTable) Get
     cmplsNodeConfigTable.EntityData.BundleName = "cisco_ios_xe"
     cmplsNodeConfigTable.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
     cmplsNodeConfigTable.EntityData.SegmentPath = "cmplsNodeConfigTable"
+    cmplsNodeConfigTable.EntityData.AbsolutePath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/" + cmplsNodeConfigTable.EntityData.SegmentPath
     cmplsNodeConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsNodeConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsNodeConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -166,6 +168,7 @@ func (cmplsNodeConfigTable *CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeConfigTable) Get
 type CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeConfigTable_CmplsNodeConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object allows the administrator to assign a
     // unique local identifier to map Global_Node_ID or ICC. The type is
@@ -205,6 +208,7 @@ func (cmplsNodeConfigEntry *CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeConfigTable_Cmpl
     cmplsNodeConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     cmplsNodeConfigEntry.EntityData.ParentYangName = "cmplsNodeConfigTable"
     cmplsNodeConfigEntry.EntityData.SegmentPath = "cmplsNodeConfigEntry" + types.AddKeyToken(cmplsNodeConfigEntry.CmplsNodeConfigLocalId, "cmplsNodeConfigLocalId")
+    cmplsNodeConfigEntry.EntityData.AbsolutePath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/cmplsNodeConfigTable/" + cmplsNodeConfigEntry.EntityData.SegmentPath
     cmplsNodeConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsNodeConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsNodeConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -255,6 +259,7 @@ func (cmplsNodeIpMapTable *CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeIpMapTable) GetEn
     cmplsNodeIpMapTable.EntityData.BundleName = "cisco_ios_xe"
     cmplsNodeIpMapTable.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
     cmplsNodeIpMapTable.EntityData.SegmentPath = "cmplsNodeIpMapTable"
+    cmplsNodeIpMapTable.EntityData.AbsolutePath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/" + cmplsNodeIpMapTable.EntityData.SegmentPath
     cmplsNodeIpMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsNodeIpMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsNodeIpMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -283,6 +288,7 @@ func (cmplsNodeIpMapTable *CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeIpMapTable) GetEn
 type CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeIpMapTable_CmplsNodeIpMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object indicates the Global_ID. The type is
     // string with length: 4.
@@ -303,6 +309,7 @@ func (cmplsNodeIpMapEntry *CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeIpMapTable_CmplsN
     cmplsNodeIpMapEntry.EntityData.BundleName = "cisco_ios_xe"
     cmplsNodeIpMapEntry.EntityData.ParentYangName = "cmplsNodeIpMapTable"
     cmplsNodeIpMapEntry.EntityData.SegmentPath = "cmplsNodeIpMapEntry" + types.AddKeyToken(cmplsNodeIpMapEntry.CmplsNodeIpMapGlobalId, "cmplsNodeIpMapGlobalId") + types.AddKeyToken(cmplsNodeIpMapEntry.CmplsNodeIpMapNodeId, "cmplsNodeIpMapNodeId")
+    cmplsNodeIpMapEntry.EntityData.AbsolutePath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/cmplsNodeIpMapTable/" + cmplsNodeIpMapEntry.EntityData.SegmentPath
     cmplsNodeIpMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsNodeIpMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsNodeIpMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -348,6 +355,7 @@ func (cmplsNodeIccMapTable *CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeIccMapTable) Get
     cmplsNodeIccMapTable.EntityData.BundleName = "cisco_ios_xe"
     cmplsNodeIccMapTable.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
     cmplsNodeIccMapTable.EntityData.SegmentPath = "cmplsNodeIccMapTable"
+    cmplsNodeIccMapTable.EntityData.AbsolutePath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/" + cmplsNodeIccMapTable.EntityData.SegmentPath
     cmplsNodeIccMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsNodeIccMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsNodeIccMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -374,6 +382,7 @@ func (cmplsNodeIccMapTable *CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeIccMapTable) Get
 type CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeIccMapTable_CmplsNodeIccMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object allows the operator or service
     // provider to configure a unique MPLS-TP ITU-T Carrier Code (ICC) either for
@@ -394,6 +403,7 @@ func (cmplsNodeIccMapEntry *CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeIccMapTable_Cmpl
     cmplsNodeIccMapEntry.EntityData.BundleName = "cisco_ios_xe"
     cmplsNodeIccMapEntry.EntityData.ParentYangName = "cmplsNodeIccMapTable"
     cmplsNodeIccMapEntry.EntityData.SegmentPath = "cmplsNodeIccMapEntry" + types.AddKeyToken(cmplsNodeIccMapEntry.CmplsNodeIccMapIccId, "cmplsNodeIccMapIccId")
+    cmplsNodeIccMapEntry.EntityData.AbsolutePath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/cmplsNodeIccMapTable/" + cmplsNodeIccMapEntry.EntityData.SegmentPath
     cmplsNodeIccMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsNodeIccMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsNodeIccMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -451,6 +461,7 @@ func (cmplsTunnelExtTable *CISCOIETFMPLSTEEXTSTD03MIB_CmplsTunnelExtTable) GetEn
     cmplsTunnelExtTable.EntityData.BundleName = "cisco_ios_xe"
     cmplsTunnelExtTable.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
     cmplsTunnelExtTable.EntityData.SegmentPath = "cmplsTunnelExtTable"
+    cmplsTunnelExtTable.EntityData.AbsolutePath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/" + cmplsTunnelExtTable.EntityData.SegmentPath
     cmplsTunnelExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsTunnelExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsTunnelExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -473,6 +484,7 @@ func (cmplsTunnelExtTable *CISCOIETFMPLSTEEXTSTD03MIB_CmplsTunnelExtTable) GetEn
 type CISCOIETFMPLSTEEXTSTD03MIB_CmplsTunnelExtTable_CmplsTunnelExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
     // mpls_te_std_mib.MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelIndex
@@ -550,6 +562,7 @@ func (cmplsTunnelExtEntry *CISCOIETFMPLSTEEXTSTD03MIB_CmplsTunnelExtTable_CmplsT
     cmplsTunnelExtEntry.EntityData.BundleName = "cisco_ios_xe"
     cmplsTunnelExtEntry.EntityData.ParentYangName = "cmplsTunnelExtTable"
     cmplsTunnelExtEntry.EntityData.SegmentPath = "cmplsTunnelExtEntry" + types.AddKeyToken(cmplsTunnelExtEntry.MplsTunnelIndex, "mplsTunnelIndex") + types.AddKeyToken(cmplsTunnelExtEntry.MplsTunnelInstance, "mplsTunnelInstance") + types.AddKeyToken(cmplsTunnelExtEntry.MplsTunnelIngressLSRId, "mplsTunnelIngressLSRId") + types.AddKeyToken(cmplsTunnelExtEntry.MplsTunnelEgressLSRId, "mplsTunnelEgressLSRId")
+    cmplsTunnelExtEntry.EntityData.AbsolutePath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/cmplsTunnelExtTable/" + cmplsTunnelExtEntry.EntityData.SegmentPath
     cmplsTunnelExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsTunnelExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsTunnelExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -598,6 +611,7 @@ func (cmplsTunnelReversePerfTable *CISCOIETFMPLSTEEXTSTD03MIB_CmplsTunnelReverse
     cmplsTunnelReversePerfTable.EntityData.BundleName = "cisco_ios_xe"
     cmplsTunnelReversePerfTable.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
     cmplsTunnelReversePerfTable.EntityData.SegmentPath = "cmplsTunnelReversePerfTable"
+    cmplsTunnelReversePerfTable.EntityData.AbsolutePath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/" + cmplsTunnelReversePerfTable.EntityData.SegmentPath
     cmplsTunnelReversePerfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsTunnelReversePerfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsTunnelReversePerfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -621,6 +635,7 @@ func (cmplsTunnelReversePerfTable *CISCOIETFMPLSTEEXTSTD03MIB_CmplsTunnelReverse
 type CISCOIETFMPLSTEEXTSTD03MIB_CmplsTunnelReversePerfTable_CmplsTunnelReversePerfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
     // mpls_te_std_mib.MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry_MplsTunnelIndex
@@ -684,6 +699,7 @@ func (cmplsTunnelReversePerfEntry *CISCOIETFMPLSTEEXTSTD03MIB_CmplsTunnelReverse
     cmplsTunnelReversePerfEntry.EntityData.BundleName = "cisco_ios_xe"
     cmplsTunnelReversePerfEntry.EntityData.ParentYangName = "cmplsTunnelReversePerfTable"
     cmplsTunnelReversePerfEntry.EntityData.SegmentPath = "cmplsTunnelReversePerfEntry" + types.AddKeyToken(cmplsTunnelReversePerfEntry.MplsTunnelIndex, "mplsTunnelIndex") + types.AddKeyToken(cmplsTunnelReversePerfEntry.MplsTunnelInstance, "mplsTunnelInstance") + types.AddKeyToken(cmplsTunnelReversePerfEntry.MplsTunnelIngressLSRId, "mplsTunnelIngressLSRId") + types.AddKeyToken(cmplsTunnelReversePerfEntry.MplsTunnelEgressLSRId, "mplsTunnelEgressLSRId")
+    cmplsTunnelReversePerfEntry.EntityData.AbsolutePath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/cmplsTunnelReversePerfTable/" + cmplsTunnelReversePerfEntry.EntityData.SegmentPath
     cmplsTunnelReversePerfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsTunnelReversePerfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsTunnelReversePerfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

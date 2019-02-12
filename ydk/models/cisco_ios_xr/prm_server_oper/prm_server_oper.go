@@ -43,6 +43,7 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
     hardwareModule.EntityData.BundleName = "cisco_ios_xr"
     hardwareModule.EntityData.ParentYangName = "Cisco-IOS-XR-prm-server-oper"
     hardwareModule.EntityData.SegmentPath = "Cisco-IOS-XR-prm-server-oper:hardware-module"
+    hardwareModule.EntityData.AbsolutePath = hardwareModule.EntityData.SegmentPath
     hardwareModule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -72,6 +73,7 @@ func (nodes *HardwareModule_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "hardware-module"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -93,6 +95,7 @@ func (nodes *HardwareModule_Nodes) GetEntityData() *types.CommonEntityData {
 type HardwareModule_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -108,6 +111,7 @@ func (node *HardwareModule_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -141,6 +145,7 @@ func (np *HardwareModule_Nodes_Node_Np) GetEntityData() *types.CommonEntityData 
     np.EntityData.BundleName = "cisco_ios_xr"
     np.EntityData.ParentYangName = "node"
     np.EntityData.SegmentPath = "np"
+    np.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/node/" + np.EntityData.SegmentPath
     np.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     np.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     np.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -171,6 +176,7 @@ func (cpu *HardwareModule_Nodes_Node_Np_Cpu) GetEntityData() *types.CommonEntity
     cpu.EntityData.BundleName = "cisco_ios_xr"
     cpu.EntityData.ParentYangName = "np"
     cpu.EntityData.SegmentPath = "cpu"
+    cpu.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/node/np/" + cpu.EntityData.SegmentPath
     cpu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cpu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +207,7 @@ func (indexes *HardwareModule_Nodes_Node_Np_Cpu_Indexes) GetEntityData() *types.
     indexes.EntityData.BundleName = "cisco_ios_xr"
     indexes.EntityData.ParentYangName = "cpu"
     indexes.EntityData.SegmentPath = "indexes"
+    indexes.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/node/np/cpu/" + indexes.EntityData.SegmentPath
     indexes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -222,6 +229,7 @@ func (indexes *HardwareModule_Nodes_Node_Np_Cpu_Indexes) GetEntityData() *types.
 type HardwareModule_Nodes_Node_Np_Cpu_Indexes_Index struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index value. The type is interface{} with range:
     // 0..4294967295.
@@ -255,6 +263,7 @@ func (index *HardwareModule_Nodes_Node_Np_Cpu_Indexes_Index) GetEntityData() *ty
     index.EntityData.BundleName = "cisco_ios_xr"
     index.EntityData.ParentYangName = "indexes"
     index.EntityData.SegmentPath = "index" + types.AddKeyToken(index.Index, "index")
+    index.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/node/np/cpu/indexes/" + index.EntityData.SegmentPath
     index.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     index.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     index.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -294,6 +303,7 @@ func (platformDrop *HardwareModule_Nodes_Node_Np_PlatformDrop) GetEntityData() *
     platformDrop.EntityData.BundleName = "cisco_ios_xr"
     platformDrop.EntityData.ParentYangName = "np"
     platformDrop.EntityData.SegmentPath = "platform-drop"
+    platformDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/node/np/" + platformDrop.EntityData.SegmentPath
     platformDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platformDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -325,6 +335,7 @@ func (indxes *HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes) GetEntityData() 
     indxes.EntityData.BundleName = "cisco_ios_xr"
     indxes.EntityData.ParentYangName = "platform-drop"
     indxes.EntityData.SegmentPath = "indxes"
+    indxes.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/node/np/platform-drop/" + indxes.EntityData.SegmentPath
     indxes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indxes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indxes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -346,6 +357,7 @@ func (indxes *HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes) GetEntityData() 
 type HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes_Indx struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index value. The type is interface{} with range:
     // 0..4294967295.
@@ -398,6 +410,7 @@ func (indx *HardwareModule_Nodes_Node_Np_PlatformDrop_Indxes_Indx) GetEntityData
     indx.EntityData.BundleName = "cisco_ios_xr"
     indx.EntityData.ParentYangName = "indxes"
     indx.EntityData.SegmentPath = "indx" + types.AddKeyToken(indx.Index, "index")
+    indx.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/node/np/platform-drop/indxes/" + indx.EntityData.SegmentPath
     indx.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indx.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indx.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -440,6 +453,7 @@ func (idxes *HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes) GetEntityData() *t
     idxes.EntityData.BundleName = "cisco_ios_xr"
     idxes.EntityData.ParentYangName = "platform-drop"
     idxes.EntityData.SegmentPath = "idxes"
+    idxes.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/node/np/platform-drop/" + idxes.EntityData.SegmentPath
     idxes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idxes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idxes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -461,6 +475,7 @@ func (idxes *HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes) GetEntityData() *t
 type HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes_Idx struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index value. The type is interface{} with range:
     // 0..4294967295.
@@ -479,6 +494,7 @@ func (idx *HardwareModule_Nodes_Node_Np_PlatformDrop_Idxes_Idx) GetEntityData() 
     idx.EntityData.BundleName = "cisco_ios_xr"
     idx.EntityData.ParentYangName = "idxes"
     idx.EntityData.SegmentPath = "idx" + types.AddKeyToken(idx.Index, "index")
+    idx.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/node/np/platform-drop/idxes/" + idx.EntityData.SegmentPath
     idx.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idx.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idx.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -510,6 +526,7 @@ func (prm *Prm) GetEntityData() *types.CommonEntityData {
     prm.EntityData.BundleName = "cisco_ios_xr"
     prm.EntityData.ParentYangName = "Cisco-IOS-XR-prm-server-oper"
     prm.EntityData.SegmentPath = "Cisco-IOS-XR-prm-server-oper:prm"
+    prm.EntityData.AbsolutePath = prm.EntityData.SegmentPath
     prm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -539,6 +556,7 @@ func (nodes *Prm_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "prm"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:prm/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -560,6 +578,7 @@ func (nodes *Prm_Nodes) GetEntityData() *types.CommonEntityData {
 type Prm_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -575,6 +594,7 @@ func (node *Prm_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:prm/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -605,6 +625,7 @@ func (server *Prm_Nodes_Node_Server) GetEntityData() *types.CommonEntityData {
     server.EntityData.BundleName = "cisco_ios_xr"
     server.EntityData.ParentYangName = "node"
     server.EntityData.SegmentPath = "server"
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:prm/nodes/node/" + server.EntityData.SegmentPath
     server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -634,6 +655,7 @@ func (resource *Prm_Nodes_Node_Server_Resource) GetEntityData() *types.CommonEnt
     resource.EntityData.BundleName = "cisco_ios_xr"
     resource.EntityData.ParentYangName = "server"
     resource.EntityData.SegmentPath = "resource"
+    resource.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:prm/nodes/node/server/" + resource.EntityData.SegmentPath
     resource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -664,6 +686,7 @@ func (indexes *Prm_Nodes_Node_Server_Resource_Indexes) GetEntityData() *types.Co
     indexes.EntityData.BundleName = "cisco_ios_xr"
     indexes.EntityData.ParentYangName = "resource"
     indexes.EntityData.SegmentPath = "indexes"
+    indexes.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:prm/nodes/node/server/resource/" + indexes.EntityData.SegmentPath
     indexes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -685,6 +708,7 @@ func (indexes *Prm_Nodes_Node_Server_Resource_Indexes) GetEntityData() *types.Co
 type Prm_Nodes_Node_Server_Resource_Indexes_Index struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index value. The type is interface{} with range:
     // 0..4294967295.
@@ -724,6 +748,7 @@ func (index *Prm_Nodes_Node_Server_Resource_Indexes_Index) GetEntityData() *type
     index.EntityData.BundleName = "cisco_ios_xr"
     index.EntityData.ParentYangName = "indexes"
     index.EntityData.SegmentPath = "index" + types.AddKeyToken(index.Index, "index")
+    index.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-server-oper:prm/nodes/node/server/resource/indexes/" + index.EntityData.SegmentPath
     index.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     index.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     index.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

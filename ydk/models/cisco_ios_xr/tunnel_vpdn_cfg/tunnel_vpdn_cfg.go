@@ -103,6 +103,7 @@ func (vpdn *Vpdn) GetEntityData() *types.CommonEntityData {
     vpdn.EntityData.BundleName = "cisco_ios_xr"
     vpdn.EntityData.ParentYangName = "Cisco-IOS-XR-tunnel-vpdn-cfg"
     vpdn.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn"
+    vpdn.EntityData.AbsolutePath = vpdn.EntityData.SegmentPath
     vpdn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpdn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -142,6 +143,7 @@ func (history *Vpdn_History) GetEntityData() *types.CommonEntityData {
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "vpdn"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -175,6 +177,7 @@ func (redundancy *Vpdn_Redundancy) GetEntityData() *types.CommonEntityData {
     redundancy.EntityData.BundleName = "cisco_ios_xr"
     redundancy.EntityData.ParentYangName = "vpdn"
     redundancy.EntityData.SegmentPath = "redundancy"
+    redundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/" + redundancy.EntityData.SegmentPath
     redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -205,6 +208,7 @@ func (processFailures *Vpdn_Redundancy_ProcessFailures) GetEntityData() *types.C
     processFailures.EntityData.BundleName = "cisco_ios_xr"
     processFailures.EntityData.ParentYangName = "redundancy"
     processFailures.EntityData.SegmentPath = "process-failures"
+    processFailures.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/redundancy/" + processFailures.EntityData.SegmentPath
     processFailures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processFailures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processFailures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -243,6 +247,7 @@ func (local *Vpdn_Local) GetEntityData() *types.CommonEntityData {
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "vpdn"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -275,6 +280,7 @@ func (templates *Vpdn_Templates) GetEntityData() *types.CommonEntityData {
     templates.EntityData.BundleName = "cisco_ios_xr"
     templates.EntityData.ParentYangName = "vpdn"
     templates.EntityData.SegmentPath = "templates"
+    templates.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/" + templates.EntityData.SegmentPath
     templates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     templates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     templates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -296,6 +302,7 @@ func (templates *Vpdn_Templates) GetEntityData() *types.CommonEntityData {
 type Vpdn_Templates_Template struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VPDN template name. The type is string with
     // length: 1..63.
@@ -336,6 +343,7 @@ func (template *Vpdn_Templates_Template) GetEntityData() *types.CommonEntityData
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "templates"
     template.EntityData.SegmentPath = "template" + types.AddKeyToken(template.TemplateName, "template-name")
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -374,6 +382,7 @@ func (callerId *Vpdn_Templates_Template_CallerId) GetEntityData() *types.CommonE
     callerId.EntityData.BundleName = "cisco_ios_xr"
     callerId.EntityData.ParentYangName = "template"
     callerId.EntityData.SegmentPath = "caller-id"
+    callerId.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/template/" + callerId.EntityData.SegmentPath
     callerId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     callerId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     callerId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -406,6 +415,7 @@ func (vpn *Vpdn_Templates_Template_Vpn) GetEntityData() *types.CommonEntityData 
     vpn.EntityData.BundleName = "cisco_ios_xr"
     vpn.EntityData.ParentYangName = "template"
     vpn.EntityData.SegmentPath = "vpn"
+    vpn.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/template/" + vpn.EntityData.SegmentPath
     vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -441,6 +451,7 @@ func (id *Vpdn_Templates_Template_Vpn_Id) GetEntityData() *types.CommonEntityDat
     id.EntityData.BundleName = "cisco_ios_xr"
     id.EntityData.ParentYangName = "vpn"
     id.EntityData.SegmentPath = "id"
+    id.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/template/vpn/" + id.EntityData.SegmentPath
     id.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     id.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     id.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -472,6 +483,7 @@ func (tunnel *Vpdn_Templates_Template_Tunnel) GetEntityData() *types.CommonEntit
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "template"
     tunnel.EntityData.SegmentPath = "tunnel"
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/template/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -501,6 +513,7 @@ func (ip *Vpdn_Templates_Template_Ip) GetEntityData() *types.CommonEntityData {
     ip.EntityData.BundleName = "cisco_ios_xr"
     ip.EntityData.ParentYangName = "template"
     ip.EntityData.SegmentPath = "ip"
+    ip.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/template/" + ip.EntityData.SegmentPath
     ip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -534,6 +547,7 @@ func (ipv4 *Vpdn_Templates_Template_Ipv4) GetEntityData() *types.CommonEntityDat
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "template"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/template/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -564,6 +578,7 @@ func (callerId *Vpdn_CallerId) GetEntityData() *types.CommonEntityData {
     callerId.EntityData.BundleName = "cisco_ios_xr"
     callerId.EntityData.ParentYangName = "vpdn"
     callerId.EntityData.SegmentPath = "caller-id"
+    callerId.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/" + callerId.EntityData.SegmentPath
     callerId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     callerId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     callerId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -593,6 +608,7 @@ func (vpdNgroups *Vpdn_VpdNgroups) GetEntityData() *types.CommonEntityData {
     vpdNgroups.EntityData.BundleName = "cisco_ios_xr"
     vpdNgroups.EntityData.ParentYangName = "vpdn"
     vpdNgroups.EntityData.SegmentPath = "vpd-ngroups"
+    vpdNgroups.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/" + vpdNgroups.EntityData.SegmentPath
     vpdNgroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpdNgroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdNgroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -614,6 +630,7 @@ func (vpdNgroups *Vpdn_VpdNgroups) GetEntityData() *types.CommonEntityData {
 type Vpdn_VpdNgroups_VpdNgroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. vpdn-group name. The type is string with length:
     // 1..63.
@@ -657,6 +674,7 @@ func (vpdNgroup *Vpdn_VpdNgroups_VpdNgroup) GetEntityData() *types.CommonEntityD
     vpdNgroup.EntityData.BundleName = "cisco_ios_xr"
     vpdNgroup.EntityData.ParentYangName = "vpd-ngroups"
     vpdNgroup.EntityData.SegmentPath = "vpd-ngroup" + types.AddKeyToken(vpdNgroup.VpdNgroupname, "vpd-ngroupname")
+    vpdNgroup.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/vpd-ngroups/" + vpdNgroup.EntityData.SegmentPath
     vpdNgroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpdNgroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdNgroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -701,6 +719,7 @@ func (vpnId *Vpdn_VpdNgroups_VpdNgroup_VpnId) GetEntityData() *types.CommonEntit
     vpnId.EntityData.BundleName = "cisco_ios_xr"
     vpnId.EntityData.ParentYangName = "vpd-ngroup"
     vpnId.EntityData.SegmentPath = "vpn-id"
+    vpnId.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/vpd-ngroups/vpd-ngroup/" + vpnId.EntityData.SegmentPath
     vpnId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpnId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpnId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -731,6 +750,7 @@ func (ip *Vpdn_VpdNgroups_VpdNgroup_Ip) GetEntityData() *types.CommonEntityData 
     ip.EntityData.BundleName = "cisco_ios_xr"
     ip.EntityData.ParentYangName = "vpd-ngroup"
     ip.EntityData.SegmentPath = "ip"
+    ip.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/vpd-ngroups/vpd-ngroup/" + ip.EntityData.SegmentPath
     ip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -760,6 +780,7 @@ func (loggings *Vpdn_Loggings) GetEntityData() *types.CommonEntityData {
     loggings.EntityData.BundleName = "cisco_ios_xr"
     loggings.EntityData.ParentYangName = "vpdn"
     loggings.EntityData.SegmentPath = "loggings"
+    loggings.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/" + loggings.EntityData.SegmentPath
     loggings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loggings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loggings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -781,6 +802,7 @@ func (loggings *Vpdn_Loggings) GetEntityData() *types.CommonEntityData {
 type Vpdn_Loggings_Logging struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VPDN logging options. The type is Option.
     Option interface{}
@@ -792,6 +814,7 @@ func (logging *Vpdn_Loggings_Logging) GetEntityData() *types.CommonEntityData {
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "loggings"
     logging.EntityData.SegmentPath = "logging" + types.AddKeyToken(logging.Option, "option")
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/loggings/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -828,6 +851,7 @@ func (l2tp *Vpdn_L2tp) GetEntityData() *types.CommonEntityData {
     l2tp.EntityData.BundleName = "cisco_ios_xr"
     l2tp.EntityData.ParentYangName = "vpdn"
     l2tp.EntityData.SegmentPath = "l2tp"
+    l2tp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/" + l2tp.EntityData.SegmentPath
     l2tp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -859,6 +883,7 @@ func (sessionId *Vpdn_L2tp_SessionId) GetEntityData() *types.CommonEntityData {
     sessionId.EntityData.BundleName = "cisco_ios_xr"
     sessionId.EntityData.ParentYangName = "l2tp"
     sessionId.EntityData.SegmentPath = "session-id"
+    sessionId.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/l2tp/" + sessionId.EntityData.SegmentPath
     sessionId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -888,6 +913,7 @@ func (space *Vpdn_L2tp_SessionId_Space) GetEntityData() *types.CommonEntityData 
     space.EntityData.BundleName = "cisco_ios_xr"
     space.EntityData.ParentYangName = "session-id"
     space.EntityData.SegmentPath = "space"
+    space.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/l2tp/session-id/" + space.EntityData.SegmentPath
     space.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     space.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     space.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

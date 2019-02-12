@@ -40,6 +40,7 @@ func (ipv6Io *Ipv6Io) GetEntityData() *types.CommonEntityData {
     ipv6Io.EntityData.BundleName = "cisco_ios_xr"
     ipv6Io.EntityData.ParentYangName = "Cisco-IOS-XR-ipv6-io-oper"
     ipv6Io.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-io-oper:ipv6-io"
+    ipv6Io.EntityData.AbsolutePath = ipv6Io.EntityData.SegmentPath
     ipv6Io.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Io.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Io.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *Ipv6Io_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "ipv6-io"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-io-oper:ipv6-io/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +94,7 @@ func (nodes *Ipv6Io_Nodes) GetEntityData() *types.CommonEntityData {
 type Ipv6Io_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -107,6 +110,7 @@ func (node *Ipv6Io_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-io-oper:ipv6-io/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -138,6 +142,7 @@ func (statistics *Ipv6Io_Nodes_Node_Statistics) GetEntityData() *types.CommonEnt
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "node"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-io-oper:ipv6-io/nodes/node/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -173,6 +178,7 @@ func (traffic *Ipv6Io_Nodes_Node_Statistics_Traffic) GetEntityData() *types.Comm
     traffic.EntityData.BundleName = "cisco_ios_xr"
     traffic.EntityData.ParentYangName = "statistics"
     traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-io-oper:ipv6-io/nodes/node/statistics/" + traffic.EntityData.SegmentPath
     traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -304,6 +310,7 @@ func (ipv6 *Ipv6Io_Nodes_Node_Statistics_Traffic_Ipv6) GetEntityData() *types.Co
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "traffic"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-io-oper:ipv6-io/nodes/node/statistics/traffic/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -505,6 +512,7 @@ func (icmp *Ipv6Io_Nodes_Node_Statistics_Traffic_Icmp) GetEntityData() *types.Co
     icmp.EntityData.BundleName = "cisco_ios_xr"
     icmp.EntityData.ParentYangName = "traffic"
     icmp.EntityData.SegmentPath = "icmp"
+    icmp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-io-oper:ipv6-io/nodes/node/statistics/traffic/" + icmp.EntityData.SegmentPath
     icmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -606,6 +614,7 @@ func (ipv6NodeDiscovery *Ipv6Io_Nodes_Node_Statistics_Traffic_Ipv6NodeDiscovery)
     ipv6NodeDiscovery.EntityData.BundleName = "cisco_ios_xr"
     ipv6NodeDiscovery.EntityData.ParentYangName = "traffic"
     ipv6NodeDiscovery.EntityData.SegmentPath = "ipv6-node-discovery"
+    ipv6NodeDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-io-oper:ipv6-io/nodes/node/statistics/traffic/" + ipv6NodeDiscovery.EntityData.SegmentPath
     ipv6NodeDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6NodeDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6NodeDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

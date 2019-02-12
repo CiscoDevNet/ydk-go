@@ -66,6 +66,7 @@ func (cISCOENVMONMIB *CISCOENVMONMIB) GetEntityData() *types.CommonEntityData {
     cISCOENVMONMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOENVMONMIB.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
     cISCOENVMONMIB.EntityData.SegmentPath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB"
+    cISCOENVMONMIB.EntityData.AbsolutePath = cISCOENVMONMIB.EntityData.SegmentPath
     cISCOENVMONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOENVMONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOENVMONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -108,6 +109,7 @@ func (ciscoEnvMonObjects *CISCOENVMONMIB_CiscoEnvMonObjects) GetEntityData() *ty
     ciscoEnvMonObjects.EntityData.BundleName = "cisco_ios_xe"
     ciscoEnvMonObjects.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
     ciscoEnvMonObjects.EntityData.SegmentPath = "ciscoEnvMonObjects"
+    ciscoEnvMonObjects.EntityData.AbsolutePath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/" + ciscoEnvMonObjects.EntityData.SegmentPath
     ciscoEnvMonObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEnvMonObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEnvMonObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -202,6 +204,7 @@ func (ciscoEnvMonMIBNotificationEnables *CISCOENVMONMIB_CiscoEnvMonMIBNotificati
     ciscoEnvMonMIBNotificationEnables.EntityData.BundleName = "cisco_ios_xe"
     ciscoEnvMonMIBNotificationEnables.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
     ciscoEnvMonMIBNotificationEnables.EntityData.SegmentPath = "ciscoEnvMonMIBNotificationEnables"
+    ciscoEnvMonMIBNotificationEnables.EntityData.AbsolutePath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/" + ciscoEnvMonMIBNotificationEnables.EntityData.SegmentPath
     ciscoEnvMonMIBNotificationEnables.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEnvMonMIBNotificationEnables.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEnvMonMIBNotificationEnables.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -240,6 +243,7 @@ func (ciscoEnvMonVoltageStatusTable *CISCOENVMONMIB_CiscoEnvMonVoltageStatusTabl
     ciscoEnvMonVoltageStatusTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoEnvMonVoltageStatusTable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
     ciscoEnvMonVoltageStatusTable.EntityData.SegmentPath = "ciscoEnvMonVoltageStatusTable"
+    ciscoEnvMonVoltageStatusTable.EntityData.AbsolutePath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/" + ciscoEnvMonVoltageStatusTable.EntityData.SegmentPath
     ciscoEnvMonVoltageStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEnvMonVoltageStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEnvMonVoltageStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -263,6 +267,7 @@ func (ciscoEnvMonVoltageStatusTable *CISCOENVMONMIB_CiscoEnvMonVoltageStatusTabl
 type CISCOENVMONMIB_CiscoEnvMonVoltageStatusTable_CiscoEnvMonVoltageStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique index for the testpoint being instrumented.
     // This index is for SNMP purposes only, and has no intrinsic meaning. The
@@ -309,6 +314,7 @@ func (ciscoEnvMonVoltageStatusEntry *CISCOENVMONMIB_CiscoEnvMonVoltageStatusTabl
     ciscoEnvMonVoltageStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoEnvMonVoltageStatusEntry.EntityData.ParentYangName = "ciscoEnvMonVoltageStatusTable"
     ciscoEnvMonVoltageStatusEntry.EntityData.SegmentPath = "ciscoEnvMonVoltageStatusEntry" + types.AddKeyToken(ciscoEnvMonVoltageStatusEntry.CiscoEnvMonVoltageStatusIndex, "ciscoEnvMonVoltageStatusIndex")
+    ciscoEnvMonVoltageStatusEntry.EntityData.AbsolutePath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonVoltageStatusTable/" + ciscoEnvMonVoltageStatusEntry.EntityData.SegmentPath
     ciscoEnvMonVoltageStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEnvMonVoltageStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEnvMonVoltageStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -348,6 +354,7 @@ func (ciscoEnvMonTemperatureStatusTable *CISCOENVMONMIB_CiscoEnvMonTemperatureSt
     ciscoEnvMonTemperatureStatusTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoEnvMonTemperatureStatusTable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
     ciscoEnvMonTemperatureStatusTable.EntityData.SegmentPath = "ciscoEnvMonTemperatureStatusTable"
+    ciscoEnvMonTemperatureStatusTable.EntityData.AbsolutePath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/" + ciscoEnvMonTemperatureStatusTable.EntityData.SegmentPath
     ciscoEnvMonTemperatureStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEnvMonTemperatureStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEnvMonTemperatureStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -371,6 +378,7 @@ func (ciscoEnvMonTemperatureStatusTable *CISCOENVMONMIB_CiscoEnvMonTemperatureSt
 type CISCOENVMONMIB_CiscoEnvMonTemperatureStatusTable_CiscoEnvMonTemperatureStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique index for the testpoint being instrumented.
     // This index is for SNMP purposes only, and has no intrinsic meaning. The
@@ -411,6 +419,7 @@ func (ciscoEnvMonTemperatureStatusEntry *CISCOENVMONMIB_CiscoEnvMonTemperatureSt
     ciscoEnvMonTemperatureStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoEnvMonTemperatureStatusEntry.EntityData.ParentYangName = "ciscoEnvMonTemperatureStatusTable"
     ciscoEnvMonTemperatureStatusEntry.EntityData.SegmentPath = "ciscoEnvMonTemperatureStatusEntry" + types.AddKeyToken(ciscoEnvMonTemperatureStatusEntry.CiscoEnvMonTemperatureStatusIndex, "ciscoEnvMonTemperatureStatusIndex")
+    ciscoEnvMonTemperatureStatusEntry.EntityData.AbsolutePath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonTemperatureStatusTable/" + ciscoEnvMonTemperatureStatusEntry.EntityData.SegmentPath
     ciscoEnvMonTemperatureStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEnvMonTemperatureStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEnvMonTemperatureStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -448,6 +457,7 @@ func (ciscoEnvMonFanStatusTable *CISCOENVMONMIB_CiscoEnvMonFanStatusTable) GetEn
     ciscoEnvMonFanStatusTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoEnvMonFanStatusTable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
     ciscoEnvMonFanStatusTable.EntityData.SegmentPath = "ciscoEnvMonFanStatusTable"
+    ciscoEnvMonFanStatusTable.EntityData.AbsolutePath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/" + ciscoEnvMonFanStatusTable.EntityData.SegmentPath
     ciscoEnvMonFanStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEnvMonFanStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEnvMonFanStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -470,6 +480,7 @@ func (ciscoEnvMonFanStatusTable *CISCOENVMONMIB_CiscoEnvMonFanStatusTable) GetEn
 type CISCOENVMONMIB_CiscoEnvMonFanStatusTable_CiscoEnvMonFanStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique index for the fan being instrumented. This
     // index is for SNMP purposes only, and has no intrinsic meaning. The type is
@@ -493,6 +504,7 @@ func (ciscoEnvMonFanStatusEntry *CISCOENVMONMIB_CiscoEnvMonFanStatusTable_CiscoE
     ciscoEnvMonFanStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoEnvMonFanStatusEntry.EntityData.ParentYangName = "ciscoEnvMonFanStatusTable"
     ciscoEnvMonFanStatusEntry.EntityData.SegmentPath = "ciscoEnvMonFanStatusEntry" + types.AddKeyToken(ciscoEnvMonFanStatusEntry.CiscoEnvMonFanStatusIndex, "ciscoEnvMonFanStatusIndex")
+    ciscoEnvMonFanStatusEntry.EntityData.AbsolutePath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonFanStatusTable/" + ciscoEnvMonFanStatusEntry.EntityData.SegmentPath
     ciscoEnvMonFanStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEnvMonFanStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEnvMonFanStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -528,6 +540,7 @@ func (ciscoEnvMonSupplyStatusTable *CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable)
     ciscoEnvMonSupplyStatusTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoEnvMonSupplyStatusTable.EntityData.ParentYangName = "CISCO-ENVMON-MIB"
     ciscoEnvMonSupplyStatusTable.EntityData.SegmentPath = "ciscoEnvMonSupplyStatusTable"
+    ciscoEnvMonSupplyStatusTable.EntityData.AbsolutePath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/" + ciscoEnvMonSupplyStatusTable.EntityData.SegmentPath
     ciscoEnvMonSupplyStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEnvMonSupplyStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEnvMonSupplyStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -551,6 +564,7 @@ func (ciscoEnvMonSupplyStatusTable *CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable)
 type CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_CiscoEnvMonSupplyStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique index for the power supply being
     // instrumented. This index is for SNMP purposes only, and has no intrinsic
@@ -580,6 +594,7 @@ func (ciscoEnvMonSupplyStatusEntry *CISCOENVMONMIB_CiscoEnvMonSupplyStatusTable_
     ciscoEnvMonSupplyStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoEnvMonSupplyStatusEntry.EntityData.ParentYangName = "ciscoEnvMonSupplyStatusTable"
     ciscoEnvMonSupplyStatusEntry.EntityData.SegmentPath = "ciscoEnvMonSupplyStatusEntry" + types.AddKeyToken(ciscoEnvMonSupplyStatusEntry.CiscoEnvMonSupplyStatusIndex, "ciscoEnvMonSupplyStatusIndex")
+    ciscoEnvMonSupplyStatusEntry.EntityData.AbsolutePath = "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonSupplyStatusTable/" + ciscoEnvMonSupplyStatusEntry.EntityData.SegmentPath
     ciscoEnvMonSupplyStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEnvMonSupplyStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEnvMonSupplyStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

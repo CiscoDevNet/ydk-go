@@ -43,6 +43,7 @@ func (redundancy *Redundancy) GetEntityData() *types.CommonEntityData {
     redundancy.EntityData.BundleName = "cisco_ios_xr"
     redundancy.EntityData.ParentYangName = "Cisco-IOS-XR-infra-rmf-oper"
     redundancy.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rmf-oper:redundancy"
+    redundancy.EntityData.AbsolutePath = redundancy.EntityData.SegmentPath
     redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -73,6 +74,7 @@ func (nodes *Redundancy_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "redundancy"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rmf-oper:redundancy/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -94,6 +96,7 @@ func (nodes *Redundancy_Nodes) GetEntityData() *types.CommonEntityData {
 type Redundancy_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node Location. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -121,6 +124,7 @@ func (node *Redundancy_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rmf-oper:redundancy/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -167,6 +171,7 @@ func (redundancy *Redundancy_Nodes_Node_Redundancy) GetEntityData() *types.Commo
     redundancy.EntityData.BundleName = "cisco_ios_xr"
     redundancy.EntityData.ParentYangName = "node"
     redundancy.EntityData.SegmentPath = "redundancy"
+    redundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rmf-oper:redundancy/nodes/node/" + redundancy.EntityData.SegmentPath
     redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -174,6 +179,7 @@ func (redundancy *Redundancy_Nodes_Node_Redundancy) GetEntityData() *types.Commo
     redundancy.EntityData.Children = types.NewOrderedMap()
     redundancy.EntityData.Children.Append("groupinfo", types.YChild{"Groupinfo", nil})
     for i := range redundancy.Groupinfo {
+        types.SetYListKey(redundancy.Groupinfo[i], i)
         redundancy.EntityData.Children.Append(types.GetSegmentPath(redundancy.Groupinfo[i]), types.YChild{"Groupinfo", redundancy.Groupinfo[i]})
     }
     redundancy.EntityData.Leafs = types.NewOrderedMap()
@@ -192,6 +198,7 @@ func (redundancy *Redundancy_Nodes_Node_Redundancy) GetEntityData() *types.Commo
 type Redundancy_Nodes_Node_Redundancy_Groupinfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Active. The type is string.
     Active interface{}
@@ -211,7 +218,8 @@ func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetEntityData() *ty
     groupinfo.EntityData.YangName = "groupinfo"
     groupinfo.EntityData.BundleName = "cisco_ios_xr"
     groupinfo.EntityData.ParentYangName = "redundancy"
-    groupinfo.EntityData.SegmentPath = "groupinfo"
+    groupinfo.EntityData.SegmentPath = "groupinfo" + types.AddNoKeyToken(groupinfo)
+    groupinfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rmf-oper:redundancy/nodes/node/redundancy/" + groupinfo.EntityData.SegmentPath
     groupinfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupinfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupinfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -247,6 +255,7 @@ func (summary *Redundancy_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "redundancy"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rmf-oper:redundancy/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -254,6 +263,7 @@ func (summary *Redundancy_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.Children = types.NewOrderedMap()
     summary.EntityData.Children.Append("red-pair", types.YChild{"RedPair", nil})
     for i := range summary.RedPair {
+        types.SetYListKey(summary.RedPair[i], i)
         summary.EntityData.Children.Append(types.GetSegmentPath(summary.RedPair[i]), types.YChild{"RedPair", summary.RedPair[i]})
     }
     summary.EntityData.Leafs = types.NewOrderedMap()
@@ -269,6 +279,7 @@ func (summary *Redundancy_Summary) GetEntityData() *types.CommonEntityData {
 type Redundancy_Summary_RedPair struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Active node name R/S/I. The type is string.
     Active interface{}
@@ -291,7 +302,8 @@ func (redPair *Redundancy_Summary_RedPair) GetEntityData() *types.CommonEntityDa
     redPair.EntityData.YangName = "red-pair"
     redPair.EntityData.BundleName = "cisco_ios_xr"
     redPair.EntityData.ParentYangName = "summary"
-    redPair.EntityData.SegmentPath = "red-pair"
+    redPair.EntityData.SegmentPath = "red-pair" + types.AddNoKeyToken(redPair)
+    redPair.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rmf-oper:redundancy/summary/" + redPair.EntityData.SegmentPath
     redPair.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redPair.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redPair.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -299,6 +311,7 @@ func (redPair *Redundancy_Summary_RedPair) GetEntityData() *types.CommonEntityDa
     redPair.EntityData.Children = types.NewOrderedMap()
     redPair.EntityData.Children.Append("groupinfo", types.YChild{"Groupinfo", nil})
     for i := range redPair.Groupinfo {
+        types.SetYListKey(redPair.Groupinfo[i], i)
         redPair.EntityData.Children.Append(types.GetSegmentPath(redPair.Groupinfo[i]), types.YChild{"Groupinfo", redPair.Groupinfo[i]})
     }
     redPair.EntityData.Leafs = types.NewOrderedMap()
@@ -317,6 +330,7 @@ func (redPair *Redundancy_Summary_RedPair) GetEntityData() *types.CommonEntityDa
 type Redundancy_Summary_RedPair_Groupinfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Active. The type is string.
     Active interface{}
@@ -336,7 +350,8 @@ func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetEntityData() *types.Co
     groupinfo.EntityData.YangName = "groupinfo"
     groupinfo.EntityData.BundleName = "cisco_ios_xr"
     groupinfo.EntityData.ParentYangName = "red-pair"
-    groupinfo.EntityData.SegmentPath = "groupinfo"
+    groupinfo.EntityData.SegmentPath = "groupinfo" + types.AddNoKeyToken(groupinfo)
+    groupinfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rmf-oper:redundancy/summary/red-pair/" + groupinfo.EntityData.SegmentPath
     groupinfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupinfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupinfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

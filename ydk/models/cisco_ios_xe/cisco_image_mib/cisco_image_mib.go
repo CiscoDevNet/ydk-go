@@ -32,6 +32,7 @@ func (cISCOIMAGEMIB *CISCOIMAGEMIB) GetEntityData() *types.CommonEntityData {
     cISCOIMAGEMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIMAGEMIB.EntityData.ParentYangName = "CISCO-IMAGE-MIB"
     cISCOIMAGEMIB.EntityData.SegmentPath = "CISCO-IMAGE-MIB:CISCO-IMAGE-MIB"
+    cISCOIMAGEMIB.EntityData.AbsolutePath = cISCOIMAGEMIB.EntityData.SegmentPath
     cISCOIMAGEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIMAGEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIMAGEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -63,6 +64,7 @@ func (ciscoImageTable *CISCOIMAGEMIB_CiscoImageTable) GetEntityData() *types.Com
     ciscoImageTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoImageTable.EntityData.ParentYangName = "CISCO-IMAGE-MIB"
     ciscoImageTable.EntityData.SegmentPath = "ciscoImageTable"
+    ciscoImageTable.EntityData.AbsolutePath = "CISCO-IMAGE-MIB:CISCO-IMAGE-MIB/" + ciscoImageTable.EntityData.SegmentPath
     ciscoImageTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoImageTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoImageTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -84,6 +86,7 @@ func (ciscoImageTable *CISCOIMAGEMIB_CiscoImageTable) GetEntityData() *types.Com
 type CISCOIMAGEMIB_CiscoImageTable_CiscoImageEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A sequence number for each string stored in the
     // IOS image. The type is interface{} with range: 0..2147483647.
@@ -99,6 +102,7 @@ func (ciscoImageEntry *CISCOIMAGEMIB_CiscoImageTable_CiscoImageEntry) GetEntityD
     ciscoImageEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoImageEntry.EntityData.ParentYangName = "ciscoImageTable"
     ciscoImageEntry.EntityData.SegmentPath = "ciscoImageEntry" + types.AddKeyToken(ciscoImageEntry.CiscoImageIndex, "ciscoImageIndex")
+    ciscoImageEntry.EntityData.AbsolutePath = "CISCO-IMAGE-MIB:CISCO-IMAGE-MIB/ciscoImageTable/" + ciscoImageEntry.EntityData.SegmentPath
     ciscoImageEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoImageEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoImageEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

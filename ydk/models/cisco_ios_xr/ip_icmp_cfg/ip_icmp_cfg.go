@@ -54,6 +54,7 @@ func (icmp *Icmp) GetEntityData() *types.CommonEntityData {
     icmp.EntityData.BundleName = "cisco_ios_xr"
     icmp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-icmp-cfg"
     icmp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-icmp-cfg:icmp"
+    icmp.EntityData.AbsolutePath = icmp.EntityData.SegmentPath
     icmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -87,6 +88,7 @@ func (ipv6 *Icmp_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "icmp"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-icmp-cfg:icmp/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -117,6 +119,7 @@ func (rateLimit *Icmp_Ipv6_RateLimit) GetEntityData() *types.CommonEntityData {
     rateLimit.EntityData.BundleName = "cisco_ios_xr"
     rateLimit.EntityData.ParentYangName = "ipv6"
     rateLimit.EntityData.SegmentPath = "rate-limit"
+    rateLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv6/" + rateLimit.EntityData.SegmentPath
     rateLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rateLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rateLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -151,6 +154,7 @@ func (unreachable *Icmp_Ipv6_RateLimit_Unreachable) GetEntityData() *types.Commo
     unreachable.EntityData.BundleName = "cisco_ios_xr"
     unreachable.EntityData.ParentYangName = "rate-limit"
     unreachable.EntityData.SegmentPath = "unreachable"
+    unreachable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv6/rate-limit/" + unreachable.EntityData.SegmentPath
     unreachable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unreachable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unreachable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -181,6 +185,7 @@ func (source *Icmp_Ipv6_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "ipv6"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv6/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -213,6 +218,7 @@ func (ipv4 *Icmp_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "icmp"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-icmp-cfg:icmp/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -243,6 +249,7 @@ func (rateLimit *Icmp_Ipv4_RateLimit) GetEntityData() *types.CommonEntityData {
     rateLimit.EntityData.BundleName = "cisco_ios_xr"
     rateLimit.EntityData.ParentYangName = "ipv4"
     rateLimit.EntityData.SegmentPath = "rate-limit"
+    rateLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/" + rateLimit.EntityData.SegmentPath
     rateLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rateLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rateLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -277,6 +284,7 @@ func (unreachable *Icmp_Ipv4_RateLimit_Unreachable) GetEntityData() *types.Commo
     unreachable.EntityData.BundleName = "cisco_ios_xr"
     unreachable.EntityData.ParentYangName = "rate-limit"
     unreachable.EntityData.SegmentPath = "unreachable"
+    unreachable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/rate-limit/" + unreachable.EntityData.SegmentPath
     unreachable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unreachable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unreachable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -307,6 +315,7 @@ func (source *Icmp_Ipv4_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "ipv4"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -113,6 +113,7 @@ func (rsvp *Rsvp) GetEntityData() *types.CommonEntityData {
     rsvp.EntityData.BundleName = "cisco_ios_xr"
     rsvp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-rsvp-cfg"
     rsvp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp"
+    rsvp.EntityData.AbsolutePath = rsvp.EntityData.SegmentPath
     rsvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -148,6 +149,7 @@ func (neighbors *Rsvp_Neighbors) GetEntityData() *types.CommonEntityData {
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "rsvp"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -169,6 +171,7 @@ func (neighbors *Rsvp_Neighbors) GetEntityData() *types.CommonEntityData {
 type Rsvp_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -185,6 +188,7 @@ func (neighbor *Rsvp_Neighbors_Neighbor) GetEntityData() *types.CommonEntityData
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Neighbor, "neighbor")
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -227,6 +231,7 @@ func (authentication *Rsvp_Neighbors_Neighbor_Authentication) GetEntityData() *t
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "neighbor"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/neighbors/neighbor/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -259,6 +264,7 @@ func (controllers *Rsvp_Controllers) GetEntityData() *types.CommonEntityData {
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "rsvp"
     controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/" + controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -280,6 +286,7 @@ func (controllers *Rsvp_Controllers) GetEntityData() *types.CommonEntityData {
 type Rsvp_Controllers_Controller struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of controller. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -298,6 +305,7 @@ func (controller *Rsvp_Controllers_Controller) GetEntityData() *types.CommonEnti
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
     controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/controllers/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -329,6 +337,7 @@ func (cntlSignalling *Rsvp_Controllers_Controller_CntlSignalling) GetEntityData(
     cntlSignalling.EntityData.BundleName = "cisco_ios_xr"
     cntlSignalling.EntityData.ParentYangName = "controller"
     cntlSignalling.EntityData.SegmentPath = "cntl-signalling"
+    cntlSignalling.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/controllers/controller/" + cntlSignalling.EntityData.SegmentPath
     cntlSignalling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cntlSignalling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cntlSignalling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -364,6 +373,7 @@ func (outOfBand *Rsvp_Controllers_Controller_CntlSignalling_OutOfBand) GetEntity
     outOfBand.EntityData.BundleName = "cisco_ios_xr"
     outOfBand.EntityData.ParentYangName = "cntl-signalling"
     outOfBand.EntityData.SegmentPath = "out-of-band"
+    outOfBand.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/controllers/controller/cntl-signalling/" + outOfBand.EntityData.SegmentPath
     outOfBand.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outOfBand.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outOfBand.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -397,6 +407,7 @@ func (globalLogging *Rsvp_GlobalLogging) GetEntityData() *types.CommonEntityData
     globalLogging.EntityData.BundleName = "cisco_ios_xr"
     globalLogging.EntityData.ParentYangName = "rsvp"
     globalLogging.EntityData.SegmentPath = "global-logging"
+    globalLogging.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/" + globalLogging.EntityData.SegmentPath
     globalLogging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -427,6 +438,7 @@ func (globalBandwidth *Rsvp_GlobalBandwidth) GetEntityData() *types.CommonEntity
     globalBandwidth.EntityData.BundleName = "cisco_ios_xr"
     globalBandwidth.EntityData.ParentYangName = "rsvp"
     globalBandwidth.EntityData.SegmentPath = "global-bandwidth"
+    globalBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/" + globalBandwidth.EntityData.SegmentPath
     globalBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -459,6 +471,7 @@ func (defaultInterfacePercent *Rsvp_GlobalBandwidth_DefaultInterfacePercent) Get
     defaultInterfacePercent.EntityData.BundleName = "cisco_ios_xr"
     defaultInterfacePercent.EntityData.ParentYangName = "global-bandwidth"
     defaultInterfacePercent.EntityData.SegmentPath = "default-interface-percent"
+    defaultInterfacePercent.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/" + defaultInterfacePercent.EntityData.SegmentPath
     defaultInterfacePercent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultInterfacePercent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultInterfacePercent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -497,6 +510,7 @@ func (mam *Rsvp_GlobalBandwidth_DefaultInterfacePercent_Mam) GetEntityData() *ty
     mam.EntityData.BundleName = "cisco_ios_xr"
     mam.EntityData.ParentYangName = "default-interface-percent"
     mam.EntityData.SegmentPath = "mam"
+    mam.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/default-interface-percent/" + mam.EntityData.SegmentPath
     mam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -532,6 +546,7 @@ func (rdm *Rsvp_GlobalBandwidth_DefaultInterfacePercent_Rdm) GetEntityData() *ty
     rdm.EntityData.BundleName = "cisco_ios_xr"
     rdm.EntityData.ParentYangName = "default-interface-percent"
     rdm.EntityData.SegmentPath = "rdm"
+    rdm.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/default-interface-percent/" + rdm.EntityData.SegmentPath
     rdm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -562,6 +577,7 @@ func (interfaces *Rsvp_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "rsvp"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -583,6 +599,7 @@ func (interfaces *Rsvp_Interfaces) GetEntityData() *types.CommonEntityData {
 type Rsvp_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -607,6 +624,7 @@ func (self *Rsvp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -665,6 +683,7 @@ func (ifSignalling *Rsvp_Interfaces_Interface_IfSignalling) GetEntityData() *typ
     ifSignalling.EntityData.BundleName = "cisco_ios_xr"
     ifSignalling.EntityData.ParentYangName = "interface"
     ifSignalling.EntityData.SegmentPath = "if-signalling"
+    ifSignalling.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/interface/" + ifSignalling.EntityData.SegmentPath
     ifSignalling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ifSignalling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifSignalling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -729,6 +748,7 @@ func (refreshReduction *Rsvp_Interfaces_Interface_IfSignalling_RefreshReduction)
     refreshReduction.EntityData.BundleName = "cisco_ios_xr"
     refreshReduction.EntityData.ParentYangName = "if-signalling"
     refreshReduction.EntityData.SegmentPath = "refresh-reduction"
+    refreshReduction.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/interface/if-signalling/" + refreshReduction.EntityData.SegmentPath
     refreshReduction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     refreshReduction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     refreshReduction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -770,6 +790,7 @@ func (intervalRate *Rsvp_Interfaces_Interface_IfSignalling_IntervalRate) GetEnti
     intervalRate.EntityData.BundleName = "cisco_ios_xr"
     intervalRate.EntityData.ParentYangName = "if-signalling"
     intervalRate.EntityData.SegmentPath = "interval-rate"
+    intervalRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/interface/if-signalling/" + intervalRate.EntityData.SegmentPath
     intervalRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intervalRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intervalRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -806,6 +827,7 @@ func (outOfBand *Rsvp_Interfaces_Interface_IfSignalling_OutOfBand) GetEntityData
     outOfBand.EntityData.BundleName = "cisco_ios_xr"
     outOfBand.EntityData.ParentYangName = "if-signalling"
     outOfBand.EntityData.SegmentPath = "out-of-band"
+    outOfBand.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/interface/if-signalling/" + outOfBand.EntityData.SegmentPath
     outOfBand.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outOfBand.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outOfBand.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -839,6 +861,7 @@ func (bandwidth *Rsvp_Interfaces_Interface_Bandwidth) GetEntityData() *types.Com
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "interface"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/interface/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -886,6 +909,7 @@ func (mam *Rsvp_Interfaces_Interface_Bandwidth_Mam) GetEntityData() *types.Commo
     mam.EntityData.BundleName = "cisco_ios_xr"
     mam.EntityData.ParentYangName = "bandwidth"
     mam.EntityData.SegmentPath = "mam"
+    mam.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/interface/bandwidth/" + mam.EntityData.SegmentPath
     mam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -941,6 +965,7 @@ func (rdm *Rsvp_Interfaces_Interface_Bandwidth_Rdm) GetEntityData() *types.Commo
     rdm.EntityData.BundleName = "cisco_ios_xr"
     rdm.EntityData.ParentYangName = "bandwidth"
     rdm.EntityData.SegmentPath = "rdm"
+    rdm.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/interface/bandwidth/" + rdm.EntityData.SegmentPath
     rdm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -988,6 +1013,7 @@ func (authentication *Rsvp_Interfaces_Interface_Authentication) GetEntityData() 
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "interface"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/interface/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1041,6 +1067,7 @@ func (signalling *Rsvp_Signalling) GetEntityData() *types.CommonEntityData {
     signalling.EntityData.BundleName = "cisco_ios_xr"
     signalling.EntityData.ParentYangName = "rsvp"
     signalling.EntityData.SegmentPath = "signalling"
+    signalling.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/" + signalling.EntityData.SegmentPath
     signalling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signalling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signalling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1077,6 +1104,7 @@ func (globalOutOfBand *Rsvp_Signalling_GlobalOutOfBand) GetEntityData() *types.C
     globalOutOfBand.EntityData.BundleName = "cisco_ios_xr"
     globalOutOfBand.EntityData.ParentYangName = "signalling"
     globalOutOfBand.EntityData.SegmentPath = "global-out-of-band"
+    globalOutOfBand.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/" + globalOutOfBand.EntityData.SegmentPath
     globalOutOfBand.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalOutOfBand.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalOutOfBand.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1117,6 +1145,7 @@ func (gracefulRestart *Rsvp_Signalling_GracefulRestart) GetEntityData() *types.C
     gracefulRestart.EntityData.BundleName = "cisco_ios_xr"
     gracefulRestart.EntityData.ParentYangName = "signalling"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1150,6 +1179,7 @@ func (lspClassType *Rsvp_Signalling_GracefulRestart_LspClassType) GetEntityData(
     lspClassType.EntityData.BundleName = "cisco_ios_xr"
     lspClassType.EntityData.ParentYangName = "graceful-restart"
     lspClassType.EntityData.SegmentPath = "lsp-class-type"
+    lspClassType.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/graceful-restart/" + lspClassType.EntityData.SegmentPath
     lspClassType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspClassType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspClassType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1184,6 +1214,7 @@ func (prefixFiltering *Rsvp_Signalling_PrefixFiltering) GetEntityData() *types.C
     prefixFiltering.EntityData.BundleName = "cisco_ios_xr"
     prefixFiltering.EntityData.ParentYangName = "signalling"
     prefixFiltering.EntityData.SegmentPath = "prefix-filtering"
+    prefixFiltering.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/" + prefixFiltering.EntityData.SegmentPath
     prefixFiltering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1216,6 +1247,7 @@ func (defaultDenyAction *Rsvp_Signalling_PrefixFiltering_DefaultDenyAction) GetE
     defaultDenyAction.EntityData.BundleName = "cisco_ios_xr"
     defaultDenyAction.EntityData.ParentYangName = "prefix-filtering"
     defaultDenyAction.EntityData.SegmentPath = "default-deny-action"
+    defaultDenyAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/prefix-filtering/" + defaultDenyAction.EntityData.SegmentPath
     defaultDenyAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultDenyAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultDenyAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1245,6 +1277,7 @@ func (pesr *Rsvp_Signalling_Pesr) GetEntityData() *types.CommonEntityData {
     pesr.EntityData.BundleName = "cisco_ios_xr"
     pesr.EntityData.ParentYangName = "signalling"
     pesr.EntityData.SegmentPath = "pesr"
+    pesr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/" + pesr.EntityData.SegmentPath
     pesr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pesr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pesr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1274,6 +1307,7 @@ func (checksum *Rsvp_Signalling_Checksum) GetEntityData() *types.CommonEntityDat
     checksum.EntityData.BundleName = "cisco_ios_xr"
     checksum.EntityData.ParentYangName = "signalling"
     checksum.EntityData.SegmentPath = "checksum"
+    checksum.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/" + checksum.EntityData.SegmentPath
     checksum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     checksum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     checksum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1315,6 +1349,7 @@ func (authentication *Rsvp_Authentication) GetEntityData() *types.CommonEntityDa
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "rsvp"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

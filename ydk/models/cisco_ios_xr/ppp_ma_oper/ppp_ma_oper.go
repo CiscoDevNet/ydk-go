@@ -194,6 +194,7 @@ func (ppp *Ppp) GetEntityData() *types.CommonEntityData {
     ppp.EntityData.BundleName = "cisco_ios_xr"
     ppp.EntityData.ParentYangName = "Cisco-IOS-XR-ppp-ma-oper"
     ppp.EntityData.SegmentPath = "Cisco-IOS-XR-ppp-ma-oper:ppp"
+    ppp.EntityData.AbsolutePath = ppp.EntityData.SegmentPath
     ppp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ppp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ppp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -224,6 +225,7 @@ func (nodes *Ppp_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "ppp"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -245,6 +247,7 @@ func (nodes *Ppp_Nodes) GetEntityData() *types.CommonEntityData {
 type Ppp_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
     // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -278,6 +281,7 @@ func (node *Ppp_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -321,6 +325,7 @@ func (statistics *Ppp_Nodes_Node_Statistics) GetEntityData() *types.CommonEntity
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "node"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -330,6 +335,7 @@ func (statistics *Ppp_Nodes_Node_Statistics) GetEntityData() *types.CommonEntity
     statistics.EntityData.Children.Append("authentication-statistics", types.YChild{"AuthenticationStatistics", &statistics.AuthenticationStatistics})
     statistics.EntityData.Children.Append("ncp-statistics-array", types.YChild{"NcpStatisticsArray", nil})
     for i := range statistics.NcpStatisticsArray {
+        types.SetYListKey(statistics.NcpStatisticsArray[i], i)
         statistics.EntityData.Children.Append(types.GetSegmentPath(statistics.NcpStatisticsArray[i]), types.YChild{"NcpStatisticsArray", statistics.NcpStatisticsArray[i]})
     }
     statistics.EntityData.Leafs = types.NewOrderedMap()
@@ -448,6 +454,7 @@ func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetEntityData() *t
     lcpStatistics.EntityData.BundleName = "cisco_ios_xr"
     lcpStatistics.EntityData.ParentYangName = "statistics"
     lcpStatistics.EntityData.SegmentPath = "lcp-statistics"
+    lcpStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/statistics/" + lcpStatistics.EntityData.SegmentPath
     lcpStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcpStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -557,6 +564,7 @@ func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatisti
     authenticationStatistics.EntityData.BundleName = "cisco_ios_xr"
     authenticationStatistics.EntityData.ParentYangName = "statistics"
     authenticationStatistics.EntityData.SegmentPath = "authentication-statistics"
+    authenticationStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/statistics/" + authenticationStatistics.EntityData.SegmentPath
     authenticationStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -589,6 +597,7 @@ func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatisti
 type Ppp_Nodes_Node_Statistics_NcpStatisticsArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NCP identifier. The type is NcpIdent.
     NcpIdentifier interface{}
@@ -655,7 +664,8 @@ func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetEntit
     ncpStatisticsArray.EntityData.YangName = "ncp-statistics-array"
     ncpStatisticsArray.EntityData.BundleName = "cisco_ios_xr"
     ncpStatisticsArray.EntityData.ParentYangName = "statistics"
-    ncpStatisticsArray.EntityData.SegmentPath = "ncp-statistics-array"
+    ncpStatisticsArray.EntityData.SegmentPath = "ncp-statistics-array" + types.AddNoKeyToken(ncpStatisticsArray)
+    ncpStatisticsArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/statistics/" + ncpStatisticsArray.EntityData.SegmentPath
     ncpStatisticsArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncpStatisticsArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpStatisticsArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -700,6 +710,7 @@ func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetEntityData() *types.Comm
     nodeInterfaces.EntityData.BundleName = "cisco_ios_xr"
     nodeInterfaces.EntityData.ParentYangName = "node"
     nodeInterfaces.EntityData.SegmentPath = "node-interfaces"
+    nodeInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/" + nodeInterfaces.EntityData.SegmentPath
     nodeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -722,6 +733,7 @@ func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetEntityData() *types.Comm
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface running PPP. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -829,6 +841,7 @@ func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetEntityData(
     nodeInterface.EntityData.BundleName = "cisco_ios_xr"
     nodeInterface.EntityData.ParentYangName = "node-interfaces"
     nodeInterface.EntityData.SegmentPath = "node-interface" + types.AddKeyToken(nodeInterface.Interface, "interface")
+    nodeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/" + nodeInterface.EntityData.SegmentPath
     nodeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -839,6 +852,7 @@ func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetEntityData(
     nodeInterface.EntityData.Children.Append("auth-info", types.YChild{"AuthInfo", &nodeInterface.AuthInfo})
     nodeInterface.EntityData.Children.Append("ncp-info-array", types.YChild{"NcpInfoArray", nil})
     for i := range nodeInterface.NcpInfoArray {
+        types.SetYListKey(nodeInterface.NcpInfoArray[i], i)
         nodeInterface.EntityData.Children.Append(types.GetSegmentPath(nodeInterface.NcpInfoArray[i]), types.YChild{"NcpInfoArray", nodeInterface.NcpInfoArray[i]})
     }
     nodeInterface.EntityData.Leafs = types.NewOrderedMap()
@@ -918,6 +932,7 @@ func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetEntityData(
     mpInfo.EntityData.BundleName = "cisco_ios_xr"
     mpInfo.EntityData.ParentYangName = "node-interface"
     mpInfo.EntityData.SegmentPath = "mp-info"
+    mpInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/" + mpInfo.EntityData.SegmentPath
     mpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -925,6 +940,7 @@ func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetEntityData(
     mpInfo.EntityData.Children = types.NewOrderedMap()
     mpInfo.EntityData.Children.Append("mp-member-info-array", types.YChild{"MpMemberInfoArray", nil})
     for i := range mpInfo.MpMemberInfoArray {
+        types.SetYListKey(mpInfo.MpMemberInfoArray[i], i)
         mpInfo.EntityData.Children.Append(types.GetSegmentPath(mpInfo.MpMemberInfoArray[i]), types.YChild{"MpMemberInfoArray", mpInfo.MpMemberInfoArray[i]})
     }
     mpInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -947,6 +963,7 @@ func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetEntityData(
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Member Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
@@ -960,7 +977,8 @@ func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMe
     mpMemberInfoArray.EntityData.YangName = "mp-member-info-array"
     mpMemberInfoArray.EntityData.BundleName = "cisco_ios_xr"
     mpMemberInfoArray.EntityData.ParentYangName = "mp-info"
-    mpMemberInfoArray.EntityData.SegmentPath = "mp-member-info-array"
+    mpMemberInfoArray.EntityData.SegmentPath = "mp-member-info-array" + types.AddNoKeyToken(mpMemberInfoArray)
+    mpMemberInfoArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/mp-info/" + mpMemberInfoArray.EntityData.SegmentPath
     mpMemberInfoArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpMemberInfoArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpMemberInfoArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -995,6 +1013,7 @@ func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredT
     configuredTimeout.EntityData.BundleName = "cisco_ios_xr"
     configuredTimeout.EntityData.ParentYangName = "node-interface"
     configuredTimeout.EntityData.SegmentPath = "configured-timeout"
+    configuredTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/" + configuredTimeout.EntityData.SegmentPath
     configuredTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1046,6 +1065,7 @@ func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetEntityD
     authInfo.EntityData.BundleName = "cisco_ios_xr"
     authInfo.EntityData.ParentYangName = "node-interface"
     authInfo.EntityData.SegmentPath = "auth-info"
+    authInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/" + authInfo.EntityData.SegmentPath
     authInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1071,6 +1091,7 @@ func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetEntityD
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NCP state value. The type is PppFsmState.
     NcpState interface{}
@@ -1093,7 +1114,8 @@ func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) Ge
     ncpInfoArray.EntityData.YangName = "ncp-info-array"
     ncpInfoArray.EntityData.BundleName = "cisco_ios_xr"
     ncpInfoArray.EntityData.ParentYangName = "node-interface"
-    ncpInfoArray.EntityData.SegmentPath = "ncp-info-array"
+    ncpInfoArray.EntityData.SegmentPath = "ncp-info-array" + types.AddNoKeyToken(ncpInfoArray)
+    ncpInfoArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/" + ncpInfoArray.EntityData.SegmentPath
     ncpInfoArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncpInfoArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpInfoArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1136,6 +1158,7 @@ func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo)
     ncpInfo.EntityData.BundleName = "cisco_ios_xr"
     ncpInfo.EntityData.ParentYangName = "ncp-info-array"
     ncpInfo.EntityData.SegmentPath = "ncp-info"
+    ncpInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/ncp-info-array/" + ncpInfo.EntityData.SegmentPath
     ncpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1202,6 +1225,7 @@ func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo
     ipcpInfo.EntityData.BundleName = "cisco_ios_xr"
     ipcpInfo.EntityData.ParentYangName = "ncp-info"
     ipcpInfo.EntityData.SegmentPath = "ipcp-info"
+    ipcpInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/ncp-info-array/ncp-info/" + ipcpInfo.EntityData.SegmentPath
     ipcpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipcpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1261,6 +1285,7 @@ func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray
     localIphcOptions.EntityData.BundleName = "cisco_ios_xr"
     localIphcOptions.EntityData.ParentYangName = "ipcp-info"
     localIphcOptions.EntityData.SegmentPath = "local-iphc-options"
+    localIphcOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/ncp-info-array/ncp-info/ipcp-info/" + localIphcOptions.EntityData.SegmentPath
     localIphcOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localIphcOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localIphcOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1318,6 +1343,7 @@ func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_
     peerIphcOptions.EntityData.BundleName = "cisco_ios_xr"
     peerIphcOptions.EntityData.ParentYangName = "ipcp-info"
     peerIphcOptions.EntityData.SegmentPath = "peer-iphc-options"
+    peerIphcOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/ncp-info-array/ncp-info/ipcp-info/" + peerIphcOptions.EntityData.SegmentPath
     peerIphcOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerIphcOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerIphcOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1359,6 +1385,7 @@ func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpIn
     ipcpiwInfo.EntityData.BundleName = "cisco_ios_xr"
     ipcpiwInfo.EntityData.ParentYangName = "ncp-info"
     ipcpiwInfo.EntityData.SegmentPath = "ipcpiw-info"
+    ipcpiwInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/ncp-info-array/ncp-info/" + ipcpiwInfo.EntityData.SegmentPath
     ipcpiwInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipcpiwInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcpiwInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1394,6 +1421,7 @@ func (ipv6cpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpIn
     ipv6cpInfo.EntityData.BundleName = "cisco_ios_xr"
     ipv6cpInfo.EntityData.ParentYangName = "ncp-info"
     ipv6cpInfo.EntityData.SegmentPath = "ipv6cp-info"
+    ipv6cpInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interfaces/node-interface/ncp-info-array/ncp-info/" + ipv6cpInfo.EntityData.SegmentPath
     ipv6cpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6cpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6cpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1425,6 +1453,7 @@ func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetEntityData() *types.CommonEntityDa
     ssoAlerts.EntityData.BundleName = "cisco_ios_xr"
     ssoAlerts.EntityData.ParentYangName = "node"
     ssoAlerts.EntityData.SegmentPath = "sso-alerts"
+    ssoAlerts.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/" + ssoAlerts.EntityData.SegmentPath
     ssoAlerts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssoAlerts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoAlerts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1446,6 +1475,7 @@ func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetEntityData() *types.CommonEntityDa
 type Ppp_Nodes_Node_SsoAlerts_SsoAlert struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface with SSO Alert. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1470,6 +1500,7 @@ func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetEntityData() *types.Common
     ssoAlert.EntityData.BundleName = "cisco_ios_xr"
     ssoAlert.EntityData.ParentYangName = "sso-alerts"
     ssoAlert.EntityData.SegmentPath = "sso-alert" + types.AddKeyToken(ssoAlert.Interface, "interface")
+    ssoAlert.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-alerts/" + ssoAlert.EntityData.SegmentPath
     ssoAlert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssoAlert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoAlert.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1509,6 +1540,7 @@ func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetEntityData() *typ
     lcpError.EntityData.BundleName = "cisco_ios_xr"
     lcpError.EntityData.ParentYangName = "sso-alert"
     lcpError.EntityData.SegmentPath = "lcp-error"
+    lcpError.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-alerts/sso-alert/" + lcpError.EntityData.SegmentPath
     lcpError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcpError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1546,6 +1578,7 @@ func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetEntityD
     ofUsAuthError.EntityData.BundleName = "cisco_ios_xr"
     ofUsAuthError.EntityData.ParentYangName = "sso-alert"
     ofUsAuthError.EntityData.SegmentPath = "of-us-auth-error"
+    ofUsAuthError.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-alerts/sso-alert/" + ofUsAuthError.EntityData.SegmentPath
     ofUsAuthError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ofUsAuthError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofUsAuthError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1583,6 +1616,7 @@ func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetEnt
     ofPeerAuthError.EntityData.BundleName = "cisco_ios_xr"
     ofPeerAuthError.EntityData.ParentYangName = "sso-alert"
     ofPeerAuthError.EntityData.SegmentPath = "of-peer-auth-error"
+    ofPeerAuthError.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-alerts/sso-alert/" + ofPeerAuthError.EntityData.SegmentPath
     ofPeerAuthError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ofPeerAuthError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofPeerAuthError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1620,6 +1654,7 @@ func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetEntityData() *t
     ipcpError.EntityData.BundleName = "cisco_ios_xr"
     ipcpError.EntityData.ParentYangName = "sso-alert"
     ipcpError.EntityData.SegmentPath = "ipcp-error"
+    ipcpError.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-alerts/sso-alert/" + ipcpError.EntityData.SegmentPath
     ipcpError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipcpError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcpError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1652,6 +1687,7 @@ func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetEntity
     nodeInterfaceStatistics.EntityData.BundleName = "cisco_ios_xr"
     nodeInterfaceStatistics.EntityData.ParentYangName = "node"
     nodeInterfaceStatistics.EntityData.SegmentPath = "node-interface-statistics"
+    nodeInterfaceStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/" + nodeInterfaceStatistics.EntityData.SegmentPath
     nodeInterfaceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterfaceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1674,6 +1710,7 @@ func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetEntity
 type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface running PPP. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1696,6 +1733,7 @@ func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfa
     nodeInterfaceStatistic.EntityData.BundleName = "cisco_ios_xr"
     nodeInterfaceStatistic.EntityData.ParentYangName = "node-interface-statistics"
     nodeInterfaceStatistic.EntityData.SegmentPath = "node-interface-statistic" + types.AddKeyToken(nodeInterfaceStatistic.InterfaceName, "interface-name")
+    nodeInterfaceStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interface-statistics/" + nodeInterfaceStatistic.EntityData.SegmentPath
     nodeInterfaceStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterfaceStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaceStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1705,6 +1743,7 @@ func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfa
     nodeInterfaceStatistic.EntityData.Children.Append("authentication-statistics", types.YChild{"AuthenticationStatistics", &nodeInterfaceStatistic.AuthenticationStatistics})
     nodeInterfaceStatistic.EntityData.Children.Append("ncp-statistics-array", types.YChild{"NcpStatisticsArray", nil})
     for i := range nodeInterfaceStatistic.NcpStatisticsArray {
+        types.SetYListKey(nodeInterfaceStatistic.NcpStatisticsArray[i], i)
         nodeInterfaceStatistic.EntityData.Children.Append(types.GetSegmentPath(nodeInterfaceStatistic.NcpStatisticsArray[i]), types.YChild{"NcpStatisticsArray", nodeInterfaceStatistic.NcpStatisticsArray[i]})
     }
     nodeInterfaceStatistic.EntityData.Leafs = types.NewOrderedMap()
@@ -1776,6 +1815,7 @@ func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatist
     lcpStatistics.EntityData.BundleName = "cisco_ios_xr"
     lcpStatistics.EntityData.ParentYangName = "node-interface-statistic"
     lcpStatistics.EntityData.SegmentPath = "lcp-statistics"
+    lcpStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interface-statistics/node-interface-statistic/" + lcpStatistics.EntityData.SegmentPath
     lcpStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcpStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1868,6 +1908,7 @@ func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInter
     authenticationStatistics.EntityData.BundleName = "cisco_ios_xr"
     authenticationStatistics.EntityData.ParentYangName = "node-interface-statistic"
     authenticationStatistics.EntityData.SegmentPath = "authentication-statistics"
+    authenticationStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interface-statistics/node-interface-statistic/" + authenticationStatistics.EntityData.SegmentPath
     authenticationStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1900,6 +1941,7 @@ func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInter
 type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NCP identifier. The type is NcpIdent.
     NcpIdentifier interface{}
@@ -1934,7 +1976,8 @@ func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceSt
     ncpStatisticsArray.EntityData.YangName = "ncp-statistics-array"
     ncpStatisticsArray.EntityData.BundleName = "cisco_ios_xr"
     ncpStatisticsArray.EntityData.ParentYangName = "node-interface-statistic"
-    ncpStatisticsArray.EntityData.SegmentPath = "ncp-statistics-array"
+    ncpStatisticsArray.EntityData.SegmentPath = "ncp-statistics-array" + types.AddNoKeyToken(ncpStatisticsArray)
+    ncpStatisticsArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/node-interface-statistics/node-interface-statistic/" + ncpStatisticsArray.EntityData.SegmentPath
     ncpStatisticsArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncpStatisticsArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpStatisticsArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1981,6 +2024,7 @@ func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetEntityData() *types.CommonEntity
     ssoSummary.EntityData.BundleName = "cisco_ios_xr"
     ssoSummary.EntityData.ParentYangName = "node"
     ssoSummary.EntityData.SegmentPath = "sso-summary"
+    ssoSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/" + ssoSummary.EntityData.SegmentPath
     ssoSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssoSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2018,6 +2062,7 @@ func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetEntityData() *types.Com
     lcpStates.EntityData.BundleName = "cisco_ios_xr"
     lcpStates.EntityData.ParentYangName = "sso-summary"
     lcpStates.EntityData.SegmentPath = "lcp-states"
+    lcpStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-summary/" + lcpStates.EntityData.SegmentPath
     lcpStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcpStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2053,6 +2098,7 @@ func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetEntityData() 
     ofUsAuthStates.EntityData.BundleName = "cisco_ios_xr"
     ofUsAuthStates.EntityData.ParentYangName = "sso-summary"
     ofUsAuthStates.EntityData.SegmentPath = "of-us-auth-states"
+    ofUsAuthStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-summary/" + ofUsAuthStates.EntityData.SegmentPath
     ofUsAuthStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ofUsAuthStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofUsAuthStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2088,6 +2134,7 @@ func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetEntityDat
     ofPeerAuthStates.EntityData.BundleName = "cisco_ios_xr"
     ofPeerAuthStates.EntityData.ParentYangName = "sso-summary"
     ofPeerAuthStates.EntityData.SegmentPath = "of-peer-auth-states"
+    ofPeerAuthStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-summary/" + ofPeerAuthStates.EntityData.SegmentPath
     ofPeerAuthStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ofPeerAuthStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofPeerAuthStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2123,6 +2170,7 @@ func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetEntityData() *types.C
     ipcpStates.EntityData.BundleName = "cisco_ios_xr"
     ipcpStates.EntityData.ParentYangName = "sso-summary"
     ipcpStates.EntityData.SegmentPath = "ipcp-states"
+    ipcpStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-summary/" + ipcpStates.EntityData.SegmentPath
     ipcpStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipcpStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcpStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2154,6 +2202,7 @@ func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetEntityData() *types.CommonEntityDa
     ssoGroups.EntityData.BundleName = "cisco_ios_xr"
     ssoGroups.EntityData.ParentYangName = "node"
     ssoGroups.EntityData.SegmentPath = "sso-groups"
+    ssoGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/" + ssoGroups.EntityData.SegmentPath
     ssoGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssoGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2175,6 +2224,7 @@ func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetEntityData() *types.CommonEntityDa
 type Ppp_Nodes_Node_SsoGroups_SsoGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier for the group. The type is
     // interface{} with range: 1..65535.
@@ -2190,6 +2240,7 @@ func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetEntityData() *types.Common
     ssoGroup.EntityData.BundleName = "cisco_ios_xr"
     ssoGroup.EntityData.ParentYangName = "sso-groups"
     ssoGroup.EntityData.SegmentPath = "sso-group" + types.AddKeyToken(ssoGroup.GroupId, "group-id")
+    ssoGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-groups/" + ssoGroup.EntityData.SegmentPath
     ssoGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssoGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2221,6 +2272,7 @@ func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetEntityData() *t
     ssoStates.EntityData.BundleName = "cisco_ios_xr"
     ssoStates.EntityData.ParentYangName = "sso-group"
     ssoStates.EntityData.SegmentPath = "sso-states"
+    ssoStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-groups/sso-group/" + ssoStates.EntityData.SegmentPath
     ssoStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssoStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2243,6 +2295,7 @@ func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetEntityData() *t
 type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session ID for the interface with SSO State. The
     // type is interface{} with range: 1..4294967295.
@@ -2273,6 +2326,7 @@ func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetEntityD
     ssoState.EntityData.BundleName = "cisco_ios_xr"
     ssoState.EntityData.ParentYangName = "sso-states"
     ssoState.EntityData.SegmentPath = "sso-state" + types.AddKeyToken(ssoState.SessionId, "session-id")
+    ssoState.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-groups/sso-group/sso-states/" + ssoState.EntityData.SegmentPath
     ssoState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssoState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssoState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2311,6 +2365,7 @@ func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) G
     lcpState.EntityData.BundleName = "cisco_ios_xr"
     lcpState.EntityData.ParentYangName = "sso-state"
     lcpState.EntityData.SegmentPath = "lcp-state"
+    lcpState.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-groups/sso-group/sso-states/sso-state/" + lcpState.EntityData.SegmentPath
     lcpState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcpState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2344,6 +2399,7 @@ func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAu
     ofUsAuthState.EntityData.BundleName = "cisco_ios_xr"
     ofUsAuthState.EntityData.ParentYangName = "sso-state"
     ofUsAuthState.EntityData.SegmentPath = "of-us-auth-state"
+    ofUsAuthState.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-groups/sso-group/sso-states/sso-state/" + ofUsAuthState.EntityData.SegmentPath
     ofUsAuthState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ofUsAuthState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofUsAuthState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2377,6 +2433,7 @@ func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPe
     ofPeerAuthState.EntityData.BundleName = "cisco_ios_xr"
     ofPeerAuthState.EntityData.ParentYangName = "sso-state"
     ofPeerAuthState.EntityData.SegmentPath = "of-peer-auth-state"
+    ofPeerAuthState.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-groups/sso-group/sso-states/sso-state/" + ofPeerAuthState.EntityData.SegmentPath
     ofPeerAuthState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ofPeerAuthState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ofPeerAuthState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2410,6 +2467,7 @@ func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState)
     ipcpState.EntityData.BundleName = "cisco_ios_xr"
     ipcpState.EntityData.ParentYangName = "sso-state"
     ipcpState.EntityData.SegmentPath = "ipcp-state"
+    ipcpState.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/sso-groups/sso-group/sso-states/sso-state/" + ipcpState.EntityData.SegmentPath
     ipcpState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipcpState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcpState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2446,6 +2504,7 @@ func (summary *Ppp_Nodes_Node_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2495,6 +2554,7 @@ func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetEntityData() *types.CommonEntityDa
     intfs.EntityData.BundleName = "cisco_ios_xr"
     intfs.EntityData.ParentYangName = "summary"
     intfs.EntityData.SegmentPath = "intfs"
+    intfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/summary/" + intfs.EntityData.SegmentPath
     intfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2534,6 +2594,7 @@ func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetEntityData() *types.Common
     fsmStates.EntityData.BundleName = "cisco_ios_xr"
     fsmStates.EntityData.ParentYangName = "summary"
     fsmStates.EntityData.SegmentPath = "fsm-states"
+    fsmStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/summary/" + fsmStates.EntityData.SegmentPath
     fsmStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fsmStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fsmStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2542,6 +2603,7 @@ func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetEntityData() *types.Common
     fsmStates.EntityData.Children.Append("lcpfsm-states", types.YChild{"LcpfsmStates", &fsmStates.LcpfsmStates})
     fsmStates.EntityData.Children.Append("ncpfsm-states-array", types.YChild{"NcpfsmStatesArray", nil})
     for i := range fsmStates.NcpfsmStatesArray {
+        types.SetYListKey(fsmStates.NcpfsmStatesArray[i], i)
         fsmStates.EntityData.Children.Append(types.GetSegmentPath(fsmStates.NcpfsmStatesArray[i]), types.YChild{"NcpfsmStatesArray", fsmStates.NcpfsmStatesArray[i]})
     }
     fsmStates.EntityData.Leafs = types.NewOrderedMap()
@@ -2572,6 +2634,7 @@ func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetEntityData
     lcpfsmStates.EntityData.BundleName = "cisco_ios_xr"
     lcpfsmStates.EntityData.ParentYangName = "fsm-states"
     lcpfsmStates.EntityData.SegmentPath = "lcpfsm-states"
+    lcpfsmStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/summary/fsm-states/" + lcpfsmStates.EntityData.SegmentPath
     lcpfsmStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcpfsmStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpfsmStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2591,6 +2654,7 @@ func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetEntityData
 type Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NCP Identifier. The type is NcpIdent.
     NcpIdentifier interface{}
@@ -2609,7 +2673,8 @@ func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) Get
     ncpfsmStatesArray.EntityData.YangName = "ncpfsm-states-array"
     ncpfsmStatesArray.EntityData.BundleName = "cisco_ios_xr"
     ncpfsmStatesArray.EntityData.ParentYangName = "fsm-states"
-    ncpfsmStatesArray.EntityData.SegmentPath = "ncpfsm-states-array"
+    ncpfsmStatesArray.EntityData.SegmentPath = "ncpfsm-states-array" + types.AddNoKeyToken(ncpfsmStatesArray)
+    ncpfsmStatesArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/summary/fsm-states/" + ncpfsmStatesArray.EntityData.SegmentPath
     ncpfsmStatesArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncpfsmStatesArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpfsmStatesArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2662,6 +2727,7 @@ func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetEntityData() *type
     lcpAuthPhases.EntityData.BundleName = "cisco_ios_xr"
     lcpAuthPhases.EntityData.ParentYangName = "summary"
     lcpAuthPhases.EntityData.SegmentPath = "lcp-auth-phases"
+    lcpAuthPhases.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/node/summary/" + lcpAuthPhases.EntityData.SegmentPath
     lcpAuthPhases.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcpAuthPhases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcpAuthPhases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

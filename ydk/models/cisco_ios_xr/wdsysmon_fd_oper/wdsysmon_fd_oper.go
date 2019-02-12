@@ -41,6 +41,7 @@ func (systemMonitoring *SystemMonitoring) GetEntityData() *types.CommonEntityDat
     systemMonitoring.EntityData.BundleName = "cisco_ios_xr"
     systemMonitoring.EntityData.ParentYangName = "Cisco-IOS-XR-wdsysmon-fd-oper"
     systemMonitoring.EntityData.SegmentPath = "Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring"
+    systemMonitoring.EntityData.AbsolutePath = systemMonitoring.EntityData.SegmentPath
     systemMonitoring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMonitoring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMonitoring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -62,6 +63,7 @@ func (systemMonitoring *SystemMonitoring) GetEntityData() *types.CommonEntityDat
 type SystemMonitoring_CpuUtilization struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -90,6 +92,7 @@ func (cpuUtilization *SystemMonitoring_CpuUtilization) GetEntityData() *types.Co
     cpuUtilization.EntityData.BundleName = "cisco_ios_xr"
     cpuUtilization.EntityData.ParentYangName = "system-monitoring"
     cpuUtilization.EntityData.SegmentPath = "cpu-utilization" + types.AddKeyToken(cpuUtilization.NodeName, "node-name")
+    cpuUtilization.EntityData.AbsolutePath = "Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/" + cpuUtilization.EntityData.SegmentPath
     cpuUtilization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cpuUtilization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cpuUtilization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -97,6 +100,7 @@ func (cpuUtilization *SystemMonitoring_CpuUtilization) GetEntityData() *types.Co
     cpuUtilization.EntityData.Children = types.NewOrderedMap()
     cpuUtilization.EntityData.Children.Append("process-cpu", types.YChild{"ProcessCpu", nil})
     for i := range cpuUtilization.ProcessCpu {
+        types.SetYListKey(cpuUtilization.ProcessCpu[i], i)
         cpuUtilization.EntityData.Children.Append(types.GetSegmentPath(cpuUtilization.ProcessCpu[i]), types.YChild{"ProcessCpu", cpuUtilization.ProcessCpu[i]})
     }
     cpuUtilization.EntityData.Leafs = types.NewOrderedMap()
@@ -115,6 +119,7 @@ func (cpuUtilization *SystemMonitoring_CpuUtilization) GetEntityData() *types.Co
 type SystemMonitoring_CpuUtilization_ProcessCpu struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Process name. The type is string.
     ProcessName interface{}
@@ -140,7 +145,8 @@ func (processCpu *SystemMonitoring_CpuUtilization_ProcessCpu) GetEntityData() *t
     processCpu.EntityData.YangName = "process-cpu"
     processCpu.EntityData.BundleName = "cisco_ios_xr"
     processCpu.EntityData.ParentYangName = "cpu-utilization"
-    processCpu.EntityData.SegmentPath = "process-cpu"
+    processCpu.EntityData.SegmentPath = "process-cpu" + types.AddNoKeyToken(processCpu)
+    processCpu.EntityData.AbsolutePath = "Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization/" + processCpu.EntityData.SegmentPath
     processCpu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processCpu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processCpu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

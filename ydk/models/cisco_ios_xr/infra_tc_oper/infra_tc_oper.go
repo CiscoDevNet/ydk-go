@@ -61,6 +61,7 @@ func (trafficCollector *TrafficCollector) GetEntityData() *types.CommonEntityDat
     trafficCollector.EntityData.BundleName = "cisco_ios_xr"
     trafficCollector.EntityData.ParentYangName = "Cisco-IOS-XR-infra-tc-oper"
     trafficCollector.EntityData.SegmentPath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector"
+    trafficCollector.EntityData.AbsolutePath = trafficCollector.EntityData.SegmentPath
     trafficCollector.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficCollector.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficCollector.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -94,6 +95,7 @@ func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetEntityData() *
     externalInterfaces.EntityData.BundleName = "cisco_ios_xr"
     externalInterfaces.EntityData.ParentYangName = "traffic-collector"
     externalInterfaces.EntityData.SegmentPath = "external-interfaces"
+    externalInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/" + externalInterfaces.EntityData.SegmentPath
     externalInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -115,6 +117,7 @@ func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetEntityData() *
 type TrafficCollector_ExternalInterfaces_ExternalInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Interface Name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -139,6 +142,7 @@ func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) 
     externalInterface.EntityData.BundleName = "cisco_ios_xr"
     externalInterface.EntityData.ParentYangName = "external-interfaces"
     externalInterface.EntityData.SegmentPath = "external-interface" + types.AddKeyToken(externalInterface.InterfaceName, "interface-name")
+    externalInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/external-interfaces/" + externalInterface.EntityData.SegmentPath
     externalInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +205,7 @@ func (summary *TrafficCollector_Summary) GetEntityData() *types.CommonEntityData
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "traffic-collector"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -209,14 +214,17 @@ func (summary *TrafficCollector_Summary) GetEntityData() *types.CommonEntityData
     summary.EntityData.Children.Append("database-statistics-external-interface", types.YChild{"DatabaseStatisticsExternalInterface", &summary.DatabaseStatisticsExternalInterface})
     summary.EntityData.Children.Append("vrf-statistic", types.YChild{"VrfStatistic", nil})
     for i := range summary.VrfStatistic {
+        types.SetYListKey(summary.VrfStatistic[i], i)
         summary.EntityData.Children.Append(types.GetSegmentPath(summary.VrfStatistic[i]), types.YChild{"VrfStatistic", summary.VrfStatistic[i]})
     }
     summary.EntityData.Children.Append("collection-message-statistic", types.YChild{"CollectionMessageStatistic", nil})
     for i := range summary.CollectionMessageStatistic {
+        types.SetYListKey(summary.CollectionMessageStatistic[i], i)
         summary.EntityData.Children.Append(types.GetSegmentPath(summary.CollectionMessageStatistic[i]), types.YChild{"CollectionMessageStatistic", summary.CollectionMessageStatistic[i]})
     }
     summary.EntityData.Children.Append("checkpoint-message-statistic", types.YChild{"CheckpointMessageStatistic", nil})
     for i := range summary.CheckpointMessageStatistic {
+        types.SetYListKey(summary.CheckpointMessageStatistic[i], i)
         summary.EntityData.Children.Append(types.GetSegmentPath(summary.CheckpointMessageStatistic[i]), types.YChild{"CheckpointMessageStatistic", summary.CheckpointMessageStatistic[i]})
     }
     summary.EntityData.Leafs = types.NewOrderedMap()
@@ -259,6 +267,7 @@ func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStat
     databaseStatisticsExternalInterface.EntityData.BundleName = "cisco_ios_xr"
     databaseStatisticsExternalInterface.EntityData.ParentYangName = "summary"
     databaseStatisticsExternalInterface.EntityData.SegmentPath = "database-statistics-external-interface"
+    databaseStatisticsExternalInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/" + databaseStatisticsExternalInterface.EntityData.SegmentPath
     databaseStatisticsExternalInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseStatisticsExternalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseStatisticsExternalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -280,6 +289,7 @@ func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStat
 type TrafficCollector_Summary_VrfStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VRF name. The type is string.
     VrfName interface{}
@@ -296,7 +306,8 @@ func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetEntityData() *type
     vrfStatistic.EntityData.YangName = "vrf-statistic"
     vrfStatistic.EntityData.BundleName = "cisco_ios_xr"
     vrfStatistic.EntityData.ParentYangName = "summary"
-    vrfStatistic.EntityData.SegmentPath = "vrf-statistic"
+    vrfStatistic.EntityData.SegmentPath = "vrf-statistic" + types.AddNoKeyToken(vrfStatistic)
+    vrfStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/" + vrfStatistic.EntityData.SegmentPath
     vrfStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -340,6 +351,7 @@ func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStat
     databaseStatisticsIpv4.EntityData.BundleName = "cisco_ios_xr"
     databaseStatisticsIpv4.EntityData.ParentYangName = "vrf-statistic"
     databaseStatisticsIpv4.EntityData.SegmentPath = "database-statistics-ipv4"
+    databaseStatisticsIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/vrf-statistic/" + databaseStatisticsIpv4.EntityData.SegmentPath
     databaseStatisticsIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseStatisticsIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseStatisticsIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -384,6 +396,7 @@ func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseSt
     databaseStatisticsTunnel.EntityData.BundleName = "cisco_ios_xr"
     databaseStatisticsTunnel.EntityData.ParentYangName = "vrf-statistic"
     databaseStatisticsTunnel.EntityData.SegmentPath = "database-statistics-tunnel"
+    databaseStatisticsTunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/vrf-statistic/" + databaseStatisticsTunnel.EntityData.SegmentPath
     databaseStatisticsTunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseStatisticsTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseStatisticsTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -405,6 +418,7 @@ func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseSt
 type TrafficCollector_Summary_CollectionMessageStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Number of packets sent. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -436,7 +450,8 @@ func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStat
     collectionMessageStatistic.EntityData.YangName = "collection-message-statistic"
     collectionMessageStatistic.EntityData.BundleName = "cisco_ios_xr"
     collectionMessageStatistic.EntityData.ParentYangName = "summary"
-    collectionMessageStatistic.EntityData.SegmentPath = "collection-message-statistic"
+    collectionMessageStatistic.EntityData.SegmentPath = "collection-message-statistic" + types.AddNoKeyToken(collectionMessageStatistic)
+    collectionMessageStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/" + collectionMessageStatistic.EntityData.SegmentPath
     collectionMessageStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collectionMessageStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectionMessageStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -460,6 +475,7 @@ func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStat
 type TrafficCollector_Summary_CheckpointMessageStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Number of packets sent. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -491,7 +507,8 @@ func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStat
     checkpointMessageStatistic.EntityData.YangName = "checkpoint-message-statistic"
     checkpointMessageStatistic.EntityData.BundleName = "cisco_ios_xr"
     checkpointMessageStatistic.EntityData.ParentYangName = "summary"
-    checkpointMessageStatistic.EntityData.SegmentPath = "checkpoint-message-statistic"
+    checkpointMessageStatistic.EntityData.SegmentPath = "checkpoint-message-statistic" + types.AddNoKeyToken(checkpointMessageStatistic)
+    checkpointMessageStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/" + checkpointMessageStatistic.EntityData.SegmentPath
     checkpointMessageStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     checkpointMessageStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     checkpointMessageStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -526,6 +543,7 @@ func (vrfTable *TrafficCollector_VrfTable) GetEntityData() *types.CommonEntityDa
     vrfTable.EntityData.BundleName = "cisco_ios_xr"
     vrfTable.EntityData.ParentYangName = "traffic-collector"
     vrfTable.EntityData.SegmentPath = "vrf-table"
+    vrfTable.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/" + vrfTable.EntityData.SegmentPath
     vrfTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -555,6 +573,7 @@ func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetEntityData() *types.C
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "vrf-table"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -585,6 +604,7 @@ func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetEntityData() *types.Comm
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "default-vrf"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -606,6 +626,7 @@ func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetEntityData() *types.Comm
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address Family name. The type is TcOperAfName.
     AfName interface{}
@@ -620,6 +641,7 @@ func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetEntityData() *types.Co
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -653,6 +675,7 @@ func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetEntityD
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "af"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -684,6 +707,7 @@ func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) G
     prefixes.EntityData.BundleName = "cisco_ios_xr"
     prefixes.EntityData.ParentYangName = "counters"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/counters/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -691,6 +715,7 @@ func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) G
     prefixes.EntityData.Children = types.NewOrderedMap()
     prefixes.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range prefixes.Prefix {
+        types.SetYListKey(prefixes.Prefix[i], i)
         prefixes.EntityData.Children.Append(types.GetSegmentPath(prefixes.Prefix[i]), types.YChild{"Prefix", prefixes.Prefix[i]})
     }
     prefixes.EntityData.Leafs = types.NewOrderedMap()
@@ -705,6 +730,7 @@ func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) G
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP Address. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Ipaddr interface{}
@@ -739,7 +765,8 @@ func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Pref
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefixes"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/counters/prefixes/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -786,6 +813,7 @@ func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counter
     baseCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
     baseCounterStatistics.EntityData.ParentYangName = "prefix"
     baseCounterStatistics.EntityData.SegmentPath = "base-counter-statistics"
+    baseCounterStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/counters/prefixes/prefix/" + baseCounterStatistics.EntityData.SegmentPath
     baseCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -793,6 +821,7 @@ func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counter
     baseCounterStatistics.EntityData.Children = types.NewOrderedMap()
     baseCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range baseCounterStatistics.CountHistory {
+        types.SetYListKey(baseCounterStatistics.CountHistory[i], i)
         baseCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(baseCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", baseCounterStatistics.CountHistory[i]})
     }
     baseCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -809,6 +838,7 @@ func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counter
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Event Start timestamp. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -835,7 +865,8 @@ func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixe
     countHistory.EntityData.YangName = "count-history"
     countHistory.EntityData.BundleName = "cisco_ios_xr"
     countHistory.EntityData.ParentYangName = "base-counter-statistics"
-    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.SegmentPath = "count-history" + types.AddNoKeyToken(countHistory)
+    countHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/counters/prefixes/prefix/base-counter-statistics/" + countHistory.EntityData.SegmentPath
     countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -878,6 +909,7 @@ func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_A
     trafficMatrixCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
     trafficMatrixCounterStatistics.EntityData.ParentYangName = "prefix"
     trafficMatrixCounterStatistics.EntityData.SegmentPath = "traffic-matrix-counter-statistics"
+    trafficMatrixCounterStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/counters/prefixes/prefix/" + trafficMatrixCounterStatistics.EntityData.SegmentPath
     trafficMatrixCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficMatrixCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficMatrixCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -885,6 +917,7 @@ func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_A
     trafficMatrixCounterStatistics.EntityData.Children = types.NewOrderedMap()
     trafficMatrixCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range trafficMatrixCounterStatistics.CountHistory {
+        types.SetYListKey(trafficMatrixCounterStatistics.CountHistory[i], i)
         trafficMatrixCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(trafficMatrixCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", trafficMatrixCounterStatistics.CountHistory[i]})
     }
     trafficMatrixCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -901,6 +934,7 @@ func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_A
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Event Start timestamp. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -927,7 +961,8 @@ func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixe
     countHistory.EntityData.YangName = "count-history"
     countHistory.EntityData.BundleName = "cisco_ios_xr"
     countHistory.EntityData.ParentYangName = "traffic-matrix-counter-statistics"
-    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.SegmentPath = "count-history" + types.AddNoKeyToken(countHistory)
+    countHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/counters/prefixes/prefix/traffic-matrix-counter-statistics/" + countHistory.EntityData.SegmentPath
     countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -962,6 +997,7 @@ func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) Get
     tunnels.EntityData.BundleName = "cisco_ios_xr"
     tunnels.EntityData.ParentYangName = "counters"
     tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/counters/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -983,6 +1019,7 @@ func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) Get
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Interface Name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1010,6 +1047,7 @@ func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunne
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.InterfaceName, "interface-name")
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/counters/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1053,6 +1091,7 @@ func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counter
     baseCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
     baseCounterStatistics.EntityData.ParentYangName = "tunnel"
     baseCounterStatistics.EntityData.SegmentPath = "base-counter-statistics"
+    baseCounterStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/counters/tunnels/tunnel/" + baseCounterStatistics.EntityData.SegmentPath
     baseCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1060,6 +1099,7 @@ func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counter
     baseCounterStatistics.EntityData.Children = types.NewOrderedMap()
     baseCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range baseCounterStatistics.CountHistory {
+        types.SetYListKey(baseCounterStatistics.CountHistory[i], i)
         baseCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(baseCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", baseCounterStatistics.CountHistory[i]})
     }
     baseCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -1076,6 +1116,7 @@ func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counter
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Event Start timestamp. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -1102,7 +1143,8 @@ func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels
     countHistory.EntityData.YangName = "count-history"
     countHistory.EntityData.BundleName = "cisco_ios_xr"
     countHistory.EntityData.ParentYangName = "base-counter-statistics"
-    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.SegmentPath = "count-history" + types.AddNoKeyToken(countHistory)
+    countHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/af/counters/tunnels/tunnel/base-counter-statistics/" + countHistory.EntityData.SegmentPath
     countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1137,6 +1179,7 @@ func (afs *TrafficCollector_Afs) GetEntityData() *types.CommonEntityData {
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "traffic-collector"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1158,6 +1201,7 @@ func (afs *TrafficCollector_Afs) GetEntityData() *types.CommonEntityData {
 type TrafficCollector_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address Family name. The type is TcOperAfName.
     AfName interface{}
@@ -1172,6 +1216,7 @@ func (af *TrafficCollector_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1205,6 +1250,7 @@ func (counters *TrafficCollector_Afs_Af_Counters) GetEntityData() *types.CommonE
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "af"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1236,6 +1282,7 @@ func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetEntityData() *type
     prefixes.EntityData.BundleName = "cisco_ios_xr"
     prefixes.EntityData.ParentYangName = "counters"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/counters/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1243,6 +1290,7 @@ func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetEntityData() *type
     prefixes.EntityData.Children = types.NewOrderedMap()
     prefixes.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range prefixes.Prefix {
+        types.SetYListKey(prefixes.Prefix[i], i)
         prefixes.EntityData.Children.Append(types.GetSegmentPath(prefixes.Prefix[i]), types.YChild{"Prefix", prefixes.Prefix[i]})
     }
     prefixes.EntityData.Leafs = types.NewOrderedMap()
@@ -1257,6 +1305,7 @@ func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetEntityData() *type
 type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP Address. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Ipaddr interface{}
@@ -1291,7 +1340,8 @@ func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetEntityData() 
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefixes"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/counters/prefixes/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1338,6 +1388,7 @@ func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_Ba
     baseCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
     baseCounterStatistics.EntityData.ParentYangName = "prefix"
     baseCounterStatistics.EntityData.SegmentPath = "base-counter-statistics"
+    baseCounterStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/counters/prefixes/prefix/" + baseCounterStatistics.EntityData.SegmentPath
     baseCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1345,6 +1396,7 @@ func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_Ba
     baseCounterStatistics.EntityData.Children = types.NewOrderedMap()
     baseCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range baseCounterStatistics.CountHistory {
+        types.SetYListKey(baseCounterStatistics.CountHistory[i], i)
         baseCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(baseCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", baseCounterStatistics.CountHistory[i]})
     }
     baseCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -1361,6 +1413,7 @@ func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_Ba
 type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Event Start timestamp. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -1387,7 +1440,8 @@ func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounter
     countHistory.EntityData.YangName = "count-history"
     countHistory.EntityData.BundleName = "cisco_ios_xr"
     countHistory.EntityData.ParentYangName = "base-counter-statistics"
-    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.SegmentPath = "count-history" + types.AddNoKeyToken(countHistory)
+    countHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/counters/prefixes/prefix/base-counter-statistics/" + countHistory.EntityData.SegmentPath
     countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1430,6 +1484,7 @@ func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_
     trafficMatrixCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
     trafficMatrixCounterStatistics.EntityData.ParentYangName = "prefix"
     trafficMatrixCounterStatistics.EntityData.SegmentPath = "traffic-matrix-counter-statistics"
+    trafficMatrixCounterStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/counters/prefixes/prefix/" + trafficMatrixCounterStatistics.EntityData.SegmentPath
     trafficMatrixCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficMatrixCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficMatrixCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1437,6 +1492,7 @@ func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_
     trafficMatrixCounterStatistics.EntityData.Children = types.NewOrderedMap()
     trafficMatrixCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range trafficMatrixCounterStatistics.CountHistory {
+        types.SetYListKey(trafficMatrixCounterStatistics.CountHistory[i], i)
         trafficMatrixCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(trafficMatrixCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", trafficMatrixCounterStatistics.CountHistory[i]})
     }
     trafficMatrixCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -1453,6 +1509,7 @@ func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_
 type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Event Start timestamp. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -1479,7 +1536,8 @@ func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatr
     countHistory.EntityData.YangName = "count-history"
     countHistory.EntityData.BundleName = "cisco_ios_xr"
     countHistory.EntityData.ParentYangName = "traffic-matrix-counter-statistics"
-    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.SegmentPath = "count-history" + types.AddNoKeyToken(countHistory)
+    countHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/counters/prefixes/prefix/traffic-matrix-counter-statistics/" + countHistory.EntityData.SegmentPath
     countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1514,6 +1572,7 @@ func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetEntityData() *types.
     tunnels.EntityData.BundleName = "cisco_ios_xr"
     tunnels.EntityData.ParentYangName = "counters"
     tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/counters/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1535,6 +1594,7 @@ func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetEntityData() *types.
 type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Interface Name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1562,6 +1622,7 @@ func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetEntityData() *
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.InterfaceName, "interface-name")
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/counters/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1605,6 +1666,7 @@ func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_Bas
     baseCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
     baseCounterStatistics.EntityData.ParentYangName = "tunnel"
     baseCounterStatistics.EntityData.SegmentPath = "base-counter-statistics"
+    baseCounterStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/counters/tunnels/tunnel/" + baseCounterStatistics.EntityData.SegmentPath
     baseCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1612,6 +1674,7 @@ func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_Bas
     baseCounterStatistics.EntityData.Children = types.NewOrderedMap()
     baseCounterStatistics.EntityData.Children.Append("count-history", types.YChild{"CountHistory", nil})
     for i := range baseCounterStatistics.CountHistory {
+        types.SetYListKey(baseCounterStatistics.CountHistory[i], i)
         baseCounterStatistics.EntityData.Children.Append(types.GetSegmentPath(baseCounterStatistics.CountHistory[i]), types.YChild{"CountHistory", baseCounterStatistics.CountHistory[i]})
     }
     baseCounterStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -1628,6 +1691,7 @@ func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_Bas
 type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Event Start timestamp. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -1654,7 +1718,8 @@ func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterS
     countHistory.EntityData.YangName = "count-history"
     countHistory.EntityData.BundleName = "cisco_ios_xr"
     countHistory.EntityData.ParentYangName = "base-counter-statistics"
-    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.SegmentPath = "count-history" + types.AddNoKeyToken(countHistory)
+    countHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/af/counters/tunnels/tunnel/base-counter-statistics/" + countHistory.EntityData.SegmentPath
     countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

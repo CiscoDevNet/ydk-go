@@ -62,6 +62,7 @@ func (ipArm *IpArm) GetEntityData() *types.CommonEntityData {
     ipArm.EntityData.BundleName = "cisco_ios_xr"
     ipArm.EntityData.ParentYangName = "Cisco-IOS-XR-ip-iarm-cfg"
     ipArm.EntityData.SegmentPath = "Cisco-IOS-XR-ip-iarm-cfg:ip-arm"
+    ipArm.EntityData.AbsolutePath = ipArm.EntityData.SegmentPath
     ipArm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipArm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipArm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -95,6 +96,7 @@ func (ipv4 *IpArm_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "ip-arm"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -125,6 +127,7 @@ func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetEntityData() *type
     conflictPolicyTable.EntityData.BundleName = "cisco_ios_xr"
     conflictPolicyTable.EntityData.ParentYangName = "ipv4"
     conflictPolicyTable.EntityData.SegmentPath = "conflict-policy-table"
+    conflictPolicyTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv4/" + conflictPolicyTable.EntityData.SegmentPath
     conflictPolicyTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conflictPolicyTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conflictPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -155,6 +158,7 @@ func (multicastHost *IpArm_Ipv4_MulticastHost) GetEntityData() *types.CommonEnti
     multicastHost.EntityData.BundleName = "cisco_ios_xr"
     multicastHost.EntityData.ParentYangName = "ipv4"
     multicastHost.EntityData.SegmentPath = "multicast-host"
+    multicastHost.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv4/" + multicastHost.EntityData.SegmentPath
     multicastHost.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastHost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastHost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -187,6 +191,7 @@ func (ipv6 *IpArm_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "ip-arm"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -217,6 +222,7 @@ func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetEntityData() *type
     conflictPolicyTable.EntityData.BundleName = "cisco_ios_xr"
     conflictPolicyTable.EntityData.ParentYangName = "ipv6"
     conflictPolicyTable.EntityData.SegmentPath = "conflict-policy-table"
+    conflictPolicyTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv6/" + conflictPolicyTable.EntityData.SegmentPath
     conflictPolicyTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conflictPolicyTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conflictPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -247,6 +253,7 @@ func (multicastHost *IpArm_Ipv6_MulticastHost) GetEntityData() *types.CommonEnti
     multicastHost.EntityData.BundleName = "cisco_ios_xr"
     multicastHost.EntityData.ParentYangName = "ipv6"
     multicastHost.EntityData.SegmentPath = "multicast-host"
+    multicastHost.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv6/" + multicastHost.EntityData.SegmentPath
     multicastHost.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastHost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastHost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

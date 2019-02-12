@@ -130,6 +130,7 @@ func (stpDetails *StpDetails) GetEntityData() *types.CommonEntityData {
     stpDetails.EntityData.BundleName = "cisco_ios_xe"
     stpDetails.EntityData.ParentYangName = "Cisco-IOS-XE-spanning-tree-oper"
     stpDetails.EntityData.SegmentPath = "Cisco-IOS-XE-spanning-tree-oper:stp-details"
+    stpDetails.EntityData.AbsolutePath = stpDetails.EntityData.SegmentPath
     stpDetails.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpDetails.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpDetails.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -152,6 +153,7 @@ func (stpDetails *StpDetails) GetEntityData() *types.CommonEntityData {
 type StpDetails_StpDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Spanning-tree enabled mode and id. The type is
     // string.
@@ -226,6 +228,7 @@ func (stpDetail *StpDetails_StpDetail) GetEntityData() *types.CommonEntityData {
     stpDetail.EntityData.BundleName = "cisco_ios_xe"
     stpDetail.EntityData.ParentYangName = "stp-details"
     stpDetail.EntityData.SegmentPath = "stp-detail" + types.AddKeyToken(stpDetail.Instance, "instance")
+    stpDetail.EntityData.AbsolutePath = "Cisco-IOS-XE-spanning-tree-oper:stp-details/" + stpDetail.EntityData.SegmentPath
     stpDetail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpDetail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpDetail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -270,6 +273,7 @@ func (interfaces *StpDetails_StpDetail_Interfaces) GetEntityData() *types.Common
     interfaces.EntityData.BundleName = "cisco_ios_xe"
     interfaces.EntityData.ParentYangName = "stp-detail"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XE-spanning-tree-oper:stp-details/stp-detail/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -291,6 +295,7 @@ func (interfaces *StpDetails_StpDetail_Interfaces) GetEntityData() *types.Common
 type StpDetails_StpDetail_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the STP ethernet interface. The type
     // is string.
@@ -380,6 +385,7 @@ func (self *StpDetails_StpDetail_Interfaces_Interface) GetEntityData() *types.Co
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XE-spanning-tree-oper:stp-details/stp-detail/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -449,6 +455,7 @@ func (stpGlobal *StpDetails_StpGlobal) GetEntityData() *types.CommonEntityData {
     stpGlobal.EntityData.BundleName = "cisco_ios_xe"
     stpGlobal.EntityData.ParentYangName = "stp-details"
     stpGlobal.EntityData.SegmentPath = "stp-global"
+    stpGlobal.EntityData.AbsolutePath = "Cisco-IOS-XE-spanning-tree-oper:stp-details/" + stpGlobal.EntityData.SegmentPath
     stpGlobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpGlobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -492,6 +499,7 @@ func (mstOnly *StpDetails_StpGlobal_MstOnly) GetEntityData() *types.CommonEntity
     mstOnly.EntityData.BundleName = "cisco_ios_xe"
     mstOnly.EntityData.ParentYangName = "stp-global"
     mstOnly.EntityData.SegmentPath = "mst-only"
+    mstOnly.EntityData.AbsolutePath = "Cisco-IOS-XE-spanning-tree-oper:stp-details/stp-global/" + mstOnly.EntityData.SegmentPath
     mstOnly.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mstOnly.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mstOnly.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

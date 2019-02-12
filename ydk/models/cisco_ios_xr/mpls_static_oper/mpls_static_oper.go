@@ -186,6 +186,7 @@ func (mplsStatic *MplsStatic) GetEntityData() *types.CommonEntityData {
     mplsStatic.EntityData.BundleName = "cisco_ios_xr"
     mplsStatic.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-static-oper"
     mplsStatic.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-static-oper:mpls-static"
+    mplsStatic.EntityData.AbsolutePath = mplsStatic.EntityData.SegmentPath
     mplsStatic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsStatic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsStatic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -217,6 +218,7 @@ func (vrfs *MplsStatic_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "mpls-static"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -238,6 +240,7 @@ func (vrfs *MplsStatic_Vrfs) GetEntityData() *types.CommonEntityData {
 type MplsStatic_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -256,6 +259,7 @@ func (vrf *MplsStatic_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -287,6 +291,7 @@ func (lsps *MplsStatic_Vrfs_Vrf_Lsps) GetEntityData() *types.CommonEntityData {
     lsps.EntityData.BundleName = "cisco_ios_xr"
     lsps.EntityData.ParentYangName = "vrf"
     lsps.EntityData.SegmentPath = "lsps"
+    lsps.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/" + lsps.EntityData.SegmentPath
     lsps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -308,6 +313,7 @@ func (lsps *MplsStatic_Vrfs_Vrf_Lsps) GetEntityData() *types.CommonEntityData {
 type MplsStatic_Vrfs_Vrf_Lsps_Lsp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSP Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -326,6 +332,7 @@ func (lsp *MplsStatic_Vrfs_Vrf_Lsps_Lsp) GetEntityData() *types.CommonEntityData
     lsp.EntityData.BundleName = "cisco_ios_xr"
     lsp.EntityData.ParentYangName = "lsps"
     lsp.EntityData.SegmentPath = "lsp" + types.AddKeyToken(lsp.LspName, "lsp-name")
+    lsp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/" + lsp.EntityData.SegmentPath
     lsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -392,6 +399,7 @@ func (label *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label) GetEntityData() *types.CommonEn
     label.EntityData.BundleName = "cisco_ios_xr"
     label.EntityData.ParentYangName = "lsp"
     label.EntityData.SegmentPath = "label"
+    label.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/" + label.EntityData.SegmentPath
     label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -402,10 +410,12 @@ func (label *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label) GetEntityData() *types.CommonEn
     label.EntityData.Children.Append("backup-pathset-resolve-nh", types.YChild{"BackupPathsetResolveNh", &label.BackupPathsetResolveNh})
     label.EntityData.Children.Append("path-info", types.YChild{"PathInfo", nil})
     for i := range label.PathInfo {
+        types.SetYListKey(label.PathInfo[i], i)
         label.EntityData.Children.Append(types.GetSegmentPath(label.PathInfo[i]), types.YChild{"PathInfo", label.PathInfo[i]})
     }
     label.EntityData.Children.Append("backup-path-info", types.YChild{"BackupPathInfo", nil})
     for i := range label.BackupPathInfo {
+        types.SetYListKey(label.BackupPathInfo[i], i)
         label.EntityData.Children.Append(types.GetSegmentPath(label.BackupPathInfo[i]), types.YChild{"BackupPathInfo", label.BackupPathInfo[i]})
     }
     label.EntityData.Leafs = types.NewOrderedMap()
@@ -441,6 +451,7 @@ func (prefix *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix) GetEntityData() *types.
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "label"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/label/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -479,6 +490,7 @@ func (prefix *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_Prefix_Prefix) GetEntityData() 
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/label/prefix/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -518,6 +530,7 @@ func (pathsetResolveNh *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathsetResolveNh) Get
     pathsetResolveNh.EntityData.BundleName = "cisco_ios_xr"
     pathsetResolveNh.EntityData.ParentYangName = "label"
     pathsetResolveNh.EntityData.SegmentPath = "pathset-resolve-nh"
+    pathsetResolveNh.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/label/" + pathsetResolveNh.EntityData.SegmentPath
     pathsetResolveNh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -557,6 +570,7 @@ func (backupPathsetResolveNh *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathsetRe
     backupPathsetResolveNh.EntityData.BundleName = "cisco_ios_xr"
     backupPathsetResolveNh.EntityData.ParentYangName = "label"
     backupPathsetResolveNh.EntityData.SegmentPath = "backup-pathset-resolve-nh"
+    backupPathsetResolveNh.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/label/" + backupPathsetResolveNh.EntityData.SegmentPath
     backupPathsetResolveNh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -577,6 +591,7 @@ func (backupPathsetResolveNh *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathsetRe
 type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Path Number. The type is interface{} with range: 0..4294967295.
     PathNumber interface{}
@@ -605,7 +620,8 @@ func (pathInfo *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo) GetEntityData() *ty
     pathInfo.EntityData.YangName = "path-info"
     pathInfo.EntityData.BundleName = "cisco_ios_xr"
     pathInfo.EntityData.ParentYangName = "label"
-    pathInfo.EntityData.SegmentPath = "path-info"
+    pathInfo.EntityData.SegmentPath = "path-info" + types.AddNoKeyToken(pathInfo)
+    pathInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/label/" + pathInfo.EntityData.SegmentPath
     pathInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -650,6 +666,7 @@ func (nexthop *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo_Nexthop) GetEntityDat
     nexthop.EntityData.BundleName = "cisco_ios_xr"
     nexthop.EntityData.ParentYangName = "path-info"
     nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/label/path-info/" + nexthop.EntityData.SegmentPath
     nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -690,6 +707,7 @@ func (address *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo_Nexthop_Address) GetE
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "nexthop"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/label/path-info/nexthop/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -710,6 +728,7 @@ func (address *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_PathInfo_Nexthop_Address) GetE
 type MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Path Number. The type is interface{} with range: 0..4294967295.
     PathNumber interface{}
@@ -738,7 +757,8 @@ func (backupPathInfo *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo) GetEnti
     backupPathInfo.EntityData.YangName = "backup-path-info"
     backupPathInfo.EntityData.BundleName = "cisco_ios_xr"
     backupPathInfo.EntityData.ParentYangName = "label"
-    backupPathInfo.EntityData.SegmentPath = "backup-path-info"
+    backupPathInfo.EntityData.SegmentPath = "backup-path-info" + types.AddNoKeyToken(backupPathInfo)
+    backupPathInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/label/" + backupPathInfo.EntityData.SegmentPath
     backupPathInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -783,6 +803,7 @@ func (nexthop *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo_Nexthop) GetEnt
     nexthop.EntityData.BundleName = "cisco_ios_xr"
     nexthop.EntityData.ParentYangName = "backup-path-info"
     nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/label/backup-path-info/" + nexthop.EntityData.SegmentPath
     nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -823,6 +844,7 @@ func (address *MplsStatic_Vrfs_Vrf_Lsps_Lsp_Label_BackupPathInfo_Nexthop_Address
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "nexthop"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/lsps/lsp/label/backup-path-info/nexthop/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -855,6 +877,7 @@ func (localLabels *MplsStatic_Vrfs_Vrf_LocalLabels) GetEntityData() *types.Commo
     localLabels.EntityData.BundleName = "cisco_ios_xr"
     localLabels.EntityData.ParentYangName = "vrf"
     localLabels.EntityData.SegmentPath = "local-labels"
+    localLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/" + localLabels.EntityData.SegmentPath
     localLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -876,6 +899,7 @@ func (localLabels *MplsStatic_Vrfs_Vrf_LocalLabels) GetEntityData() *types.Commo
 type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local Label. The type is interface{} with range:
     // 16..1048575.
@@ -926,6 +950,7 @@ func (localLabel *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel) GetEntityData() *t
     localLabel.EntityData.BundleName = "cisco_ios_xr"
     localLabel.EntityData.ParentYangName = "local-labels"
     localLabel.EntityData.SegmentPath = "local-label" + types.AddKeyToken(localLabel.LocalLabelId, "local-label-id")
+    localLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/" + localLabel.EntityData.SegmentPath
     localLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -936,10 +961,12 @@ func (localLabel *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel) GetEntityData() *t
     localLabel.EntityData.Children.Append("backup-pathset-resolve-nh", types.YChild{"BackupPathsetResolveNh", &localLabel.BackupPathsetResolveNh})
     localLabel.EntityData.Children.Append("path-info", types.YChild{"PathInfo", nil})
     for i := range localLabel.PathInfo {
+        types.SetYListKey(localLabel.PathInfo[i], i)
         localLabel.EntityData.Children.Append(types.GetSegmentPath(localLabel.PathInfo[i]), types.YChild{"PathInfo", localLabel.PathInfo[i]})
     }
     localLabel.EntityData.Children.Append("backup-path-info", types.YChild{"BackupPathInfo", nil})
     for i := range localLabel.BackupPathInfo {
+        types.SetYListKey(localLabel.BackupPathInfo[i], i)
         localLabel.EntityData.Children.Append(types.GetSegmentPath(localLabel.BackupPathInfo[i]), types.YChild{"BackupPathInfo", localLabel.BackupPathInfo[i]})
     }
     localLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -976,6 +1003,7 @@ func (prefix *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix) GetEntityData()
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "local-label"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/local-label/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1014,6 +1042,7 @@ func (prefix *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_Prefix_Prefix) GetEntit
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/local-label/prefix/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1053,6 +1082,7 @@ func (pathsetResolveNh *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathsetResolv
     pathsetResolveNh.EntityData.BundleName = "cisco_ios_xr"
     pathsetResolveNh.EntityData.ParentYangName = "local-label"
     pathsetResolveNh.EntityData.SegmentPath = "pathset-resolve-nh"
+    pathsetResolveNh.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/local-label/" + pathsetResolveNh.EntityData.SegmentPath
     pathsetResolveNh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1092,6 +1122,7 @@ func (backupPathsetResolveNh *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupP
     backupPathsetResolveNh.EntityData.BundleName = "cisco_ios_xr"
     backupPathsetResolveNh.EntityData.ParentYangName = "local-label"
     backupPathsetResolveNh.EntityData.SegmentPath = "backup-pathset-resolve-nh"
+    backupPathsetResolveNh.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/local-label/" + backupPathsetResolveNh.EntityData.SegmentPath
     backupPathsetResolveNh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1112,6 +1143,7 @@ func (backupPathsetResolveNh *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupP
 type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Path Number. The type is interface{} with range: 0..4294967295.
     PathNumber interface{}
@@ -1140,7 +1172,8 @@ func (pathInfo *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo) GetEntityDa
     pathInfo.EntityData.YangName = "path-info"
     pathInfo.EntityData.BundleName = "cisco_ios_xr"
     pathInfo.EntityData.ParentYangName = "local-label"
-    pathInfo.EntityData.SegmentPath = "path-info"
+    pathInfo.EntityData.SegmentPath = "path-info" + types.AddNoKeyToken(pathInfo)
+    pathInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/local-label/" + pathInfo.EntityData.SegmentPath
     pathInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1185,6 +1218,7 @@ func (nexthop *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo_Nexthop) GetE
     nexthop.EntityData.BundleName = "cisco_ios_xr"
     nexthop.EntityData.ParentYangName = "path-info"
     nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/local-label/path-info/" + nexthop.EntityData.SegmentPath
     nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1225,6 +1259,7 @@ func (address *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo_Nexthop_Addre
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "nexthop"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/local-label/path-info/nexthop/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1245,6 +1280,7 @@ func (address *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_PathInfo_Nexthop_Addre
 type MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Path Number. The type is interface{} with range: 0..4294967295.
     PathNumber interface{}
@@ -1273,7 +1309,8 @@ func (backupPathInfo *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo)
     backupPathInfo.EntityData.YangName = "backup-path-info"
     backupPathInfo.EntityData.BundleName = "cisco_ios_xr"
     backupPathInfo.EntityData.ParentYangName = "local-label"
-    backupPathInfo.EntityData.SegmentPath = "backup-path-info"
+    backupPathInfo.EntityData.SegmentPath = "backup-path-info" + types.AddNoKeyToken(backupPathInfo)
+    backupPathInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/local-label/" + backupPathInfo.EntityData.SegmentPath
     backupPathInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1318,6 +1355,7 @@ func (nexthop *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo_Nexthop
     nexthop.EntityData.BundleName = "cisco_ios_xr"
     nexthop.EntityData.ParentYangName = "backup-path-info"
     nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/local-label/backup-path-info/" + nexthop.EntityData.SegmentPath
     nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1358,6 +1396,7 @@ func (address *MplsStatic_Vrfs_Vrf_LocalLabels_LocalLabel_BackupPathInfo_Nexthop
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "nexthop"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/vrf/local-labels/local-label/backup-path-info/nexthop/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1443,6 +1482,7 @@ func (summary *MplsStatic_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "mpls-static"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1488,6 +1528,7 @@ func (localLabels *MplsStatic_LocalLabels) GetEntityData() *types.CommonEntityDa
     localLabels.EntityData.BundleName = "cisco_ios_xr"
     localLabels.EntityData.ParentYangName = "mpls-static"
     localLabels.EntityData.SegmentPath = "local-labels"
+    localLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/" + localLabels.EntityData.SegmentPath
     localLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1509,6 +1550,7 @@ func (localLabels *MplsStatic_LocalLabels) GetEntityData() *types.CommonEntityDa
 type MplsStatic_LocalLabels_LocalLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local Label. The type is interface{} with range:
     // 16..1048575.
@@ -1559,6 +1601,7 @@ func (localLabel *MplsStatic_LocalLabels_LocalLabel) GetEntityData() *types.Comm
     localLabel.EntityData.BundleName = "cisco_ios_xr"
     localLabel.EntityData.ParentYangName = "local-labels"
     localLabel.EntityData.SegmentPath = "local-label" + types.AddKeyToken(localLabel.LocalLabelId, "local-label-id")
+    localLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/" + localLabel.EntityData.SegmentPath
     localLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1569,10 +1612,12 @@ func (localLabel *MplsStatic_LocalLabels_LocalLabel) GetEntityData() *types.Comm
     localLabel.EntityData.Children.Append("backup-pathset-resolve-nh", types.YChild{"BackupPathsetResolveNh", &localLabel.BackupPathsetResolveNh})
     localLabel.EntityData.Children.Append("path-info", types.YChild{"PathInfo", nil})
     for i := range localLabel.PathInfo {
+        types.SetYListKey(localLabel.PathInfo[i], i)
         localLabel.EntityData.Children.Append(types.GetSegmentPath(localLabel.PathInfo[i]), types.YChild{"PathInfo", localLabel.PathInfo[i]})
     }
     localLabel.EntityData.Children.Append("backup-path-info", types.YChild{"BackupPathInfo", nil})
     for i := range localLabel.BackupPathInfo {
+        types.SetYListKey(localLabel.BackupPathInfo[i], i)
         localLabel.EntityData.Children.Append(types.GetSegmentPath(localLabel.BackupPathInfo[i]), types.YChild{"BackupPathInfo", localLabel.BackupPathInfo[i]})
     }
     localLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -1609,6 +1654,7 @@ func (prefix *MplsStatic_LocalLabels_LocalLabel_Prefix) GetEntityData() *types.C
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "local-label"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/local-label/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1647,6 +1693,7 @@ func (prefix *MplsStatic_LocalLabels_LocalLabel_Prefix_Prefix) GetEntityData() *
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefix"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/local-label/prefix/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1686,6 +1733,7 @@ func (pathsetResolveNh *MplsStatic_LocalLabels_LocalLabel_PathsetResolveNh) GetE
     pathsetResolveNh.EntityData.BundleName = "cisco_ios_xr"
     pathsetResolveNh.EntityData.ParentYangName = "local-label"
     pathsetResolveNh.EntityData.SegmentPath = "pathset-resolve-nh"
+    pathsetResolveNh.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/local-label/" + pathsetResolveNh.EntityData.SegmentPath
     pathsetResolveNh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1725,6 +1773,7 @@ func (backupPathsetResolveNh *MplsStatic_LocalLabels_LocalLabel_BackupPathsetRes
     backupPathsetResolveNh.EntityData.BundleName = "cisco_ios_xr"
     backupPathsetResolveNh.EntityData.ParentYangName = "local-label"
     backupPathsetResolveNh.EntityData.SegmentPath = "backup-pathset-resolve-nh"
+    backupPathsetResolveNh.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/local-label/" + backupPathsetResolveNh.EntityData.SegmentPath
     backupPathsetResolveNh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPathsetResolveNh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathsetResolveNh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1745,6 +1794,7 @@ func (backupPathsetResolveNh *MplsStatic_LocalLabels_LocalLabel_BackupPathsetRes
 type MplsStatic_LocalLabels_LocalLabel_PathInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Path Number. The type is interface{} with range: 0..4294967295.
     PathNumber interface{}
@@ -1773,7 +1823,8 @@ func (pathInfo *MplsStatic_LocalLabels_LocalLabel_PathInfo) GetEntityData() *typ
     pathInfo.EntityData.YangName = "path-info"
     pathInfo.EntityData.BundleName = "cisco_ios_xr"
     pathInfo.EntityData.ParentYangName = "local-label"
-    pathInfo.EntityData.SegmentPath = "path-info"
+    pathInfo.EntityData.SegmentPath = "path-info" + types.AddNoKeyToken(pathInfo)
+    pathInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/local-label/" + pathInfo.EntityData.SegmentPath
     pathInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1818,6 +1869,7 @@ func (nexthop *MplsStatic_LocalLabels_LocalLabel_PathInfo_Nexthop) GetEntityData
     nexthop.EntityData.BundleName = "cisco_ios_xr"
     nexthop.EntityData.ParentYangName = "path-info"
     nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/local-label/path-info/" + nexthop.EntityData.SegmentPath
     nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1858,6 +1910,7 @@ func (address *MplsStatic_LocalLabels_LocalLabel_PathInfo_Nexthop_Address) GetEn
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "nexthop"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/local-label/path-info/nexthop/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1878,6 +1931,7 @@ func (address *MplsStatic_LocalLabels_LocalLabel_PathInfo_Nexthop_Address) GetEn
 type MplsStatic_LocalLabels_LocalLabel_BackupPathInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Path Number. The type is interface{} with range: 0..4294967295.
     PathNumber interface{}
@@ -1906,7 +1960,8 @@ func (backupPathInfo *MplsStatic_LocalLabels_LocalLabel_BackupPathInfo) GetEntit
     backupPathInfo.EntityData.YangName = "backup-path-info"
     backupPathInfo.EntityData.BundleName = "cisco_ios_xr"
     backupPathInfo.EntityData.ParentYangName = "local-label"
-    backupPathInfo.EntityData.SegmentPath = "backup-path-info"
+    backupPathInfo.EntityData.SegmentPath = "backup-path-info" + types.AddNoKeyToken(backupPathInfo)
+    backupPathInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/local-label/" + backupPathInfo.EntityData.SegmentPath
     backupPathInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1951,6 +2006,7 @@ func (nexthop *MplsStatic_LocalLabels_LocalLabel_BackupPathInfo_Nexthop) GetEnti
     nexthop.EntityData.BundleName = "cisco_ios_xr"
     nexthop.EntityData.ParentYangName = "backup-path-info"
     nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/local-label/backup-path-info/" + nexthop.EntityData.SegmentPath
     nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1991,6 +2047,7 @@ func (address *MplsStatic_LocalLabels_LocalLabel_BackupPathInfo_Nexthop_Address)
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "nexthop"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/local-label/backup-path-info/nexthop/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -88,6 +88,7 @@ func (sdrConfig *SdrConfig) GetEntityData() *types.CommonEntityData {
     sdrConfig.EntityData.BundleName = "cisco_ios_xr"
     sdrConfig.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-sdr-mgr"
     sdrConfig.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config"
+    sdrConfig.EntityData.AbsolutePath = sdrConfig.EntityData.SegmentPath
     sdrConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -109,6 +110,7 @@ func (sdrConfig *SdrConfig) GetEntityData() *types.CommonEntityData {
 type SdrConfig_Sdr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Secure Domain Router , 30 max
     // characters. The type is string with pattern: [a-zA-Z0-9_-]{1,30}.
@@ -161,6 +163,7 @@ func (sdr *SdrConfig_Sdr) GetEntityData() *types.CommonEntityData {
     sdr.EntityData.BundleName = "cisco_ios_xr"
     sdr.EntityData.ParentYangName = "sdr-config"
     sdr.EntityData.SegmentPath = "sdr" + types.AddKeyToken(sdr.Name, "name")
+    sdr.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/" + sdr.EntityData.SegmentPath
     sdr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -220,6 +223,7 @@ func (resources *SdrConfig_Sdr_Resources) GetEntityData() *types.CommonEntityDat
     resources.EntityData.BundleName = "cisco_ios_xr"
     resources.EntityData.ParentYangName = "sdr"
     resources.EntityData.SegmentPath = "resources"
+    resources.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/" + resources.EntityData.SegmentPath
     resources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -243,6 +247,7 @@ func (resources *SdrConfig_Sdr_Resources) GetEntityData() *types.CommonEntityDat
 type SdrConfig_Sdr_Resources_CardType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Card Type. The type is CardType.
     Type interface{}
@@ -261,6 +266,7 @@ func (cardType *SdrConfig_Sdr_Resources_CardType) GetEntityData() *types.CommonE
     cardType.EntityData.BundleName = "cisco_ios_xr"
     cardType.EntityData.ParentYangName = "resources"
     cardType.EntityData.SegmentPath = "card-type" + types.AddKeyToken(cardType.Type, "type")
+    cardType.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/resources/" + cardType.EntityData.SegmentPath
     cardType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -281,6 +287,7 @@ func (cardType *SdrConfig_Sdr_Resources_CardType) GetEntityData() *types.CommonE
 type SdrConfig_Sdr_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enter location or all. The type is string with
     // pattern:
@@ -294,6 +301,7 @@ func (location *SdrConfig_Sdr_Location) GetEntityData() *types.CommonEntityData 
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "sdr"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -322,6 +330,7 @@ func (action *SdrConfig_Sdr_Action) GetEntityData() *types.CommonEntityData {
     action.EntityData.BundleName = "cisco_ios_xr"
     action.EntityData.ParentYangName = "sdr"
     action.EntityData.SegmentPath = "Action"
+    action.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/" + action.EntityData.SegmentPath
     action.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -342,6 +351,7 @@ func (action *SdrConfig_Sdr_Action) GetEntityData() *types.CommonEntityData {
 type SdrConfig_Sdr_Action_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enter location or all. The type is string with
     // pattern:
@@ -355,6 +365,7 @@ func (location *SdrConfig_Sdr_Action_Location) GetEntityData() *types.CommonEnti
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "Action"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/Action/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -383,6 +394,7 @@ func (detail *SdrConfig_Sdr_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "sdr"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -403,6 +415,7 @@ func (detail *SdrConfig_Sdr_Detail) GetEntityData() *types.CommonEntityData {
 type SdrConfig_Sdr_Detail_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
@@ -481,6 +494,7 @@ func (location *SdrConfig_Sdr_Detail_Location) GetEntityData() *types.CommonEnti
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "detail"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/detail/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -521,6 +535,7 @@ func (location *SdrConfig_Sdr_Detail_Location) GetEntityData() *types.CommonEnti
 type SdrConfig_Sdr_Detail_Location_RebootHist1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     Count interface{}
@@ -538,6 +553,7 @@ func (rebootHist1 *SdrConfig_Sdr_Detail_Location_RebootHist1) GetEntityData() *t
     rebootHist1.EntityData.BundleName = "cisco_ios_xr"
     rebootHist1.EntityData.ParentYangName = "location"
     rebootHist1.EntityData.SegmentPath = "reboot_hist1" + types.AddKeyToken(rebootHist1.Count, "count")
+    rebootHist1.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/detail/location/" + rebootHist1.EntityData.SegmentPath
     rebootHist1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rebootHist1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHist1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -571,6 +587,7 @@ func (rebootHistory *SdrConfig_Sdr_RebootHistory) GetEntityData() *types.CommonE
     rebootHistory.EntityData.BundleName = "cisco_ios_xr"
     rebootHistory.EntityData.ParentYangName = "sdr"
     rebootHistory.EntityData.SegmentPath = "reboot-history"
+    rebootHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/" + rebootHistory.EntityData.SegmentPath
     rebootHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rebootHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -600,6 +617,7 @@ func (reverse *SdrConfig_Sdr_RebootHistory_Reverse) GetEntityData() *types.Commo
     reverse.EntityData.BundleName = "cisco_ios_xr"
     reverse.EntityData.ParentYangName = "reboot-history"
     reverse.EntityData.SegmentPath = "reverse"
+    reverse.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/reboot-history/" + reverse.EntityData.SegmentPath
     reverse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reverse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reverse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -620,6 +638,7 @@ func (reverse *SdrConfig_Sdr_RebootHistory_Reverse) GetEntityData() *types.Commo
 type SdrConfig_Sdr_RebootHistory_Reverse_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
@@ -644,6 +663,7 @@ func (location *SdrConfig_Sdr_RebootHistory_Reverse_Location) GetEntityData() *t
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "reverse"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/reboot-history/reverse/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -667,6 +687,7 @@ func (location *SdrConfig_Sdr_RebootHistory_Reverse_Location) GetEntityData() *t
 type SdrConfig_Sdr_RebootHistory_Reverse_Location_RebootHist2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     Count interface{}
@@ -684,6 +705,7 @@ func (rebootHist2 *SdrConfig_Sdr_RebootHistory_Reverse_Location_RebootHist2) Get
     rebootHist2.EntityData.BundleName = "cisco_ios_xr"
     rebootHist2.EntityData.ParentYangName = "location"
     rebootHist2.EntityData.SegmentPath = "reboot_hist2" + types.AddKeyToken(rebootHist2.Count, "count")
+    rebootHist2.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/reboot-history/reverse/location/" + rebootHist2.EntityData.SegmentPath
     rebootHist2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rebootHist2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHist2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -714,6 +736,7 @@ func (defaultDisp *SdrConfig_Sdr_RebootHistory_DefaultDisp) GetEntityData() *typ
     defaultDisp.EntityData.BundleName = "cisco_ios_xr"
     defaultDisp.EntityData.ParentYangName = "reboot-history"
     defaultDisp.EntityData.SegmentPath = "default-disp"
+    defaultDisp.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/reboot-history/" + defaultDisp.EntityData.SegmentPath
     defaultDisp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultDisp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultDisp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -734,6 +757,7 @@ func (defaultDisp *SdrConfig_Sdr_RebootHistory_DefaultDisp) GetEntityData() *typ
 type SdrConfig_Sdr_RebootHistory_DefaultDisp_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
@@ -758,6 +782,7 @@ func (location *SdrConfig_Sdr_RebootHistory_DefaultDisp_Location) GetEntityData(
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "default-disp"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/reboot-history/default-disp/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -781,6 +806,7 @@ func (location *SdrConfig_Sdr_RebootHistory_DefaultDisp_Location) GetEntityData(
 type SdrConfig_Sdr_RebootHistory_DefaultDisp_Location_RebootHist2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     Count interface{}
@@ -798,6 +824,7 @@ func (rebootHist2 *SdrConfig_Sdr_RebootHistory_DefaultDisp_Location_RebootHist2)
     rebootHist2.EntityData.BundleName = "cisco_ios_xr"
     rebootHist2.EntityData.ParentYangName = "location"
     rebootHist2.EntityData.SegmentPath = "reboot_hist2" + types.AddKeyToken(rebootHist2.Count, "count")
+    rebootHist2.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/reboot-history/default-disp/location/" + rebootHist2.EntityData.SegmentPath
     rebootHist2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rebootHist2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHist2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -828,6 +855,7 @@ func (nodes *SdrConfig_Sdr_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "sdr"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -848,6 +876,7 @@ func (nodes *SdrConfig_Sdr_Nodes) GetEntityData() *types.CommonEntityData {
 type SdrConfig_Sdr_Nodes_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
@@ -890,6 +919,7 @@ func (location *SdrConfig_Sdr_Nodes_Location) GetEntityData() *types.CommonEntit
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "nodes"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/nodes/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -932,6 +962,7 @@ func (pairing2 *SdrConfig_Sdr_Pairing2) GetEntityData() *types.CommonEntityData 
     pairing2.EntityData.BundleName = "cisco_ios_xr"
     pairing2.EntityData.ParentYangName = "sdr"
     pairing2.EntityData.SegmentPath = "pairing2"
+    pairing2.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/" + pairing2.EntityData.SegmentPath
     pairing2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pairing2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pairing2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -968,6 +999,7 @@ func (sdrlead *SdrConfig_Sdr_Pairing2_Sdrlead) GetEntityData() *types.CommonEnti
     sdrlead.EntityData.BundleName = "cisco_ios_xr"
     sdrlead.EntityData.ParentYangName = "pairing2"
     sdrlead.EntityData.SegmentPath = "sdrlead"
+    sdrlead.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/pairing2/" + sdrlead.EntityData.SegmentPath
     sdrlead.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrlead.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrlead.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -986,6 +1018,7 @@ func (sdrlead *SdrConfig_Sdr_Pairing2_Sdrlead) GetEntityData() *types.CommonEnti
 type SdrConfig_Sdr_Pairing2_Pairing struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Name interface{}
@@ -1003,6 +1036,7 @@ func (pairing *SdrConfig_Sdr_Pairing2_Pairing) GetEntityData() *types.CommonEnti
     pairing.EntityData.BundleName = "cisco_ios_xr"
     pairing.EntityData.ParentYangName = "pairing2"
     pairing.EntityData.SegmentPath = "pairing" + types.AddKeyToken(pairing.Name, "name")
+    pairing.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/pairing2/" + pairing.EntityData.SegmentPath
     pairing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pairing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pairing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1023,6 +1057,7 @@ func (pairing *SdrConfig_Sdr_Pairing2_Pairing) GetEntityData() *types.CommonEnti
 type SdrConfig_Sdr_Pairing struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // [a-zA-Z0-9_-]{1,64}.
@@ -1045,6 +1080,7 @@ func (pairing *SdrConfig_Sdr_Pairing) GetEntityData() *types.CommonEntityData {
     pairing.EntityData.BundleName = "cisco_ios_xr"
     pairing.EntityData.ParentYangName = "sdr"
     pairing.EntityData.SegmentPath = "pairing" + types.AddKeyToken(pairing.Name, "name")
+    pairing.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config/sdr/" + pairing.EntityData.SegmentPath
     pairing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pairing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pairing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1091,6 +1127,7 @@ func (sdrManager *SdrManager) GetEntityData() *types.CommonEntityData {
     sdrManager.EntityData.BundleName = "cisco_ios_xr"
     sdrManager.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-sdr-mgr"
     sdrManager.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-manager"
+    sdrManager.EntityData.AbsolutePath = sdrManager.EntityData.SegmentPath
     sdrManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1119,6 +1156,7 @@ func (sdrMgr *SdrManager_SdrMgr) GetEntityData() *types.CommonEntityData {
     sdrMgr.EntityData.BundleName = "cisco_ios_xr"
     sdrMgr.EntityData.ParentYangName = "sdr-manager"
     sdrMgr.EntityData.SegmentPath = "sdr_mgr"
+    sdrMgr.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-manager/" + sdrMgr.EntityData.SegmentPath
     sdrMgr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrMgr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrMgr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1140,6 +1178,7 @@ func (sdrMgr *SdrManager_SdrMgr) GetEntityData() *types.CommonEntityData {
 type SdrManager_SdrMgr_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -1154,6 +1193,7 @@ func (trace *SdrManager_SdrMgr_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "sdr_mgr"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-manager/sdr_mgr/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1175,6 +1215,7 @@ func (trace *SdrManager_SdrMgr_Trace) GetEntityData() *types.CommonEntityData {
 type SdrManager_SdrMgr_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -1189,6 +1230,7 @@ func (location *SdrManager_SdrMgr_Trace_Location) GetEntityData() *types.CommonE
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-manager/sdr_mgr/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1210,6 +1252,7 @@ func (location *SdrManager_SdrMgr_Trace_Location) GetEntityData() *types.CommonE
 type SdrManager_SdrMgr_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -1225,6 +1268,7 @@ func (allOptions *SdrManager_SdrMgr_Trace_Location_AllOptions) GetEntityData() *
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-manager/sdr_mgr/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1232,6 +1276,7 @@ func (allOptions *SdrManager_SdrMgr_Trace_Location_AllOptions) GetEntityData() *
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -1246,6 +1291,7 @@ func (allOptions *SdrManager_SdrMgr_Trace_Location_AllOptions) GetEntityData() *
 type SdrManager_SdrMgr_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -1256,7 +1302,8 @@ func (traceBlocks *SdrManager_SdrMgr_Trace_Location_AllOptions_TraceBlocks) GetE
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-manager/sdr_mgr/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1285,6 +1332,7 @@ func (sdrOperation *SdrOperation) GetEntityData() *types.CommonEntityData {
     sdrOperation.EntityData.BundleName = "cisco_ios_xr"
     sdrOperation.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-sdr-mgr"
     sdrOperation.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-operation"
+    sdrOperation.EntityData.AbsolutePath = sdrOperation.EntityData.SegmentPath
     sdrOperation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrOperation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrOperation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1306,6 +1354,7 @@ func (sdrOperation *SdrOperation) GetEntityData() *types.CommonEntityData {
 type SdrOperation_Sdr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Secure Domain Router, 30 max
     // characters. The type is string with pattern: [a-zA-Z0-9_-]{1,30}.
@@ -1321,6 +1370,7 @@ func (sdr *SdrOperation_Sdr) GetEntityData() *types.CommonEntityData {
     sdr.EntityData.BundleName = "cisco_ios_xr"
     sdr.EntityData.ParentYangName = "sdr-operation"
     sdr.EntityData.SegmentPath = "sdr" + types.AddKeyToken(sdr.Name, "name")
+    sdr.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-operation/" + sdr.EntityData.SegmentPath
     sdr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1350,6 +1400,7 @@ func (nodes *SdrOperation_Sdr_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "sdr"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-operation/sdr/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1370,6 +1421,7 @@ func (nodes *SdrOperation_Sdr_Nodes) GetEntityData() *types.CommonEntityData {
 type SdrOperation_Sdr_Nodes_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     NodeLocation interface{}
@@ -1390,6 +1442,7 @@ func (location *SdrOperation_Sdr_Nodes_Location) GetEntityData() *types.CommonEn
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "nodes"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location") + types.AddKeyToken(location.NodeType, "node-type")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-operation/sdr/nodes/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1421,6 +1474,7 @@ func (privateSdr *PrivateSdr) GetEntityData() *types.CommonEntityData {
     privateSdr.EntityData.BundleName = "cisco_ios_xr"
     privateSdr.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-sdr-mgr"
     privateSdr.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-sdr-mgr:private-sdr"
+    privateSdr.EntityData.AbsolutePath = privateSdr.EntityData.SegmentPath
     privateSdr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     privateSdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     privateSdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1441,6 +1495,7 @@ func (privateSdr *PrivateSdr) GetEntityData() *types.CommonEntityData {
 type PrivateSdr_SdrName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Name interface{}
@@ -1464,6 +1519,7 @@ func (sdrName *PrivateSdr_SdrName) GetEntityData() *types.CommonEntityData {
     sdrName.EntityData.BundleName = "cisco_ios_xr"
     sdrName.EntityData.ParentYangName = "private-sdr"
     sdrName.EntityData.SegmentPath = "sdr-name" + types.AddKeyToken(sdrName.Name, "name")
+    sdrName.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:private-sdr/" + sdrName.EntityData.SegmentPath
     sdrName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1488,6 +1544,7 @@ func (sdrName *PrivateSdr_SdrName) GetEntityData() *types.CommonEntityData {
 type PrivateSdr_SdrName_Pairing struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     Num interface{}
@@ -1514,6 +1571,7 @@ func (pairing *PrivateSdr_SdrName_Pairing) GetEntityData() *types.CommonEntityDa
     pairing.EntityData.BundleName = "cisco_ios_xr"
     pairing.EntityData.ParentYangName = "sdr-name"
     pairing.EntityData.SegmentPath = "pairing" + types.AddKeyToken(pairing.Num, "num")
+    pairing.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sdr-mgr:private-sdr/sdr-name/" + pairing.EntityData.SegmentPath
     pairing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pairing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pairing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

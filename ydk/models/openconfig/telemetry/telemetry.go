@@ -52,6 +52,7 @@ func (telemetrySystem *TelemetrySystem) GetEntityData() *types.CommonEntityData 
     telemetrySystem.EntityData.BundleName = "openconfig"
     telemetrySystem.EntityData.ParentYangName = "openconfig-telemetry"
     telemetrySystem.EntityData.SegmentPath = "openconfig-telemetry:telemetry-system"
+    telemetrySystem.EntityData.AbsolutePath = telemetrySystem.EntityData.SegmentPath
     telemetrySystem.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     telemetrySystem.EntityData.NamespaceTable = openconfig.GetNamespaces()
     telemetrySystem.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -85,6 +86,7 @@ func (sensorGroups *TelemetrySystem_SensorGroups) GetEntityData() *types.CommonE
     sensorGroups.EntityData.BundleName = "openconfig"
     sensorGroups.EntityData.ParentYangName = "telemetry-system"
     sensorGroups.EntityData.SegmentPath = "sensor-groups"
+    sensorGroups.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/" + sensorGroups.EntityData.SegmentPath
     sensorGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -108,6 +110,7 @@ func (sensorGroups *TelemetrySystem_SensorGroups) GetEntityData() *types.CommonE
 type TelemetrySystem_SensorGroups_SensorGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the name or identifier of the sensor
     // grouping. The type is string. Refers to
@@ -130,6 +133,7 @@ func (sensorGroup *TelemetrySystem_SensorGroups_SensorGroup) GetEntityData() *ty
     sensorGroup.EntityData.BundleName = "openconfig"
     sensorGroup.EntityData.ParentYangName = "sensor-groups"
     sensorGroup.EntityData.SegmentPath = "sensor-group" + types.AddKeyToken(sensorGroup.SensorGroupId, "sensor-group-id")
+    sensorGroup.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/sensor-groups/" + sensorGroup.EntityData.SegmentPath
     sensorGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -164,6 +168,7 @@ func (config *TelemetrySystem_SensorGroups_SensorGroup_Config) GetEntityData() *
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "sensor-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/sensor-groups/sensor-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -195,6 +200,7 @@ func (state *TelemetrySystem_SensorGroups_SensorGroup_State) GetEntityData() *ty
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "sensor-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/sensor-groups/sensor-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -227,6 +233,7 @@ func (sensorPaths *TelemetrySystem_SensorGroups_SensorGroup_SensorPaths) GetEnti
     sensorPaths.EntityData.BundleName = "openconfig"
     sensorPaths.EntityData.ParentYangName = "sensor-group"
     sensorPaths.EntityData.SegmentPath = "sensor-paths"
+    sensorPaths.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/sensor-groups/sensor-group/" + sensorPaths.EntityData.SegmentPath
     sensorPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -250,6 +257,7 @@ func (sensorPaths *TelemetrySystem_SensorGroups_SensorGroup_SensorPaths) GetEnti
 type TelemetrySystem_SensorGroups_SensorGroup_SensorPaths_SensorPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the path of interest. The type is
     // string. Refers to
@@ -271,6 +279,7 @@ func (sensorPath *TelemetrySystem_SensorGroups_SensorGroup_SensorPaths_SensorPat
     sensorPath.EntityData.BundleName = "openconfig"
     sensorPath.EntityData.ParentYangName = "sensor-paths"
     sensorPath.EntityData.SegmentPath = "sensor-path" + types.AddKeyToken(sensorPath.Path, "path")
+    sensorPath.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/sensor-groups/sensor-group/sensor-paths/" + sensorPath.EntityData.SegmentPath
     sensorPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -308,6 +317,7 @@ func (config *TelemetrySystem_SensorGroups_SensorGroup_SensorPaths_SensorPath_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "sensor-path"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/sensor-groups/sensor-group/sensor-paths/sensor-path/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -344,6 +354,7 @@ func (state *TelemetrySystem_SensorGroups_SensorGroup_SensorPaths_SensorPath_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "sensor-path"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/sensor-groups/sensor-group/sensor-paths/sensor-path/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -380,6 +391,7 @@ func (destinationGroups *TelemetrySystem_DestinationGroups) GetEntityData() *typ
     destinationGroups.EntityData.BundleName = "openconfig"
     destinationGroups.EntityData.ParentYangName = "telemetry-system"
     destinationGroups.EntityData.SegmentPath = "destination-groups"
+    destinationGroups.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/" + destinationGroups.EntityData.SegmentPath
     destinationGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     destinationGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destinationGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -408,6 +420,7 @@ func (destinationGroups *TelemetrySystem_DestinationGroups) GetEntityData() *typ
 type TelemetrySystem_DestinationGroups_DestinationGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique identifier for the destination group. The
     // type is string. Refers to
@@ -431,6 +444,7 @@ func (destinationGroup *TelemetrySystem_DestinationGroups_DestinationGroup) GetE
     destinationGroup.EntityData.BundleName = "openconfig"
     destinationGroup.EntityData.ParentYangName = "destination-groups"
     destinationGroup.EntityData.SegmentPath = "destination-group" + types.AddKeyToken(destinationGroup.GroupId, "group-id")
+    destinationGroup.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/destination-groups/" + destinationGroup.EntityData.SegmentPath
     destinationGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     destinationGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destinationGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -463,6 +477,7 @@ func (config *TelemetrySystem_DestinationGroups_DestinationGroup_Config) GetEnti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "destination-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/destination-groups/destination-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -492,6 +507,7 @@ func (state *TelemetrySystem_DestinationGroups_DestinationGroup_State) GetEntity
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "destination-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/destination-groups/destination-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -524,6 +540,7 @@ func (destinations *TelemetrySystem_DestinationGroups_DestinationGroup_Destinati
     destinations.EntityData.BundleName = "openconfig"
     destinations.EntityData.ParentYangName = "destination-group"
     destinations.EntityData.SegmentPath = "destinations"
+    destinations.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/destination-groups/destination-group/" + destinations.EntityData.SegmentPath
     destinations.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     destinations.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destinations.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -545,6 +562,7 @@ func (destinations *TelemetrySystem_DestinationGroups_DestinationGroup_Destinati
 type TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the destination address of the
     // telemetry stream. The type is one of the following types: string with
@@ -572,6 +590,7 @@ func (destination *TelemetrySystem_DestinationGroups_DestinationGroup_Destinatio
     destination.EntityData.BundleName = "openconfig"
     destination.EntityData.ParentYangName = "destinations"
     destination.EntityData.SegmentPath = "destination" + types.AddKeyToken(destination.DestinationAddress, "destination-address") + types.AddKeyToken(destination.DestinationPort, "destination-port")
+    destination.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/destination-groups/destination-group/destinations/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     destination.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -617,6 +636,7 @@ func (config *TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_De
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "destination"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/destination-groups/destination-group/destinations/destination/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -661,6 +681,7 @@ func (state *TelemetrySystem_DestinationGroups_DestinationGroup_Destinations_Des
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "destination"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/destination-groups/destination-group/destinations/destination/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -702,6 +723,7 @@ func (subscriptions *TelemetrySystem_Subscriptions) GetEntityData() *types.Commo
     subscriptions.EntityData.BundleName = "openconfig"
     subscriptions.EntityData.ParentYangName = "telemetry-system"
     subscriptions.EntityData.SegmentPath = "subscriptions"
+    subscriptions.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/" + subscriptions.EntityData.SegmentPath
     subscriptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subscriptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subscriptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -739,6 +761,7 @@ func (persistent *TelemetrySystem_Subscriptions_Persistent) GetEntityData() *typ
     persistent.EntityData.BundleName = "openconfig"
     persistent.EntityData.ParentYangName = "subscriptions"
     persistent.EntityData.SegmentPath = "persistent"
+    persistent.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/" + persistent.EntityData.SegmentPath
     persistent.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     persistent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     persistent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -763,6 +786,7 @@ func (persistent *TelemetrySystem_Subscriptions_Persistent) GetEntityData() *typ
 type TelemetrySystem_Subscriptions_Persistent_Subscription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the identifier of the subscription
     // itself. The id will be the handle to refer to the subscription once
@@ -802,6 +826,7 @@ func (subscription *TelemetrySystem_Subscriptions_Persistent_Subscription) GetEn
     subscription.EntityData.BundleName = "openconfig"
     subscription.EntityData.ParentYangName = "persistent"
     subscription.EntityData.SegmentPath = "subscription" + types.AddKeyToken(subscription.SubscriptionId, "subscription-id")
+    subscription.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/" + subscription.EntityData.SegmentPath
     subscription.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subscription.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -850,6 +875,7 @@ func (config *TelemetrySystem_Subscriptions_Persistent_Subscription_Config) GetE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "subscription"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/subscription/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -896,6 +922,7 @@ func (state *TelemetrySystem_Subscriptions_Persistent_Subscription_State) GetEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subscription"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/subscription/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -933,6 +960,7 @@ func (sensorProfiles *TelemetrySystem_Subscriptions_Persistent_Subscription_Sens
     sensorProfiles.EntityData.BundleName = "openconfig"
     sensorProfiles.EntityData.ParentYangName = "subscription"
     sensorProfiles.EntityData.SegmentPath = "sensor-profiles"
+    sensorProfiles.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/subscription/" + sensorProfiles.EntityData.SegmentPath
     sensorProfiles.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorProfiles.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorProfiles.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -955,6 +983,7 @@ func (sensorProfiles *TelemetrySystem_Subscriptions_Persistent_Subscription_Sens
 type TelemetrySystem_Subscriptions_Persistent_Subscription_SensorProfiles_SensorProfile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the telemetry sensor group name. The
     // type is string. Refers to
@@ -974,6 +1003,7 @@ func (sensorProfile *TelemetrySystem_Subscriptions_Persistent_Subscription_Senso
     sensorProfile.EntityData.BundleName = "openconfig"
     sensorProfile.EntityData.ParentYangName = "sensor-profiles"
     sensorProfile.EntityData.SegmentPath = "sensor-profile" + types.AddKeyToken(sensorProfile.SensorGroup, "sensor-group")
+    sensorProfile.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/subscription/sensor-profiles/" + sensorProfile.EntityData.SegmentPath
     sensorProfile.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorProfile.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorProfile.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1033,6 +1063,7 @@ func (config *TelemetrySystem_Subscriptions_Persistent_Subscription_SensorProfil
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "sensor-profile"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/subscription/sensor-profiles/sensor-profile/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1093,6 +1124,7 @@ func (state *TelemetrySystem_Subscriptions_Persistent_Subscription_SensorProfile
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "sensor-profile"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/subscription/sensor-profiles/sensor-profile/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1144,6 +1176,7 @@ func (destinationGroups *TelemetrySystem_Subscriptions_Persistent_Subscription_D
     destinationGroups.EntityData.BundleName = "openconfig"
     destinationGroups.EntityData.ParentYangName = "subscription"
     destinationGroups.EntityData.SegmentPath = "destination-groups"
+    destinationGroups.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/subscription/" + destinationGroups.EntityData.SegmentPath
     destinationGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     destinationGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destinationGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1166,6 +1199,7 @@ func (destinationGroups *TelemetrySystem_Subscriptions_Persistent_Subscription_D
 type TelemetrySystem_Subscriptions_Persistent_Subscription_DestinationGroups_DestinationGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The destination group id references a configured
     // group of destinations for the telemetry stream. The type is string. Refers
@@ -1186,6 +1220,7 @@ func (destinationGroup *TelemetrySystem_Subscriptions_Persistent_Subscription_De
     destinationGroup.EntityData.BundleName = "openconfig"
     destinationGroup.EntityData.ParentYangName = "destination-groups"
     destinationGroup.EntityData.SegmentPath = "destination-group" + types.AddKeyToken(destinationGroup.GroupId, "group-id")
+    destinationGroup.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/subscription/destination-groups/" + destinationGroup.EntityData.SegmentPath
     destinationGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     destinationGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     destinationGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1220,6 +1255,7 @@ func (config *TelemetrySystem_Subscriptions_Persistent_Subscription_DestinationG
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "destination-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/subscription/destination-groups/destination-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1252,6 +1288,7 @@ func (state *TelemetrySystem_Subscriptions_Persistent_Subscription_DestinationGr
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "destination-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/persistent/subscription/destination-groups/destination-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1287,6 +1324,7 @@ func (dynamic *TelemetrySystem_Subscriptions_Dynamic) GetEntityData() *types.Com
     dynamic.EntityData.BundleName = "openconfig"
     dynamic.EntityData.ParentYangName = "subscriptions"
     dynamic.EntityData.SegmentPath = "dynamic"
+    dynamic.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/" + dynamic.EntityData.SegmentPath
     dynamic.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     dynamic.EntityData.NamespaceTable = openconfig.GetNamespaces()
     dynamic.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1310,6 +1348,7 @@ func (dynamic *TelemetrySystem_Subscriptions_Dynamic) GetEntityData() *types.Com
 type TelemetrySystem_Subscriptions_Dynamic_Subscription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the identifier of the subscription
     // itself. The id will be the handle to refer to the subscription once
@@ -1330,6 +1369,7 @@ func (subscription *TelemetrySystem_Subscriptions_Dynamic_Subscription) GetEntit
     subscription.EntityData.BundleName = "openconfig"
     subscription.EntityData.ParentYangName = "dynamic"
     subscription.EntityData.SegmentPath = "subscription" + types.AddKeyToken(subscription.SubscriptionId, "subscription-id")
+    subscription.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/dynamic/" + subscription.EntityData.SegmentPath
     subscription.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subscription.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1408,6 +1448,7 @@ func (state *TelemetrySystem_Subscriptions_Dynamic_Subscription_State) GetEntity
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subscription"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/dynamic/subscription/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1448,6 +1489,7 @@ func (sensorPaths *TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPath
     sensorPaths.EntityData.BundleName = "openconfig"
     sensorPaths.EntityData.ParentYangName = "subscription"
     sensorPaths.EntityData.SegmentPath = "sensor-paths"
+    sensorPaths.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/dynamic/subscription/" + sensorPaths.EntityData.SegmentPath
     sensorPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1471,6 +1513,7 @@ func (sensorPaths *TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPath
 type TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPaths_SensorPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the path of interest. The type is
     // string. Refers to
@@ -1487,6 +1530,7 @@ func (sensorPath *TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPaths
     sensorPath.EntityData.BundleName = "openconfig"
     sensorPath.EntityData.ParentYangName = "sensor-paths"
     sensorPath.EntityData.SegmentPath = "sensor-path" + types.AddKeyToken(sensorPath.Path, "path")
+    sensorPath.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/dynamic/subscription/sensor-paths/" + sensorPath.EntityData.SegmentPath
     sensorPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sensorPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sensorPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1523,6 +1567,7 @@ func (state *TelemetrySystem_Subscriptions_Dynamic_Subscription_SensorPaths_Sens
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "sensor-path"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-telemetry:telemetry-system/subscriptions/dynamic/subscription/sensor-paths/sensor-path/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

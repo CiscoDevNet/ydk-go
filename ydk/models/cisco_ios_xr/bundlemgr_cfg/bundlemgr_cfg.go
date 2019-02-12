@@ -208,6 +208,7 @@ func (lacp *Lacp) GetEntityData() *types.CommonEntityData {
     lacp.EntityData.BundleName = "cisco_ios_xr"
     lacp.EntityData.ParentYangName = "Cisco-IOS-XR-bundlemgr-cfg"
     lacp.EntityData.SegmentPath = "Cisco-IOS-XR-bundlemgr-cfg:lacp"
+    lacp.EntityData.AbsolutePath = lacp.EntityData.SegmentPath
     lacp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

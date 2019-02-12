@@ -90,6 +90,7 @@ func (dS3MIB *DS3MIB) GetEntityData() *types.CommonEntityData {
     dS3MIB.EntityData.BundleName = "cisco_ios_xe"
     dS3MIB.EntityData.ParentYangName = "DS3-MIB"
     dS3MIB.EntityData.SegmentPath = "DS3-MIB:DS3-MIB"
+    dS3MIB.EntityData.AbsolutePath = dS3MIB.EntityData.SegmentPath
     dS3MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dS3MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dS3MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -128,6 +129,7 @@ func (dsx3ConfigTable *DS3MIB_Dsx3ConfigTable) GetEntityData() *types.CommonEnti
     dsx3ConfigTable.EntityData.BundleName = "cisco_ios_xe"
     dsx3ConfigTable.EntityData.ParentYangName = "DS3-MIB"
     dsx3ConfigTable.EntityData.SegmentPath = "dsx3ConfigTable"
+    dsx3ConfigTable.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/" + dsx3ConfigTable.EntityData.SegmentPath
     dsx3ConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3ConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3ConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -149,6 +151,7 @@ func (dsx3ConfigTable *DS3MIB_Dsx3ConfigTable) GetEntityData() *types.CommonEnti
 type DS3MIB_Dsx3ConfigTable_Dsx3ConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object should be made equal to ifIndex.  The
     // next paragraph describes its previous usage. Making the object equal to
@@ -317,6 +320,7 @@ func (dsx3ConfigEntry *DS3MIB_Dsx3ConfigTable_Dsx3ConfigEntry) GetEntityData() *
     dsx3ConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     dsx3ConfigEntry.EntityData.ParentYangName = "dsx3ConfigTable"
     dsx3ConfigEntry.EntityData.SegmentPath = "dsx3ConfigEntry" + types.AddKeyToken(dsx3ConfigEntry.Dsx3LineIndex, "dsx3LineIndex")
+    dsx3ConfigEntry.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/dsx3ConfigTable/" + dsx3ConfigEntry.EntityData.SegmentPath
     dsx3ConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3ConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3ConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -463,6 +467,7 @@ func (dsx3CurrentTable *DS3MIB_Dsx3CurrentTable) GetEntityData() *types.CommonEn
     dsx3CurrentTable.EntityData.BundleName = "cisco_ios_xe"
     dsx3CurrentTable.EntityData.ParentYangName = "DS3-MIB"
     dsx3CurrentTable.EntityData.SegmentPath = "dsx3CurrentTable"
+    dsx3CurrentTable.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/" + dsx3CurrentTable.EntityData.SegmentPath
     dsx3CurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3CurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3CurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -484,6 +489,7 @@ func (dsx3CurrentTable *DS3MIB_Dsx3CurrentTable) GetEntityData() *types.CommonEn
 type DS3MIB_Dsx3CurrentTable_Dsx3CurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value which uniquely identifies the
     // DS3/E3 interface to which this entry is applicable.  The interface
@@ -539,6 +545,7 @@ func (dsx3CurrentEntry *DS3MIB_Dsx3CurrentTable_Dsx3CurrentEntry) GetEntityData(
     dsx3CurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     dsx3CurrentEntry.EntityData.ParentYangName = "dsx3CurrentTable"
     dsx3CurrentEntry.EntityData.SegmentPath = "dsx3CurrentEntry" + types.AddKeyToken(dsx3CurrentEntry.Dsx3CurrentIndex, "dsx3CurrentIndex")
+    dsx3CurrentEntry.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/dsx3CurrentTable/" + dsx3CurrentEntry.EntityData.SegmentPath
     dsx3CurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3CurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3CurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -586,6 +593,7 @@ func (dsx3IntervalTable *DS3MIB_Dsx3IntervalTable) GetEntityData() *types.Common
     dsx3IntervalTable.EntityData.BundleName = "cisco_ios_xe"
     dsx3IntervalTable.EntityData.ParentYangName = "DS3-MIB"
     dsx3IntervalTable.EntityData.SegmentPath = "dsx3IntervalTable"
+    dsx3IntervalTable.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/" + dsx3IntervalTable.EntityData.SegmentPath
     dsx3IntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3IntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3IntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -607,6 +615,7 @@ func (dsx3IntervalTable *DS3MIB_Dsx3IntervalTable) GetEntityData() *types.Common
 type DS3MIB_Dsx3IntervalTable_Dsx3IntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value which uniquely identifies the
     // DS3/E3 interface to which this entry is applicable.  The interface
@@ -673,6 +682,7 @@ func (dsx3IntervalEntry *DS3MIB_Dsx3IntervalTable_Dsx3IntervalEntry) GetEntityDa
     dsx3IntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     dsx3IntervalEntry.EntityData.ParentYangName = "dsx3IntervalTable"
     dsx3IntervalEntry.EntityData.SegmentPath = "dsx3IntervalEntry" + types.AddKeyToken(dsx3IntervalEntry.Dsx3IntervalIndex, "dsx3IntervalIndex") + types.AddKeyToken(dsx3IntervalEntry.Dsx3IntervalNumber, "dsx3IntervalNumber")
+    dsx3IntervalEntry.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/dsx3IntervalTable/" + dsx3IntervalEntry.EntityData.SegmentPath
     dsx3IntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3IntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3IntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -717,6 +727,7 @@ func (dsx3TotalTable *DS3MIB_Dsx3TotalTable) GetEntityData() *types.CommonEntity
     dsx3TotalTable.EntityData.BundleName = "cisco_ios_xe"
     dsx3TotalTable.EntityData.ParentYangName = "DS3-MIB"
     dsx3TotalTable.EntityData.SegmentPath = "dsx3TotalTable"
+    dsx3TotalTable.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/" + dsx3TotalTable.EntityData.SegmentPath
     dsx3TotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3TotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3TotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -738,6 +749,7 @@ func (dsx3TotalTable *DS3MIB_Dsx3TotalTable) GetEntityData() *types.CommonEntity
 type DS3MIB_Dsx3TotalTable_Dsx3TotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value which uniquely identifies the
     // DS3/E3 interface to which this entry is applicable.  The interface
@@ -809,6 +821,7 @@ func (dsx3TotalEntry *DS3MIB_Dsx3TotalTable_Dsx3TotalEntry) GetEntityData() *typ
     dsx3TotalEntry.EntityData.BundleName = "cisco_ios_xe"
     dsx3TotalEntry.EntityData.ParentYangName = "dsx3TotalTable"
     dsx3TotalEntry.EntityData.SegmentPath = "dsx3TotalEntry" + types.AddKeyToken(dsx3TotalEntry.Dsx3TotalIndex, "dsx3TotalIndex")
+    dsx3TotalEntry.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/dsx3TotalTable/" + dsx3TotalEntry.EntityData.SegmentPath
     dsx3TotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3TotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3TotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -851,6 +864,7 @@ func (dsx3FarEndConfigTable *DS3MIB_Dsx3FarEndConfigTable) GetEntityData() *type
     dsx3FarEndConfigTable.EntityData.BundleName = "cisco_ios_xe"
     dsx3FarEndConfigTable.EntityData.ParentYangName = "DS3-MIB"
     dsx3FarEndConfigTable.EntityData.SegmentPath = "dsx3FarEndConfigTable"
+    dsx3FarEndConfigTable.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/" + dsx3FarEndConfigTable.EntityData.SegmentPath
     dsx3FarEndConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3FarEndConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3FarEndConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -872,6 +886,7 @@ func (dsx3FarEndConfigTable *DS3MIB_Dsx3FarEndConfigTable) GetEntityData() *type
 type DS3MIB_Dsx3FarEndConfigTable_Dsx3FarEndConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value which uniquely identifies the DS3
     // interface to which this entry is applicable.  The interface identified by a
@@ -912,6 +927,7 @@ func (dsx3FarEndConfigEntry *DS3MIB_Dsx3FarEndConfigTable_Dsx3FarEndConfigEntry)
     dsx3FarEndConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     dsx3FarEndConfigEntry.EntityData.ParentYangName = "dsx3FarEndConfigTable"
     dsx3FarEndConfigEntry.EntityData.SegmentPath = "dsx3FarEndConfigEntry" + types.AddKeyToken(dsx3FarEndConfigEntry.Dsx3FarEndLineIndex, "dsx3FarEndLineIndex")
+    dsx3FarEndConfigEntry.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/dsx3FarEndConfigTable/" + dsx3FarEndConfigEntry.EntityData.SegmentPath
     dsx3FarEndConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3FarEndConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3FarEndConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -951,6 +967,7 @@ func (dsx3FarEndCurrentTable *DS3MIB_Dsx3FarEndCurrentTable) GetEntityData() *ty
     dsx3FarEndCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     dsx3FarEndCurrentTable.EntityData.ParentYangName = "DS3-MIB"
     dsx3FarEndCurrentTable.EntityData.SegmentPath = "dsx3FarEndCurrentTable"
+    dsx3FarEndCurrentTable.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/" + dsx3FarEndCurrentTable.EntityData.SegmentPath
     dsx3FarEndCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3FarEndCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3FarEndCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -972,6 +989,7 @@ func (dsx3FarEndCurrentTable *DS3MIB_Dsx3FarEndCurrentTable) GetEntityData() *ty
 type DS3MIB_Dsx3FarEndCurrentTable_Dsx3FarEndCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value which uniquely identifies the DS3
     // interface to which this entry is applicable.  The interface identified by a
@@ -1024,6 +1042,7 @@ func (dsx3FarEndCurrentEntry *DS3MIB_Dsx3FarEndCurrentTable_Dsx3FarEndCurrentEnt
     dsx3FarEndCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     dsx3FarEndCurrentEntry.EntityData.ParentYangName = "dsx3FarEndCurrentTable"
     dsx3FarEndCurrentEntry.EntityData.SegmentPath = "dsx3FarEndCurrentEntry" + types.AddKeyToken(dsx3FarEndCurrentEntry.Dsx3FarEndCurrentIndex, "dsx3FarEndCurrentIndex")
+    dsx3FarEndCurrentEntry.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/dsx3FarEndCurrentTable/" + dsx3FarEndCurrentEntry.EntityData.SegmentPath
     dsx3FarEndCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3FarEndCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3FarEndCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1065,6 +1084,7 @@ func (dsx3FarEndIntervalTable *DS3MIB_Dsx3FarEndIntervalTable) GetEntityData() *
     dsx3FarEndIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     dsx3FarEndIntervalTable.EntityData.ParentYangName = "DS3-MIB"
     dsx3FarEndIntervalTable.EntityData.SegmentPath = "dsx3FarEndIntervalTable"
+    dsx3FarEndIntervalTable.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/" + dsx3FarEndIntervalTable.EntityData.SegmentPath
     dsx3FarEndIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3FarEndIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3FarEndIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1086,6 +1106,7 @@ func (dsx3FarEndIntervalTable *DS3MIB_Dsx3FarEndIntervalTable) GetEntityData() *
 type DS3MIB_Dsx3FarEndIntervalTable_Dsx3FarEndIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value which uniquely identifies the DS3
     // interface to which this entry is applicable.  The interface identified by a
@@ -1131,6 +1152,7 @@ func (dsx3FarEndIntervalEntry *DS3MIB_Dsx3FarEndIntervalTable_Dsx3FarEndInterval
     dsx3FarEndIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     dsx3FarEndIntervalEntry.EntityData.ParentYangName = "dsx3FarEndIntervalTable"
     dsx3FarEndIntervalEntry.EntityData.SegmentPath = "dsx3FarEndIntervalEntry" + types.AddKeyToken(dsx3FarEndIntervalEntry.Dsx3FarEndIntervalIndex, "dsx3FarEndIntervalIndex") + types.AddKeyToken(dsx3FarEndIntervalEntry.Dsx3FarEndIntervalNumber, "dsx3FarEndIntervalNumber")
+    dsx3FarEndIntervalEntry.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/dsx3FarEndIntervalTable/" + dsx3FarEndIntervalEntry.EntityData.SegmentPath
     dsx3FarEndIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3FarEndIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3FarEndIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1169,6 +1191,7 @@ func (dsx3FarEndTotalTable *DS3MIB_Dsx3FarEndTotalTable) GetEntityData() *types.
     dsx3FarEndTotalTable.EntityData.BundleName = "cisco_ios_xe"
     dsx3FarEndTotalTable.EntityData.ParentYangName = "DS3-MIB"
     dsx3FarEndTotalTable.EntityData.SegmentPath = "dsx3FarEndTotalTable"
+    dsx3FarEndTotalTable.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/" + dsx3FarEndTotalTable.EntityData.SegmentPath
     dsx3FarEndTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3FarEndTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3FarEndTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1190,6 +1213,7 @@ func (dsx3FarEndTotalTable *DS3MIB_Dsx3FarEndTotalTable) GetEntityData() *types.
 type DS3MIB_Dsx3FarEndTotalTable_Dsx3FarEndTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value which uniquely identifies the DS3
     // interface to which this entry is applicable.  The interface identified by a
@@ -1229,6 +1253,7 @@ func (dsx3FarEndTotalEntry *DS3MIB_Dsx3FarEndTotalTable_Dsx3FarEndTotalEntry) Ge
     dsx3FarEndTotalEntry.EntityData.BundleName = "cisco_ios_xe"
     dsx3FarEndTotalEntry.EntityData.ParentYangName = "dsx3FarEndTotalTable"
     dsx3FarEndTotalEntry.EntityData.SegmentPath = "dsx3FarEndTotalEntry" + types.AddKeyToken(dsx3FarEndTotalEntry.Dsx3FarEndTotalIndex, "dsx3FarEndTotalIndex")
+    dsx3FarEndTotalEntry.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/dsx3FarEndTotalTable/" + dsx3FarEndTotalEntry.EntityData.SegmentPath
     dsx3FarEndTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3FarEndTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3FarEndTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1303,6 +1328,7 @@ func (dsx3FracTable *DS3MIB_Dsx3FracTable) GetEntityData() *types.CommonEntityDa
     dsx3FracTable.EntityData.BundleName = "cisco_ios_xe"
     dsx3FracTable.EntityData.ParentYangName = "DS3-MIB"
     dsx3FracTable.EntityData.SegmentPath = "dsx3FracTable"
+    dsx3FracTable.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/" + dsx3FracTable.EntityData.SegmentPath
     dsx3FracTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3FracTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3FracTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1324,6 +1350,7 @@ func (dsx3FracTable *DS3MIB_Dsx3FracTable) GetEntityData() *types.CommonEntityDa
 type DS3MIB_Dsx3FracTable_Dsx3FracEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value which uniquely identifies  the DS3
     // interface  to which this entry is applicable The interface identified by a 
@@ -1351,6 +1378,7 @@ func (dsx3FracEntry *DS3MIB_Dsx3FracTable_Dsx3FracEntry) GetEntityData() *types.
     dsx3FracEntry.EntityData.BundleName = "cisco_ios_xe"
     dsx3FracEntry.EntityData.ParentYangName = "dsx3FracTable"
     dsx3FracEntry.EntityData.SegmentPath = "dsx3FracEntry" + types.AddKeyToken(dsx3FracEntry.Dsx3FracIndex, "dsx3FracIndex") + types.AddKeyToken(dsx3FracEntry.Dsx3FracNumber, "dsx3FracNumber")
+    dsx3FracEntry.EntityData.AbsolutePath = "DS3-MIB:DS3-MIB/dsx3FracTable/" + dsx3FracEntry.EntityData.SegmentPath
     dsx3FracEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsx3FracEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsx3FracEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

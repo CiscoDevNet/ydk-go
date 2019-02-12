@@ -93,6 +93,7 @@ func (cdpNeighborDetails *CdpNeighborDetails) GetEntityData() *types.CommonEntit
     cdpNeighborDetails.EntityData.BundleName = "cisco_ios_xe"
     cdpNeighborDetails.EntityData.ParentYangName = "Cisco-IOS-XE-cdp-oper"
     cdpNeighborDetails.EntityData.SegmentPath = "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details"
+    cdpNeighborDetails.EntityData.AbsolutePath = cdpNeighborDetails.EntityData.SegmentPath
     cdpNeighborDetails.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpNeighborDetails.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpNeighborDetails.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -114,6 +115,7 @@ func (cdpNeighborDetails *CdpNeighborDetails) GetEntityData() *types.CommonEntit
 type CdpNeighborDetails_CdpNeighborDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Device number of this device, Used as a key in the
     // device list. The type is interface{} with range: 0..4294967295.
@@ -249,6 +251,7 @@ func (cdpNeighborDetail *CdpNeighborDetails_CdpNeighborDetail) GetEntityData() *
     cdpNeighborDetail.EntityData.BundleName = "cisco_ios_xe"
     cdpNeighborDetail.EntityData.ParentYangName = "cdp-neighbor-details"
     cdpNeighborDetail.EntityData.SegmentPath = "cdp-neighbor-detail" + types.AddKeyToken(cdpNeighborDetail.DeviceId, "device-id")
+    cdpNeighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details/" + cdpNeighborDetail.EntityData.SegmentPath
     cdpNeighborDetail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpNeighborDetail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpNeighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -315,6 +318,7 @@ func (helloMessage *CdpNeighborDetails_CdpNeighborDetail_HelloMessage) GetEntity
     helloMessage.EntityData.BundleName = "cisco_ios_xe"
     helloMessage.EntityData.ParentYangName = "cdp-neighbor-detail"
     helloMessage.EntityData.SegmentPath = "hello-message"
+    helloMessage.EntityData.AbsolutePath = "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details/cdp-neighbor-detail/" + helloMessage.EntityData.SegmentPath
     helloMessage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     helloMessage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     helloMessage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -361,6 +365,7 @@ func (powerRequest *CdpNeighborDetails_CdpNeighborDetail_PowerRequest) GetEntity
     powerRequest.EntityData.BundleName = "cisco_ios_xe"
     powerRequest.EntityData.ParentYangName = "cdp-neighbor-detail"
     powerRequest.EntityData.SegmentPath = "power-request"
+    powerRequest.EntityData.AbsolutePath = "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details/cdp-neighbor-detail/" + powerRequest.EntityData.SegmentPath
     powerRequest.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     powerRequest.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     powerRequest.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -411,6 +416,7 @@ func (powerAvailable *CdpNeighborDetails_CdpNeighborDetail_PowerAvailable) GetEn
     powerAvailable.EntityData.BundleName = "cisco_ios_xe"
     powerAvailable.EntityData.ParentYangName = "cdp-neighbor-detail"
     powerAvailable.EntityData.SegmentPath = "power-available"
+    powerAvailable.EntityData.AbsolutePath = "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details/cdp-neighbor-detail/" + powerAvailable.EntityData.SegmentPath
     powerAvailable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     powerAvailable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     powerAvailable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -464,6 +470,7 @@ func (sparePair *CdpNeighborDetails_CdpNeighborDetail_SparePair) GetEntityData()
     sparePair.EntityData.BundleName = "cisco_ios_xe"
     sparePair.EntityData.ParentYangName = "cdp-neighbor-detail"
     sparePair.EntityData.SegmentPath = "spare-pair"
+    sparePair.EntityData.AbsolutePath = "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details/cdp-neighbor-detail/" + sparePair.EntityData.SegmentPath
     sparePair.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sparePair.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sparePair.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

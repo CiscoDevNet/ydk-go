@@ -137,6 +137,7 @@ func (cISCOCABLESPECTRUMMIB *CISCOCABLESPECTRUMMIB) GetEntityData() *types.Commo
     cISCOCABLESPECTRUMMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOCABLESPECTRUMMIB.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     cISCOCABLESPECTRUMMIB.EntityData.SegmentPath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB"
+    cISCOCABLESPECTRUMMIB.EntityData.AbsolutePath = cISCOCABLESPECTRUMMIB.EntityData.SegmentPath
     cISCOCABLESPECTRUMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOCABLESPECTRUMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCABLESPECTRUMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -239,6 +240,7 @@ func (ccsFlapObjects *CISCOCABLESPECTRUMMIB_CcsFlapObjects) GetEntityData() *typ
     ccsFlapObjects.EntityData.BundleName = "cisco_ios_xe"
     ccsFlapObjects.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     ccsFlapObjects.EntityData.SegmentPath = "ccsFlapObjects"
+    ccsFlapObjects.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/" + ccsFlapObjects.EntityData.SegmentPath
     ccsFlapObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsFlapObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsFlapObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -281,6 +283,7 @@ func (ccsFlapTable *CISCOCABLESPECTRUMMIB_CcsFlapTable) GetEntityData() *types.C
     ccsFlapTable.EntityData.BundleName = "cisco_ios_xe"
     ccsFlapTable.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     ccsFlapTable.EntityData.SegmentPath = "ccsFlapTable"
+    ccsFlapTable.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/" + ccsFlapTable.EntityData.SegmentPath
     ccsFlapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsFlapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsFlapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -304,6 +307,7 @@ func (ccsFlapTable *CISCOCABLESPECTRUMMIB_CcsFlapTable) GetEntityData() *types.C
 type CISCOCABLESPECTRUMMIB_CcsFlapTable_CcsFlapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MAC address of the Cable Modem's Cable interface
     // which identifies a flap-list entry for a flapping  Cable Modem. The type is
@@ -558,6 +562,7 @@ func (ccsFlapEntry *CISCOCABLESPECTRUMMIB_CcsFlapTable_CcsFlapEntry) GetEntityDa
     ccsFlapEntry.EntityData.BundleName = "cisco_ios_xe"
     ccsFlapEntry.EntityData.ParentYangName = "ccsFlapTable"
     ccsFlapEntry.EntityData.SegmentPath = "ccsFlapEntry" + types.AddKeyToken(ccsFlapEntry.CcsFlapMacAddr, "ccsFlapMacAddr")
+    ccsFlapEntry.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/ccsFlapTable/" + ccsFlapEntry.EntityData.SegmentPath
     ccsFlapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsFlapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsFlapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -614,6 +619,7 @@ func (ccsCmFlapTable *CISCOCABLESPECTRUMMIB_CcsCmFlapTable) GetEntityData() *typ
     ccsCmFlapTable.EntityData.BundleName = "cisco_ios_xe"
     ccsCmFlapTable.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     ccsCmFlapTable.EntityData.SegmentPath = "ccsCmFlapTable"
+    ccsCmFlapTable.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/" + ccsCmFlapTable.EntityData.SegmentPath
     ccsCmFlapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsCmFlapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsCmFlapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -637,6 +643,7 @@ func (ccsCmFlapTable *CISCOCABLESPECTRUMMIB_CcsCmFlapTable) GetEntityData() *typ
 type CISCOCABLESPECTRUMMIB_CcsCmFlapTable_CcsCmFlapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex of the Cable downstream interface
     // whose ifType is docsCableDownstream(128). The type is interface{} with
@@ -792,6 +799,7 @@ func (ccsCmFlapEntry *CISCOCABLESPECTRUMMIB_CcsCmFlapTable_CcsCmFlapEntry) GetEn
     ccsCmFlapEntry.EntityData.BundleName = "cisco_ios_xe"
     ccsCmFlapEntry.EntityData.ParentYangName = "ccsCmFlapTable"
     ccsCmFlapEntry.EntityData.SegmentPath = "ccsCmFlapEntry" + types.AddKeyToken(ccsCmFlapEntry.CcsCmFlapDownstreamIfIndex, "ccsCmFlapDownstreamIfIndex") + types.AddKeyToken(ccsCmFlapEntry.CcsCmFlapUpstreamIfIndex, "ccsCmFlapUpstreamIfIndex") + types.AddKeyToken(ccsCmFlapEntry.CcsCmFlapMacAddr, "ccsCmFlapMacAddr")
+    ccsCmFlapEntry.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/ccsCmFlapTable/" + ccsCmFlapEntry.EntityData.SegmentPath
     ccsCmFlapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsCmFlapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsCmFlapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -844,6 +852,7 @@ func (ccsSpectrumRequestTable *CISCOCABLESPECTRUMMIB_CcsSpectrumRequestTable) Ge
     ccsSpectrumRequestTable.EntityData.BundleName = "cisco_ios_xe"
     ccsSpectrumRequestTable.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     ccsSpectrumRequestTable.EntityData.SegmentPath = "ccsSpectrumRequestTable"
+    ccsSpectrumRequestTable.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/" + ccsSpectrumRequestTable.EntityData.SegmentPath
     ccsSpectrumRequestTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsSpectrumRequestTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsSpectrumRequestTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -872,6 +881,7 @@ func (ccsSpectrumRequestTable *CISCOCABLESPECTRUMMIB_CcsSpectrumRequestTable) Ge
 type CISCOCABLESPECTRUMMIB_CcsSpectrumRequestTable_CcsSpectrumRequestEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary integer to uniquely identify the
     // entry. The type is interface{} with range: 1..100.
@@ -955,6 +965,7 @@ func (ccsSpectrumRequestEntry *CISCOCABLESPECTRUMMIB_CcsSpectrumRequestTable_Ccs
     ccsSpectrumRequestEntry.EntityData.BundleName = "cisco_ios_xe"
     ccsSpectrumRequestEntry.EntityData.ParentYangName = "ccsSpectrumRequestTable"
     ccsSpectrumRequestEntry.EntityData.SegmentPath = "ccsSpectrumRequestEntry" + types.AddKeyToken(ccsSpectrumRequestEntry.CcsSpectrumRequestIndex, "ccsSpectrumRequestIndex")
+    ccsSpectrumRequestEntry.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/ccsSpectrumRequestTable/" + ccsSpectrumRequestEntry.EntityData.SegmentPath
     ccsSpectrumRequestEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsSpectrumRequestEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsSpectrumRequestEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -998,6 +1009,7 @@ func (ccsSpectrumDataTable *CISCOCABLESPECTRUMMIB_CcsSpectrumDataTable) GetEntit
     ccsSpectrumDataTable.EntityData.BundleName = "cisco_ios_xe"
     ccsSpectrumDataTable.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     ccsSpectrumDataTable.EntityData.SegmentPath = "ccsSpectrumDataTable"
+    ccsSpectrumDataTable.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/" + ccsSpectrumDataTable.EntityData.SegmentPath
     ccsSpectrumDataTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsSpectrumDataTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsSpectrumDataTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1021,6 +1033,7 @@ func (ccsSpectrumDataTable *CISCOCABLESPECTRUMMIB_CcsSpectrumDataTable) GetEntit
 type CISCOCABLESPECTRUMMIB_CcsSpectrumDataTable_CcsSpectrumDataEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..100. Refers to
     // cisco_cable_spectrum_mib.CISCOCABLESPECTRUMMIB_CcsSpectrumRequestTable_CcsSpectrumRequestEntry_CcsSpectrumRequestIndex
@@ -1044,6 +1057,7 @@ func (ccsSpectrumDataEntry *CISCOCABLESPECTRUMMIB_CcsSpectrumDataTable_CcsSpectr
     ccsSpectrumDataEntry.EntityData.BundleName = "cisco_ios_xe"
     ccsSpectrumDataEntry.EntityData.ParentYangName = "ccsSpectrumDataTable"
     ccsSpectrumDataEntry.EntityData.SegmentPath = "ccsSpectrumDataEntry" + types.AddKeyToken(ccsSpectrumDataEntry.CcsSpectrumRequestIndex, "ccsSpectrumRequestIndex") + types.AddKeyToken(ccsSpectrumDataEntry.CcsSpectrumDataFreq, "ccsSpectrumDataFreq")
+    ccsSpectrumDataEntry.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/ccsSpectrumDataTable/" + ccsSpectrumDataEntry.EntityData.SegmentPath
     ccsSpectrumDataEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsSpectrumDataEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsSpectrumDataEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1078,6 +1092,7 @@ func (ccsSNRRequestTable *CISCOCABLESPECTRUMMIB_CcsSNRRequestTable) GetEntityDat
     ccsSNRRequestTable.EntityData.BundleName = "cisco_ios_xe"
     ccsSNRRequestTable.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     ccsSNRRequestTable.EntityData.SegmentPath = "ccsSNRRequestTable"
+    ccsSNRRequestTable.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/" + ccsSNRRequestTable.EntityData.SegmentPath
     ccsSNRRequestTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsSNRRequestTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsSNRRequestTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1101,6 +1116,7 @@ func (ccsSNRRequestTable *CISCOCABLESPECTRUMMIB_CcsSNRRequestTable) GetEntityDat
 type CISCOCABLESPECTRUMMIB_CcsSNRRequestTable_CcsSNRRequestEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary integer to uniquely identify this
     // entry. The type is interface{} with range: 1..100.
@@ -1152,6 +1168,7 @@ func (ccsSNRRequestEntry *CISCOCABLESPECTRUMMIB_CcsSNRRequestTable_CcsSNRRequest
     ccsSNRRequestEntry.EntityData.BundleName = "cisco_ios_xe"
     ccsSNRRequestEntry.EntityData.ParentYangName = "ccsSNRRequestTable"
     ccsSNRRequestEntry.EntityData.SegmentPath = "ccsSNRRequestEntry" + types.AddKeyToken(ccsSNRRequestEntry.CcsSNRRequestIndex, "ccsSNRRequestIndex")
+    ccsSNRRequestEntry.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/ccsSNRRequestTable/" + ccsSNRRequestEntry.EntityData.SegmentPath
     ccsSNRRequestEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsSNRRequestEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsSNRRequestEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1193,6 +1210,7 @@ func (ccsUpInSpecGroupTable *CISCOCABLESPECTRUMMIB_CcsUpInSpecGroupTable) GetEnt
     ccsUpInSpecGroupTable.EntityData.BundleName = "cisco_ios_xe"
     ccsUpInSpecGroupTable.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     ccsUpInSpecGroupTable.EntityData.SegmentPath = "ccsUpInSpecGroupTable"
+    ccsUpInSpecGroupTable.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/" + ccsUpInSpecGroupTable.EntityData.SegmentPath
     ccsUpInSpecGroupTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsUpInSpecGroupTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsUpInSpecGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1215,6 +1233,7 @@ func (ccsUpInSpecGroupTable *CISCOCABLESPECTRUMMIB_CcsUpInSpecGroupTable) GetEnt
 type CISCOCABLESPECTRUMMIB_CcsUpInSpecGroupTable_CcsUpInSpecGroupEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The spectrum group number. The value of the object
     // is same as the value of ccsUpSpecMgmtSpecGroup object except value 0. The
@@ -1241,6 +1260,7 @@ func (ccsUpInSpecGroupEntry *CISCOCABLESPECTRUMMIB_CcsUpInSpecGroupTable_CcsUpIn
     ccsUpInSpecGroupEntry.EntityData.BundleName = "cisco_ios_xe"
     ccsUpInSpecGroupEntry.EntityData.ParentYangName = "ccsUpInSpecGroupTable"
     ccsUpInSpecGroupEntry.EntityData.SegmentPath = "ccsUpInSpecGroupEntry" + types.AddKeyToken(ccsUpInSpecGroupEntry.CcsSpecGroupNumber, "ccsSpecGroupNumber") + types.AddKeyToken(ccsUpInSpecGroupEntry.CcsSpecGroupUpstreamIfIndex, "ccsSpecGroupUpstreamIfIndex")
+    ccsUpInSpecGroupEntry.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/ccsUpInSpecGroupTable/" + ccsUpInSpecGroupEntry.EntityData.SegmentPath
     ccsUpInSpecGroupEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsUpInSpecGroupEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsUpInSpecGroupEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1278,6 +1298,7 @@ func (ccsUpInFiberNodeTable *CISCOCABLESPECTRUMMIB_CcsUpInFiberNodeTable) GetEnt
     ccsUpInFiberNodeTable.EntityData.BundleName = "cisco_ios_xe"
     ccsUpInFiberNodeTable.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     ccsUpInFiberNodeTable.EntityData.SegmentPath = "ccsUpInFiberNodeTable"
+    ccsUpInFiberNodeTable.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/" + ccsUpInFiberNodeTable.EntityData.SegmentPath
     ccsUpInFiberNodeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsUpInFiberNodeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsUpInFiberNodeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1300,6 +1321,7 @@ func (ccsUpInFiberNodeTable *CISCOCABLESPECTRUMMIB_CcsUpInFiberNodeTable) GetEnt
 type CISCOCABLESPECTRUMMIB_CcsUpInFiberNodeTable_CcsUpInFiberNodeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The fiber-node number. The value of the object is
     // same as the value of ccsUpSpecMgmtSharedSpectrum except value 0. The type
@@ -1326,6 +1348,7 @@ func (ccsUpInFiberNodeEntry *CISCOCABLESPECTRUMMIB_CcsUpInFiberNodeTable_CcsUpIn
     ccsUpInFiberNodeEntry.EntityData.BundleName = "cisco_ios_xe"
     ccsUpInFiberNodeEntry.EntityData.ParentYangName = "ccsUpInFiberNodeTable"
     ccsUpInFiberNodeEntry.EntityData.SegmentPath = "ccsUpInFiberNodeEntry" + types.AddKeyToken(ccsUpInFiberNodeEntry.CcsFiberNodeNumber, "ccsFiberNodeNumber") + types.AddKeyToken(ccsUpInFiberNodeEntry.CcsFiberNodeUpstreamIfIndex, "ccsFiberNodeUpstreamIfIndex")
+    ccsUpInFiberNodeEntry.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/ccsUpInFiberNodeTable/" + ccsUpInFiberNodeEntry.EntityData.SegmentPath
     ccsUpInFiberNodeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsUpInFiberNodeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsUpInFiberNodeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1366,6 +1389,7 @@ func (ccsUpSpecMgmtTable *CISCOCABLESPECTRUMMIB_CcsUpSpecMgmtTable) GetEntityDat
     ccsUpSpecMgmtTable.EntityData.BundleName = "cisco_ios_xe"
     ccsUpSpecMgmtTable.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     ccsUpSpecMgmtTable.EntityData.SegmentPath = "ccsUpSpecMgmtTable"
+    ccsUpSpecMgmtTable.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/" + ccsUpSpecMgmtTable.EntityData.SegmentPath
     ccsUpSpecMgmtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsUpSpecMgmtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsUpSpecMgmtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1387,6 +1411,7 @@ func (ccsUpSpecMgmtTable *CISCOCABLESPECTRUMMIB_CcsUpSpecMgmtTable) GetEntityDat
 type CISCOCABLESPECTRUMMIB_CcsUpSpecMgmtTable_CcsUpSpecMgmtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1594,6 +1619,7 @@ func (ccsUpSpecMgmtEntry *CISCOCABLESPECTRUMMIB_CcsUpSpecMgmtTable_CcsUpSpecMgmt
     ccsUpSpecMgmtEntry.EntityData.BundleName = "cisco_ios_xe"
     ccsUpSpecMgmtEntry.EntityData.ParentYangName = "ccsUpSpecMgmtTable"
     ccsUpSpecMgmtEntry.EntityData.SegmentPath = "ccsUpSpecMgmtEntry" + types.AddKeyToken(ccsUpSpecMgmtEntry.IfIndex, "ifIndex")
+    ccsUpSpecMgmtEntry.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/ccsUpSpecMgmtTable/" + ccsUpSpecMgmtEntry.EntityData.SegmentPath
     ccsUpSpecMgmtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsUpSpecMgmtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsUpSpecMgmtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1679,6 +1705,7 @@ func (ccsSpecGroupFreqTable *CISCOCABLESPECTRUMMIB_CcsSpecGroupFreqTable) GetEnt
     ccsSpecGroupFreqTable.EntityData.BundleName = "cisco_ios_xe"
     ccsSpecGroupFreqTable.EntityData.ParentYangName = "CISCO-CABLE-SPECTRUM-MIB"
     ccsSpecGroupFreqTable.EntityData.SegmentPath = "ccsSpecGroupFreqTable"
+    ccsSpecGroupFreqTable.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/" + ccsSpecGroupFreqTable.EntityData.SegmentPath
     ccsSpecGroupFreqTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsSpecGroupFreqTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsSpecGroupFreqTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1702,6 +1729,7 @@ func (ccsSpecGroupFreqTable *CISCOCABLESPECTRUMMIB_CcsSpecGroupFreqTable) GetEnt
 type CISCOCABLESPECTRUMMIB_CcsSpecGroupFreqTable_CcsSpecGroupFreqEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1764,6 +1792,7 @@ func (ccsSpecGroupFreqEntry *CISCOCABLESPECTRUMMIB_CcsSpecGroupFreqTable_CcsSpec
     ccsSpecGroupFreqEntry.EntityData.BundleName = "cisco_ios_xe"
     ccsSpecGroupFreqEntry.EntityData.ParentYangName = "ccsSpecGroupFreqTable"
     ccsSpecGroupFreqEntry.EntityData.SegmentPath = "ccsSpecGroupFreqEntry" + types.AddKeyToken(ccsSpecGroupFreqEntry.CcsSpecGroupNumber, "ccsSpecGroupNumber") + types.AddKeyToken(ccsSpecGroupFreqEntry.CcsSpecGroupFreqIndex, "ccsSpecGroupFreqIndex")
+    ccsSpecGroupFreqEntry.EntityData.AbsolutePath = "CISCO-CABLE-SPECTRUM-MIB:CISCO-CABLE-SPECTRUM-MIB/ccsSpecGroupFreqTable/" + ccsSpecGroupFreqEntry.EntityData.SegmentPath
     ccsSpecGroupFreqEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccsSpecGroupFreqEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccsSpecGroupFreqEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

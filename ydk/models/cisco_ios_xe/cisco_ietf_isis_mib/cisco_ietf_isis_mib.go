@@ -179,6 +179,7 @@ func (cISCOIETFISISMIB *CISCOIETFISISMIB) GetEntityData() *types.CommonEntityDat
     cISCOIETFISISMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIETFISISMIB.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     cISCOIETFISISMIB.EntityData.SegmentPath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB"
+    cISCOIETFISISMIB.EntityData.AbsolutePath = cISCOIETFISISMIB.EntityData.SegmentPath
     cISCOIETFISISMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIETFISISMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFISISMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -284,6 +285,7 @@ func (ciiSysObject *CISCOIETFISISMIB_CiiSysObject) GetEntityData() *types.Common
     ciiSysObject.EntityData.BundleName = "cisco_ios_xe"
     ciiSysObject.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiSysObject.EntityData.SegmentPath = "ciiSysObject"
+    ciiSysObject.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiSysObject.EntityData.SegmentPath
     ciiSysObject.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiSysObject.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiSysObject.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -349,6 +351,7 @@ func (ciiCirc *CISCOIETFISISMIB_CiiCirc) GetEntityData() *types.CommonEntityData
     ciiCirc.EntityData.BundleName = "cisco_ios_xe"
     ciiCirc.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiCirc.EntityData.SegmentPath = "ciiCirc"
+    ciiCirc.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiCirc.EntityData.SegmentPath
     ciiCirc.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiCirc.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiCirc.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -381,6 +384,7 @@ func (ciiManAreaAddrTable *CISCOIETFISISMIB_CiiManAreaAddrTable) GetEntityData()
     ciiManAreaAddrTable.EntityData.BundleName = "cisco_ios_xe"
     ciiManAreaAddrTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiManAreaAddrTable.EntityData.SegmentPath = "ciiManAreaAddrTable"
+    ciiManAreaAddrTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiManAreaAddrTable.EntityData.SegmentPath
     ciiManAreaAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiManAreaAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiManAreaAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -403,6 +407,7 @@ func (ciiManAreaAddrTable *CISCOIETFISISMIB_CiiManAreaAddrTable) GetEntityData()
 type CISCOIETFISISMIB_CiiManAreaAddrTable_CiiManAreaAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A manually configured area address for this
     // system. This object follows the index behavior.  Note: an index for the
@@ -426,6 +431,7 @@ func (ciiManAreaAddrEntry *CISCOIETFISISMIB_CiiManAreaAddrTable_CiiManAreaAddrEn
     ciiManAreaAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiManAreaAddrEntry.EntityData.ParentYangName = "ciiManAreaAddrTable"
     ciiManAreaAddrEntry.EntityData.SegmentPath = "ciiManAreaAddrEntry" + types.AddKeyToken(ciiManAreaAddrEntry.CiiManAreaAddr, "ciiManAreaAddr")
+    ciiManAreaAddrEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiManAreaAddrTable/" + ciiManAreaAddrEntry.EntityData.SegmentPath
     ciiManAreaAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiManAreaAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiManAreaAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -461,6 +467,7 @@ func (ciiAreaAddrTable *CISCOIETFISISMIB_CiiAreaAddrTable) GetEntityData() *type
     ciiAreaAddrTable.EntityData.BundleName = "cisco_ios_xe"
     ciiAreaAddrTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiAreaAddrTable.EntityData.SegmentPath = "ciiAreaAddrTable"
+    ciiAreaAddrTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiAreaAddrTable.EntityData.SegmentPath
     ciiAreaAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiAreaAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiAreaAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -484,6 +491,7 @@ func (ciiAreaAddrTable *CISCOIETFISISMIB_CiiAreaAddrTable) GetEntityData() *type
 type CISCOIETFISISMIB_CiiAreaAddrTable_CiiAreaAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An area address reported in a Level 1 LSP. The
     // type is string with length: 0..20.
@@ -496,6 +504,7 @@ func (ciiAreaAddrEntry *CISCOIETFISISMIB_CiiAreaAddrTable_CiiAreaAddrEntry) GetE
     ciiAreaAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiAreaAddrEntry.EntityData.ParentYangName = "ciiAreaAddrTable"
     ciiAreaAddrEntry.EntityData.SegmentPath = "ciiAreaAddrEntry" + types.AddKeyToken(ciiAreaAddrEntry.CiiAreaAddr, "ciiAreaAddr")
+    ciiAreaAddrEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiAreaAddrTable/" + ciiAreaAddrEntry.EntityData.SegmentPath
     ciiAreaAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiAreaAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiAreaAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -527,6 +536,7 @@ func (ciiSysProtSuppTable *CISCOIETFISISMIB_CiiSysProtSuppTable) GetEntityData()
     ciiSysProtSuppTable.EntityData.BundleName = "cisco_ios_xe"
     ciiSysProtSuppTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiSysProtSuppTable.EntityData.SegmentPath = "ciiSysProtSuppTable"
+    ciiSysProtSuppTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiSysProtSuppTable.EntityData.SegmentPath
     ciiSysProtSuppTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiSysProtSuppTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiSysProtSuppTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -549,6 +559,7 @@ func (ciiSysProtSuppTable *CISCOIETFISISMIB_CiiSysProtSuppTable) GetEntityData()
 type CISCOIETFISISMIB_CiiSysProtSuppTable_CiiSysProtSuppEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. One supported protocol. This object follows the
     // index behavior. The type is CiiSupportedProtocol.
@@ -565,6 +576,7 @@ func (ciiSysProtSuppEntry *CISCOIETFISISMIB_CiiSysProtSuppTable_CiiSysProtSuppEn
     ciiSysProtSuppEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiSysProtSuppEntry.EntityData.ParentYangName = "ciiSysProtSuppTable"
     ciiSysProtSuppEntry.EntityData.SegmentPath = "ciiSysProtSuppEntry" + types.AddKeyToken(ciiSysProtSuppEntry.CiiSysProtSuppProtocol, "ciiSysProtSuppProtocol")
+    ciiSysProtSuppEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSysProtSuppTable/" + ciiSysProtSuppEntry.EntityData.SegmentPath
     ciiSysProtSuppEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiSysProtSuppEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiSysProtSuppEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -603,6 +615,7 @@ func (ciiSummAddrTable *CISCOIETFISISMIB_CiiSummAddrTable) GetEntityData() *type
     ciiSummAddrTable.EntityData.BundleName = "cisco_ios_xe"
     ciiSummAddrTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiSummAddrTable.EntityData.SegmentPath = "ciiSummAddrTable"
+    ciiSummAddrTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiSummAddrTable.EntityData.SegmentPath
     ciiSummAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiSummAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiSummAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -624,6 +637,7 @@ func (ciiSummAddrTable *CISCOIETFISISMIB_CiiSummAddrTable) GetEntityData() *type
 type CISCOIETFISISMIB_CiiSummAddrTable_CiiSummAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Type of IP address for this summary address.
     // This object follows the index behavior. The type is InetAddressType.
@@ -658,6 +672,7 @@ func (ciiSummAddrEntry *CISCOIETFISISMIB_CiiSummAddrTable_CiiSummAddrEntry) GetE
     ciiSummAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiSummAddrEntry.EntityData.ParentYangName = "ciiSummAddrTable"
     ciiSummAddrEntry.EntityData.SegmentPath = "ciiSummAddrEntry" + types.AddKeyToken(ciiSummAddrEntry.CiiSummAddressType, "ciiSummAddressType") + types.AddKeyToken(ciiSummAddrEntry.CiiSummAddress, "ciiSummAddress") + types.AddKeyToken(ciiSummAddrEntry.CiiSummAddrPrefixLen, "ciiSummAddrPrefixLen")
+    ciiSummAddrEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSummAddrTable/" + ciiSummAddrEntry.EntityData.SegmentPath
     ciiSummAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiSummAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiSummAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -702,6 +717,7 @@ func (ciiRedistributeAddrTable *CISCOIETFISISMIB_CiiRedistributeAddrTable) GetEn
     ciiRedistributeAddrTable.EntityData.BundleName = "cisco_ios_xe"
     ciiRedistributeAddrTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiRedistributeAddrTable.EntityData.SegmentPath = "ciiRedistributeAddrTable"
+    ciiRedistributeAddrTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiRedistributeAddrTable.EntityData.SegmentPath
     ciiRedistributeAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiRedistributeAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiRedistributeAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -724,6 +740,7 @@ func (ciiRedistributeAddrTable *CISCOIETFISISMIB_CiiRedistributeAddrTable) GetEn
 type CISCOIETFISISMIB_CiiRedistributeAddrTable_CiiRedistributeAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Type of IP address for this summary address.
     // This object follows the index behavior. The type is InetAddressType.
@@ -749,6 +766,7 @@ func (ciiRedistributeAddrEntry *CISCOIETFISISMIB_CiiRedistributeAddrTable_CiiRed
     ciiRedistributeAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiRedistributeAddrEntry.EntityData.ParentYangName = "ciiRedistributeAddrTable"
     ciiRedistributeAddrEntry.EntityData.SegmentPath = "ciiRedistributeAddrEntry" + types.AddKeyToken(ciiRedistributeAddrEntry.CiiRedistributeAddrType, "ciiRedistributeAddrType") + types.AddKeyToken(ciiRedistributeAddrEntry.CiiRedistributeAddrAddress, "ciiRedistributeAddrAddress") + types.AddKeyToken(ciiRedistributeAddrEntry.CiiRedistributeAddrPrefixLen, "ciiRedistributeAddrPrefixLen")
+    ciiRedistributeAddrEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRedistributeAddrTable/" + ciiRedistributeAddrEntry.EntityData.SegmentPath
     ciiRedistributeAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiRedistributeAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiRedistributeAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -782,6 +800,7 @@ func (ciiRouterTable *CISCOIETFISISMIB_CiiRouterTable) GetEntityData() *types.Co
     ciiRouterTable.EntityData.BundleName = "cisco_ios_xe"
     ciiRouterTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiRouterTable.EntityData.SegmentPath = "ciiRouterTable"
+    ciiRouterTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiRouterTable.EntityData.SegmentPath
     ciiRouterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiRouterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiRouterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -804,6 +823,7 @@ func (ciiRouterTable *CISCOIETFISISMIB_CiiRouterTable) GetEntityData() *types.Co
 type CISCOIETFISISMIB_CiiRouterTable_CiiRouterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The System ID of the Router Peer. The type is
     // string with length: 6.
@@ -828,6 +848,7 @@ func (ciiRouterEntry *CISCOIETFISISMIB_CiiRouterTable_CiiRouterEntry) GetEntityD
     ciiRouterEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiRouterEntry.EntityData.ParentYangName = "ciiRouterTable"
     ciiRouterEntry.EntityData.SegmentPath = "ciiRouterEntry" + types.AddKeyToken(ciiRouterEntry.CiiRouterSysID, "ciiRouterSysID") + types.AddKeyToken(ciiRouterEntry.CiiRouterLevel, "ciiRouterLevel")
+    ciiRouterEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRouterTable/" + ciiRouterEntry.EntityData.SegmentPath
     ciiRouterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiRouterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiRouterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -861,6 +882,7 @@ func (ciiSysLevelTable *CISCOIETFISISMIB_CiiSysLevelTable) GetEntityData() *type
     ciiSysLevelTable.EntityData.BundleName = "cisco_ios_xe"
     ciiSysLevelTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiSysLevelTable.EntityData.SegmentPath = "ciiSysLevelTable"
+    ciiSysLevelTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiSysLevelTable.EntityData.SegmentPath
     ciiSysLevelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiSysLevelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiSysLevelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -882,6 +904,7 @@ func (ciiSysLevelTable *CISCOIETFISISMIB_CiiSysLevelTable) GetEntityData() *type
 type CISCOIETFISISMIB_CiiSysLevelTable_CiiSysLevelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The level that this entry describes. The type is
     // CiiSysLevelIndex.
@@ -934,6 +957,7 @@ func (ciiSysLevelEntry *CISCOIETFISISMIB_CiiSysLevelTable_CiiSysLevelEntry) GetE
     ciiSysLevelEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiSysLevelEntry.EntityData.ParentYangName = "ciiSysLevelTable"
     ciiSysLevelEntry.EntityData.SegmentPath = "ciiSysLevelEntry" + types.AddKeyToken(ciiSysLevelEntry.CiiSysLevelIndex, "ciiSysLevelIndex")
+    ciiSysLevelEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSysLevelTable/" + ciiSysLevelEntry.EntityData.SegmentPath
     ciiSysLevelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiSysLevelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiSysLevelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -982,6 +1006,7 @@ func (ciiCircTable *CISCOIETFISISMIB_CiiCircTable) GetEntityData() *types.Common
     ciiCircTable.EntityData.BundleName = "cisco_ios_xe"
     ciiCircTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiCircTable.EntityData.SegmentPath = "ciiCircTable"
+    ciiCircTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiCircTable.EntityData.SegmentPath
     ciiCircTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiCircTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiCircTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1004,6 +1029,7 @@ func (ciiCircTable *CISCOIETFISISMIB_CiiCircTable) GetEntityData() *types.Common
 type CISCOIETFISISMIB_CiiCircTable_CiiCircEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier of this circuit, unique within the
     // Intermediate System.  This object follows the index behavior.  This is for
@@ -1091,6 +1117,7 @@ func (ciiCircEntry *CISCOIETFISISMIB_CiiCircTable_CiiCircEntry) GetEntityData() 
     ciiCircEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiCircEntry.EntityData.ParentYangName = "ciiCircTable"
     ciiCircEntry.EntityData.SegmentPath = "ciiCircEntry" + types.AddKeyToken(ciiCircEntry.CiiCircIndex, "ciiCircIndex")
+    ciiCircEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircTable/" + ciiCircEntry.EntityData.SegmentPath
     ciiCircEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiCircEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiCircEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1173,6 +1200,7 @@ func (ciiCircLevelTable *CISCOIETFISISMIB_CiiCircLevelTable) GetEntityData() *ty
     ciiCircLevelTable.EntityData.BundleName = "cisco_ios_xe"
     ciiCircLevelTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiCircLevelTable.EntityData.SegmentPath = "ciiCircLevelTable"
+    ciiCircLevelTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiCircLevelTable.EntityData.SegmentPath
     ciiCircLevelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiCircLevelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiCircLevelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1195,6 +1223,7 @@ func (ciiCircLevelTable *CISCOIETFISISMIB_CiiCircLevelTable) GetEntityData() *ty
 type CISCOIETFISISMIB_CiiCircLevelTable_CiiCircLevelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1288,6 +1317,7 @@ func (ciiCircLevelEntry *CISCOIETFISISMIB_CiiCircLevelTable_CiiCircLevelEntry) G
     ciiCircLevelEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiCircLevelEntry.EntityData.ParentYangName = "ciiCircLevelTable"
     ciiCircLevelEntry.EntityData.SegmentPath = "ciiCircLevelEntry" + types.AddKeyToken(ciiCircLevelEntry.CiiCircIndex, "ciiCircIndex") + types.AddKeyToken(ciiCircLevelEntry.CiiCircLevelIndex, "ciiCircLevelIndex")
+    ciiCircLevelEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircLevelTable/" + ciiCircLevelEntry.EntityData.SegmentPath
     ciiCircLevelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiCircLevelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiCircLevelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1341,6 +1371,7 @@ func (ciiSystemCounterTable *CISCOIETFISISMIB_CiiSystemCounterTable) GetEntityDa
     ciiSystemCounterTable.EntityData.BundleName = "cisco_ios_xe"
     ciiSystemCounterTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiSystemCounterTable.EntityData.SegmentPath = "ciiSystemCounterTable"
+    ciiSystemCounterTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiSystemCounterTable.EntityData.SegmentPath
     ciiSystemCounterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiSystemCounterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiSystemCounterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1362,6 +1393,7 @@ func (ciiSystemCounterTable *CISCOIETFISISMIB_CiiSystemCounterTable) GetEntityDa
 type CISCOIETFISISMIB_CiiSystemCounterTable_CiiSystemCounterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The level that this entry describes. The type is
     // CiiSysStatLevel.
@@ -1427,6 +1459,7 @@ func (ciiSystemCounterEntry *CISCOIETFISISMIB_CiiSystemCounterTable_CiiSystemCou
     ciiSystemCounterEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiSystemCounterEntry.EntityData.ParentYangName = "ciiSystemCounterTable"
     ciiSystemCounterEntry.EntityData.SegmentPath = "ciiSystemCounterEntry" + types.AddKeyToken(ciiSystemCounterEntry.CiiSysStatLevel, "ciiSysStatLevel")
+    ciiSystemCounterEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSystemCounterTable/" + ciiSystemCounterEntry.EntityData.SegmentPath
     ciiSystemCounterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiSystemCounterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiSystemCounterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1480,6 +1513,7 @@ func (ciiCircuitCounterTable *CISCOIETFISISMIB_CiiCircuitCounterTable) GetEntity
     ciiCircuitCounterTable.EntityData.BundleName = "cisco_ios_xe"
     ciiCircuitCounterTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiCircuitCounterTable.EntityData.SegmentPath = "ciiCircuitCounterTable"
+    ciiCircuitCounterTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiCircuitCounterTable.EntityData.SegmentPath
     ciiCircuitCounterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiCircuitCounterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiCircuitCounterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1502,6 +1536,7 @@ func (ciiCircuitCounterTable *CISCOIETFISISMIB_CiiCircuitCounterTable) GetEntity
 type CISCOIETFISISMIB_CiiCircuitCounterTable_CiiCircuitCounterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1563,6 +1598,7 @@ func (ciiCircuitCounterEntry *CISCOIETFISISMIB_CiiCircuitCounterTable_CiiCircuit
     ciiCircuitCounterEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiCircuitCounterEntry.EntityData.ParentYangName = "ciiCircuitCounterTable"
     ciiCircuitCounterEntry.EntityData.SegmentPath = "ciiCircuitCounterEntry" + types.AddKeyToken(ciiCircuitCounterEntry.CiiCircIndex, "ciiCircIndex") + types.AddKeyToken(ciiCircuitCounterEntry.CiiCircuitType, "ciiCircuitType")
+    ciiCircuitCounterEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircuitCounterTable/" + ciiCircuitCounterEntry.EntityData.SegmentPath
     ciiCircuitCounterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiCircuitCounterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiCircuitCounterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1616,6 +1652,7 @@ func (ciiPacketCounterTable *CISCOIETFISISMIB_CiiPacketCounterTable) GetEntityDa
     ciiPacketCounterTable.EntityData.BundleName = "cisco_ios_xe"
     ciiPacketCounterTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiPacketCounterTable.EntityData.SegmentPath = "ciiPacketCounterTable"
+    ciiPacketCounterTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiPacketCounterTable.EntityData.SegmentPath
     ciiPacketCounterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiPacketCounterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiPacketCounterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1638,6 +1675,7 @@ func (ciiPacketCounterTable *CISCOIETFISISMIB_CiiPacketCounterTable) GetEntityDa
 type CISCOIETFISISMIB_CiiPacketCounterTable_CiiPacketCounterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1693,6 +1731,7 @@ func (ciiPacketCounterEntry *CISCOIETFISISMIB_CiiPacketCounterTable_CiiPacketCou
     ciiPacketCounterEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiPacketCounterEntry.EntityData.ParentYangName = "ciiPacketCounterTable"
     ciiPacketCounterEntry.EntityData.SegmentPath = "ciiPacketCounterEntry" + types.AddKeyToken(ciiPacketCounterEntry.CiiCircIndex, "ciiCircIndex") + types.AddKeyToken(ciiPacketCounterEntry.CiiPacketCountLevel, "ciiPacketCountLevel") + types.AddKeyToken(ciiPacketCounterEntry.CiiPacketCountDirection, "ciiPacketCountDirection")
+    ciiPacketCounterEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiPacketCounterTable/" + ciiPacketCounterEntry.EntityData.SegmentPath
     ciiPacketCounterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiPacketCounterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiPacketCounterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1750,6 +1789,7 @@ func (ciiISAdjTable *CISCOIETFISISMIB_CiiISAdjTable) GetEntityData() *types.Comm
     ciiISAdjTable.EntityData.BundleName = "cisco_ios_xe"
     ciiISAdjTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiISAdjTable.EntityData.SegmentPath = "ciiISAdjTable"
+    ciiISAdjTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiISAdjTable.EntityData.SegmentPath
     ciiISAdjTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiISAdjTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiISAdjTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1772,6 +1812,7 @@ func (ciiISAdjTable *CISCOIETFISISMIB_CiiISAdjTable) GetEntityData() *types.Comm
 type CISCOIETFISISMIB_CiiISAdjTable_CiiISAdjEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1835,6 +1876,7 @@ func (ciiISAdjEntry *CISCOIETFISISMIB_CiiISAdjTable_CiiISAdjEntry) GetEntityData
     ciiISAdjEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiISAdjEntry.EntityData.ParentYangName = "ciiISAdjTable"
     ciiISAdjEntry.EntityData.SegmentPath = "ciiISAdjEntry" + types.AddKeyToken(ciiISAdjEntry.CiiCircIndex, "ciiCircIndex") + types.AddKeyToken(ciiISAdjEntry.CiiISAdjIndex, "ciiISAdjIndex")
+    ciiISAdjEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjTable/" + ciiISAdjEntry.EntityData.SegmentPath
     ciiISAdjEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiISAdjEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiISAdjEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1929,6 +1971,7 @@ func (ciiISAdjAreaAddrTable *CISCOIETFISISMIB_CiiISAdjAreaAddrTable) GetEntityDa
     ciiISAdjAreaAddrTable.EntityData.BundleName = "cisco_ios_xe"
     ciiISAdjAreaAddrTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiISAdjAreaAddrTable.EntityData.SegmentPath = "ciiISAdjAreaAddrTable"
+    ciiISAdjAreaAddrTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiISAdjAreaAddrTable.EntityData.SegmentPath
     ciiISAdjAreaAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiISAdjAreaAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiISAdjAreaAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1951,6 +1994,7 @@ func (ciiISAdjAreaAddrTable *CISCOIETFISISMIB_CiiISAdjAreaAddrTable) GetEntityDa
 type CISCOIETFISISMIB_CiiISAdjAreaAddrTable_CiiISAdjAreaAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1978,6 +2022,7 @@ func (ciiISAdjAreaAddrEntry *CISCOIETFISISMIB_CiiISAdjAreaAddrTable_CiiISAdjArea
     ciiISAdjAreaAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiISAdjAreaAddrEntry.EntityData.ParentYangName = "ciiISAdjAreaAddrTable"
     ciiISAdjAreaAddrEntry.EntityData.SegmentPath = "ciiISAdjAreaAddrEntry" + types.AddKeyToken(ciiISAdjAreaAddrEntry.CiiCircIndex, "ciiCircIndex") + types.AddKeyToken(ciiISAdjAreaAddrEntry.CiiISAdjIndex, "ciiISAdjIndex") + types.AddKeyToken(ciiISAdjAreaAddrEntry.CiiISAdjAreaAddrIndex, "ciiISAdjAreaAddrIndex")
+    ciiISAdjAreaAddrEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjAreaAddrTable/" + ciiISAdjAreaAddrEntry.EntityData.SegmentPath
     ciiISAdjAreaAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiISAdjAreaAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiISAdjAreaAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2014,6 +2059,7 @@ func (ciiISAdjIPAddrTable *CISCOIETFISISMIB_CiiISAdjIPAddrTable) GetEntityData()
     ciiISAdjIPAddrTable.EntityData.BundleName = "cisco_ios_xe"
     ciiISAdjIPAddrTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiISAdjIPAddrTable.EntityData.SegmentPath = "ciiISAdjIPAddrTable"
+    ciiISAdjIPAddrTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiISAdjIPAddrTable.EntityData.SegmentPath
     ciiISAdjIPAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiISAdjIPAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiISAdjIPAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2036,6 +2082,7 @@ func (ciiISAdjIPAddrTable *CISCOIETFISISMIB_CiiISAdjIPAddrTable) GetEntityData()
 type CISCOIETFISISMIB_CiiISAdjIPAddrTable_CiiISAdjIPAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2067,6 +2114,7 @@ func (ciiISAdjIPAddrEntry *CISCOIETFISISMIB_CiiISAdjIPAddrTable_CiiISAdjIPAddrEn
     ciiISAdjIPAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiISAdjIPAddrEntry.EntityData.ParentYangName = "ciiISAdjIPAddrTable"
     ciiISAdjIPAddrEntry.EntityData.SegmentPath = "ciiISAdjIPAddrEntry" + types.AddKeyToken(ciiISAdjIPAddrEntry.CiiCircIndex, "ciiCircIndex") + types.AddKeyToken(ciiISAdjIPAddrEntry.CiiISAdjIndex, "ciiISAdjIndex") + types.AddKeyToken(ciiISAdjIPAddrEntry.CiiISAdjIPAddrIndex, "ciiISAdjIPAddrIndex")
+    ciiISAdjIPAddrEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjIPAddrTable/" + ciiISAdjIPAddrEntry.EntityData.SegmentPath
     ciiISAdjIPAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiISAdjIPAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiISAdjIPAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2104,6 +2152,7 @@ func (ciiISAdjProtSuppTable *CISCOIETFISISMIB_CiiISAdjProtSuppTable) GetEntityDa
     ciiISAdjProtSuppTable.EntityData.BundleName = "cisco_ios_xe"
     ciiISAdjProtSuppTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiISAdjProtSuppTable.EntityData.SegmentPath = "ciiISAdjProtSuppTable"
+    ciiISAdjProtSuppTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiISAdjProtSuppTable.EntityData.SegmentPath
     ciiISAdjProtSuppTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiISAdjProtSuppTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiISAdjProtSuppTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2127,6 +2176,7 @@ func (ciiISAdjProtSuppTable *CISCOIETFISISMIB_CiiISAdjProtSuppTable) GetEntityDa
 type CISCOIETFISISMIB_CiiISAdjProtSuppTable_CiiISAdjProtSuppEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2149,6 +2199,7 @@ func (ciiISAdjProtSuppEntry *CISCOIETFISISMIB_CiiISAdjProtSuppTable_CiiISAdjProt
     ciiISAdjProtSuppEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiISAdjProtSuppEntry.EntityData.ParentYangName = "ciiISAdjProtSuppTable"
     ciiISAdjProtSuppEntry.EntityData.SegmentPath = "ciiISAdjProtSuppEntry" + types.AddKeyToken(ciiISAdjProtSuppEntry.CiiCircIndex, "ciiCircIndex") + types.AddKeyToken(ciiISAdjProtSuppEntry.CiiISAdjIndex, "ciiISAdjIndex") + types.AddKeyToken(ciiISAdjProtSuppEntry.CiiISAdjProtSuppProtocol, "ciiISAdjProtSuppProtocol")
+    ciiISAdjProtSuppEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjProtSuppTable/" + ciiISAdjProtSuppEntry.EntityData.SegmentPath
     ciiISAdjProtSuppEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiISAdjProtSuppEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiISAdjProtSuppEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2182,6 +2233,7 @@ func (ciiRATable *CISCOIETFISISMIB_CiiRATable) GetEntityData() *types.CommonEnti
     ciiRATable.EntityData.BundleName = "cisco_ios_xe"
     ciiRATable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiRATable.EntityData.SegmentPath = "ciiRATable"
+    ciiRATable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiRATable.EntityData.SegmentPath
     ciiRATable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiRATable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiRATable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2204,6 +2256,7 @@ func (ciiRATable *CISCOIETFISISMIB_CiiRATable) GetEntityData() *types.CommonEnti
 type CISCOIETFISISMIB_CiiRATable_CiiRAEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2297,6 +2350,7 @@ func (ciiRAEntry *CISCOIETFISISMIB_CiiRATable_CiiRAEntry) GetEntityData() *types
     ciiRAEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiRAEntry.EntityData.ParentYangName = "ciiRATable"
     ciiRAEntry.EntityData.SegmentPath = "ciiRAEntry" + types.AddKeyToken(ciiRAEntry.CiiCircIndex, "ciiCircIndex") + types.AddKeyToken(ciiRAEntry.CiiRAIndex, "ciiRAIndex")
+    ciiRAEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRATable/" + ciiRAEntry.EntityData.SegmentPath
     ciiRAEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiRAEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiRAEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2364,6 +2418,7 @@ func (ciiIPRATable *CISCOIETFISISMIB_CiiIPRATable) GetEntityData() *types.Common
     ciiIPRATable.EntityData.BundleName = "cisco_ios_xe"
     ciiIPRATable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiIPRATable.EntityData.SegmentPath = "ciiIPRATable"
+    ciiIPRATable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiIPRATable.EntityData.SegmentPath
     ciiIPRATable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiIPRATable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiIPRATable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2389,6 +2444,7 @@ func (ciiIPRATable *CISCOIETFISISMIB_CiiIPRATable) GetEntityData() *types.Common
 type CISCOIETFISISMIB_CiiIPRATable_CiiIPRAEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of this IP Reachable Address.  This
     // object follows the ManualOrAutomatic behavior. The type is InetAddressType.
@@ -2461,6 +2517,7 @@ func (ciiIPRAEntry *CISCOIETFISISMIB_CiiIPRATable_CiiIPRAEntry) GetEntityData() 
     ciiIPRAEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiIPRAEntry.EntityData.ParentYangName = "ciiIPRATable"
     ciiIPRAEntry.EntityData.SegmentPath = "ciiIPRAEntry" + types.AddKeyToken(ciiIPRAEntry.CiiIPRADestType, "ciiIPRADestType") + types.AddKeyToken(ciiIPRAEntry.CiiIPRADest, "ciiIPRADest") + types.AddKeyToken(ciiIPRAEntry.CiiIPRADestPrefixLen, "ciiIPRADestPrefixLen") + types.AddKeyToken(ciiIPRAEntry.CiiIPRANextHopIndex, "ciiIPRANextHopIndex")
+    ciiIPRAEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiIPRATable/" + ciiIPRAEntry.EntityData.SegmentPath
     ciiIPRAEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiIPRAEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiIPRAEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2539,6 +2596,7 @@ func (ciiLSPSummaryTable *CISCOIETFISISMIB_CiiLSPSummaryTable) GetEntityData() *
     ciiLSPSummaryTable.EntityData.BundleName = "cisco_ios_xe"
     ciiLSPSummaryTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiLSPSummaryTable.EntityData.SegmentPath = "ciiLSPSummaryTable"
+    ciiLSPSummaryTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiLSPSummaryTable.EntityData.SegmentPath
     ciiLSPSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiLSPSummaryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiLSPSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2561,6 +2619,7 @@ func (ciiLSPSummaryTable *CISCOIETFISISMIB_CiiLSPSummaryTable) GetEntityData() *
 type CISCOIETFISISMIB_CiiLSPSummaryTable_CiiLSPSummaryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. At which level does this LSP appear?. The type is
     // CiiISLevel.
@@ -2597,6 +2656,7 @@ func (ciiLSPSummaryEntry *CISCOIETFISISMIB_CiiLSPSummaryTable_CiiLSPSummaryEntry
     ciiLSPSummaryEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiLSPSummaryEntry.EntityData.ParentYangName = "ciiLSPSummaryTable"
     ciiLSPSummaryEntry.EntityData.SegmentPath = "ciiLSPSummaryEntry" + types.AddKeyToken(ciiLSPSummaryEntry.CiiLSPLevel, "ciiLSPLevel") + types.AddKeyToken(ciiLSPSummaryEntry.CiiLSPID, "ciiLSPID")
+    ciiLSPSummaryEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiLSPSummaryTable/" + ciiLSPSummaryEntry.EntityData.SegmentPath
     ciiLSPSummaryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiLSPSummaryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiLSPSummaryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2634,6 +2694,7 @@ func (ciiLSPTLVTable *CISCOIETFISISMIB_CiiLSPTLVTable) GetEntityData() *types.Co
     ciiLSPTLVTable.EntityData.BundleName = "cisco_ios_xe"
     ciiLSPTLVTable.EntityData.ParentYangName = "CISCO-IETF-ISIS-MIB"
     ciiLSPTLVTable.EntityData.SegmentPath = "ciiLSPTLVTable"
+    ciiLSPTLVTable.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/" + ciiLSPTLVTable.EntityData.SegmentPath
     ciiLSPTLVTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiLSPTLVTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiLSPTLVTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2656,6 +2717,7 @@ func (ciiLSPTLVTable *CISCOIETFISISMIB_CiiLSPTLVTable) GetEntityData() *types.Co
 type CISCOIETFISISMIB_CiiLSPTLVTable_CiiLSPTLVEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is CiiISLevel. Refers to
     // cisco_ietf_isis_mib.CISCOIETFISISMIB_CiiLSPSummaryTable_CiiLSPSummaryEntry_CiiLSPLevel
@@ -2693,6 +2755,7 @@ func (ciiLSPTLVEntry *CISCOIETFISISMIB_CiiLSPTLVTable_CiiLSPTLVEntry) GetEntityD
     ciiLSPTLVEntry.EntityData.BundleName = "cisco_ios_xe"
     ciiLSPTLVEntry.EntityData.ParentYangName = "ciiLSPTLVTable"
     ciiLSPTLVEntry.EntityData.SegmentPath = "ciiLSPTLVEntry" + types.AddKeyToken(ciiLSPTLVEntry.CiiLSPLevel, "ciiLSPLevel") + types.AddKeyToken(ciiLSPTLVEntry.CiiLSPID, "ciiLSPID") + types.AddKeyToken(ciiLSPTLVEntry.CiiLSPTLVIndex, "ciiLSPTLVIndex")
+    ciiLSPTLVEntry.EntityData.AbsolutePath = "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiLSPTLVTable/" + ciiLSPTLVEntry.EntityData.SegmentPath
     ciiLSPTLVEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciiLSPTLVEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciiLSPTLVEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -39,6 +39,7 @@ func (cliCommand *CliCommand) GetEntityData() *types.CommonEntityData {
     cliCommand.EntityData.BundleName = "cisco_ios_xr"
     cliCommand.EntityData.ParentYangName = "Cisco-IOS-XR-cli-act"
     cliCommand.EntityData.SegmentPath = "Cisco-IOS-XR-cli-act:cli-command"
+    cliCommand.EntityData.AbsolutePath = cliCommand.EntityData.SegmentPath
     cliCommand.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cliCommand.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cliCommand.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -68,6 +69,7 @@ func (input *CliCommand_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "cli-command"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-cli-act:cli-command/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -96,6 +98,7 @@ func (output *CliCommand_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "cli-command"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-cli-act:cli-command/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

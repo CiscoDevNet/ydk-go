@@ -36,6 +36,7 @@ func (hwModuleSubslot *HwModuleSubslot) GetEntityData() *types.CommonEntityData 
     hwModuleSubslot.EntityData.BundleName = "cisco_ios_xr"
     hwModuleSubslot.EntityData.ParentYangName = "Cisco-IOS-XR-hwmod-mpa-reload-act"
     hwModuleSubslot.EntityData.SegmentPath = "Cisco-IOS-XR-hwmod-mpa-reload-act:hw-module-subslot"
+    hwModuleSubslot.EntityData.AbsolutePath = hwModuleSubslot.EntityData.SegmentPath
     hwModuleSubslot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwModuleSubslot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModuleSubslot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -67,6 +68,7 @@ func (input *HwModuleSubslot_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "hw-module-subslot"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-hwmod-mpa-reload-act:hw-module-subslot/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

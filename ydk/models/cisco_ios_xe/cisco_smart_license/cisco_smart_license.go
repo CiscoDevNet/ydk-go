@@ -678,6 +678,7 @@ func (registerIdToken *RegisterIdToken) GetEntityData() *types.CommonEntityData 
     registerIdToken.EntityData.BundleName = "cisco_ios_xe"
     registerIdToken.EntityData.ParentYangName = "cisco-smart-license"
     registerIdToken.EntityData.SegmentPath = "cisco-smart-license:register-id-token"
+    registerIdToken.EntityData.AbsolutePath = registerIdToken.EntityData.SegmentPath
     registerIdToken.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     registerIdToken.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registerIdToken.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -711,6 +712,7 @@ func (input *RegisterIdToken_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "register-id-token"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "cisco-smart-license:register-id-token/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -742,6 +744,7 @@ func (output *RegisterIdToken_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "register-id-token"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-smart-license:register-id-token/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -771,6 +774,7 @@ func (deRegister *DeRegister) GetEntityData() *types.CommonEntityData {
     deRegister.EntityData.BundleName = "cisco_ios_xe"
     deRegister.EntityData.ParentYangName = "cisco-smart-license"
     deRegister.EntityData.SegmentPath = "cisco-smart-license:de-register"
+    deRegister.EntityData.AbsolutePath = deRegister.EntityData.SegmentPath
     deRegister.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     deRegister.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deRegister.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -799,6 +803,7 @@ func (output *DeRegister_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "de-register"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-smart-license:de-register/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -831,6 +836,7 @@ func (renewId *RenewId) GetEntityData() *types.CommonEntityData {
     renewId.EntityData.BundleName = "cisco_ios_xe"
     renewId.EntityData.ParentYangName = "cisco-smart-license"
     renewId.EntityData.SegmentPath = "cisco-smart-license:renew-id"
+    renewId.EntityData.AbsolutePath = renewId.EntityData.SegmentPath
     renewId.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     renewId.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     renewId.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -859,6 +865,7 @@ func (output *RenewId_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "renew-id"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-smart-license:renew-id/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -891,6 +898,7 @@ func (renewAuth *RenewAuth) GetEntityData() *types.CommonEntityData {
     renewAuth.EntityData.BundleName = "cisco_ios_xe"
     renewAuth.EntityData.ParentYangName = "cisco-smart-license"
     renewAuth.EntityData.SegmentPath = "cisco-smart-license:renew-auth"
+    renewAuth.EntityData.AbsolutePath = renewAuth.EntityData.SegmentPath
     renewAuth.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     renewAuth.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     renewAuth.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -919,6 +927,7 @@ func (output *RenewAuth_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "renew-auth"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-smart-license:renew-auth/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -951,6 +960,7 @@ func (licensing *Licensing) GetEntityData() *types.CommonEntityData {
     licensing.EntityData.BundleName = "cisco_ios_xe"
     licensing.EntityData.ParentYangName = "cisco-smart-license"
     licensing.EntityData.SegmentPath = "cisco-smart-license:licensing"
+    licensing.EntityData.AbsolutePath = licensing.EntityData.SegmentPath
     licensing.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     licensing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     licensing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -997,6 +1007,7 @@ func (config *Licensing_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "cisco_ios_xe"
     config.EntityData.ParentYangName = "licensing"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "cisco-smart-license:licensing/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1036,6 +1047,7 @@ func (privacy *Licensing_Config_Privacy) GetEntityData() *types.CommonEntityData
     privacy.EntityData.BundleName = "cisco_ios_xe"
     privacy.EntityData.ParentYangName = "config"
     privacy.EntityData.SegmentPath = "privacy"
+    privacy.EntityData.AbsolutePath = "cisco-smart-license:licensing/config/" + privacy.EntityData.SegmentPath
     privacy.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     privacy.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     privacy.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1074,6 +1086,7 @@ func (utility *Licensing_Config_Utility) GetEntityData() *types.CommonEntityData
     utility.EntityData.BundleName = "cisco_ios_xe"
     utility.EntityData.ParentYangName = "config"
     utility.EntityData.SegmentPath = "utility"
+    utility.EntityData.AbsolutePath = "cisco-smart-license:licensing/config/" + utility.EntityData.SegmentPath
     utility.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     utility.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utility.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1130,6 +1143,7 @@ func (customerInfo *Licensing_Config_Utility_CustomerInfo) GetEntityData() *type
     customerInfo.EntityData.BundleName = "cisco_ios_xe"
     customerInfo.EntityData.ParentYangName = "utility"
     customerInfo.EntityData.SegmentPath = "customer-info"
+    customerInfo.EntityData.AbsolutePath = "cisco-smart-license:licensing/config/utility/" + customerInfo.EntityData.SegmentPath
     customerInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     customerInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     customerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1171,6 +1185,7 @@ func (transport *Licensing_Config_Transport) GetEntityData() *types.CommonEntity
     transport.EntityData.BundleName = "cisco_ios_xe"
     transport.EntityData.ParentYangName = "config"
     transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.AbsolutePath = "cisco-smart-license:licensing/config/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     transport.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1207,6 +1222,7 @@ func (transportSmart *Licensing_Config_Transport_TransportSmart) GetEntityData()
     transportSmart.EntityData.BundleName = "cisco_ios_xe"
     transportSmart.EntityData.ParentYangName = "transport"
     transportSmart.EntityData.SegmentPath = "transport-smart"
+    transportSmart.EntityData.AbsolutePath = "cisco-smart-license:licensing/config/transport/" + transportSmart.EntityData.SegmentPath
     transportSmart.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     transportSmart.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transportSmart.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1246,6 +1262,7 @@ func (urls *Licensing_Config_Transport_TransportSmart_Urls) GetEntityData() *typ
     urls.EntityData.BundleName = "cisco_ios_xe"
     urls.EntityData.ParentYangName = "transport-smart"
     urls.EntityData.SegmentPath = "urls"
+    urls.EntityData.AbsolutePath = "cisco-smart-license:licensing/config/transport/transport-smart/" + urls.EntityData.SegmentPath
     urls.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     urls.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     urls.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1289,6 +1306,7 @@ func (state *Licensing_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.BundleName = "cisco_ios_xe"
     state.EntityData.ParentYangName = "licensing"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "cisco-smart-license:licensing/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1349,6 +1367,7 @@ func (stateInfo *Licensing_State_StateInfo) GetEntityData() *types.CommonEntityD
     stateInfo.EntityData.BundleName = "cisco_ios_xe"
     stateInfo.EntityData.ParentYangName = "state"
     stateInfo.EntityData.SegmentPath = "state-info"
+    stateInfo.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/" + stateInfo.EntityData.SegmentPath
     stateInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stateInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stateInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1405,6 +1424,7 @@ func (registration *Licensing_State_StateInfo_Registration) GetEntityData() *typ
     registration.EntityData.BundleName = "cisco_ios_xe"
     registration.EntityData.ParentYangName = "state-info"
     registration.EntityData.SegmentPath = "registration"
+    registration.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/" + registration.EntityData.SegmentPath
     registration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     registration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1440,6 +1460,7 @@ func (registrationInProgress *Licensing_State_StateInfo_Registration_Registratio
     registrationInProgress.EntityData.BundleName = "cisco_ios_xe"
     registrationInProgress.EntityData.ParentYangName = "registration"
     registrationInProgress.EntityData.SegmentPath = "registration-in-progress"
+    registrationInProgress.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/registration/" + registrationInProgress.EntityData.SegmentPath
     registrationInProgress.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     registrationInProgress.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registrationInProgress.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1474,6 +1495,7 @@ func (registrationFailed *Licensing_State_StateInfo_Registration_RegistrationFai
     registrationFailed.EntityData.BundleName = "cisco_ios_xe"
     registrationFailed.EntityData.ParentYangName = "registration"
     registrationFailed.EntityData.SegmentPath = "registration-failed"
+    registrationFailed.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/registration/" + registrationFailed.EntityData.SegmentPath
     registrationFailed.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     registrationFailed.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registrationFailed.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1513,6 +1535,7 @@ func (registrationRetry *Licensing_State_StateInfo_Registration_RegistrationRetr
     registrationRetry.EntityData.BundleName = "cisco_ios_xe"
     registrationRetry.EntityData.ParentYangName = "registration"
     registrationRetry.EntityData.SegmentPath = "registration-retry"
+    registrationRetry.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/registration/" + registrationRetry.EntityData.SegmentPath
     registrationRetry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     registrationRetry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registrationRetry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1576,6 +1599,7 @@ func (registrationComplete *Licensing_State_StateInfo_Registration_RegistrationC
     registrationComplete.EntityData.BundleName = "cisco_ios_xe"
     registrationComplete.EntityData.ParentYangName = "registration"
     registrationComplete.EntityData.SegmentPath = "registration-complete"
+    registrationComplete.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/registration/" + registrationComplete.EntityData.SegmentPath
     registrationComplete.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     registrationComplete.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     registrationComplete.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1638,6 +1662,7 @@ func (authorization *Licensing_State_StateInfo_Authorization) GetEntityData() *t
     authorization.EntityData.BundleName = "cisco_ios_xe"
     authorization.EntityData.ParentYangName = "state-info"
     authorization.EntityData.SegmentPath = "authorization"
+    authorization.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/" + authorization.EntityData.SegmentPath
     authorization.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authorization.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorization.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1672,6 +1697,7 @@ func (authorizationNone *Licensing_State_StateInfo_Authorization_AuthorizationNo
     authorizationNone.EntityData.BundleName = "cisco_ios_xe"
     authorizationNone.EntityData.ParentYangName = "authorization"
     authorizationNone.EntityData.SegmentPath = "authorization-none"
+    authorizationNone.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/authorization/" + authorizationNone.EntityData.SegmentPath
     authorizationNone.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authorizationNone.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationNone.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1705,6 +1731,7 @@ func (authorizationEval *Licensing_State_StateInfo_Authorization_AuthorizationEv
     authorizationEval.EntityData.BundleName = "cisco_ios_xe"
     authorizationEval.EntityData.ParentYangName = "authorization"
     authorizationEval.EntityData.SegmentPath = "authorization-eval"
+    authorizationEval.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/authorization/" + authorizationEval.EntityData.SegmentPath
     authorizationEval.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authorizationEval.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationEval.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1735,6 +1762,7 @@ func (authorizationEvalExpired *Licensing_State_StateInfo_Authorization_Authoriz
     authorizationEvalExpired.EntityData.BundleName = "cisco_ios_xe"
     authorizationEvalExpired.EntityData.ParentYangName = "authorization"
     authorizationEvalExpired.EntityData.SegmentPath = "authorization-eval-expired"
+    authorizationEvalExpired.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/authorization/" + authorizationEvalExpired.EntityData.SegmentPath
     authorizationEvalExpired.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authorizationEvalExpired.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationEvalExpired.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1785,6 +1813,7 @@ func (authorizationAuthorized *Licensing_State_StateInfo_Authorization_Authoriza
     authorizationAuthorized.EntityData.BundleName = "cisco_ios_xe"
     authorizationAuthorized.EntityData.ParentYangName = "authorization"
     authorizationAuthorized.EntityData.SegmentPath = "authorization-authorized"
+    authorizationAuthorized.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/authorization/" + authorizationAuthorized.EntityData.SegmentPath
     authorizationAuthorized.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authorizationAuthorized.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationAuthorized.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1820,6 +1849,7 @@ func (authorizationAuthorizedReservation *Licensing_State_StateInfo_Authorizatio
     authorizationAuthorizedReservation.EntityData.BundleName = "cisco_ios_xe"
     authorizationAuthorizedReservation.EntityData.ParentYangName = "authorization"
     authorizationAuthorizedReservation.EntityData.SegmentPath = "authorization-authorized-reservation"
+    authorizationAuthorizedReservation.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/authorization/" + authorizationAuthorizedReservation.EntityData.SegmentPath
     authorizationAuthorizedReservation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authorizationAuthorizedReservation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationAuthorizedReservation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1876,6 +1906,7 @@ func (authorizationOutOfCompliance *Licensing_State_StateInfo_Authorization_Auth
     authorizationOutOfCompliance.EntityData.BundleName = "cisco_ios_xe"
     authorizationOutOfCompliance.EntityData.ParentYangName = "authorization"
     authorizationOutOfCompliance.EntityData.SegmentPath = "authorization-out-of-compliance"
+    authorizationOutOfCompliance.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/authorization/" + authorizationOutOfCompliance.EntityData.SegmentPath
     authorizationOutOfCompliance.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authorizationOutOfCompliance.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationOutOfCompliance.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1933,6 +1964,7 @@ func (authorizationAuthorizationExpired *Licensing_State_StateInfo_Authorization
     authorizationAuthorizationExpired.EntityData.BundleName = "cisco_ios_xe"
     authorizationAuthorizationExpired.EntityData.ParentYangName = "authorization"
     authorizationAuthorizationExpired.EntityData.SegmentPath = "authorization-authorization-expired"
+    authorizationAuthorizationExpired.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/authorization/" + authorizationAuthorizationExpired.EntityData.SegmentPath
     authorizationAuthorizationExpired.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authorizationAuthorizationExpired.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationAuthorizationExpired.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1981,6 +2013,7 @@ func (utility *Licensing_State_StateInfo_Utility) GetEntityData() *types.CommonE
     utility.EntityData.BundleName = "cisco_ios_xe"
     utility.EntityData.ParentYangName = "state-info"
     utility.EntityData.SegmentPath = "utility"
+    utility.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/" + utility.EntityData.SegmentPath
     utility.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     utility.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utility.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2026,6 +2059,7 @@ func (reportingTimes *Licensing_State_StateInfo_Utility_ReportingTimes) GetEntit
     reportingTimes.EntityData.BundleName = "cisco_ios_xe"
     reportingTimes.EntityData.ParentYangName = "utility"
     reportingTimes.EntityData.SegmentPath = "reporting-times"
+    reportingTimes.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/utility/" + reportingTimes.EntityData.SegmentPath
     reportingTimes.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     reportingTimes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     reportingTimes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2084,6 +2118,7 @@ func (customerInfo *Licensing_State_StateInfo_Utility_CustomerInfo) GetEntityDat
     customerInfo.EntityData.BundleName = "cisco_ios_xe"
     customerInfo.EntityData.ParentYangName = "utility"
     customerInfo.EntityData.SegmentPath = "customer-info"
+    customerInfo.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/utility/" + customerInfo.EntityData.SegmentPath
     customerInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     customerInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     customerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2123,6 +2158,7 @@ func (transport *Licensing_State_StateInfo_Transport) GetEntityData() *types.Com
     transport.EntityData.BundleName = "cisco_ios_xe"
     transport.EntityData.ParentYangName = "state-info"
     transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     transport.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2159,6 +2195,7 @@ func (urlSettings *Licensing_State_StateInfo_Transport_UrlSettings) GetEntityDat
     urlSettings.EntityData.BundleName = "cisco_ios_xe"
     urlSettings.EntityData.ParentYangName = "transport"
     urlSettings.EntityData.SegmentPath = "url-settings"
+    urlSettings.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/transport/" + urlSettings.EntityData.SegmentPath
     urlSettings.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     urlSettings.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     urlSettings.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2194,6 +2231,7 @@ func (privacy *Licensing_State_StateInfo_Privacy) GetEntityData() *types.CommonE
     privacy.EntityData.BundleName = "cisco_ios_xe"
     privacy.EntityData.ParentYangName = "state-info"
     privacy.EntityData.SegmentPath = "privacy"
+    privacy.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/" + privacy.EntityData.SegmentPath
     privacy.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     privacy.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     privacy.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2236,6 +2274,7 @@ func (evaluation *Licensing_State_StateInfo_Evaluation) GetEntityData() *types.C
     evaluation.EntityData.BundleName = "cisco_ios_xe"
     evaluation.EntityData.ParentYangName = "state-info"
     evaluation.EntityData.SegmentPath = "evaluation"
+    evaluation.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/" + evaluation.EntityData.SegmentPath
     evaluation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     evaluation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     evaluation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2270,6 +2309,7 @@ func (evalPeriodLeft *Licensing_State_StateInfo_Evaluation_EvalPeriodLeft) GetEn
     evalPeriodLeft.EntityData.BundleName = "cisco_ios_xe"
     evalPeriodLeft.EntityData.ParentYangName = "evaluation"
     evalPeriodLeft.EntityData.SegmentPath = "eval-period-left"
+    evalPeriodLeft.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/evaluation/" + evalPeriodLeft.EntityData.SegmentPath
     evalPeriodLeft.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     evalPeriodLeft.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     evalPeriodLeft.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2301,6 +2341,7 @@ func (evalExpireTime *Licensing_State_StateInfo_Evaluation_EvalExpireTime) GetEn
     evalExpireTime.EntityData.BundleName = "cisco_ios_xe"
     evalExpireTime.EntityData.ParentYangName = "evaluation"
     evalExpireTime.EntityData.SegmentPath = "eval-expire-time"
+    evalExpireTime.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/evaluation/" + evalExpireTime.EntityData.SegmentPath
     evalExpireTime.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     evalExpireTime.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     evalExpireTime.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2358,6 +2399,7 @@ func (udi *Licensing_State_StateInfo_Udi) GetEntityData() *types.CommonEntityDat
     udi.EntityData.BundleName = "cisco_ios_xe"
     udi.EntityData.ParentYangName = "state-info"
     udi.EntityData.SegmentPath = "udi"
+    udi.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/" + udi.EntityData.SegmentPath
     udi.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     udi.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udi.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2383,6 +2425,7 @@ func (udi *Licensing_State_StateInfo_Udi) GetEntityData() *types.CommonEntityDat
 type Licensing_State_StateInfo_Usage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ISO 19770 entitlement tag used to define this
     // license. The type is string.
@@ -2427,6 +2470,7 @@ func (usage *Licensing_State_StateInfo_Usage) GetEntityData() *types.CommonEntit
     usage.EntityData.BundleName = "cisco_ios_xe"
     usage.EntityData.ParentYangName = "state-info"
     usage.EntityData.SegmentPath = "usage" + types.AddKeyToken(usage.EntitlementTag, "entitlement-tag")
+    usage.EntityData.AbsolutePath = "cisco-smart-license:licensing/state/state-info/" + usage.EntityData.SegmentPath
     usage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     usage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     usage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

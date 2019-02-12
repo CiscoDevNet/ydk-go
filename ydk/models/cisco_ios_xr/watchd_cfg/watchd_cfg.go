@@ -63,6 +63,7 @@ func (watchdog *Watchdog) GetEntityData() *types.CommonEntityData {
     watchdog.EntityData.BundleName = "cisco_ios_xr"
     watchdog.EntityData.ParentYangName = "Cisco-IOS-XR-watchd-cfg"
     watchdog.EntityData.SegmentPath = "Cisco-IOS-XR-watchd-cfg:watchdog"
+    watchdog.EntityData.AbsolutePath = watchdog.EntityData.SegmentPath
     watchdog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     watchdog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     watchdog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -103,6 +104,7 @@ func (thresholdMemory *Watchdog_ThresholdMemory) GetEntityData() *types.CommonEn
     thresholdMemory.EntityData.BundleName = "cisco_ios_xr"
     thresholdMemory.EntityData.ParentYangName = "watchdog"
     thresholdMemory.EntityData.SegmentPath = "threshold-memory"
+    thresholdMemory.EntityData.AbsolutePath = "Cisco-IOS-XR-watchd-cfg:watchdog/" + thresholdMemory.EntityData.SegmentPath
     thresholdMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -140,6 +142,7 @@ func (diskLimit *Watchdog_DiskLimit) GetEntityData() *types.CommonEntityData {
     diskLimit.EntityData.BundleName = "cisco_ios_xr"
     diskLimit.EntityData.ParentYangName = "watchdog"
     diskLimit.EntityData.SegmentPath = "disk-limit"
+    diskLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-watchd-cfg:watchdog/" + diskLimit.EntityData.SegmentPath
     diskLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     diskLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diskLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -172,6 +175,7 @@ func (watchd *Watchd) GetEntityData() *types.CommonEntityData {
     watchd.EntityData.BundleName = "cisco_ios_xr"
     watchd.EntityData.ParentYangName = "Cisco-IOS-XR-watchd-cfg"
     watchd.EntityData.SegmentPath = "Cisco-IOS-XR-watchd-cfg:watchd"
+    watchd.EntityData.AbsolutePath = watchd.EntityData.SegmentPath
     watchd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     watchd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     watchd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

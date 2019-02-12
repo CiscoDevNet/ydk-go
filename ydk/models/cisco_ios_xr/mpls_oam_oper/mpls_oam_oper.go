@@ -105,6 +105,7 @@ func (mplsOam *MplsOam) GetEntityData() *types.CommonEntityData {
     mplsOam.EntityData.BundleName = "cisco_ios_xr"
     mplsOam.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-oam-oper"
     mplsOam.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam"
+    mplsOam.EntityData.AbsolutePath = mplsOam.EntityData.SegmentPath
     mplsOam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsOam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsOam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -139,6 +140,7 @@ func (self *MplsOam_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "mpls-oam"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -170,6 +172,7 @@ func (briefs *MplsOam_Interface_Briefs) GetEntityData() *types.CommonEntityData 
     briefs.EntityData.BundleName = "cisco_ios_xr"
     briefs.EntityData.ParentYangName = "interface"
     briefs.EntityData.SegmentPath = "briefs"
+    briefs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/" + briefs.EntityData.SegmentPath
     briefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     briefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -191,6 +194,7 @@ func (briefs *MplsOam_Interface_Briefs) GetEntityData() *types.CommonEntityData 
 type MplsOam_Interface_Briefs_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -226,6 +230,7 @@ func (brief *MplsOam_Interface_Briefs_Brief) GetEntityData() *types.CommonEntity
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "briefs"
     brief.EntityData.SegmentPath = "brief" + types.AddKeyToken(brief.InterfaceName, "interface-name")
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/briefs/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -263,6 +268,7 @@ func (details *MplsOam_Interface_Details) GetEntityData() *types.CommonEntityDat
     details.EntityData.BundleName = "cisco_ios_xr"
     details.EntityData.ParentYangName = "interface"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -284,6 +290,7 @@ func (details *MplsOam_Interface_Details) GetEntityData() *types.CommonEntityDat
 type MplsOam_Interface_Details_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -302,6 +309,7 @@ func (detail *MplsOam_Interface_Details_Detail) GetEntityData() *types.CommonEnt
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "details"
     detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.InterfaceName, "interface-name")
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -353,6 +361,7 @@ func (interfaceBrief *MplsOam_Interface_Details_Detail_InterfaceBrief) GetEntity
     interfaceBrief.EntityData.BundleName = "cisco_ios_xr"
     interfaceBrief.EntityData.ParentYangName = "detail"
     interfaceBrief.EntityData.SegmentPath = "interface-brief"
+    interfaceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/" + interfaceBrief.EntityData.SegmentPath
     interfaceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -403,6 +412,7 @@ func (packetStatistics *MplsOam_Interface_Details_Detail_PacketStatistics) GetEn
     packetStatistics.EntityData.BundleName = "cisco_ios_xr"
     packetStatistics.EntityData.ParentYangName = "detail"
     packetStatistics.EntityData.SegmentPath = "packet-statistics"
+    packetStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/" + packetStatistics.EntityData.SegmentPath
     packetStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -476,6 +486,7 @@ func (received *MplsOam_Interface_Details_Detail_PacketStatistics_Received) GetE
     received.EntityData.BundleName = "cisco_ios_xr"
     received.EntityData.ParentYangName = "packet-statistics"
     received.EntityData.SegmentPath = "received"
+    received.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -523,6 +534,7 @@ func (receivedGoodRequest *MplsOam_Interface_Details_Detail_PacketStatistics_Rec
     receivedGoodRequest.EntityData.BundleName = "cisco_ios_xr"
     receivedGoodRequest.EntityData.ParentYangName = "received"
     receivedGoodRequest.EntityData.SegmentPath = "received-good-request"
+    receivedGoodRequest.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedGoodRequest.EntityData.SegmentPath
     receivedGoodRequest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedGoodRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -558,6 +570,7 @@ func (receivedGoodReply *MplsOam_Interface_Details_Detail_PacketStatistics_Recei
     receivedGoodReply.EntityData.BundleName = "cisco_ios_xr"
     receivedGoodReply.EntityData.ParentYangName = "received"
     receivedGoodReply.EntityData.SegmentPath = "received-good-reply"
+    receivedGoodReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedGoodReply.EntityData.SegmentPath
     receivedGoodReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedGoodReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -593,6 +606,7 @@ func (receivedUnknown *MplsOam_Interface_Details_Detail_PacketStatistics_Receive
     receivedUnknown.EntityData.BundleName = "cisco_ios_xr"
     receivedUnknown.EntityData.ParentYangName = "received"
     receivedUnknown.EntityData.SegmentPath = "received-unknown"
+    receivedUnknown.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedUnknown.EntityData.SegmentPath
     receivedUnknown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedUnknown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedUnknown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -628,6 +642,7 @@ func (receivedErrorIpHeader *MplsOam_Interface_Details_Detail_PacketStatistics_R
     receivedErrorIpHeader.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorIpHeader.EntityData.ParentYangName = "received"
     receivedErrorIpHeader.EntityData.SegmentPath = "received-error-ip-header"
+    receivedErrorIpHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedErrorIpHeader.EntityData.SegmentPath
     receivedErrorIpHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorIpHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorIpHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -663,6 +678,7 @@ func (receivedErrorUdpHeader *MplsOam_Interface_Details_Detail_PacketStatistics_
     receivedErrorUdpHeader.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorUdpHeader.EntityData.ParentYangName = "received"
     receivedErrorUdpHeader.EntityData.SegmentPath = "received-error-udp-header"
+    receivedErrorUdpHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedErrorUdpHeader.EntityData.SegmentPath
     receivedErrorUdpHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorUdpHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorUdpHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -698,6 +714,7 @@ func (receivedErrorRunt *MplsOam_Interface_Details_Detail_PacketStatistics_Recei
     receivedErrorRunt.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorRunt.EntityData.ParentYangName = "received"
     receivedErrorRunt.EntityData.SegmentPath = "received-error-runt"
+    receivedErrorRunt.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedErrorRunt.EntityData.SegmentPath
     receivedErrorRunt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorRunt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorRunt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -733,6 +750,7 @@ func (receivedErrorQueueFull *MplsOam_Interface_Details_Detail_PacketStatistics_
     receivedErrorQueueFull.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorQueueFull.EntityData.ParentYangName = "received"
     receivedErrorQueueFull.EntityData.SegmentPath = "received-error-queue-full"
+    receivedErrorQueueFull.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedErrorQueueFull.EntityData.SegmentPath
     receivedErrorQueueFull.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorQueueFull.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorQueueFull.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -768,6 +786,7 @@ func (receivedErrorGeneral *MplsOam_Interface_Details_Detail_PacketStatistics_Re
     receivedErrorGeneral.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorGeneral.EntityData.ParentYangName = "received"
     receivedErrorGeneral.EntityData.SegmentPath = "received-error-general"
+    receivedErrorGeneral.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedErrorGeneral.EntityData.SegmentPath
     receivedErrorGeneral.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorGeneral.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorGeneral.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -803,6 +822,7 @@ func (receivedErrorNoInterface *MplsOam_Interface_Details_Detail_PacketStatistic
     receivedErrorNoInterface.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorNoInterface.EntityData.ParentYangName = "received"
     receivedErrorNoInterface.EntityData.SegmentPath = "received-error-no-interface"
+    receivedErrorNoInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedErrorNoInterface.EntityData.SegmentPath
     receivedErrorNoInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorNoInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorNoInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -838,6 +858,7 @@ func (receivedErrorNoMemory *MplsOam_Interface_Details_Detail_PacketStatistics_R
     receivedErrorNoMemory.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorNoMemory.EntityData.ParentYangName = "received"
     receivedErrorNoMemory.EntityData.SegmentPath = "received-error-no-memory"
+    receivedErrorNoMemory.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedErrorNoMemory.EntityData.SegmentPath
     receivedErrorNoMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorNoMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorNoMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -873,6 +894,7 @@ func (protectProtocolReceivedGoodRequest *MplsOam_Interface_Details_Detail_Packe
     protectProtocolReceivedGoodRequest.EntityData.BundleName = "cisco_ios_xr"
     protectProtocolReceivedGoodRequest.EntityData.ParentYangName = "received"
     protectProtocolReceivedGoodRequest.EntityData.SegmentPath = "protect-protocol-received-good-request"
+    protectProtocolReceivedGoodRequest.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + protectProtocolReceivedGoodRequest.EntityData.SegmentPath
     protectProtocolReceivedGoodRequest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectProtocolReceivedGoodRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectProtocolReceivedGoodRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -908,6 +930,7 @@ func (protectProtocolReceivedGoodReply *MplsOam_Interface_Details_Detail_PacketS
     protectProtocolReceivedGoodReply.EntityData.BundleName = "cisco_ios_xr"
     protectProtocolReceivedGoodReply.EntityData.ParentYangName = "received"
     protectProtocolReceivedGoodReply.EntityData.SegmentPath = "protect-protocol-received-good-reply"
+    protectProtocolReceivedGoodReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + protectProtocolReceivedGoodReply.EntityData.SegmentPath
     protectProtocolReceivedGoodReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectProtocolReceivedGoodReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectProtocolReceivedGoodReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -943,6 +966,7 @@ func (receivedGoodBfdRequest *MplsOam_Interface_Details_Detail_PacketStatistics_
     receivedGoodBfdRequest.EntityData.BundleName = "cisco_ios_xr"
     receivedGoodBfdRequest.EntityData.ParentYangName = "received"
     receivedGoodBfdRequest.EntityData.SegmentPath = "received-good-bfd-request"
+    receivedGoodBfdRequest.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedGoodBfdRequest.EntityData.SegmentPath
     receivedGoodBfdRequest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedGoodBfdRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodBfdRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -978,6 +1002,7 @@ func (receivedGoodBfdReply *MplsOam_Interface_Details_Detail_PacketStatistics_Re
     receivedGoodBfdReply.EntityData.BundleName = "cisco_ios_xr"
     receivedGoodBfdReply.EntityData.ParentYangName = "received"
     receivedGoodBfdReply.EntityData.SegmentPath = "received-good-bfd-reply"
+    receivedGoodBfdReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/received/" + receivedGoodBfdReply.EntityData.SegmentPath
     receivedGoodBfdReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedGoodBfdReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodBfdReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1017,6 +1042,7 @@ func (sent *MplsOam_Interface_Details_Detail_PacketStatistics_Sent) GetEntityDat
     sent.EntityData.BundleName = "cisco_ios_xr"
     sent.EntityData.ParentYangName = "packet-statistics"
     sent.EntityData.SegmentPath = "sent"
+    sent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/" + sent.EntityData.SegmentPath
     sent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1054,6 +1080,7 @@ func (transmitGood *MplsOam_Interface_Details_Detail_PacketStatistics_Sent_Trans
     transmitGood.EntityData.BundleName = "cisco_ios_xr"
     transmitGood.EntityData.ParentYangName = "sent"
     transmitGood.EntityData.SegmentPath = "transmit-good"
+    transmitGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/sent/" + transmitGood.EntityData.SegmentPath
     transmitGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1089,6 +1116,7 @@ func (transmitDrop *MplsOam_Interface_Details_Detail_PacketStatistics_Sent_Trans
     transmitDrop.EntityData.BundleName = "cisco_ios_xr"
     transmitDrop.EntityData.ParentYangName = "sent"
     transmitDrop.EntityData.SegmentPath = "transmit-drop"
+    transmitDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/sent/" + transmitDrop.EntityData.SegmentPath
     transmitDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1124,6 +1152,7 @@ func (transmitBfdGood *MplsOam_Interface_Details_Detail_PacketStatistics_Sent_Tr
     transmitBfdGood.EntityData.BundleName = "cisco_ios_xr"
     transmitBfdGood.EntityData.ParentYangName = "sent"
     transmitBfdGood.EntityData.SegmentPath = "transmit-bfd-good"
+    transmitBfdGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/sent/" + transmitBfdGood.EntityData.SegmentPath
     transmitBfdGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1160,6 +1189,7 @@ func (bfdNoReply *MplsOam_Interface_Details_Detail_PacketStatistics_Sent_BfdNoRe
     bfdNoReply.EntityData.BundleName = "cisco_ios_xr"
     bfdNoReply.EntityData.ParentYangName = "sent"
     bfdNoReply.EntityData.SegmentPath = "bfd-no-reply"
+    bfdNoReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/sent/" + bfdNoReply.EntityData.SegmentPath
     bfdNoReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1199,6 +1229,7 @@ func (workingReqSent *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingR
     workingReqSent.EntityData.BundleName = "cisco_ios_xr"
     workingReqSent.EntityData.ParentYangName = "packet-statistics"
     workingReqSent.EntityData.SegmentPath = "working-req-sent"
+    workingReqSent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/" + workingReqSent.EntityData.SegmentPath
     workingReqSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     workingReqSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     workingReqSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1236,6 +1267,7 @@ func (transmitGood *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingReq
     transmitGood.EntityData.BundleName = "cisco_ios_xr"
     transmitGood.EntityData.ParentYangName = "working-req-sent"
     transmitGood.EntityData.SegmentPath = "transmit-good"
+    transmitGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/working-req-sent/" + transmitGood.EntityData.SegmentPath
     transmitGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1271,6 +1303,7 @@ func (transmitDrop *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingReq
     transmitDrop.EntityData.BundleName = "cisco_ios_xr"
     transmitDrop.EntityData.ParentYangName = "working-req-sent"
     transmitDrop.EntityData.SegmentPath = "transmit-drop"
+    transmitDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/working-req-sent/" + transmitDrop.EntityData.SegmentPath
     transmitDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1306,6 +1339,7 @@ func (transmitBfdGood *MplsOam_Interface_Details_Detail_PacketStatistics_Working
     transmitBfdGood.EntityData.BundleName = "cisco_ios_xr"
     transmitBfdGood.EntityData.ParentYangName = "working-req-sent"
     transmitBfdGood.EntityData.SegmentPath = "transmit-bfd-good"
+    transmitBfdGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/working-req-sent/" + transmitBfdGood.EntityData.SegmentPath
     transmitBfdGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1342,6 +1376,7 @@ func (bfdNoReply *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingReqSe
     bfdNoReply.EntityData.BundleName = "cisco_ios_xr"
     bfdNoReply.EntityData.ParentYangName = "working-req-sent"
     bfdNoReply.EntityData.SegmentPath = "bfd-no-reply"
+    bfdNoReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/working-req-sent/" + bfdNoReply.EntityData.SegmentPath
     bfdNoReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1381,6 +1416,7 @@ func (workingRepSent *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingR
     workingRepSent.EntityData.BundleName = "cisco_ios_xr"
     workingRepSent.EntityData.ParentYangName = "packet-statistics"
     workingRepSent.EntityData.SegmentPath = "working-rep-sent"
+    workingRepSent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/" + workingRepSent.EntityData.SegmentPath
     workingRepSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     workingRepSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     workingRepSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1418,6 +1454,7 @@ func (transmitGood *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingRep
     transmitGood.EntityData.BundleName = "cisco_ios_xr"
     transmitGood.EntityData.ParentYangName = "working-rep-sent"
     transmitGood.EntityData.SegmentPath = "transmit-good"
+    transmitGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/working-rep-sent/" + transmitGood.EntityData.SegmentPath
     transmitGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1453,6 +1490,7 @@ func (transmitDrop *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingRep
     transmitDrop.EntityData.BundleName = "cisco_ios_xr"
     transmitDrop.EntityData.ParentYangName = "working-rep-sent"
     transmitDrop.EntityData.SegmentPath = "transmit-drop"
+    transmitDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/working-rep-sent/" + transmitDrop.EntityData.SegmentPath
     transmitDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1488,6 +1526,7 @@ func (transmitBfdGood *MplsOam_Interface_Details_Detail_PacketStatistics_Working
     transmitBfdGood.EntityData.BundleName = "cisco_ios_xr"
     transmitBfdGood.EntityData.ParentYangName = "working-rep-sent"
     transmitBfdGood.EntityData.SegmentPath = "transmit-bfd-good"
+    transmitBfdGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/working-rep-sent/" + transmitBfdGood.EntityData.SegmentPath
     transmitBfdGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1524,6 +1563,7 @@ func (bfdNoReply *MplsOam_Interface_Details_Detail_PacketStatistics_WorkingRepSe
     bfdNoReply.EntityData.BundleName = "cisco_ios_xr"
     bfdNoReply.EntityData.ParentYangName = "working-rep-sent"
     bfdNoReply.EntityData.SegmentPath = "bfd-no-reply"
+    bfdNoReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/working-rep-sent/" + bfdNoReply.EntityData.SegmentPath
     bfdNoReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1563,6 +1603,7 @@ func (protectReqSent *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectR
     protectReqSent.EntityData.BundleName = "cisco_ios_xr"
     protectReqSent.EntityData.ParentYangName = "packet-statistics"
     protectReqSent.EntityData.SegmentPath = "protect-req-sent"
+    protectReqSent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/" + protectReqSent.EntityData.SegmentPath
     protectReqSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectReqSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectReqSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1600,6 +1641,7 @@ func (transmitGood *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectReq
     transmitGood.EntityData.BundleName = "cisco_ios_xr"
     transmitGood.EntityData.ParentYangName = "protect-req-sent"
     transmitGood.EntityData.SegmentPath = "transmit-good"
+    transmitGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/protect-req-sent/" + transmitGood.EntityData.SegmentPath
     transmitGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1635,6 +1677,7 @@ func (transmitDrop *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectReq
     transmitDrop.EntityData.BundleName = "cisco_ios_xr"
     transmitDrop.EntityData.ParentYangName = "protect-req-sent"
     transmitDrop.EntityData.SegmentPath = "transmit-drop"
+    transmitDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/protect-req-sent/" + transmitDrop.EntityData.SegmentPath
     transmitDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1670,6 +1713,7 @@ func (transmitBfdGood *MplsOam_Interface_Details_Detail_PacketStatistics_Protect
     transmitBfdGood.EntityData.BundleName = "cisco_ios_xr"
     transmitBfdGood.EntityData.ParentYangName = "protect-req-sent"
     transmitBfdGood.EntityData.SegmentPath = "transmit-bfd-good"
+    transmitBfdGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/protect-req-sent/" + transmitBfdGood.EntityData.SegmentPath
     transmitBfdGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1706,6 +1750,7 @@ func (bfdNoReply *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectReqSe
     bfdNoReply.EntityData.BundleName = "cisco_ios_xr"
     bfdNoReply.EntityData.ParentYangName = "protect-req-sent"
     bfdNoReply.EntityData.SegmentPath = "bfd-no-reply"
+    bfdNoReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/protect-req-sent/" + bfdNoReply.EntityData.SegmentPath
     bfdNoReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1745,6 +1790,7 @@ func (protectRepSent *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectR
     protectRepSent.EntityData.BundleName = "cisco_ios_xr"
     protectRepSent.EntityData.ParentYangName = "packet-statistics"
     protectRepSent.EntityData.SegmentPath = "protect-rep-sent"
+    protectRepSent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/" + protectRepSent.EntityData.SegmentPath
     protectRepSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectRepSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectRepSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1782,6 +1828,7 @@ func (transmitGood *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectRep
     transmitGood.EntityData.BundleName = "cisco_ios_xr"
     transmitGood.EntityData.ParentYangName = "protect-rep-sent"
     transmitGood.EntityData.SegmentPath = "transmit-good"
+    transmitGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/protect-rep-sent/" + transmitGood.EntityData.SegmentPath
     transmitGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1817,6 +1864,7 @@ func (transmitDrop *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectRep
     transmitDrop.EntityData.BundleName = "cisco_ios_xr"
     transmitDrop.EntityData.ParentYangName = "protect-rep-sent"
     transmitDrop.EntityData.SegmentPath = "transmit-drop"
+    transmitDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/protect-rep-sent/" + transmitDrop.EntityData.SegmentPath
     transmitDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1852,6 +1900,7 @@ func (transmitBfdGood *MplsOam_Interface_Details_Detail_PacketStatistics_Protect
     transmitBfdGood.EntityData.BundleName = "cisco_ios_xr"
     transmitBfdGood.EntityData.ParentYangName = "protect-rep-sent"
     transmitBfdGood.EntityData.SegmentPath = "transmit-bfd-good"
+    transmitBfdGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/protect-rep-sent/" + transmitBfdGood.EntityData.SegmentPath
     transmitBfdGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1888,6 +1937,7 @@ func (bfdNoReply *MplsOam_Interface_Details_Detail_PacketStatistics_ProtectRepSe
     bfdNoReply.EntityData.BundleName = "cisco_ios_xr"
     bfdNoReply.EntityData.ParentYangName = "protect-rep-sent"
     bfdNoReply.EntityData.SegmentPath = "bfd-no-reply"
+    bfdNoReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/detail/packet-statistics/protect-rep-sent/" + bfdNoReply.EntityData.SegmentPath
     bfdNoReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1933,6 +1983,7 @@ func (packet *MplsOam_Packet) GetEntityData() *types.CommonEntityData {
     packet.EntityData.BundleName = "cisco_ios_xr"
     packet.EntityData.ParentYangName = "mpls-oam"
     packet.EntityData.SegmentPath = "packet"
+    packet.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/" + packet.EntityData.SegmentPath
     packet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2006,6 +2057,7 @@ func (received *MplsOam_Packet_Received) GetEntityData() *types.CommonEntityData
     received.EntityData.BundleName = "cisco_ios_xr"
     received.EntityData.ParentYangName = "packet"
     received.EntityData.SegmentPath = "received"
+    received.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2053,6 +2105,7 @@ func (receivedGoodRequest *MplsOam_Packet_Received_ReceivedGoodRequest) GetEntit
     receivedGoodRequest.EntityData.BundleName = "cisco_ios_xr"
     receivedGoodRequest.EntityData.ParentYangName = "received"
     receivedGoodRequest.EntityData.SegmentPath = "received-good-request"
+    receivedGoodRequest.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedGoodRequest.EntityData.SegmentPath
     receivedGoodRequest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedGoodRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2088,6 +2141,7 @@ func (receivedGoodReply *MplsOam_Packet_Received_ReceivedGoodReply) GetEntityDat
     receivedGoodReply.EntityData.BundleName = "cisco_ios_xr"
     receivedGoodReply.EntityData.ParentYangName = "received"
     receivedGoodReply.EntityData.SegmentPath = "received-good-reply"
+    receivedGoodReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedGoodReply.EntityData.SegmentPath
     receivedGoodReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedGoodReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2123,6 +2177,7 @@ func (receivedUnknown *MplsOam_Packet_Received_ReceivedUnknown) GetEntityData() 
     receivedUnknown.EntityData.BundleName = "cisco_ios_xr"
     receivedUnknown.EntityData.ParentYangName = "received"
     receivedUnknown.EntityData.SegmentPath = "received-unknown"
+    receivedUnknown.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedUnknown.EntityData.SegmentPath
     receivedUnknown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedUnknown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedUnknown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2158,6 +2213,7 @@ func (receivedErrorIpHeader *MplsOam_Packet_Received_ReceivedErrorIpHeader) GetE
     receivedErrorIpHeader.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorIpHeader.EntityData.ParentYangName = "received"
     receivedErrorIpHeader.EntityData.SegmentPath = "received-error-ip-header"
+    receivedErrorIpHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedErrorIpHeader.EntityData.SegmentPath
     receivedErrorIpHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorIpHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorIpHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2193,6 +2249,7 @@ func (receivedErrorUdpHeader *MplsOam_Packet_Received_ReceivedErrorUdpHeader) Ge
     receivedErrorUdpHeader.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorUdpHeader.EntityData.ParentYangName = "received"
     receivedErrorUdpHeader.EntityData.SegmentPath = "received-error-udp-header"
+    receivedErrorUdpHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedErrorUdpHeader.EntityData.SegmentPath
     receivedErrorUdpHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorUdpHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorUdpHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2228,6 +2285,7 @@ func (receivedErrorRunt *MplsOam_Packet_Received_ReceivedErrorRunt) GetEntityDat
     receivedErrorRunt.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorRunt.EntityData.ParentYangName = "received"
     receivedErrorRunt.EntityData.SegmentPath = "received-error-runt"
+    receivedErrorRunt.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedErrorRunt.EntityData.SegmentPath
     receivedErrorRunt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorRunt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorRunt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2263,6 +2321,7 @@ func (receivedErrorQueueFull *MplsOam_Packet_Received_ReceivedErrorQueueFull) Ge
     receivedErrorQueueFull.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorQueueFull.EntityData.ParentYangName = "received"
     receivedErrorQueueFull.EntityData.SegmentPath = "received-error-queue-full"
+    receivedErrorQueueFull.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedErrorQueueFull.EntityData.SegmentPath
     receivedErrorQueueFull.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorQueueFull.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorQueueFull.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2298,6 +2357,7 @@ func (receivedErrorGeneral *MplsOam_Packet_Received_ReceivedErrorGeneral) GetEnt
     receivedErrorGeneral.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorGeneral.EntityData.ParentYangName = "received"
     receivedErrorGeneral.EntityData.SegmentPath = "received-error-general"
+    receivedErrorGeneral.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedErrorGeneral.EntityData.SegmentPath
     receivedErrorGeneral.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorGeneral.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorGeneral.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2333,6 +2393,7 @@ func (receivedErrorNoInterface *MplsOam_Packet_Received_ReceivedErrorNoInterface
     receivedErrorNoInterface.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorNoInterface.EntityData.ParentYangName = "received"
     receivedErrorNoInterface.EntityData.SegmentPath = "received-error-no-interface"
+    receivedErrorNoInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedErrorNoInterface.EntityData.SegmentPath
     receivedErrorNoInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorNoInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorNoInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2368,6 +2429,7 @@ func (receivedErrorNoMemory *MplsOam_Packet_Received_ReceivedErrorNoMemory) GetE
     receivedErrorNoMemory.EntityData.BundleName = "cisco_ios_xr"
     receivedErrorNoMemory.EntityData.ParentYangName = "received"
     receivedErrorNoMemory.EntityData.SegmentPath = "received-error-no-memory"
+    receivedErrorNoMemory.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedErrorNoMemory.EntityData.SegmentPath
     receivedErrorNoMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedErrorNoMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedErrorNoMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2403,6 +2465,7 @@ func (protectProtocolReceivedGoodRequest *MplsOam_Packet_Received_ProtectProtoco
     protectProtocolReceivedGoodRequest.EntityData.BundleName = "cisco_ios_xr"
     protectProtocolReceivedGoodRequest.EntityData.ParentYangName = "received"
     protectProtocolReceivedGoodRequest.EntityData.SegmentPath = "protect-protocol-received-good-request"
+    protectProtocolReceivedGoodRequest.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + protectProtocolReceivedGoodRequest.EntityData.SegmentPath
     protectProtocolReceivedGoodRequest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectProtocolReceivedGoodRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectProtocolReceivedGoodRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2438,6 +2501,7 @@ func (protectProtocolReceivedGoodReply *MplsOam_Packet_Received_ProtectProtocolR
     protectProtocolReceivedGoodReply.EntityData.BundleName = "cisco_ios_xr"
     protectProtocolReceivedGoodReply.EntityData.ParentYangName = "received"
     protectProtocolReceivedGoodReply.EntityData.SegmentPath = "protect-protocol-received-good-reply"
+    protectProtocolReceivedGoodReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + protectProtocolReceivedGoodReply.EntityData.SegmentPath
     protectProtocolReceivedGoodReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectProtocolReceivedGoodReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectProtocolReceivedGoodReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2473,6 +2537,7 @@ func (receivedGoodBfdRequest *MplsOam_Packet_Received_ReceivedGoodBfdRequest) Ge
     receivedGoodBfdRequest.EntityData.BundleName = "cisco_ios_xr"
     receivedGoodBfdRequest.EntityData.ParentYangName = "received"
     receivedGoodBfdRequest.EntityData.SegmentPath = "received-good-bfd-request"
+    receivedGoodBfdRequest.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedGoodBfdRequest.EntityData.SegmentPath
     receivedGoodBfdRequest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedGoodBfdRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodBfdRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2508,6 +2573,7 @@ func (receivedGoodBfdReply *MplsOam_Packet_Received_ReceivedGoodBfdReply) GetEnt
     receivedGoodBfdReply.EntityData.BundleName = "cisco_ios_xr"
     receivedGoodBfdReply.EntityData.ParentYangName = "received"
     receivedGoodBfdReply.EntityData.SegmentPath = "received-good-bfd-reply"
+    receivedGoodBfdReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/" + receivedGoodBfdReply.EntityData.SegmentPath
     receivedGoodBfdReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedGoodBfdReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedGoodBfdReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2547,6 +2613,7 @@ func (sent *MplsOam_Packet_Sent) GetEntityData() *types.CommonEntityData {
     sent.EntityData.BundleName = "cisco_ios_xr"
     sent.EntityData.ParentYangName = "packet"
     sent.EntityData.SegmentPath = "sent"
+    sent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/" + sent.EntityData.SegmentPath
     sent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2584,6 +2651,7 @@ func (transmitGood *MplsOam_Packet_Sent_TransmitGood) GetEntityData() *types.Com
     transmitGood.EntityData.BundleName = "cisco_ios_xr"
     transmitGood.EntityData.ParentYangName = "sent"
     transmitGood.EntityData.SegmentPath = "transmit-good"
+    transmitGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/" + transmitGood.EntityData.SegmentPath
     transmitGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2619,6 +2687,7 @@ func (transmitDrop *MplsOam_Packet_Sent_TransmitDrop) GetEntityData() *types.Com
     transmitDrop.EntityData.BundleName = "cisco_ios_xr"
     transmitDrop.EntityData.ParentYangName = "sent"
     transmitDrop.EntityData.SegmentPath = "transmit-drop"
+    transmitDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/" + transmitDrop.EntityData.SegmentPath
     transmitDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2654,6 +2723,7 @@ func (transmitBfdGood *MplsOam_Packet_Sent_TransmitBfdGood) GetEntityData() *typ
     transmitBfdGood.EntityData.BundleName = "cisco_ios_xr"
     transmitBfdGood.EntityData.ParentYangName = "sent"
     transmitBfdGood.EntityData.SegmentPath = "transmit-bfd-good"
+    transmitBfdGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/" + transmitBfdGood.EntityData.SegmentPath
     transmitBfdGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2690,6 +2760,7 @@ func (bfdNoReply *MplsOam_Packet_Sent_BfdNoReply) GetEntityData() *types.CommonE
     bfdNoReply.EntityData.BundleName = "cisco_ios_xr"
     bfdNoReply.EntityData.ParentYangName = "sent"
     bfdNoReply.EntityData.SegmentPath = "bfd-no-reply"
+    bfdNoReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/" + bfdNoReply.EntityData.SegmentPath
     bfdNoReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2729,6 +2800,7 @@ func (workingReqSent *MplsOam_Packet_WorkingReqSent) GetEntityData() *types.Comm
     workingReqSent.EntityData.BundleName = "cisco_ios_xr"
     workingReqSent.EntityData.ParentYangName = "packet"
     workingReqSent.EntityData.SegmentPath = "working-req-sent"
+    workingReqSent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/" + workingReqSent.EntityData.SegmentPath
     workingReqSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     workingReqSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     workingReqSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2766,6 +2838,7 @@ func (transmitGood *MplsOam_Packet_WorkingReqSent_TransmitGood) GetEntityData() 
     transmitGood.EntityData.BundleName = "cisco_ios_xr"
     transmitGood.EntityData.ParentYangName = "working-req-sent"
     transmitGood.EntityData.SegmentPath = "transmit-good"
+    transmitGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/" + transmitGood.EntityData.SegmentPath
     transmitGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2801,6 +2874,7 @@ func (transmitDrop *MplsOam_Packet_WorkingReqSent_TransmitDrop) GetEntityData() 
     transmitDrop.EntityData.BundleName = "cisco_ios_xr"
     transmitDrop.EntityData.ParentYangName = "working-req-sent"
     transmitDrop.EntityData.SegmentPath = "transmit-drop"
+    transmitDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/" + transmitDrop.EntityData.SegmentPath
     transmitDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2836,6 +2910,7 @@ func (transmitBfdGood *MplsOam_Packet_WorkingReqSent_TransmitBfdGood) GetEntityD
     transmitBfdGood.EntityData.BundleName = "cisco_ios_xr"
     transmitBfdGood.EntityData.ParentYangName = "working-req-sent"
     transmitBfdGood.EntityData.SegmentPath = "transmit-bfd-good"
+    transmitBfdGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/" + transmitBfdGood.EntityData.SegmentPath
     transmitBfdGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2872,6 +2947,7 @@ func (bfdNoReply *MplsOam_Packet_WorkingReqSent_BfdNoReply) GetEntityData() *typ
     bfdNoReply.EntityData.BundleName = "cisco_ios_xr"
     bfdNoReply.EntityData.ParentYangName = "working-req-sent"
     bfdNoReply.EntityData.SegmentPath = "bfd-no-reply"
+    bfdNoReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/" + bfdNoReply.EntityData.SegmentPath
     bfdNoReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2911,6 +2987,7 @@ func (workingRepSent *MplsOam_Packet_WorkingRepSent) GetEntityData() *types.Comm
     workingRepSent.EntityData.BundleName = "cisco_ios_xr"
     workingRepSent.EntityData.ParentYangName = "packet"
     workingRepSent.EntityData.SegmentPath = "working-rep-sent"
+    workingRepSent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/" + workingRepSent.EntityData.SegmentPath
     workingRepSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     workingRepSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     workingRepSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2948,6 +3025,7 @@ func (transmitGood *MplsOam_Packet_WorkingRepSent_TransmitGood) GetEntityData() 
     transmitGood.EntityData.BundleName = "cisco_ios_xr"
     transmitGood.EntityData.ParentYangName = "working-rep-sent"
     transmitGood.EntityData.SegmentPath = "transmit-good"
+    transmitGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/" + transmitGood.EntityData.SegmentPath
     transmitGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2983,6 +3061,7 @@ func (transmitDrop *MplsOam_Packet_WorkingRepSent_TransmitDrop) GetEntityData() 
     transmitDrop.EntityData.BundleName = "cisco_ios_xr"
     transmitDrop.EntityData.ParentYangName = "working-rep-sent"
     transmitDrop.EntityData.SegmentPath = "transmit-drop"
+    transmitDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/" + transmitDrop.EntityData.SegmentPath
     transmitDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3018,6 +3097,7 @@ func (transmitBfdGood *MplsOam_Packet_WorkingRepSent_TransmitBfdGood) GetEntityD
     transmitBfdGood.EntityData.BundleName = "cisco_ios_xr"
     transmitBfdGood.EntityData.ParentYangName = "working-rep-sent"
     transmitBfdGood.EntityData.SegmentPath = "transmit-bfd-good"
+    transmitBfdGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/" + transmitBfdGood.EntityData.SegmentPath
     transmitBfdGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3054,6 +3134,7 @@ func (bfdNoReply *MplsOam_Packet_WorkingRepSent_BfdNoReply) GetEntityData() *typ
     bfdNoReply.EntityData.BundleName = "cisco_ios_xr"
     bfdNoReply.EntityData.ParentYangName = "working-rep-sent"
     bfdNoReply.EntityData.SegmentPath = "bfd-no-reply"
+    bfdNoReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/" + bfdNoReply.EntityData.SegmentPath
     bfdNoReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3093,6 +3174,7 @@ func (protectReqSent *MplsOam_Packet_ProtectReqSent) GetEntityData() *types.Comm
     protectReqSent.EntityData.BundleName = "cisco_ios_xr"
     protectReqSent.EntityData.ParentYangName = "packet"
     protectReqSent.EntityData.SegmentPath = "protect-req-sent"
+    protectReqSent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/" + protectReqSent.EntityData.SegmentPath
     protectReqSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectReqSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectReqSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3130,6 +3212,7 @@ func (transmitGood *MplsOam_Packet_ProtectReqSent_TransmitGood) GetEntityData() 
     transmitGood.EntityData.BundleName = "cisco_ios_xr"
     transmitGood.EntityData.ParentYangName = "protect-req-sent"
     transmitGood.EntityData.SegmentPath = "transmit-good"
+    transmitGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/" + transmitGood.EntityData.SegmentPath
     transmitGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3165,6 +3248,7 @@ func (transmitDrop *MplsOam_Packet_ProtectReqSent_TransmitDrop) GetEntityData() 
     transmitDrop.EntityData.BundleName = "cisco_ios_xr"
     transmitDrop.EntityData.ParentYangName = "protect-req-sent"
     transmitDrop.EntityData.SegmentPath = "transmit-drop"
+    transmitDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/" + transmitDrop.EntityData.SegmentPath
     transmitDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3200,6 +3284,7 @@ func (transmitBfdGood *MplsOam_Packet_ProtectReqSent_TransmitBfdGood) GetEntityD
     transmitBfdGood.EntityData.BundleName = "cisco_ios_xr"
     transmitBfdGood.EntityData.ParentYangName = "protect-req-sent"
     transmitBfdGood.EntityData.SegmentPath = "transmit-bfd-good"
+    transmitBfdGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/" + transmitBfdGood.EntityData.SegmentPath
     transmitBfdGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3236,6 +3321,7 @@ func (bfdNoReply *MplsOam_Packet_ProtectReqSent_BfdNoReply) GetEntityData() *typ
     bfdNoReply.EntityData.BundleName = "cisco_ios_xr"
     bfdNoReply.EntityData.ParentYangName = "protect-req-sent"
     bfdNoReply.EntityData.SegmentPath = "bfd-no-reply"
+    bfdNoReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/" + bfdNoReply.EntityData.SegmentPath
     bfdNoReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3275,6 +3361,7 @@ func (protectRepSent *MplsOam_Packet_ProtectRepSent) GetEntityData() *types.Comm
     protectRepSent.EntityData.BundleName = "cisco_ios_xr"
     protectRepSent.EntityData.ParentYangName = "packet"
     protectRepSent.EntityData.SegmentPath = "protect-rep-sent"
+    protectRepSent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/" + protectRepSent.EntityData.SegmentPath
     protectRepSent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectRepSent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectRepSent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3312,6 +3399,7 @@ func (transmitGood *MplsOam_Packet_ProtectRepSent_TransmitGood) GetEntityData() 
     transmitGood.EntityData.BundleName = "cisco_ios_xr"
     transmitGood.EntityData.ParentYangName = "protect-rep-sent"
     transmitGood.EntityData.SegmentPath = "transmit-good"
+    transmitGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/" + transmitGood.EntityData.SegmentPath
     transmitGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3347,6 +3435,7 @@ func (transmitDrop *MplsOam_Packet_ProtectRepSent_TransmitDrop) GetEntityData() 
     transmitDrop.EntityData.BundleName = "cisco_ios_xr"
     transmitDrop.EntityData.ParentYangName = "protect-rep-sent"
     transmitDrop.EntityData.SegmentPath = "transmit-drop"
+    transmitDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/" + transmitDrop.EntityData.SegmentPath
     transmitDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3382,6 +3471,7 @@ func (transmitBfdGood *MplsOam_Packet_ProtectRepSent_TransmitBfdGood) GetEntityD
     transmitBfdGood.EntityData.BundleName = "cisco_ios_xr"
     transmitBfdGood.EntityData.ParentYangName = "protect-rep-sent"
     transmitBfdGood.EntityData.SegmentPath = "transmit-bfd-good"
+    transmitBfdGood.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/" + transmitBfdGood.EntityData.SegmentPath
     transmitBfdGood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitBfdGood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitBfdGood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3418,6 +3508,7 @@ func (bfdNoReply *MplsOam_Packet_ProtectRepSent_BfdNoReply) GetEntityData() *typ
     bfdNoReply.EntityData.BundleName = "cisco_ios_xr"
     bfdNoReply.EntityData.ParentYangName = "protect-rep-sent"
     bfdNoReply.EntityData.SegmentPath = "bfd-no-reply"
+    bfdNoReply.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/" + bfdNoReply.EntityData.SegmentPath
     bfdNoReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdNoReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdNoReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3454,6 +3545,7 @@ func (global *MplsOam_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "mpls-oam"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3525,6 +3617,7 @@ func (messageStatistics *MplsOam_Global_MessageStatistics) GetEntityData() *type
     messageStatistics.EntityData.BundleName = "cisco_ios_xr"
     messageStatistics.EntityData.ParentYangName = "global"
     messageStatistics.EntityData.SegmentPath = "message-statistics"
+    messageStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/" + messageStatistics.EntityData.SegmentPath
     messageStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     messageStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3573,6 +3666,7 @@ func (collaboratorStatistics *MplsOam_Global_CollaboratorStatistics) GetEntityDa
     collaboratorStatistics.EntityData.BundleName = "cisco_ios_xr"
     collaboratorStatistics.EntityData.ParentYangName = "global"
     collaboratorStatistics.EntityData.SegmentPath = "collaborator-statistics"
+    collaboratorStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/" + collaboratorStatistics.EntityData.SegmentPath
     collaboratorStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collaboratorStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collaboratorStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3609,6 +3703,7 @@ func (collaboratorIParm *MplsOam_Global_CollaboratorStatistics_CollaboratorIParm
     collaboratorIParm.EntityData.BundleName = "cisco_ios_xr"
     collaboratorIParm.EntityData.ParentYangName = "collaborator-statistics"
     collaboratorIParm.EntityData.SegmentPath = "collaborator-i-parm"
+    collaboratorIParm.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/" + collaboratorIParm.EntityData.SegmentPath
     collaboratorIParm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collaboratorIParm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collaboratorIParm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3643,6 +3738,7 @@ func (collaboratorIm *MplsOam_Global_CollaboratorStatistics_CollaboratorIm) GetE
     collaboratorIm.EntityData.BundleName = "cisco_ios_xr"
     collaboratorIm.EntityData.ParentYangName = "collaborator-statistics"
     collaboratorIm.EntityData.SegmentPath = "collaborator-im"
+    collaboratorIm.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/" + collaboratorIm.EntityData.SegmentPath
     collaboratorIm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collaboratorIm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collaboratorIm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3677,6 +3773,7 @@ func (collaboratorNetIo *MplsOam_Global_CollaboratorStatistics_CollaboratorNetIo
     collaboratorNetIo.EntityData.BundleName = "cisco_ios_xr"
     collaboratorNetIo.EntityData.ParentYangName = "collaborator-statistics"
     collaboratorNetIo.EntityData.SegmentPath = "collaborator-net-io"
+    collaboratorNetIo.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/" + collaboratorNetIo.EntityData.SegmentPath
     collaboratorNetIo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collaboratorNetIo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collaboratorNetIo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3711,6 +3808,7 @@ func (collaboratorRib *MplsOam_Global_CollaboratorStatistics_CollaboratorRib) Ge
     collaboratorRib.EntityData.BundleName = "cisco_ios_xr"
     collaboratorRib.EntityData.ParentYangName = "collaborator-statistics"
     collaboratorRib.EntityData.SegmentPath = "collaborator-rib"
+    collaboratorRib.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/" + collaboratorRib.EntityData.SegmentPath
     collaboratorRib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collaboratorRib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collaboratorRib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

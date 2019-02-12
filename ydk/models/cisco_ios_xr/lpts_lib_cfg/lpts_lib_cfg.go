@@ -30,11 +30,11 @@ type Lpts struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Configure penalty timeout value.
-    Punt Lpts_Punt
-
     // Pre IFiB Configuration .
     Ipolicer Lpts_Ipolicer
+
+    // Configure penalty timeout value.
+    Punt Lpts_Punt
 }
 
 func (lpts *Lpts) GetEntityData() *types.CommonEntityData {
@@ -43,18 +43,373 @@ func (lpts *Lpts) GetEntityData() *types.CommonEntityData {
     lpts.EntityData.BundleName = "cisco_ios_xr"
     lpts.EntityData.ParentYangName = "Cisco-IOS-XR-lpts-lib-cfg"
     lpts.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-lib-cfg:lpts"
+    lpts.EntityData.AbsolutePath = lpts.EntityData.SegmentPath
     lpts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     lpts.EntityData.Children = types.NewOrderedMap()
-    lpts.EntityData.Children.Append("Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt", types.YChild{"Punt", &lpts.Punt})
     lpts.EntityData.Children.Append("Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer", types.YChild{"Ipolicer", &lpts.Ipolicer})
+    lpts.EntityData.Children.Append("Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt", types.YChild{"Punt", &lpts.Punt})
     lpts.EntityData.Leafs = types.NewOrderedMap()
 
     lpts.EntityData.YListKeys = []string {}
 
     return &(lpts.EntityData)
+}
+
+// Lpts_Ipolicer
+// Pre IFiB Configuration 
+// This type is a presence type.
+type Lpts_Ipolicer struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Enabled. The type is interface{}. This attribute is mandatory.
+    Enable interface{}
+
+    // Table for ACLs.
+    Acls Lpts_Ipolicer_Acls
+
+    // Table for Flows.
+    Flows Lpts_Ipolicer_Flows
+}
+
+func (ipolicer *Lpts_Ipolicer) GetEntityData() *types.CommonEntityData {
+    ipolicer.EntityData.YFilter = ipolicer.YFilter
+    ipolicer.EntityData.YangName = "ipolicer"
+    ipolicer.EntityData.BundleName = "cisco_ios_xr"
+    ipolicer.EntityData.ParentYangName = "lpts"
+    ipolicer.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer"
+    ipolicer.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/" + ipolicer.EntityData.SegmentPath
+    ipolicer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipolicer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipolicer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipolicer.EntityData.Children = types.NewOrderedMap()
+    ipolicer.EntityData.Children.Append("acls", types.YChild{"Acls", &ipolicer.Acls})
+    ipolicer.EntityData.Children.Append("flows", types.YChild{"Flows", &ipolicer.Flows})
+    ipolicer.EntityData.Leafs = types.NewOrderedMap()
+    ipolicer.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ipolicer.Enable})
+
+    ipolicer.EntityData.YListKeys = []string {}
+
+    return &(ipolicer.EntityData)
+}
+
+// Lpts_Ipolicer_Acls
+// Table for ACLs
+type Lpts_Ipolicer_Acls struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // ACL name. The type is slice of Lpts_Ipolicer_Acls_Acl.
+    Acl []*Lpts_Ipolicer_Acls_Acl
+}
+
+func (acls *Lpts_Ipolicer_Acls) GetEntityData() *types.CommonEntityData {
+    acls.EntityData.YFilter = acls.YFilter
+    acls.EntityData.YangName = "acls"
+    acls.EntityData.BundleName = "cisco_ios_xr"
+    acls.EntityData.ParentYangName = "ipolicer"
+    acls.EntityData.SegmentPath = "acls"
+    acls.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/" + acls.EntityData.SegmentPath
+    acls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    acls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    acls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    acls.EntityData.Children = types.NewOrderedMap()
+    acls.EntityData.Children.Append("acl", types.YChild{"Acl", nil})
+    for i := range acls.Acl {
+        acls.EntityData.Children.Append(types.GetSegmentPath(acls.Acl[i]), types.YChild{"Acl", acls.Acl[i]})
+    }
+    acls.EntityData.Leafs = types.NewOrderedMap()
+
+    acls.EntityData.YListKeys = []string {}
+
+    return &(acls.EntityData)
+}
+
+// Lpts_Ipolicer_Acls_Acl
+// ACL name
+type Lpts_Ipolicer_Acls_Acl struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. ACL name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    AclName interface{}
+
+    // AFI Family.
+    AfiTypes Lpts_Ipolicer_Acls_Acl_AfiTypes
+}
+
+func (acl *Lpts_Ipolicer_Acls_Acl) GetEntityData() *types.CommonEntityData {
+    acl.EntityData.YFilter = acl.YFilter
+    acl.EntityData.YangName = "acl"
+    acl.EntityData.BundleName = "cisco_ios_xr"
+    acl.EntityData.ParentYangName = "acls"
+    acl.EntityData.SegmentPath = "acl" + types.AddKeyToken(acl.AclName, "acl-name")
+    acl.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/acls/" + acl.EntityData.SegmentPath
+    acl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    acl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    acl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    acl.EntityData.Children = types.NewOrderedMap()
+    acl.EntityData.Children.Append("afi-types", types.YChild{"AfiTypes", &acl.AfiTypes})
+    acl.EntityData.Leafs = types.NewOrderedMap()
+    acl.EntityData.Leafs.Append("acl-name", types.YLeaf{"AclName", acl.AclName})
+
+    acl.EntityData.YListKeys = []string {"AclName"}
+
+    return &(acl.EntityData)
+}
+
+// Lpts_Ipolicer_Acls_Acl_AfiTypes
+// AFI Family
+type Lpts_Ipolicer_Acls_Acl_AfiTypes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AFI Family type. The type is slice of
+    // Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType.
+    AfiType []*Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType
+}
+
+func (afiTypes *Lpts_Ipolicer_Acls_Acl_AfiTypes) GetEntityData() *types.CommonEntityData {
+    afiTypes.EntityData.YFilter = afiTypes.YFilter
+    afiTypes.EntityData.YangName = "afi-types"
+    afiTypes.EntityData.BundleName = "cisco_ios_xr"
+    afiTypes.EntityData.ParentYangName = "acl"
+    afiTypes.EntityData.SegmentPath = "afi-types"
+    afiTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/acls/acl/" + afiTypes.EntityData.SegmentPath
+    afiTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    afiTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    afiTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    afiTypes.EntityData.Children = types.NewOrderedMap()
+    afiTypes.EntityData.Children.Append("afi-type", types.YChild{"AfiType", nil})
+    for i := range afiTypes.AfiType {
+        afiTypes.EntityData.Children.Append(types.GetSegmentPath(afiTypes.AfiType[i]), types.YChild{"AfiType", afiTypes.AfiType[i]})
+    }
+    afiTypes.EntityData.Leafs = types.NewOrderedMap()
+
+    afiTypes.EntityData.YListKeys = []string {}
+
+    return &(afiTypes.EntityData)
+}
+
+// Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType
+// AFI Family type
+type Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. AFI Family Type. The type is Lptsafi.
+    AfiFamilyType interface{}
+
+    // VRF list.
+    VrfNames Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames
+}
+
+func (afiType *Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType) GetEntityData() *types.CommonEntityData {
+    afiType.EntityData.YFilter = afiType.YFilter
+    afiType.EntityData.YangName = "afi-type"
+    afiType.EntityData.BundleName = "cisco_ios_xr"
+    afiType.EntityData.ParentYangName = "afi-types"
+    afiType.EntityData.SegmentPath = "afi-type" + types.AddKeyToken(afiType.AfiFamilyType, "afi-family-type")
+    afiType.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/acls/acl/afi-types/" + afiType.EntityData.SegmentPath
+    afiType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    afiType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    afiType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    afiType.EntityData.Children = types.NewOrderedMap()
+    afiType.EntityData.Children.Append("vrf-names", types.YChild{"VrfNames", &afiType.VrfNames})
+    afiType.EntityData.Leafs = types.NewOrderedMap()
+    afiType.EntityData.Leafs.Append("afi-family-type", types.YLeaf{"AfiFamilyType", afiType.AfiFamilyType})
+
+    afiType.EntityData.YListKeys = []string {"AfiFamilyType"}
+
+    return &(afiType.EntityData)
+}
+
+// Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames
+// VRF list
+type Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VRF name. The type is slice of
+    // Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName.
+    VrfName []*Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName
+}
+
+func (vrfNames *Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames) GetEntityData() *types.CommonEntityData {
+    vrfNames.EntityData.YFilter = vrfNames.YFilter
+    vrfNames.EntityData.YangName = "vrf-names"
+    vrfNames.EntityData.BundleName = "cisco_ios_xr"
+    vrfNames.EntityData.ParentYangName = "afi-type"
+    vrfNames.EntityData.SegmentPath = "vrf-names"
+    vrfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/acls/acl/afi-types/afi-type/" + vrfNames.EntityData.SegmentPath
+    vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfNames.EntityData.Children = types.NewOrderedMap()
+    vrfNames.EntityData.Children.Append("vrf-name", types.YChild{"VrfName", nil})
+    for i := range vrfNames.VrfName {
+        vrfNames.EntityData.Children.Append(types.GetSegmentPath(vrfNames.VrfName[i]), types.YChild{"VrfName", vrfNames.VrfName[i]})
+    }
+    vrfNames.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNames.EntityData.YListKeys = []string {}
+
+    return &(vrfNames.EntityData)
+}
+
+// Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName
+// VRF name
+type Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VRF name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    VrfName interface{}
+
+    // pre-ifib policer rate config commands. The type is interface{} with range:
+    // 0..100000.
+    AclRate interface{}
+}
+
+func (vrfName *Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
+    vrfName.EntityData.YFilter = vrfName.YFilter
+    vrfName.EntityData.YangName = "vrf-name"
+    vrfName.EntityData.BundleName = "cisco_ios_xr"
+    vrfName.EntityData.ParentYangName = "vrf-names"
+    vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
+    vrfName.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/acls/acl/afi-types/afi-type/vrf-names/" + vrfName.EntityData.SegmentPath
+    vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfName.EntityData.Children = types.NewOrderedMap()
+    vrfName.EntityData.Leafs = types.NewOrderedMap()
+    vrfName.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfName.VrfName})
+    vrfName.EntityData.Leafs.Append("acl-rate", types.YLeaf{"AclRate", vrfName.AclRate})
+
+    vrfName.EntityData.YListKeys = []string {"VrfName"}
+
+    return &(vrfName.EntityData)
+}
+
+// Lpts_Ipolicer_Flows
+// Table for Flows
+type Lpts_Ipolicer_Flows struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // selected flow type. The type is slice of Lpts_Ipolicer_Flows_Flow.
+    Flow []*Lpts_Ipolicer_Flows_Flow
+}
+
+func (flows *Lpts_Ipolicer_Flows) GetEntityData() *types.CommonEntityData {
+    flows.EntityData.YFilter = flows.YFilter
+    flows.EntityData.YangName = "flows"
+    flows.EntityData.BundleName = "cisco_ios_xr"
+    flows.EntityData.ParentYangName = "ipolicer"
+    flows.EntityData.SegmentPath = "flows"
+    flows.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/" + flows.EntityData.SegmentPath
+    flows.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flows.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flows.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    flows.EntityData.Children = types.NewOrderedMap()
+    flows.EntityData.Children.Append("flow", types.YChild{"Flow", nil})
+    for i := range flows.Flow {
+        flows.EntityData.Children.Append(types.GetSegmentPath(flows.Flow[i]), types.YChild{"Flow", flows.Flow[i]})
+    }
+    flows.EntityData.Leafs = types.NewOrderedMap()
+
+    flows.EntityData.YListKeys = []string {}
+
+    return &(flows.EntityData)
+}
+
+// Lpts_Ipolicer_Flows_Flow
+// selected flow type
+type Lpts_Ipolicer_Flows_Flow struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. LPTS Flow Type. The type is LptsFlow.
+    FlowType interface{}
+
+    // Configured rate value. The type is interface{} with range: 0..4294967295.
+    Rate interface{}
+
+    // TOS Precedence value(s).
+    Precedences Lpts_Ipolicer_Flows_Flow_Precedences
+}
+
+func (flow *Lpts_Ipolicer_Flows_Flow) GetEntityData() *types.CommonEntityData {
+    flow.EntityData.YFilter = flow.YFilter
+    flow.EntityData.YangName = "flow"
+    flow.EntityData.BundleName = "cisco_ios_xr"
+    flow.EntityData.ParentYangName = "flows"
+    flow.EntityData.SegmentPath = "flow" + types.AddKeyToken(flow.FlowType, "flow-type")
+    flow.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/flows/" + flow.EntityData.SegmentPath
+    flow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    flow.EntityData.Children = types.NewOrderedMap()
+    flow.EntityData.Children.Append("precedences", types.YChild{"Precedences", &flow.Precedences})
+    flow.EntityData.Leafs = types.NewOrderedMap()
+    flow.EntityData.Leafs.Append("flow-type", types.YLeaf{"FlowType", flow.FlowType})
+    flow.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", flow.Rate})
+
+    flow.EntityData.YListKeys = []string {"FlowType"}
+
+    return &(flow.EntityData)
+}
+
+// Lpts_Ipolicer_Flows_Flow_Precedences
+// TOS Precedence value(s)
+type Lpts_Ipolicer_Flows_Flow_Precedences struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Precedence values. The type is one of the following types: slice of  
+    // :go:struct:`LptsPreIFibPrecedenceNumber
+    // <ydk/models/lpts_pre_ifib_cfg/LptsPreIFibPrecedenceNumber>`, or slice of
+    // int with range: 0..7.
+    Precedence []interface{}
+}
+
+func (precedences *Lpts_Ipolicer_Flows_Flow_Precedences) GetEntityData() *types.CommonEntityData {
+    precedences.EntityData.YFilter = precedences.YFilter
+    precedences.EntityData.YangName = "precedences"
+    precedences.EntityData.BundleName = "cisco_ios_xr"
+    precedences.EntityData.ParentYangName = "flow"
+    precedences.EntityData.SegmentPath = "precedences"
+    precedences.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/flows/flow/" + precedences.EntityData.SegmentPath
+    precedences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    precedences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    precedences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    precedences.EntityData.Children = types.NewOrderedMap()
+    precedences.EntityData.Leafs = types.NewOrderedMap()
+    precedences.EntityData.Leafs.Append("precedence", types.YLeaf{"Precedence", precedences.Precedence})
+
+    precedences.EntityData.YListKeys = []string {}
+
+    return &(precedences.EntityData)
 }
 
 // Lpts_Punt
@@ -73,6 +428,7 @@ func (punt *Lpts_Punt) GetEntityData() *types.CommonEntityData {
     punt.EntityData.BundleName = "cisco_ios_xr"
     punt.EntityData.ParentYangName = "lpts"
     punt.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt"
+    punt.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/" + punt.EntityData.SegmentPath
     punt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     punt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     punt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -149,6 +505,7 @@ func (flowtrap *Lpts_Punt_Flowtrap) GetEntityData() *types.CommonEntityData {
     flowtrap.EntityData.BundleName = "cisco_ios_xr"
     flowtrap.EntityData.ParentYangName = "punt"
     flowtrap.EntityData.SegmentPath = "flowtrap"
+    flowtrap.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/" + flowtrap.EntityData.SegmentPath
     flowtrap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowtrap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowtrap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -191,6 +548,7 @@ func (penaltyRates *Lpts_Punt_Flowtrap_PenaltyRates) GetEntityData() *types.Comm
     penaltyRates.EntityData.BundleName = "cisco_ios_xr"
     penaltyRates.EntityData.ParentYangName = "flowtrap"
     penaltyRates.EntityData.SegmentPath = "penalty-rates"
+    penaltyRates.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/" + penaltyRates.EntityData.SegmentPath
     penaltyRates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     penaltyRates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     penaltyRates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -212,6 +570,7 @@ func (penaltyRates *Lpts_Punt_Flowtrap_PenaltyRates) GetEntityData() *types.Comm
 type Lpts_Punt_Flowtrap_PenaltyRates_PenaltyRate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. none. The type is LptsPuntFlowtrapProtoId.
     ProtocolName interface{}
@@ -227,6 +586,7 @@ func (penaltyRate *Lpts_Punt_Flowtrap_PenaltyRates_PenaltyRate) GetEntityData() 
     penaltyRate.EntityData.BundleName = "cisco_ios_xr"
     penaltyRate.EntityData.ParentYangName = "penalty-rates"
     penaltyRate.EntityData.SegmentPath = "penalty-rate" + types.AddKeyToken(penaltyRate.ProtocolName, "protocol-name")
+    penaltyRate.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/penalty-rates/" + penaltyRate.EntityData.SegmentPath
     penaltyRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     penaltyRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     penaltyRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -258,6 +618,7 @@ func (penaltyTimeouts *Lpts_Punt_Flowtrap_PenaltyTimeouts) GetEntityData() *type
     penaltyTimeouts.EntityData.BundleName = "cisco_ios_xr"
     penaltyTimeouts.EntityData.ParentYangName = "flowtrap"
     penaltyTimeouts.EntityData.SegmentPath = "penalty-timeouts"
+    penaltyTimeouts.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/" + penaltyTimeouts.EntityData.SegmentPath
     penaltyTimeouts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     penaltyTimeouts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     penaltyTimeouts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -279,6 +640,7 @@ func (penaltyTimeouts *Lpts_Punt_Flowtrap_PenaltyTimeouts) GetEntityData() *type
 type Lpts_Punt_Flowtrap_PenaltyTimeouts_PenaltyTimeout struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. none. The type is LptsPuntFlowtrapProtoId.
     ProtocolName interface{}
@@ -294,6 +656,7 @@ func (penaltyTimeout *Lpts_Punt_Flowtrap_PenaltyTimeouts_PenaltyTimeout) GetEnti
     penaltyTimeout.EntityData.BundleName = "cisco_ios_xr"
     penaltyTimeout.EntityData.ParentYangName = "penalty-timeouts"
     penaltyTimeout.EntityData.SegmentPath = "penalty-timeout" + types.AddKeyToken(penaltyTimeout.ProtocolName, "protocol-name")
+    penaltyTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/penalty-timeouts/" + penaltyTimeout.EntityData.SegmentPath
     penaltyTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     penaltyTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     penaltyTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -324,6 +687,7 @@ func (exclude *Lpts_Punt_Flowtrap_Exclude) GetEntityData() *types.CommonEntityDa
     exclude.EntityData.BundleName = "cisco_ios_xr"
     exclude.EntityData.ParentYangName = "flowtrap"
     exclude.EntityData.SegmentPath = "exclude"
+    exclude.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/" + exclude.EntityData.SegmentPath
     exclude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -354,6 +718,7 @@ func (interfaceNames *Lpts_Punt_Flowtrap_Exclude_InterfaceNames) GetEntityData()
     interfaceNames.EntityData.BundleName = "cisco_ios_xr"
     interfaceNames.EntityData.ParentYangName = "exclude"
     interfaceNames.EntityData.SegmentPath = "interface-names"
+    interfaceNames.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/exclude/" + interfaceNames.EntityData.SegmentPath
     interfaceNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -375,6 +740,7 @@ func (interfaceNames *Lpts_Punt_Flowtrap_Exclude_InterfaceNames) GetEntityData()
 type Lpts_Punt_Flowtrap_Exclude_InterfaceNames_InterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of interface to exclude from all traps. The
     // type is string with pattern: [a-zA-Z0-9._/-]+.
@@ -390,6 +756,7 @@ func (interfaceName *Lpts_Punt_Flowtrap_Exclude_InterfaceNames_InterfaceName) Ge
     interfaceName.EntityData.BundleName = "cisco_ios_xr"
     interfaceName.EntityData.ParentYangName = "interface-names"
     interfaceName.EntityData.SegmentPath = "interface-name" + types.AddKeyToken(interfaceName.Ifname, "ifname")
+    interfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/exclude/interface-names/" + interfaceName.EntityData.SegmentPath
     interfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -402,345 +769,5 @@ func (interfaceName *Lpts_Punt_Flowtrap_Exclude_InterfaceNames_InterfaceName) Ge
     interfaceName.EntityData.YListKeys = []string {"Ifname"}
 
     return &(interfaceName.EntityData)
-}
-
-// Lpts_Ipolicer
-// Pre IFiB Configuration 
-// This type is a presence type.
-type Lpts_Ipolicer struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Enabled. The type is interface{}. This attribute is mandatory.
-    Enable interface{}
-
-    // Table for ACLs.
-    Acls Lpts_Ipolicer_Acls
-
-    // Table for Flows.
-    Flows Lpts_Ipolicer_Flows
-}
-
-func (ipolicer *Lpts_Ipolicer) GetEntityData() *types.CommonEntityData {
-    ipolicer.EntityData.YFilter = ipolicer.YFilter
-    ipolicer.EntityData.YangName = "ipolicer"
-    ipolicer.EntityData.BundleName = "cisco_ios_xr"
-    ipolicer.EntityData.ParentYangName = "lpts"
-    ipolicer.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer"
-    ipolicer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipolicer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipolicer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipolicer.EntityData.Children = types.NewOrderedMap()
-    ipolicer.EntityData.Children.Append("acls", types.YChild{"Acls", &ipolicer.Acls})
-    ipolicer.EntityData.Children.Append("flows", types.YChild{"Flows", &ipolicer.Flows})
-    ipolicer.EntityData.Leafs = types.NewOrderedMap()
-    ipolicer.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ipolicer.Enable})
-
-    ipolicer.EntityData.YListKeys = []string {}
-
-    return &(ipolicer.EntityData)
-}
-
-// Lpts_Ipolicer_Acls
-// Table for ACLs
-type Lpts_Ipolicer_Acls struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // ACL name. The type is slice of Lpts_Ipolicer_Acls_Acl.
-    Acl []*Lpts_Ipolicer_Acls_Acl
-}
-
-func (acls *Lpts_Ipolicer_Acls) GetEntityData() *types.CommonEntityData {
-    acls.EntityData.YFilter = acls.YFilter
-    acls.EntityData.YangName = "acls"
-    acls.EntityData.BundleName = "cisco_ios_xr"
-    acls.EntityData.ParentYangName = "ipolicer"
-    acls.EntityData.SegmentPath = "acls"
-    acls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    acls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    acls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    acls.EntityData.Children = types.NewOrderedMap()
-    acls.EntityData.Children.Append("acl", types.YChild{"Acl", nil})
-    for i := range acls.Acl {
-        acls.EntityData.Children.Append(types.GetSegmentPath(acls.Acl[i]), types.YChild{"Acl", acls.Acl[i]})
-    }
-    acls.EntityData.Leafs = types.NewOrderedMap()
-
-    acls.EntityData.YListKeys = []string {}
-
-    return &(acls.EntityData)
-}
-
-// Lpts_Ipolicer_Acls_Acl
-// ACL name
-type Lpts_Ipolicer_Acls_Acl struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. ACL name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    AclName interface{}
-
-    // AFI Family.
-    AfiTypes Lpts_Ipolicer_Acls_Acl_AfiTypes
-}
-
-func (acl *Lpts_Ipolicer_Acls_Acl) GetEntityData() *types.CommonEntityData {
-    acl.EntityData.YFilter = acl.YFilter
-    acl.EntityData.YangName = "acl"
-    acl.EntityData.BundleName = "cisco_ios_xr"
-    acl.EntityData.ParentYangName = "acls"
-    acl.EntityData.SegmentPath = "acl" + types.AddKeyToken(acl.AclName, "acl-name")
-    acl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    acl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    acl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    acl.EntityData.Children = types.NewOrderedMap()
-    acl.EntityData.Children.Append("afi-types", types.YChild{"AfiTypes", &acl.AfiTypes})
-    acl.EntityData.Leafs = types.NewOrderedMap()
-    acl.EntityData.Leafs.Append("acl-name", types.YLeaf{"AclName", acl.AclName})
-
-    acl.EntityData.YListKeys = []string {"AclName"}
-
-    return &(acl.EntityData)
-}
-
-// Lpts_Ipolicer_Acls_Acl_AfiTypes
-// AFI Family
-type Lpts_Ipolicer_Acls_Acl_AfiTypes struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // AFI Family type. The type is slice of
-    // Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType.
-    AfiType []*Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType
-}
-
-func (afiTypes *Lpts_Ipolicer_Acls_Acl_AfiTypes) GetEntityData() *types.CommonEntityData {
-    afiTypes.EntityData.YFilter = afiTypes.YFilter
-    afiTypes.EntityData.YangName = "afi-types"
-    afiTypes.EntityData.BundleName = "cisco_ios_xr"
-    afiTypes.EntityData.ParentYangName = "acl"
-    afiTypes.EntityData.SegmentPath = "afi-types"
-    afiTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    afiTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    afiTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    afiTypes.EntityData.Children = types.NewOrderedMap()
-    afiTypes.EntityData.Children.Append("afi-type", types.YChild{"AfiType", nil})
-    for i := range afiTypes.AfiType {
-        afiTypes.EntityData.Children.Append(types.GetSegmentPath(afiTypes.AfiType[i]), types.YChild{"AfiType", afiTypes.AfiType[i]})
-    }
-    afiTypes.EntityData.Leafs = types.NewOrderedMap()
-
-    afiTypes.EntityData.YListKeys = []string {}
-
-    return &(afiTypes.EntityData)
-}
-
-// Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType
-// AFI Family type
-type Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. AFI Family Type. The type is Lptsafi.
-    AfiFamilyType interface{}
-
-    // VRF list.
-    VrfNames Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames
-}
-
-func (afiType *Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType) GetEntityData() *types.CommonEntityData {
-    afiType.EntityData.YFilter = afiType.YFilter
-    afiType.EntityData.YangName = "afi-type"
-    afiType.EntityData.BundleName = "cisco_ios_xr"
-    afiType.EntityData.ParentYangName = "afi-types"
-    afiType.EntityData.SegmentPath = "afi-type" + types.AddKeyToken(afiType.AfiFamilyType, "afi-family-type")
-    afiType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    afiType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    afiType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    afiType.EntityData.Children = types.NewOrderedMap()
-    afiType.EntityData.Children.Append("vrf-names", types.YChild{"VrfNames", &afiType.VrfNames})
-    afiType.EntityData.Leafs = types.NewOrderedMap()
-    afiType.EntityData.Leafs.Append("afi-family-type", types.YLeaf{"AfiFamilyType", afiType.AfiFamilyType})
-
-    afiType.EntityData.YListKeys = []string {"AfiFamilyType"}
-
-    return &(afiType.EntityData)
-}
-
-// Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames
-// VRF list
-type Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // VRF name. The type is slice of
-    // Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName.
-    VrfName []*Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName
-}
-
-func (vrfNames *Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames) GetEntityData() *types.CommonEntityData {
-    vrfNames.EntityData.YFilter = vrfNames.YFilter
-    vrfNames.EntityData.YangName = "vrf-names"
-    vrfNames.EntityData.BundleName = "cisco_ios_xr"
-    vrfNames.EntityData.ParentYangName = "afi-type"
-    vrfNames.EntityData.SegmentPath = "vrf-names"
-    vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vrfNames.EntityData.Children = types.NewOrderedMap()
-    vrfNames.EntityData.Children.Append("vrf-name", types.YChild{"VrfName", nil})
-    for i := range vrfNames.VrfName {
-        vrfNames.EntityData.Children.Append(types.GetSegmentPath(vrfNames.VrfName[i]), types.YChild{"VrfName", vrfNames.VrfName[i]})
-    }
-    vrfNames.EntityData.Leafs = types.NewOrderedMap()
-
-    vrfNames.EntityData.YListKeys = []string {}
-
-    return &(vrfNames.EntityData)
-}
-
-// Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName
-// VRF name
-type Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    VrfName interface{}
-
-    // pre-ifib policer rate config commands. The type is interface{} with range:
-    // 0..100000.
-    AclRate interface{}
-}
-
-func (vrfName *Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
-    vrfName.EntityData.YFilter = vrfName.YFilter
-    vrfName.EntityData.YangName = "vrf-name"
-    vrfName.EntityData.BundleName = "cisco_ios_xr"
-    vrfName.EntityData.ParentYangName = "vrf-names"
-    vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
-    vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vrfName.EntityData.Children = types.NewOrderedMap()
-    vrfName.EntityData.Leafs = types.NewOrderedMap()
-    vrfName.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfName.VrfName})
-    vrfName.EntityData.Leafs.Append("acl-rate", types.YLeaf{"AclRate", vrfName.AclRate})
-
-    vrfName.EntityData.YListKeys = []string {"VrfName"}
-
-    return &(vrfName.EntityData)
-}
-
-// Lpts_Ipolicer_Flows
-// Table for Flows
-type Lpts_Ipolicer_Flows struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // selected flow type. The type is slice of Lpts_Ipolicer_Flows_Flow.
-    Flow []*Lpts_Ipolicer_Flows_Flow
-}
-
-func (flows *Lpts_Ipolicer_Flows) GetEntityData() *types.CommonEntityData {
-    flows.EntityData.YFilter = flows.YFilter
-    flows.EntityData.YangName = "flows"
-    flows.EntityData.BundleName = "cisco_ios_xr"
-    flows.EntityData.ParentYangName = "ipolicer"
-    flows.EntityData.SegmentPath = "flows"
-    flows.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    flows.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    flows.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    flows.EntityData.Children = types.NewOrderedMap()
-    flows.EntityData.Children.Append("flow", types.YChild{"Flow", nil})
-    for i := range flows.Flow {
-        flows.EntityData.Children.Append(types.GetSegmentPath(flows.Flow[i]), types.YChild{"Flow", flows.Flow[i]})
-    }
-    flows.EntityData.Leafs = types.NewOrderedMap()
-
-    flows.EntityData.YListKeys = []string {}
-
-    return &(flows.EntityData)
-}
-
-// Lpts_Ipolicer_Flows_Flow
-// selected flow type
-type Lpts_Ipolicer_Flows_Flow struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. LPTS Flow Type. The type is LptsFlow.
-    FlowType interface{}
-
-    // Configured rate value. The type is interface{} with range: 0..4294967295.
-    Rate interface{}
-
-    // TOS Precedence value(s).
-    Precedences Lpts_Ipolicer_Flows_Flow_Precedences
-}
-
-func (flow *Lpts_Ipolicer_Flows_Flow) GetEntityData() *types.CommonEntityData {
-    flow.EntityData.YFilter = flow.YFilter
-    flow.EntityData.YangName = "flow"
-    flow.EntityData.BundleName = "cisco_ios_xr"
-    flow.EntityData.ParentYangName = "flows"
-    flow.EntityData.SegmentPath = "flow" + types.AddKeyToken(flow.FlowType, "flow-type")
-    flow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    flow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    flow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    flow.EntityData.Children = types.NewOrderedMap()
-    flow.EntityData.Children.Append("precedences", types.YChild{"Precedences", &flow.Precedences})
-    flow.EntityData.Leafs = types.NewOrderedMap()
-    flow.EntityData.Leafs.Append("flow-type", types.YLeaf{"FlowType", flow.FlowType})
-    flow.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", flow.Rate})
-
-    flow.EntityData.YListKeys = []string {"FlowType"}
-
-    return &(flow.EntityData)
-}
-
-// Lpts_Ipolicer_Flows_Flow_Precedences
-// TOS Precedence value(s)
-type Lpts_Ipolicer_Flows_Flow_Precedences struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Precedence values. The type is one of the following types: slice of  
-    // :go:struct:`LptsPreIFibPrecedenceNumber
-    // <ydk/models/lpts_pre_ifib_cfg/LptsPreIFibPrecedenceNumber>`, or slice of
-    // int with range: 0..7.
-    Precedence []interface{}
-}
-
-func (precedences *Lpts_Ipolicer_Flows_Flow_Precedences) GetEntityData() *types.CommonEntityData {
-    precedences.EntityData.YFilter = precedences.YFilter
-    precedences.EntityData.YangName = "precedences"
-    precedences.EntityData.BundleName = "cisco_ios_xr"
-    precedences.EntityData.ParentYangName = "flow"
-    precedences.EntityData.SegmentPath = "precedences"
-    precedences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    precedences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    precedences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    precedences.EntityData.Children = types.NewOrderedMap()
-    precedences.EntityData.Leafs = types.NewOrderedMap()
-    precedences.EntityData.Leafs.Append("precedence", types.YLeaf{"Precedence", precedences.Precedence})
-
-    precedences.EntityData.YListKeys = []string {}
-
-    return &(precedences.EntityData)
 }
 

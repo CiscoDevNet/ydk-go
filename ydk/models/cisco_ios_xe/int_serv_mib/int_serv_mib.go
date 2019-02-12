@@ -49,6 +49,7 @@ func (iNTSERVMIB *INTSERVMIB) GetEntityData() *types.CommonEntityData {
     iNTSERVMIB.EntityData.BundleName = "cisco_ios_xe"
     iNTSERVMIB.EntityData.ParentYangName = "INT-SERV-MIB"
     iNTSERVMIB.EntityData.SegmentPath = "INT-SERV-MIB:INT-SERV-MIB"
+    iNTSERVMIB.EntityData.AbsolutePath = iNTSERVMIB.EntityData.SegmentPath
     iNTSERVMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iNTSERVMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iNTSERVMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -86,6 +87,7 @@ func (intSrvGenObjects *INTSERVMIB_IntSrvGenObjects) GetEntityData() *types.Comm
     intSrvGenObjects.EntityData.BundleName = "cisco_ios_xe"
     intSrvGenObjects.EntityData.ParentYangName = "INT-SERV-MIB"
     intSrvGenObjects.EntityData.SegmentPath = "intSrvGenObjects"
+    intSrvGenObjects.EntityData.AbsolutePath = "INT-SERV-MIB:INT-SERV-MIB/" + intSrvGenObjects.EntityData.SegmentPath
     intSrvGenObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     intSrvGenObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     intSrvGenObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -117,6 +119,7 @@ func (intSrvIfAttribTable *INTSERVMIB_IntSrvIfAttribTable) GetEntityData() *type
     intSrvIfAttribTable.EntityData.BundleName = "cisco_ios_xe"
     intSrvIfAttribTable.EntityData.ParentYangName = "INT-SERV-MIB"
     intSrvIfAttribTable.EntityData.SegmentPath = "intSrvIfAttribTable"
+    intSrvIfAttribTable.EntityData.AbsolutePath = "INT-SERV-MIB:INT-SERV-MIB/" + intSrvIfAttribTable.EntityData.SegmentPath
     intSrvIfAttribTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     intSrvIfAttribTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     intSrvIfAttribTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -139,6 +142,7 @@ func (intSrvIfAttribTable *INTSERVMIB_IntSrvIfAttribTable) GetEntityData() *type
 type INTSERVMIB_IntSrvIfAttribTable_IntSrvIfAttribEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -180,6 +184,7 @@ func (intSrvIfAttribEntry *INTSERVMIB_IntSrvIfAttribTable_IntSrvIfAttribEntry) G
     intSrvIfAttribEntry.EntityData.BundleName = "cisco_ios_xe"
     intSrvIfAttribEntry.EntityData.ParentYangName = "intSrvIfAttribTable"
     intSrvIfAttribEntry.EntityData.SegmentPath = "intSrvIfAttribEntry" + types.AddKeyToken(intSrvIfAttribEntry.IfIndex, "ifIndex")
+    intSrvIfAttribEntry.EntityData.AbsolutePath = "INT-SERV-MIB:INT-SERV-MIB/intSrvIfAttribTable/" + intSrvIfAttribEntry.EntityData.SegmentPath
     intSrvIfAttribEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     intSrvIfAttribEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     intSrvIfAttribEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -219,6 +224,7 @@ func (intSrvFlowTable *INTSERVMIB_IntSrvFlowTable) GetEntityData() *types.Common
     intSrvFlowTable.EntityData.BundleName = "cisco_ios_xe"
     intSrvFlowTable.EntityData.ParentYangName = "INT-SERV-MIB"
     intSrvFlowTable.EntityData.SegmentPath = "intSrvFlowTable"
+    intSrvFlowTable.EntityData.AbsolutePath = "INT-SERV-MIB:INT-SERV-MIB/" + intSrvFlowTable.EntityData.SegmentPath
     intSrvFlowTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     intSrvFlowTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     intSrvFlowTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -243,6 +249,7 @@ func (intSrvFlowTable *INTSERVMIB_IntSrvFlowTable) GetEntityData() *types.Common
 type INTSERVMIB_IntSrvFlowTable_IntSrvFlowEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The number of this flow.  This is for SNMP In-
     // dexing purposes only and has no relation to any protocol value. The type is
@@ -387,6 +394,7 @@ func (intSrvFlowEntry *INTSERVMIB_IntSrvFlowTable_IntSrvFlowEntry) GetEntityData
     intSrvFlowEntry.EntityData.BundleName = "cisco_ios_xe"
     intSrvFlowEntry.EntityData.ParentYangName = "intSrvFlowTable"
     intSrvFlowEntry.EntityData.SegmentPath = "intSrvFlowEntry" + types.AddKeyToken(intSrvFlowEntry.IntSrvFlowNumber, "intSrvFlowNumber")
+    intSrvFlowEntry.EntityData.AbsolutePath = "INT-SERV-MIB:INT-SERV-MIB/intSrvFlowTable/" + intSrvFlowEntry.EntityData.SegmentPath
     intSrvFlowEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     intSrvFlowEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     intSrvFlowEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

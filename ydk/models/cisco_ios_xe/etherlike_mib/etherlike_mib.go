@@ -125,6 +125,7 @@ func (etherLikeMIB *EtherLikeMIB) GetEntityData() *types.CommonEntityData {
     etherLikeMIB.EntityData.BundleName = "cisco_ios_xe"
     etherLikeMIB.EntityData.ParentYangName = "EtherLike-MIB"
     etherLikeMIB.EntityData.SegmentPath = "EtherLike-MIB:EtherLike-MIB"
+    etherLikeMIB.EntityData.AbsolutePath = etherLikeMIB.EntityData.SegmentPath
     etherLikeMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etherLikeMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherLikeMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -162,6 +163,7 @@ func (dot3StatsTable *EtherLikeMIB_Dot3StatsTable) GetEntityData() *types.Common
     dot3StatsTable.EntityData.BundleName = "cisco_ios_xe"
     dot3StatsTable.EntityData.ParentYangName = "EtherLike-MIB"
     dot3StatsTable.EntityData.SegmentPath = "dot3StatsTable"
+    dot3StatsTable.EntityData.AbsolutePath = "EtherLike-MIB:EtherLike-MIB/" + dot3StatsTable.EntityData.SegmentPath
     dot3StatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot3StatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot3StatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -184,6 +186,7 @@ func (dot3StatsTable *EtherLikeMIB_Dot3StatsTable) GetEntityData() *types.Common
 type EtherLikeMIB_Dot3StatsTable_Dot3StatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index value that uniquely identifies an
     // interface to an ethernet-like medium.  The interface identified by a
@@ -445,6 +448,7 @@ func (dot3StatsEntry *EtherLikeMIB_Dot3StatsTable_Dot3StatsEntry) GetEntityData(
     dot3StatsEntry.EntityData.BundleName = "cisco_ios_xe"
     dot3StatsEntry.EntityData.ParentYangName = "dot3StatsTable"
     dot3StatsEntry.EntityData.SegmentPath = "dot3StatsEntry" + types.AddKeyToken(dot3StatsEntry.Dot3StatsIndex, "dot3StatsIndex")
+    dot3StatsEntry.EntityData.AbsolutePath = "EtherLike-MIB:EtherLike-MIB/dot3StatsTable/" + dot3StatsEntry.EntityData.SegmentPath
     dot3StatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot3StatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot3StatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -518,6 +522,7 @@ func (dot3CollTable *EtherLikeMIB_Dot3CollTable) GetEntityData() *types.CommonEn
     dot3CollTable.EntityData.BundleName = "cisco_ios_xe"
     dot3CollTable.EntityData.ParentYangName = "EtherLike-MIB"
     dot3CollTable.EntityData.SegmentPath = "dot3CollTable"
+    dot3CollTable.EntityData.AbsolutePath = "EtherLike-MIB:EtherLike-MIB/" + dot3CollTable.EntityData.SegmentPath
     dot3CollTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot3CollTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot3CollTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -545,6 +550,7 @@ func (dot3CollTable *EtherLikeMIB_Dot3CollTable) GetEntityData() *types.CommonEn
 type EtherLikeMIB_Dot3CollTable_Dot3CollEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -575,6 +581,7 @@ func (dot3CollEntry *EtherLikeMIB_Dot3CollTable_Dot3CollEntry) GetEntityData() *
     dot3CollEntry.EntityData.BundleName = "cisco_ios_xe"
     dot3CollEntry.EntityData.ParentYangName = "dot3CollTable"
     dot3CollEntry.EntityData.SegmentPath = "dot3CollEntry" + types.AddKeyToken(dot3CollEntry.IfIndex, "ifIndex") + types.AddKeyToken(dot3CollEntry.Dot3CollCount, "dot3CollCount")
+    dot3CollEntry.EntityData.AbsolutePath = "EtherLike-MIB:EtherLike-MIB/dot3CollTable/" + dot3CollEntry.EntityData.SegmentPath
     dot3CollEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot3CollEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot3CollEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -617,6 +624,7 @@ func (dot3ControlTable *EtherLikeMIB_Dot3ControlTable) GetEntityData() *types.Co
     dot3ControlTable.EntityData.BundleName = "cisco_ios_xe"
     dot3ControlTable.EntityData.ParentYangName = "EtherLike-MIB"
     dot3ControlTable.EntityData.SegmentPath = "dot3ControlTable"
+    dot3ControlTable.EntityData.AbsolutePath = "EtherLike-MIB:EtherLike-MIB/" + dot3ControlTable.EntityData.SegmentPath
     dot3ControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot3ControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot3ControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -640,6 +648,7 @@ func (dot3ControlTable *EtherLikeMIB_Dot3ControlTable) GetEntityData() *types.Co
 type EtherLikeMIB_Dot3ControlTable_Dot3ControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -679,6 +688,7 @@ func (dot3ControlEntry *EtherLikeMIB_Dot3ControlTable_Dot3ControlEntry) GetEntit
     dot3ControlEntry.EntityData.BundleName = "cisco_ios_xe"
     dot3ControlEntry.EntityData.ParentYangName = "dot3ControlTable"
     dot3ControlEntry.EntityData.SegmentPath = "dot3ControlEntry" + types.AddKeyToken(dot3ControlEntry.Dot3StatsIndex, "dot3StatsIndex")
+    dot3ControlEntry.EntityData.AbsolutePath = "EtherLike-MIB:EtherLike-MIB/dot3ControlTable/" + dot3ControlEntry.EntityData.SegmentPath
     dot3ControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot3ControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot3ControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -726,6 +736,7 @@ func (dot3PauseTable *EtherLikeMIB_Dot3PauseTable) GetEntityData() *types.Common
     dot3PauseTable.EntityData.BundleName = "cisco_ios_xe"
     dot3PauseTable.EntityData.ParentYangName = "EtherLike-MIB"
     dot3PauseTable.EntityData.SegmentPath = "dot3PauseTable"
+    dot3PauseTable.EntityData.AbsolutePath = "EtherLike-MIB:EtherLike-MIB/" + dot3PauseTable.EntityData.SegmentPath
     dot3PauseTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot3PauseTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot3PauseTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -749,6 +760,7 @@ func (dot3PauseTable *EtherLikeMIB_Dot3PauseTable) GetEntityData() *types.Common
 type EtherLikeMIB_Dot3PauseTable_Dot3PauseEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -840,6 +852,7 @@ func (dot3PauseEntry *EtherLikeMIB_Dot3PauseTable_Dot3PauseEntry) GetEntityData(
     dot3PauseEntry.EntityData.BundleName = "cisco_ios_xe"
     dot3PauseEntry.EntityData.ParentYangName = "dot3PauseTable"
     dot3PauseEntry.EntityData.SegmentPath = "dot3PauseEntry" + types.AddKeyToken(dot3PauseEntry.Dot3StatsIndex, "dot3StatsIndex")
+    dot3PauseEntry.EntityData.AbsolutePath = "EtherLike-MIB:EtherLike-MIB/dot3PauseTable/" + dot3PauseEntry.EntityData.SegmentPath
     dot3PauseEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot3PauseEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot3PauseEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -923,6 +936,7 @@ func (dot3HCStatsTable *EtherLikeMIB_Dot3HCStatsTable) GetEntityData() *types.Co
     dot3HCStatsTable.EntityData.BundleName = "cisco_ios_xe"
     dot3HCStatsTable.EntityData.ParentYangName = "EtherLike-MIB"
     dot3HCStatsTable.EntityData.SegmentPath = "dot3HCStatsTable"
+    dot3HCStatsTable.EntityData.AbsolutePath = "EtherLike-MIB:EtherLike-MIB/" + dot3HCStatsTable.EntityData.SegmentPath
     dot3HCStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot3HCStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot3HCStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -945,6 +959,7 @@ func (dot3HCStatsTable *EtherLikeMIB_Dot3HCStatsTable) GetEntityData() *types.Co
 type EtherLikeMIB_Dot3HCStatsTable_Dot3HCStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1063,6 +1078,7 @@ func (dot3HCStatsEntry *EtherLikeMIB_Dot3HCStatsTable_Dot3HCStatsEntry) GetEntit
     dot3HCStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     dot3HCStatsEntry.EntityData.ParentYangName = "dot3HCStatsTable"
     dot3HCStatsEntry.EntityData.SegmentPath = "dot3HCStatsEntry" + types.AddKeyToken(dot3HCStatsEntry.Dot3StatsIndex, "dot3StatsIndex")
+    dot3HCStatsEntry.EntityData.AbsolutePath = "EtherLike-MIB:EtherLike-MIB/dot3HCStatsTable/" + dot3HCStatsEntry.EntityData.SegmentPath
     dot3HCStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot3HCStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot3HCStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

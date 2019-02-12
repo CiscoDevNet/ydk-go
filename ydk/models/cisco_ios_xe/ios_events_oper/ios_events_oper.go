@@ -412,6 +412,7 @@ func (iosEvents *IosEvents) GetEntityData() *types.CommonEntityData {
     iosEvents.EntityData.BundleName = "cisco_ios_xe"
     iosEvents.EntityData.ParentYangName = "Cisco-IOS-XE-ios-events-oper"
     iosEvents.EntityData.SegmentPath = "Cisco-IOS-XE-ios-events-oper:ios-events"
+    iosEvents.EntityData.AbsolutePath = iosEvents.EntityData.SegmentPath
     iosEvents.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iosEvents.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iosEvents.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -83,6 +83,7 @@ func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetEntityData() *types.CommonEntityData 
     cISCOIETFBFDMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIETFBFDMIB.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
     cISCOIETFBFDMIB.EntityData.SegmentPath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB"
+    cISCOIETFBFDMIB.EntityData.AbsolutePath = cISCOIETFBFDMIB.EntityData.SegmentPath
     cISCOIETFBFDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIETFBFDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFBFDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -127,6 +128,7 @@ func (ciscoBfdScalarObjects *CISCOIETFBFDMIB_CiscoBfdScalarObjects) GetEntityDat
     ciscoBfdScalarObjects.EntityData.BundleName = "cisco_ios_xe"
     ciscoBfdScalarObjects.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
     ciscoBfdScalarObjects.EntityData.SegmentPath = "ciscoBfdScalarObjects"
+    ciscoBfdScalarObjects.EntityData.AbsolutePath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/" + ciscoBfdScalarObjects.EntityData.SegmentPath
     ciscoBfdScalarObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoBfdScalarObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoBfdScalarObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -168,6 +170,7 @@ func (ciscoBfdSessTable *CISCOIETFBFDMIB_CiscoBfdSessTable) GetEntityData() *typ
     ciscoBfdSessTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoBfdSessTable.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
     ciscoBfdSessTable.EntityData.SegmentPath = "ciscoBfdSessTable"
+    ciscoBfdSessTable.EntityData.AbsolutePath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/" + ciscoBfdSessTable.EntityData.SegmentPath
     ciscoBfdSessTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoBfdSessTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoBfdSessTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -189,6 +192,7 @@ func (ciscoBfdSessTable *CISCOIETFBFDMIB_CiscoBfdSessTable) GetEntityData() *typ
 type CISCOIETFBFDMIB_CiscoBfdSessTable_CiscoBfdSessEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object contains an index used to represent a
     // unique BFD session on this device. The type is interface{} with range:
@@ -377,6 +381,7 @@ func (ciscoBfdSessEntry *CISCOIETFBFDMIB_CiscoBfdSessTable_CiscoBfdSessEntry) Ge
     ciscoBfdSessEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoBfdSessEntry.EntityData.ParentYangName = "ciscoBfdSessTable"
     ciscoBfdSessEntry.EntityData.SegmentPath = "ciscoBfdSessEntry" + types.AddKeyToken(ciscoBfdSessEntry.CiscoBfdSessIndex, "ciscoBfdSessIndex")
+    ciscoBfdSessEntry.EntityData.AbsolutePath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessTable/" + ciscoBfdSessEntry.EntityData.SegmentPath
     ciscoBfdSessEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoBfdSessEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoBfdSessEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -495,6 +500,7 @@ func (ciscoBfdSessMapTable *CISCOIETFBFDMIB_CiscoBfdSessMapTable) GetEntityData(
     ciscoBfdSessMapTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoBfdSessMapTable.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
     ciscoBfdSessMapTable.EntityData.SegmentPath = "ciscoBfdSessMapTable"
+    ciscoBfdSessMapTable.EntityData.AbsolutePath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/" + ciscoBfdSessMapTable.EntityData.SegmentPath
     ciscoBfdSessMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoBfdSessMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoBfdSessMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -517,6 +523,7 @@ func (ciscoBfdSessMapTable *CISCOIETFBFDMIB_CiscoBfdSessMapTable) GetEntityData(
 type CISCOIETFBFDMIB_CiscoBfdSessMapTable_CiscoBfdSessMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -548,6 +555,7 @@ func (ciscoBfdSessMapEntry *CISCOIETFBFDMIB_CiscoBfdSessMapTable_CiscoBfdSessMap
     ciscoBfdSessMapEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoBfdSessMapEntry.EntityData.ParentYangName = "ciscoBfdSessMapTable"
     ciscoBfdSessMapEntry.EntityData.SegmentPath = "ciscoBfdSessMapEntry" + types.AddKeyToken(ciscoBfdSessMapEntry.CiscoBfdSessApplicationId, "ciscoBfdSessApplicationId") + types.AddKeyToken(ciscoBfdSessMapEntry.CiscoBfdSessDiscriminator, "ciscoBfdSessDiscriminator") + types.AddKeyToken(ciscoBfdSessMapEntry.CiscoBfdSessAddrType, "ciscoBfdSessAddrType") + types.AddKeyToken(ciscoBfdSessMapEntry.CiscoBfdSessAddr, "ciscoBfdSessAddr")
+    ciscoBfdSessMapEntry.EntityData.AbsolutePath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessMapTable/" + ciscoBfdSessMapEntry.EntityData.SegmentPath
     ciscoBfdSessMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoBfdSessMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoBfdSessMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -585,6 +593,7 @@ func (ciscoBfdSessDiscMapTable *CISCOIETFBFDMIB_CiscoBfdSessDiscMapTable) GetEnt
     ciscoBfdSessDiscMapTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoBfdSessDiscMapTable.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
     ciscoBfdSessDiscMapTable.EntityData.SegmentPath = "ciscoBfdSessDiscMapTable"
+    ciscoBfdSessDiscMapTable.EntityData.AbsolutePath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/" + ciscoBfdSessDiscMapTable.EntityData.SegmentPath
     ciscoBfdSessDiscMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoBfdSessDiscMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoBfdSessDiscMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -607,6 +616,7 @@ func (ciscoBfdSessDiscMapTable *CISCOIETFBFDMIB_CiscoBfdSessDiscMapTable) GetEnt
 type CISCOIETFBFDMIB_CiscoBfdSessDiscMapTable_CiscoBfdSessDiscMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -625,6 +635,7 @@ func (ciscoBfdSessDiscMapEntry *CISCOIETFBFDMIB_CiscoBfdSessDiscMapTable_CiscoBf
     ciscoBfdSessDiscMapEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoBfdSessDiscMapEntry.EntityData.ParentYangName = "ciscoBfdSessDiscMapTable"
     ciscoBfdSessDiscMapEntry.EntityData.SegmentPath = "ciscoBfdSessDiscMapEntry" + types.AddKeyToken(ciscoBfdSessDiscMapEntry.CiscoBfdSessDiscriminator, "ciscoBfdSessDiscriminator")
+    ciscoBfdSessDiscMapEntry.EntityData.AbsolutePath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessDiscMapTable/" + ciscoBfdSessDiscMapEntry.EntityData.SegmentPath
     ciscoBfdSessDiscMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoBfdSessDiscMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoBfdSessDiscMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -663,6 +674,7 @@ func (ciscoBfdSessIpMapTable *CISCOIETFBFDMIB_CiscoBfdSessIpMapTable) GetEntityD
     ciscoBfdSessIpMapTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoBfdSessIpMapTable.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
     ciscoBfdSessIpMapTable.EntityData.SegmentPath = "ciscoBfdSessIpMapTable"
+    ciscoBfdSessIpMapTable.EntityData.AbsolutePath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/" + ciscoBfdSessIpMapTable.EntityData.SegmentPath
     ciscoBfdSessIpMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoBfdSessIpMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoBfdSessIpMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -686,6 +698,7 @@ func (ciscoBfdSessIpMapTable *CISCOIETFBFDMIB_CiscoBfdSessIpMapTable) GetEntityD
 type CISCOIETFBFDMIB_CiscoBfdSessIpMapTable_CiscoBfdSessIpMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -713,6 +726,7 @@ func (ciscoBfdSessIpMapEntry *CISCOIETFBFDMIB_CiscoBfdSessIpMapTable_CiscoBfdSes
     ciscoBfdSessIpMapEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoBfdSessIpMapEntry.EntityData.ParentYangName = "ciscoBfdSessIpMapTable"
     ciscoBfdSessIpMapEntry.EntityData.SegmentPath = "ciscoBfdSessIpMapEntry" + types.AddKeyToken(ciscoBfdSessIpMapEntry.CiscoBfdSessInterface, "ciscoBfdSessInterface") + types.AddKeyToken(ciscoBfdSessIpMapEntry.CiscoBfdSessAddrType, "ciscoBfdSessAddrType") + types.AddKeyToken(ciscoBfdSessIpMapEntry.CiscoBfdSessAddr, "ciscoBfdSessAddr")
+    ciscoBfdSessIpMapEntry.EntityData.AbsolutePath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessIpMapTable/" + ciscoBfdSessIpMapEntry.EntityData.SegmentPath
     ciscoBfdSessIpMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoBfdSessIpMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoBfdSessIpMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

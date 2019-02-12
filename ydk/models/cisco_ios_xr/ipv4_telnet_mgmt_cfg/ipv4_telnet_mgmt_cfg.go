@@ -40,6 +40,7 @@ func (telnet *Telnet) GetEntityData() *types.CommonEntityData {
     telnet.EntityData.BundleName = "cisco_ios_xr"
     telnet.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-telnet-mgmt-cfg"
     telnet.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:telnet"
+    telnet.EntityData.AbsolutePath = telnet.EntityData.SegmentPath
     telnet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (vrfs *Telnet_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "telnet"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:telnet/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (vrfs *Telnet_Vrfs) GetEntityData() *types.CommonEntityData {
 type Telnet_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -105,6 +108,7 @@ func (vrf *Telnet_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:telnet/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -135,6 +139,7 @@ func (ipv4 *Telnet_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "vrf"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:telnet/vrfs/vrf/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

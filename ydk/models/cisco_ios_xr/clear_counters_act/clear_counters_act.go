@@ -36,6 +36,7 @@ func (clearCounters *ClearCounters) GetEntityData() *types.CommonEntityData {
     clearCounters.EntityData.BundleName = "cisco_ios_xr"
     clearCounters.EntityData.ParentYangName = "Cisco-IOS-XR-clear-counters-act"
     clearCounters.EntityData.SegmentPath = "Cisco-IOS-XR-clear-counters-act:clear-counters"
+    clearCounters.EntityData.AbsolutePath = clearCounters.EntityData.SegmentPath
     clearCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -64,6 +65,7 @@ func (input *ClearCounters_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-counters"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-clear-counters-act:clear-counters/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

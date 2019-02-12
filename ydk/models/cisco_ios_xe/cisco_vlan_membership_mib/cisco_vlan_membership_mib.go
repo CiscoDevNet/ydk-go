@@ -79,6 +79,7 @@ func (cISCOVLANMEMBERSHIPMIB *CISCOVLANMEMBERSHIPMIB) GetEntityData() *types.Com
     cISCOVLANMEMBERSHIPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOVLANMEMBERSHIPMIB.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
     cISCOVLANMEMBERSHIPMIB.EntityData.SegmentPath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB"
+    cISCOVLANMEMBERSHIPMIB.EntityData.AbsolutePath = cISCOVLANMEMBERSHIPMIB.EntityData.SegmentPath
     cISCOVLANMEMBERSHIPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOVLANMEMBERSHIPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOVLANMEMBERSHIPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -149,6 +150,7 @@ func (vmVmps *CISCOVLANMEMBERSHIPMIB_VmVmps) GetEntityData() *types.CommonEntity
     vmVmps.EntityData.BundleName = "cisco_ios_xe"
     vmVmps.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
     vmVmps.EntityData.SegmentPath = "vmVmps"
+    vmVmps.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/" + vmVmps.EntityData.SegmentPath
     vmVmps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmVmps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmVmps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -217,6 +219,7 @@ func (vmMembership *CISCOVLANMEMBERSHIPMIB_VmMembership) GetEntityData() *types.
     vmMembership.EntityData.BundleName = "cisco_ios_xe"
     vmMembership.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
     vmMembership.EntityData.SegmentPath = "vmMembership"
+    vmMembership.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/" + vmMembership.EntityData.SegmentPath
     vmMembership.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmMembership.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmMembership.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -299,6 +302,7 @@ func (vmStatistics *CISCOVLANMEMBERSHIPMIB_VmStatistics) GetEntityData() *types.
     vmStatistics.EntityData.BundleName = "cisco_ios_xe"
     vmStatistics.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
     vmStatistics.EntityData.SegmentPath = "vmStatistics"
+    vmStatistics.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/" + vmStatistics.EntityData.SegmentPath
     vmStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -335,6 +339,7 @@ func (vmStatus *CISCOVLANMEMBERSHIPMIB_VmStatus) GetEntityData() *types.CommonEn
     vmStatus.EntityData.BundleName = "cisco_ios_xe"
     vmStatus.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
     vmStatus.EntityData.SegmentPath = "vmStatus"
+    vmStatus.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/" + vmStatus.EntityData.SegmentPath
     vmStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -373,6 +378,7 @@ func (vmVmpsTable *CISCOVLANMEMBERSHIPMIB_VmVmpsTable) GetEntityData() *types.Co
     vmVmpsTable.EntityData.BundleName = "cisco_ios_xe"
     vmVmpsTable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
     vmVmpsTable.EntityData.SegmentPath = "vmVmpsTable"
+    vmVmpsTable.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/" + vmVmpsTable.EntityData.SegmentPath
     vmVmpsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmVmpsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmVmpsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -394,6 +400,7 @@ func (vmVmpsTable *CISCOVLANMEMBERSHIPMIB_VmVmpsTable) GetEntityData() *types.Co
 type CISCOVLANMEMBERSHIPMIB_VmVmpsTable_VmVmpsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Ip Address of the VMPS. The type is string
     // with pattern:
@@ -418,6 +425,7 @@ func (vmVmpsEntry *CISCOVLANMEMBERSHIPMIB_VmVmpsTable_VmVmpsEntry) GetEntityData
     vmVmpsEntry.EntityData.BundleName = "cisco_ios_xe"
     vmVmpsEntry.EntityData.ParentYangName = "vmVmpsTable"
     vmVmpsEntry.EntityData.SegmentPath = "vmVmpsEntry" + types.AddKeyToken(vmVmpsEntry.VmVmpsIpAddress, "vmVmpsIpAddress")
+    vmVmpsEntry.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmVmpsTable/" + vmVmpsEntry.EntityData.SegmentPath
     vmVmpsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmVmpsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmVmpsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -460,6 +468,7 @@ func (vmMembershipSummaryTable *CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable)
     vmMembershipSummaryTable.EntityData.BundleName = "cisco_ios_xe"
     vmMembershipSummaryTable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
     vmMembershipSummaryTable.EntityData.SegmentPath = "vmMembershipSummaryTable"
+    vmMembershipSummaryTable.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/" + vmMembershipSummaryTable.EntityData.SegmentPath
     vmMembershipSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmMembershipSummaryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmMembershipSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -482,6 +491,7 @@ func (vmMembershipSummaryTable *CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable)
 type CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable_VmMembershipSummaryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The VLAN id of the VLAN. The type is interface{}
     // with range: 0..4095.
@@ -521,6 +531,7 @@ func (vmMembershipSummaryEntry *CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable_
     vmMembershipSummaryEntry.EntityData.BundleName = "cisco_ios_xe"
     vmMembershipSummaryEntry.EntityData.ParentYangName = "vmMembershipSummaryTable"
     vmMembershipSummaryEntry.EntityData.SegmentPath = "vmMembershipSummaryEntry" + types.AddKeyToken(vmMembershipSummaryEntry.VmMembershipSummaryVlanIndex, "vmMembershipSummaryVlanIndex")
+    vmMembershipSummaryEntry.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipSummaryTable/" + vmMembershipSummaryEntry.EntityData.SegmentPath
     vmMembershipSummaryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmMembershipSummaryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmMembershipSummaryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -559,6 +570,7 @@ func (vmMembershipTable *CISCOVLANMEMBERSHIPMIB_VmMembershipTable) GetEntityData
     vmMembershipTable.EntityData.BundleName = "cisco_ios_xe"
     vmMembershipTable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
     vmMembershipTable.EntityData.SegmentPath = "vmMembershipTable"
+    vmMembershipTable.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/" + vmMembershipTable.EntityData.SegmentPath
     vmMembershipTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmMembershipTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmMembershipTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -580,6 +592,7 @@ func (vmMembershipTable *CISCOVLANMEMBERSHIPMIB_VmMembershipTable) GetEntityData
 type CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -674,6 +687,7 @@ func (vmMembershipEntry *CISCOVLANMEMBERSHIPMIB_VmMembershipTable_VmMembershipEn
     vmMembershipEntry.EntityData.BundleName = "cisco_ios_xe"
     vmMembershipEntry.EntityData.ParentYangName = "vmMembershipTable"
     vmMembershipEntry.EntityData.SegmentPath = "vmMembershipEntry" + types.AddKeyToken(vmMembershipEntry.IfIndex, "ifIndex")
+    vmMembershipEntry.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipTable/" + vmMembershipEntry.EntityData.SegmentPath
     vmMembershipEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmMembershipEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmMembershipEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -745,6 +759,7 @@ func (vmMembershipSummaryExtTable *CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExt
     vmMembershipSummaryExtTable.EntityData.BundleName = "cisco_ios_xe"
     vmMembershipSummaryExtTable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
     vmMembershipSummaryExtTable.EntityData.SegmentPath = "vmMembershipSummaryExtTable"
+    vmMembershipSummaryExtTable.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/" + vmMembershipSummaryExtTable.EntityData.SegmentPath
     vmMembershipSummaryExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmMembershipSummaryExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmMembershipSummaryExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -767,6 +782,7 @@ func (vmMembershipSummaryExtTable *CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExt
 type CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExtTable_VmMembershipSummaryExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4095. Refers to
     // cisco_vlan_membership_mib.CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryTable_VmMembershipSummaryEntry_VmMembershipSummaryVlanIndex
@@ -792,6 +808,7 @@ func (vmMembershipSummaryExtEntry *CISCOVLANMEMBERSHIPMIB_VmMembershipSummaryExt
     vmMembershipSummaryExtEntry.EntityData.BundleName = "cisco_ios_xe"
     vmMembershipSummaryExtEntry.EntityData.ParentYangName = "vmMembershipSummaryExtTable"
     vmMembershipSummaryExtEntry.EntityData.SegmentPath = "vmMembershipSummaryExtEntry" + types.AddKeyToken(vmMembershipSummaryExtEntry.VmMembershipSummaryVlanIndex, "vmMembershipSummaryVlanIndex") + types.AddKeyToken(vmMembershipSummaryExtEntry.VmMembershipPortRangeIndex, "vmMembershipPortRangeIndex")
+    vmMembershipSummaryExtEntry.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipSummaryExtTable/" + vmMembershipSummaryExtEntry.EntityData.SegmentPath
     vmMembershipSummaryExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmMembershipSummaryExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmMembershipSummaryExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -827,6 +844,7 @@ func (vmVoiceVlanTable *CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable) GetEntityData()
     vmVoiceVlanTable.EntityData.BundleName = "cisco_ios_xe"
     vmVoiceVlanTable.EntityData.ParentYangName = "CISCO-VLAN-MEMBERSHIP-MIB"
     vmVoiceVlanTable.EntityData.SegmentPath = "vmVoiceVlanTable"
+    vmVoiceVlanTable.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/" + vmVoiceVlanTable.EntityData.SegmentPath
     vmVoiceVlanTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmVoiceVlanTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmVoiceVlanTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -850,6 +868,7 @@ func (vmVoiceVlanTable *CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable) GetEntityData()
 type CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable_VmVoiceVlanEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -888,6 +907,7 @@ func (vmVoiceVlanEntry *CISCOVLANMEMBERSHIPMIB_VmVoiceVlanTable_VmVoiceVlanEntry
     vmVoiceVlanEntry.EntityData.BundleName = "cisco_ios_xe"
     vmVoiceVlanEntry.EntityData.ParentYangName = "vmVoiceVlanTable"
     vmVoiceVlanEntry.EntityData.SegmentPath = "vmVoiceVlanEntry" + types.AddKeyToken(vmVoiceVlanEntry.IfIndex, "ifIndex")
+    vmVoiceVlanEntry.EntityData.AbsolutePath = "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmVoiceVlanTable/" + vmVoiceVlanEntry.EntityData.SegmentPath
     vmVoiceVlanEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vmVoiceVlanEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vmVoiceVlanEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

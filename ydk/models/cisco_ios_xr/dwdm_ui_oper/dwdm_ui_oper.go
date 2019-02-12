@@ -332,6 +332,7 @@ func (dwdm *Dwdm) GetEntityData() *types.CommonEntityData {
     dwdm.EntityData.BundleName = "cisco_ios_xr"
     dwdm.EntityData.ParentYangName = "Cisco-IOS-XR-dwdm-ui-oper"
     dwdm.EntityData.SegmentPath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm"
+    dwdm.EntityData.AbsolutePath = dwdm.EntityData.SegmentPath
     dwdm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dwdm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dwdm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -361,6 +362,7 @@ func (ports *Dwdm_Ports) GetEntityData() *types.CommonEntityData {
     ports.EntityData.BundleName = "cisco_ios_xr"
     ports.EntityData.ParentYangName = "dwdm"
     ports.EntityData.SegmentPath = "ports"
+    ports.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/" + ports.EntityData.SegmentPath
     ports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -382,6 +384,7 @@ func (ports *Dwdm_Ports) GetEntityData() *types.CommonEntityData {
 type Dwdm_Ports_Port struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -403,6 +406,7 @@ func (port *Dwdm_Ports_Port) GetEntityData() *types.CommonEntityData {
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "ports"
     port.EntityData.SegmentPath = "port" + types.AddKeyToken(port.Name, "name")
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -438,6 +442,7 @@ func (prbs *Dwdm_Ports_Port_Prbs) GetEntityData() *types.CommonEntityData {
     prbs.EntityData.BundleName = "cisco_ios_xr"
     prbs.EntityData.ParentYangName = "port"
     prbs.EntityData.SegmentPath = "prbs"
+    prbs.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/" + prbs.EntityData.SegmentPath
     prbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -468,6 +473,7 @@ func (twentyFourHoursBucket *Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket) GetEnti
     twentyFourHoursBucket.EntityData.BundleName = "cisco_ios_xr"
     twentyFourHoursBucket.EntityData.ParentYangName = "prbs"
     twentyFourHoursBucket.EntityData.SegmentPath = "twenty-four-hours-bucket"
+    twentyFourHoursBucket.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/prbs/" + twentyFourHoursBucket.EntityData.SegmentPath
     twentyFourHoursBucket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twentyFourHoursBucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twentyFourHoursBucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -504,6 +510,7 @@ func (twentyFourHoursStatistics *Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_Twen
     twentyFourHoursStatistics.EntityData.BundleName = "cisco_ios_xr"
     twentyFourHoursStatistics.EntityData.ParentYangName = "twenty-four-hours-bucket"
     twentyFourHoursStatistics.EntityData.SegmentPath = "twenty-four-hours-statistics"
+    twentyFourHoursStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/prbs/twenty-four-hours-bucket/" + twentyFourHoursStatistics.EntityData.SegmentPath
     twentyFourHoursStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twentyFourHoursStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twentyFourHoursStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -511,6 +518,7 @@ func (twentyFourHoursStatistics *Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_Twen
     twentyFourHoursStatistics.EntityData.Children = types.NewOrderedMap()
     twentyFourHoursStatistics.EntityData.Children.Append("prbs-entry", types.YChild{"PrbsEntry", nil})
     for i := range twentyFourHoursStatistics.PrbsEntry {
+        types.SetYListKey(twentyFourHoursStatistics.PrbsEntry[i], i)
         twentyFourHoursStatistics.EntityData.Children.Append(types.GetSegmentPath(twentyFourHoursStatistics.PrbsEntry[i]), types.YChild{"PrbsEntry", twentyFourHoursStatistics.PrbsEntry[i]})
     }
     twentyFourHoursStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -527,6 +535,7 @@ func (twentyFourHoursStatistics *Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_Twen
 type Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_TwentyFourHoursStatistics_PrbsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Index of bucket, current and previous. The type is G709prbsInterval.
     IntervalIndex interface{}
@@ -567,7 +576,8 @@ func (prbsEntry *Dwdm_Ports_Port_Prbs_TwentyFourHoursBucket_TwentyFourHoursStati
     prbsEntry.EntityData.YangName = "prbs-entry"
     prbsEntry.EntityData.BundleName = "cisco_ios_xr"
     prbsEntry.EntityData.ParentYangName = "twenty-four-hours-statistics"
-    prbsEntry.EntityData.SegmentPath = "prbs-entry"
+    prbsEntry.EntityData.SegmentPath = "prbs-entry" + types.AddNoKeyToken(prbsEntry)
+    prbsEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/prbs/twenty-four-hours-bucket/twenty-four-hours-statistics/" + prbsEntry.EntityData.SegmentPath
     prbsEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prbsEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prbsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -606,6 +616,7 @@ func (fifteenMinutesBucket *Dwdm_Ports_Port_Prbs_FifteenMinutesBucket) GetEntity
     fifteenMinutesBucket.EntityData.BundleName = "cisco_ios_xr"
     fifteenMinutesBucket.EntityData.ParentYangName = "prbs"
     fifteenMinutesBucket.EntityData.SegmentPath = "fifteen-minutes-bucket"
+    fifteenMinutesBucket.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/prbs/" + fifteenMinutesBucket.EntityData.SegmentPath
     fifteenMinutesBucket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fifteenMinutesBucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fifteenMinutesBucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -642,6 +653,7 @@ func (fifteenMinutesStatistics *Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_Fiftee
     fifteenMinutesStatistics.EntityData.BundleName = "cisco_ios_xr"
     fifteenMinutesStatistics.EntityData.ParentYangName = "fifteen-minutes-bucket"
     fifteenMinutesStatistics.EntityData.SegmentPath = "fifteen-minutes-statistics"
+    fifteenMinutesStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/prbs/fifteen-minutes-bucket/" + fifteenMinutesStatistics.EntityData.SegmentPath
     fifteenMinutesStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fifteenMinutesStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fifteenMinutesStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -649,6 +661,7 @@ func (fifteenMinutesStatistics *Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_Fiftee
     fifteenMinutesStatistics.EntityData.Children = types.NewOrderedMap()
     fifteenMinutesStatistics.EntityData.Children.Append("prbs-entry", types.YChild{"PrbsEntry", nil})
     for i := range fifteenMinutesStatistics.PrbsEntry {
+        types.SetYListKey(fifteenMinutesStatistics.PrbsEntry[i], i)
         fifteenMinutesStatistics.EntityData.Children.Append(types.GetSegmentPath(fifteenMinutesStatistics.PrbsEntry[i]), types.YChild{"PrbsEntry", fifteenMinutesStatistics.PrbsEntry[i]})
     }
     fifteenMinutesStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -665,6 +678,7 @@ func (fifteenMinutesStatistics *Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_Fiftee
 type Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_FifteenMinutesStatistics_PrbsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Index of bucket, current and previous. The type is G709prbsInterval.
     IntervalIndex interface{}
@@ -705,7 +719,8 @@ func (prbsEntry *Dwdm_Ports_Port_Prbs_FifteenMinutesBucket_FifteenMinutesStatist
     prbsEntry.EntityData.YangName = "prbs-entry"
     prbsEntry.EntityData.BundleName = "cisco_ios_xr"
     prbsEntry.EntityData.ParentYangName = "fifteen-minutes-statistics"
-    prbsEntry.EntityData.SegmentPath = "prbs-entry"
+    prbsEntry.EntityData.SegmentPath = "prbs-entry" + types.AddNoKeyToken(prbsEntry)
+    prbsEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/prbs/fifteen-minutes-bucket/fifteen-minutes-statistics/" + prbsEntry.EntityData.SegmentPath
     prbsEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prbsEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prbsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -744,6 +759,7 @@ func (optics *Dwdm_Ports_Port_Optics) GetEntityData() *types.CommonEntityData {
     optics.EntityData.BundleName = "cisco_ios_xr"
     optics.EntityData.ParentYangName = "port"
     optics.EntityData.SegmentPath = "optics"
+    optics.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/" + optics.EntityData.SegmentPath
     optics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -781,6 +797,7 @@ func (waveInfo *Dwdm_Ports_Port_Optics_WaveInfo) GetEntityData() *types.CommonEn
     waveInfo.EntityData.BundleName = "cisco_ios_xr"
     waveInfo.EntityData.ParentYangName = "optics"
     waveInfo.EntityData.SegmentPath = "wave-info"
+    waveInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/optics/" + waveInfo.EntityData.SegmentPath
     waveInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     waveInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     waveInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -838,6 +855,7 @@ func (info *Dwdm_Ports_Port_Info) GetEntityData() *types.CommonEntityData {
     info.EntityData.BundleName = "cisco_ios_xr"
     info.EntityData.ParentYangName = "port"
     info.EntityData.SegmentPath = "info"
+    info.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/" + info.EntityData.SegmentPath
     info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -964,6 +982,7 @@ func (g709Info *Dwdm_Ports_Port_Info_G709Info) GetEntityData() *types.CommonEnti
     g709Info.EntityData.BundleName = "cisco_ios_xr"
     g709Info.EntityData.ParentYangName = "info"
     g709Info.EntityData.SegmentPath = "g709-info"
+    g709Info.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/" + g709Info.EntityData.SegmentPath
     g709Info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709Info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709Info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1028,6 +1047,7 @@ func (fecMismatch *Dwdm_Ports_Port_Info_G709Info_FecMismatch) GetEntityData() *t
     fecMismatch.EntityData.BundleName = "cisco_ios_xr"
     fecMismatch.EntityData.ParentYangName = "g709-info"
     fecMismatch.EntityData.SegmentPath = "fec-mismatch"
+    fecMismatch.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/" + fecMismatch.EntityData.SegmentPath
     fecMismatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fecMismatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fecMismatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1073,6 +1093,7 @@ func (ecTca *Dwdm_Ports_Port_Info_G709Info_EcTca) GetEntityData() *types.CommonE
     ecTca.EntityData.BundleName = "cisco_ios_xr"
     ecTca.EntityData.ParentYangName = "g709-info"
     ecTca.EntityData.SegmentPath = "ec-tca"
+    ecTca.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/" + ecTca.EntityData.SegmentPath
     ecTca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ecTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ecTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1119,6 +1140,7 @@ func (ucTca *Dwdm_Ports_Port_Info_G709Info_UcTca) GetEntityData() *types.CommonE
     ucTca.EntityData.BundleName = "cisco_ios_xr"
     ucTca.EntityData.ParentYangName = "g709-info"
     ucTca.EntityData.SegmentPath = "uc-tca"
+    ucTca.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/" + ucTca.EntityData.SegmentPath
     ucTca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ucTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ucTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1232,6 +1254,7 @@ func (otuInfo *Dwdm_Ports_Port_Info_G709Info_OtuInfo) GetEntityData() *types.Com
     otuInfo.EntityData.BundleName = "cisco_ios_xr"
     otuInfo.EntityData.ParentYangName = "g709-info"
     otuInfo.EntityData.SegmentPath = "otu-info"
+    otuInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/" + otuInfo.EntityData.SegmentPath
     otuInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otuInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otuInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1296,6 +1319,7 @@ func (los *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Los) GetEntityData() *types.Com
     los.EntityData.BundleName = "cisco_ios_xr"
     los.EntityData.ParentYangName = "otu-info"
     los.EntityData.SegmentPath = "los"
+    los.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + los.EntityData.SegmentPath
     los.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     los.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     los.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1337,6 +1361,7 @@ func (lof *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Lof) GetEntityData() *types.Com
     lof.EntityData.BundleName = "cisco_ios_xr"
     lof.EntityData.ParentYangName = "otu-info"
     lof.EntityData.SegmentPath = "lof"
+    lof.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + lof.EntityData.SegmentPath
     lof.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lof.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lof.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1378,6 +1403,7 @@ func (lom *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Lom) GetEntityData() *types.Com
     lom.EntityData.BundleName = "cisco_ios_xr"
     lom.EntityData.ParentYangName = "otu-info"
     lom.EntityData.SegmentPath = "lom"
+    lom.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + lom.EntityData.SegmentPath
     lom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1419,6 +1445,7 @@ func (oof *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Oof) GetEntityData() *types.Com
     oof.EntityData.BundleName = "cisco_ios_xr"
     oof.EntityData.ParentYangName = "otu-info"
     oof.EntityData.SegmentPath = "oof"
+    oof.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + oof.EntityData.SegmentPath
     oof.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oof.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oof.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1460,6 +1487,7 @@ func (oom *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Oom) GetEntityData() *types.Com
     oom.EntityData.BundleName = "cisco_ios_xr"
     oom.EntityData.ParentYangName = "otu-info"
     oom.EntityData.SegmentPath = "oom"
+    oom.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + oom.EntityData.SegmentPath
     oom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1501,6 +1529,7 @@ func (ais *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Ais) GetEntityData() *types.Com
     ais.EntityData.BundleName = "cisco_ios_xr"
     ais.EntityData.ParentYangName = "otu-info"
     ais.EntityData.SegmentPath = "ais"
+    ais.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + ais.EntityData.SegmentPath
     ais.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1542,6 +1571,7 @@ func (iae *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Iae) GetEntityData() *types.Com
     iae.EntityData.BundleName = "cisco_ios_xr"
     iae.EntityData.ParentYangName = "otu-info"
     iae.EntityData.SegmentPath = "iae"
+    iae.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + iae.EntityData.SegmentPath
     iae.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iae.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iae.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1583,6 +1613,7 @@ func (bdi *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Bdi) GetEntityData() *types.Com
     bdi.EntityData.BundleName = "cisco_ios_xr"
     bdi.EntityData.ParentYangName = "otu-info"
     bdi.EntityData.SegmentPath = "bdi"
+    bdi.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + bdi.EntityData.SegmentPath
     bdi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1624,6 +1655,7 @@ func (tim *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Tim) GetEntityData() *types.Com
     tim.EntityData.BundleName = "cisco_ios_xr"
     tim.EntityData.ParentYangName = "otu-info"
     tim.EntityData.SegmentPath = "tim"
+    tim.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + tim.EntityData.SegmentPath
     tim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1665,6 +1697,7 @@ func (eoc *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Eoc) GetEntityData() *types.Com
     eoc.EntityData.BundleName = "cisco_ios_xr"
     eoc.EntityData.ParentYangName = "otu-info"
     eoc.EntityData.SegmentPath = "eoc"
+    eoc.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + eoc.EntityData.SegmentPath
     eoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1710,6 +1743,7 @@ func (sfBer *Dwdm_Ports_Port_Info_G709Info_OtuInfo_SfBer) GetEntityData() *types
     sfBer.EntityData.BundleName = "cisco_ios_xr"
     sfBer.EntityData.ParentYangName = "otu-info"
     sfBer.EntityData.SegmentPath = "sf-ber"
+    sfBer.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + sfBer.EntityData.SegmentPath
     sfBer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1756,6 +1790,7 @@ func (sdBer *Dwdm_Ports_Port_Info_G709Info_OtuInfo_SdBer) GetEntityData() *types
     sdBer.EntityData.BundleName = "cisco_ios_xr"
     sdBer.EntityData.ParentYangName = "otu-info"
     sdBer.EntityData.SegmentPath = "sd-ber"
+    sdBer.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + sdBer.EntityData.SegmentPath
     sdBer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1802,6 +1837,7 @@ func (prefecSfBer *Dwdm_Ports_Port_Info_G709Info_OtuInfo_PrefecSfBer) GetEntityD
     prefecSfBer.EntityData.BundleName = "cisco_ios_xr"
     prefecSfBer.EntityData.ParentYangName = "otu-info"
     prefecSfBer.EntityData.SegmentPath = "prefec-sf-ber"
+    prefecSfBer.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + prefecSfBer.EntityData.SegmentPath
     prefecSfBer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefecSfBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefecSfBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1848,6 +1884,7 @@ func (prefecSdBer *Dwdm_Ports_Port_Info_G709Info_OtuInfo_PrefecSdBer) GetEntityD
     prefecSdBer.EntityData.BundleName = "cisco_ios_xr"
     prefecSdBer.EntityData.ParentYangName = "otu-info"
     prefecSdBer.EntityData.SegmentPath = "prefec-sd-ber"
+    prefecSdBer.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + prefecSdBer.EntityData.SegmentPath
     prefecSdBer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefecSdBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefecSdBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1894,6 +1931,7 @@ func (bbeTca *Dwdm_Ports_Port_Info_G709Info_OtuInfo_BbeTca) GetEntityData() *typ
     bbeTca.EntityData.BundleName = "cisco_ios_xr"
     bbeTca.EntityData.ParentYangName = "otu-info"
     bbeTca.EntityData.SegmentPath = "bbe-tca"
+    bbeTca.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + bbeTca.EntityData.SegmentPath
     bbeTca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bbeTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bbeTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1940,6 +1978,7 @@ func (esTca *Dwdm_Ports_Port_Info_G709Info_OtuInfo_EsTca) GetEntityData() *types
     esTca.EntityData.BundleName = "cisco_ios_xr"
     esTca.EntityData.ParentYangName = "otu-info"
     esTca.EntityData.SegmentPath = "es-tca"
+    esTca.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + esTca.EntityData.SegmentPath
     esTca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1974,6 +2013,7 @@ func (bbe *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Bbe) GetEntityData() *types.Com
     bbe.EntityData.BundleName = "cisco_ios_xr"
     bbe.EntityData.ParentYangName = "otu-info"
     bbe.EntityData.SegmentPath = "bbe"
+    bbe.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + bbe.EntityData.SegmentPath
     bbe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2004,6 +2044,7 @@ func (es *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Es) GetEntityData() *types.Commo
     es.EntityData.BundleName = "cisco_ios_xr"
     es.EntityData.ParentYangName = "otu-info"
     es.EntityData.SegmentPath = "es"
+    es.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + es.EntityData.SegmentPath
     es.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     es.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     es.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2034,6 +2075,7 @@ func (ses *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Ses) GetEntityData() *types.Com
     ses.EntityData.BundleName = "cisco_ios_xr"
     ses.EntityData.ParentYangName = "otu-info"
     ses.EntityData.SegmentPath = "ses"
+    ses.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + ses.EntityData.SegmentPath
     ses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2064,6 +2106,7 @@ func (uas *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Uas) GetEntityData() *types.Com
     uas.EntityData.BundleName = "cisco_ios_xr"
     uas.EntityData.ParentYangName = "otu-info"
     uas.EntityData.SegmentPath = "uas"
+    uas.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + uas.EntityData.SegmentPath
     uas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     uas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     uas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2094,6 +2137,7 @@ func (fc *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Fc) GetEntityData() *types.Commo
     fc.EntityData.BundleName = "cisco_ios_xr"
     fc.EntityData.ParentYangName = "otu-info"
     fc.EntityData.SegmentPath = "fc"
+    fc.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + fc.EntityData.SegmentPath
     fc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2124,6 +2168,7 @@ func (bber *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Bber) GetEntityData() *types.C
     bber.EntityData.BundleName = "cisco_ios_xr"
     bber.EntityData.ParentYangName = "otu-info"
     bber.EntityData.SegmentPath = "bber"
+    bber.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + bber.EntityData.SegmentPath
     bber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2154,6 +2199,7 @@ func (esr *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Esr) GetEntityData() *types.Com
     esr.EntityData.BundleName = "cisco_ios_xr"
     esr.EntityData.ParentYangName = "otu-info"
     esr.EntityData.SegmentPath = "esr"
+    esr.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + esr.EntityData.SegmentPath
     esr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2184,6 +2230,7 @@ func (sesr *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Sesr) GetEntityData() *types.C
     sesr.EntityData.BundleName = "cisco_ios_xr"
     sesr.EntityData.ParentYangName = "otu-info"
     sesr.EntityData.SegmentPath = "sesr"
+    sesr.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + sesr.EntityData.SegmentPath
     sesr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sesr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sesr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2303,6 +2350,7 @@ func (tti *Dwdm_Ports_Port_Info_G709Info_OtuInfo_Tti) GetEntityData() *types.Com
     tti.EntityData.BundleName = "cisco_ios_xr"
     tti.EntityData.ParentYangName = "otu-info"
     tti.EntityData.SegmentPath = "tti"
+    tti.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/otu-info/" + tti.EntityData.SegmentPath
     tti.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2426,6 +2474,7 @@ func (oduInfo *Dwdm_Ports_Port_Info_G709Info_OduInfo) GetEntityData() *types.Com
     oduInfo.EntityData.BundleName = "cisco_ios_xr"
     oduInfo.EntityData.ParentYangName = "g709-info"
     oduInfo.EntityData.SegmentPath = "odu-info"
+    oduInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/" + oduInfo.EntityData.SegmentPath
     oduInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oduInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oduInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2485,6 +2534,7 @@ func (oci *Dwdm_Ports_Port_Info_G709Info_OduInfo_Oci) GetEntityData() *types.Com
     oci.EntityData.BundleName = "cisco_ios_xr"
     oci.EntityData.ParentYangName = "odu-info"
     oci.EntityData.SegmentPath = "oci"
+    oci.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + oci.EntityData.SegmentPath
     oci.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oci.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oci.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2526,6 +2576,7 @@ func (ais *Dwdm_Ports_Port_Info_G709Info_OduInfo_Ais) GetEntityData() *types.Com
     ais.EntityData.BundleName = "cisco_ios_xr"
     ais.EntityData.ParentYangName = "odu-info"
     ais.EntityData.SegmentPath = "ais"
+    ais.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + ais.EntityData.SegmentPath
     ais.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2567,6 +2618,7 @@ func (lck *Dwdm_Ports_Port_Info_G709Info_OduInfo_Lck) GetEntityData() *types.Com
     lck.EntityData.BundleName = "cisco_ios_xr"
     lck.EntityData.ParentYangName = "odu-info"
     lck.EntityData.SegmentPath = "lck"
+    lck.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + lck.EntityData.SegmentPath
     lck.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2608,6 +2660,7 @@ func (bdi *Dwdm_Ports_Port_Info_G709Info_OduInfo_Bdi) GetEntityData() *types.Com
     bdi.EntityData.BundleName = "cisco_ios_xr"
     bdi.EntityData.ParentYangName = "odu-info"
     bdi.EntityData.SegmentPath = "bdi"
+    bdi.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + bdi.EntityData.SegmentPath
     bdi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2649,6 +2702,7 @@ func (eoc *Dwdm_Ports_Port_Info_G709Info_OduInfo_Eoc) GetEntityData() *types.Com
     eoc.EntityData.BundleName = "cisco_ios_xr"
     eoc.EntityData.ParentYangName = "odu-info"
     eoc.EntityData.SegmentPath = "eoc"
+    eoc.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + eoc.EntityData.SegmentPath
     eoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2690,6 +2744,7 @@ func (ptim *Dwdm_Ports_Port_Info_G709Info_OduInfo_Ptim) GetEntityData() *types.C
     ptim.EntityData.BundleName = "cisco_ios_xr"
     ptim.EntityData.ParentYangName = "odu-info"
     ptim.EntityData.SegmentPath = "ptim"
+    ptim.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + ptim.EntityData.SegmentPath
     ptim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ptim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ptim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2731,6 +2786,7 @@ func (tim *Dwdm_Ports_Port_Info_G709Info_OduInfo_Tim) GetEntityData() *types.Com
     tim.EntityData.BundleName = "cisco_ios_xr"
     tim.EntityData.ParentYangName = "odu-info"
     tim.EntityData.SegmentPath = "tim"
+    tim.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + tim.EntityData.SegmentPath
     tim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2776,6 +2832,7 @@ func (sfBer *Dwdm_Ports_Port_Info_G709Info_OduInfo_SfBer) GetEntityData() *types
     sfBer.EntityData.BundleName = "cisco_ios_xr"
     sfBer.EntityData.ParentYangName = "odu-info"
     sfBer.EntityData.SegmentPath = "sf-ber"
+    sfBer.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + sfBer.EntityData.SegmentPath
     sfBer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2822,6 +2879,7 @@ func (sdBer *Dwdm_Ports_Port_Info_G709Info_OduInfo_SdBer) GetEntityData() *types
     sdBer.EntityData.BundleName = "cisco_ios_xr"
     sdBer.EntityData.ParentYangName = "odu-info"
     sdBer.EntityData.SegmentPath = "sd-ber"
+    sdBer.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + sdBer.EntityData.SegmentPath
     sdBer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2868,6 +2926,7 @@ func (bbeTca *Dwdm_Ports_Port_Info_G709Info_OduInfo_BbeTca) GetEntityData() *typ
     bbeTca.EntityData.BundleName = "cisco_ios_xr"
     bbeTca.EntityData.ParentYangName = "odu-info"
     bbeTca.EntityData.SegmentPath = "bbe-tca"
+    bbeTca.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + bbeTca.EntityData.SegmentPath
     bbeTca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bbeTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bbeTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2914,6 +2973,7 @@ func (esTca *Dwdm_Ports_Port_Info_G709Info_OduInfo_EsTca) GetEntityData() *types
     esTca.EntityData.BundleName = "cisco_ios_xr"
     esTca.EntityData.ParentYangName = "odu-info"
     esTca.EntityData.SegmentPath = "es-tca"
+    esTca.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + esTca.EntityData.SegmentPath
     esTca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esTca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esTca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2948,6 +3008,7 @@ func (bbe *Dwdm_Ports_Port_Info_G709Info_OduInfo_Bbe) GetEntityData() *types.Com
     bbe.EntityData.BundleName = "cisco_ios_xr"
     bbe.EntityData.ParentYangName = "odu-info"
     bbe.EntityData.SegmentPath = "bbe"
+    bbe.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + bbe.EntityData.SegmentPath
     bbe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bbe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bbe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2978,6 +3039,7 @@ func (es *Dwdm_Ports_Port_Info_G709Info_OduInfo_Es) GetEntityData() *types.Commo
     es.EntityData.BundleName = "cisco_ios_xr"
     es.EntityData.ParentYangName = "odu-info"
     es.EntityData.SegmentPath = "es"
+    es.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + es.EntityData.SegmentPath
     es.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     es.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     es.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3008,6 +3070,7 @@ func (ses *Dwdm_Ports_Port_Info_G709Info_OduInfo_Ses) GetEntityData() *types.Com
     ses.EntityData.BundleName = "cisco_ios_xr"
     ses.EntityData.ParentYangName = "odu-info"
     ses.EntityData.SegmentPath = "ses"
+    ses.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + ses.EntityData.SegmentPath
     ses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3038,6 +3101,7 @@ func (uas *Dwdm_Ports_Port_Info_G709Info_OduInfo_Uas) GetEntityData() *types.Com
     uas.EntityData.BundleName = "cisco_ios_xr"
     uas.EntityData.ParentYangName = "odu-info"
     uas.EntityData.SegmentPath = "uas"
+    uas.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + uas.EntityData.SegmentPath
     uas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     uas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     uas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3068,6 +3132,7 @@ func (fc *Dwdm_Ports_Port_Info_G709Info_OduInfo_Fc) GetEntityData() *types.Commo
     fc.EntityData.BundleName = "cisco_ios_xr"
     fc.EntityData.ParentYangName = "odu-info"
     fc.EntityData.SegmentPath = "fc"
+    fc.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + fc.EntityData.SegmentPath
     fc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3098,6 +3163,7 @@ func (bber *Dwdm_Ports_Port_Info_G709Info_OduInfo_Bber) GetEntityData() *types.C
     bber.EntityData.BundleName = "cisco_ios_xr"
     bber.EntityData.ParentYangName = "odu-info"
     bber.EntityData.SegmentPath = "bber"
+    bber.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + bber.EntityData.SegmentPath
     bber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3128,6 +3194,7 @@ func (esr *Dwdm_Ports_Port_Info_G709Info_OduInfo_Esr) GetEntityData() *types.Com
     esr.EntityData.BundleName = "cisco_ios_xr"
     esr.EntityData.ParentYangName = "odu-info"
     esr.EntityData.SegmentPath = "esr"
+    esr.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + esr.EntityData.SegmentPath
     esr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3158,6 +3225,7 @@ func (sesr *Dwdm_Ports_Port_Info_G709Info_OduInfo_Sesr) GetEntityData() *types.C
     sesr.EntityData.BundleName = "cisco_ios_xr"
     sesr.EntityData.ParentYangName = "odu-info"
     sesr.EntityData.SegmentPath = "sesr"
+    sesr.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + sesr.EntityData.SegmentPath
     sesr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sesr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sesr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3277,6 +3345,7 @@ func (tti *Dwdm_Ports_Port_Info_G709Info_OduInfo_Tti) GetEntityData() *types.Com
     tti.EntityData.BundleName = "cisco_ios_xr"
     tti.EntityData.ParentYangName = "odu-info"
     tti.EntityData.SegmentPath = "tti"
+    tti.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/g709-info/odu-info/" + tti.EntityData.SegmentPath
     tti.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3481,6 +3550,7 @@ func (opticsInfo *Dwdm_Ports_Port_Info_OpticsInfo) GetEntityData() *types.Common
     opticsInfo.EntityData.BundleName = "cisco_ios_xr"
     opticsInfo.EntityData.ParentYangName = "info"
     opticsInfo.EntityData.SegmentPath = "optics-info"
+    opticsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/" + opticsInfo.EntityData.SegmentPath
     opticsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3567,6 +3637,7 @@ func (tdcInfo *Dwdm_Ports_Port_Info_TdcInfo) GetEntityData() *types.CommonEntity
     tdcInfo.EntityData.BundleName = "cisco_ios_xr"
     tdcInfo.EntityData.ParentYangName = "info"
     tdcInfo.EntityData.SegmentPath = "tdc-info"
+    tdcInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/" + tdcInfo.EntityData.SegmentPath
     tdcInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tdcInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tdcInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3602,6 +3673,7 @@ func (networkSrlgInfo *Dwdm_Ports_Port_Info_NetworkSrlgInfo) GetEntityData() *ty
     networkSrlgInfo.EntityData.BundleName = "cisco_ios_xr"
     networkSrlgInfo.EntityData.ParentYangName = "info"
     networkSrlgInfo.EntityData.SegmentPath = "network-srlg-info"
+    networkSrlgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/" + networkSrlgInfo.EntityData.SegmentPath
     networkSrlgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkSrlgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3714,6 +3786,7 @@ func (proactive *Dwdm_Ports_Port_Info_Proactive) GetEntityData() *types.CommonEn
     proactive.EntityData.BundleName = "cisco_ios_xr"
     proactive.EntityData.ParentYangName = "info"
     proactive.EntityData.SegmentPath = "proactive"
+    proactive.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/" + proactive.EntityData.SegmentPath
     proactive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     proactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3772,6 +3845,7 @@ func (signalLog *Dwdm_Ports_Port_Info_SignalLog) GetEntityData() *types.CommonEn
     signalLog.EntityData.BundleName = "cisco_ios_xr"
     signalLog.EntityData.ParentYangName = "info"
     signalLog.EntityData.SegmentPath = "signal-log"
+    signalLog.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/port/info/" + signalLog.EntityData.SegmentPath
     signalLog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signalLog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signalLog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3802,6 +3876,7 @@ func (vtxp *Vtxp) GetEntityData() *types.CommonEntityData {
     vtxp.EntityData.BundleName = "cisco_ios_xr"
     vtxp.EntityData.ParentYangName = "Cisco-IOS-XR-dwdm-ui-oper"
     vtxp.EntityData.SegmentPath = "Cisco-IOS-XR-dwdm-ui-oper:vtxp"
+    vtxp.EntityData.AbsolutePath = vtxp.EntityData.SegmentPath
     vtxp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vtxp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vtxp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3831,6 +3906,7 @@ func (dwdmVtxp *Vtxp_DwdmVtxp) GetEntityData() *types.CommonEntityData {
     dwdmVtxp.EntityData.BundleName = "cisco_ios_xr"
     dwdmVtxp.EntityData.ParentYangName = "vtxp"
     dwdmVtxp.EntityData.SegmentPath = "dwdm-vtxp"
+    dwdmVtxp.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:vtxp/" + dwdmVtxp.EntityData.SegmentPath
     dwdmVtxp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dwdmVtxp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dwdmVtxp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3861,6 +3937,7 @@ func (portVtxps *Vtxp_DwdmVtxp_PortVtxps) GetEntityData() *types.CommonEntityDat
     portVtxps.EntityData.BundleName = "cisco_ios_xr"
     portVtxps.EntityData.ParentYangName = "dwdm-vtxp"
     portVtxps.EntityData.SegmentPath = "port-vtxps"
+    portVtxps.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:vtxp/dwdm-vtxp/" + portVtxps.EntityData.SegmentPath
     portVtxps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portVtxps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portVtxps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3882,6 +3959,7 @@ func (portVtxps *Vtxp_DwdmVtxp_PortVtxps) GetEntityData() *types.CommonEntityDat
 type Vtxp_DwdmVtxp_PortVtxps_PortVtxp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3897,6 +3975,7 @@ func (portVtxp *Vtxp_DwdmVtxp_PortVtxps_PortVtxp) GetEntityData() *types.CommonE
     portVtxp.EntityData.BundleName = "cisco_ios_xr"
     portVtxp.EntityData.ParentYangName = "port-vtxps"
     portVtxp.EntityData.SegmentPath = "port-vtxp" + types.AddKeyToken(portVtxp.Name, "name")
+    portVtxp.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:vtxp/dwdm-vtxp/port-vtxps/" + portVtxp.EntityData.SegmentPath
     portVtxp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portVtxp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portVtxp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3927,6 +4006,7 @@ func (info *Vtxp_DwdmVtxp_PortVtxps_PortVtxp_Info) GetEntityData() *types.Common
     info.EntityData.BundleName = "cisco_ios_xr"
     info.EntityData.ParentYangName = "port-vtxp"
     info.EntityData.SegmentPath = "info"
+    info.EntityData.AbsolutePath = "Cisco-IOS-XR-dwdm-ui-oper:vtxp/dwdm-vtxp/port-vtxps/port-vtxp/" + info.EntityData.SegmentPath
     info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

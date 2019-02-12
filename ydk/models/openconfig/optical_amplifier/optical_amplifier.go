@@ -128,6 +128,7 @@ func (opticalAmplifier *OpticalAmplifier) GetEntityData() *types.CommonEntityDat
     opticalAmplifier.EntityData.BundleName = "openconfig"
     opticalAmplifier.EntityData.ParentYangName = "openconfig-optical-amplifier"
     opticalAmplifier.EntityData.SegmentPath = "openconfig-optical-amplifier:optical-amplifier"
+    opticalAmplifier.EntityData.AbsolutePath = opticalAmplifier.EntityData.SegmentPath
     opticalAmplifier.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     opticalAmplifier.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalAmplifier.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -159,6 +160,7 @@ func (amplifiers *OpticalAmplifier_Amplifiers) GetEntityData() *types.CommonEnti
     amplifiers.EntityData.BundleName = "openconfig"
     amplifiers.EntityData.ParentYangName = "optical-amplifier"
     amplifiers.EntityData.SegmentPath = "amplifiers"
+    amplifiers.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/" + amplifiers.EntityData.SegmentPath
     amplifiers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     amplifiers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     amplifiers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -180,6 +182,7 @@ func (amplifiers *OpticalAmplifier_Amplifiers) GetEntityData() *types.CommonEnti
 type OpticalAmplifier_Amplifiers_Amplifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the name of the amplifier. The type
     // is string. Refers to
@@ -199,6 +202,7 @@ func (amplifier *OpticalAmplifier_Amplifiers_Amplifier) GetEntityData() *types.C
     amplifier.EntityData.BundleName = "openconfig"
     amplifier.EntityData.ParentYangName = "amplifiers"
     amplifier.EntityData.SegmentPath = "amplifier" + types.AddKeyToken(amplifier.Name, "name")
+    amplifier.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/" + amplifier.EntityData.SegmentPath
     amplifier.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     amplifier.EntityData.NamespaceTable = openconfig.GetNamespaces()
     amplifier.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -259,6 +263,7 @@ func (config *OpticalAmplifier_Amplifiers_Amplifier_Config) GetEntityData() *typ
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "amplifier"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -381,6 +386,7 @@ func (state *OpticalAmplifier_Amplifiers_Amplifier_State) GetEntityData() *types
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "amplifier"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -447,6 +453,7 @@ func (actualGain *OpticalAmplifier_Amplifiers_Amplifier_State_ActualGain) GetEnt
     actualGain.EntityData.BundleName = "openconfig"
     actualGain.EntityData.ParentYangName = "state"
     actualGain.EntityData.SegmentPath = "actual-gain"
+    actualGain.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/state/" + actualGain.EntityData.SegmentPath
     actualGain.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     actualGain.EntityData.NamespaceTable = openconfig.GetNamespaces()
     actualGain.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -497,6 +504,7 @@ func (actualGainTilt *OpticalAmplifier_Amplifiers_Amplifier_State_ActualGainTilt
     actualGainTilt.EntityData.BundleName = "openconfig"
     actualGainTilt.EntityData.ParentYangName = "state"
     actualGainTilt.EntityData.SegmentPath = "actual-gain-tilt"
+    actualGainTilt.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/state/" + actualGainTilt.EntityData.SegmentPath
     actualGainTilt.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     actualGainTilt.EntityData.NamespaceTable = openconfig.GetNamespaces()
     actualGainTilt.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -547,6 +555,7 @@ func (inputPowerTotal *OpticalAmplifier_Amplifiers_Amplifier_State_InputPowerTot
     inputPowerTotal.EntityData.BundleName = "openconfig"
     inputPowerTotal.EntityData.ParentYangName = "state"
     inputPowerTotal.EntityData.SegmentPath = "input-power-total"
+    inputPowerTotal.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/state/" + inputPowerTotal.EntityData.SegmentPath
     inputPowerTotal.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     inputPowerTotal.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPowerTotal.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -598,6 +607,7 @@ func (inputPowerCBand *OpticalAmplifier_Amplifiers_Amplifier_State_InputPowerCBa
     inputPowerCBand.EntityData.BundleName = "openconfig"
     inputPowerCBand.EntityData.ParentYangName = "state"
     inputPowerCBand.EntityData.SegmentPath = "input-power-c-band"
+    inputPowerCBand.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/state/" + inputPowerCBand.EntityData.SegmentPath
     inputPowerCBand.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     inputPowerCBand.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPowerCBand.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -649,6 +659,7 @@ func (inputPowerLBand *OpticalAmplifier_Amplifiers_Amplifier_State_InputPowerLBa
     inputPowerLBand.EntityData.BundleName = "openconfig"
     inputPowerLBand.EntityData.ParentYangName = "state"
     inputPowerLBand.EntityData.SegmentPath = "input-power-l-band"
+    inputPowerLBand.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/state/" + inputPowerLBand.EntityData.SegmentPath
     inputPowerLBand.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     inputPowerLBand.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPowerLBand.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -699,6 +710,7 @@ func (outputPowerTotal *OpticalAmplifier_Amplifiers_Amplifier_State_OutputPowerT
     outputPowerTotal.EntityData.BundleName = "openconfig"
     outputPowerTotal.EntityData.ParentYangName = "state"
     outputPowerTotal.EntityData.SegmentPath = "output-power-total"
+    outputPowerTotal.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/state/" + outputPowerTotal.EntityData.SegmentPath
     outputPowerTotal.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     outputPowerTotal.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPowerTotal.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -750,6 +762,7 @@ func (outputPowerCBand *OpticalAmplifier_Amplifiers_Amplifier_State_OutputPowerC
     outputPowerCBand.EntityData.BundleName = "openconfig"
     outputPowerCBand.EntityData.ParentYangName = "state"
     outputPowerCBand.EntityData.SegmentPath = "output-power-c-band"
+    outputPowerCBand.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/state/" + outputPowerCBand.EntityData.SegmentPath
     outputPowerCBand.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     outputPowerCBand.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPowerCBand.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -801,6 +814,7 @@ func (outputPowerLBand *OpticalAmplifier_Amplifiers_Amplifier_State_OutputPowerL
     outputPowerLBand.EntityData.BundleName = "openconfig"
     outputPowerLBand.EntityData.ParentYangName = "state"
     outputPowerLBand.EntityData.SegmentPath = "output-power-l-band"
+    outputPowerLBand.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/state/" + outputPowerLBand.EntityData.SegmentPath
     outputPowerLBand.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     outputPowerLBand.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPowerLBand.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -852,6 +866,7 @@ func (laserBiasCurrent *OpticalAmplifier_Amplifiers_Amplifier_State_LaserBiasCur
     laserBiasCurrent.EntityData.BundleName = "openconfig"
     laserBiasCurrent.EntityData.ParentYangName = "state"
     laserBiasCurrent.EntityData.SegmentPath = "laser-bias-current"
+    laserBiasCurrent.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/state/" + laserBiasCurrent.EntityData.SegmentPath
     laserBiasCurrent.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     laserBiasCurrent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     laserBiasCurrent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -903,6 +918,7 @@ func (opticalReturnLoss *OpticalAmplifier_Amplifiers_Amplifier_State_OpticalRetu
     opticalReturnLoss.EntityData.BundleName = "openconfig"
     opticalReturnLoss.EntityData.ParentYangName = "state"
     opticalReturnLoss.EntityData.SegmentPath = "optical-return-loss"
+    opticalReturnLoss.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/amplifiers/amplifier/state/" + opticalReturnLoss.EntityData.SegmentPath
     opticalReturnLoss.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     opticalReturnLoss.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalReturnLoss.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -936,6 +952,7 @@ func (supervisoryChannels *OpticalAmplifier_SupervisoryChannels) GetEntityData()
     supervisoryChannels.EntityData.BundleName = "openconfig"
     supervisoryChannels.EntityData.ParentYangName = "optical-amplifier"
     supervisoryChannels.EntityData.SegmentPath = "supervisory-channels"
+    supervisoryChannels.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/" + supervisoryChannels.EntityData.SegmentPath
     supervisoryChannels.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     supervisoryChannels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     supervisoryChannels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -957,6 +974,7 @@ func (supervisoryChannels *OpticalAmplifier_SupervisoryChannels) GetEntityData()
 type OpticalAmplifier_SupervisoryChannels_SupervisoryChannel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the interface of the supervisory
     // channel. The type is string. Refers to
@@ -976,6 +994,7 @@ func (supervisoryChannel *OpticalAmplifier_SupervisoryChannels_SupervisoryChanne
     supervisoryChannel.EntityData.BundleName = "openconfig"
     supervisoryChannel.EntityData.ParentYangName = "supervisory-channels"
     supervisoryChannel.EntityData.SegmentPath = "supervisory-channel" + types.AddKeyToken(supervisoryChannel.Interface, "interface")
+    supervisoryChannel.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/supervisory-channels/" + supervisoryChannel.EntityData.SegmentPath
     supervisoryChannel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     supervisoryChannel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     supervisoryChannel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1008,6 +1027,7 @@ func (config *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_Config) Ge
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "supervisory-channel"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/supervisory-channels/supervisory-channel/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1054,6 +1074,7 @@ func (state *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_State) GetE
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "supervisory-channel"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/supervisory-channels/supervisory-channel/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1104,6 +1125,7 @@ func (inputPower *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_State_
     inputPower.EntityData.BundleName = "openconfig"
     inputPower.EntityData.ParentYangName = "state"
     inputPower.EntityData.SegmentPath = "input-power"
+    inputPower.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/supervisory-channels/supervisory-channel/state/" + inputPower.EntityData.SegmentPath
     inputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     inputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1154,6 +1176,7 @@ func (outputPower *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_State
     outputPower.EntityData.BundleName = "openconfig"
     outputPower.EntityData.ParentYangName = "state"
     outputPower.EntityData.SegmentPath = "output-power"
+    outputPower.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/supervisory-channels/supervisory-channel/state/" + outputPower.EntityData.SegmentPath
     outputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     outputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1206,6 +1229,7 @@ func (laserBiasCurrent *OpticalAmplifier_SupervisoryChannels_SupervisoryChannel_
     laserBiasCurrent.EntityData.BundleName = "openconfig"
     laserBiasCurrent.EntityData.ParentYangName = "state"
     laserBiasCurrent.EntityData.SegmentPath = "laser-bias-current"
+    laserBiasCurrent.EntityData.AbsolutePath = "openconfig-optical-amplifier:optical-amplifier/supervisory-channels/supervisory-channel/state/" + laserBiasCurrent.EntityData.SegmentPath
     laserBiasCurrent.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     laserBiasCurrent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     laserBiasCurrent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

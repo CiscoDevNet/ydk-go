@@ -99,6 +99,7 @@ func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetEntityData() *types.CommonEntityData {
     cISCOEIGRPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOEIGRPMIB.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
     cISCOEIGRPMIB.EntityData.SegmentPath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB"
+    cISCOEIGRPMIB.EntityData.AbsolutePath = cISCOEIGRPMIB.EntityData.SegmentPath
     cISCOEIGRPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOEIGRPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOEIGRPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -138,6 +139,7 @@ func (cEigrpVpnTable *CISCOEIGRPMIB_CEigrpVpnTable) GetEntityData() *types.Commo
     cEigrpVpnTable.EntityData.BundleName = "cisco_ios_xe"
     cEigrpVpnTable.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
     cEigrpVpnTable.EntityData.SegmentPath = "cEigrpVpnTable"
+    cEigrpVpnTable.EntityData.AbsolutePath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/" + cEigrpVpnTable.EntityData.SegmentPath
     cEigrpVpnTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEigrpVpnTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEigrpVpnTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -160,6 +162,7 @@ func (cEigrpVpnTable *CISCOEIGRPMIB_CEigrpVpnTable) GetEntityData() *types.Commo
 type CISCOEIGRPMIB_CEigrpVpnTable_CEigrpVpnEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The unique VPN identifier.  This is a unique
     // integer relative to all other VPN's defined on the router.  It also
@@ -177,6 +180,7 @@ func (cEigrpVpnEntry *CISCOEIGRPMIB_CEigrpVpnTable_CEigrpVpnEntry) GetEntityData
     cEigrpVpnEntry.EntityData.BundleName = "cisco_ios_xe"
     cEigrpVpnEntry.EntityData.ParentYangName = "cEigrpVpnTable"
     cEigrpVpnEntry.EntityData.SegmentPath = "cEigrpVpnEntry" + types.AddKeyToken(cEigrpVpnEntry.CEigrpVpnId, "cEigrpVpnId")
+    cEigrpVpnEntry.EntityData.AbsolutePath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpVpnTable/" + cEigrpVpnEntry.EntityData.SegmentPath
     cEigrpVpnEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEigrpVpnEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEigrpVpnEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -210,6 +214,7 @@ func (cEigrpTraffStatsTable *CISCOEIGRPMIB_CEigrpTraffStatsTable) GetEntityData(
     cEigrpTraffStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cEigrpTraffStatsTable.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
     cEigrpTraffStatsTable.EntityData.SegmentPath = "cEigrpTraffStatsTable"
+    cEigrpTraffStatsTable.EntityData.AbsolutePath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/" + cEigrpTraffStatsTable.EntityData.SegmentPath
     cEigrpTraffStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEigrpTraffStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEigrpTraffStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -232,6 +237,7 @@ func (cEigrpTraffStatsTable *CISCOEIGRPMIB_CEigrpTraffStatsTable) GetEntityData(
 type CISCOEIGRPMIB_CEigrpTraffStatsTable_CEigrpTraffStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -375,6 +381,7 @@ func (cEigrpTraffStatsEntry *CISCOEIGRPMIB_CEigrpTraffStatsTable_CEigrpTraffStat
     cEigrpTraffStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cEigrpTraffStatsEntry.EntityData.ParentYangName = "cEigrpTraffStatsTable"
     cEigrpTraffStatsEntry.EntityData.SegmentPath = "cEigrpTraffStatsEntry" + types.AddKeyToken(cEigrpTraffStatsEntry.CEigrpVpnId, "cEigrpVpnId") + types.AddKeyToken(cEigrpTraffStatsEntry.CEigrpAsNumber, "cEigrpAsNumber")
+    cEigrpTraffStatsEntry.EntityData.AbsolutePath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpTraffStatsTable/" + cEigrpTraffStatsEntry.EntityData.SegmentPath
     cEigrpTraffStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEigrpTraffStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEigrpTraffStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -432,6 +439,7 @@ func (cEigrpTopoTable *CISCOEIGRPMIB_CEigrpTopoTable) GetEntityData() *types.Com
     cEigrpTopoTable.EntityData.BundleName = "cisco_ios_xe"
     cEigrpTopoTable.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
     cEigrpTopoTable.EntityData.SegmentPath = "cEigrpTopoTable"
+    cEigrpTopoTable.EntityData.AbsolutePath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/" + cEigrpTopoTable.EntityData.SegmentPath
     cEigrpTopoTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEigrpTopoTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEigrpTopoTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -454,6 +462,7 @@ func (cEigrpTopoTable *CISCOEIGRPMIB_CEigrpTopoTable) GetEntityData() *types.Com
 type CISCOEIGRPMIB_CEigrpTopoTable_CEigrpTopoEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -552,6 +561,7 @@ func (cEigrpTopoEntry *CISCOEIGRPMIB_CEigrpTopoTable_CEigrpTopoEntry) GetEntityD
     cEigrpTopoEntry.EntityData.BundleName = "cisco_ios_xe"
     cEigrpTopoEntry.EntityData.ParentYangName = "cEigrpTopoTable"
     cEigrpTopoEntry.EntityData.SegmentPath = "cEigrpTopoEntry" + types.AddKeyToken(cEigrpTopoEntry.CEigrpVpnId, "cEigrpVpnId") + types.AddKeyToken(cEigrpTopoEntry.CEigrpAsNumber, "cEigrpAsNumber") + types.AddKeyToken(cEigrpTopoEntry.CEigrpDestNetType, "cEigrpDestNetType") + types.AddKeyToken(cEigrpTopoEntry.CEigrpDestNet, "cEigrpDestNet") + types.AddKeyToken(cEigrpTopoEntry.CEigrpDestNetPrefixLen, "cEigrpDestNetPrefixLen")
+    cEigrpTopoEntry.EntityData.AbsolutePath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpTopoTable/" + cEigrpTopoEntry.EntityData.SegmentPath
     cEigrpTopoEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEigrpTopoEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEigrpTopoEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -602,6 +612,7 @@ func (cEigrpPeerTable *CISCOEIGRPMIB_CEigrpPeerTable) GetEntityData() *types.Com
     cEigrpPeerTable.EntityData.BundleName = "cisco_ios_xe"
     cEigrpPeerTable.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
     cEigrpPeerTable.EntityData.SegmentPath = "cEigrpPeerTable"
+    cEigrpPeerTable.EntityData.AbsolutePath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/" + cEigrpPeerTable.EntityData.SegmentPath
     cEigrpPeerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEigrpPeerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEigrpPeerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -624,6 +635,7 @@ func (cEigrpPeerTable *CISCOEIGRPMIB_CEigrpPeerTable) GetEntityData() *types.Com
 type CISCOEIGRPMIB_CEigrpPeerTable_CEigrpPeerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -706,6 +718,7 @@ func (cEigrpPeerEntry *CISCOEIGRPMIB_CEigrpPeerTable_CEigrpPeerEntry) GetEntityD
     cEigrpPeerEntry.EntityData.BundleName = "cisco_ios_xe"
     cEigrpPeerEntry.EntityData.ParentYangName = "cEigrpPeerTable"
     cEigrpPeerEntry.EntityData.SegmentPath = "cEigrpPeerEntry" + types.AddKeyToken(cEigrpPeerEntry.CEigrpVpnId, "cEigrpVpnId") + types.AddKeyToken(cEigrpPeerEntry.CEigrpAsNumber, "cEigrpAsNumber") + types.AddKeyToken(cEigrpPeerEntry.CEigrpHandle, "cEigrpHandle")
+    cEigrpPeerEntry.EntityData.AbsolutePath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpPeerTable/" + cEigrpPeerEntry.EntityData.SegmentPath
     cEigrpPeerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEigrpPeerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEigrpPeerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -755,6 +768,7 @@ func (cEigrpInterfaceTable *CISCOEIGRPMIB_CEigrpInterfaceTable) GetEntityData() 
     cEigrpInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     cEigrpInterfaceTable.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
     cEigrpInterfaceTable.EntityData.SegmentPath = "cEigrpInterfaceTable"
+    cEigrpInterfaceTable.EntityData.AbsolutePath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/" + cEigrpInterfaceTable.EntityData.SegmentPath
     cEigrpInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEigrpInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEigrpInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -777,6 +791,7 @@ func (cEigrpInterfaceTable *CISCOEIGRPMIB_CEigrpInterfaceTable) GetEntityData() 
 type CISCOEIGRPMIB_CEigrpInterfaceTable_CEigrpInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -899,6 +914,7 @@ func (cEigrpInterfaceEntry *CISCOEIGRPMIB_CEigrpInterfaceTable_CEigrpInterfaceEn
     cEigrpInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     cEigrpInterfaceEntry.EntityData.ParentYangName = "cEigrpInterfaceTable"
     cEigrpInterfaceEntry.EntityData.SegmentPath = "cEigrpInterfaceEntry" + types.AddKeyToken(cEigrpInterfaceEntry.CEigrpVpnId, "cEigrpVpnId") + types.AddKeyToken(cEigrpInterfaceEntry.CEigrpAsNumber, "cEigrpAsNumber") + types.AddKeyToken(cEigrpInterfaceEntry.IfIndex, "ifIndex")
+    cEigrpInterfaceEntry.EntityData.AbsolutePath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpInterfaceTable/" + cEigrpInterfaceEntry.EntityData.SegmentPath
     cEigrpInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEigrpInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEigrpInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

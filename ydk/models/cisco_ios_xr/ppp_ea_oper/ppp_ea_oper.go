@@ -51,6 +51,7 @@ func (pppea *Pppea) GetEntityData() *types.CommonEntityData {
     pppea.EntityData.BundleName = "cisco_ios_xr"
     pppea.EntityData.ParentYangName = "Cisco-IOS-XR-ppp-ea-oper"
     pppea.EntityData.SegmentPath = "Cisco-IOS-XR-ppp-ea-oper:pppea"
+    pppea.EntityData.AbsolutePath = pppea.EntityData.SegmentPath
     pppea.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppea.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppea.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -81,6 +82,7 @@ func (nodes *Pppea_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "pppea"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ea-oper:pppea/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -103,6 +105,7 @@ func (nodes *Pppea_Nodes) GetEntityData() *types.CommonEntityData {
 type Pppea_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
     // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -118,6 +121,7 @@ func (node *Pppea_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ea-oper:pppea/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -150,6 +154,7 @@ func (eaInterfaceNames *Pppea_Nodes_Node_EaInterfaceNames) GetEntityData() *type
     eaInterfaceNames.EntityData.BundleName = "cisco_ios_xr"
     eaInterfaceNames.EntityData.ParentYangName = "node"
     eaInterfaceNames.EntityData.SegmentPath = "ea-interface-names"
+    eaInterfaceNames.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ea-oper:pppea/nodes/node/" + eaInterfaceNames.EntityData.SegmentPath
     eaInterfaceNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eaInterfaceNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eaInterfaceNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -171,6 +176,7 @@ func (eaInterfaceNames *Pppea_Nodes_Node_EaInterfaceNames) GetEntityData() *type
 type Pppea_Nodes_Node_EaInterfaceNames_EaInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface running PPPEA. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -290,6 +296,7 @@ func (eaInterfaceName *Pppea_Nodes_Node_EaInterfaceNames_EaInterfaceName) GetEnt
     eaInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     eaInterfaceName.EntityData.ParentYangName = "ea-interface-names"
     eaInterfaceName.EntityData.SegmentPath = "ea-interface-name" + types.AddKeyToken(eaInterfaceName.InterfaceName, "interface-name")
+    eaInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ea-oper:pppea/nodes/node/ea-interface-names/" + eaInterfaceName.EntityData.SegmentPath
     eaInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eaInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eaInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

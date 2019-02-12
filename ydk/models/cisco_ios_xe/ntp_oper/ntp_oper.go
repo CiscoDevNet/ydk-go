@@ -343,6 +343,7 @@ func (ntpOperData *NtpOperData) GetEntityData() *types.CommonEntityData {
     ntpOperData.EntityData.BundleName = "cisco_ios_xe"
     ntpOperData.EntityData.ParentYangName = "Cisco-IOS-XE-ntp-oper"
     ntpOperData.EntityData.SegmentPath = "Cisco-IOS-XE-ntp-oper:ntp-oper-data"
+    ntpOperData.EntityData.AbsolutePath = ntpOperData.EntityData.SegmentPath
     ntpOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ntpOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ntpOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -411,6 +412,7 @@ func (ntpStatusInfo *NtpOperData_NtpStatusInfo) GetEntityData() *types.CommonEnt
     ntpStatusInfo.EntityData.BundleName = "cisco_ios_xe"
     ntpStatusInfo.EntityData.ParentYangName = "ntp-oper-data"
     ntpStatusInfo.EntityData.SegmentPath = "ntp-status-info"
+    ntpStatusInfo.EntityData.AbsolutePath = "Cisco-IOS-XE-ntp-oper:ntp-oper-data/" + ntpStatusInfo.EntityData.SegmentPath
     ntpStatusInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ntpStatusInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ntpStatusInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -466,6 +468,7 @@ func (refid *NtpOperData_NtpStatusInfo_Refid) GetEntityData() *types.CommonEntit
     refid.EntityData.BundleName = "cisco_ios_xe"
     refid.EntityData.ParentYangName = "ntp-status-info"
     refid.EntityData.SegmentPath = "refid"
+    refid.EntityData.AbsolutePath = "Cisco-IOS-XE-ntp-oper:ntp-oper-data/ntp-status-info/" + refid.EntityData.SegmentPath
     refid.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     refid.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     refid.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -499,6 +502,7 @@ func (kodData *NtpOperData_NtpStatusInfo_Refid_KodData) GetEntityData() *types.C
     kodData.EntityData.BundleName = "cisco_ios_xe"
     kodData.EntityData.ParentYangName = "refid"
     kodData.EntityData.SegmentPath = "kod-data"
+    kodData.EntityData.AbsolutePath = "Cisco-IOS-XE-ntp-oper:ntp-oper-data/ntp-status-info/refid/" + kodData.EntityData.SegmentPath
     kodData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     kodData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     kodData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -529,6 +533,7 @@ func (refClkSrcData *NtpOperData_NtpStatusInfo_Refid_RefClkSrcData) GetEntityDat
     refClkSrcData.EntityData.BundleName = "cisco_ios_xe"
     refClkSrcData.EntityData.ParentYangName = "refid"
     refClkSrcData.EntityData.SegmentPath = "ref-clk-src-data"
+    refClkSrcData.EntityData.AbsolutePath = "Cisco-IOS-XE-ntp-oper:ntp-oper-data/ntp-status-info/refid/" + refClkSrcData.EntityData.SegmentPath
     refClkSrcData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     refClkSrcData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     refClkSrcData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -547,6 +552,7 @@ func (refClkSrcData *NtpOperData_NtpStatusInfo_Refid_RefClkSrcData) GetEntityDat
 type NtpOperData_NtpStatusInfo_NtpAssociations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Association id is a descriptor which describes the
     // association between two NTP entities whether client and peer or client and
@@ -625,6 +631,7 @@ func (ntpAssociations *NtpOperData_NtpStatusInfo_NtpAssociations) GetEntityData(
     ntpAssociations.EntityData.BundleName = "cisco_ios_xe"
     ntpAssociations.EntityData.ParentYangName = "ntp-status-info"
     ntpAssociations.EntityData.SegmentPath = "ntp-associations" + types.AddKeyToken(ntpAssociations.AssocId, "assoc-id")
+    ntpAssociations.EntityData.AbsolutePath = "Cisco-IOS-XE-ntp-oper:ntp-oper-data/ntp-status-info/" + ntpAssociations.EntityData.SegmentPath
     ntpAssociations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ntpAssociations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ntpAssociations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -685,6 +692,7 @@ func (refid *NtpOperData_NtpStatusInfo_NtpAssociations_Refid) GetEntityData() *t
     refid.EntityData.BundleName = "cisco_ios_xe"
     refid.EntityData.ParentYangName = "ntp-associations"
     refid.EntityData.SegmentPath = "refid"
+    refid.EntityData.AbsolutePath = "Cisco-IOS-XE-ntp-oper:ntp-oper-data/ntp-status-info/ntp-associations/" + refid.EntityData.SegmentPath
     refid.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     refid.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     refid.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -718,6 +726,7 @@ func (kodData *NtpOperData_NtpStatusInfo_NtpAssociations_Refid_KodData) GetEntit
     kodData.EntityData.BundleName = "cisco_ios_xe"
     kodData.EntityData.ParentYangName = "refid"
     kodData.EntityData.SegmentPath = "kod-data"
+    kodData.EntityData.AbsolutePath = "Cisco-IOS-XE-ntp-oper:ntp-oper-data/ntp-status-info/ntp-associations/refid/" + kodData.EntityData.SegmentPath
     kodData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     kodData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     kodData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -748,6 +757,7 @@ func (refClkSrcData *NtpOperData_NtpStatusInfo_NtpAssociations_Refid_RefClkSrcDa
     refClkSrcData.EntityData.BundleName = "cisco_ios_xe"
     refClkSrcData.EntityData.ParentYangName = "refid"
     refClkSrcData.EntityData.SegmentPath = "ref-clk-src-data"
+    refClkSrcData.EntityData.AbsolutePath = "Cisco-IOS-XE-ntp-oper:ntp-oper-data/ntp-status-info/ntp-associations/refid/" + refClkSrcData.EntityData.SegmentPath
     refClkSrcData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     refClkSrcData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     refClkSrcData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -785,6 +795,7 @@ func (ntpAddress *NtpOperData_NtpStatusInfo_NtpAssociations_NtpAddress) GetEntit
     ntpAddress.EntityData.BundleName = "cisco_ios_xe"
     ntpAddress.EntityData.ParentYangName = "ntp-associations"
     ntpAddress.EntityData.SegmentPath = "ntp-address"
+    ntpAddress.EntityData.AbsolutePath = "Cisco-IOS-XE-ntp-oper:ntp-oper-data/ntp-status-info/ntp-associations/" + ntpAddress.EntityData.SegmentPath
     ntpAddress.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ntpAddress.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ntpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

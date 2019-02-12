@@ -41,6 +41,7 @@ func (redundancyGroupManager *RedundancyGroupManager) GetEntityData() *types.Com
     redundancyGroupManager.EntityData.BundleName = "cisco_ios_xr"
     redundancyGroupManager.EntityData.ParentYangName = "Cisco-IOS-XR-rgmgr-oper"
     redundancyGroupManager.EntityData.SegmentPath = "Cisco-IOS-XR-rgmgr-oper:redundancy-group-manager"
+    redundancyGroupManager.EntityData.AbsolutePath = redundancyGroupManager.EntityData.SegmentPath
     redundancyGroupManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redundancyGroupManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancyGroupManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -71,6 +72,7 @@ func (controllers *RedundancyGroupManager_Controllers) GetEntityData() *types.Co
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "redundancy-group-manager"
     controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-oper:redundancy-group-manager/" + controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +94,7 @@ func (controllers *RedundancyGroupManager_Controllers) GetEntityData() *types.Co
 type RedundancyGroupManager_Controllers_Controller struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -129,6 +132,7 @@ func (controller *RedundancyGroupManager_Controllers_Controller) GetEntityData()
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
     controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-oper:redundancy-group-manager/controllers/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

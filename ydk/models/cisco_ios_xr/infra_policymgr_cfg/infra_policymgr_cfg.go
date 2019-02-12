@@ -183,6 +183,7 @@ func (policyManager *PolicyManager) GetEntityData() *types.CommonEntityData {
     policyManager.EntityData.BundleName = "cisco_ios_xr"
     policyManager.EntityData.ParentYangName = "Cisco-IOS-XR-infra-policymgr-cfg"
     policyManager.EntityData.SegmentPath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager"
+    policyManager.EntityData.AbsolutePath = policyManager.EntityData.SegmentPath
     policyManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -214,6 +215,7 @@ func (classMaps *PolicyManager_ClassMaps) GetEntityData() *types.CommonEntityDat
     classMaps.EntityData.BundleName = "cisco_ios_xr"
     classMaps.EntityData.ParentYangName = "policy-manager"
     classMaps.EntityData.SegmentPath = "class-maps"
+    classMaps.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/" + classMaps.EntityData.SegmentPath
     classMaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -235,6 +237,7 @@ func (classMaps *PolicyManager_ClassMaps) GetEntityData() *types.CommonEntityDat
 type PolicyManager_ClassMaps_ClassMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Type of class-map. The type is ClassMapType.
     Type interface{}
@@ -265,6 +268,7 @@ func (classMap *PolicyManager_ClassMaps_ClassMap) GetEntityData() *types.CommonE
     classMap.EntityData.BundleName = "cisco_ios_xr"
     classMap.EntityData.ParentYangName = "class-maps"
     classMap.EntityData.SegmentPath = "class-map" + types.AddKeyToken(classMap.Type, "type") + types.AddKeyToken(classMap.Name, "name")
+    classMap.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/" + classMap.EntityData.SegmentPath
     classMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -546,6 +550,7 @@ func (match *PolicyManager_ClassMaps_ClassMap_Match) GetEntityData() *types.Comm
     match.EntityData.BundleName = "cisco_ios_xr"
     match.EntityData.ParentYangName = "class-map"
     match.EntityData.SegmentPath = "match"
+    match.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/" + match.EntityData.SegmentPath
     match.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     match.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     match.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -656,6 +661,7 @@ func (match *PolicyManager_ClassMaps_ClassMap_Match) GetEntityData() *types.Comm
 type PolicyManager_ClassMaps_ClassMap_Match_DestinationAddressIpv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -672,6 +678,7 @@ func (destinationAddressIpv4 *PolicyManager_ClassMaps_ClassMap_Match_Destination
     destinationAddressIpv4.EntityData.BundleName = "cisco_ios_xr"
     destinationAddressIpv4.EntityData.ParentYangName = "match"
     destinationAddressIpv4.EntityData.SegmentPath = "destination-address-ipv4" + types.AddKeyToken(destinationAddressIpv4.Address, "address") + types.AddKeyToken(destinationAddressIpv4.Netmask, "netmask")
+    destinationAddressIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match/" + destinationAddressIpv4.EntityData.SegmentPath
     destinationAddressIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddressIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddressIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -691,6 +698,7 @@ func (destinationAddressIpv4 *PolicyManager_ClassMaps_ClassMap_Match_Destination
 type PolicyManager_ClassMaps_ClassMap_Match_DestinationAddressIpv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -707,6 +715,7 @@ func (destinationAddressIpv6 *PolicyManager_ClassMaps_ClassMap_Match_Destination
     destinationAddressIpv6.EntityData.BundleName = "cisco_ios_xr"
     destinationAddressIpv6.EntityData.ParentYangName = "match"
     destinationAddressIpv6.EntityData.SegmentPath = "destination-address-ipv6" + types.AddKeyToken(destinationAddressIpv6.Address, "address") + types.AddKeyToken(destinationAddressIpv6.PrefixLength, "prefix-length")
+    destinationAddressIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match/" + destinationAddressIpv6.EntityData.SegmentPath
     destinationAddressIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddressIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddressIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -726,6 +735,7 @@ func (destinationAddressIpv6 *PolicyManager_ClassMaps_ClassMap_Match_Destination
 type PolicyManager_ClassMaps_ClassMap_Match_SourceAddressIpv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -742,6 +752,7 @@ func (sourceAddressIpv4 *PolicyManager_ClassMaps_ClassMap_Match_SourceAddressIpv
     sourceAddressIpv4.EntityData.BundleName = "cisco_ios_xr"
     sourceAddressIpv4.EntityData.ParentYangName = "match"
     sourceAddressIpv4.EntityData.SegmentPath = "source-address-ipv4" + types.AddKeyToken(sourceAddressIpv4.Address, "address") + types.AddKeyToken(sourceAddressIpv4.Netmask, "netmask")
+    sourceAddressIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match/" + sourceAddressIpv4.EntityData.SegmentPath
     sourceAddressIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddressIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddressIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -761,6 +772,7 @@ func (sourceAddressIpv4 *PolicyManager_ClassMaps_ClassMap_Match_SourceAddressIpv
 type PolicyManager_ClassMaps_ClassMap_Match_SourceAddressIpv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -777,6 +789,7 @@ func (sourceAddressIpv6 *PolicyManager_ClassMaps_ClassMap_Match_SourceAddressIpv
     sourceAddressIpv6.EntityData.BundleName = "cisco_ios_xr"
     sourceAddressIpv6.EntityData.ParentYangName = "match"
     sourceAddressIpv6.EntityData.SegmentPath = "source-address-ipv6" + types.AddKeyToken(sourceAddressIpv6.Address, "address") + types.AddKeyToken(sourceAddressIpv6.PrefixLength, "prefix-length")
+    sourceAddressIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match/" + sourceAddressIpv6.EntityData.SegmentPath
     sourceAddressIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddressIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddressIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -796,6 +809,7 @@ func (sourceAddressIpv6 *PolicyManager_ClassMaps_ClassMap_Match_SourceAddressIpv
 type PolicyManager_ClassMaps_ClassMap_Match_DhcpClientId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Dhcp client Id. The type is string with length:
     // 1..32.
@@ -812,6 +826,7 @@ func (dhcpClientId *PolicyManager_ClassMaps_ClassMap_Match_DhcpClientId) GetEnti
     dhcpClientId.EntityData.BundleName = "cisco_ios_xr"
     dhcpClientId.EntityData.ParentYangName = "match"
     dhcpClientId.EntityData.SegmentPath = "dhcp-client-id" + types.AddKeyToken(dhcpClientId.Value, "value") + types.AddKeyToken(dhcpClientId.Flag, "flag")
+    dhcpClientId.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match/" + dhcpClientId.EntityData.SegmentPath
     dhcpClientId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpClientId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpClientId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -831,6 +846,7 @@ func (dhcpClientId *PolicyManager_ClassMaps_ClassMap_Match_DhcpClientId) GetEnti
 type PolicyManager_ClassMaps_ClassMap_Match_DhcpClientIdRegex struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Dhcp client id regular expression. The type is
     // string with length: 1..32.
@@ -847,6 +863,7 @@ func (dhcpClientIdRegex *PolicyManager_ClassMaps_ClassMap_Match_DhcpClientIdRege
     dhcpClientIdRegex.EntityData.BundleName = "cisco_ios_xr"
     dhcpClientIdRegex.EntityData.ParentYangName = "match"
     dhcpClientIdRegex.EntityData.SegmentPath = "dhcp-client-id-regex" + types.AddKeyToken(dhcpClientIdRegex.Value, "value") + types.AddKeyToken(dhcpClientIdRegex.Flag, "flag")
+    dhcpClientIdRegex.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match/" + dhcpClientIdRegex.EntityData.SegmentPath
     dhcpClientIdRegex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpClientIdRegex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpClientIdRegex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -866,6 +883,7 @@ func (dhcpClientIdRegex *PolicyManager_ClassMaps_ClassMap_Match_DhcpClientIdRege
 type PolicyManager_ClassMaps_ClassMap_Match_DomainName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Domain name or regular expression. The type is
     // string with length: 1..32.
@@ -882,6 +900,7 @@ func (domainName *PolicyManager_ClassMaps_ClassMap_Match_DomainName) GetEntityDa
     domainName.EntityData.BundleName = "cisco_ios_xr"
     domainName.EntityData.ParentYangName = "match"
     domainName.EntityData.SegmentPath = "domain-name" + types.AddKeyToken(domainName.Name, "name") + types.AddKeyToken(domainName.Format, "format")
+    domainName.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match/" + domainName.EntityData.SegmentPath
     domainName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domainName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domainName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -901,6 +920,7 @@ func (domainName *PolicyManager_ClassMaps_ClassMap_Match_DomainName) GetEntityDa
 type PolicyManager_ClassMaps_ClassMap_Match_DomainNameRegex struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Domain name or regular expression. The type is
     // string with length: 1..32.
@@ -917,6 +937,7 @@ func (domainNameRegex *PolicyManager_ClassMaps_ClassMap_Match_DomainNameRegex) G
     domainNameRegex.EntityData.BundleName = "cisco_ios_xr"
     domainNameRegex.EntityData.ParentYangName = "match"
     domainNameRegex.EntityData.SegmentPath = "domain-name-regex" + types.AddKeyToken(domainNameRegex.Regex, "regex") + types.AddKeyToken(domainNameRegex.Format, "format")
+    domainNameRegex.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match/" + domainNameRegex.EntityData.SegmentPath
     domainNameRegex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domainNameRegex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domainNameRegex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -951,6 +972,7 @@ func (flow *PolicyManager_ClassMaps_ClassMap_Match_Flow) GetEntityData() *types.
     flow.EntityData.BundleName = "cisco_ios_xr"
     flow.EntityData.ParentYangName = "match"
     flow.EntityData.SegmentPath = "flow"
+    flow.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match/" + flow.EntityData.SegmentPath
     flow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -982,6 +1004,7 @@ func (flowCache *PolicyManager_ClassMaps_ClassMap_Match_Flow_FlowCache) GetEntit
     flowCache.EntityData.BundleName = "cisco_ios_xr"
     flowCache.EntityData.ParentYangName = "flow"
     flowCache.EntityData.SegmentPath = "flow-cache"
+    flowCache.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match/flow/" + flowCache.EntityData.SegmentPath
     flowCache.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1245,6 +1268,7 @@ func (matchNot *PolicyManager_ClassMaps_ClassMap_MatchNot) GetEntityData() *type
     matchNot.EntityData.BundleName = "cisco_ios_xr"
     matchNot.EntityData.ParentYangName = "class-map"
     matchNot.EntityData.SegmentPath = "match-not"
+    matchNot.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/" + matchNot.EntityData.SegmentPath
     matchNot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     matchNot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     matchNot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1351,6 +1375,7 @@ func (matchNot *PolicyManager_ClassMaps_ClassMap_MatchNot) GetEntityData() *type
 type PolicyManager_ClassMaps_ClassMap_MatchNot_DestinationAddressIpv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1367,6 +1392,7 @@ func (destinationAddressIpv4 *PolicyManager_ClassMaps_ClassMap_MatchNot_Destinat
     destinationAddressIpv4.EntityData.BundleName = "cisco_ios_xr"
     destinationAddressIpv4.EntityData.ParentYangName = "match-not"
     destinationAddressIpv4.EntityData.SegmentPath = "destination-address-ipv4" + types.AddKeyToken(destinationAddressIpv4.Address, "address") + types.AddKeyToken(destinationAddressIpv4.Netmask, "netmask")
+    destinationAddressIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match-not/" + destinationAddressIpv4.EntityData.SegmentPath
     destinationAddressIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddressIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddressIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1386,6 +1412,7 @@ func (destinationAddressIpv4 *PolicyManager_ClassMaps_ClassMap_MatchNot_Destinat
 type PolicyManager_ClassMaps_ClassMap_MatchNot_DestinationAddressIpv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -1402,6 +1429,7 @@ func (destinationAddressIpv6 *PolicyManager_ClassMaps_ClassMap_MatchNot_Destinat
     destinationAddressIpv6.EntityData.BundleName = "cisco_ios_xr"
     destinationAddressIpv6.EntityData.ParentYangName = "match-not"
     destinationAddressIpv6.EntityData.SegmentPath = "destination-address-ipv6" + types.AddKeyToken(destinationAddressIpv6.Address, "address") + types.AddKeyToken(destinationAddressIpv6.PrefixLength, "prefix-length")
+    destinationAddressIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match-not/" + destinationAddressIpv6.EntityData.SegmentPath
     destinationAddressIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddressIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddressIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1421,6 +1449,7 @@ func (destinationAddressIpv6 *PolicyManager_ClassMaps_ClassMap_MatchNot_Destinat
 type PolicyManager_ClassMaps_ClassMap_MatchNot_SourceAddressIpv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1437,6 +1466,7 @@ func (sourceAddressIpv4 *PolicyManager_ClassMaps_ClassMap_MatchNot_SourceAddress
     sourceAddressIpv4.EntityData.BundleName = "cisco_ios_xr"
     sourceAddressIpv4.EntityData.ParentYangName = "match-not"
     sourceAddressIpv4.EntityData.SegmentPath = "source-address-ipv4" + types.AddKeyToken(sourceAddressIpv4.Address, "address") + types.AddKeyToken(sourceAddressIpv4.Netmask, "netmask")
+    sourceAddressIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match-not/" + sourceAddressIpv4.EntityData.SegmentPath
     sourceAddressIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddressIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddressIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1456,6 +1486,7 @@ func (sourceAddressIpv4 *PolicyManager_ClassMaps_ClassMap_MatchNot_SourceAddress
 type PolicyManager_ClassMaps_ClassMap_MatchNot_SourceAddressIpv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -1472,6 +1503,7 @@ func (sourceAddressIpv6 *PolicyManager_ClassMaps_ClassMap_MatchNot_SourceAddress
     sourceAddressIpv6.EntityData.BundleName = "cisco_ios_xr"
     sourceAddressIpv6.EntityData.ParentYangName = "match-not"
     sourceAddressIpv6.EntityData.SegmentPath = "source-address-ipv6" + types.AddKeyToken(sourceAddressIpv6.Address, "address") + types.AddKeyToken(sourceAddressIpv6.PrefixLength, "prefix-length")
+    sourceAddressIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match-not/" + sourceAddressIpv6.EntityData.SegmentPath
     sourceAddressIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddressIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddressIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1491,6 +1523,7 @@ func (sourceAddressIpv6 *PolicyManager_ClassMaps_ClassMap_MatchNot_SourceAddress
 type PolicyManager_ClassMaps_ClassMap_MatchNot_DhcpClientId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Dhcp client Id. The type is string with length:
     // 1..32.
@@ -1507,6 +1540,7 @@ func (dhcpClientId *PolicyManager_ClassMaps_ClassMap_MatchNot_DhcpClientId) GetE
     dhcpClientId.EntityData.BundleName = "cisco_ios_xr"
     dhcpClientId.EntityData.ParentYangName = "match-not"
     dhcpClientId.EntityData.SegmentPath = "dhcp-client-id" + types.AddKeyToken(dhcpClientId.Value, "value") + types.AddKeyToken(dhcpClientId.Flag, "flag")
+    dhcpClientId.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match-not/" + dhcpClientId.EntityData.SegmentPath
     dhcpClientId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpClientId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpClientId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1526,6 +1560,7 @@ func (dhcpClientId *PolicyManager_ClassMaps_ClassMap_MatchNot_DhcpClientId) GetE
 type PolicyManager_ClassMaps_ClassMap_MatchNot_DhcpClientIdRegex struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Dhcp client id regular expression. The type is
     // string with length: 1..32.
@@ -1542,6 +1577,7 @@ func (dhcpClientIdRegex *PolicyManager_ClassMaps_ClassMap_MatchNot_DhcpClientIdR
     dhcpClientIdRegex.EntityData.BundleName = "cisco_ios_xr"
     dhcpClientIdRegex.EntityData.ParentYangName = "match-not"
     dhcpClientIdRegex.EntityData.SegmentPath = "dhcp-client-id-regex" + types.AddKeyToken(dhcpClientIdRegex.Value, "value") + types.AddKeyToken(dhcpClientIdRegex.Flag, "flag")
+    dhcpClientIdRegex.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match-not/" + dhcpClientIdRegex.EntityData.SegmentPath
     dhcpClientIdRegex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpClientIdRegex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpClientIdRegex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1561,6 +1597,7 @@ func (dhcpClientIdRegex *PolicyManager_ClassMaps_ClassMap_MatchNot_DhcpClientIdR
 type PolicyManager_ClassMaps_ClassMap_MatchNot_DomainName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Domain name or regular expression. The type is
     // string with length: 1..32.
@@ -1577,6 +1614,7 @@ func (domainName *PolicyManager_ClassMaps_ClassMap_MatchNot_DomainName) GetEntit
     domainName.EntityData.BundleName = "cisco_ios_xr"
     domainName.EntityData.ParentYangName = "match-not"
     domainName.EntityData.SegmentPath = "domain-name" + types.AddKeyToken(domainName.Name, "name") + types.AddKeyToken(domainName.Format, "format")
+    domainName.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match-not/" + domainName.EntityData.SegmentPath
     domainName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domainName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domainName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1596,6 +1634,7 @@ func (domainName *PolicyManager_ClassMaps_ClassMap_MatchNot_DomainName) GetEntit
 type PolicyManager_ClassMaps_ClassMap_MatchNot_DomainNameRegex struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Domain name or regular expression. The type is
     // string with length: 1..32.
@@ -1612,6 +1651,7 @@ func (domainNameRegex *PolicyManager_ClassMaps_ClassMap_MatchNot_DomainNameRegex
     domainNameRegex.EntityData.BundleName = "cisco_ios_xr"
     domainNameRegex.EntityData.ParentYangName = "match-not"
     domainNameRegex.EntityData.SegmentPath = "domain-name-regex" + types.AddKeyToken(domainNameRegex.Regex, "regex") + types.AddKeyToken(domainNameRegex.Format, "format")
+    domainNameRegex.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match-not/" + domainNameRegex.EntityData.SegmentPath
     domainNameRegex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domainNameRegex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domainNameRegex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1643,6 +1683,7 @@ func (flow *PolicyManager_ClassMaps_ClassMap_MatchNot_Flow) GetEntityData() *typ
     flow.EntityData.BundleName = "cisco_ios_xr"
     flow.EntityData.ParentYangName = "match-not"
     flow.EntityData.SegmentPath = "flow"
+    flow.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/class-map/match-not/" + flow.EntityData.SegmentPath
     flow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1673,6 +1714,7 @@ func (policyMaps *PolicyManager_PolicyMaps) GetEntityData() *types.CommonEntityD
     policyMaps.EntityData.BundleName = "cisco_ios_xr"
     policyMaps.EntityData.ParentYangName = "policy-manager"
     policyMaps.EntityData.SegmentPath = "policy-maps"
+    policyMaps.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/" + policyMaps.EntityData.SegmentPath
     policyMaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1694,6 +1736,7 @@ func (policyMaps *PolicyManager_PolicyMaps) GetEntityData() *types.CommonEntityD
 type PolicyManager_PolicyMaps_PolicyMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Type of policy-map. The type is PolicyMapType.
     Type interface{}
@@ -1720,6 +1763,7 @@ func (policyMap *PolicyManager_PolicyMaps_PolicyMap) GetEntityData() *types.Comm
     policyMap.EntityData.BundleName = "cisco_ios_xr"
     policyMap.EntityData.ParentYangName = "policy-maps"
     policyMap.EntityData.SegmentPath = "policy-map" + types.AddKeyToken(policyMap.Type, "type") + types.AddKeyToken(policyMap.Name, "name")
+    policyMap.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/" + policyMap.EntityData.SegmentPath
     policyMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1748,6 +1792,7 @@ func (policyMap *PolicyManager_PolicyMaps_PolicyMap) GetEntityData() *types.Comm
 type PolicyManager_PolicyMaps_PolicyMap_Event struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Event type. The type is EventType.
     EventType interface{}
@@ -1769,6 +1814,7 @@ func (event *PolicyManager_PolicyMaps_PolicyMap_Event) GetEntityData() *types.Co
     event.EntityData.BundleName = "cisco_ios_xr"
     event.EntityData.ParentYangName = "policy-map"
     event.EntityData.SegmentPath = "event" + types.AddKeyToken(event.EventType, "event-type")
+    event.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/" + event.EntityData.SegmentPath
     event.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     event.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     event.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1793,6 +1839,7 @@ func (event *PolicyManager_PolicyMaps_PolicyMap_Event) GetEntityData() *types.Co
 type PolicyManager_PolicyMaps_PolicyMap_Event_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of class. The type is string with pattern:
     // [a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}.
@@ -1815,6 +1862,7 @@ func (class *PolicyManager_PolicyMaps_PolicyMap_Event_Class) GetEntityData() *ty
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "event"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name") + types.AddKeyToken(class.ClassType, "class-type")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/event/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1839,6 +1887,7 @@ func (class *PolicyManager_PolicyMaps_PolicyMap_Event_Class) GetEntityData() *ty
 type PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sequence number for this action. The type is
     // interface{} with range: 1..65535.
@@ -1875,6 +1924,7 @@ func (actionRule *PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule) Get
     actionRule.EntityData.BundleName = "cisco_ios_xr"
     actionRule.EntityData.ParentYangName = "class"
     actionRule.EntityData.SegmentPath = "action-rule" + types.AddKeyToken(actionRule.ActionSequenceNumber, "action-sequence-number")
+    actionRule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/event/class/" + actionRule.EntityData.SegmentPath
     actionRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1917,6 +1967,7 @@ func (activateDynamicTemplate *PolicyManager_PolicyMaps_PolicyMap_Event_Class_Ac
     activateDynamicTemplate.EntityData.BundleName = "cisco_ios_xr"
     activateDynamicTemplate.EntityData.ParentYangName = "action-rule"
     activateDynamicTemplate.EntityData.SegmentPath = "activate-dynamic-template"
+    activateDynamicTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/event/class/action-rule/" + activateDynamicTemplate.EntityData.SegmentPath
     activateDynamicTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activateDynamicTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activateDynamicTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1947,6 +1998,7 @@ func (authenticate *PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_Au
     authenticate.EntityData.BundleName = "cisco_ios_xr"
     authenticate.EntityData.ParentYangName = "action-rule"
     authenticate.EntityData.SegmentPath = "authenticate"
+    authenticate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/event/class/action-rule/" + authenticate.EntityData.SegmentPath
     authenticate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1989,6 +2041,7 @@ func (authorize *PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_Autho
     authorize.EntityData.BundleName = "cisco_ios_xr"
     authorize.EntityData.ParentYangName = "action-rule"
     authorize.EntityData.SegmentPath = "authorize"
+    authorize.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/event/class/action-rule/" + authorize.EntityData.SegmentPath
     authorize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2026,6 +2079,7 @@ func (deactivateDynamicTemplate *PolicyManager_PolicyMaps_PolicyMap_Event_Class_
     deactivateDynamicTemplate.EntityData.BundleName = "cisco_ios_xr"
     deactivateDynamicTemplate.EntityData.ParentYangName = "action-rule"
     deactivateDynamicTemplate.EntityData.SegmentPath = "deactivate-dynamic-template"
+    deactivateDynamicTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/event/class/action-rule/" + deactivateDynamicTemplate.EntityData.SegmentPath
     deactivateDynamicTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     deactivateDynamicTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     deactivateDynamicTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2063,6 +2117,7 @@ func (setTimer *PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_SetTim
     setTimer.EntityData.BundleName = "cisco_ios_xr"
     setTimer.EntityData.ParentYangName = "action-rule"
     setTimer.EntityData.SegmentPath = "set-timer"
+    setTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/event/class/action-rule/" + setTimer.EntityData.SegmentPath
     setTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     setTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     setTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2093,6 +2148,7 @@ func (stopTimer *PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_StopT
     stopTimer.EntityData.BundleName = "cisco_ios_xr"
     stopTimer.EntityData.ParentYangName = "action-rule"
     stopTimer.EntityData.SegmentPath = "stop-timer"
+    stopTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/event/class/action-rule/" + stopTimer.EntityData.SegmentPath
     stopTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stopTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stopTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2111,6 +2167,7 @@ func (stopTimer *PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_StopT
 type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of class-map. The type is string with
     // pattern: [a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}.
@@ -2206,6 +2263,7 @@ func (policyMapRule *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule) GetEntity
     policyMapRule.EntityData.BundleName = "cisco_ios_xr"
     policyMapRule.EntityData.ParentYangName = "policy-map"
     policyMapRule.EntityData.SegmentPath = "policy-map-rule" + types.AddKeyToken(policyMapRule.ClassName, "class-name") + types.AddKeyToken(policyMapRule.ClassType, "class-type")
+    policyMapRule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/" + policyMapRule.EntityData.SegmentPath
     policyMapRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyMapRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyMapRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2268,6 +2326,7 @@ func (shape *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Shape) GetEntityDa
     shape.EntityData.BundleName = "cisco_ios_xr"
     shape.EntityData.ParentYangName = "policy-map-rule"
     shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + shape.EntityData.SegmentPath
     shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2302,6 +2361,7 @@ func (rate *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Shape_Rate) GetEnti
     rate.EntityData.BundleName = "cisco_ios_xr"
     rate.EntityData.ParentYangName = "shape"
     rate.EntityData.SegmentPath = "rate"
+    rate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/shape/" + rate.EntityData.SegmentPath
     rate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2336,6 +2396,7 @@ func (burst *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Shape_Burst) GetEn
     burst.EntityData.BundleName = "cisco_ios_xr"
     burst.EntityData.ParentYangName = "shape"
     burst.EntityData.SegmentPath = "burst"
+    burst.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/shape/" + burst.EntityData.SegmentPath
     burst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     burst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     burst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2370,6 +2431,7 @@ func (minBandwidth *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_MinBandwidt
     minBandwidth.EntityData.BundleName = "cisco_ios_xr"
     minBandwidth.EntityData.ParentYangName = "policy-map-rule"
     minBandwidth.EntityData.SegmentPath = "min-bandwidth"
+    minBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + minBandwidth.EntityData.SegmentPath
     minBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2405,6 +2467,7 @@ func (bandwidthRemaining *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Bandw
     bandwidthRemaining.EntityData.BundleName = "cisco_ios_xr"
     bandwidthRemaining.EntityData.ParentYangName = "policy-map-rule"
     bandwidthRemaining.EntityData.SegmentPath = "bandwidth-remaining"
+    bandwidthRemaining.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + bandwidthRemaining.EntityData.SegmentPath
     bandwidthRemaining.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthRemaining.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthRemaining.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2440,6 +2503,7 @@ func (queueLimit *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_QueueLimit) G
     queueLimit.EntityData.BundleName = "cisco_ios_xr"
     queueLimit.EntityData.ParentYangName = "policy-map-rule"
     queueLimit.EntityData.SegmentPath = "queue-limit"
+    queueLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + queueLimit.EntityData.SegmentPath
     queueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2479,6 +2543,7 @@ func (pfc *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Pfc) GetEntityData()
     pfc.EntityData.BundleName = "cisco_ios_xr"
     pfc.EntityData.ParentYangName = "policy-map-rule"
     pfc.EntityData.SegmentPath = "pfc"
+    pfc.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + pfc.EntityData.SegmentPath
     pfc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pfc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pfc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2514,6 +2579,7 @@ func (pfcBufferSize *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Pfc_PfcBuf
     pfcBufferSize.EntityData.BundleName = "cisco_ios_xr"
     pfcBufferSize.EntityData.ParentYangName = "pfc"
     pfcBufferSize.EntityData.SegmentPath = "pfc-buffer-size"
+    pfcBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/pfc/" + pfcBufferSize.EntityData.SegmentPath
     pfcBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pfcBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pfcBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2548,6 +2614,7 @@ func (pfcPauseThreshold *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Pfc_Pf
     pfcPauseThreshold.EntityData.BundleName = "cisco_ios_xr"
     pfcPauseThreshold.EntityData.ParentYangName = "pfc"
     pfcPauseThreshold.EntityData.SegmentPath = "pfc-pause-threshold"
+    pfcPauseThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/pfc/" + pfcPauseThreshold.EntityData.SegmentPath
     pfcPauseThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pfcPauseThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pfcPauseThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2582,6 +2649,7 @@ func (pfcResumeThreshold *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Pfc_P
     pfcResumeThreshold.EntityData.BundleName = "cisco_ios_xr"
     pfcResumeThreshold.EntityData.ParentYangName = "pfc"
     pfcResumeThreshold.EntityData.SegmentPath = "pfc-resume-threshold"
+    pfcResumeThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/pfc/" + pfcResumeThreshold.EntityData.SegmentPath
     pfcResumeThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pfcResumeThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pfcResumeThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2603,6 +2671,7 @@ func (pfcResumeThreshold *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Pfc_P
 type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_RandomDetect struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Minimum RED threshold value. The type is
     // interface{} with range: 0..4294967295.
@@ -2656,6 +2725,7 @@ func (randomDetect *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_RandomDetec
     randomDetect.EntityData.BundleName = "cisco_ios_xr"
     randomDetect.EntityData.ParentYangName = "policy-map-rule"
     randomDetect.EntityData.SegmentPath = "random-detect" + types.AddKeyToken(randomDetect.ThresholdMinValue, "threshold-min-value") + types.AddKeyToken(randomDetect.ThresholdMinUnits, "threshold-min-units") + types.AddKeyToken(randomDetect.ThresholdMaxValue, "threshold-max-value") + types.AddKeyToken(randomDetect.ThresholdMaxUnits, "threshold-max-units")
+    randomDetect.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + randomDetect.EntityData.SegmentPath
     randomDetect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     randomDetect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     randomDetect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2767,6 +2837,7 @@ func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set) GetEntityData()
     set.EntityData.BundleName = "cisco_ios_xr"
     set.EntityData.ParentYangName = "policy-map-rule"
     set.EntityData.SegmentPath = "set"
+    set.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + set.EntityData.SegmentPath
     set.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     set.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     set.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2831,6 +2902,7 @@ func (police *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police) GetEntity
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "policy-map-rule"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2870,6 +2942,7 @@ func (rate *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_Rate) GetEnt
     rate.EntityData.BundleName = "cisco_ios_xr"
     rate.EntityData.ParentYangName = "police"
     rate.EntityData.SegmentPath = "rate"
+    rate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/police/" + rate.EntityData.SegmentPath
     rate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2904,6 +2977,7 @@ func (peakRate *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_PeakRate
     peakRate.EntityData.BundleName = "cisco_ios_xr"
     peakRate.EntityData.ParentYangName = "police"
     peakRate.EntityData.SegmentPath = "peak-rate"
+    peakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/police/" + peakRate.EntityData.SegmentPath
     peakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2938,6 +3012,7 @@ func (burst *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_Burst) GetE
     burst.EntityData.BundleName = "cisco_ios_xr"
     burst.EntityData.ParentYangName = "police"
     burst.EntityData.SegmentPath = "burst"
+    burst.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/police/" + burst.EntityData.SegmentPath
     burst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     burst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     burst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2972,6 +3047,7 @@ func (peakBurst *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_PeakBur
     peakBurst.EntityData.BundleName = "cisco_ios_xr"
     peakBurst.EntityData.ParentYangName = "police"
     peakBurst.EntityData.SegmentPath = "peak-burst"
+    peakBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/police/" + peakBurst.EntityData.SegmentPath
     peakBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peakBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peakBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3009,6 +3085,7 @@ func (conformAction *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_Con
     conformAction.EntityData.BundleName = "cisco_ios_xr"
     conformAction.EntityData.ParentYangName = "police"
     conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/police/" + conformAction.EntityData.SegmentPath
     conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3112,6 +3189,7 @@ func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction
     set.EntityData.BundleName = "cisco_ios_xr"
     set.EntityData.ParentYangName = "conform-action"
     set.EntityData.SegmentPath = "set"
+    set.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/police/conform-action/" + set.EntityData.SegmentPath
     set.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     set.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     set.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3165,6 +3243,7 @@ func (exceedAction *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_Exce
     exceedAction.EntityData.BundleName = "cisco_ios_xr"
     exceedAction.EntityData.ParentYangName = "police"
     exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/police/" + exceedAction.EntityData.SegmentPath
     exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3268,6 +3347,7 @@ func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_
     set.EntityData.BundleName = "cisco_ios_xr"
     set.EntityData.ParentYangName = "exceed-action"
     set.EntityData.SegmentPath = "set"
+    set.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/police/exceed-action/" + set.EntityData.SegmentPath
     set.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     set.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     set.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3321,6 +3401,7 @@ func (violateAction *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_Vio
     violateAction.EntityData.BundleName = "cisco_ios_xr"
     violateAction.EntityData.ParentYangName = "police"
     violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/police/" + violateAction.EntityData.SegmentPath
     violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3424,6 +3505,7 @@ func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction
     set.EntityData.BundleName = "cisco_ios_xr"
     set.EntityData.ParentYangName = "violate-action"
     set.EntityData.SegmentPath = "set"
+    set.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/police/violate-action/" + set.EntityData.SegmentPath
     set.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     set.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     set.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3475,6 +3557,7 @@ func (servicePolicy *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_ServicePol
     servicePolicy.EntityData.BundleName = "cisco_ios_xr"
     servicePolicy.EntityData.ParentYangName = "policy-map-rule"
     servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + servicePolicy.EntityData.SegmentPath
     servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3513,6 +3596,7 @@ func (cacLocal *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_CacLocal) GetEn
     cacLocal.EntityData.BundleName = "cisco_ios_xr"
     cacLocal.EntityData.ParentYangName = "policy-map-rule"
     cacLocal.EntityData.SegmentPath = "cac-local"
+    cacLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + cacLocal.EntityData.SegmentPath
     cacLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cacLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cacLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3548,6 +3632,7 @@ func (rate *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_CacLocal_Rate) GetE
     rate.EntityData.BundleName = "cisco_ios_xr"
     rate.EntityData.ParentYangName = "cac-local"
     rate.EntityData.SegmentPath = "rate"
+    rate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/cac-local/" + rate.EntityData.SegmentPath
     rate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3582,6 +3667,7 @@ func (flowRate *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_CacLocal_FlowRa
     flowRate.EntityData.BundleName = "cisco_ios_xr"
     flowRate.EntityData.ParentYangName = "cac-local"
     flowRate.EntityData.SegmentPath = "flow-rate"
+    flowRate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/cac-local/" + flowRate.EntityData.SegmentPath
     flowRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3625,6 +3711,7 @@ func (flowParams *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_FlowParams) G
     flowParams.EntityData.BundleName = "cisco_ios_xr"
     flowParams.EntityData.ParentYangName = "policy-map-rule"
     flowParams.EntityData.SegmentPath = "flow-params"
+    flowParams.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + flowParams.EntityData.SegmentPath
     flowParams.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowParams.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowParams.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3660,6 +3747,7 @@ func (metricsIpcbr *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_MetricsIpcb
     metricsIpcbr.EntityData.BundleName = "cisco_ios_xr"
     metricsIpcbr.EntityData.ParentYangName = "policy-map-rule"
     metricsIpcbr.EntityData.SegmentPath = "metrics-ipcbr"
+    metricsIpcbr.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + metricsIpcbr.EntityData.SegmentPath
     metricsIpcbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metricsIpcbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metricsIpcbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3699,6 +3787,7 @@ func (rate *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_MetricsIpcbr_Rate) 
     rate.EntityData.BundleName = "cisco_ios_xr"
     rate.EntityData.ParentYangName = "metrics-ipcbr"
     rate.EntityData.SegmentPath = "rate"
+    rate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/metrics-ipcbr/" + rate.EntityData.SegmentPath
     rate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3735,6 +3824,7 @@ func (mediaPacket *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_MetricsIpcbr
     mediaPacket.EntityData.BundleName = "cisco_ios_xr"
     mediaPacket.EntityData.ParentYangName = "metrics-ipcbr"
     mediaPacket.EntityData.SegmentPath = "media-packet"
+    mediaPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/metrics-ipcbr/" + mediaPacket.EntityData.SegmentPath
     mediaPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mediaPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mediaPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3789,6 +3879,7 @@ func (react *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_React) GetEntityDa
     react.EntityData.BundleName = "cisco_ios_xr"
     react.EntityData.ParentYangName = "policy-map-rule"
     react.EntityData.SegmentPath = "react"
+    react.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + react.EntityData.SegmentPath
     react.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     react.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     react.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3829,6 +3920,7 @@ func (action *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_React_Action) Get
     action.EntityData.BundleName = "cisco_ios_xr"
     action.EntityData.ParentYangName = "react"
     action.EntityData.SegmentPath = "action"
+    action.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/react/" + action.EntityData.SegmentPath
     action.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3863,6 +3955,7 @@ func (alarm *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_React_Alarm) GetEn
     alarm.EntityData.BundleName = "cisco_ios_xr"
     alarm.EntityData.ParentYangName = "react"
     alarm.EntityData.SegmentPath = "alarm"
+    alarm.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/react/" + alarm.EntityData.SegmentPath
     alarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3901,6 +3994,7 @@ func (self *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_React_Alarm_Type) G
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "alarm"
     self.EntityData.SegmentPath = "type"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/react/alarm/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3935,6 +4029,7 @@ func (threshold *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_React_Threshol
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "react"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/react/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3977,6 +4072,7 @@ func (triggerValue *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_React_Thres
     triggerValue.EntityData.BundleName = "cisco_ios_xr"
     triggerValue.EntityData.ParentYangName = "threshold"
     triggerValue.EntityData.SegmentPath = "trigger-value"
+    triggerValue.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/react/threshold/" + triggerValue.EntityData.SegmentPath
     triggerValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4014,6 +4110,7 @@ func (triggerType *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_React_Thresh
     triggerType.EntityData.BundleName = "cisco_ios_xr"
     triggerType.EntityData.ParentYangName = "threshold"
     triggerType.EntityData.SegmentPath = "trigger-type"
+    triggerType.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/react/threshold/" + triggerType.EntityData.SegmentPath
     triggerType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4050,6 +4147,7 @@ func (pbrRedirect *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrRedirect)
     pbrRedirect.EntityData.BundleName = "cisco_ios_xr"
     pbrRedirect.EntityData.ParentYangName = "policy-map-rule"
     pbrRedirect.EntityData.SegmentPath = "pbr-redirect"
+    pbrRedirect.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + pbrRedirect.EntityData.SegmentPath
     pbrRedirect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbrRedirect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbrRedirect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4085,6 +4183,7 @@ func (ipv4 *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrRedirect_Ipv4) G
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "pbr-redirect"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/pbr-redirect/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4119,6 +4218,7 @@ func (ipv6 *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrRedirect_Ipv6) G
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "pbr-redirect"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/pbr-redirect/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4149,6 +4249,7 @@ func (nextHop *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrRedirect_Next
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "pbr-redirect"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/pbr-redirect/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4185,6 +4286,7 @@ func (routeTarget *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrRedirect_
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "next-hop"
     routeTarget.EntityData.SegmentPath = "route-target"
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/pbr-redirect/next-hop/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4220,6 +4322,7 @@ func (ipv4Address *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrRedirect_
     ipv4Address.EntityData.BundleName = "cisco_ios_xr"
     ipv4Address.EntityData.ParentYangName = "route-target"
     ipv4Address.EntityData.SegmentPath = "ipv4-address"
+    ipv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/pbr-redirect/next-hop/route-target/" + ipv4Address.EntityData.SegmentPath
     ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4255,6 +4358,7 @@ func (pbrForward *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward) G
     pbrForward.EntityData.BundleName = "cisco_ios_xr"
     pbrForward.EntityData.ParentYangName = "policy-map-rule"
     pbrForward.EntityData.SegmentPath = "pbr-forward"
+    pbrForward.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + pbrForward.EntityData.SegmentPath
     pbrForward.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbrForward.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbrForward.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4300,6 +4404,7 @@ func (nextHop *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward_NextH
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "pbr-forward"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/pbr-forward/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4341,6 +4446,7 @@ func (serviceFunctionPath *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Serv
     serviceFunctionPath.EntityData.BundleName = "cisco_ios_xr"
     serviceFunctionPath.EntityData.ParentYangName = "policy-map-rule"
     serviceFunctionPath.EntityData.SegmentPath = "service-function-path"
+    serviceFunctionPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + serviceFunctionPath.EntityData.SegmentPath
     serviceFunctionPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceFunctionPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunctionPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4381,6 +4487,7 @@ func (httpEnrichment *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_HttpEnric
     httpEnrichment.EntityData.BundleName = "cisco_ios_xr"
     httpEnrichment.EntityData.ParentYangName = "policy-map-rule"
     httpEnrichment.EntityData.SegmentPath = "http-enrichment"
+    httpEnrichment.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/policy-map/policy-map-rule/" + httpEnrichment.EntityData.SegmentPath
     httpEnrichment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     httpEnrichment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpEnrichment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

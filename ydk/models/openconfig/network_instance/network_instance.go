@@ -38,6 +38,7 @@ func (networkInstances *NetworkInstances) GetEntityData() *types.CommonEntityDat
     networkInstances.EntityData.BundleName = "openconfig"
     networkInstances.EntityData.ParentYangName = "openconfig-network-instance"
     networkInstances.EntityData.SegmentPath = "openconfig-network-instance:network-instances"
+    networkInstances.EntityData.AbsolutePath = networkInstances.EntityData.SegmentPath
     networkInstances.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     networkInstances.EntityData.NamespaceTable = openconfig.GetNamespaces()
     networkInstances.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -59,6 +60,7 @@ func (networkInstances *NetworkInstances) GetEntityData() *types.CommonEntityDat
 type NetworkInstances_NetworkInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique name identifying the network instance.
     // The type is string. Refers to
@@ -123,6 +125,7 @@ func (networkInstance *NetworkInstances_NetworkInstance) GetEntityData() *types.
     networkInstance.EntityData.BundleName = "openconfig"
     networkInstance.EntityData.ParentYangName = "network-instances"
     networkInstance.EntityData.SegmentPath = "network-instance" + types.AddKeyToken(networkInstance.Name, "name")
+    networkInstance.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/" + networkInstance.EntityData.SegmentPath
     networkInstance.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     networkInstance.EntityData.NamespaceTable = openconfig.GetNamespaces()
     networkInstance.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -174,6 +177,7 @@ func (fdb *NetworkInstances_NetworkInstance_Fdb) GetEntityData() *types.CommonEn
     fdb.EntityData.BundleName = "openconfig"
     fdb.EntityData.ParentYangName = "network-instance"
     fdb.EntityData.SegmentPath = "fdb"
+    fdb.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + fdb.EntityData.SegmentPath
     fdb.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     fdb.EntityData.NamespaceTable = openconfig.GetNamespaces()
     fdb.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -216,6 +220,7 @@ func (config *NetworkInstances_NetworkInstance_Fdb_Config) GetEntityData() *type
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "fdb"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -258,6 +263,7 @@ func (state *NetworkInstances_NetworkInstance_Fdb_State) GetEntityData() *types.
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "fdb"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -290,6 +296,7 @@ func (macTable *NetworkInstances_NetworkInstance_Fdb_MacTable) GetEntityData() *
     macTable.EntityData.BundleName = "openconfig"
     macTable.EntityData.ParentYangName = "fdb"
     macTable.EntityData.SegmentPath = "mac-table"
+    macTable.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/" + macTable.EntityData.SegmentPath
     macTable.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     macTable.EntityData.NamespaceTable = openconfig.GetNamespaces()
     macTable.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -320,6 +327,7 @@ func (entries *NetworkInstances_NetworkInstance_Fdb_MacTable_Entries) GetEntityD
     entries.EntityData.BundleName = "openconfig"
     entries.EntityData.ParentYangName = "mac-table"
     entries.EntityData.SegmentPath = "entries"
+    entries.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/mac-table/" + entries.EntityData.SegmentPath
     entries.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     entries.EntityData.NamespaceTable = openconfig.GetNamespaces()
     entries.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -341,6 +349,7 @@ func (entries *NetworkInstances_NetworkInstance_Fdb_MacTable_Entries) GetEntityD
 type NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to mac-address list key. The type is
     // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. Refers to
@@ -363,6 +372,7 @@ func (entry *NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry) GetEnt
     entry.EntityData.BundleName = "openconfig"
     entry.EntityData.ParentYangName = "entries"
     entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.MacAddress, "mac-address")
+    entry.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/mac-table/entries/" + entry.EntityData.SegmentPath
     entry.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     entry.EntityData.NamespaceTable = openconfig.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -401,6 +411,7 @@ func (config *NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry_Config
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "entry"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/mac-table/entries/entry/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -445,6 +456,7 @@ func (state *NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry_State) 
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/mac-table/entries/entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -489,6 +501,7 @@ func (self *NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry_Interfac
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "entry"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/mac-table/entries/entry/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -521,6 +534,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry_
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/mac-table/entries/entry/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -560,6 +574,7 @@ func (config *NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry_Interf
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/mac-table/entries/entry/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -599,6 +614,7 @@ func (state *NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry_Interfa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/fdb/mac-table/entries/entry/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -654,7 +670,7 @@ type NetworkInstances_NetworkInstance_Config struct {
     RouteDistinguisher interface{}
 
     // The address families that are to be enabled for this network instance. The
-    // type is slice of ['L2ETHERNET', 'IPV6', 'MPLS', 'IPV4'].
+    // type is slice of [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
     EnabledAddressFamilies []interface{}
 
     // The maximum frame size which should be supported for this instance for
@@ -668,6 +684,7 @@ func (config *NetworkInstances_NetworkInstance_Config) GetEntityData() *types.Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "network-instance"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -729,7 +746,7 @@ type NetworkInstances_NetworkInstance_State struct {
     RouteDistinguisher interface{}
 
     // The address families that are to be enabled for this network instance. The
-    // type is slice of ['L2ETHERNET', 'IPV6', 'MPLS', 'IPV4'].
+    // type is slice of [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
     EnabledAddressFamilies []interface{}
 
     // The maximum frame size which should be supported for this instance for
@@ -743,6 +760,7 @@ func (state *NetworkInstances_NetworkInstance_State) GetEntityData() *types.Comm
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "network-instance"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -784,6 +802,7 @@ func (encapsulation *NetworkInstances_NetworkInstance_Encapsulation) GetEntityDa
     encapsulation.EntityData.BundleName = "openconfig"
     encapsulation.EntityData.ParentYangName = "network-instance"
     encapsulation.EntityData.SegmentPath = "encapsulation"
+    encapsulation.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + encapsulation.EntityData.SegmentPath
     encapsulation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     encapsulation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     encapsulation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -825,6 +844,7 @@ func (config *NetworkInstances_NetworkInstance_Encapsulation_Config) GetEntityDa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "encapsulation"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/encapsulation/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -867,6 +887,7 @@ func (state *NetworkInstances_NetworkInstance_Encapsulation_State) GetEntityData
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "encapsulation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/encapsulation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -901,6 +922,7 @@ func (interInstancePolicies *NetworkInstances_NetworkInstance_InterInstancePolic
     interInstancePolicies.EntityData.BundleName = "openconfig"
     interInstancePolicies.EntityData.ParentYangName = "network-instance"
     interInstancePolicies.EntityData.SegmentPath = "inter-instance-policies"
+    interInstancePolicies.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + interInstancePolicies.EntityData.SegmentPath
     interInstancePolicies.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interInstancePolicies.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interInstancePolicies.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -936,6 +958,7 @@ func (applyPolicy *NetworkInstances_NetworkInstance_InterInstancePolicies_ApplyP
     applyPolicy.EntityData.BundleName = "openconfig"
     applyPolicy.EntityData.ParentYangName = "inter-instance-policies"
     applyPolicy.EntityData.SegmentPath = "apply-policy"
+    applyPolicy.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/inter-instance-policies/" + applyPolicy.EntityData.SegmentPath
     applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -985,6 +1008,7 @@ func (config *NetworkInstances_NetworkInstance_InterInstancePolicies_ApplyPolicy
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "apply-policy"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/inter-instance-policies/apply-policy/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1036,6 +1060,7 @@ func (state *NetworkInstances_NetworkInstance_InterInstancePolicies_ApplyPolicy_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "apply-policy"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/inter-instance-policies/apply-policy/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1075,6 +1100,7 @@ func (tableConnections *NetworkInstances_NetworkInstance_TableConnections) GetEn
     tableConnections.EntityData.BundleName = "openconfig"
     tableConnections.EntityData.ParentYangName = "network-instance"
     tableConnections.EntityData.SegmentPath = "table-connections"
+    tableConnections.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + tableConnections.EntityData.SegmentPath
     tableConnections.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tableConnections.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tableConnections.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1103,6 +1129,7 @@ func (tableConnections *NetworkInstances_NetworkInstance_TableConnections) GetEn
 type NetworkInstances_NetworkInstance_TableConnections_TableConnection struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the protocol associated with the table
     // which should be utilised as the source of forwarding or routing
@@ -1132,6 +1159,7 @@ func (tableConnection *NetworkInstances_NetworkInstance_TableConnections_TableCo
     tableConnection.EntityData.BundleName = "openconfig"
     tableConnection.EntityData.ParentYangName = "table-connections"
     tableConnection.EntityData.SegmentPath = "table-connection" + types.AddKeyToken(tableConnection.SrcProtocol, "src-protocol") + types.AddKeyToken(tableConnection.DstProtocol, "dst-protocol") + types.AddKeyToken(tableConnection.AddressFamily, "address-family")
+    tableConnection.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/table-connections/" + tableConnection.EntityData.SegmentPath
     tableConnection.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tableConnection.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tableConnection.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1188,6 +1216,7 @@ func (config *NetworkInstances_NetworkInstance_TableConnections_TableConnection_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "table-connection"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/table-connections/table-connection/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1244,6 +1273,7 @@ func (state *NetworkInstances_NetworkInstance_TableConnections_TableConnection_S
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "table-connection"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/table-connections/table-connection/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1279,6 +1309,7 @@ func (interfaces *NetworkInstances_NetworkInstance_Interfaces) GetEntityData() *
     interfaces.EntityData.BundleName = "openconfig"
     interfaces.EntityData.ParentYangName = "network-instance"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1300,6 +1331,7 @@ func (interfaces *NetworkInstances_NetworkInstance_Interfaces) GetEntityData() *
 type NetworkInstances_NetworkInstance_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to an identifier for this interface
     // which acts as a key for this list. The type is string. Refers to
@@ -1319,6 +1351,7 @@ func (self *NetworkInstances_NetworkInstance_Interfaces_Interface) GetEntityData
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Id, "id")
+    self.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1363,7 +1396,7 @@ type NetworkInstances_NetworkInstance_Interfaces_Interface_Config struct {
     // network instance is enabled should be imported. If the value of this
     // leaf-list is specified then the association MUST only be made for those
     // address families that are included in the list. The type is slice of
-    // ['L2ETHERNET', 'IPV6', 'MPLS', 'IPV4'].
+    // [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
     AssociatedAddressFamilies []interface{}
 }
 
@@ -1373,6 +1406,7 @@ func (config *NetworkInstances_NetworkInstance_Interfaces_Interface_Config) GetE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/interfaces/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1418,7 +1452,7 @@ type NetworkInstances_NetworkInstance_Interfaces_Interface_State struct {
     // network instance is enabled should be imported. If the value of this
     // leaf-list is specified then the association MUST only be made for those
     // address families that are included in the list. The type is slice of
-    // ['L2ETHERNET', 'IPV6', 'MPLS', 'IPV4'].
+    // [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
     AssociatedAddressFamilies []interface{}
 }
 
@@ -1428,6 +1462,7 @@ func (state *NetworkInstances_NetworkInstance_Interfaces_Interface_State) GetEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/interfaces/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1472,6 +1507,7 @@ func (tables *NetworkInstances_NetworkInstance_Tables) GetEntityData() *types.Co
     tables.EntityData.BundleName = "openconfig"
     tables.EntityData.ParentYangName = "network-instance"
     tables.EntityData.SegmentPath = "tables"
+    tables.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + tables.EntityData.SegmentPath
     tables.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tables.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tables.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1510,6 +1546,7 @@ func (tables *NetworkInstances_NetworkInstance_Tables) GetEntityData() *types.Co
 type NetworkInstances_NetworkInstance_Tables_Table struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the protocol that populates the
     // table. The type is one of the following:
@@ -1533,6 +1570,7 @@ func (table *NetworkInstances_NetworkInstance_Tables_Table) GetEntityData() *typ
     table.EntityData.BundleName = "openconfig"
     table.EntityData.ParentYangName = "tables"
     table.EntityData.SegmentPath = "table" + types.AddKeyToken(table.Protocol, "protocol") + types.AddKeyToken(table.AddressFamily, "address-family")
+    table.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/tables/" + table.EntityData.SegmentPath
     table.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     table.EntityData.NamespaceTable = openconfig.GetNamespaces()
     table.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1572,6 +1610,7 @@ func (config *NetworkInstances_NetworkInstance_Tables_Table_Config) GetEntityDat
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "table"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/tables/table/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1608,6 +1647,7 @@ func (state *NetworkInstances_NetworkInstance_Tables_Table_State) GetEntityData(
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "table"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/tables/table/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1644,6 +1684,7 @@ func (connectionPoints *NetworkInstances_NetworkInstance_ConnectionPoints) GetEn
     connectionPoints.EntityData.BundleName = "openconfig"
     connectionPoints.EntityData.ParentYangName = "network-instance"
     connectionPoints.EntityData.SegmentPath = "connection-points"
+    connectionPoints.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + connectionPoints.EntityData.SegmentPath
     connectionPoints.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     connectionPoints.EntityData.NamespaceTable = openconfig.GetNamespaces()
     connectionPoints.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1670,6 +1711,7 @@ func (connectionPoints *NetworkInstances_NetworkInstance_ConnectionPoints) GetEn
 type NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A locally significant reference for the
     // connection-point. The type is string. Refers to
@@ -1694,6 +1736,7 @@ func (connectionPoint *NetworkInstances_NetworkInstance_ConnectionPoints_Connect
     connectionPoint.EntityData.BundleName = "openconfig"
     connectionPoint.EntityData.ParentYangName = "connection-points"
     connectionPoint.EntityData.SegmentPath = "connection-point" + types.AddKeyToken(connectionPoint.ConnectionPointId, "connection-point-id")
+    connectionPoint.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/" + connectionPoint.EntityData.SegmentPath
     connectionPoint.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     connectionPoint.EntityData.NamespaceTable = openconfig.GetNamespaces()
     connectionPoint.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1727,6 +1770,7 @@ func (config *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "connection-point"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1757,6 +1801,7 @@ func (state *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_S
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "connection-point"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1790,6 +1835,7 @@ func (endpoints *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoi
     endpoints.EntityData.BundleName = "openconfig"
     endpoints.EntityData.ParentYangName = "connection-point"
     endpoints.EntityData.SegmentPath = "endpoints"
+    endpoints.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/" + endpoints.EntityData.SegmentPath
     endpoints.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     endpoints.EntityData.NamespaceTable = openconfig.GetNamespaces()
     endpoints.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1815,6 +1861,7 @@ func (endpoints *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoi
 type NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_Endpoints_Endpoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A pointer to the configured identifier for the
     // endpoint. The type is string. Refers to
@@ -1842,6 +1889,7 @@ func (endpoint *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoin
     endpoint.EntityData.BundleName = "openconfig"
     endpoint.EntityData.ParentYangName = "endpoints"
     endpoint.EntityData.SegmentPath = "endpoint" + types.AddKeyToken(endpoint.EndpointId, "endpoint-id")
+    endpoint.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/endpoints/" + endpoint.EntityData.SegmentPath
     endpoint.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     endpoint.EntityData.NamespaceTable = openconfig.GetNamespaces()
     endpoint.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1885,6 +1933,7 @@ func (config *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "endpoint"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/endpoints/endpoint/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1930,6 +1979,7 @@ func (state *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_E
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "endpoint"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/endpoints/endpoint/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1966,6 +2016,7 @@ func (local *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_E
     local.EntityData.BundleName = "openconfig"
     local.EntityData.ParentYangName = "endpoint"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/endpoints/endpoint/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     local.EntityData.NamespaceTable = openconfig.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2006,6 +2057,7 @@ func (config *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "local"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/endpoints/endpoint/local/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2046,6 +2098,7 @@ func (state *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_E
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "local"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/endpoints/endpoint/local/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2080,6 +2133,7 @@ func (remote *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_
     remote.EntityData.BundleName = "openconfig"
     remote.EntityData.ParentYangName = "endpoint"
     remote.EntityData.SegmentPath = "remote"
+    remote.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/endpoints/endpoint/" + remote.EntityData.SegmentPath
     remote.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     remote.EntityData.NamespaceTable = openconfig.GetNamespaces()
     remote.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2119,6 +2173,7 @@ func (config *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "remote"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/endpoints/endpoint/remote/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2158,6 +2213,7 @@ func (state *NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_E
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "remote"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/connection-points/connection-point/endpoints/endpoint/remote/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2202,6 +2258,7 @@ func (mpls *NetworkInstances_NetworkInstance_Mpls) GetEntityData() *types.Common
     mpls.EntityData.BundleName = "openconfig"
     mpls.EntityData.ParentYangName = "network-instance"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2250,6 +2307,7 @@ func (global *NetworkInstances_NetworkInstance_Mpls_Global) GetEntityData() *typ
     global.EntityData.BundleName = "openconfig"
     global.EntityData.ParentYangName = "mpls"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     global.EntityData.NamespaceTable = openconfig.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2283,6 +2341,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Global_Config) GetEntityData
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "global"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2313,6 +2372,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Global_State) GetEntityData()
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "global"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2343,6 +2403,7 @@ func (interfaceAttributes *NetworkInstances_NetworkInstance_Mpls_Global_Interfac
     interfaceAttributes.EntityData.BundleName = "openconfig"
     interfaceAttributes.EntityData.ParentYangName = "global"
     interfaceAttributes.EntityData.SegmentPath = "interface-attributes"
+    interfaceAttributes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/" + interfaceAttributes.EntityData.SegmentPath
     interfaceAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2364,6 +2425,7 @@ func (interfaceAttributes *NetworkInstances_NetworkInstance_Mpls_Global_Interfac
 type NetworkInstances_NetworkInstance_Mpls_Global_InterfaceAttributes_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the interface id list key. The type
     // is string. Refers to
@@ -2386,6 +2448,7 @@ func (self *NetworkInstances_NetworkInstance_Mpls_Global_InterfaceAttributes_Int
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interface-attributes"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
+    self.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/interface-attributes/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2422,6 +2485,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Global_InterfaceAttributes_I
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/interface-attributes/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2456,6 +2520,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Global_InterfaceAttributes_In
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/interface-attributes/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2489,6 +2554,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Mpls_Global_InterfaceAttrib
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/interface-attributes/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2528,6 +2594,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Global_InterfaceAttributes_I
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/interface-attributes/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2567,6 +2634,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Global_InterfaceAttributes_In
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/interface-attributes/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2604,6 +2672,7 @@ func (reservedLabelBlocks *NetworkInstances_NetworkInstance_Mpls_Global_Reserved
     reservedLabelBlocks.EntityData.BundleName = "openconfig"
     reservedLabelBlocks.EntityData.ParentYangName = "global"
     reservedLabelBlocks.EntityData.SegmentPath = "reserved-label-blocks"
+    reservedLabelBlocks.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/" + reservedLabelBlocks.EntityData.SegmentPath
     reservedLabelBlocks.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     reservedLabelBlocks.EntityData.NamespaceTable = openconfig.GetNamespaces()
     reservedLabelBlocks.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2626,6 +2695,7 @@ func (reservedLabelBlocks *NetworkInstances_NetworkInstance_Mpls_Global_Reserved
 type NetworkInstances_NetworkInstance_Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to a unique local identifier for this
     // label block. The type is string. Refers to
@@ -2645,6 +2715,7 @@ func (reservedLabelBlock *NetworkInstances_NetworkInstance_Mpls_Global_ReservedL
     reservedLabelBlock.EntityData.BundleName = "openconfig"
     reservedLabelBlock.EntityData.ParentYangName = "reserved-label-blocks"
     reservedLabelBlock.EntityData.SegmentPath = "reserved-label-block" + types.AddKeyToken(reservedLabelBlock.LocalId, "local-id")
+    reservedLabelBlock.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/reserved-label-blocks/" + reservedLabelBlock.EntityData.SegmentPath
     reservedLabelBlock.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     reservedLabelBlock.EntityData.NamespaceTable = openconfig.GetNamespaces()
     reservedLabelBlock.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2687,6 +2758,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Global_ReservedLabelBlocks_R
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "reserved-label-block"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/reserved-label-blocks/reserved-label-block/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2729,6 +2801,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Global_ReservedLabelBlocks_Re
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "reserved-label-block"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/global/reserved-label-blocks/reserved-label-block/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2770,6 +2843,7 @@ func (teGlobalAttributes *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttribut
     teGlobalAttributes.EntityData.BundleName = "openconfig"
     teGlobalAttributes.EntityData.ParentYangName = "mpls"
     teGlobalAttributes.EntityData.SegmentPath = "te-global-attributes"
+    teGlobalAttributes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/" + teGlobalAttributes.EntityData.SegmentPath
     teGlobalAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     teGlobalAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teGlobalAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2803,6 +2877,7 @@ func (srlgs *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs) Get
     srlgs.EntityData.BundleName = "openconfig"
     srlgs.EntityData.ParentYangName = "te-global-attributes"
     srlgs.EntityData.SegmentPath = "srlgs"
+    srlgs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/" + srlgs.EntityData.SegmentPath
     srlgs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     srlgs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     srlgs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2824,6 +2899,7 @@ func (srlgs *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs) Get
 type NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs_Srlg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The SRLG group identifier. The type is string.
     // Refers to
@@ -2846,6 +2922,7 @@ func (srlg *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs_Srlg)
     srlg.EntityData.BundleName = "openconfig"
     srlg.EntityData.ParentYangName = "srlgs"
     srlg.EntityData.SegmentPath = "srlg" + types.AddKeyToken(srlg.Name, "name")
+    srlg.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/srlgs/" + srlg.EntityData.SegmentPath
     srlg.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     srlg.EntityData.NamespaceTable = openconfig.GetNamespaces()
     srlg.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2889,6 +2966,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs_Srl
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "srlg"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/srlgs/srlg/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2932,6 +3010,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs_Srlg
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "srlg"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/srlgs/srlg/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2966,6 +3045,7 @@ func (staticSrlgMembers *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttribute
     staticSrlgMembers.EntityData.BundleName = "openconfig"
     staticSrlgMembers.EntityData.ParentYangName = "srlg"
     staticSrlgMembers.EntityData.SegmentPath = "static-srlg-members"
+    staticSrlgMembers.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/srlgs/srlg/" + staticSrlgMembers.EntityData.SegmentPath
     staticSrlgMembers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     staticSrlgMembers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticSrlgMembers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2989,6 +3069,7 @@ func (staticSrlgMembers *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttribute
 type NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The from address of the link in the SRLG. The type
     // is one of the following types: string with pattern:
@@ -3010,6 +3091,7 @@ func (membersList *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlg
     membersList.EntityData.BundleName = "openconfig"
     membersList.EntityData.ParentYangName = "static-srlg-members"
     membersList.EntityData.SegmentPath = "members-list" + types.AddKeyToken(membersList.FromAddress, "from-address")
+    membersList.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/srlgs/srlg/static-srlg-members/" + membersList.EntityData.SegmentPath
     membersList.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     membersList.EntityData.NamespaceTable = openconfig.GetNamespaces()
     membersList.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3053,6 +3135,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs_Srl
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "members-list"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/srlgs/srlg/static-srlg-members/members-list/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3095,6 +3178,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs_Srlg
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "members-list"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/srlgs/srlg/static-srlg-members/members-list/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3128,6 +3212,7 @@ func (mplsAdminGroups *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_
     mplsAdminGroups.EntityData.BundleName = "openconfig"
     mplsAdminGroups.EntityData.ParentYangName = "te-global-attributes"
     mplsAdminGroups.EntityData.SegmentPath = "mpls-admin-groups"
+    mplsAdminGroups.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/" + mplsAdminGroups.EntityData.SegmentPath
     mplsAdminGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mplsAdminGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mplsAdminGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3150,6 +3235,7 @@ func (mplsAdminGroups *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_
 type NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. name for mpls admin-group. The type is string.
     // Refers to
@@ -3169,6 +3255,7 @@ func (adminGroup *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_MplsA
     adminGroup.EntityData.BundleName = "openconfig"
     adminGroup.EntityData.ParentYangName = "mpls-admin-groups"
     adminGroup.EntityData.SegmentPath = "admin-group" + types.AddKeyToken(adminGroup.AdminGroupName, "admin-group-name")
+    adminGroup.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/mpls-admin-groups/" + adminGroup.EntityData.SegmentPath
     adminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3207,6 +3294,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_MplsAdmin
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "admin-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/mpls-admin-groups/admin-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3244,6 +3332,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_MplsAdminG
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "admin-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/mpls-admin-groups/admin-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3278,6 +3367,7 @@ func (teLspTimers *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_TeLs
     teLspTimers.EntityData.BundleName = "openconfig"
     teLspTimers.EntityData.ParentYangName = "te-global-attributes"
     teLspTimers.EntityData.SegmentPath = "te-lsp-timers"
+    teLspTimers.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/" + teLspTimers.EntityData.SegmentPath
     teLspTimers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     teLspTimers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teLspTimers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3318,6 +3408,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_TeLspTime
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "te-lsp-timers"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/te-lsp-timers/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3358,6 +3449,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_TeLspTimer
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "te-lsp-timers"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/te-lsp-timers/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3398,6 +3490,7 @@ func (bandwidthMeasurement *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttrib
     bandwidthMeasurement.EntityData.BundleName = "openconfig"
     bandwidthMeasurement.EntityData.ParentYangName = "te-global-attributes"
     bandwidthMeasurement.EntityData.SegmentPath = "openconfig-rsvp-sr-ext:bandwidth-measurement"
+    bandwidthMeasurement.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/" + bandwidthMeasurement.EntityData.SegmentPath
     bandwidthMeasurement.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthMeasurement.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthMeasurement.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3456,6 +3549,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Bandwidth
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "bandwidth-measurement"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/openconfig-rsvp-sr-ext:bandwidth-measurement/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3525,6 +3619,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_BandwidthM
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bandwidth-measurement"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/openconfig-rsvp-sr-ext:bandwidth-measurement/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3565,6 +3660,7 @@ func (updateTrigger *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Ba
     updateTrigger.EntityData.BundleName = "openconfig"
     updateTrigger.EntityData.ParentYangName = "bandwidth-measurement"
     updateTrigger.EntityData.SegmentPath = "update-trigger"
+    updateTrigger.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/openconfig-rsvp-sr-ext:bandwidth-measurement/" + updateTrigger.EntityData.SegmentPath
     updateTrigger.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     updateTrigger.EntityData.NamespaceTable = openconfig.GetNamespaces()
     updateTrigger.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3613,6 +3709,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Bandwidth
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "update-trigger"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/openconfig-rsvp-sr-ext:bandwidth-measurement/update-trigger/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3681,6 +3778,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_BandwidthM
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "update-trigger"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-global-attributes/openconfig-rsvp-sr-ext:bandwidth-measurement/update-trigger/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3733,6 +3831,7 @@ func (teInterfaceAttributes *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAt
     teInterfaceAttributes.EntityData.BundleName = "openconfig"
     teInterfaceAttributes.EntityData.ParentYangName = "mpls"
     teInterfaceAttributes.EntityData.SegmentPath = "te-interface-attributes"
+    teInterfaceAttributes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/" + teInterfaceAttributes.EntityData.SegmentPath
     teInterfaceAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     teInterfaceAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teInterfaceAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3754,6 +3853,7 @@ func (teInterfaceAttributes *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAt
 type NetworkInstances_NetworkInstance_Mpls_TeInterfaceAttributes_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the interface id list key. The type
     // is string. Refers to
@@ -3785,6 +3885,7 @@ func (self *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAttributes_Interfac
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "te-interface-attributes"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
+    self.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3832,6 +3933,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAttributes_Interf
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3877,6 +3979,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAttributes_Interfa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3912,6 +4015,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAttributes_
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3951,6 +4055,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAttributes_Interf
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3990,6 +4095,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAttributes_Interfa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4025,6 +4131,7 @@ func (igpFloodingBandwidth *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAtt
     igpFloodingBandwidth.EntityData.BundleName = "openconfig"
     igpFloodingBandwidth.EntityData.ParentYangName = "interface"
     igpFloodingBandwidth.EntityData.SegmentPath = "igp-flooding-bandwidth"
+    igpFloodingBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/interface/" + igpFloodingBandwidth.EntityData.SegmentPath
     igpFloodingBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     igpFloodingBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     igpFloodingBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4094,6 +4201,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAttributes_Interf
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "igp-flooding-bandwidth"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/interface/igp-flooding-bandwidth/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4203,6 +4311,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAttributes_Interfa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "igp-flooding-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/interface/igp-flooding-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4278,6 +4387,7 @@ func (bandwidthMeasurement *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAtt
     bandwidthMeasurement.EntityData.BundleName = "openconfig"
     bandwidthMeasurement.EntityData.ParentYangName = "interface"
     bandwidthMeasurement.EntityData.SegmentPath = "openconfig-rsvp-sr-ext:bandwidth-measurement"
+    bandwidthMeasurement.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/interface/" + bandwidthMeasurement.EntityData.SegmentPath
     bandwidthMeasurement.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthMeasurement.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthMeasurement.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4345,6 +4455,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_TeInterfaceAttributes_Interfa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bandwidth-measurement"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/te-interface-attributes/interface/openconfig-rsvp-sr-ext:bandwidth-measurement/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4386,6 +4497,7 @@ func (signalingProtocols *NetworkInstances_NetworkInstance_Mpls_SignalingProtoco
     signalingProtocols.EntityData.BundleName = "openconfig"
     signalingProtocols.EntityData.ParentYangName = "mpls"
     signalingProtocols.EntityData.SegmentPath = "signaling-protocols"
+    signalingProtocols.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/" + signalingProtocols.EntityData.SegmentPath
     signalingProtocols.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     signalingProtocols.EntityData.NamespaceTable = openconfig.GetNamespaces()
     signalingProtocols.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4426,6 +4538,7 @@ func (rsvpTe *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe) G
     rsvpTe.EntityData.BundleName = "openconfig"
     rsvpTe.EntityData.ParentYangName = "signaling-protocols"
     rsvpTe.EntityData.SegmentPath = "rsvp-te"
+    rsvpTe.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/" + rsvpTe.EntityData.SegmentPath
     rsvpTe.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     rsvpTe.EntityData.NamespaceTable = openconfig.GetNamespaces()
     rsvpTe.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4459,6 +4572,7 @@ func (sessions *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_
     sessions.EntityData.BundleName = "openconfig"
     sessions.EntityData.ParentYangName = "rsvp-te"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sessions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4480,6 +4594,7 @@ func (sessions *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_
 type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the local index for the RSVP session.
     // The type is string with range: 0..18446744073709551615. Refers to
@@ -4500,6 +4615,7 @@ func (session *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_S
     session.EntityData.BundleName = "openconfig"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.LocalIndex, "local-index")
+    session.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     session.EntityData.NamespaceTable = openconfig.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4536,6 +4652,7 @@ func (recordRouteObjects *NetworkInstances_NetworkInstance_Mpls_SignalingProtoco
     recordRouteObjects.EntityData.BundleName = "openconfig"
     recordRouteObjects.EntityData.ParentYangName = "session"
     recordRouteObjects.EntityData.SegmentPath = "record-route-objects"
+    recordRouteObjects.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/sessions/session/" + recordRouteObjects.EntityData.SegmentPath
     recordRouteObjects.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     recordRouteObjects.EntityData.NamespaceTable = openconfig.GetNamespaces()
     recordRouteObjects.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4560,6 +4677,7 @@ func (recordRouteObjects *NetworkInstances_NetworkInstance_Mpls_SignalingProtoco
 type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the index of the record route object.
     // The index is used to indicate the ordering of hops in the path. The type is
@@ -4578,6 +4696,7 @@ func (recordRouteObject *NetworkInstances_NetworkInstance_Mpls_SignalingProtocol
     recordRouteObject.EntityData.BundleName = "openconfig"
     recordRouteObject.EntityData.ParentYangName = "record-route-objects"
     recordRouteObject.EntityData.SegmentPath = "record-route-object" + types.AddKeyToken(recordRouteObject.Index, "index")
+    recordRouteObject.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/sessions/session/record-route-objects/" + recordRouteObject.EntityData.SegmentPath
     recordRouteObject.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     recordRouteObject.EntityData.NamespaceTable = openconfig.GetNamespaces()
     recordRouteObject.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4624,6 +4743,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Ses
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "record-route-object"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/sessions/session/record-route-objects/record-route-object/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4712,6 +4832,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Ses
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "session"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/sessions/session/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4755,7 +4876,7 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Sessions_Se
     // The maximum traffic generation rate that the head-end device sends traffic
     // at. The type is one of the following types: string with length: 32 Units
     // are bytes per second., or enumeration
-    // Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate
+    // NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate
     // Units are bytes per second..
     PeakDataRate interface{}
 }
@@ -4766,6 +4887,7 @@ func (senderTspec *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_Rsvp
     senderTspec.EntityData.BundleName = "openconfig"
     senderTspec.EntityData.ParentYangName = "state"
     senderTspec.EntityData.SegmentPath = "sender-tspec"
+    senderTspec.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/sessions/session/state/" + senderTspec.EntityData.SegmentPath
     senderTspec.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     senderTspec.EntityData.NamespaceTable = openconfig.GetNamespaces()
     senderTspec.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4818,6 +4940,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "rsvp-te"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4839,6 +4962,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe
 type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the address of the RSVP neighbor. The
     // type is one of the following types: string with pattern:
@@ -4857,6 +4981,7 @@ func (neighbor *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Address, "address")
+    neighbor.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4901,6 +5026,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Nei
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4956,6 +5082,7 @@ func (global *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Gl
     global.EntityData.BundleName = "openconfig"
     global.EntityData.ParentYangName = "rsvp-te"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     global.EntityData.NamespaceTable = openconfig.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4992,6 +5119,7 @@ func (gracefulRestart *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "global"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5032,6 +5160,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Gl
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5073,6 +5202,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Glo
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5108,6 +5238,7 @@ func (softPreemption *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_R
     softPreemption.EntityData.BundleName = "openconfig"
     softPreemption.EntityData.ParentYangName = "global"
     softPreemption.EntityData.SegmentPath = "soft-preemption"
+    softPreemption.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/" + softPreemption.EntityData.SegmentPath
     softPreemption.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     softPreemption.EntityData.NamespaceTable = openconfig.GetNamespaces()
     softPreemption.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5146,6 +5277,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Gl
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "soft-preemption"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/soft-preemption/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5184,6 +5316,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Glo
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "soft-preemption"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/soft-preemption/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5217,6 +5350,7 @@ func (hellos *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Gl
     hellos.EntityData.BundleName = "openconfig"
     hellos.EntityData.ParentYangName = "global"
     hellos.EntityData.SegmentPath = "hellos"
+    hellos.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/" + hellos.EntityData.SegmentPath
     hellos.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     hellos.EntityData.NamespaceTable = openconfig.GetNamespaces()
     hellos.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5254,6 +5388,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Gl
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "hellos"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/hellos/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5290,6 +5425,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Glo
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "hellos"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/hellos/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5320,6 +5456,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Glo
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "global"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5428,6 +5565,7 @@ func (counters *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/global/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5478,6 +5616,7 @@ func (interfaceAttributes *NetworkInstances_NetworkInstance_Mpls_SignalingProtoc
     interfaceAttributes.EntityData.BundleName = "openconfig"
     interfaceAttributes.EntityData.ParentYangName = "rsvp-te"
     interfaceAttributes.EntityData.SegmentPath = "interface-attributes"
+    interfaceAttributes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/" + interfaceAttributes.EntityData.SegmentPath
     interfaceAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5499,6 +5638,7 @@ func (interfaceAttributes *NetworkInstances_NetworkInstance_Mpls_SignalingProtoc
 type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. reference to the interface-id data. The type is
     // string. Refers to
@@ -5537,6 +5677,7 @@ func (self *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Inte
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interface-attributes"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
+    self.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5574,6 +5715,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5606,6 +5748,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5705,6 +5848,7 @@ func (counters *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5754,6 +5898,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_Rsv
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5793,6 +5938,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5832,6 +5978,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5864,6 +6011,7 @@ func (bandwidthReservations *NetworkInstances_NetworkInstance_Mpls_SignalingProt
     bandwidthReservations.EntityData.BundleName = "openconfig"
     bandwidthReservations.EntityData.ParentYangName = "interface"
     bandwidthReservations.EntityData.SegmentPath = "bandwidth-reservations"
+    bandwidthReservations.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + bandwidthReservations.EntityData.SegmentPath
     bandwidthReservations.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthReservations.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthReservations.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5886,11 +6034,12 @@ func (bandwidthReservations *NetworkInstances_NetworkInstance_Mpls_SignalingProt
 type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the RSVP priority level. The type is
     // one of the following types: int with range: 0..7, or
-    // :go:struct:`Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority
-    // <ydk/models/mpls/Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority>`.
+    // :go:struct:`NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority
+    // <ydk/models/network_instance/NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority>`.
     Priority interface{}
 
     // Operational state parameters relating to a bandwidth reservation at a
@@ -5904,6 +6053,7 @@ func (bandwidthReservation *NetworkInstances_NetworkInstance_Mpls_SignalingProto
     bandwidthReservation.EntityData.BundleName = "openconfig"
     bandwidthReservation.EntityData.ParentYangName = "bandwidth-reservations"
     bandwidthReservation.EntityData.SegmentPath = "bandwidth-reservation" + types.AddKeyToken(bandwidthReservation.Priority, "priority")
+    bandwidthReservation.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/bandwidth-reservations/" + bandwidthReservation.EntityData.SegmentPath
     bandwidthReservation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthReservation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthReservation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5927,7 +6077,7 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAt
 
     // RSVP priority level for LSPs traversing the interface. The type is one of
     // the following types: int with range: 0..7, or enumeration
-    // Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority.
+    // NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority.
     Priority interface{}
 
     // Bandwidth currently available with the priority level, or for the entire
@@ -5957,6 +6107,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bandwidth-reservation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/bandwidth-reservations/bandwidth-reservation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6003,6 +6154,7 @@ func (hellos *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_In
     hellos.EntityData.BundleName = "openconfig"
     hellos.EntityData.ParentYangName = "interface"
     hellos.EntityData.SegmentPath = "hellos"
+    hellos.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + hellos.EntityData.SegmentPath
     hellos.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     hellos.EntityData.NamespaceTable = openconfig.GetNamespaces()
     hellos.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6040,6 +6192,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "hellos"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/hellos/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6076,6 +6229,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "hellos"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/hellos/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6110,6 +6264,7 @@ func (authentication *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_R
     authentication.EntityData.BundleName = "openconfig"
     authentication.EntityData.ParentYangName = "interface"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     authentication.EntityData.NamespaceTable = openconfig.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6146,6 +6301,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "authentication"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/authentication/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6182,6 +6338,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "authentication"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/authentication/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6216,6 +6373,7 @@ func (subscription *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_Rsv
     subscription.EntityData.BundleName = "openconfig"
     subscription.EntityData.ParentYangName = "interface"
     subscription.EntityData.SegmentPath = "subscription"
+    subscription.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + subscription.EntityData.SegmentPath
     subscription.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subscription.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6248,6 +6406,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "subscription"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/subscription/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6296,6 +6455,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subscription"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/subscription/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6330,6 +6490,7 @@ func (protection *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpT
     protection.EntityData.BundleName = "openconfig"
     protection.EntityData.ParentYangName = "interface"
     protection.EntityData.SegmentPath = "protection"
+    protection.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + protection.EntityData.SegmentPath
     protection.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     protection.EntityData.NamespaceTable = openconfig.GetNamespaces()
     protection.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6367,6 +6528,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "protection"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/protection/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6404,6 +6566,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "protection"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/rsvp-te/interface-attributes/interface/protection/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6431,6 +6594,7 @@ func (ldp *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_Ldp) GetEnti
     ldp.EntityData.BundleName = "openconfig"
     ldp.EntityData.ParentYangName = "signaling-protocols"
     ldp.EntityData.SegmentPath = "ldp"
+    ldp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/" + ldp.EntityData.SegmentPath
     ldp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ldp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ldp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6463,6 +6627,7 @@ func (segmentRouting *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_S
     segmentRouting.EntityData.BundleName = "openconfig"
     segmentRouting.EntityData.ParentYangName = "signaling-protocols"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = openconfig.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6496,6 +6661,7 @@ func (aggregateSidCounters *NetworkInstances_NetworkInstance_Mpls_SignalingProto
     aggregateSidCounters.EntityData.BundleName = "openconfig"
     aggregateSidCounters.EntityData.ParentYangName = "segment-routing"
     aggregateSidCounters.EntityData.SegmentPath = "aggregate-sid-counters"
+    aggregateSidCounters.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/" + aggregateSidCounters.EntityData.SegmentPath
     aggregateSidCounters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregateSidCounters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregateSidCounters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6519,11 +6685,11 @@ func (aggregateSidCounters *NetworkInstances_NetworkInstance_Mpls_SignalingProto
 type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MPLS label representing the segment
     // identifier. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`.
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     MplsLabel interface{}
 
     // State parameters for per-SID statistics.
@@ -6536,6 +6702,7 @@ func (aggregateSidCounter *NetworkInstances_NetworkInstance_Mpls_SignalingProtoc
     aggregateSidCounter.EntityData.BundleName = "openconfig"
     aggregateSidCounter.EntityData.ParentYangName = "aggregate-sid-counters"
     aggregateSidCounter.EntityData.SegmentPath = "aggregate-sid-counter" + types.AddKeyToken(aggregateSidCounter.MplsLabel, "mpls-label")
+    aggregateSidCounter.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/aggregate-sid-counters/" + aggregateSidCounter.EntityData.SegmentPath
     aggregateSidCounter.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregateSidCounter.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregateSidCounter.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6589,6 +6756,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRou
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "aggregate-sid-counter"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/aggregate-sid-counters/aggregate-sid-counter/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6624,6 +6792,7 @@ func (interfaces *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_Segme
     interfaces.EntityData.BundleName = "openconfig"
     interfaces.EntityData.ParentYangName = "segment-routing"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6646,6 +6815,7 @@ func (interfaces *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_Segme
 type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the ID for the interface for which
     // SR is configured. The type is string. Refers to
@@ -6673,6 +6843,7 @@ func (self *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRout
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
+    self.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6707,6 +6878,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRo
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6759,6 +6931,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRou
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6794,6 +6967,7 @@ func (sidCounters *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_Segm
     sidCounters.EntityData.BundleName = "openconfig"
     sidCounters.EntityData.ParentYangName = "interface"
     sidCounters.EntityData.SegmentPath = "sid-counters"
+    sidCounters.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/" + sidCounters.EntityData.SegmentPath
     sidCounters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sidCounters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sidCounters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6815,11 +6989,11 @@ func (sidCounters *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_Segm
 type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MPLS label representing the segment
     // identifier. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`.
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     MplsLabel interface{}
 
     // State parameters for per-SID statistics.
@@ -6835,6 +7009,7 @@ func (sidCounter *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_Segme
     sidCounter.EntityData.BundleName = "openconfig"
     sidCounter.EntityData.ParentYangName = "sid-counters"
     sidCounter.EntityData.SegmentPath = "sid-counter" + types.AddKeyToken(sidCounter.MplsLabel, "mpls-label")
+    sidCounter.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/sid-counters/" + sidCounter.EntityData.SegmentPath
     sidCounter.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sidCounter.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sidCounter.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6889,6 +7064,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRou
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "sid-counter"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/sid-counters/sid-counter/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6924,6 +7100,7 @@ func (forwardingClasses *NetworkInstances_NetworkInstance_Mpls_SignalingProtocol
     forwardingClasses.EntityData.BundleName = "openconfig"
     forwardingClasses.EntityData.ParentYangName = "sid-counter"
     forwardingClasses.EntityData.SegmentPath = "forwarding-classes"
+    forwardingClasses.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/sid-counters/sid-counter/" + forwardingClasses.EntityData.SegmentPath
     forwardingClasses.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     forwardingClasses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     forwardingClasses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6946,6 +7123,7 @@ func (forwardingClasses *NetworkInstances_NetworkInstance_Mpls_SignalingProtocol
 type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the EXP bits of the
     // segment identifier. The type is string with range: 0..7. Refers to
@@ -6963,6 +7141,7 @@ func (forwardingClass *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_
     forwardingClass.EntityData.BundleName = "openconfig"
     forwardingClass.EntityData.ParentYangName = "forwarding-classes"
     forwardingClass.EntityData.SegmentPath = "forwarding-class" + types.AddKeyToken(forwardingClass.Exp, "exp")
+    forwardingClass.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/sid-counters/sid-counter/forwarding-classes/" + forwardingClass.EntityData.SegmentPath
     forwardingClass.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     forwardingClass.EntityData.NamespaceTable = openconfig.GetNamespaces()
     forwardingClass.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7023,6 +7202,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRou
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "forwarding-class"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/sid-counters/sid-counter/forwarding-classes/forwarding-class/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7059,6 +7239,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_Seg
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7098,6 +7279,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRo
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7137,6 +7319,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRou
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/signaling-protocols/segment-routing/interfaces/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7175,6 +7358,7 @@ func (lsps *NetworkInstances_NetworkInstance_Mpls_Lsps) GetEntityData() *types.C
     lsps.EntityData.BundleName = "openconfig"
     lsps.EntityData.ParentYangName = "mpls"
     lsps.EntityData.SegmentPath = "lsps"
+    lsps.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/" + lsps.EntityData.SegmentPath
     lsps.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lsps.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lsps.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7210,6 +7394,7 @@ func (constrainedPath *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPat
     constrainedPath.EntityData.BundleName = "openconfig"
     constrainedPath.EntityData.ParentYangName = "lsps"
     constrainedPath.EntityData.SegmentPath = "constrained-path"
+    constrainedPath.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/" + constrainedPath.EntityData.SegmentPath
     constrainedPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     constrainedPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constrainedPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7241,6 +7426,7 @@ func (namedExplicitPaths *NetworkInstances_NetworkInstance_Mpls_Lsps_Constrained
     namedExplicitPaths.EntityData.BundleName = "openconfig"
     namedExplicitPaths.EntityData.ParentYangName = "constrained-path"
     namedExplicitPaths.EntityData.SegmentPath = "named-explicit-paths"
+    namedExplicitPaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/" + namedExplicitPaths.EntityData.SegmentPath
     namedExplicitPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     namedExplicitPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     namedExplicitPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7262,6 +7448,7 @@ func (namedExplicitPaths *NetworkInstances_NetworkInstance_Mpls_Lsps_Constrained
 type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A string name that uniquely identifies an explicit
     // path. The type is string. Refers to
@@ -7284,6 +7471,7 @@ func (namedExplicitPath *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedP
     namedExplicitPath.EntityData.BundleName = "openconfig"
     namedExplicitPath.EntityData.ParentYangName = "named-explicit-paths"
     namedExplicitPath.EntityData.SegmentPath = "named-explicit-path" + types.AddKeyToken(namedExplicitPath.Name, "name")
+    namedExplicitPath.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/named-explicit-paths/" + namedExplicitPath.EntityData.SegmentPath
     namedExplicitPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     namedExplicitPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     namedExplicitPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7328,6 +7516,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_NamedEx
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "named-explicit-path"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7385,6 +7574,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_NamedExp
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "named-explicit-path"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7431,6 +7621,7 @@ func (explicitRouteObjects *NetworkInstances_NetworkInstance_Mpls_Lsps_Constrain
     explicitRouteObjects.EntityData.BundleName = "openconfig"
     explicitRouteObjects.EntityData.ParentYangName = "named-explicit-path"
     explicitRouteObjects.EntityData.SegmentPath = "explicit-route-objects"
+    explicitRouteObjects.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/" + explicitRouteObjects.EntityData.SegmentPath
     explicitRouteObjects.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     explicitRouteObjects.EntityData.NamespaceTable = openconfig.GetNamespaces()
     explicitRouteObjects.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7452,6 +7643,7 @@ func (explicitRouteObjects *NetworkInstances_NetworkInstance_Mpls_Lsps_Constrain
 type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index of this explicit route object, to express
     // the order of hops in path. The type is string with range: 0..255. Refers to
@@ -7471,6 +7663,7 @@ func (explicitRouteObject *NetworkInstances_NetworkInstance_Mpls_Lsps_Constraine
     explicitRouteObject.EntityData.BundleName = "openconfig"
     explicitRouteObject.EntityData.ParentYangName = "explicit-route-objects"
     explicitRouteObject.EntityData.SegmentPath = "explicit-route-object" + types.AddKeyToken(explicitRouteObject.Index, "index")
+    explicitRouteObject.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/explicit-route-objects/" + explicitRouteObject.EntityData.SegmentPath
     explicitRouteObject.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     explicitRouteObject.EntityData.NamespaceTable = openconfig.GetNamespaces()
     explicitRouteObject.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7514,6 +7707,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_NamedEx
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "explicit-route-object"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/explicit-route-objects/explicit-route-object/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7556,6 +7750,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_NamedExp
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "explicit-route-object"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/explicit-route-objects/explicit-route-object/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7592,6 +7787,7 @@ func (tunnels *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnel
     tunnels.EntityData.BundleName = "openconfig"
     tunnels.EntityData.ParentYangName = "constrained-path"
     tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tunnels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7617,6 +7813,7 @@ func (tunnels *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnel
 type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The tunnel name. The type is string. Refers to
     // network_instance.NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Config_Name
@@ -7641,6 +7838,7 @@ func (tunnel *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     tunnel.EntityData.BundleName = "openconfig"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.Name, "name")
+    tunnel.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tunnel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7745,6 +7943,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "tunnel"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7871,6 +8070,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tunnel"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7946,6 +8146,7 @@ func (counters *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunne
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7987,6 +8188,7 @@ func (bandwidth *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunn
     bandwidth.EntityData.BundleName = "openconfig"
     bandwidth.EntityData.ParentYangName = "tunnel"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8024,6 +8226,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "bandwidth"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8067,6 +8270,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8107,6 +8311,7 @@ func (autoBandwidth *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_
     autoBandwidth.EntityData.BundleName = "openconfig"
     autoBandwidth.EntityData.ParentYangName = "bandwidth"
     autoBandwidth.EntityData.SegmentPath = "auto-bandwidth"
+    autoBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/" + autoBandwidth.EntityData.SegmentPath
     autoBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     autoBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     autoBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8159,6 +8364,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "auto-bandwidth"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8212,6 +8418,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "auto-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8249,6 +8456,7 @@ func (overflow *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunne
     overflow.EntityData.BundleName = "openconfig"
     overflow.EntityData.ParentYangName = "auto-bandwidth"
     overflow.EntityData.SegmentPath = "overflow"
+    overflow.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/" + overflow.EntityData.SegmentPath
     overflow.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     overflow.EntityData.NamespaceTable = openconfig.GetNamespaces()
     overflow.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8289,6 +8497,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "overflow"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/overflow/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8330,6 +8539,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "overflow"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/overflow/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8365,6 +8575,7 @@ func (underflow *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunn
     underflow.EntityData.BundleName = "openconfig"
     underflow.EntityData.ParentYangName = "auto-bandwidth"
     underflow.EntityData.SegmentPath = "underflow"
+    underflow.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/" + underflow.EntityData.SegmentPath
     underflow.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     underflow.EntityData.NamespaceTable = openconfig.GetNamespaces()
     underflow.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8405,6 +8616,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "underflow"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/underflow/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8446,6 +8658,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "underflow"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/underflow/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8486,6 +8699,7 @@ func (p2pTunnelAttributes *NetworkInstances_NetworkInstance_Mpls_Lsps_Constraine
     p2pTunnelAttributes.EntityData.BundleName = "openconfig"
     p2pTunnelAttributes.EntityData.ParentYangName = "tunnel"
     p2pTunnelAttributes.EntityData.SegmentPath = "p2p-tunnel-attributes"
+    p2pTunnelAttributes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/" + p2pTunnelAttributes.EntityData.SegmentPath
     p2pTunnelAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     p2pTunnelAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     p2pTunnelAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8522,6 +8736,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "p2p-tunnel-attributes"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8555,6 +8770,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "p2p-tunnel-attributes"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8585,6 +8801,7 @@ func (p2pPrimaryPath *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath
     p2pPrimaryPath.EntityData.BundleName = "openconfig"
     p2pPrimaryPath.EntityData.ParentYangName = "p2p-tunnel-attributes"
     p2pPrimaryPath.EntityData.SegmentPath = "p2p-primary-path"
+    p2pPrimaryPath.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/" + p2pPrimaryPath.EntityData.SegmentPath
     p2pPrimaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     p2pPrimaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     p2pPrimaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8606,6 +8823,7 @@ func (p2pPrimaryPath *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath
 type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path name. The type is string. Refers to
     // network_instance.NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_Config_Name
@@ -8637,6 +8855,7 @@ func (p2pPrimaryPath *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath
     p2pPrimaryPath.EntityData.BundleName = "openconfig"
     p2pPrimaryPath.EntityData.ParentYangName = "p2p-primary-path"
     p2pPrimaryPath.EntityData.SegmentPath = "p2p-primary-path" + types.AddKeyToken(p2pPrimaryPath.Name, "name")
+    p2pPrimaryPath.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/" + p2pPrimaryPath.EntityData.SegmentPath
     p2pPrimaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     p2pPrimaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     p2pPrimaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8712,6 +8931,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "p2p-primary-path"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8799,6 +9019,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "p2p-primary-path"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8849,6 +9070,7 @@ func (candidateSecondaryPaths *NetworkInstances_NetworkInstance_Mpls_Lsps_Constr
     candidateSecondaryPaths.EntityData.BundleName = "openconfig"
     candidateSecondaryPaths.EntityData.ParentYangName = "p2p-primary-path"
     candidateSecondaryPaths.EntityData.SegmentPath = "candidate-secondary-paths"
+    candidateSecondaryPaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/" + candidateSecondaryPaths.EntityData.SegmentPath
     candidateSecondaryPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     candidateSecondaryPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     candidateSecondaryPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8871,6 +9093,7 @@ func (candidateSecondaryPaths *NetworkInstances_NetworkInstance_Mpls_Lsps_Constr
 type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the secondary path option reference
     // which acts as the key of the candidate-secondary-path list. The type is
@@ -8891,6 +9114,7 @@ func (candidateSecondaryPath *NetworkInstances_NetworkInstance_Mpls_Lsps_Constra
     candidateSecondaryPath.EntityData.BundleName = "openconfig"
     candidateSecondaryPath.EntityData.ParentYangName = "candidate-secondary-paths"
     candidateSecondaryPath.EntityData.SegmentPath = "candidate-secondary-path" + types.AddKeyToken(candidateSecondaryPath.SecondaryPath, "secondary-path")
+    candidateSecondaryPath.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/candidate-secondary-paths/" + candidateSecondaryPath.EntityData.SegmentPath
     candidateSecondaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     candidateSecondaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     candidateSecondaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8931,6 +9155,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "candidate-secondary-path"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/candidate-secondary-paths/candidate-secondary-path/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8974,6 +9199,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "candidate-secondary-path"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/candidate-secondary-paths/candidate-secondary-path/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9009,6 +9235,7 @@ func (adminGroups *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tu
     adminGroups.EntityData.BundleName = "openconfig"
     adminGroups.EntityData.ParentYangName = "p2p-primary-path"
     adminGroups.EntityData.SegmentPath = "admin-groups"
+    adminGroups.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/" + adminGroups.EntityData.SegmentPath
     adminGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9051,6 +9278,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "admin-groups"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/admin-groups/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9094,6 +9322,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "admin-groups"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/admin-groups/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9126,6 +9355,7 @@ func (p2pSecondaryPaths *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedP
     p2pSecondaryPaths.EntityData.BundleName = "openconfig"
     p2pSecondaryPaths.EntityData.ParentYangName = "p2p-tunnel-attributes"
     p2pSecondaryPaths.EntityData.SegmentPath = "p2p-secondary-paths"
+    p2pSecondaryPaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/" + p2pSecondaryPaths.EntityData.SegmentPath
     p2pSecondaryPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     p2pSecondaryPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     p2pSecondaryPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9147,6 +9377,7 @@ func (p2pSecondaryPaths *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedP
 type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path name. The type is string. Refers to
     // network_instance.NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_Config_Name
@@ -9168,6 +9399,7 @@ func (p2pSecondaryPath *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPa
     p2pSecondaryPath.EntityData.BundleName = "openconfig"
     p2pSecondaryPath.EntityData.ParentYangName = "p2p-secondary-paths"
     p2pSecondaryPath.EntityData.SegmentPath = "p2p-secondary-path" + types.AddKeyToken(p2pSecondaryPath.Name, "name")
+    p2pSecondaryPath.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/" + p2pSecondaryPath.EntityData.SegmentPath
     p2pSecondaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     p2pSecondaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     p2pSecondaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9242,6 +9474,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "p2p-secondary-path"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/p2p-secondary-path/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9329,6 +9562,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "p2p-secondary-path"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/p2p-secondary-path/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9372,6 +9606,7 @@ func (adminGroups *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tu
     adminGroups.EntityData.BundleName = "openconfig"
     adminGroups.EntityData.ParentYangName = "p2p-secondary-path"
     adminGroups.EntityData.SegmentPath = "admin-groups"
+    adminGroups.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/p2p-secondary-path/" + adminGroups.EntityData.SegmentPath
     adminGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9414,6 +9649,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "admin-groups"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/p2p-secondary-path/admin-groups/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9457,6 +9693,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "admin-groups"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/p2p-secondary-path/admin-groups/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9489,6 +9726,7 @@ func (unconstrainedPath *NetworkInstances_NetworkInstance_Mpls_Lsps_Unconstraine
     unconstrainedPath.EntityData.BundleName = "openconfig"
     unconstrainedPath.EntityData.ParentYangName = "lsps"
     unconstrainedPath.EntityData.SegmentPath = "unconstrained-path"
+    unconstrainedPath.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/" + unconstrainedPath.EntityData.SegmentPath
     unconstrainedPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unconstrainedPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unconstrainedPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9519,6 +9757,7 @@ func (pathSetupProtocol *NetworkInstances_NetworkInstance_Mpls_Lsps_Unconstraine
     pathSetupProtocol.EntityData.BundleName = "openconfig"
     pathSetupProtocol.EntityData.ParentYangName = "unconstrained-path"
     pathSetupProtocol.EntityData.SegmentPath = "path-setup-protocol"
+    pathSetupProtocol.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/unconstrained-path/" + pathSetupProtocol.EntityData.SegmentPath
     pathSetupProtocol.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     pathSetupProtocol.EntityData.NamespaceTable = openconfig.GetNamespaces()
     pathSetupProtocol.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9545,6 +9784,7 @@ func (ldp *NetworkInstances_NetworkInstance_Mpls_Lsps_UnconstrainedPath_PathSetu
     ldp.EntityData.BundleName = "openconfig"
     ldp.EntityData.ParentYangName = "path-setup-protocol"
     ldp.EntityData.SegmentPath = "ldp"
+    ldp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/unconstrained-path/path-setup-protocol/" + ldp.EntityData.SegmentPath
     ldp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ldp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ldp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9575,6 +9815,7 @@ func (staticLsps *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps) GetEnti
     staticLsps.EntityData.BundleName = "openconfig"
     staticLsps.EntityData.ParentYangName = "lsps"
     staticLsps.EntityData.SegmentPath = "static-lsps"
+    staticLsps.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/" + staticLsps.EntityData.SegmentPath
     staticLsps.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     staticLsps.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticLsps.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9596,6 +9837,7 @@ func (staticLsps *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps) GetEnti
 type NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference the name list key. The type is string.
     // Refers to
@@ -9624,6 +9866,7 @@ func (staticLsp *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp
     staticLsp.EntityData.BundleName = "openconfig"
     staticLsp.EntityData.ParentYangName = "static-lsps"
     staticLsp.EntityData.SegmentPath = "static-lsp" + types.AddKeyToken(staticLsp.Name, "name")
+    staticLsp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/" + staticLsp.EntityData.SegmentPath
     staticLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     staticLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9658,6 +9901,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "static-lsp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9687,6 +9931,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "static-lsp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9720,6 +9965,7 @@ func (ingress *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_I
     ingress.EntityData.BundleName = "openconfig"
     ingress.EntityData.ParentYangName = "static-lsp"
     ingress.EntityData.SegmentPath = "ingress"
+    ingress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/" + ingress.EntityData.SegmentPath
     ingress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ingress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ingress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9762,6 +10008,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ingress"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/ingress/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9805,6 +10052,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Ing
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ingress"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/ingress/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9840,6 +10088,7 @@ func (transit *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_T
     transit.EntityData.BundleName = "openconfig"
     transit.EntityData.ParentYangName = "static-lsp"
     transit.EntityData.SegmentPath = "transit"
+    transit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/" + transit.EntityData.SegmentPath
     transit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     transit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9882,6 +10131,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Tr
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "transit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/transit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9925,6 +10175,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Tra
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "transit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/transit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9960,6 +10211,7 @@ func (egress *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Eg
     egress.EntityData.BundleName = "openconfig"
     egress.EntityData.ParentYangName = "static-lsp"
     egress.EntityData.SegmentPath = "egress"
+    egress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/" + egress.EntityData.SegmentPath
     egress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     egress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     egress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10002,6 +10254,7 @@ func (config *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Eg
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "egress"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/egress/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10045,6 +10298,7 @@ func (state *NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Egr
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "egress"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/mpls/lsps/static-lsps/static-lsp/egress/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10082,6 +10336,7 @@ func (segmentRouting *NetworkInstances_NetworkInstance_SegmentRouting) GetEntity
     segmentRouting.EntityData.BundleName = "openconfig"
     segmentRouting.EntityData.ParentYangName = "network-instance"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = openconfig.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10115,6 +10370,7 @@ func (srgbs *NetworkInstances_NetworkInstance_SegmentRouting_Srgbs) GetEntityDat
     srgbs.EntityData.BundleName = "openconfig"
     srgbs.EntityData.ParentYangName = "segment-routing"
     srgbs.EntityData.SegmentPath = "srgbs"
+    srgbs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/segment-routing/" + srgbs.EntityData.SegmentPath
     srgbs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     srgbs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     srgbs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10137,6 +10393,7 @@ func (srgbs *NetworkInstances_NetworkInstance_SegmentRouting_Srgbs) GetEntityDat
 type NetworkInstances_NetworkInstance_SegmentRouting_Srgbs_Srgb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the identifier for the SRGB. The
     // type is string. Refers to
@@ -10156,6 +10413,7 @@ func (srgb *NetworkInstances_NetworkInstance_SegmentRouting_Srgbs_Srgb) GetEntit
     srgb.EntityData.BundleName = "openconfig"
     srgb.EntityData.ParentYangName = "srgbs"
     srgb.EntityData.SegmentPath = "srgb" + types.AddKeyToken(srgb.LocalId, "local-id")
+    srgb.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/segment-routing/srgbs/" + srgb.EntityData.SegmentPath
     srgb.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     srgb.EntityData.NamespaceTable = openconfig.GetNamespaces()
     srgb.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10205,6 +10463,7 @@ func (config *NetworkInstances_NetworkInstance_SegmentRouting_Srgbs_Srgb_Config)
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "srgb"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/segment-routing/srgbs/srgb/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10264,6 +10523,7 @@ func (state *NetworkInstances_NetworkInstance_SegmentRouting_Srgbs_Srgb_State) G
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "srgb"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/segment-routing/srgbs/srgb/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10303,6 +10563,7 @@ func (srlbs *NetworkInstances_NetworkInstance_SegmentRouting_Srlbs) GetEntityDat
     srlbs.EntityData.BundleName = "openconfig"
     srlbs.EntityData.ParentYangName = "segment-routing"
     srlbs.EntityData.SegmentPath = "srlbs"
+    srlbs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/segment-routing/" + srlbs.EntityData.SegmentPath
     srlbs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     srlbs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     srlbs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10327,6 +10588,7 @@ func (srlbs *NetworkInstances_NetworkInstance_SegmentRouting_Srlbs) GetEntityDat
 type NetworkInstances_NetworkInstance_SegmentRouting_Srlbs_Srlb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the local identifier used for the
     // SRLB. The type is string. Refers to
@@ -10346,6 +10608,7 @@ func (srlb *NetworkInstances_NetworkInstance_SegmentRouting_Srlbs_Srlb) GetEntit
     srlb.EntityData.BundleName = "openconfig"
     srlb.EntityData.ParentYangName = "srlbs"
     srlb.EntityData.SegmentPath = "srlb" + types.AddKeyToken(srlb.LocalId, "local-id")
+    srlb.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/segment-routing/srlbs/" + srlb.EntityData.SegmentPath
     srlb.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     srlb.EntityData.NamespaceTable = openconfig.GetNamespaces()
     srlb.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10394,6 +10657,7 @@ func (config *NetworkInstances_NetworkInstance_SegmentRouting_Srlbs_Srlb_Config)
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "srlb"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/segment-routing/srlbs/srlb/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10443,6 +10707,7 @@ func (state *NetworkInstances_NetworkInstance_SegmentRouting_Srlbs_Srlb_State) G
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "srlb"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/segment-routing/srlbs/srlb/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10477,6 +10742,7 @@ func (vlans *NetworkInstances_NetworkInstance_Vlans) GetEntityData() *types.Comm
     vlans.EntityData.BundleName = "openconfig"
     vlans.EntityData.ParentYangName = "network-instance"
     vlans.EntityData.SegmentPath = "vlans"
+    vlans.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + vlans.EntityData.SegmentPath
     vlans.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vlans.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vlans.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10498,6 +10764,7 @@ func (vlans *NetworkInstances_NetworkInstance_Vlans) GetEntityData() *types.Comm
 type NetworkInstances_NetworkInstance_Vlans_Vlan struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. references the configured vlan-id. The type is
     // string with range: 1..4094. Refers to
@@ -10520,6 +10787,7 @@ func (vlan *NetworkInstances_NetworkInstance_Vlans_Vlan) GetEntityData() *types.
     vlan.EntityData.BundleName = "openconfig"
     vlan.EntityData.ParentYangName = "vlans"
     vlan.EntityData.SegmentPath = "vlan" + types.AddKeyToken(vlan.VlanId, "vlan-id")
+    vlan.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/vlans/" + vlan.EntityData.SegmentPath
     vlan.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10564,6 +10832,7 @@ func (config *NetworkInstances_NetworkInstance_Vlans_Vlan_Config) GetEntityData(
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "vlan"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/vlans/vlan/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10619,6 +10888,7 @@ func (state *NetworkInstances_NetworkInstance_Vlans_Vlan_State) GetEntityData() 
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "vlan"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/vlans/vlan/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10664,6 +10934,7 @@ func (members *NetworkInstances_NetworkInstance_Vlans_Vlan_Members) GetEntityDat
     members.EntityData.BundleName = "openconfig"
     members.EntityData.ParentYangName = "vlan"
     members.EntityData.SegmentPath = "members"
+    members.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/vlans/vlan/" + members.EntityData.SegmentPath
     members.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     members.EntityData.NamespaceTable = openconfig.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10671,6 +10942,7 @@ func (members *NetworkInstances_NetworkInstance_Vlans_Vlan_Members) GetEntityDat
     members.EntityData.Children = types.NewOrderedMap()
     members.EntityData.Children.Append("member", types.YChild{"Member", nil})
     for i := range members.Member {
+        types.SetYListKey(members.Member[i], i)
         members.EntityData.Children.Append(types.GetSegmentPath(members.Member[i]), types.YChild{"Member", members.Member[i]})
     }
     members.EntityData.Leafs = types.NewOrderedMap()
@@ -10686,6 +10958,7 @@ func (members *NetworkInstances_NetworkInstance_Vlans_Vlan_Members) GetEntityDat
 type NetworkInstances_NetworkInstance_Vlans_Vlan_Members_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Reference to an interface or subinterface.
     InterfaceRef NetworkInstances_NetworkInstance_Vlans_Vlan_Members_Member_InterfaceRef
@@ -10696,7 +10969,8 @@ func (member *NetworkInstances_NetworkInstance_Vlans_Vlan_Members_Member) GetEnt
     member.EntityData.YangName = "member"
     member.EntityData.BundleName = "openconfig"
     member.EntityData.ParentYangName = "members"
-    member.EntityData.SegmentPath = "member"
+    member.EntityData.SegmentPath = "member" + types.AddNoKeyToken(member)
+    member.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/vlans/vlan/members/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     member.EntityData.NamespaceTable = openconfig.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10726,6 +11000,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Vlans_Vlan_Members_Member_I
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "member"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/vlans/vlan/members/member/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10764,6 +11039,7 @@ func (state *NetworkInstances_NetworkInstance_Vlans_Vlan_Members_Member_Interfac
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/vlans/vlan/members/member/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10830,6 +11106,7 @@ func (afts *NetworkInstances_NetworkInstance_Afts) GetEntityData() *types.Common
     afts.EntityData.BundleName = "openconfig"
     afts.EntityData.ParentYangName = "network-instance"
     afts.EntityData.SegmentPath = "afts"
+    afts.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + afts.EntityData.SegmentPath
     afts.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afts.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afts.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10872,6 +11149,7 @@ func (ipv4Unicast *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast) GetEntityD
     ipv4Unicast.EntityData.BundleName = "openconfig"
     ipv4Unicast.EntityData.ParentYangName = "afts"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10895,6 +11173,7 @@ func (ipv4Unicast *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast) GetEntityD
 type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the IPv4 unicast destination prefix
     // which must be matched to utilise the AFT entry. The type is string with
@@ -10927,6 +11206,7 @@ func (ipv4Entry *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry) Ge
     ipv4Entry.EntityData.BundleName = "openconfig"
     ipv4Entry.EntityData.ParentYangName = "ipv4-unicast"
     ipv4Entry.EntityData.SegmentPath = "ipv4-entry" + types.AddKeyToken(ipv4Entry.Prefix, "prefix")
+    ipv4Entry.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv4-unicast/" + ipv4Entry.EntityData.SegmentPath
     ipv4Entry.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Entry.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Entry.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10961,6 +11241,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_Config
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv4-entry"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv4-unicast/ipv4-entry/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11012,6 +11293,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_State) 
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv4-unicast/ipv4-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11059,6 +11341,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_Next
     nextHops.EntityData.BundleName = "openconfig"
     nextHops.EntityData.ParentYangName = "ipv4-entry"
     nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv4-unicast/ipv4-entry/" + nextHops.EntityData.SegmentPath
     nextHops.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHops.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11084,6 +11367,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_Next
 type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique index identifying the next-hop entry for
     // the AFT entry. The type is string with range: 0..18446744073709551615.
@@ -11107,6 +11391,7 @@ func (nextHop *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextH
     nextHop.EntityData.BundleName = "openconfig"
     nextHop.EntityData.ParentYangName = "next-hops"
     nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv4-unicast/ipv4-entry/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11141,6 +11426,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHo
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "next-hop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv4-unicast/ipv4-entry/next-hops/next-hop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11193,7 +11479,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHops_NextHo
     // value of the list is [500, 400].  A swap operation is reflected by entries
     // in the popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type
     // is one of the following types: slice of int with range: 16..1048575, or
-    // slice of   :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // slice of   :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PoppedMplsLabelStack []interface{}
 
     // The MPLS label stack imposed when forwarding packets to the next-hop - the
@@ -11206,7 +11492,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHops_NextHo
     // permitted by the system.  A swap operation is reflected by entries in the
     // popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type is one
     // of the following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PushedMplsLabelStack []interface{}
 
     // When forwarding a packet to the specified next-hop, the local system
@@ -11239,6 +11525,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHop
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv4-unicast/ipv4-entry/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11280,6 +11567,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv4-unicast/ipv4-entry/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11319,6 +11607,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHo
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv4-unicast/ipv4-entry/next-hops/next-hop/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11358,6 +11647,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHop
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv4-unicast/ipv4-entry/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11395,6 +11685,7 @@ func (ipv6Unicast *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast) GetEntityD
     ipv6Unicast.EntityData.BundleName = "openconfig"
     ipv6Unicast.EntityData.ParentYangName = "afts"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11418,6 +11709,7 @@ func (ipv6Unicast *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast) GetEntityD
 type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the IPv6 unicast destination prefix
     // which must be matched to utilise the AFT entry. The type is string with
@@ -11450,6 +11742,7 @@ func (ipv6Entry *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry) Ge
     ipv6Entry.EntityData.BundleName = "openconfig"
     ipv6Entry.EntityData.ParentYangName = "ipv6-unicast"
     ipv6Entry.EntityData.SegmentPath = "ipv6-entry" + types.AddKeyToken(ipv6Entry.Prefix, "prefix")
+    ipv6Entry.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv6-unicast/" + ipv6Entry.EntityData.SegmentPath
     ipv6Entry.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Entry.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Entry.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11484,6 +11777,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_Config
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv6-entry"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv6-unicast/ipv6-entry/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11535,6 +11829,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_State) 
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv6-unicast/ipv6-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11582,6 +11877,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_Next
     nextHops.EntityData.BundleName = "openconfig"
     nextHops.EntityData.ParentYangName = "ipv6-entry"
     nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv6-unicast/ipv6-entry/" + nextHops.EntityData.SegmentPath
     nextHops.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHops.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11607,6 +11903,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_Next
 type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique index identifying the next-hop entry for
     // the AFT entry. The type is string with range: 0..18446744073709551615.
@@ -11630,6 +11927,7 @@ func (nextHop *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextH
     nextHop.EntityData.BundleName = "openconfig"
     nextHop.EntityData.ParentYangName = "next-hops"
     nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv6-unicast/ipv6-entry/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11664,6 +11962,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHo
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "next-hop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv6-unicast/ipv6-entry/next-hops/next-hop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11716,7 +12015,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHops_NextHo
     // value of the list is [500, 400].  A swap operation is reflected by entries
     // in the popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type
     // is one of the following types: slice of int with range: 16..1048575, or
-    // slice of   :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // slice of   :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PoppedMplsLabelStack []interface{}
 
     // The MPLS label stack imposed when forwarding packets to the next-hop - the
@@ -11729,7 +12028,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHops_NextHo
     // permitted by the system.  A swap operation is reflected by entries in the
     // popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type is one
     // of the following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PushedMplsLabelStack []interface{}
 
     // When forwarding a packet to the specified next-hop, the local system
@@ -11762,6 +12061,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHop
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv6-unicast/ipv6-entry/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11803,6 +12103,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv6-unicast/ipv6-entry/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11842,6 +12143,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHo
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv6-unicast/ipv6-entry/next-hops/next-hop/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11881,6 +12183,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHop
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ipv6-unicast/ipv6-entry/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11928,6 +12231,7 @@ func (policyForwarding *NetworkInstances_NetworkInstance_Afts_PolicyForwarding) 
     policyForwarding.EntityData.BundleName = "openconfig"
     policyForwarding.EntityData.ParentYangName = "afts"
     policyForwarding.EntityData.SegmentPath = "policy-forwarding"
+    policyForwarding.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/" + policyForwarding.EntityData.SegmentPath
     policyForwarding.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     policyForwarding.EntityData.NamespaceTable = openconfig.GetNamespaces()
     policyForwarding.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11956,6 +12260,7 @@ func (policyForwarding *NetworkInstances_NetworkInstance_Afts_PolicyForwarding) 
 type NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwardingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the arbitary index for the policy
     // forwarding AFT entry. The type is string with range:
@@ -11986,6 +12291,7 @@ func (policyForwardingEntry *NetworkInstances_NetworkInstance_Afts_PolicyForward
     policyForwardingEntry.EntityData.BundleName = "openconfig"
     policyForwardingEntry.EntityData.ParentYangName = "policy-forwarding"
     policyForwardingEntry.EntityData.SegmentPath = "policy-forwarding-entry" + types.AddKeyToken(policyForwardingEntry.Index, "index")
+    policyForwardingEntry.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/policy-forwarding/" + policyForwardingEntry.EntityData.SegmentPath
     policyForwardingEntry.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     policyForwardingEntry.EntityData.NamespaceTable = openconfig.GetNamespaces()
     policyForwardingEntry.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12063,6 +12369,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "policy-forwarding-entry"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/policy-forwarding/policy-forwarding-entry/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12153,6 +12460,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwar
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "policy-forwarding-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/policy-forwarding/policy-forwarding-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12207,6 +12515,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyFor
     nextHops.EntityData.BundleName = "openconfig"
     nextHops.EntityData.ParentYangName = "policy-forwarding-entry"
     nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/policy-forwarding/policy-forwarding-entry/" + nextHops.EntityData.SegmentPath
     nextHops.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHops.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12232,6 +12541,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyFor
 type NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwardingEntry_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique index identifying the next-hop entry for
     // the AFT entry. The type is string with range: 0..18446744073709551615.
@@ -12255,6 +12565,7 @@ func (nextHop *NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForw
     nextHop.EntityData.BundleName = "openconfig"
     nextHop.EntityData.ParentYangName = "next-hops"
     nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/policy-forwarding/policy-forwarding-entry/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12289,6 +12600,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "next-hop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/policy-forwarding/policy-forwarding-entry/next-hops/next-hop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12341,7 +12653,7 @@ type NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwardingEntr
     // value of the list is [500, 400].  A swap operation is reflected by entries
     // in the popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type
     // is one of the following types: slice of int with range: 16..1048575, or
-    // slice of   :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // slice of   :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PoppedMplsLabelStack []interface{}
 
     // The MPLS label stack imposed when forwarding packets to the next-hop - the
@@ -12354,7 +12666,7 @@ type NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwardingEntr
     // permitted by the system.  A swap operation is reflected by entries in the
     // popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type is one
     // of the following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PushedMplsLabelStack []interface{}
 
     // When forwarding a packet to the specified next-hop, the local system
@@ -12381,6 +12693,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwar
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/policy-forwarding/policy-forwarding-entry/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12421,6 +12734,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Afts_PolicyForwarding_Polic
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/policy-forwarding/policy-forwarding-entry/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12460,6 +12774,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/policy-forwarding/policy-forwarding-entry/next-hops/next-hop/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12499,6 +12814,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwar
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/policy-forwarding/policy-forwarding-entry/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12534,6 +12850,7 @@ func (mpls *NetworkInstances_NetworkInstance_Afts_Mpls) GetEntityData() *types.C
     mpls.EntityData.BundleName = "openconfig"
     mpls.EntityData.ParentYangName = "afts"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12557,11 +12874,11 @@ func (mpls *NetworkInstances_NetworkInstance_Afts_Mpls) GetEntityData() *types.C
 type NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the top-most MPLS label matched by
     // the entry. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`.
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     Label interface{}
 
     // Configuration parameters for the MPLS AFT entry.
@@ -12587,6 +12904,7 @@ func (labelEntry *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry) GetEnti
     labelEntry.EntityData.BundleName = "openconfig"
     labelEntry.EntityData.ParentYangName = "mpls"
     labelEntry.EntityData.SegmentPath = "label-entry" + types.AddKeyToken(labelEntry.Label, "label")
+    labelEntry.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/mpls/" + labelEntry.EntityData.SegmentPath
     labelEntry.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     labelEntry.EntityData.NamespaceTable = openconfig.GetNamespaces()
     labelEntry.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12621,6 +12939,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_Config) GetE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "label-entry"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/mpls/label-entry/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12661,6 +12980,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_State) GetEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "label-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/mpls/label-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12707,6 +13027,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops) 
     nextHops.EntityData.BundleName = "openconfig"
     nextHops.EntityData.ParentYangName = "label-entry"
     nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/mpls/label-entry/" + nextHops.EntityData.SegmentPath
     nextHops.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHops.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12732,6 +13053,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops) 
 type NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique index identifying the next-hop entry for
     // the AFT entry. The type is string with range: 0..18446744073709551615.
@@ -12755,6 +13077,7 @@ func (nextHop *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_Ne
     nextHop.EntityData.BundleName = "openconfig"
     nextHop.EntityData.ParentYangName = "next-hops"
     nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/mpls/label-entry/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12789,6 +13112,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_Nex
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "next-hop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/mpls/label-entry/next-hops/next-hop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12841,7 +13165,7 @@ type NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_NextHop_Stat
     // value of the list is [500, 400].  A swap operation is reflected by entries
     // in the popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type
     // is one of the following types: slice of int with range: 16..1048575, or
-    // slice of   :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // slice of   :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PoppedMplsLabelStack []interface{}
 
     // The MPLS label stack imposed when forwarding packets to the next-hop - the
@@ -12854,7 +13178,7 @@ type NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_NextHop_Stat
     // permitted by the system.  A swap operation is reflected by entries in the
     // popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type is one
     // of the following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PushedMplsLabelStack []interface{}
 
     // When forwarding a packet to the specified next-hop, the local system
@@ -12881,6 +13205,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_Next
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/mpls/label-entry/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12921,6 +13246,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHo
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/mpls/label-entry/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12960,6 +13286,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_Nex
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/mpls/label-entry/next-hops/next-hop/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12999,6 +13326,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_Next
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/mpls/label-entry/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13033,6 +13361,7 @@ func (ethernet *NetworkInstances_NetworkInstance_Afts_Ethernet) GetEntityData() 
     ethernet.EntityData.BundleName = "openconfig"
     ethernet.EntityData.ParentYangName = "afts"
     ethernet.EntityData.SegmentPath = "ethernet"
+    ethernet.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/" + ethernet.EntityData.SegmentPath
     ethernet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ethernet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13056,6 +13385,7 @@ func (ethernet *NetworkInstances_NetworkInstance_Afts_Ethernet) GetEntityData() 
 type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the outer MAC address matched by the
     // entry. The type is string with pattern:
@@ -13086,6 +13416,7 @@ func (macEntry *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry) GetEnti
     macEntry.EntityData.BundleName = "openconfig"
     macEntry.EntityData.ParentYangName = "ethernet"
     macEntry.EntityData.SegmentPath = "mac-entry" + types.AddKeyToken(macEntry.MacAddress, "mac-address")
+    macEntry.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ethernet/" + macEntry.EntityData.SegmentPath
     macEntry.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     macEntry.EntityData.NamespaceTable = openconfig.GetNamespaces()
     macEntry.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13120,6 +13451,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_Config) Ge
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "mac-entry"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ethernet/mac-entry/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13160,6 +13492,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_State) GetE
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "mac-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ethernet/mac-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13206,6 +13539,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops
     nextHops.EntityData.BundleName = "openconfig"
     nextHops.EntityData.ParentYangName = "mac-entry"
     nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ethernet/mac-entry/" + nextHops.EntityData.SegmentPath
     nextHops.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHops.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13231,6 +13565,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops
 type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique index identifying the next-hop entry for
     // the AFT entry. The type is string with range: 0..18446744073709551615.
@@ -13254,6 +13589,7 @@ func (nextHop *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_
     nextHop.EntityData.BundleName = "openconfig"
     nextHop.EntityData.ParentYangName = "next-hops"
     nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ethernet/mac-entry/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13288,6 +13624,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_N
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "next-hop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ethernet/mac-entry/next-hops/next-hop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13340,7 +13677,7 @@ type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_NextHop_St
     // value of the list is [500, 400].  A swap operation is reflected by entries
     // in the popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type
     // is one of the following types: slice of int with range: 16..1048575, or
-    // slice of   :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // slice of   :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PoppedMplsLabelStack []interface{}
 
     // The MPLS label stack imposed when forwarding packets to the next-hop - the
@@ -13353,7 +13690,7 @@ type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_NextHop_St
     // permitted by the system.  A swap operation is reflected by entries in the
     // popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type is one
     // of the following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PushedMplsLabelStack []interface{}
 
     // When forwarding a packet to the specified next-hop, the local system
@@ -13380,6 +13717,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_Ne
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ethernet/mac-entry/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13420,6 +13758,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_Next
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ethernet/mac-entry/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13459,6 +13798,7 @@ func (config *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_N
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ethernet/mac-entry/next-hops/next-hop/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13498,6 +13838,7 @@ func (state *NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_Ne
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/afts/ethernet/mac-entry/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13531,6 +13872,7 @@ func (protocols *NetworkInstances_NetworkInstance_Protocols) GetEntityData() *ty
     protocols.EntityData.BundleName = "openconfig"
     protocols.EntityData.ParentYangName = "network-instance"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     protocols.EntityData.NamespaceTable = openconfig.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13554,6 +13896,7 @@ func (protocols *NetworkInstances_NetworkInstance_Protocols) GetEntityData() *ty
 type NetworkInstances_NetworkInstance_Protocols_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The protocol name for the routing or forwarding
     // protocol to be instantiated. The type is one of the following:
@@ -13591,6 +13934,7 @@ func (protocol *NetworkInstances_NetworkInstance_Protocols_Protocol) GetEntityDa
     protocol.EntityData.BundleName = "openconfig"
     protocol.EntityData.ParentYangName = "protocols"
     protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.Identifier, "identifier") + types.AddKeyToken(protocol.Name, "name")
+    protocol.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     protocol.EntityData.NamespaceTable = openconfig.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13645,6 +13989,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Config) GetEnt
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "protocol"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13695,6 +14040,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_State) GetEntit
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "protocol"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13728,6 +14074,7 @@ func (staticRoutes *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRo
     staticRoutes.EntityData.BundleName = "openconfig"
     staticRoutes.EntityData.ParentYangName = "protocol"
     staticRoutes.EntityData.SegmentPath = "static-routes"
+    staticRoutes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/" + staticRoutes.EntityData.SegmentPath
     staticRoutes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     staticRoutes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13749,6 +14096,7 @@ func (staticRoutes *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRo
 type NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_Static struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the destination prefix list key. The
     // type is one of the following types: string with pattern:
@@ -13774,6 +14122,7 @@ func (static *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_S
     static.EntityData.BundleName = "openconfig"
     static.EntityData.ParentYangName = "static-routes"
     static.EntityData.SegmentPath = "static" + types.AddKeyToken(static.Prefix, "prefix")
+    static.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/static-routes/" + static.EntityData.SegmentPath
     static.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     static.EntityData.NamespaceTable = openconfig.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13816,6 +14165,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_S
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "static"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/static-routes/static/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13856,6 +14206,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_St
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "static"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/static-routes/static/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13890,6 +14241,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes
     nextHops.EntityData.BundleName = "openconfig"
     nextHops.EntityData.ParentYangName = "static"
     nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/static-routes/static/" + nextHops.EntityData.SegmentPath
     nextHops.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHops.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -13912,6 +14264,7 @@ func (nextHops *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes
 type NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_Static_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the index of the current next-hop.
     // The index is intended to be a user-specified value which can be used to
@@ -13936,6 +14289,7 @@ func (nextHop *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_
     nextHop.EntityData.BundleName = "openconfig"
     nextHop.EntityData.ParentYangName = "next-hops"
     nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/static-routes/static/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14006,6 +14360,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_S
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "next-hop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/static-routes/static/next-hops/next-hop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14076,6 +14431,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_St
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/static-routes/static/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14111,6 +14467,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRo
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/static-routes/static/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14150,6 +14507,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_S
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/static-routes/static/next-hops/next-hop/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14189,6 +14547,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_St
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/static-routes/static/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14221,6 +14580,7 @@ func (localAggregates *NetworkInstances_NetworkInstance_Protocols_Protocol_Local
     localAggregates.EntityData.BundleName = "openconfig"
     localAggregates.EntityData.ParentYangName = "protocol"
     localAggregates.EntityData.SegmentPath = "local-aggregates"
+    localAggregates.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/" + localAggregates.EntityData.SegmentPath
     localAggregates.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     localAggregates.EntityData.NamespaceTable = openconfig.GetNamespaces()
     localAggregates.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14242,6 +14602,7 @@ func (localAggregates *NetworkInstances_NetworkInstance_Protocols_Protocol_Local
 type NetworkInstances_NetworkInstance_Protocols_Protocol_LocalAggregates_Aggregate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the configured prefix for this
     // aggregate. The type is one of the following types: string with pattern:
@@ -14263,6 +14624,7 @@ func (aggregate *NetworkInstances_NetworkInstance_Protocols_Protocol_LocalAggreg
     aggregate.EntityData.BundleName = "openconfig"
     aggregate.EntityData.ParentYangName = "local-aggregates"
     aggregate.EntityData.SegmentPath = "aggregate" + types.AddKeyToken(aggregate.Prefix, "prefix")
+    aggregate.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/local-aggregates/" + aggregate.EntityData.SegmentPath
     aggregate.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregate.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregate.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14311,6 +14673,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_LocalAggregate
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "aggregate"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/local-aggregates/aggregate/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14360,6 +14723,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_LocalAggregates
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "aggregate"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/local-aggregates/aggregate/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14397,6 +14761,7 @@ func (bgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp) GetEntityDat
     bgp.EntityData.BundleName = "openconfig"
     bgp.EntityData.ParentYangName = "protocol"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14459,6 +14824,7 @@ func (global *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global) Ge
     global.EntityData.BundleName = "openconfig"
     global.EntityData.ParentYangName = "bgp"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     global.EntityData.NamespaceTable = openconfig.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14503,6 +14869,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Con
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "global"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14548,6 +14915,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Stat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "global"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14585,6 +14953,7 @@ func (defaultRouteDistance *NetworkInstances_NetworkInstance_Protocols_Protocol_
     defaultRouteDistance.EntityData.BundleName = "openconfig"
     defaultRouteDistance.EntityData.ParentYangName = "global"
     defaultRouteDistance.EntityData.SegmentPath = "default-route-distance"
+    defaultRouteDistance.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/" + defaultRouteDistance.EntityData.SegmentPath
     defaultRouteDistance.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     defaultRouteDistance.EntityData.NamespaceTable = openconfig.GetNamespaces()
     defaultRouteDistance.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14621,6 +14990,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Def
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "default-route-distance"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/default-route-distance/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14656,6 +15026,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Defa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "default-route-distance"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/default-route-distance/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14690,6 +15061,7 @@ func (confederation *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Glo
     confederation.EntityData.BundleName = "openconfig"
     confederation.EntityData.ParentYangName = "global"
     confederation.EntityData.SegmentPath = "confederation"
+    confederation.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/" + confederation.EntityData.SegmentPath
     confederation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     confederation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     confederation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14729,6 +15101,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Con
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "confederation"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/confederation/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14769,6 +15142,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Conf
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "confederation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/confederation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14803,6 +15177,7 @@ func (gracefulRestart *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_G
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "global"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14855,6 +15230,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Gra
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14909,6 +15285,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Grac
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14951,6 +15328,7 @@ func (useMultiplePaths *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "global"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -14985,6 +15363,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Use
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15016,6 +15395,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_UseM
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15048,6 +15428,7 @@ func (ebgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_UseMu
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15085,6 +15466,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Use
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15122,6 +15504,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_UseM
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15155,6 +15538,7 @@ func (ibgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_UseMu
     ibgp.EntityData.BundleName = "openconfig"
     ibgp.EntityData.ParentYangName = "use-multiple-paths"
     ibgp.EntityData.SegmentPath = "ibgp"
+    ibgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/use-multiple-paths/" + ibgp.EntityData.SegmentPath
     ibgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15187,6 +15571,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Use
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ibgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/use-multiple-paths/ibgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15218,6 +15603,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_UseM
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ibgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/use-multiple-paths/ibgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15250,6 +15636,7 @@ func (routeSelectionOptions *NetworkInstances_NetworkInstance_Protocols_Protocol
     routeSelectionOptions.EntityData.BundleName = "openconfig"
     routeSelectionOptions.EntityData.ParentYangName = "global"
     routeSelectionOptions.EntityData.SegmentPath = "route-selection-options"
+    routeSelectionOptions.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/" + routeSelectionOptions.EntityData.SegmentPath
     routeSelectionOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routeSelectionOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeSelectionOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15307,6 +15694,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Rou
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-selection-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/route-selection-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15367,6 +15755,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Rout
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-selection-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/route-selection-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15403,6 +15792,7 @@ func (afiSafis *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_A
     afiSafis.EntityData.BundleName = "openconfig"
     afiSafis.EntityData.ParentYangName = "global"
     afiSafis.EntityData.SegmentPath = "afi-safis"
+    afiSafis.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/" + afiSafis.EntityData.SegmentPath
     afiSafis.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15425,6 +15815,7 @@ func (afiSafis *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_A
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiSafis_AfiSafi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
@@ -15483,6 +15874,7 @@ func (afiSafi *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Af
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
     afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
+    afiSafi.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/" + afiSafi.EntityData.SegmentPath
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15532,6 +15924,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "afi-safi"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15575,6 +15968,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "afi-safi"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15610,6 +16004,7 @@ func (gracefulRestart *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_G
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "afi-safi"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15641,6 +16036,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15671,6 +16067,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15703,6 +16100,7 @@ func (routeSelectionOptions *NetworkInstances_NetworkInstance_Protocols_Protocol
     routeSelectionOptions.EntityData.BundleName = "openconfig"
     routeSelectionOptions.EntityData.ParentYangName = "afi-safi"
     routeSelectionOptions.EntityData.SegmentPath = "route-selection-options"
+    routeSelectionOptions.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + routeSelectionOptions.EntityData.SegmentPath
     routeSelectionOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routeSelectionOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeSelectionOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15760,6 +16158,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-selection-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/route-selection-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15820,6 +16219,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-selection-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/route-selection-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15864,6 +16264,7 @@ func (useMultiplePaths *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "afi-safi"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15898,6 +16299,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15929,6 +16331,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15961,6 +16364,7 @@ func (ebgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiSa
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -15998,6 +16402,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16035,6 +16440,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16068,6 +16474,7 @@ func (ibgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiSa
     ibgp.EntityData.BundleName = "openconfig"
     ibgp.EntityData.ParentYangName = "use-multiple-paths"
     ibgp.EntityData.SegmentPath = "ibgp"
+    ibgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/use-multiple-paths/" + ibgp.EntityData.SegmentPath
     ibgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16100,6 +16507,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ibgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/use-multiple-paths/ibgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16131,6 +16539,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ibgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/use-multiple-paths/ibgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16166,6 +16575,7 @@ func (ipv4Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     ipv4Unicast.EntityData.BundleName = "openconfig"
     ipv4Unicast.EntityData.ParentYangName = "afi-safi"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16201,6 +16611,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16250,6 +16661,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16301,6 +16713,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16335,6 +16748,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv4-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv4-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16366,6 +16780,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv4-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16401,6 +16816,7 @@ func (ipv6Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     ipv6Unicast.EntityData.BundleName = "openconfig"
     ipv6Unicast.EntityData.ParentYangName = "afi-safi"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16436,6 +16852,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16485,6 +16902,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16536,6 +16954,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16570,6 +16989,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv6-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv6-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16601,6 +17021,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv6-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16630,6 +17051,7 @@ func (ipv4LabeledUnicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     ipv4LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv4LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv4LabeledUnicast.EntityData.SegmentPath = "ipv4-labeled-unicast"
+    ipv4LabeledUnicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + ipv4LabeledUnicast.EntityData.SegmentPath
     ipv4LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16663,6 +17085,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv4-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16712,6 +17135,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16763,6 +17187,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16795,6 +17220,7 @@ func (ipv6LabeledUnicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     ipv6LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv6LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv6LabeledUnicast.EntityData.SegmentPath = "ipv6-labeled-unicast"
+    ipv6LabeledUnicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + ipv6LabeledUnicast.EntityData.SegmentPath
     ipv6LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16828,6 +17254,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv6-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16877,6 +17304,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16928,6 +17356,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16960,6 +17389,7 @@ func (l3vpnIpv4Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     l3vpnIpv4Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + l3vpnIpv4Unicast.EntityData.SegmentPath
     l3vpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -16993,6 +17423,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17042,6 +17473,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17093,6 +17525,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17125,6 +17558,7 @@ func (l3vpnIpv6Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     l3vpnIpv6Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + l3vpnIpv6Unicast.EntityData.SegmentPath
     l3vpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17158,6 +17592,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17207,6 +17642,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17258,6 +17694,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17290,6 +17727,7 @@ func (l3vpnIpv4Multicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     l3vpnIpv4Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + l3vpnIpv4Multicast.EntityData.SegmentPath
     l3vpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17323,6 +17761,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv4-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17372,6 +17811,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17423,6 +17863,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17455,6 +17896,7 @@ func (l3vpnIpv6Multicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     l3vpnIpv6Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + l3vpnIpv6Multicast.EntityData.SegmentPath
     l3vpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17488,6 +17930,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv6-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17537,6 +17980,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17588,6 +18032,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17620,6 +18065,7 @@ func (l2vpnVpls *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_
     l2vpnVpls.EntityData.BundleName = "openconfig"
     l2vpnVpls.EntityData.ParentYangName = "afi-safi"
     l2vpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
+    l2vpnVpls.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + l2vpnVpls.EntityData.SegmentPath
     l2vpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17653,6 +18099,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-vpls"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l2vpn-vpls/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17702,6 +18149,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17753,6 +18201,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17785,6 +18234,7 @@ func (l2vpnEvpn *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_
     l2vpnEvpn.EntityData.BundleName = "openconfig"
     l2vpnEvpn.EntityData.ParentYangName = "afi-safi"
     l2vpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/" + l2vpnEvpn.EntityData.SegmentPath
     l2vpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17818,6 +18268,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Globa
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-evpn"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l2vpn-evpn/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17867,6 +18318,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Afi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17918,6 +18370,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiS
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17960,6 +18413,7 @@ func (dynamicNeighborPrefixes *NetworkInstances_NetworkInstance_Protocols_Protoc
     dynamicNeighborPrefixes.EntityData.BundleName = "openconfig"
     dynamicNeighborPrefixes.EntityData.ParentYangName = "global"
     dynamicNeighborPrefixes.EntityData.SegmentPath = "dynamic-neighbor-prefixes"
+    dynamicNeighborPrefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/" + dynamicNeighborPrefixes.EntityData.SegmentPath
     dynamicNeighborPrefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     dynamicNeighborPrefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     dynamicNeighborPrefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -17982,6 +18436,7 @@ func (dynamicNeighborPrefixes *NetworkInstances_NetworkInstance_Protocols_Protoc
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the IP prefix from which source
     // connections are allowed for the dynamic neighbor group. The type is one of
@@ -18006,6 +18461,7 @@ func (dynamicNeighborPrefix *NetworkInstances_NetworkInstance_Protocols_Protocol
     dynamicNeighborPrefix.EntityData.BundleName = "openconfig"
     dynamicNeighborPrefix.EntityData.ParentYangName = "dynamic-neighbor-prefixes"
     dynamicNeighborPrefix.EntityData.SegmentPath = "dynamic-neighbor-prefix" + types.AddKeyToken(dynamicNeighborPrefix.Prefix, "prefix")
+    dynamicNeighborPrefix.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/dynamic-neighbor-prefixes/" + dynamicNeighborPrefix.EntityData.SegmentPath
     dynamicNeighborPrefix.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     dynamicNeighborPrefix.EntityData.NamespaceTable = openconfig.GetNamespaces()
     dynamicNeighborPrefix.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18049,6 +18505,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Dyn
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "dynamic-neighbor-prefix"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/dynamic-neighbor-prefixes/dynamic-neighbor-prefix/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18091,6 +18548,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Dyna
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "dynamic-neighbor-prefix"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/global/dynamic-neighbor-prefixes/dynamic-neighbor-prefix/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18123,6 +18581,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbo
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "bgp"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18145,6 +18604,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbo
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the address of the BGP neighbor used
     // as a key in the neighbor list. The type is one of the following types:
@@ -18207,6 +18667,7 @@ func (neighbor *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbor
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
+    neighbor.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18302,6 +18763,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "neighbor"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18425,6 +18887,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18475,6 +18938,7 @@ func (messages *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbor
     messages.EntityData.BundleName = "openconfig"
     messages.EntityData.ParentYangName = "state"
     messages.EntityData.SegmentPath = "messages"
+    messages.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/state/" + messages.EntityData.SegmentPath
     messages.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     messages.EntityData.NamespaceTable = openconfig.GetNamespaces()
     messages.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18511,6 +18975,7 @@ func (sent *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Ne
     sent.EntityData.BundleName = "openconfig"
     sent.EntityData.ParentYangName = "messages"
     sent.EntityData.SegmentPath = "sent"
+    sent.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/state/messages/" + sent.EntityData.SegmentPath
     sent.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18547,6 +19012,7 @@ func (received *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbor
     received.EntityData.BundleName = "openconfig"
     received.EntityData.ParentYangName = "messages"
     received.EntityData.SegmentPath = "received"
+    received.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/state/messages/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     received.EntityData.NamespaceTable = openconfig.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18583,6 +19049,7 @@ func (queues *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     queues.EntityData.BundleName = "openconfig"
     queues.EntityData.ParentYangName = "state"
     queues.EntityData.SegmentPath = "queues"
+    queues.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/state/" + queues.EntityData.SegmentPath
     queues.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     queues.EntityData.NamespaceTable = openconfig.GetNamespaces()
     queues.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18646,6 +19113,7 @@ func (timers *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     timers.EntityData.BundleName = "openconfig"
     timers.EntityData.ParentYangName = "neighbor"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     timers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18699,6 +19167,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "timers"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/timers/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18758,6 +19227,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "timers"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/timers/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18796,6 +19266,7 @@ func (transport *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbo
     transport.EntityData.BundleName = "openconfig"
     transport.EntityData.ParentYangName = "neighbor"
     transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     transport.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18847,6 +19318,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "transport"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/transport/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18915,6 +19387,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "transport"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/transport/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18956,6 +19429,7 @@ func (errorHandling *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Nei
     errorHandling.EntityData.BundleName = "openconfig"
     errorHandling.EntityData.ParentYangName = "neighbor"
     errorHandling.EntityData.SegmentPath = "error-handling"
+    errorHandling.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + errorHandling.EntityData.SegmentPath
     errorHandling.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     errorHandling.EntityData.NamespaceTable = openconfig.GetNamespaces()
     errorHandling.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -18990,6 +19464,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "error-handling"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/error-handling/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19027,6 +19502,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "error-handling"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/error-handling/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19060,6 +19536,7 @@ func (gracefulRestart *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_N
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "neighbor"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19112,6 +19589,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19184,6 +19662,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19246,6 +19725,7 @@ func (loggingOptions *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Ne
     loggingOptions.EntityData.BundleName = "openconfig"
     loggingOptions.EntityData.ParentYangName = "neighbor"
     loggingOptions.EntityData.SegmentPath = "logging-options"
+    loggingOptions.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + loggingOptions.EntityData.SegmentPath
     loggingOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     loggingOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     loggingOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19278,6 +19758,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "logging-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/logging-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19309,6 +19790,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "logging-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/logging-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19341,6 +19823,7 @@ func (ebgpMultihop *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neig
     ebgpMultihop.EntityData.BundleName = "openconfig"
     ebgpMultihop.EntityData.ParentYangName = "neighbor"
     ebgpMultihop.EntityData.SegmentPath = "ebgp-multihop"
+    ebgpMultihop.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + ebgpMultihop.EntityData.SegmentPath
     ebgpMultihop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgpMultihop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19379,6 +19862,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp-multihop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/ebgp-multihop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19417,6 +19901,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp-multihop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/ebgp-multihop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19450,6 +19935,7 @@ func (routeReflector *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Ne
     routeReflector.EntityData.BundleName = "openconfig"
     routeReflector.EntityData.ParentYangName = "neighbor"
     routeReflector.EntityData.SegmentPath = "route-reflector"
+    routeReflector.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + routeReflector.EntityData.SegmentPath
     routeReflector.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routeReflector.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeReflector.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19489,6 +19975,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-reflector"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/route-reflector/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19528,6 +20015,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-reflector"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/route-reflector/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19564,6 +20052,7 @@ func (asPathOptions *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Nei
     asPathOptions.EntityData.BundleName = "openconfig"
     asPathOptions.EntityData.ParentYangName = "neighbor"
     asPathOptions.EntityData.SegmentPath = "as-path-options"
+    asPathOptions.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + asPathOptions.EntityData.SegmentPath
     asPathOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     asPathOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19601,6 +20090,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "as-path-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/as-path-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19638,6 +20128,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "as-path-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/as-path-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19672,6 +20163,7 @@ func (addPaths *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbor
     addPaths.EntityData.BundleName = "openconfig"
     addPaths.EntityData.ParentYangName = "neighbor"
     addPaths.EntityData.SegmentPath = "add-paths"
+    addPaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + addPaths.EntityData.SegmentPath
     addPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     addPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19712,6 +20204,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "add-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/add-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19753,6 +20246,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "add-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/add-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19791,6 +20285,7 @@ func (useMultiplePaths *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "neighbor"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19824,6 +20319,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19855,6 +20351,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19887,6 +20384,7 @@ func (ebgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Ne
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19919,6 +20417,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19950,6 +20449,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -19985,6 +20485,7 @@ func (applyPolicy *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     applyPolicy.EntityData.BundleName = "openconfig"
     applyPolicy.EntityData.ParentYangName = "neighbor"
     applyPolicy.EntityData.SegmentPath = "apply-policy"
+    applyPolicy.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + applyPolicy.EntityData.SegmentPath
     applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20034,6 +20535,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "apply-policy"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/apply-policy/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20085,6 +20587,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "apply-policy"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/apply-policy/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20120,6 +20623,7 @@ func (afiSafis *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbor
     afiSafis.EntityData.BundleName = "openconfig"
     afiSafis.EntityData.ParentYangName = "neighbor"
     afiSafis.EntityData.SegmentPath = "afi-safis"
+    afiSafis.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/" + afiSafis.EntityData.SegmentPath
     afiSafis.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20142,6 +20646,7 @@ func (afiSafis *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbor
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
@@ -20203,6 +20708,7 @@ func (afiSafi *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
     afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
+    afiSafi.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/" + afiSafi.EntityData.SegmentPath
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20252,6 +20758,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "afi-safi"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20296,6 +20803,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "afi-safi"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20337,6 +20845,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbor
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "state"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/state/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20371,6 +20880,7 @@ func (gracefulRestart *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_N
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "afi-safi"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20402,6 +20912,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20440,6 +20951,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20477,6 +20989,7 @@ func (applyPolicy *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     applyPolicy.EntityData.BundleName = "openconfig"
     applyPolicy.EntityData.ParentYangName = "afi-safi"
     applyPolicy.EntityData.SegmentPath = "apply-policy"
+    applyPolicy.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + applyPolicy.EntityData.SegmentPath
     applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20526,6 +21039,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "apply-policy"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/apply-policy/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20577,6 +21091,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "apply-policy"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/apply-policy/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20615,6 +21130,7 @@ func (ipv4Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     ipv4Unicast.EntityData.BundleName = "openconfig"
     ipv4Unicast.EntityData.ParentYangName = "afi-safi"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20650,6 +21166,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20699,6 +21216,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20750,6 +21268,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20784,6 +21303,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv4-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20815,6 +21335,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20850,6 +21371,7 @@ func (ipv6Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     ipv6Unicast.EntityData.BundleName = "openconfig"
     ipv6Unicast.EntityData.ParentYangName = "afi-safi"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20885,6 +21407,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20934,6 +21457,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -20985,6 +21509,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21019,6 +21544,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv6-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21050,6 +21576,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21079,6 +21606,7 @@ func (ipv4LabeledUnicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     ipv4LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv4LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv4LabeledUnicast.EntityData.SegmentPath = "ipv4-labeled-unicast"
+    ipv4LabeledUnicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + ipv4LabeledUnicast.EntityData.SegmentPath
     ipv4LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21112,6 +21640,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21161,6 +21690,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21212,6 +21742,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21244,6 +21775,7 @@ func (ipv6LabeledUnicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     ipv6LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv6LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv6LabeledUnicast.EntityData.SegmentPath = "ipv6-labeled-unicast"
+    ipv6LabeledUnicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + ipv6LabeledUnicast.EntityData.SegmentPath
     ipv6LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21277,6 +21809,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21326,6 +21859,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21377,6 +21911,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21409,6 +21944,7 @@ func (l3vpnIpv4Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     l3vpnIpv4Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + l3vpnIpv4Unicast.EntityData.SegmentPath
     l3vpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21442,6 +21978,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21491,6 +22028,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21542,6 +22080,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21574,6 +22113,7 @@ func (l3vpnIpv6Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     l3vpnIpv6Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + l3vpnIpv6Unicast.EntityData.SegmentPath
     l3vpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21607,6 +22147,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21656,6 +22197,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21707,6 +22249,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21739,6 +22282,7 @@ func (l3vpnIpv4Multicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     l3vpnIpv4Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + l3vpnIpv4Multicast.EntityData.SegmentPath
     l3vpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21772,6 +22316,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21821,6 +22366,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21872,6 +22418,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21904,6 +22451,7 @@ func (l3vpnIpv6Multicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     l3vpnIpv6Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + l3vpnIpv6Multicast.EntityData.SegmentPath
     l3vpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21937,6 +22485,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -21986,6 +22535,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22037,6 +22587,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22069,6 +22620,7 @@ func (l2vpnVpls *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbo
     l2vpnVpls.EntityData.BundleName = "openconfig"
     l2vpnVpls.EntityData.ParentYangName = "afi-safi"
     l2vpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
+    l2vpnVpls.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + l2vpnVpls.EntityData.SegmentPath
     l2vpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22102,6 +22654,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-vpls"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-vpls/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22151,6 +22704,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22202,6 +22756,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22234,6 +22789,7 @@ func (l2vpnEvpn *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbo
     l2vpnEvpn.EntityData.BundleName = "openconfig"
     l2vpnEvpn.EntityData.ParentYangName = "afi-safi"
     l2vpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + l2vpnEvpn.EntityData.SegmentPath
     l2vpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22267,6 +22823,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neigh
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-evpn"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-evpn/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22316,6 +22873,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22367,6 +22925,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22406,6 +22965,7 @@ func (useMultiplePaths *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "afi-safi"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22439,6 +22999,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22470,6 +23031,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22502,6 +23064,7 @@ func (ebgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Ne
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22534,6 +23097,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22565,6 +23129,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_N
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/afi-safis/afi-safi/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22596,6 +23161,7 @@ func (peerGroups *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGr
     peerGroups.EntityData.BundleName = "openconfig"
     peerGroups.EntityData.ParentYangName = "bgp"
     peerGroups.EntityData.SegmentPath = "peer-groups"
+    peerGroups.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/" + peerGroups.EntityData.SegmentPath
     peerGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     peerGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     peerGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22618,6 +23184,7 @@ func (peerGroups *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGr
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the name of the BGP peer-group used
     // as a key in the peer-group list. The type is string. Refers to
@@ -22676,6 +23243,7 @@ func (peerGroup *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGro
     peerGroup.EntityData.BundleName = "openconfig"
     peerGroup.EntityData.ParentYangName = "peer-groups"
     peerGroup.EntityData.SegmentPath = "peer-group" + types.AddKeyToken(peerGroup.PeerGroupName, "peer-group-name")
+    peerGroup.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/" + peerGroup.EntityData.SegmentPath
     peerGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     peerGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     peerGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22754,6 +23322,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "peer-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22833,6 +23402,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "peer-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22876,6 +23446,7 @@ func (timers *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     timers.EntityData.BundleName = "openconfig"
     timers.EntityData.ParentYangName = "peer-group"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     timers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22929,6 +23500,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "timers"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/timers/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -22984,6 +23556,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "timers"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/timers/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23021,6 +23594,7 @@ func (transport *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGro
     transport.EntityData.BundleName = "openconfig"
     transport.EntityData.ParentYangName = "peer-group"
     transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     transport.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23072,6 +23646,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "transport"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/transport/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23125,6 +23700,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "transport"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/transport/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23162,6 +23738,7 @@ func (errorHandling *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Pee
     errorHandling.EntityData.BundleName = "openconfig"
     errorHandling.EntityData.ParentYangName = "peer-group"
     errorHandling.EntityData.SegmentPath = "error-handling"
+    errorHandling.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + errorHandling.EntityData.SegmentPath
     errorHandling.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     errorHandling.EntityData.NamespaceTable = openconfig.GetNamespaces()
     errorHandling.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23196,6 +23773,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "error-handling"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/error-handling/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23228,6 +23806,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "error-handling"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/error-handling/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23260,6 +23839,7 @@ func (gracefulRestart *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_P
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "peer-group"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23312,6 +23892,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23366,6 +23947,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23403,6 +23985,7 @@ func (loggingOptions *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Pe
     loggingOptions.EntityData.BundleName = "openconfig"
     loggingOptions.EntityData.ParentYangName = "peer-group"
     loggingOptions.EntityData.SegmentPath = "logging-options"
+    loggingOptions.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + loggingOptions.EntityData.SegmentPath
     loggingOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     loggingOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     loggingOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23435,6 +24018,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "logging-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/logging-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23466,6 +24050,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "logging-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/logging-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23498,6 +24083,7 @@ func (ebgpMultihop *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Peer
     ebgpMultihop.EntityData.BundleName = "openconfig"
     ebgpMultihop.EntityData.ParentYangName = "peer-group"
     ebgpMultihop.EntityData.SegmentPath = "ebgp-multihop"
+    ebgpMultihop.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + ebgpMultihop.EntityData.SegmentPath
     ebgpMultihop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgpMultihop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23536,6 +24122,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp-multihop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/ebgp-multihop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23574,6 +24161,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp-multihop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/ebgp-multihop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23607,6 +24195,7 @@ func (routeReflector *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Pe
     routeReflector.EntityData.BundleName = "openconfig"
     routeReflector.EntityData.ParentYangName = "peer-group"
     routeReflector.EntityData.SegmentPath = "route-reflector"
+    routeReflector.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + routeReflector.EntityData.SegmentPath
     routeReflector.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routeReflector.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeReflector.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23646,6 +24235,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-reflector"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/route-reflector/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23685,6 +24275,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-reflector"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/route-reflector/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23721,6 +24312,7 @@ func (asPathOptions *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Pee
     asPathOptions.EntityData.BundleName = "openconfig"
     asPathOptions.EntityData.ParentYangName = "peer-group"
     asPathOptions.EntityData.SegmentPath = "as-path-options"
+    asPathOptions.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + asPathOptions.EntityData.SegmentPath
     asPathOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     asPathOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23758,6 +24350,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "as-path-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/as-path-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23795,6 +24388,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "as-path-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/as-path-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23829,6 +24423,7 @@ func (addPaths *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGrou
     addPaths.EntityData.BundleName = "openconfig"
     addPaths.EntityData.ParentYangName = "peer-group"
     addPaths.EntityData.SegmentPath = "add-paths"
+    addPaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + addPaths.EntityData.SegmentPath
     addPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     addPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23869,6 +24464,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "add-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/add-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23910,6 +24506,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "add-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/add-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23951,6 +24548,7 @@ func (useMultiplePaths *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "peer-group"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -23985,6 +24583,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24016,6 +24615,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24048,6 +24648,7 @@ func (ebgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_P
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24085,6 +24686,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24122,6 +24724,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24155,6 +24758,7 @@ func (ibgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_P
     ibgp.EntityData.BundleName = "openconfig"
     ibgp.EntityData.ParentYangName = "use-multiple-paths"
     ibgp.EntityData.SegmentPath = "ibgp"
+    ibgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/use-multiple-paths/" + ibgp.EntityData.SegmentPath
     ibgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24187,6 +24791,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ibgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/use-multiple-paths/ibgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24218,6 +24823,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ibgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/use-multiple-paths/ibgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24253,6 +24859,7 @@ func (applyPolicy *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     applyPolicy.EntityData.BundleName = "openconfig"
     applyPolicy.EntityData.ParentYangName = "peer-group"
     applyPolicy.EntityData.SegmentPath = "apply-policy"
+    applyPolicy.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + applyPolicy.EntityData.SegmentPath
     applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24302,6 +24909,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "apply-policy"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/apply-policy/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24353,6 +24961,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "apply-policy"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/apply-policy/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24388,6 +24997,7 @@ func (afiSafis *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGrou
     afiSafis.EntityData.BundleName = "openconfig"
     afiSafis.EntityData.ParentYangName = "peer-group"
     afiSafis.EntityData.SegmentPath = "afi-safis"
+    afiSafis.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/" + afiSafis.EntityData.SegmentPath
     afiSafis.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24410,6 +25020,7 @@ func (afiSafis *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGrou
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
@@ -24473,6 +25084,7 @@ func (afiSafi *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroup
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
     afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
+    afiSafi.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/" + afiSafi.EntityData.SegmentPath
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24523,6 +25135,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "afi-safi"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24558,6 +25171,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "afi-safi"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24591,6 +25205,7 @@ func (gracefulRestart *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_P
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "afi-safi"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24622,6 +25237,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24652,6 +25268,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24684,6 +25301,7 @@ func (routeSelectionOptions *NetworkInstances_NetworkInstance_Protocols_Protocol
     routeSelectionOptions.EntityData.BundleName = "openconfig"
     routeSelectionOptions.EntityData.ParentYangName = "afi-safi"
     routeSelectionOptions.EntityData.SegmentPath = "route-selection-options"
+    routeSelectionOptions.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + routeSelectionOptions.EntityData.SegmentPath
     routeSelectionOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routeSelectionOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeSelectionOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24741,6 +25359,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-selection-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/route-selection-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24801,6 +25420,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-selection-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/route-selection-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24845,6 +25465,7 @@ func (useMultiplePaths *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "afi-safi"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24879,6 +25500,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24910,6 +25532,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24942,6 +25565,7 @@ func (ebgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_P
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -24979,6 +25603,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25016,6 +25641,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25049,6 +25675,7 @@ func (ibgp *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_P
     ibgp.EntityData.BundleName = "openconfig"
     ibgp.EntityData.ParentYangName = "use-multiple-paths"
     ibgp.EntityData.SegmentPath = "ibgp"
+    ibgp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/" + ibgp.EntityData.SegmentPath
     ibgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25081,6 +25708,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ibgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/ibgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25112,6 +25740,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ibgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/ibgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25147,6 +25776,7 @@ func (applyPolicy *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     applyPolicy.EntityData.BundleName = "openconfig"
     applyPolicy.EntityData.ParentYangName = "afi-safi"
     applyPolicy.EntityData.SegmentPath = "apply-policy"
+    applyPolicy.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + applyPolicy.EntityData.SegmentPath
     applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25196,6 +25826,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "apply-policy"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/apply-policy/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25247,6 +25878,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "apply-policy"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/apply-policy/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25285,6 +25917,7 @@ func (ipv4Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     ipv4Unicast.EntityData.BundleName = "openconfig"
     ipv4Unicast.EntityData.ParentYangName = "afi-safi"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25320,6 +25953,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25369,6 +26003,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25420,6 +26055,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25454,6 +26090,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv4-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25485,6 +26122,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25520,6 +26158,7 @@ func (ipv6Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     ipv6Unicast.EntityData.BundleName = "openconfig"
     ipv6Unicast.EntityData.ParentYangName = "afi-safi"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25555,6 +26194,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25604,6 +26244,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25655,6 +26296,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25689,6 +26331,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv6-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25720,6 +26363,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25749,6 +26393,7 @@ func (ipv4LabeledUnicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     ipv4LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv4LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv4LabeledUnicast.EntityData.SegmentPath = "ipv4-labeled-unicast"
+    ipv4LabeledUnicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + ipv4LabeledUnicast.EntityData.SegmentPath
     ipv4LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25782,6 +26427,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25831,6 +26477,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25882,6 +26529,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25914,6 +26562,7 @@ func (ipv6LabeledUnicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     ipv6LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv6LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv6LabeledUnicast.EntityData.SegmentPath = "ipv6-labeled-unicast"
+    ipv6LabeledUnicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + ipv6LabeledUnicast.EntityData.SegmentPath
     ipv6LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25947,6 +26596,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -25996,6 +26646,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26047,6 +26698,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26079,6 +26731,7 @@ func (l3vpnIpv4Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     l3vpnIpv4Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l3vpnIpv4Unicast.EntityData.SegmentPath
     l3vpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26112,6 +26765,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26161,6 +26815,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26212,6 +26867,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26244,6 +26900,7 @@ func (l3vpnIpv6Unicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_
     l3vpnIpv6Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l3vpnIpv6Unicast.EntityData.SegmentPath
     l3vpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26277,6 +26934,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26326,6 +26984,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26377,6 +27036,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26409,6 +27069,7 @@ func (l3vpnIpv4Multicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     l3vpnIpv4Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l3vpnIpv4Multicast.EntityData.SegmentPath
     l3vpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26442,6 +27103,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26491,6 +27153,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26542,6 +27205,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26574,6 +27238,7 @@ func (l3vpnIpv6Multicast *NetworkInstances_NetworkInstance_Protocols_Protocol_Bg
     l3vpnIpv6Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l3vpnIpv6Multicast.EntityData.SegmentPath
     l3vpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26607,6 +27272,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26656,6 +27322,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26707,6 +27374,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26739,6 +27407,7 @@ func (l2vpnVpls *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGro
     l2vpnVpls.EntityData.BundleName = "openconfig"
     l2vpnVpls.EntityData.ParentYangName = "afi-safi"
     l2vpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
+    l2vpnVpls.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l2vpnVpls.EntityData.SegmentPath
     l2vpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26772,6 +27441,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-vpls"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-vpls/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26821,6 +27491,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26872,6 +27543,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26904,6 +27576,7 @@ func (l2vpnEvpn *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGro
     l2vpnEvpn.EntityData.BundleName = "openconfig"
     l2vpnEvpn.EntityData.ParentYangName = "afi-safi"
     l2vpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l2vpnEvpn.EntityData.SegmentPath
     l2vpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26937,6 +27610,7 @@ func (prefixLimit *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerG
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-evpn"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-evpn/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -26986,6 +27660,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27037,6 +27712,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27077,6 +27753,7 @@ func (isis *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis) GetEntityD
     isis.EntityData.BundleName = "openconfig"
     isis.EntityData.ParentYangName = "protocol"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     isis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27147,6 +27824,7 @@ func (global *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global) G
     global.EntityData.BundleName = "openconfig"
     global.EntityData.ParentYangName = "isis"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     global.EntityData.NamespaceTable = openconfig.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27225,6 +27903,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "global"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27299,6 +27978,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "global"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27339,6 +28019,7 @@ func (lspBit *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ls
     lspBit.EntityData.BundleName = "openconfig"
     lspBit.EntityData.ParentYangName = "global"
     lspBit.EntityData.SegmentPath = "lsp-bit"
+    lspBit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + lspBit.EntityData.SegmentPath
     lspBit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lspBit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lspBit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27375,6 +28056,7 @@ func (overloadBit *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Glob
     overloadBit.EntityData.BundleName = "openconfig"
     overloadBit.EntityData.ParentYangName = "lsp-bit"
     overloadBit.EntityData.SegmentPath = "overload-bit"
+    overloadBit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/lsp-bit/" + overloadBit.EntityData.SegmentPath
     overloadBit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     overloadBit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     overloadBit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27418,6 +28100,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ls
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "overload-bit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/lsp-bit/overload-bit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27461,6 +28144,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Lsp
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "overload-bit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/lsp-bit/overload-bit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27494,6 +28178,7 @@ func (resetTriggers *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Gl
     resetTriggers.EntityData.BundleName = "openconfig"
     resetTriggers.EntityData.ParentYangName = "overload-bit"
     resetTriggers.EntityData.SegmentPath = "reset-triggers"
+    resetTriggers.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/lsp-bit/overload-bit/" + resetTriggers.EntityData.SegmentPath
     resetTriggers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     resetTriggers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     resetTriggers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27515,6 +28200,7 @@ func (resetTriggers *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Gl
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_LspBit_OverloadBit_ResetTriggers_ResetTrigger struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the reset trigger reason. The type is
     // one of the following: WAITFORSYSTEMWAITFORBGP.
@@ -27533,6 +28219,7 @@ func (resetTrigger *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Glo
     resetTrigger.EntityData.BundleName = "openconfig"
     resetTrigger.EntityData.ParentYangName = "reset-triggers"
     resetTrigger.EntityData.SegmentPath = "reset-trigger" + types.AddKeyToken(resetTrigger.ResetTrigger, "reset-trigger")
+    resetTrigger.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/lsp-bit/overload-bit/reset-triggers/" + resetTrigger.EntityData.SegmentPath
     resetTrigger.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     resetTrigger.EntityData.NamespaceTable = openconfig.GetNamespaces()
     resetTrigger.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27572,6 +28259,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ls
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "reset-trigger"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/lsp-bit/overload-bit/reset-triggers/reset-trigger/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27610,6 +28298,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Lsp
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "reset-trigger"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/lsp-bit/overload-bit/reset-triggers/reset-trigger/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27643,6 +28332,7 @@ func (attachedBit *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Glob
     attachedBit.EntityData.BundleName = "openconfig"
     attachedBit.EntityData.ParentYangName = "lsp-bit"
     attachedBit.EntityData.SegmentPath = "attached-bit"
+    attachedBit.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/lsp-bit/" + attachedBit.EntityData.SegmentPath
     attachedBit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attachedBit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attachedBit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27681,6 +28371,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ls
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "attached-bit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/lsp-bit/attached-bit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27719,6 +28410,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Lsp
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "attached-bit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/lsp-bit/attached-bit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27752,6 +28444,7 @@ func (referenceBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     referenceBandwidth.EntityData.BundleName = "openconfig"
     referenceBandwidth.EntityData.ParentYangName = "global"
     referenceBandwidth.EntityData.SegmentPath = "reference-bandwidth"
+    referenceBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + referenceBandwidth.EntityData.SegmentPath
     referenceBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     referenceBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     referenceBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27783,6 +28476,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Re
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "reference-bandwidth"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/reference-bandwidth/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27813,6 +28507,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ref
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "reference-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/reference-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27845,6 +28540,7 @@ func (nsr *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Nsr) 
     nsr.EntityData.BundleName = "openconfig"
     nsr.EntityData.ParentYangName = "global"
     nsr.EntityData.SegmentPath = "nsr"
+    nsr.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + nsr.EntityData.SegmentPath
     nsr.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nsr.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nsr.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27877,6 +28573,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ns
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "nsr"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/nsr/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27908,6 +28605,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Nsr
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "nsr"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/nsr/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27940,6 +28638,7 @@ func (gracefulRestart *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "global"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -27978,6 +28677,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Gr
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28016,6 +28716,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Gra
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28055,6 +28756,7 @@ func (timers *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ti
     timers.EntityData.BundleName = "openconfig"
     timers.EntityData.ParentYangName = "global"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     timers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28094,6 +28796,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "timers"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/timers/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28131,6 +28834,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Tim
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "timers"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/timers/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28164,6 +28868,7 @@ func (spf *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Timer
     spf.EntityData.BundleName = "openconfig"
     spf.EntityData.ParentYangName = "timers"
     spf.EntityData.SegmentPath = "spf"
+    spf.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/timers/" + spf.EntityData.SegmentPath
     spf.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     spf.EntityData.NamespaceTable = openconfig.GetNamespaces()
     spf.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28206,6 +28911,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "spf"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/timers/spf/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28253,6 +28959,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Tim
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "spf"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/timers/spf/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28288,6 +28995,7 @@ func (lspGeneration *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Gl
     lspGeneration.EntityData.BundleName = "openconfig"
     lspGeneration.EntityData.ParentYangName = "timers"
     lspGeneration.EntityData.SegmentPath = "lsp-generation"
+    lspGeneration.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/timers/" + lspGeneration.EntityData.SegmentPath
     lspGeneration.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lspGeneration.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lspGeneration.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28331,6 +29039,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "lsp-generation"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/timers/lsp-generation/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28379,6 +29088,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Tim
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "lsp-generation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/timers/lsp-generation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28414,6 +29124,7 @@ func (transport *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global
     transport.EntityData.BundleName = "openconfig"
     transport.EntityData.ParentYangName = "global"
     transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     transport.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28445,6 +29156,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Tr
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "transport"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/transport/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28476,6 +29188,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Tra
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "transport"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/transport/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28507,6 +29220,7 @@ func (mpls *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Mpls
     mpls.EntityData.BundleName = "openconfig"
     mpls.EntityData.ParentYangName = "global"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28540,6 +29254,7 @@ func (igpLdpSync *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Globa
     igpLdpSync.EntityData.BundleName = "openconfig"
     igpLdpSync.EntityData.ParentYangName = "mpls"
     igpLdpSync.EntityData.SegmentPath = "igp-ldp-sync"
+    igpLdpSync.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/mpls/" + igpLdpSync.EntityData.SegmentPath
     igpLdpSync.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     igpLdpSync.EntityData.NamespaceTable = openconfig.GetNamespaces()
     igpLdpSync.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28578,6 +29293,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Mp
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "igp-ldp-sync"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/mpls/igp-ldp-sync/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28616,6 +29332,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Mpl
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "igp-ldp-sync"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/mpls/igp-ldp-sync/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28648,6 +29365,7 @@ func (igpShortcuts *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Glo
     igpShortcuts.EntityData.BundleName = "openconfig"
     igpShortcuts.EntityData.ParentYangName = "global"
     igpShortcuts.EntityData.SegmentPath = "igp-shortcuts"
+    igpShortcuts.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + igpShortcuts.EntityData.SegmentPath
     igpShortcuts.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     igpShortcuts.EntityData.NamespaceTable = openconfig.GetNamespaces()
     igpShortcuts.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28669,6 +29387,7 @@ func (igpShortcuts *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Glo
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_IgpShortcuts_Afi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to address-family type. The type is one
     // of the following: IPV4IPV6.
@@ -28687,6 +29406,7 @@ func (afi *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_IgpSh
     afi.EntityData.BundleName = "openconfig"
     afi.EntityData.ParentYangName = "igp-shortcuts"
     afi.EntityData.SegmentPath = "afi" + types.AddKeyToken(afi.AfiName, "afi-name")
+    afi.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/igp-shortcuts/" + afi.EntityData.SegmentPath
     afi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28723,6 +29443,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Ig
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "afi"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/igp-shortcuts/afi/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28758,6 +29479,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Igp
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "afi"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/igp-shortcuts/afi/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28790,6 +29512,7 @@ func (afiSafi *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_A
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "global"
     afiSafi.EntityData.SegmentPath = "afi-safi"
+    afiSafi.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + afiSafi.EntityData.SegmentPath
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28811,6 +29534,7 @@ func (afiSafi *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_A
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_AfiSafi_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to address-family type. The type is one
     // of the following: IPV4IPV6.
@@ -28837,6 +29561,7 @@ func (af *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_AfiSaf
     af.EntityData.BundleName = "openconfig"
     af.EntityData.ParentYangName = "afi-safi"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfiName, "afi-name") + types.AddKeyToken(af.SafiName, "safi-name")
+    af.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/afi-safi/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     af.EntityData.NamespaceTable = openconfig.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28882,6 +29607,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Af
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "af"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/afi-safi/af/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28926,6 +29652,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Afi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "af"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/afi-safi/af/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28962,6 +29689,7 @@ func (multiTopology *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Gl
     multiTopology.EntityData.BundleName = "openconfig"
     multiTopology.EntityData.ParentYangName = "af"
     multiTopology.EntityData.SegmentPath = "multi-topology"
+    multiTopology.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/afi-safi/af/" + multiTopology.EntityData.SegmentPath
     multiTopology.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     multiTopology.EntityData.NamespaceTable = openconfig.GetNamespaces()
     multiTopology.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -28997,6 +29725,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Af
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "multi-topology"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/afi-safi/af/multi-topology/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29035,6 +29764,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Afi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "multi-topology"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/afi-safi/af/multi-topology/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29071,6 +29801,7 @@ func (segmentRouting *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_G
     segmentRouting.EntityData.BundleName = "openconfig"
     segmentRouting.EntityData.ParentYangName = "global"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = openconfig.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29113,6 +29844,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Se
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "segment-routing"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/segment-routing/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29156,6 +29888,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Seg
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "segment-routing"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/segment-routing/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29190,6 +29923,7 @@ func (interLevelPropagationPolicies *NetworkInstances_NetworkInstance_Protocols_
     interLevelPropagationPolicies.EntityData.BundleName = "openconfig"
     interLevelPropagationPolicies.EntityData.ParentYangName = "global"
     interLevelPropagationPolicies.EntityData.SegmentPath = "inter-level-propagation-policies"
+    interLevelPropagationPolicies.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/" + interLevelPropagationPolicies.EntityData.SegmentPath
     interLevelPropagationPolicies.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interLevelPropagationPolicies.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interLevelPropagationPolicies.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29226,6 +29960,7 @@ func (level1ToLevel2 *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_G
     level1ToLevel2.EntityData.BundleName = "openconfig"
     level1ToLevel2.EntityData.ParentYangName = "inter-level-propagation-policies"
     level1ToLevel2.EntityData.SegmentPath = "level1-to-level2"
+    level1ToLevel2.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/inter-level-propagation-policies/" + level1ToLevel2.EntityData.SegmentPath
     level1ToLevel2.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     level1ToLevel2.EntityData.NamespaceTable = openconfig.GetNamespaces()
     level1ToLevel2.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29265,6 +30000,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "level1-to-level2"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/inter-level-propagation-policies/level1-to-level2/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29304,6 +30040,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "level1-to-level2"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/inter-level-propagation-policies/level1-to-level2/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29340,6 +30077,7 @@ func (level2ToLevel1 *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_G
     level2ToLevel1.EntityData.BundleName = "openconfig"
     level2ToLevel1.EntityData.ParentYangName = "inter-level-propagation-policies"
     level2ToLevel1.EntityData.SegmentPath = "level2-to-level1"
+    level2ToLevel1.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/inter-level-propagation-policies/" + level2ToLevel1.EntityData.SegmentPath
     level2ToLevel1.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     level2ToLevel1.EntityData.NamespaceTable = openconfig.GetNamespaces()
     level2ToLevel1.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29379,6 +30117,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "level2-to-level1"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/inter-level-propagation-policies/level2-to-level1/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29418,6 +30157,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "level2-to-level1"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/global/inter-level-propagation-policies/level2-to-level1/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29451,6 +30191,7 @@ func (levels *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels) G
     levels.EntityData.BundleName = "openconfig"
     levels.EntityData.ParentYangName = "isis"
     levels.EntityData.SegmentPath = "levels"
+    levels.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/" + levels.EntityData.SegmentPath
     levels.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     levels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     levels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29473,6 +30214,7 @@ func (levels *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels) G
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to ISIS level-number. The type is string
     // with range: 1..2. Refers to
@@ -29509,6 +30251,7 @@ func (level *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     level.EntityData.BundleName = "openconfig"
     level.EntityData.ParentYangName = "levels"
     level.EntityData.SegmentPath = "level" + types.AddKeyToken(level.LevelNumber, "level-number")
+    level.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/" + level.EntityData.SegmentPath
     level.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     level.EntityData.NamespaceTable = openconfig.GetNamespaces()
     level.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29559,6 +30302,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "level"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29605,6 +30349,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "level"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29637,6 +30382,7 @@ func (systemLevelCounters *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     systemLevelCounters.EntityData.BundleName = "openconfig"
     systemLevelCounters.EntityData.ParentYangName = "level"
     systemLevelCounters.EntityData.SegmentPath = "system-level-counters"
+    systemLevelCounters.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/" + systemLevelCounters.EntityData.SegmentPath
     systemLevelCounters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     systemLevelCounters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     systemLevelCounters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29724,6 +30470,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "system-level-counters"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/system-level-counters/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29766,6 +30513,7 @@ func (linkStateDatabase *NetworkInstances_NetworkInstance_Protocols_Protocol_Isi
     linkStateDatabase.EntityData.BundleName = "openconfig"
     linkStateDatabase.EntityData.ParentYangName = "level"
     linkStateDatabase.EntityData.SegmentPath = "link-state-database"
+    linkStateDatabase.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/" + linkStateDatabase.EntityData.SegmentPath
     linkStateDatabase.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkStateDatabase.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkStateDatabase.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29787,6 +30535,7 @@ func (linkStateDatabase *NetworkInstances_NetworkInstance_Protocols_Protocol_Isi
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the Link State PDU ID. The type is
     // string with pattern:
@@ -29811,6 +30560,7 @@ func (lsp *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level
     lsp.EntityData.BundleName = "openconfig"
     lsp.EntityData.ParentYangName = "link-state-database"
     lsp.EntityData.SegmentPath = "lsp" + types.AddKeyToken(lsp.LspId, "lsp-id")
+    lsp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/" + lsp.EntityData.SegmentPath
     lsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29885,6 +30635,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "lsp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29966,6 +30717,7 @@ func (tlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Leve
     tlvs.EntityData.BundleName = "openconfig"
     tlvs.EntityData.ParentYangName = "lsp"
     tlvs.EntityData.SegmentPath = "tlvs"
+    tlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/" + tlvs.EntityData.SegmentPath
     tlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -29987,6 +30739,7 @@ func (tlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Leve
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the TLV's type. The type is one of
     // the following:
@@ -30089,6 +30842,7 @@ func (tlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level
     tlv.EntityData.BundleName = "openconfig"
     tlv.EntityData.ParentYangName = "tlvs"
     tlv.EntityData.SegmentPath = "tlv" + types.AddKeyToken(tlv.Type, "type")
+    tlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/" + tlv.EntityData.SegmentPath
     tlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30149,6 +30903,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30178,6 +30933,7 @@ func (areaAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     areaAddress.EntityData.BundleName = "openconfig"
     areaAddress.EntityData.ParentYangName = "tlv"
     areaAddress.EntityData.SegmentPath = "area-address"
+    areaAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + areaAddress.EntityData.SegmentPath
     areaAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     areaAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     areaAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30209,6 +30965,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "area-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/area-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30238,6 +30995,7 @@ func (lspBufferSize *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     lspBufferSize.EntityData.BundleName = "openconfig"
     lspBufferSize.EntityData.ParentYangName = "tlv"
     lspBufferSize.EntityData.SegmentPath = "lsp-buffer-size"
+    lspBufferSize.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + lspBufferSize.EntityData.SegmentPath
     lspBufferSize.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lspBufferSize.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lspBufferSize.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30268,6 +31026,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "lsp-buffer-size"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/lsp-buffer-size/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30297,6 +31056,7 @@ func (nlpid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     nlpid.EntityData.BundleName = "openconfig"
     nlpid.EntityData.ParentYangName = "tlv"
     nlpid.EntityData.SegmentPath = "nlpid"
+    nlpid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + nlpid.EntityData.SegmentPath
     nlpid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nlpid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nlpid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30327,6 +31087,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "nlpid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/nlpid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30367,6 +31128,7 @@ func (hostname *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     hostname.EntityData.BundleName = "openconfig"
     hostname.EntityData.ParentYangName = "tlv"
     hostname.EntityData.SegmentPath = "hostname"
+    hostname.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + hostname.EntityData.SegmentPath
     hostname.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     hostname.EntityData.NamespaceTable = openconfig.GetNamespaces()
     hostname.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30396,6 +31158,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "hostname"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/hostname/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30425,6 +31188,7 @@ func (ipv4InterfaceAddresses *NetworkInstances_NetworkInstance_Protocols_Protoco
     ipv4InterfaceAddresses.EntityData.BundleName = "openconfig"
     ipv4InterfaceAddresses.EntityData.ParentYangName = "tlv"
     ipv4InterfaceAddresses.EntityData.SegmentPath = "ipv4-interface-addresses"
+    ipv4InterfaceAddresses.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + ipv4InterfaceAddresses.EntityData.SegmentPath
     ipv4InterfaceAddresses.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4InterfaceAddresses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4InterfaceAddresses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30456,6 +31220,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-interface-addresses"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-interface-addresses/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30485,6 +31250,7 @@ func (ipv6InterfaceAddresses *NetworkInstances_NetworkInstance_Protocols_Protoco
     ipv6InterfaceAddresses.EntityData.BundleName = "openconfig"
     ipv6InterfaceAddresses.EntityData.ParentYangName = "tlv"
     ipv6InterfaceAddresses.EntityData.SegmentPath = "ipv6-interface-addresses"
+    ipv6InterfaceAddresses.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + ipv6InterfaceAddresses.EntityData.SegmentPath
     ipv6InterfaceAddresses.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6InterfaceAddresses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6InterfaceAddresses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30517,6 +31283,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-interface-addresses"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-interface-addresses/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30546,6 +31313,7 @@ func (ipv4TeRouterId *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_L
     ipv4TeRouterId.EntityData.BundleName = "openconfig"
     ipv4TeRouterId.EntityData.ParentYangName = "tlv"
     ipv4TeRouterId.EntityData.SegmentPath = "ipv4-te-router-id"
+    ipv4TeRouterId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + ipv4TeRouterId.EntityData.SegmentPath
     ipv4TeRouterId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4TeRouterId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4TeRouterId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30580,6 +31348,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-te-router-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-te-router-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30609,6 +31378,7 @@ func (ipv6TeRouterId *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_L
     ipv6TeRouterId.EntityData.BundleName = "openconfig"
     ipv6TeRouterId.EntityData.ParentYangName = "tlv"
     ipv6TeRouterId.EntityData.SegmentPath = "ipv6-te-router-id"
+    ipv6TeRouterId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + ipv6TeRouterId.EntityData.SegmentPath
     ipv6TeRouterId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6TeRouterId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6TeRouterId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30643,6 +31413,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-te-router-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-te-router-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30676,6 +31447,7 @@ func (instanceIds *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     instanceIds.EntityData.BundleName = "openconfig"
     instanceIds.EntityData.ParentYangName = "tlv"
     instanceIds.EntityData.SegmentPath = "instance-ids"
+    instanceIds.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + instanceIds.EntityData.SegmentPath
     instanceIds.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     instanceIds.EntityData.NamespaceTable = openconfig.GetNamespaces()
     instanceIds.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30700,6 +31472,7 @@ func (instanceIds *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_InstanceIds_InstanceId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the unique instance ID. The type is
     // string with range: 0..65535. Refers to
@@ -30716,6 +31489,7 @@ func (instanceId *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     instanceId.EntityData.BundleName = "openconfig"
     instanceId.EntityData.ParentYangName = "instance-ids"
     instanceId.EntityData.SegmentPath = "instance-id" + types.AddKeyToken(instanceId.InstanceId, "instance-id")
+    instanceId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/instance-ids/" + instanceId.EntityData.SegmentPath
     instanceId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     instanceId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     instanceId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30756,6 +31530,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "instance-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/instance-ids/instance-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30787,6 +31562,7 @@ func (ipv4Srlgs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     ipv4Srlgs.EntityData.BundleName = "openconfig"
     ipv4Srlgs.EntityData.ParentYangName = "tlv"
     ipv4Srlgs.EntityData.SegmentPath = "ipv4-srlgs"
+    ipv4Srlgs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + ipv4Srlgs.EntityData.SegmentPath
     ipv4Srlgs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Srlgs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Srlgs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30808,6 +31584,7 @@ func (ipv4Srlgs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv4Srlgs_Ipv4Srlg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the instance number of TLV 138. The
     // type is string with range: 0..4294967295. Refers to
@@ -30824,6 +31601,7 @@ func (ipv4Srlg *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     ipv4Srlg.EntityData.BundleName = "openconfig"
     ipv4Srlg.EntityData.ParentYangName = "ipv4-srlgs"
     ipv4Srlg.EntityData.SegmentPath = "ipv4-srlg" + types.AddKeyToken(ipv4Srlg.InstanceNumber, "instance-number")
+    ipv4Srlg.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-srlgs/" + ipv4Srlg.EntityData.SegmentPath
     ipv4Srlg.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Srlg.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Srlg.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30881,6 +31659,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-srlg"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-srlgs/ipv4-srlg/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30927,6 +31706,7 @@ func (ipv6Srlgs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     ipv6Srlgs.EntityData.BundleName = "openconfig"
     ipv6Srlgs.EntityData.ParentYangName = "tlv"
     ipv6Srlgs.EntityData.SegmentPath = "ipv6-srlgs"
+    ipv6Srlgs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + ipv6Srlgs.EntityData.SegmentPath
     ipv6Srlgs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Srlgs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Srlgs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -30948,6 +31728,7 @@ func (ipv6Srlgs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv6Srlgs_Ipv6Srlg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the instance number of the IPv6
     // Shared Risk Link Group (SRLG) TLV. The type is string with range:
@@ -30965,6 +31746,7 @@ func (ipv6Srlg *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     ipv6Srlg.EntityData.BundleName = "openconfig"
     ipv6Srlg.EntityData.ParentYangName = "ipv6-srlgs"
     ipv6Srlg.EntityData.SegmentPath = "ipv6-srlg" + types.AddKeyToken(ipv6Srlg.InstanceNumber, "instance-number")
+    ipv6Srlg.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-srlgs/" + ipv6Srlg.EntityData.SegmentPath
     ipv6Srlg.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Srlg.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Srlg.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31023,6 +31805,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-srlg"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-srlgs/ipv6-srlg/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31067,6 +31850,7 @@ func (purgeOi *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
     purgeOi.EntityData.BundleName = "openconfig"
     purgeOi.EntityData.ParentYangName = "tlv"
     purgeOi.EntityData.SegmentPath = "purge-oi"
+    purgeOi.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + purgeOi.EntityData.SegmentPath
     purgeOi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     purgeOi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     purgeOi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31106,6 +31890,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "purge-oi"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/purge-oi/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31138,6 +31923,7 @@ func (routerCapabilities *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     routerCapabilities.EntityData.BundleName = "openconfig"
     routerCapabilities.EntityData.ParentYangName = "tlv"
     routerCapabilities.EntityData.SegmentPath = "router-capabilities"
+    routerCapabilities.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + routerCapabilities.EntityData.SegmentPath
     routerCapabilities.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routerCapabilities.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routerCapabilities.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31159,6 +31945,7 @@ func (routerCapabilities *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_RouterCapabilities_RouterCapability struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the instance number of the router
     // capability TLV. The type is string with range: 0..4294967295. Refers to
@@ -31181,6 +31968,7 @@ func (routerCapability *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     routerCapability.EntityData.BundleName = "openconfig"
     routerCapability.EntityData.ParentYangName = "router-capabilities"
     routerCapability.EntityData.SegmentPath = "router-capability" + types.AddKeyToken(routerCapability.InstanceNumber, "instance-number")
+    routerCapability.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/" + routerCapability.EntityData.SegmentPath
     routerCapability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routerCapability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routerCapability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31223,6 +32011,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "router-capability"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31278,6 +32067,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
     subtlvs.EntityData.BundleName = "openconfig"
     subtlvs.EntityData.ParentYangName = "router-capability"
     subtlvs.EntityData.SegmentPath = "subtlvs"
+    subtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/" + subtlvs.EntityData.SegmentPath
     subtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31300,6 +32090,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_RouterCapabilities_RouterCapability_Subtlvs_Subtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
@@ -31322,6 +32113,7 @@ func (subtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     subtlv.EntityData.BundleName = "openconfig"
     subtlv.EntityData.ParentYangName = "subtlvs"
     subtlv.EntityData.SegmentPath = "subtlv" + types.AddKeyToken(subtlv.Type, "type")
+    subtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/subtlvs/" + subtlv.EntityData.SegmentPath
     subtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31356,6 +32148,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/subtlvs/subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31387,6 +32180,7 @@ func (segmentRoutingAlgorithms *NetworkInstances_NetworkInstance_Protocols_Proto
     segmentRoutingAlgorithms.EntityData.BundleName = "openconfig"
     segmentRoutingAlgorithms.EntityData.ParentYangName = "subtlv"
     segmentRoutingAlgorithms.EntityData.SegmentPath = "segment-routing-algorithms"
+    segmentRoutingAlgorithms.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/subtlvs/subtlv/" + segmentRoutingAlgorithms.EntityData.SegmentPath
     segmentRoutingAlgorithms.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     segmentRoutingAlgorithms.EntityData.NamespaceTable = openconfig.GetNamespaces()
     segmentRoutingAlgorithms.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31408,6 +32202,7 @@ func (segmentRoutingAlgorithms *NetworkInstances_NetworkInstance_Protocols_Proto
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_RouterCapabilities_RouterCapability_Subtlvs_Subtlv_SegmentRoutingAlgorithms_SegmentRoutingAlgorithm struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the SR algorithm that the subTLV
     // describes. The type is Algorithm. Refers to
@@ -31424,6 +32219,7 @@ func (segmentRoutingAlgorithm *NetworkInstances_NetworkInstance_Protocols_Protoc
     segmentRoutingAlgorithm.EntityData.BundleName = "openconfig"
     segmentRoutingAlgorithm.EntityData.ParentYangName = "segment-routing-algorithms"
     segmentRoutingAlgorithm.EntityData.SegmentPath = "segment-routing-algorithm" + types.AddKeyToken(segmentRoutingAlgorithm.Algorithm, "algorithm")
+    segmentRoutingAlgorithm.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/subtlvs/subtlv/segment-routing-algorithms/" + segmentRoutingAlgorithm.EntityData.SegmentPath
     segmentRoutingAlgorithm.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     segmentRoutingAlgorithm.EntityData.NamespaceTable = openconfig.GetNamespaces()
     segmentRoutingAlgorithm.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31456,6 +32252,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "segment-routing-algorithm"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/subtlvs/subtlv/segment-routing-algorithms/segment-routing-algorithm/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31515,6 +32312,7 @@ func (segmentRoutingCapability *NetworkInstances_NetworkInstance_Protocols_Proto
     segmentRoutingCapability.EntityData.BundleName = "openconfig"
     segmentRoutingCapability.EntityData.ParentYangName = "subtlv"
     segmentRoutingCapability.EntityData.SegmentPath = "segment-routing-capability"
+    segmentRoutingCapability.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/subtlvs/subtlv/" + segmentRoutingCapability.EntityData.SegmentPath
     segmentRoutingCapability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     segmentRoutingCapability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     segmentRoutingCapability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31545,6 +32343,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "segment-routing-capability"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/subtlvs/subtlv/segment-routing-capability/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31596,6 +32395,7 @@ func (srgbDescriptors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     srgbDescriptors.EntityData.BundleName = "openconfig"
     srgbDescriptors.EntityData.ParentYangName = "segment-routing-capability"
     srgbDescriptors.EntityData.SegmentPath = "srgb-descriptors"
+    srgbDescriptors.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/subtlvs/subtlv/segment-routing-capability/" + srgbDescriptors.EntityData.SegmentPath
     srgbDescriptors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     srgbDescriptors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     srgbDescriptors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31603,6 +32403,7 @@ func (srgbDescriptors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     srgbDescriptors.EntityData.Children = types.NewOrderedMap()
     srgbDescriptors.EntityData.Children.Append("srgb-descriptor", types.YChild{"SrgbDescriptor", nil})
     for i := range srgbDescriptors.SrgbDescriptor {
+        types.SetYListKey(srgbDescriptors.SrgbDescriptor[i], i)
         srgbDescriptors.EntityData.Children.Append(types.GetSegmentPath(srgbDescriptors.SrgbDescriptor[i]), types.YChild{"SrgbDescriptor", srgbDescriptors.SrgbDescriptor[i]})
     }
     srgbDescriptors.EntityData.Leafs = types.NewOrderedMap()
@@ -31618,6 +32419,7 @@ func (srgbDescriptors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_RouterCapabilities_RouterCapability_Subtlvs_Subtlv_SegmentRoutingCapability_SrgbDescriptors_SrgbDescriptor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // State parameters of the SR range.
     State NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_RouterCapabilities_RouterCapability_Subtlvs_Subtlv_SegmentRoutingCapability_SrgbDescriptors_SrgbDescriptor_State
@@ -31628,7 +32430,8 @@ func (srgbDescriptor *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_L
     srgbDescriptor.EntityData.YangName = "srgb-descriptor"
     srgbDescriptor.EntityData.BundleName = "openconfig"
     srgbDescriptor.EntityData.ParentYangName = "srgb-descriptors"
-    srgbDescriptor.EntityData.SegmentPath = "srgb-descriptor"
+    srgbDescriptor.EntityData.SegmentPath = "srgb-descriptor" + types.AddNoKeyToken(srgbDescriptor)
+    srgbDescriptor.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/subtlvs/subtlv/segment-routing-capability/srgb-descriptors/" + srgbDescriptor.EntityData.SegmentPath
     srgbDescriptor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     srgbDescriptor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     srgbDescriptor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31664,6 +32467,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "srgb-descriptor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/subtlvs/subtlv/segment-routing-capability/srgb-descriptors/srgb-descriptor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31696,6 +32500,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     undefinedSubtlvs.EntityData.BundleName = "openconfig"
     undefinedSubtlvs.EntityData.ParentYangName = "router-capability"
     undefinedSubtlvs.EntityData.SegmentPath = "undefined-subtlvs"
+    undefinedSubtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/" + undefinedSubtlvs.EntityData.SegmentPath
     undefinedSubtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31718,6 +32523,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_RouterCapabilities_RouterCapability_UndefinedSubtlvs_UndefinedSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the type of the undefined sub-TLV.
     // The type is string with range: 0..255. Refers to
@@ -31734,6 +32540,7 @@ func (undefinedSubtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     undefinedSubtlv.EntityData.BundleName = "openconfig"
     undefinedSubtlv.EntityData.ParentYangName = "undefined-subtlvs"
     undefinedSubtlv.EntityData.SegmentPath = "undefined-subtlv" + types.AddKeyToken(undefinedSubtlv.Type, "type")
+    undefinedSubtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/undefined-subtlvs/" + undefinedSubtlv.EntityData.SegmentPath
     undefinedSubtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31770,6 +32577,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "undefined-subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/router-capabilities/router-capability/undefined-subtlvs/undefined-subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31802,6 +32610,7 @@ func (isReachability *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_L
     isReachability.EntityData.BundleName = "openconfig"
     isReachability.EntityData.ParentYangName = "tlv"
     isReachability.EntityData.SegmentPath = "is-reachability"
+    isReachability.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + isReachability.EntityData.SegmentPath
     isReachability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     isReachability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     isReachability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31832,6 +32641,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "is-reachability"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31853,6 +32663,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsReachability_Neighbors_Neighbors struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the system ID of the neighbor. The
     // type is string with pattern:
@@ -31882,6 +32693,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "neighbors"
     neighbors.EntityData.SegmentPath = "neighbors" + types.AddKeyToken(neighbors.SystemId, "system-id")
+    neighbors.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/neighbors/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31917,6 +32729,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbors"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/neighbors/neighbors/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31946,6 +32759,7 @@ func (defaultMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     defaultMetric.EntityData.BundleName = "openconfig"
     defaultMetric.EntityData.ParentYangName = "neighbors"
     defaultMetric.EntityData.SegmentPath = "default-metric"
+    defaultMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/neighbors/neighbors/" + defaultMetric.EntityData.SegmentPath
     defaultMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     defaultMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     defaultMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -31984,6 +32798,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "default-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/neighbors/neighbors/default-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32022,6 +32837,7 @@ func (delayMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     delayMetric.EntityData.BundleName = "openconfig"
     delayMetric.EntityData.ParentYangName = "neighbors"
     delayMetric.EntityData.SegmentPath = "delay-metric"
+    delayMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/neighbors/neighbors/" + delayMetric.EntityData.SegmentPath
     delayMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     delayMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     delayMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32057,6 +32873,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "delay-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/neighbors/neighbors/delay-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32087,6 +32904,7 @@ func (expenseMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     expenseMetric.EntityData.BundleName = "openconfig"
     expenseMetric.EntityData.ParentYangName = "neighbors"
     expenseMetric.EntityData.SegmentPath = "expense-metric"
+    expenseMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/neighbors/neighbors/" + expenseMetric.EntityData.SegmentPath
     expenseMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     expenseMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     expenseMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32123,6 +32941,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "expense-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/neighbors/neighbors/expense-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32153,6 +32972,7 @@ func (errorMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     errorMetric.EntityData.BundleName = "openconfig"
     errorMetric.EntityData.ParentYangName = "neighbors"
     errorMetric.EntityData.SegmentPath = "error-metric"
+    errorMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/neighbors/neighbors/" + errorMetric.EntityData.SegmentPath
     errorMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     errorMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     errorMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32189,6 +33009,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "error-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-reachability/neighbors/neighbors/error-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32220,6 +33041,7 @@ func (ipv4InternalReachability *NetworkInstances_NetworkInstance_Protocols_Proto
     ipv4InternalReachability.EntityData.BundleName = "openconfig"
     ipv4InternalReachability.EntityData.ParentYangName = "tlv"
     ipv4InternalReachability.EntityData.SegmentPath = "ipv4-internal-reachability"
+    ipv4InternalReachability.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + ipv4InternalReachability.EntityData.SegmentPath
     ipv4InternalReachability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4InternalReachability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4InternalReachability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32250,6 +33072,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "ipv4-internal-reachability"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32271,6 +33094,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv4InternalReachability_Prefixes_Prefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the IPv4 prefix. The type is string
     // with pattern:
@@ -32301,6 +33125,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "prefixes"
     prefixes.EntityData.SegmentPath = "prefixes" + types.AddKeyToken(prefixes.Prefix, "prefix")
+    prefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/prefixes/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32344,6 +33169,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefixes"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/prefixes/prefixes/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32374,6 +33200,7 @@ func (defaultMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     defaultMetric.EntityData.BundleName = "openconfig"
     defaultMetric.EntityData.ParentYangName = "prefixes"
     defaultMetric.EntityData.SegmentPath = "default-metric"
+    defaultMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/prefixes/prefixes/" + defaultMetric.EntityData.SegmentPath
     defaultMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     defaultMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     defaultMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32412,6 +33239,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "default-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/prefixes/prefixes/default-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32450,6 +33278,7 @@ func (delayMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     delayMetric.EntityData.BundleName = "openconfig"
     delayMetric.EntityData.ParentYangName = "prefixes"
     delayMetric.EntityData.SegmentPath = "delay-metric"
+    delayMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/prefixes/prefixes/" + delayMetric.EntityData.SegmentPath
     delayMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     delayMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     delayMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32485,6 +33314,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "delay-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/prefixes/prefixes/delay-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32515,6 +33345,7 @@ func (expenseMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     expenseMetric.EntityData.BundleName = "openconfig"
     expenseMetric.EntityData.ParentYangName = "prefixes"
     expenseMetric.EntityData.SegmentPath = "expense-metric"
+    expenseMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/prefixes/prefixes/" + expenseMetric.EntityData.SegmentPath
     expenseMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     expenseMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     expenseMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32551,6 +33382,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "expense-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/prefixes/prefixes/expense-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32581,6 +33413,7 @@ func (errorMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     errorMetric.EntityData.BundleName = "openconfig"
     errorMetric.EntityData.ParentYangName = "prefixes"
     errorMetric.EntityData.SegmentPath = "error-metric"
+    errorMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/prefixes/prefixes/" + errorMetric.EntityData.SegmentPath
     errorMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     errorMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     errorMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32617,6 +33450,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "error-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-internal-reachability/prefixes/prefixes/error-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32648,6 +33482,7 @@ func (ipv4ExternalReachability *NetworkInstances_NetworkInstance_Protocols_Proto
     ipv4ExternalReachability.EntityData.BundleName = "openconfig"
     ipv4ExternalReachability.EntityData.ParentYangName = "tlv"
     ipv4ExternalReachability.EntityData.SegmentPath = "ipv4-external-reachability"
+    ipv4ExternalReachability.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + ipv4ExternalReachability.EntityData.SegmentPath
     ipv4ExternalReachability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4ExternalReachability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4ExternalReachability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32678,6 +33513,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "ipv4-external-reachability"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32699,6 +33535,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv4ExternalReachability_Prefixes_Prefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the IPv4 prefix. The type is string
     // with pattern:
@@ -32729,6 +33566,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "prefixes"
     prefixes.EntityData.SegmentPath = "prefixes" + types.AddKeyToken(prefixes.Prefix, "prefix")
+    prefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/prefixes/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32772,6 +33610,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefixes"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/prefixes/prefixes/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32802,6 +33641,7 @@ func (defaultMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     defaultMetric.EntityData.BundleName = "openconfig"
     defaultMetric.EntityData.ParentYangName = "prefixes"
     defaultMetric.EntityData.SegmentPath = "default-metric"
+    defaultMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/prefixes/prefixes/" + defaultMetric.EntityData.SegmentPath
     defaultMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     defaultMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     defaultMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32840,6 +33680,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "default-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/prefixes/prefixes/default-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32878,6 +33719,7 @@ func (delayMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     delayMetric.EntityData.BundleName = "openconfig"
     delayMetric.EntityData.ParentYangName = "prefixes"
     delayMetric.EntityData.SegmentPath = "delay-metric"
+    delayMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/prefixes/prefixes/" + delayMetric.EntityData.SegmentPath
     delayMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     delayMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     delayMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32913,6 +33755,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "delay-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/prefixes/prefixes/delay-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32943,6 +33786,7 @@ func (expenseMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     expenseMetric.EntityData.BundleName = "openconfig"
     expenseMetric.EntityData.ParentYangName = "prefixes"
     expenseMetric.EntityData.SegmentPath = "expense-metric"
+    expenseMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/prefixes/prefixes/" + expenseMetric.EntityData.SegmentPath
     expenseMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     expenseMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     expenseMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -32979,6 +33823,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "expense-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/prefixes/prefixes/expense-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33009,6 +33854,7 @@ func (errorMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     errorMetric.EntityData.BundleName = "openconfig"
     errorMetric.EntityData.ParentYangName = "prefixes"
     errorMetric.EntityData.SegmentPath = "error-metric"
+    errorMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/prefixes/prefixes/" + errorMetric.EntityData.SegmentPath
     errorMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     errorMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     errorMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33045,6 +33891,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "error-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv4-external-reachability/prefixes/prefixes/error-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33076,6 +33923,7 @@ func (authentication *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_L
     authentication.EntityData.BundleName = "openconfig"
     authentication.EntityData.ParentYangName = "tlv"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     authentication.EntityData.NamespaceTable = openconfig.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33108,6 +33956,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "authentication"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/authentication/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33150,6 +33999,7 @@ func (extendedIsReachability *NetworkInstances_NetworkInstance_Protocols_Protoco
     extendedIsReachability.EntityData.BundleName = "openconfig"
     extendedIsReachability.EntityData.ParentYangName = "tlv"
     extendedIsReachability.EntityData.SegmentPath = "extended-is-reachability"
+    extendedIsReachability.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + extendedIsReachability.EntityData.SegmentPath
     extendedIsReachability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extendedIsReachability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extendedIsReachability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33181,6 +34031,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "extended-is-reachability"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33203,6 +34054,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIsReachability_Neighbors_Neighbors struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the neighboring system's system ID.
     // The type is string with pattern:
@@ -33226,6 +34078,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "neighbors"
     neighbors.EntityData.SegmentPath = "neighbors" + types.AddKeyToken(neighbors.SystemId, "system-id")
+    neighbors.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33262,6 +34115,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbors"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33294,6 +34148,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
     subtlvs.EntityData.BundleName = "openconfig"
     subtlvs.EntityData.ParentYangName = "neighbors"
     subtlvs.EntityData.SegmentPath = "subtlvs"
+    subtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/" + subtlvs.EntityData.SegmentPath
     subtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33315,6 +34170,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIsReachability_Neighbors_Neighbors_Subtlvs_Subtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
@@ -33404,6 +34260,7 @@ func (subtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     subtlv.EntityData.BundleName = "openconfig"
     subtlv.EntityData.ParentYangName = "subtlvs"
     subtlv.EntityData.SegmentPath = "subtlv" + types.AddKeyToken(subtlv.Type, "type")
+    subtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/" + subtlv.EntityData.SegmentPath
     subtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33459,6 +34316,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33488,6 +34346,7 @@ func (adminGroup *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     adminGroup.EntityData.BundleName = "openconfig"
     adminGroup.EntityData.ParentYangName = "subtlv"
     adminGroup.EntityData.SegmentPath = "admin-group"
+    adminGroup.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + adminGroup.EntityData.SegmentPath
     adminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33521,6 +34380,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "admin-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/admin-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33550,6 +34410,7 @@ func (ipv4InterfaceAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_
     ipv4InterfaceAddress.EntityData.BundleName = "openconfig"
     ipv4InterfaceAddress.EntityData.ParentYangName = "subtlv"
     ipv4InterfaceAddress.EntityData.SegmentPath = "ipv4-interface-address"
+    ipv4InterfaceAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + ipv4InterfaceAddress.EntityData.SegmentPath
     ipv4InterfaceAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4InterfaceAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4InterfaceAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33581,6 +34442,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-interface-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/ipv4-interface-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33610,6 +34472,7 @@ func (ipv4NeighborAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     ipv4NeighborAddress.EntityData.BundleName = "openconfig"
     ipv4NeighborAddress.EntityData.ParentYangName = "subtlv"
     ipv4NeighborAddress.EntityData.SegmentPath = "ipv4-neighbor-address"
+    ipv4NeighborAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + ipv4NeighborAddress.EntityData.SegmentPath
     ipv4NeighborAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4NeighborAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4NeighborAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33641,6 +34504,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-neighbor-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/ipv4-neighbor-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33670,6 +34534,7 @@ func (maxLinkBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     maxLinkBandwidth.EntityData.BundleName = "openconfig"
     maxLinkBandwidth.EntityData.ParentYangName = "subtlv"
     maxLinkBandwidth.EntityData.SegmentPath = "max-link-bandwidth"
+    maxLinkBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + maxLinkBandwidth.EntityData.SegmentPath
     maxLinkBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     maxLinkBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     maxLinkBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33702,6 +34567,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "max-link-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/max-link-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33731,6 +34597,7 @@ func (maxReservableLinkBandwidth *NetworkInstances_NetworkInstance_Protocols_Pro
     maxReservableLinkBandwidth.EntityData.BundleName = "openconfig"
     maxReservableLinkBandwidth.EntityData.ParentYangName = "subtlv"
     maxReservableLinkBandwidth.EntityData.SegmentPath = "max-reservable-link-bandwidth"
+    maxReservableLinkBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + maxReservableLinkBandwidth.EntityData.SegmentPath
     maxReservableLinkBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     maxReservableLinkBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     maxReservableLinkBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33764,6 +34631,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "max-reservable-link-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/max-reservable-link-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33795,6 +34663,7 @@ func (unreservedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     unreservedBandwidth.EntityData.BundleName = "openconfig"
     unreservedBandwidth.EntityData.ParentYangName = "subtlv"
     unreservedBandwidth.EntityData.SegmentPath = "unreserved-bandwidth"
+    unreservedBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + unreservedBandwidth.EntityData.SegmentPath
     unreservedBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unreservedBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unreservedBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33817,6 +34686,7 @@ func (unreservedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_I
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIsReachability_Neighbors_Neighbors_Subtlvs_Subtlv_UnreservedBandwidth_SetupPriority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the setup priority to which the
     // unreserved bandwidth corresponds. The type is string with range: 0..7.
@@ -33834,6 +34704,7 @@ func (setupPriority *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     setupPriority.EntityData.BundleName = "openconfig"
     setupPriority.EntityData.ParentYangName = "unreserved-bandwidth"
     setupPriority.EntityData.SegmentPath = "setup-priority" + types.AddKeyToken(setupPriority.Priority, "priority")
+    setupPriority.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/unreserved-bandwidth/" + setupPriority.EntityData.SegmentPath
     setupPriority.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     setupPriority.EntityData.NamespaceTable = openconfig.GetNamespaces()
     setupPriority.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33876,6 +34747,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "setup-priority"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/unreserved-bandwidth/setup-priority/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33906,6 +34778,7 @@ func (ipv6InterfaceAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_
     ipv6InterfaceAddress.EntityData.BundleName = "openconfig"
     ipv6InterfaceAddress.EntityData.ParentYangName = "subtlv"
     ipv6InterfaceAddress.EntityData.SegmentPath = "ipv6-interface-address"
+    ipv6InterfaceAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + ipv6InterfaceAddress.EntityData.SegmentPath
     ipv6InterfaceAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6InterfaceAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6InterfaceAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33938,6 +34811,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-interface-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/ipv6-interface-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33967,6 +34841,7 @@ func (ipv6NeighborAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     ipv6NeighborAddress.EntityData.BundleName = "openconfig"
     ipv6NeighborAddress.EntityData.ParentYangName = "subtlv"
     ipv6NeighborAddress.EntityData.SegmentPath = "ipv6-neighbor-address"
+    ipv6NeighborAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + ipv6NeighborAddress.EntityData.SegmentPath
     ipv6NeighborAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6NeighborAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6NeighborAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -33999,6 +34874,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-neighbor-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/ipv6-neighbor-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34028,6 +34904,7 @@ func (extendedAdminGroup *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     extendedAdminGroup.EntityData.BundleName = "openconfig"
     extendedAdminGroup.EntityData.ParentYangName = "subtlv"
     extendedAdminGroup.EntityData.SegmentPath = "extended-admin-group"
+    extendedAdminGroup.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + extendedAdminGroup.EntityData.SegmentPath
     extendedAdminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extendedAdminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extendedAdminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34060,6 +34937,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "extended-admin-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/extended-admin-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34089,6 +34967,7 @@ func (teDefaultMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     teDefaultMetric.EntityData.BundleName = "openconfig"
     teDefaultMetric.EntityData.ParentYangName = "subtlv"
     teDefaultMetric.EntityData.SegmentPath = "te-default-metric"
+    teDefaultMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + teDefaultMetric.EntityData.SegmentPath
     teDefaultMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     teDefaultMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teDefaultMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34123,6 +35002,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "te-default-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/te-default-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34152,6 +35032,7 @@ func (linkAttributes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_L
     linkAttributes.EntityData.BundleName = "openconfig"
     linkAttributes.EntityData.ParentYangName = "subtlv"
     linkAttributes.EntityData.SegmentPath = "link-attributes"
+    linkAttributes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + linkAttributes.EntityData.SegmentPath
     linkAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34182,6 +35063,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-attributes"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/link-attributes/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34225,6 +35107,7 @@ func (linkProtectionType *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     linkProtectionType.EntityData.BundleName = "openconfig"
     linkProtectionType.EntityData.ParentYangName = "subtlv"
     linkProtectionType.EntityData.SegmentPath = "link-protection-type"
+    linkProtectionType.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + linkProtectionType.EntityData.SegmentPath
     linkProtectionType.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkProtectionType.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkProtectionType.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34254,6 +35137,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-protection-type"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/link-protection-type/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34337,6 +35221,7 @@ func (bandwidthConstraints *NetworkInstances_NetworkInstance_Protocols_Protocol_
     bandwidthConstraints.EntityData.BundleName = "openconfig"
     bandwidthConstraints.EntityData.ParentYangName = "subtlv"
     bandwidthConstraints.EntityData.SegmentPath = "bandwidth-constraints"
+    bandwidthConstraints.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + bandwidthConstraints.EntityData.SegmentPath
     bandwidthConstraints.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthConstraints.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthConstraints.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34359,6 +35244,7 @@ func (bandwidthConstraints *NetworkInstances_NetworkInstance_Protocols_Protocol_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIsReachability_Neighbors_Neighbors_Subtlvs_Subtlv_BandwidthConstraints_BandwidthConstraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the model ID associated with the
     // instance of the Bandwidth Constraints sub-TLV. The type is string with
@@ -34379,6 +35265,7 @@ func (bandwidthConstraint *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     bandwidthConstraint.EntityData.BundleName = "openconfig"
     bandwidthConstraint.EntityData.ParentYangName = "bandwidth-constraints"
     bandwidthConstraint.EntityData.SegmentPath = "bandwidth-constraint" + types.AddKeyToken(bandwidthConstraint.ModelId, "model-id")
+    bandwidthConstraint.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/bandwidth-constraints/" + bandwidthConstraint.EntityData.SegmentPath
     bandwidthConstraint.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthConstraint.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthConstraint.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34413,6 +35300,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bandwidth-constraint"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34445,6 +35333,7 @@ func (constraints *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     constraints.EntityData.BundleName = "openconfig"
     constraints.EntityData.ParentYangName = "bandwidth-constraint"
     constraints.EntityData.SegmentPath = "constraints"
+    constraints.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/" + constraints.EntityData.SegmentPath
     constraints.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     constraints.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constraints.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34469,6 +35358,7 @@ func (constraints *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIsReachability_Neighbors_Neighbors_Subtlvs_Subtlv_BandwidthConstraints_BandwidthConstraint_Constraints_Constraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the unique ID for the BCN level. The
     // type is string with range: 0..4294967295. Refers to
@@ -34485,6 +35375,7 @@ func (constraint *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     constraint.EntityData.BundleName = "openconfig"
     constraint.EntityData.ParentYangName = "constraints"
     constraint.EntityData.SegmentPath = "constraint" + types.AddKeyToken(constraint.ConstraintId, "constraint-id")
+    constraint.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/constraints/" + constraint.EntityData.SegmentPath
     constraint.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     constraint.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constraint.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34522,6 +35413,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "constraint"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/constraints/constraint/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34552,6 +35444,7 @@ func (unconstrainedLsp *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     unconstrainedLsp.EntityData.BundleName = "openconfig"
     unconstrainedLsp.EntityData.ParentYangName = "subtlv"
     unconstrainedLsp.EntityData.SegmentPath = "unconstrained-lsp"
+    unconstrainedLsp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + unconstrainedLsp.EntityData.SegmentPath
     unconstrainedLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unconstrainedLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unconstrainedLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34587,6 +35480,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "unconstrained-lsp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/unconstrained-lsp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34621,6 +35515,7 @@ func (adjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     adjacencySids.EntityData.BundleName = "openconfig"
     adjacencySids.EntityData.ParentYangName = "subtlv"
     adjacencySids.EntityData.SegmentPath = "adjacency-sids"
+    adjacencySids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + adjacencySids.EntityData.SegmentPath
     adjacencySids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencySids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencySids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34646,6 +35541,7 @@ func (adjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIsReachability_Neighbors_Neighbors_Subtlvs_Subtlv_AdjacencySids_AdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the Adjacency-SID. The
     // type is string with range: 0..4294967295. Refers to
@@ -34662,6 +35558,7 @@ func (adjacencySid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Lev
     adjacencySid.EntityData.BundleName = "openconfig"
     adjacencySid.EntityData.ParentYangName = "adjacency-sids"
     adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddKeyToken(adjacencySid.Value, "value")
+    adjacencySid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/adjacency-sids/" + adjacencySid.EntityData.SegmentPath
     adjacencySid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencySid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencySid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34699,6 +35596,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "adjacency-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/adjacency-sids/adjacency-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34765,6 +35663,7 @@ func (lanAdjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     lanAdjacencySids.EntityData.BundleName = "openconfig"
     lanAdjacencySids.EntityData.ParentYangName = "subtlv"
     lanAdjacencySids.EntityData.SegmentPath = "lan-adjacency-sids"
+    lanAdjacencySids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + lanAdjacencySids.EntityData.SegmentPath
     lanAdjacencySids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lanAdjacencySids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lanAdjacencySids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34790,6 +35689,7 @@ func (lanAdjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIsReachability_Neighbors_Neighbors_Subtlvs_Subtlv_LanAdjacencySids_LanAdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the LAN Adjacency-SID.
     // The type is string with range: 0..4294967295. Refers to
@@ -34806,6 +35706,7 @@ func (lanAdjacencySid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     lanAdjacencySid.EntityData.BundleName = "openconfig"
     lanAdjacencySid.EntityData.ParentYangName = "lan-adjacency-sids"
     lanAdjacencySid.EntityData.SegmentPath = "lan-adjacency-sid" + types.AddKeyToken(lanAdjacencySid.Value, "value")
+    lanAdjacencySid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/lan-adjacency-sids/" + lanAdjacencySid.EntityData.SegmentPath
     lanAdjacencySid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lanAdjacencySid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lanAdjacencySid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34848,6 +35749,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "lan-adjacency-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/lan-adjacency-sids/lan-adjacency-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34910,6 +35812,7 @@ func (linkDelay *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     linkDelay.EntityData.BundleName = "openconfig"
     linkDelay.EntityData.ParentYangName = "subtlv"
     linkDelay.EntityData.SegmentPath = "link-delay"
+    linkDelay.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + linkDelay.EntityData.SegmentPath
     linkDelay.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkDelay.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkDelay.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34947,6 +35850,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-delay"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/link-delay/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -34977,6 +35881,7 @@ func (minMaxLinkDelay *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     minMaxLinkDelay.EntityData.BundleName = "openconfig"
     minMaxLinkDelay.EntityData.ParentYangName = "subtlv"
     minMaxLinkDelay.EntityData.SegmentPath = "min-max-link-delay"
+    minMaxLinkDelay.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + minMaxLinkDelay.EntityData.SegmentPath
     minMaxLinkDelay.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     minMaxLinkDelay.EntityData.NamespaceTable = openconfig.GetNamespaces()
     minMaxLinkDelay.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35019,6 +35924,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "min-max-link-delay"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/min-max-link-delay/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35051,6 +35957,7 @@ func (linkDelayVariation *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     linkDelayVariation.EntityData.BundleName = "openconfig"
     linkDelayVariation.EntityData.ParentYangName = "subtlv"
     linkDelayVariation.EntityData.SegmentPath = "link-delay-variation"
+    linkDelayVariation.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + linkDelayVariation.EntityData.SegmentPath
     linkDelayVariation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkDelayVariation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkDelayVariation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35083,6 +35990,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-delay-variation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/link-delay-variation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35112,6 +36020,7 @@ func (linkLoss *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     linkLoss.EntityData.BundleName = "openconfig"
     linkLoss.EntityData.ParentYangName = "subtlv"
     linkLoss.EntityData.SegmentPath = "link-loss"
+    linkLoss.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + linkLoss.EntityData.SegmentPath
     linkLoss.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkLoss.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkLoss.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35155,6 +36064,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-loss"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/link-loss/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35186,6 +36096,7 @@ func (residualBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isi
     residualBandwidth.EntityData.BundleName = "openconfig"
     residualBandwidth.EntityData.ParentYangName = "subtlv"
     residualBandwidth.EntityData.SegmentPath = "residual-bandwidth"
+    residualBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + residualBandwidth.EntityData.SegmentPath
     residualBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     residualBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     residualBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35222,6 +36133,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "residual-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/residual-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35252,6 +36164,7 @@ func (availableBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     availableBandwidth.EntityData.BundleName = "openconfig"
     availableBandwidth.EntityData.ParentYangName = "subtlv"
     availableBandwidth.EntityData.SegmentPath = "available-bandwidth"
+    availableBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + availableBandwidth.EntityData.SegmentPath
     availableBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     availableBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     availableBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35296,6 +36209,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "available-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/available-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35327,6 +36241,7 @@ func (utilizedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isi
     utilizedBandwidth.EntityData.BundleName = "openconfig"
     utilizedBandwidth.EntityData.ParentYangName = "subtlv"
     utilizedBandwidth.EntityData.SegmentPath = "utilized-bandwidth"
+    utilizedBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/" + utilizedBandwidth.EntityData.SegmentPath
     utilizedBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     utilizedBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     utilizedBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35368,6 +36283,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "utilized-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/subtlvs/subtlv/utilized-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35400,6 +36316,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     undefinedSubtlvs.EntityData.BundleName = "openconfig"
     undefinedSubtlvs.EntityData.ParentYangName = "neighbors"
     undefinedSubtlvs.EntityData.SegmentPath = "undefined-subtlvs"
+    undefinedSubtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/" + undefinedSubtlvs.EntityData.SegmentPath
     undefinedSubtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35422,6 +36339,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIsReachability_Neighbors_Neighbors_UndefinedSubtlvs_UndefinedSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the type of the undefined sub-TLV.
     // The type is string with range: 0..255. Refers to
@@ -35438,6 +36356,7 @@ func (undefinedSubtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     undefinedSubtlv.EntityData.BundleName = "openconfig"
     undefinedSubtlv.EntityData.ParentYangName = "undefined-subtlvs"
     undefinedSubtlv.EntityData.SegmentPath = "undefined-subtlv" + types.AddKeyToken(undefinedSubtlv.Type, "type")
+    undefinedSubtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/undefined-subtlvs/" + undefinedSubtlv.EntityData.SegmentPath
     undefinedSubtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35474,6 +36393,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "undefined-subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-is-reachability/neighbors/neighbors/undefined-subtlvs/undefined-subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35506,6 +36426,7 @@ func (extendedIpv4Reachability *NetworkInstances_NetworkInstance_Protocols_Proto
     extendedIpv4Reachability.EntityData.BundleName = "openconfig"
     extendedIpv4Reachability.EntityData.ParentYangName = "tlv"
     extendedIpv4Reachability.EntityData.SegmentPath = "extended-ipv4-reachability"
+    extendedIpv4Reachability.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + extendedIpv4Reachability.EntityData.SegmentPath
     extendedIpv4Reachability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extendedIpv4Reachability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extendedIpv4Reachability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35537,6 +36458,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "extended-ipv4-reachability"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35559,6 +36481,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIpv4Reachability_Prefixes_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the IPv4 prefix that the TLV
     // describes the attributes of. The type is string with pattern:
@@ -35583,6 +36506,7 @@ func (prefix *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     prefix.EntityData.BundleName = "openconfig"
     prefix.EntityData.ParentYangName = "prefixes"
     prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.Prefix, "prefix")
+    prefix.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefix.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35632,6 +36556,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35666,6 +36591,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
     subtlvs.EntityData.BundleName = "openconfig"
     subtlvs.EntityData.ParentYangName = "prefix"
     subtlvs.EntityData.SegmentPath = "subtlvs"
+    subtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/" + subtlvs.EntityData.SegmentPath
     subtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35687,6 +36613,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIpv4Reachability_Prefixes_Prefix_Subtlvs_Subtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
@@ -35721,6 +36648,7 @@ func (subtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     subtlv.EntityData.BundleName = "openconfig"
     subtlv.EntityData.ParentYangName = "subtlvs"
     subtlv.EntityData.SegmentPath = "subtlv" + types.AddKeyToken(subtlv.Type, "type")
+    subtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/" + subtlv.EntityData.SegmentPath
     subtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35759,6 +36687,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35788,6 +36717,7 @@ func (tag *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level
     tag.EntityData.BundleName = "openconfig"
     tag.EntityData.ParentYangName = "subtlv"
     tag.EntityData.SegmentPath = "tag"
+    tag.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + tag.EntityData.SegmentPath
     tag.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tag.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tag.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35821,6 +36751,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tag"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/tag/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35850,6 +36781,7 @@ func (tag64 *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     tag64.EntityData.BundleName = "openconfig"
     tag64.EntityData.ParentYangName = "subtlv"
     tag64.EntityData.SegmentPath = "tag64"
+    tag64.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + tag64.EntityData.SegmentPath
     tag64.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tag64.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tag64.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35883,6 +36815,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tag64"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/tag64/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35912,6 +36845,7 @@ func (flags *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     flags.EntityData.BundleName = "openconfig"
     flags.EntityData.ParentYangName = "subtlv"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     flags.EntityData.NamespaceTable = openconfig.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35946,6 +36880,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "flags"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/flags/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -35999,6 +36934,7 @@ func (ipv4SourceRouterId *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     ipv4SourceRouterId.EntityData.BundleName = "openconfig"
     ipv4SourceRouterId.EntityData.ParentYangName = "subtlv"
     ipv4SourceRouterId.EntityData.SegmentPath = "ipv4-source-router-id"
+    ipv4SourceRouterId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + ipv4SourceRouterId.EntityData.SegmentPath
     ipv4SourceRouterId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4SourceRouterId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4SourceRouterId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36041,6 +36977,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-source-router-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/ipv4-source-router-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36071,6 +37008,7 @@ func (ipv6SourceRouterId *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     ipv6SourceRouterId.EntityData.BundleName = "openconfig"
     ipv6SourceRouterId.EntityData.ParentYangName = "subtlv"
     ipv6SourceRouterId.EntityData.SegmentPath = "ipv6-source-router-id"
+    ipv6SourceRouterId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + ipv6SourceRouterId.EntityData.SegmentPath
     ipv6SourceRouterId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6SourceRouterId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6SourceRouterId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36113,6 +37051,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-source-router-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/ipv6-source-router-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36147,6 +37086,7 @@ func (prefixSids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     prefixSids.EntityData.BundleName = "openconfig"
     prefixSids.EntityData.ParentYangName = "subtlv"
     prefixSids.EntityData.SegmentPath = "prefix-sids"
+    prefixSids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + prefixSids.EntityData.SegmentPath
     prefixSids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36171,6 +37111,7 @@ func (prefixSids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIpv4Reachability_Prefixes_Prefix_Subtlvs_Subtlv_PrefixSids_PrefixSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the prefix SID. The type
     // is string with range: 0..4294967295. Refers to
@@ -36187,6 +37128,7 @@ func (prefixSid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     prefixSid.EntityData.BundleName = "openconfig"
     prefixSid.EntityData.ParentYangName = "prefix-sids"
     prefixSid.EntityData.SegmentPath = "prefix-sid" + types.AddKeyToken(prefixSid.Value, "value")
+    prefixSid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/prefix-sids/" + prefixSid.EntityData.SegmentPath
     prefixSid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36224,6 +37166,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/prefix-sids/prefix-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36297,6 +37240,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     undefinedSubtlvs.EntityData.BundleName = "openconfig"
     undefinedSubtlvs.EntityData.ParentYangName = "prefix"
     undefinedSubtlvs.EntityData.SegmentPath = "undefined-subtlvs"
+    undefinedSubtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/" + undefinedSubtlvs.EntityData.SegmentPath
     undefinedSubtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36319,6 +37263,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIpv4Reachability_Prefixes_Prefix_UndefinedSubtlvs_UndefinedSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the type of the undefined sub-TLV.
     // The type is string with range: 0..255. Refers to
@@ -36335,6 +37280,7 @@ func (undefinedSubtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     undefinedSubtlv.EntityData.BundleName = "openconfig"
     undefinedSubtlv.EntityData.ParentYangName = "undefined-subtlvs"
     undefinedSubtlv.EntityData.SegmentPath = "undefined-subtlv" + types.AddKeyToken(undefinedSubtlv.Type, "type")
+    undefinedSubtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/undefined-subtlvs/" + undefinedSubtlv.EntityData.SegmentPath
     undefinedSubtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36371,6 +37317,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "undefined-subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/extended-ipv4-reachability/prefixes/prefix/undefined-subtlvs/undefined-subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36403,6 +37350,7 @@ func (ipv6Reachability *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     ipv6Reachability.EntityData.BundleName = "openconfig"
     ipv6Reachability.EntityData.ParentYangName = "tlv"
     ipv6Reachability.EntityData.SegmentPath = "ipv6-reachability"
+    ipv6Reachability.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + ipv6Reachability.EntityData.SegmentPath
     ipv6Reachability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Reachability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Reachability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36433,6 +37381,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "ipv6-reachability"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36454,6 +37403,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv6Reachability_Prefixes_Prefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the IPv6 prefix that the TLV
     // corresponds to. The type is string with pattern:
@@ -36478,6 +37428,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "prefixes"
     prefixes.EntityData.SegmentPath = "prefixes" + types.AddKeyToken(prefixes.Prefix, "prefix")
+    prefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36527,6 +37478,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefixes"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36561,6 +37513,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
     subtlvs.EntityData.BundleName = "openconfig"
     subtlvs.EntityData.ParentYangName = "prefixes"
     subtlvs.EntityData.SegmentPath = "subtlvs"
+    subtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/" + subtlvs.EntityData.SegmentPath
     subtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36582,6 +37535,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv6Reachability_Prefixes_Prefixes_Subtlvs_Subtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
@@ -36616,6 +37570,7 @@ func (subtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     subtlv.EntityData.BundleName = "openconfig"
     subtlv.EntityData.ParentYangName = "subtlvs"
     subtlv.EntityData.SegmentPath = "subtlv" + types.AddKeyToken(subtlv.Type, "type")
+    subtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/" + subtlv.EntityData.SegmentPath
     subtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36654,6 +37609,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36683,6 +37639,7 @@ func (tag *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level
     tag.EntityData.BundleName = "openconfig"
     tag.EntityData.ParentYangName = "subtlv"
     tag.EntityData.SegmentPath = "tag"
+    tag.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/" + tag.EntityData.SegmentPath
     tag.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tag.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tag.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36716,6 +37673,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tag"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/tag/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36745,6 +37703,7 @@ func (tag64 *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     tag64.EntityData.BundleName = "openconfig"
     tag64.EntityData.ParentYangName = "subtlv"
     tag64.EntityData.SegmentPath = "tag64"
+    tag64.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/" + tag64.EntityData.SegmentPath
     tag64.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tag64.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tag64.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36778,6 +37737,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tag64"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/tag64/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36807,6 +37767,7 @@ func (flags *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     flags.EntityData.BundleName = "openconfig"
     flags.EntityData.ParentYangName = "subtlv"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     flags.EntityData.NamespaceTable = openconfig.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36841,6 +37802,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "flags"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/flags/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36894,6 +37856,7 @@ func (ipv4SourceRouterId *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     ipv4SourceRouterId.EntityData.BundleName = "openconfig"
     ipv4SourceRouterId.EntityData.ParentYangName = "subtlv"
     ipv4SourceRouterId.EntityData.SegmentPath = "ipv4-source-router-id"
+    ipv4SourceRouterId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/" + ipv4SourceRouterId.EntityData.SegmentPath
     ipv4SourceRouterId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4SourceRouterId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4SourceRouterId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36936,6 +37899,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-source-router-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/ipv4-source-router-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -36966,6 +37930,7 @@ func (ipv6SourceRouterId *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     ipv6SourceRouterId.EntityData.BundleName = "openconfig"
     ipv6SourceRouterId.EntityData.ParentYangName = "subtlv"
     ipv6SourceRouterId.EntityData.SegmentPath = "ipv6-source-router-id"
+    ipv6SourceRouterId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/" + ipv6SourceRouterId.EntityData.SegmentPath
     ipv6SourceRouterId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6SourceRouterId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6SourceRouterId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37008,6 +37973,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-source-router-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/ipv6-source-router-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37042,6 +38008,7 @@ func (prefixSids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     prefixSids.EntityData.BundleName = "openconfig"
     prefixSids.EntityData.ParentYangName = "subtlv"
     prefixSids.EntityData.SegmentPath = "prefix-sids"
+    prefixSids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/" + prefixSids.EntityData.SegmentPath
     prefixSids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37066,6 +38033,7 @@ func (prefixSids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv6Reachability_Prefixes_Prefixes_Subtlvs_Subtlv_PrefixSids_PrefixSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the prefix SID. The type
     // is string with range: 0..4294967295. Refers to
@@ -37082,6 +38050,7 @@ func (prefixSid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     prefixSid.EntityData.BundleName = "openconfig"
     prefixSid.EntityData.ParentYangName = "prefix-sids"
     prefixSid.EntityData.SegmentPath = "prefix-sid" + types.AddKeyToken(prefixSid.Value, "value")
+    prefixSid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/prefix-sids/" + prefixSid.EntityData.SegmentPath
     prefixSid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37119,6 +38088,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/subtlvs/subtlv/prefix-sids/prefix-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37192,6 +38162,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     undefinedSubtlvs.EntityData.BundleName = "openconfig"
     undefinedSubtlvs.EntityData.ParentYangName = "prefixes"
     undefinedSubtlvs.EntityData.SegmentPath = "undefined-subtlvs"
+    undefinedSubtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/" + undefinedSubtlvs.EntityData.SegmentPath
     undefinedSubtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37214,6 +38185,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv6Reachability_Prefixes_Prefixes_UndefinedSubtlvs_UndefinedSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the type of the undefined sub-TLV.
     // The type is string with range: 0..255. Refers to
@@ -37230,6 +38202,7 @@ func (undefinedSubtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     undefinedSubtlv.EntityData.BundleName = "openconfig"
     undefinedSubtlv.EntityData.ParentYangName = "undefined-subtlvs"
     undefinedSubtlv.EntityData.SegmentPath = "undefined-subtlv" + types.AddKeyToken(undefinedSubtlv.Type, "type")
+    undefinedSubtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/undefined-subtlvs/" + undefinedSubtlv.EntityData.SegmentPath
     undefinedSubtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37266,6 +38239,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "undefined-subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/ipv6-reachability/prefixes/prefixes/undefined-subtlvs/undefined-subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37297,6 +38271,7 @@ func (multiTopology *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     multiTopology.EntityData.BundleName = "openconfig"
     multiTopology.EntityData.ParentYangName = "tlv"
     multiTopology.EntityData.SegmentPath = "multi-topology"
+    multiTopology.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + multiTopology.EntityData.SegmentPath
     multiTopology.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     multiTopology.EntityData.NamespaceTable = openconfig.GetNamespaces()
     multiTopology.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37327,6 +38302,7 @@ func (topologies *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     topologies.EntityData.BundleName = "openconfig"
     topologies.EntityData.ParentYangName = "multi-topology"
     topologies.EntityData.SegmentPath = "topologies"
+    topologies.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/multi-topology/" + topologies.EntityData.SegmentPath
     topologies.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     topologies.EntityData.NamespaceTable = openconfig.GetNamespaces()
     topologies.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37348,6 +38324,7 @@ func (topologies *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MultiTopology_Topologies_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the multi-topology ID being described
     // by the list entry. The type is string with range: 0..4095. Refers to
@@ -37364,6 +38341,7 @@ func (topology *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     topology.EntityData.BundleName = "openconfig"
     topology.EntityData.ParentYangName = "topologies"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
+    topology.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/multi-topology/topologies/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     topology.EntityData.NamespaceTable = openconfig.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37397,6 +38375,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "topology"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/multi-topology/topologies/topology/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37442,6 +38421,7 @@ func (isisNeighborAttribute *NetworkInstances_NetworkInstance_Protocols_Protocol
     isisNeighborAttribute.EntityData.BundleName = "openconfig"
     isisNeighborAttribute.EntityData.ParentYangName = "tlv"
     isisNeighborAttribute.EntityData.SegmentPath = "isis-neighbor-attribute"
+    isisNeighborAttribute.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + isisNeighborAttribute.EntityData.SegmentPath
     isisNeighborAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     isisNeighborAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     isisNeighborAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37473,6 +38453,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "isis-neighbor-attribute"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37495,6 +38476,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsisNeighborAttribute_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the neighboring IS. The type is
     // string with pattern: ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
@@ -37518,6 +38500,7 @@ func (neighbor *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.SystemId, "system-id")
+    neighbor.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37554,6 +38537,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37586,6 +38570,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
     subtlvs.EntityData.BundleName = "openconfig"
     subtlvs.EntityData.ParentYangName = "neighbor"
     subtlvs.EntityData.SegmentPath = "subtlvs"
+    subtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/" + subtlvs.EntityData.SegmentPath
     subtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37607,6 +38592,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
@@ -37696,6 +38682,7 @@ func (subtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     subtlv.EntityData.BundleName = "openconfig"
     subtlv.EntityData.ParentYangName = "subtlvs"
     subtlv.EntityData.SegmentPath = "subtlv" + types.AddKeyToken(subtlv.Type, "type")
+    subtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/" + subtlv.EntityData.SegmentPath
     subtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37751,6 +38738,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37780,6 +38768,7 @@ func (adminGroup *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     adminGroup.EntityData.BundleName = "openconfig"
     adminGroup.EntityData.ParentYangName = "subtlv"
     adminGroup.EntityData.SegmentPath = "admin-group"
+    adminGroup.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + adminGroup.EntityData.SegmentPath
     adminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37813,6 +38802,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "admin-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/admin-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37842,6 +38832,7 @@ func (ipv4InterfaceAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_
     ipv4InterfaceAddress.EntityData.BundleName = "openconfig"
     ipv4InterfaceAddress.EntityData.ParentYangName = "subtlv"
     ipv4InterfaceAddress.EntityData.SegmentPath = "ipv4-interface-address"
+    ipv4InterfaceAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + ipv4InterfaceAddress.EntityData.SegmentPath
     ipv4InterfaceAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4InterfaceAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4InterfaceAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37873,6 +38864,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-interface-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/ipv4-interface-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37902,6 +38894,7 @@ func (ipv4NeighborAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     ipv4NeighborAddress.EntityData.BundleName = "openconfig"
     ipv4NeighborAddress.EntityData.ParentYangName = "subtlv"
     ipv4NeighborAddress.EntityData.SegmentPath = "ipv4-neighbor-address"
+    ipv4NeighborAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + ipv4NeighborAddress.EntityData.SegmentPath
     ipv4NeighborAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4NeighborAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4NeighborAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37933,6 +38926,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-neighbor-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/ipv4-neighbor-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37962,6 +38956,7 @@ func (maxLinkBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     maxLinkBandwidth.EntityData.BundleName = "openconfig"
     maxLinkBandwidth.EntityData.ParentYangName = "subtlv"
     maxLinkBandwidth.EntityData.SegmentPath = "max-link-bandwidth"
+    maxLinkBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + maxLinkBandwidth.EntityData.SegmentPath
     maxLinkBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     maxLinkBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     maxLinkBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -37994,6 +38989,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "max-link-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/max-link-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38023,6 +39019,7 @@ func (maxReservableLinkBandwidth *NetworkInstances_NetworkInstance_Protocols_Pro
     maxReservableLinkBandwidth.EntityData.BundleName = "openconfig"
     maxReservableLinkBandwidth.EntityData.ParentYangName = "subtlv"
     maxReservableLinkBandwidth.EntityData.SegmentPath = "max-reservable-link-bandwidth"
+    maxReservableLinkBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + maxReservableLinkBandwidth.EntityData.SegmentPath
     maxReservableLinkBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     maxReservableLinkBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     maxReservableLinkBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38056,6 +39053,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "max-reservable-link-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/max-reservable-link-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38087,6 +39085,7 @@ func (unreservedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     unreservedBandwidth.EntityData.BundleName = "openconfig"
     unreservedBandwidth.EntityData.ParentYangName = "subtlv"
     unreservedBandwidth.EntityData.SegmentPath = "unreserved-bandwidth"
+    unreservedBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + unreservedBandwidth.EntityData.SegmentPath
     unreservedBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unreservedBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unreservedBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38109,6 +39108,7 @@ func (unreservedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_I
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv_UnreservedBandwidth_SetupPriority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the setup priority to which the
     // unreserved bandwidth corresponds. The type is string with range: 0..7.
@@ -38126,6 +39126,7 @@ func (setupPriority *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     setupPriority.EntityData.BundleName = "openconfig"
     setupPriority.EntityData.ParentYangName = "unreserved-bandwidth"
     setupPriority.EntityData.SegmentPath = "setup-priority" + types.AddKeyToken(setupPriority.Priority, "priority")
+    setupPriority.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/unreserved-bandwidth/" + setupPriority.EntityData.SegmentPath
     setupPriority.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     setupPriority.EntityData.NamespaceTable = openconfig.GetNamespaces()
     setupPriority.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38168,6 +39169,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "setup-priority"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/unreserved-bandwidth/setup-priority/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38198,6 +39200,7 @@ func (ipv6InterfaceAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_
     ipv6InterfaceAddress.EntityData.BundleName = "openconfig"
     ipv6InterfaceAddress.EntityData.ParentYangName = "subtlv"
     ipv6InterfaceAddress.EntityData.SegmentPath = "ipv6-interface-address"
+    ipv6InterfaceAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + ipv6InterfaceAddress.EntityData.SegmentPath
     ipv6InterfaceAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6InterfaceAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6InterfaceAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38230,6 +39233,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-interface-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/ipv6-interface-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38259,6 +39263,7 @@ func (ipv6NeighborAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     ipv6NeighborAddress.EntityData.BundleName = "openconfig"
     ipv6NeighborAddress.EntityData.ParentYangName = "subtlv"
     ipv6NeighborAddress.EntityData.SegmentPath = "ipv6-neighbor-address"
+    ipv6NeighborAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + ipv6NeighborAddress.EntityData.SegmentPath
     ipv6NeighborAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6NeighborAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6NeighborAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38291,6 +39296,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-neighbor-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/ipv6-neighbor-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38320,6 +39326,7 @@ func (extendedAdminGroup *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     extendedAdminGroup.EntityData.BundleName = "openconfig"
     extendedAdminGroup.EntityData.ParentYangName = "subtlv"
     extendedAdminGroup.EntityData.SegmentPath = "extended-admin-group"
+    extendedAdminGroup.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + extendedAdminGroup.EntityData.SegmentPath
     extendedAdminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extendedAdminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extendedAdminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38352,6 +39359,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "extended-admin-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/extended-admin-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38381,6 +39389,7 @@ func (teDefaultMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     teDefaultMetric.EntityData.BundleName = "openconfig"
     teDefaultMetric.EntityData.ParentYangName = "subtlv"
     teDefaultMetric.EntityData.SegmentPath = "te-default-metric"
+    teDefaultMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + teDefaultMetric.EntityData.SegmentPath
     teDefaultMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     teDefaultMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teDefaultMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38415,6 +39424,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "te-default-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/te-default-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38444,6 +39454,7 @@ func (linkAttributes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_L
     linkAttributes.EntityData.BundleName = "openconfig"
     linkAttributes.EntityData.ParentYangName = "subtlv"
     linkAttributes.EntityData.SegmentPath = "link-attributes"
+    linkAttributes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + linkAttributes.EntityData.SegmentPath
     linkAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38474,6 +39485,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-attributes"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/link-attributes/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38517,6 +39529,7 @@ func (linkProtectionType *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     linkProtectionType.EntityData.BundleName = "openconfig"
     linkProtectionType.EntityData.ParentYangName = "subtlv"
     linkProtectionType.EntityData.SegmentPath = "link-protection-type"
+    linkProtectionType.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + linkProtectionType.EntityData.SegmentPath
     linkProtectionType.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkProtectionType.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkProtectionType.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38546,6 +39559,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-protection-type"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/link-protection-type/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38629,6 +39643,7 @@ func (bandwidthConstraints *NetworkInstances_NetworkInstance_Protocols_Protocol_
     bandwidthConstraints.EntityData.BundleName = "openconfig"
     bandwidthConstraints.EntityData.ParentYangName = "subtlv"
     bandwidthConstraints.EntityData.SegmentPath = "bandwidth-constraints"
+    bandwidthConstraints.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + bandwidthConstraints.EntityData.SegmentPath
     bandwidthConstraints.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthConstraints.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthConstraints.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38651,6 +39666,7 @@ func (bandwidthConstraints *NetworkInstances_NetworkInstance_Protocols_Protocol_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv_BandwidthConstraints_BandwidthConstraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the model ID associated with the
     // instance of the Bandwidth Constraints sub-TLV. The type is string with
@@ -38671,6 +39687,7 @@ func (bandwidthConstraint *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     bandwidthConstraint.EntityData.BundleName = "openconfig"
     bandwidthConstraint.EntityData.ParentYangName = "bandwidth-constraints"
     bandwidthConstraint.EntityData.SegmentPath = "bandwidth-constraint" + types.AddKeyToken(bandwidthConstraint.ModelId, "model-id")
+    bandwidthConstraint.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/" + bandwidthConstraint.EntityData.SegmentPath
     bandwidthConstraint.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthConstraint.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthConstraint.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38705,6 +39722,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bandwidth-constraint"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38737,6 +39755,7 @@ func (constraints *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     constraints.EntityData.BundleName = "openconfig"
     constraints.EntityData.ParentYangName = "bandwidth-constraint"
     constraints.EntityData.SegmentPath = "constraints"
+    constraints.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/" + constraints.EntityData.SegmentPath
     constraints.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     constraints.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constraints.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38761,6 +39780,7 @@ func (constraints *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv_BandwidthConstraints_BandwidthConstraint_Constraints_Constraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the unique ID for the BCN level. The
     // type is string with range: 0..4294967295. Refers to
@@ -38777,6 +39797,7 @@ func (constraint *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     constraint.EntityData.BundleName = "openconfig"
     constraint.EntityData.ParentYangName = "constraints"
     constraint.EntityData.SegmentPath = "constraint" + types.AddKeyToken(constraint.ConstraintId, "constraint-id")
+    constraint.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/constraints/" + constraint.EntityData.SegmentPath
     constraint.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     constraint.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constraint.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38814,6 +39835,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "constraint"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/constraints/constraint/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38844,6 +39866,7 @@ func (unconstrainedLsp *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     unconstrainedLsp.EntityData.BundleName = "openconfig"
     unconstrainedLsp.EntityData.ParentYangName = "subtlv"
     unconstrainedLsp.EntityData.SegmentPath = "unconstrained-lsp"
+    unconstrainedLsp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + unconstrainedLsp.EntityData.SegmentPath
     unconstrainedLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unconstrainedLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unconstrainedLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38879,6 +39902,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "unconstrained-lsp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/unconstrained-lsp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38913,6 +39937,7 @@ func (adjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     adjacencySids.EntityData.BundleName = "openconfig"
     adjacencySids.EntityData.ParentYangName = "subtlv"
     adjacencySids.EntityData.SegmentPath = "adjacency-sids"
+    adjacencySids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + adjacencySids.EntityData.SegmentPath
     adjacencySids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencySids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencySids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38938,6 +39963,7 @@ func (adjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv_AdjacencySids_AdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the Adjacency-SID. The
     // type is string with range: 0..4294967295. Refers to
@@ -38954,6 +39980,7 @@ func (adjacencySid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Lev
     adjacencySid.EntityData.BundleName = "openconfig"
     adjacencySid.EntityData.ParentYangName = "adjacency-sids"
     adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddKeyToken(adjacencySid.Value, "value")
+    adjacencySid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/adjacency-sids/" + adjacencySid.EntityData.SegmentPath
     adjacencySid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencySid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencySid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -38991,6 +40018,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "adjacency-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/adjacency-sids/adjacency-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39057,6 +40085,7 @@ func (lanAdjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     lanAdjacencySids.EntityData.BundleName = "openconfig"
     lanAdjacencySids.EntityData.ParentYangName = "subtlv"
     lanAdjacencySids.EntityData.SegmentPath = "lan-adjacency-sids"
+    lanAdjacencySids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + lanAdjacencySids.EntityData.SegmentPath
     lanAdjacencySids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lanAdjacencySids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lanAdjacencySids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39082,6 +40111,7 @@ func (lanAdjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv_LanAdjacencySids_LanAdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the LAN Adjacency-SID.
     // The type is string with range: 0..4294967295. Refers to
@@ -39098,6 +40128,7 @@ func (lanAdjacencySid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     lanAdjacencySid.EntityData.BundleName = "openconfig"
     lanAdjacencySid.EntityData.ParentYangName = "lan-adjacency-sids"
     lanAdjacencySid.EntityData.SegmentPath = "lan-adjacency-sid" + types.AddKeyToken(lanAdjacencySid.Value, "value")
+    lanAdjacencySid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/lan-adjacency-sids/" + lanAdjacencySid.EntityData.SegmentPath
     lanAdjacencySid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lanAdjacencySid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lanAdjacencySid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39140,6 +40171,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "lan-adjacency-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/lan-adjacency-sids/lan-adjacency-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39202,6 +40234,7 @@ func (linkDelay *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     linkDelay.EntityData.BundleName = "openconfig"
     linkDelay.EntityData.ParentYangName = "subtlv"
     linkDelay.EntityData.SegmentPath = "link-delay"
+    linkDelay.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + linkDelay.EntityData.SegmentPath
     linkDelay.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkDelay.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkDelay.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39239,6 +40272,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-delay"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/link-delay/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39269,6 +40303,7 @@ func (minMaxLinkDelay *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     minMaxLinkDelay.EntityData.BundleName = "openconfig"
     minMaxLinkDelay.EntityData.ParentYangName = "subtlv"
     minMaxLinkDelay.EntityData.SegmentPath = "min-max-link-delay"
+    minMaxLinkDelay.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + minMaxLinkDelay.EntityData.SegmentPath
     minMaxLinkDelay.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     minMaxLinkDelay.EntityData.NamespaceTable = openconfig.GetNamespaces()
     minMaxLinkDelay.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39311,6 +40346,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "min-max-link-delay"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/min-max-link-delay/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39343,6 +40379,7 @@ func (linkDelayVariation *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     linkDelayVariation.EntityData.BundleName = "openconfig"
     linkDelayVariation.EntityData.ParentYangName = "subtlv"
     linkDelayVariation.EntityData.SegmentPath = "link-delay-variation"
+    linkDelayVariation.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + linkDelayVariation.EntityData.SegmentPath
     linkDelayVariation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkDelayVariation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkDelayVariation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39375,6 +40412,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-delay-variation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/link-delay-variation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39404,6 +40442,7 @@ func (linkLoss *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     linkLoss.EntityData.BundleName = "openconfig"
     linkLoss.EntityData.ParentYangName = "subtlv"
     linkLoss.EntityData.SegmentPath = "link-loss"
+    linkLoss.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + linkLoss.EntityData.SegmentPath
     linkLoss.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkLoss.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkLoss.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39447,6 +40486,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-loss"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/link-loss/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39478,6 +40518,7 @@ func (residualBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isi
     residualBandwidth.EntityData.BundleName = "openconfig"
     residualBandwidth.EntityData.ParentYangName = "subtlv"
     residualBandwidth.EntityData.SegmentPath = "residual-bandwidth"
+    residualBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + residualBandwidth.EntityData.SegmentPath
     residualBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     residualBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     residualBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39514,6 +40555,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "residual-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/residual-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39544,6 +40586,7 @@ func (availableBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     availableBandwidth.EntityData.BundleName = "openconfig"
     availableBandwidth.EntityData.ParentYangName = "subtlv"
     availableBandwidth.EntityData.SegmentPath = "available-bandwidth"
+    availableBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + availableBandwidth.EntityData.SegmentPath
     availableBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     availableBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     availableBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39588,6 +40631,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "available-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/available-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39619,6 +40663,7 @@ func (utilizedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isi
     utilizedBandwidth.EntityData.BundleName = "openconfig"
     utilizedBandwidth.EntityData.ParentYangName = "subtlv"
     utilizedBandwidth.EntityData.SegmentPath = "utilized-bandwidth"
+    utilizedBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + utilizedBandwidth.EntityData.SegmentPath
     utilizedBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     utilizedBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     utilizedBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39660,6 +40705,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "utilized-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/utilized-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39692,6 +40738,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     undefinedSubtlvs.EntityData.BundleName = "openconfig"
     undefinedSubtlvs.EntityData.ParentYangName = "neighbor"
     undefinedSubtlvs.EntityData.SegmentPath = "undefined-subtlvs"
+    undefinedSubtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/" + undefinedSubtlvs.EntityData.SegmentPath
     undefinedSubtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39714,6 +40761,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsisNeighborAttribute_Neighbors_Neighbor_UndefinedSubtlvs_UndefinedSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the type of the undefined sub-TLV.
     // The type is string with range: 0..255. Refers to
@@ -39730,6 +40778,7 @@ func (undefinedSubtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     undefinedSubtlv.EntityData.BundleName = "openconfig"
     undefinedSubtlv.EntityData.ParentYangName = "undefined-subtlvs"
     undefinedSubtlv.EntityData.SegmentPath = "undefined-subtlv" + types.AddKeyToken(undefinedSubtlv.Type, "type")
+    undefinedSubtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/undefined-subtlvs/" + undefinedSubtlv.EntityData.SegmentPath
     undefinedSubtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39766,6 +40815,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "undefined-subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/isis-neighbor-attribute/neighbors/neighbor/undefined-subtlvs/undefined-subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39800,6 +40850,7 @@ func (isAliasId *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     isAliasId.EntityData.BundleName = "openconfig"
     isAliasId.EntityData.ParentYangName = "tlv"
     isAliasId.EntityData.SegmentPath = "is-alias-id"
+    isAliasId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + isAliasId.EntityData.SegmentPath
     isAliasId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     isAliasId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     isAliasId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39830,6 +40881,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "is-alias-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/is-alias-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39860,6 +40912,7 @@ func (mtIsn *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     mtIsn.EntityData.BundleName = "openconfig"
     mtIsn.EntityData.ParentYangName = "tlv"
     mtIsn.EntityData.SegmentPath = "mt-isn"
+    mtIsn.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + mtIsn.EntityData.SegmentPath
     mtIsn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mtIsn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mtIsn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39890,6 +40943,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "mt-isn"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39911,6 +40965,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsn_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key.        Reference to the topology that the neighbor
     // is within. The type is string with range: 0..4095. Refers to
@@ -39939,6 +40994,7 @@ func (neighbor *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.MtId, "mt-id") + types.AddKeyToken(neighbor.SystemId, "system-id")
+    neighbor.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -39980,6 +41036,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40013,6 +41070,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
     subtlvs.EntityData.BundleName = "openconfig"
     subtlvs.EntityData.ParentYangName = "neighbor"
     subtlvs.EntityData.SegmentPath = "subtlvs"
+    subtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/" + subtlvs.EntityData.SegmentPath
     subtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40034,6 +41092,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsn_Neighbors_Neighbor_Subtlvs_Subtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
@@ -40123,6 +41182,7 @@ func (subtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     subtlv.EntityData.BundleName = "openconfig"
     subtlv.EntityData.ParentYangName = "subtlvs"
     subtlv.EntityData.SegmentPath = "subtlv" + types.AddKeyToken(subtlv.Type, "type")
+    subtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/" + subtlv.EntityData.SegmentPath
     subtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40178,6 +41238,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40207,6 +41268,7 @@ func (adminGroup *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     adminGroup.EntityData.BundleName = "openconfig"
     adminGroup.EntityData.ParentYangName = "subtlv"
     adminGroup.EntityData.SegmentPath = "admin-group"
+    adminGroup.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + adminGroup.EntityData.SegmentPath
     adminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40240,6 +41302,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "admin-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/admin-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40269,6 +41332,7 @@ func (ipv4InterfaceAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_
     ipv4InterfaceAddress.EntityData.BundleName = "openconfig"
     ipv4InterfaceAddress.EntityData.ParentYangName = "subtlv"
     ipv4InterfaceAddress.EntityData.SegmentPath = "ipv4-interface-address"
+    ipv4InterfaceAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + ipv4InterfaceAddress.EntityData.SegmentPath
     ipv4InterfaceAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4InterfaceAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4InterfaceAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40300,6 +41364,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-interface-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/ipv4-interface-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40329,6 +41394,7 @@ func (ipv4NeighborAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     ipv4NeighborAddress.EntityData.BundleName = "openconfig"
     ipv4NeighborAddress.EntityData.ParentYangName = "subtlv"
     ipv4NeighborAddress.EntityData.SegmentPath = "ipv4-neighbor-address"
+    ipv4NeighborAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + ipv4NeighborAddress.EntityData.SegmentPath
     ipv4NeighborAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4NeighborAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4NeighborAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40360,6 +41426,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-neighbor-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/ipv4-neighbor-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40389,6 +41456,7 @@ func (maxLinkBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     maxLinkBandwidth.EntityData.BundleName = "openconfig"
     maxLinkBandwidth.EntityData.ParentYangName = "subtlv"
     maxLinkBandwidth.EntityData.SegmentPath = "max-link-bandwidth"
+    maxLinkBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + maxLinkBandwidth.EntityData.SegmentPath
     maxLinkBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     maxLinkBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     maxLinkBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40421,6 +41489,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "max-link-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/max-link-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40450,6 +41519,7 @@ func (maxReservableLinkBandwidth *NetworkInstances_NetworkInstance_Protocols_Pro
     maxReservableLinkBandwidth.EntityData.BundleName = "openconfig"
     maxReservableLinkBandwidth.EntityData.ParentYangName = "subtlv"
     maxReservableLinkBandwidth.EntityData.SegmentPath = "max-reservable-link-bandwidth"
+    maxReservableLinkBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + maxReservableLinkBandwidth.EntityData.SegmentPath
     maxReservableLinkBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     maxReservableLinkBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     maxReservableLinkBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40483,6 +41553,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "max-reservable-link-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/max-reservable-link-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40514,6 +41585,7 @@ func (unreservedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     unreservedBandwidth.EntityData.BundleName = "openconfig"
     unreservedBandwidth.EntityData.ParentYangName = "subtlv"
     unreservedBandwidth.EntityData.SegmentPath = "unreserved-bandwidth"
+    unreservedBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + unreservedBandwidth.EntityData.SegmentPath
     unreservedBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unreservedBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unreservedBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40536,6 +41608,7 @@ func (unreservedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_I
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsn_Neighbors_Neighbor_Subtlvs_Subtlv_UnreservedBandwidth_SetupPriority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the setup priority to which the
     // unreserved bandwidth corresponds. The type is string with range: 0..7.
@@ -40553,6 +41626,7 @@ func (setupPriority *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     setupPriority.EntityData.BundleName = "openconfig"
     setupPriority.EntityData.ParentYangName = "unreserved-bandwidth"
     setupPriority.EntityData.SegmentPath = "setup-priority" + types.AddKeyToken(setupPriority.Priority, "priority")
+    setupPriority.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/unreserved-bandwidth/" + setupPriority.EntityData.SegmentPath
     setupPriority.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     setupPriority.EntityData.NamespaceTable = openconfig.GetNamespaces()
     setupPriority.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40595,6 +41669,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "setup-priority"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/unreserved-bandwidth/setup-priority/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40625,6 +41700,7 @@ func (ipv6InterfaceAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_
     ipv6InterfaceAddress.EntityData.BundleName = "openconfig"
     ipv6InterfaceAddress.EntityData.ParentYangName = "subtlv"
     ipv6InterfaceAddress.EntityData.SegmentPath = "ipv6-interface-address"
+    ipv6InterfaceAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + ipv6InterfaceAddress.EntityData.SegmentPath
     ipv6InterfaceAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6InterfaceAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6InterfaceAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40657,6 +41733,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-interface-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/ipv6-interface-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40686,6 +41763,7 @@ func (ipv6NeighborAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     ipv6NeighborAddress.EntityData.BundleName = "openconfig"
     ipv6NeighborAddress.EntityData.ParentYangName = "subtlv"
     ipv6NeighborAddress.EntityData.SegmentPath = "ipv6-neighbor-address"
+    ipv6NeighborAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + ipv6NeighborAddress.EntityData.SegmentPath
     ipv6NeighborAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6NeighborAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6NeighborAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40718,6 +41796,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-neighbor-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/ipv6-neighbor-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40747,6 +41826,7 @@ func (extendedAdminGroup *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     extendedAdminGroup.EntityData.BundleName = "openconfig"
     extendedAdminGroup.EntityData.ParentYangName = "subtlv"
     extendedAdminGroup.EntityData.SegmentPath = "extended-admin-group"
+    extendedAdminGroup.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + extendedAdminGroup.EntityData.SegmentPath
     extendedAdminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extendedAdminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extendedAdminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40779,6 +41859,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "extended-admin-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/extended-admin-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40808,6 +41889,7 @@ func (teDefaultMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     teDefaultMetric.EntityData.BundleName = "openconfig"
     teDefaultMetric.EntityData.ParentYangName = "subtlv"
     teDefaultMetric.EntityData.SegmentPath = "te-default-metric"
+    teDefaultMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + teDefaultMetric.EntityData.SegmentPath
     teDefaultMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     teDefaultMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teDefaultMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40842,6 +41924,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "te-default-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/te-default-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40871,6 +41954,7 @@ func (linkAttributes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_L
     linkAttributes.EntityData.BundleName = "openconfig"
     linkAttributes.EntityData.ParentYangName = "subtlv"
     linkAttributes.EntityData.SegmentPath = "link-attributes"
+    linkAttributes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + linkAttributes.EntityData.SegmentPath
     linkAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40901,6 +41985,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-attributes"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/link-attributes/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40944,6 +42029,7 @@ func (linkProtectionType *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     linkProtectionType.EntityData.BundleName = "openconfig"
     linkProtectionType.EntityData.ParentYangName = "subtlv"
     linkProtectionType.EntityData.SegmentPath = "link-protection-type"
+    linkProtectionType.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + linkProtectionType.EntityData.SegmentPath
     linkProtectionType.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkProtectionType.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkProtectionType.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -40973,6 +42059,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-protection-type"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/link-protection-type/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41056,6 +42143,7 @@ func (bandwidthConstraints *NetworkInstances_NetworkInstance_Protocols_Protocol_
     bandwidthConstraints.EntityData.BundleName = "openconfig"
     bandwidthConstraints.EntityData.ParentYangName = "subtlv"
     bandwidthConstraints.EntityData.SegmentPath = "bandwidth-constraints"
+    bandwidthConstraints.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + bandwidthConstraints.EntityData.SegmentPath
     bandwidthConstraints.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthConstraints.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthConstraints.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41078,6 +42166,7 @@ func (bandwidthConstraints *NetworkInstances_NetworkInstance_Protocols_Protocol_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsn_Neighbors_Neighbor_Subtlvs_Subtlv_BandwidthConstraints_BandwidthConstraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the model ID associated with the
     // instance of the Bandwidth Constraints sub-TLV. The type is string with
@@ -41098,6 +42187,7 @@ func (bandwidthConstraint *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     bandwidthConstraint.EntityData.BundleName = "openconfig"
     bandwidthConstraint.EntityData.ParentYangName = "bandwidth-constraints"
     bandwidthConstraint.EntityData.SegmentPath = "bandwidth-constraint" + types.AddKeyToken(bandwidthConstraint.ModelId, "model-id")
+    bandwidthConstraint.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/" + bandwidthConstraint.EntityData.SegmentPath
     bandwidthConstraint.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthConstraint.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthConstraint.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41132,6 +42222,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bandwidth-constraint"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41164,6 +42255,7 @@ func (constraints *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     constraints.EntityData.BundleName = "openconfig"
     constraints.EntityData.ParentYangName = "bandwidth-constraint"
     constraints.EntityData.SegmentPath = "constraints"
+    constraints.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/" + constraints.EntityData.SegmentPath
     constraints.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     constraints.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constraints.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41188,6 +42280,7 @@ func (constraints *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsn_Neighbors_Neighbor_Subtlvs_Subtlv_BandwidthConstraints_BandwidthConstraint_Constraints_Constraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the unique ID for the BCN level. The
     // type is string with range: 0..4294967295. Refers to
@@ -41204,6 +42297,7 @@ func (constraint *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     constraint.EntityData.BundleName = "openconfig"
     constraint.EntityData.ParentYangName = "constraints"
     constraint.EntityData.SegmentPath = "constraint" + types.AddKeyToken(constraint.ConstraintId, "constraint-id")
+    constraint.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/constraints/" + constraint.EntityData.SegmentPath
     constraint.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     constraint.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constraint.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41241,6 +42335,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "constraint"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/constraints/constraint/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41271,6 +42366,7 @@ func (unconstrainedLsp *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     unconstrainedLsp.EntityData.BundleName = "openconfig"
     unconstrainedLsp.EntityData.ParentYangName = "subtlv"
     unconstrainedLsp.EntityData.SegmentPath = "unconstrained-lsp"
+    unconstrainedLsp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + unconstrainedLsp.EntityData.SegmentPath
     unconstrainedLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unconstrainedLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unconstrainedLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41306,6 +42402,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "unconstrained-lsp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/unconstrained-lsp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41340,6 +42437,7 @@ func (adjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     adjacencySids.EntityData.BundleName = "openconfig"
     adjacencySids.EntityData.ParentYangName = "subtlv"
     adjacencySids.EntityData.SegmentPath = "adjacency-sids"
+    adjacencySids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + adjacencySids.EntityData.SegmentPath
     adjacencySids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencySids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencySids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41365,6 +42463,7 @@ func (adjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsn_Neighbors_Neighbor_Subtlvs_Subtlv_AdjacencySids_AdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the Adjacency-SID. The
     // type is string with range: 0..4294967295. Refers to
@@ -41381,6 +42480,7 @@ func (adjacencySid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Lev
     adjacencySid.EntityData.BundleName = "openconfig"
     adjacencySid.EntityData.ParentYangName = "adjacency-sids"
     adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddKeyToken(adjacencySid.Value, "value")
+    adjacencySid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/adjacency-sids/" + adjacencySid.EntityData.SegmentPath
     adjacencySid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencySid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencySid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41418,6 +42518,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "adjacency-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/adjacency-sids/adjacency-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41484,6 +42585,7 @@ func (lanAdjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     lanAdjacencySids.EntityData.BundleName = "openconfig"
     lanAdjacencySids.EntityData.ParentYangName = "subtlv"
     lanAdjacencySids.EntityData.SegmentPath = "lan-adjacency-sids"
+    lanAdjacencySids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + lanAdjacencySids.EntityData.SegmentPath
     lanAdjacencySids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lanAdjacencySids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lanAdjacencySids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41509,6 +42611,7 @@ func (lanAdjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsn_Neighbors_Neighbor_Subtlvs_Subtlv_LanAdjacencySids_LanAdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the LAN Adjacency-SID.
     // The type is string with range: 0..4294967295. Refers to
@@ -41525,6 +42628,7 @@ func (lanAdjacencySid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     lanAdjacencySid.EntityData.BundleName = "openconfig"
     lanAdjacencySid.EntityData.ParentYangName = "lan-adjacency-sids"
     lanAdjacencySid.EntityData.SegmentPath = "lan-adjacency-sid" + types.AddKeyToken(lanAdjacencySid.Value, "value")
+    lanAdjacencySid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/lan-adjacency-sids/" + lanAdjacencySid.EntityData.SegmentPath
     lanAdjacencySid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lanAdjacencySid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lanAdjacencySid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41567,6 +42671,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "lan-adjacency-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/lan-adjacency-sids/lan-adjacency-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41629,6 +42734,7 @@ func (linkDelay *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     linkDelay.EntityData.BundleName = "openconfig"
     linkDelay.EntityData.ParentYangName = "subtlv"
     linkDelay.EntityData.SegmentPath = "link-delay"
+    linkDelay.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + linkDelay.EntityData.SegmentPath
     linkDelay.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkDelay.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkDelay.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41666,6 +42772,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-delay"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/link-delay/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41696,6 +42803,7 @@ func (minMaxLinkDelay *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     minMaxLinkDelay.EntityData.BundleName = "openconfig"
     minMaxLinkDelay.EntityData.ParentYangName = "subtlv"
     minMaxLinkDelay.EntityData.SegmentPath = "min-max-link-delay"
+    minMaxLinkDelay.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + minMaxLinkDelay.EntityData.SegmentPath
     minMaxLinkDelay.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     minMaxLinkDelay.EntityData.NamespaceTable = openconfig.GetNamespaces()
     minMaxLinkDelay.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41738,6 +42846,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "min-max-link-delay"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/min-max-link-delay/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41770,6 +42879,7 @@ func (linkDelayVariation *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     linkDelayVariation.EntityData.BundleName = "openconfig"
     linkDelayVariation.EntityData.ParentYangName = "subtlv"
     linkDelayVariation.EntityData.SegmentPath = "link-delay-variation"
+    linkDelayVariation.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + linkDelayVariation.EntityData.SegmentPath
     linkDelayVariation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkDelayVariation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkDelayVariation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41802,6 +42912,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-delay-variation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/link-delay-variation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41831,6 +42942,7 @@ func (linkLoss *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     linkLoss.EntityData.BundleName = "openconfig"
     linkLoss.EntityData.ParentYangName = "subtlv"
     linkLoss.EntityData.SegmentPath = "link-loss"
+    linkLoss.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + linkLoss.EntityData.SegmentPath
     linkLoss.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkLoss.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkLoss.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41874,6 +42986,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-loss"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/link-loss/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41905,6 +43018,7 @@ func (residualBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isi
     residualBandwidth.EntityData.BundleName = "openconfig"
     residualBandwidth.EntityData.ParentYangName = "subtlv"
     residualBandwidth.EntityData.SegmentPath = "residual-bandwidth"
+    residualBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + residualBandwidth.EntityData.SegmentPath
     residualBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     residualBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     residualBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41941,6 +43055,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "residual-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/residual-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -41971,6 +43086,7 @@ func (availableBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     availableBandwidth.EntityData.BundleName = "openconfig"
     availableBandwidth.EntityData.ParentYangName = "subtlv"
     availableBandwidth.EntityData.SegmentPath = "available-bandwidth"
+    availableBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + availableBandwidth.EntityData.SegmentPath
     availableBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     availableBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     availableBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42015,6 +43131,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "available-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/available-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42046,6 +43163,7 @@ func (utilizedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isi
     utilizedBandwidth.EntityData.BundleName = "openconfig"
     utilizedBandwidth.EntityData.ParentYangName = "subtlv"
     utilizedBandwidth.EntityData.SegmentPath = "utilized-bandwidth"
+    utilizedBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/" + utilizedBandwidth.EntityData.SegmentPath
     utilizedBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     utilizedBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     utilizedBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42087,6 +43205,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "utilized-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/subtlvs/subtlv/utilized-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42119,6 +43238,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     undefinedSubtlvs.EntityData.BundleName = "openconfig"
     undefinedSubtlvs.EntityData.ParentYangName = "neighbor"
     undefinedSubtlvs.EntityData.SegmentPath = "undefined-subtlvs"
+    undefinedSubtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/" + undefinedSubtlvs.EntityData.SegmentPath
     undefinedSubtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42141,6 +43261,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsn_Neighbors_Neighbor_UndefinedSubtlvs_UndefinedSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the type of the undefined sub-TLV.
     // The type is string with range: 0..255. Refers to
@@ -42157,6 +43278,7 @@ func (undefinedSubtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     undefinedSubtlv.EntityData.BundleName = "openconfig"
     undefinedSubtlv.EntityData.ParentYangName = "undefined-subtlvs"
     undefinedSubtlv.EntityData.SegmentPath = "undefined-subtlv" + types.AddKeyToken(undefinedSubtlv.Type, "type")
+    undefinedSubtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/undefined-subtlvs/" + undefinedSubtlv.EntityData.SegmentPath
     undefinedSubtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42193,6 +43315,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "undefined-subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isn/neighbors/neighbor/undefined-subtlvs/undefined-subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42225,6 +43348,7 @@ func (mtIsisNeighborAttribute *NetworkInstances_NetworkInstance_Protocols_Protoc
     mtIsisNeighborAttribute.EntityData.BundleName = "openconfig"
     mtIsisNeighborAttribute.EntityData.ParentYangName = "tlv"
     mtIsisNeighborAttribute.EntityData.SegmentPath = "mt-isis-neighbor-attribute"
+    mtIsisNeighborAttribute.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + mtIsisNeighborAttribute.EntityData.SegmentPath
     mtIsisNeighborAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mtIsisNeighborAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mtIsisNeighborAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42255,6 +43379,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "mt-isis-neighbor-attribute"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42276,6 +43401,7 @@ func (neighbors *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsisNeighborAttribute_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the topology that the neighbor is
     // within. The type is string with range: 0..4095. Refers to
@@ -42304,6 +43430,7 @@ func (neighbor *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.MtId, "mt-id") + types.AddKeyToken(neighbor.SystemId, "system-id")
+    neighbor.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42345,6 +43472,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42378,6 +43506,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
     subtlvs.EntityData.BundleName = "openconfig"
     subtlvs.EntityData.ParentYangName = "neighbor"
     subtlvs.EntityData.SegmentPath = "subtlvs"
+    subtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/" + subtlvs.EntityData.SegmentPath
     subtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42399,6 +43528,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
@@ -42488,6 +43618,7 @@ func (subtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     subtlv.EntityData.BundleName = "openconfig"
     subtlv.EntityData.ParentYangName = "subtlvs"
     subtlv.EntityData.SegmentPath = "subtlv" + types.AddKeyToken(subtlv.Type, "type")
+    subtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/" + subtlv.EntityData.SegmentPath
     subtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42543,6 +43674,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42572,6 +43704,7 @@ func (adminGroup *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     adminGroup.EntityData.BundleName = "openconfig"
     adminGroup.EntityData.ParentYangName = "subtlv"
     adminGroup.EntityData.SegmentPath = "admin-group"
+    adminGroup.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + adminGroup.EntityData.SegmentPath
     adminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42605,6 +43738,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "admin-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/admin-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42634,6 +43768,7 @@ func (ipv4InterfaceAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_
     ipv4InterfaceAddress.EntityData.BundleName = "openconfig"
     ipv4InterfaceAddress.EntityData.ParentYangName = "subtlv"
     ipv4InterfaceAddress.EntityData.SegmentPath = "ipv4-interface-address"
+    ipv4InterfaceAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + ipv4InterfaceAddress.EntityData.SegmentPath
     ipv4InterfaceAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4InterfaceAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4InterfaceAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42665,6 +43800,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-interface-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/ipv4-interface-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42694,6 +43830,7 @@ func (ipv4NeighborAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     ipv4NeighborAddress.EntityData.BundleName = "openconfig"
     ipv4NeighborAddress.EntityData.ParentYangName = "subtlv"
     ipv4NeighborAddress.EntityData.SegmentPath = "ipv4-neighbor-address"
+    ipv4NeighborAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + ipv4NeighborAddress.EntityData.SegmentPath
     ipv4NeighborAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4NeighborAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4NeighborAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42725,6 +43862,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-neighbor-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/ipv4-neighbor-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42754,6 +43892,7 @@ func (maxLinkBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     maxLinkBandwidth.EntityData.BundleName = "openconfig"
     maxLinkBandwidth.EntityData.ParentYangName = "subtlv"
     maxLinkBandwidth.EntityData.SegmentPath = "max-link-bandwidth"
+    maxLinkBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + maxLinkBandwidth.EntityData.SegmentPath
     maxLinkBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     maxLinkBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     maxLinkBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42786,6 +43925,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "max-link-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/max-link-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42815,6 +43955,7 @@ func (maxReservableLinkBandwidth *NetworkInstances_NetworkInstance_Protocols_Pro
     maxReservableLinkBandwidth.EntityData.BundleName = "openconfig"
     maxReservableLinkBandwidth.EntityData.ParentYangName = "subtlv"
     maxReservableLinkBandwidth.EntityData.SegmentPath = "max-reservable-link-bandwidth"
+    maxReservableLinkBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + maxReservableLinkBandwidth.EntityData.SegmentPath
     maxReservableLinkBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     maxReservableLinkBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     maxReservableLinkBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42848,6 +43989,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "max-reservable-link-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/max-reservable-link-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42879,6 +44021,7 @@ func (unreservedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     unreservedBandwidth.EntityData.BundleName = "openconfig"
     unreservedBandwidth.EntityData.ParentYangName = "subtlv"
     unreservedBandwidth.EntityData.SegmentPath = "unreserved-bandwidth"
+    unreservedBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + unreservedBandwidth.EntityData.SegmentPath
     unreservedBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unreservedBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unreservedBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42901,6 +44044,7 @@ func (unreservedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_I
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv_UnreservedBandwidth_SetupPriority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the setup priority to which the
     // unreserved bandwidth corresponds. The type is string with range: 0..7.
@@ -42918,6 +44062,7 @@ func (setupPriority *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     setupPriority.EntityData.BundleName = "openconfig"
     setupPriority.EntityData.ParentYangName = "unreserved-bandwidth"
     setupPriority.EntityData.SegmentPath = "setup-priority" + types.AddKeyToken(setupPriority.Priority, "priority")
+    setupPriority.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/unreserved-bandwidth/" + setupPriority.EntityData.SegmentPath
     setupPriority.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     setupPriority.EntityData.NamespaceTable = openconfig.GetNamespaces()
     setupPriority.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42960,6 +44105,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "setup-priority"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/unreserved-bandwidth/setup-priority/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -42990,6 +44136,7 @@ func (ipv6InterfaceAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_
     ipv6InterfaceAddress.EntityData.BundleName = "openconfig"
     ipv6InterfaceAddress.EntityData.ParentYangName = "subtlv"
     ipv6InterfaceAddress.EntityData.SegmentPath = "ipv6-interface-address"
+    ipv6InterfaceAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + ipv6InterfaceAddress.EntityData.SegmentPath
     ipv6InterfaceAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6InterfaceAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6InterfaceAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43022,6 +44169,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-interface-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/ipv6-interface-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43051,6 +44199,7 @@ func (ipv6NeighborAddress *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     ipv6NeighborAddress.EntityData.BundleName = "openconfig"
     ipv6NeighborAddress.EntityData.ParentYangName = "subtlv"
     ipv6NeighborAddress.EntityData.SegmentPath = "ipv6-neighbor-address"
+    ipv6NeighborAddress.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + ipv6NeighborAddress.EntityData.SegmentPath
     ipv6NeighborAddress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6NeighborAddress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6NeighborAddress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43083,6 +44232,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-neighbor-address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/ipv6-neighbor-address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43112,6 +44262,7 @@ func (extendedAdminGroup *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     extendedAdminGroup.EntityData.BundleName = "openconfig"
     extendedAdminGroup.EntityData.ParentYangName = "subtlv"
     extendedAdminGroup.EntityData.SegmentPath = "extended-admin-group"
+    extendedAdminGroup.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + extendedAdminGroup.EntityData.SegmentPath
     extendedAdminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extendedAdminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extendedAdminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43144,6 +44295,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "extended-admin-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/extended-admin-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43173,6 +44325,7 @@ func (teDefaultMetric *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     teDefaultMetric.EntityData.BundleName = "openconfig"
     teDefaultMetric.EntityData.ParentYangName = "subtlv"
     teDefaultMetric.EntityData.SegmentPath = "te-default-metric"
+    teDefaultMetric.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + teDefaultMetric.EntityData.SegmentPath
     teDefaultMetric.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     teDefaultMetric.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teDefaultMetric.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43207,6 +44360,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "te-default-metric"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/te-default-metric/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43236,6 +44390,7 @@ func (linkAttributes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_L
     linkAttributes.EntityData.BundleName = "openconfig"
     linkAttributes.EntityData.ParentYangName = "subtlv"
     linkAttributes.EntityData.SegmentPath = "link-attributes"
+    linkAttributes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + linkAttributes.EntityData.SegmentPath
     linkAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43266,6 +44421,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-attributes"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/link-attributes/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43309,6 +44465,7 @@ func (linkProtectionType *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     linkProtectionType.EntityData.BundleName = "openconfig"
     linkProtectionType.EntityData.ParentYangName = "subtlv"
     linkProtectionType.EntityData.SegmentPath = "link-protection-type"
+    linkProtectionType.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + linkProtectionType.EntityData.SegmentPath
     linkProtectionType.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkProtectionType.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkProtectionType.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43338,6 +44495,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-protection-type"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/link-protection-type/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43421,6 +44579,7 @@ func (bandwidthConstraints *NetworkInstances_NetworkInstance_Protocols_Protocol_
     bandwidthConstraints.EntityData.BundleName = "openconfig"
     bandwidthConstraints.EntityData.ParentYangName = "subtlv"
     bandwidthConstraints.EntityData.SegmentPath = "bandwidth-constraints"
+    bandwidthConstraints.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + bandwidthConstraints.EntityData.SegmentPath
     bandwidthConstraints.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthConstraints.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthConstraints.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43443,6 +44602,7 @@ func (bandwidthConstraints *NetworkInstances_NetworkInstance_Protocols_Protocol_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv_BandwidthConstraints_BandwidthConstraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the model ID associated with the
     // instance of the Bandwidth Constraints sub-TLV. The type is string with
@@ -43463,6 +44623,7 @@ func (bandwidthConstraint *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     bandwidthConstraint.EntityData.BundleName = "openconfig"
     bandwidthConstraint.EntityData.ParentYangName = "bandwidth-constraints"
     bandwidthConstraint.EntityData.SegmentPath = "bandwidth-constraint" + types.AddKeyToken(bandwidthConstraint.ModelId, "model-id")
+    bandwidthConstraint.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/" + bandwidthConstraint.EntityData.SegmentPath
     bandwidthConstraint.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthConstraint.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthConstraint.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43497,6 +44658,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bandwidth-constraint"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43529,6 +44691,7 @@ func (constraints *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
     constraints.EntityData.BundleName = "openconfig"
     constraints.EntityData.ParentYangName = "bandwidth-constraint"
     constraints.EntityData.SegmentPath = "constraints"
+    constraints.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/" + constraints.EntityData.SegmentPath
     constraints.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     constraints.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constraints.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43553,6 +44716,7 @@ func (constraints *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Leve
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv_BandwidthConstraints_BandwidthConstraint_Constraints_Constraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the unique ID for the BCN level. The
     // type is string with range: 0..4294967295. Refers to
@@ -43569,6 +44733,7 @@ func (constraint *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     constraint.EntityData.BundleName = "openconfig"
     constraint.EntityData.ParentYangName = "constraints"
     constraint.EntityData.SegmentPath = "constraint" + types.AddKeyToken(constraint.ConstraintId, "constraint-id")
+    constraint.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/constraints/" + constraint.EntityData.SegmentPath
     constraint.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     constraint.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constraint.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43606,6 +44771,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "constraint"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/bandwidth-constraints/bandwidth-constraint/constraints/constraint/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43636,6 +44802,7 @@ func (unconstrainedLsp *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     unconstrainedLsp.EntityData.BundleName = "openconfig"
     unconstrainedLsp.EntityData.ParentYangName = "subtlv"
     unconstrainedLsp.EntityData.SegmentPath = "unconstrained-lsp"
+    unconstrainedLsp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + unconstrainedLsp.EntityData.SegmentPath
     unconstrainedLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unconstrainedLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unconstrainedLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43671,6 +44838,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "unconstrained-lsp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/unconstrained-lsp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43705,6 +44873,7 @@ func (adjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     adjacencySids.EntityData.BundleName = "openconfig"
     adjacencySids.EntityData.ParentYangName = "subtlv"
     adjacencySids.EntityData.SegmentPath = "adjacency-sids"
+    adjacencySids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + adjacencySids.EntityData.SegmentPath
     adjacencySids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencySids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencySids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43730,6 +44899,7 @@ func (adjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv_AdjacencySids_AdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the Adjacency-SID. The
     // type is string with range: 0..4294967295. Refers to
@@ -43746,6 +44916,7 @@ func (adjacencySid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Lev
     adjacencySid.EntityData.BundleName = "openconfig"
     adjacencySid.EntityData.ParentYangName = "adjacency-sids"
     adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddKeyToken(adjacencySid.Value, "value")
+    adjacencySid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/adjacency-sids/" + adjacencySid.EntityData.SegmentPath
     adjacencySid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencySid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencySid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43783,6 +44954,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "adjacency-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/adjacency-sids/adjacency-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43849,6 +45021,7 @@ func (lanAdjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     lanAdjacencySids.EntityData.BundleName = "openconfig"
     lanAdjacencySids.EntityData.ParentYangName = "subtlv"
     lanAdjacencySids.EntityData.SegmentPath = "lan-adjacency-sids"
+    lanAdjacencySids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + lanAdjacencySids.EntityData.SegmentPath
     lanAdjacencySids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lanAdjacencySids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lanAdjacencySids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43874,6 +45047,7 @@ func (lanAdjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsisNeighborAttribute_Neighbors_Neighbor_Subtlvs_Subtlv_LanAdjacencySids_LanAdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the LAN Adjacency-SID.
     // The type is string with range: 0..4294967295. Refers to
@@ -43890,6 +45064,7 @@ func (lanAdjacencySid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     lanAdjacencySid.EntityData.BundleName = "openconfig"
     lanAdjacencySid.EntityData.ParentYangName = "lan-adjacency-sids"
     lanAdjacencySid.EntityData.SegmentPath = "lan-adjacency-sid" + types.AddKeyToken(lanAdjacencySid.Value, "value")
+    lanAdjacencySid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/lan-adjacency-sids/" + lanAdjacencySid.EntityData.SegmentPath
     lanAdjacencySid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lanAdjacencySid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lanAdjacencySid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43932,6 +45107,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "lan-adjacency-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/lan-adjacency-sids/lan-adjacency-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -43994,6 +45170,7 @@ func (linkDelay *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     linkDelay.EntityData.BundleName = "openconfig"
     linkDelay.EntityData.ParentYangName = "subtlv"
     linkDelay.EntityData.SegmentPath = "link-delay"
+    linkDelay.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + linkDelay.EntityData.SegmentPath
     linkDelay.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkDelay.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkDelay.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44031,6 +45208,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-delay"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/link-delay/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44061,6 +45239,7 @@ func (minMaxLinkDelay *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     minMaxLinkDelay.EntityData.BundleName = "openconfig"
     minMaxLinkDelay.EntityData.ParentYangName = "subtlv"
     minMaxLinkDelay.EntityData.SegmentPath = "min-max-link-delay"
+    minMaxLinkDelay.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + minMaxLinkDelay.EntityData.SegmentPath
     minMaxLinkDelay.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     minMaxLinkDelay.EntityData.NamespaceTable = openconfig.GetNamespaces()
     minMaxLinkDelay.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44103,6 +45282,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "min-max-link-delay"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/min-max-link-delay/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44135,6 +45315,7 @@ func (linkDelayVariation *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     linkDelayVariation.EntityData.BundleName = "openconfig"
     linkDelayVariation.EntityData.ParentYangName = "subtlv"
     linkDelayVariation.EntityData.SegmentPath = "link-delay-variation"
+    linkDelayVariation.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + linkDelayVariation.EntityData.SegmentPath
     linkDelayVariation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkDelayVariation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkDelayVariation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44167,6 +45348,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-delay-variation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/link-delay-variation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44196,6 +45378,7 @@ func (linkLoss *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     linkLoss.EntityData.BundleName = "openconfig"
     linkLoss.EntityData.ParentYangName = "subtlv"
     linkLoss.EntityData.SegmentPath = "link-loss"
+    linkLoss.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + linkLoss.EntityData.SegmentPath
     linkLoss.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     linkLoss.EntityData.NamespaceTable = openconfig.GetNamespaces()
     linkLoss.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44239,6 +45422,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "link-loss"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/link-loss/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44270,6 +45454,7 @@ func (residualBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isi
     residualBandwidth.EntityData.BundleName = "openconfig"
     residualBandwidth.EntityData.ParentYangName = "subtlv"
     residualBandwidth.EntityData.SegmentPath = "residual-bandwidth"
+    residualBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + residualBandwidth.EntityData.SegmentPath
     residualBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     residualBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     residualBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44306,6 +45491,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "residual-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/residual-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44336,6 +45522,7 @@ func (availableBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     availableBandwidth.EntityData.BundleName = "openconfig"
     availableBandwidth.EntityData.ParentYangName = "subtlv"
     availableBandwidth.EntityData.SegmentPath = "available-bandwidth"
+    availableBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + availableBandwidth.EntityData.SegmentPath
     availableBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     availableBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     availableBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44380,6 +45567,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "available-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/available-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44411,6 +45599,7 @@ func (utilizedBandwidth *NetworkInstances_NetworkInstance_Protocols_Protocol_Isi
     utilizedBandwidth.EntityData.BundleName = "openconfig"
     utilizedBandwidth.EntityData.ParentYangName = "subtlv"
     utilizedBandwidth.EntityData.SegmentPath = "utilized-bandwidth"
+    utilizedBandwidth.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/" + utilizedBandwidth.EntityData.SegmentPath
     utilizedBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     utilizedBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     utilizedBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44452,6 +45641,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "utilized-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/subtlvs/subtlv/utilized-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44484,6 +45674,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     undefinedSubtlvs.EntityData.BundleName = "openconfig"
     undefinedSubtlvs.EntityData.ParentYangName = "neighbor"
     undefinedSubtlvs.EntityData.SegmentPath = "undefined-subtlvs"
+    undefinedSubtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/" + undefinedSubtlvs.EntityData.SegmentPath
     undefinedSubtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44506,6 +45697,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsisNeighborAttribute_Neighbors_Neighbor_UndefinedSubtlvs_UndefinedSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the type of the undefined sub-TLV.
     // The type is string with range: 0..255. Refers to
@@ -44522,6 +45714,7 @@ func (undefinedSubtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     undefinedSubtlv.EntityData.BundleName = "openconfig"
     undefinedSubtlv.EntityData.ParentYangName = "undefined-subtlvs"
     undefinedSubtlv.EntityData.SegmentPath = "undefined-subtlv" + types.AddKeyToken(undefinedSubtlv.Type, "type")
+    undefinedSubtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/undefined-subtlvs/" + undefinedSubtlv.EntityData.SegmentPath
     undefinedSubtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44558,6 +45751,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "undefined-subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-isis-neighbor-attribute/neighbors/neighbor/undefined-subtlvs/undefined-subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44590,6 +45784,7 @@ func (mtIpv4Reachability *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     mtIpv4Reachability.EntityData.BundleName = "openconfig"
     mtIpv4Reachability.EntityData.ParentYangName = "tlv"
     mtIpv4Reachability.EntityData.SegmentPath = "mt-ipv4-reachability"
+    mtIpv4Reachability.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + mtIpv4Reachability.EntityData.SegmentPath
     mtIpv4Reachability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mtIpv4Reachability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mtIpv4Reachability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44621,6 +45816,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "mt-ipv4-reachability"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44643,6 +45839,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIpv4Reachability_Prefixes_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the topology ID of the topology that
     // the prefix is within. The type is string with range: 0..4095. Refers to
@@ -44672,6 +45869,7 @@ func (prefix *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     prefix.EntityData.BundleName = "openconfig"
     prefix.EntityData.ParentYangName = "prefixes"
     prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.MtId, "mt-id") + types.AddKeyToken(prefix.Prefix, "prefix")
+    prefix.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefix.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44725,6 +45923,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44760,6 +45959,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
     subtlvs.EntityData.BundleName = "openconfig"
     subtlvs.EntityData.ParentYangName = "prefix"
     subtlvs.EntityData.SegmentPath = "subtlvs"
+    subtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/" + subtlvs.EntityData.SegmentPath
     subtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44781,6 +45981,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIpv4Reachability_Prefixes_Prefix_Subtlvs_Subtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
@@ -44815,6 +46016,7 @@ func (subtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     subtlv.EntityData.BundleName = "openconfig"
     subtlv.EntityData.ParentYangName = "subtlvs"
     subtlv.EntityData.SegmentPath = "subtlv" + types.AddKeyToken(subtlv.Type, "type")
+    subtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/" + subtlv.EntityData.SegmentPath
     subtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44853,6 +46055,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44882,6 +46085,7 @@ func (tag *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level
     tag.EntityData.BundleName = "openconfig"
     tag.EntityData.ParentYangName = "subtlv"
     tag.EntityData.SegmentPath = "tag"
+    tag.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + tag.EntityData.SegmentPath
     tag.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tag.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tag.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44915,6 +46119,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tag"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/tag/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44944,6 +46149,7 @@ func (tag64 *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     tag64.EntityData.BundleName = "openconfig"
     tag64.EntityData.ParentYangName = "subtlv"
     tag64.EntityData.SegmentPath = "tag64"
+    tag64.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + tag64.EntityData.SegmentPath
     tag64.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tag64.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tag64.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -44977,6 +46183,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tag64"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/tag64/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45006,6 +46213,7 @@ func (flags *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     flags.EntityData.BundleName = "openconfig"
     flags.EntityData.ParentYangName = "subtlv"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     flags.EntityData.NamespaceTable = openconfig.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45040,6 +46248,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "flags"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/flags/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45093,6 +46302,7 @@ func (ipv4SourceRouterId *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     ipv4SourceRouterId.EntityData.BundleName = "openconfig"
     ipv4SourceRouterId.EntityData.ParentYangName = "subtlv"
     ipv4SourceRouterId.EntityData.SegmentPath = "ipv4-source-router-id"
+    ipv4SourceRouterId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + ipv4SourceRouterId.EntityData.SegmentPath
     ipv4SourceRouterId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4SourceRouterId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4SourceRouterId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45135,6 +46345,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-source-router-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/ipv4-source-router-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45165,6 +46376,7 @@ func (ipv6SourceRouterId *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     ipv6SourceRouterId.EntityData.BundleName = "openconfig"
     ipv6SourceRouterId.EntityData.ParentYangName = "subtlv"
     ipv6SourceRouterId.EntityData.SegmentPath = "ipv6-source-router-id"
+    ipv6SourceRouterId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + ipv6SourceRouterId.EntityData.SegmentPath
     ipv6SourceRouterId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6SourceRouterId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6SourceRouterId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45207,6 +46419,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-source-router-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/ipv6-source-router-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45241,6 +46454,7 @@ func (prefixSids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     prefixSids.EntityData.BundleName = "openconfig"
     prefixSids.EntityData.ParentYangName = "subtlv"
     prefixSids.EntityData.SegmentPath = "prefix-sids"
+    prefixSids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/" + prefixSids.EntityData.SegmentPath
     prefixSids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45265,6 +46479,7 @@ func (prefixSids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIpv4Reachability_Prefixes_Prefix_Subtlvs_Subtlv_PrefixSids_PrefixSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the prefix SID. The type
     // is string with range: 0..4294967295. Refers to
@@ -45281,6 +46496,7 @@ func (prefixSid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     prefixSid.EntityData.BundleName = "openconfig"
     prefixSid.EntityData.ParentYangName = "prefix-sids"
     prefixSid.EntityData.SegmentPath = "prefix-sid" + types.AddKeyToken(prefixSid.Value, "value")
+    prefixSid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/prefix-sids/" + prefixSid.EntityData.SegmentPath
     prefixSid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45318,6 +46534,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/subtlvs/subtlv/prefix-sids/prefix-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45391,6 +46608,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     undefinedSubtlvs.EntityData.BundleName = "openconfig"
     undefinedSubtlvs.EntityData.ParentYangName = "prefix"
     undefinedSubtlvs.EntityData.SegmentPath = "undefined-subtlvs"
+    undefinedSubtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/" + undefinedSubtlvs.EntityData.SegmentPath
     undefinedSubtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45413,6 +46631,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIpv4Reachability_Prefixes_Prefix_UndefinedSubtlvs_UndefinedSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the type of the undefined sub-TLV.
     // The type is string with range: 0..255. Refers to
@@ -45429,6 +46648,7 @@ func (undefinedSubtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     undefinedSubtlv.EntityData.BundleName = "openconfig"
     undefinedSubtlv.EntityData.ParentYangName = "undefined-subtlvs"
     undefinedSubtlv.EntityData.SegmentPath = "undefined-subtlv" + types.AddKeyToken(undefinedSubtlv.Type, "type")
+    undefinedSubtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/undefined-subtlvs/" + undefinedSubtlv.EntityData.SegmentPath
     undefinedSubtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45465,6 +46685,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "undefined-subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv4-reachability/prefixes/prefix/undefined-subtlvs/undefined-subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45497,6 +46718,7 @@ func (mtIpv6Reachability *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     mtIpv6Reachability.EntityData.BundleName = "openconfig"
     mtIpv6Reachability.EntityData.ParentYangName = "tlv"
     mtIpv6Reachability.EntityData.SegmentPath = "mt-ipv6-reachability"
+    mtIpv6Reachability.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/" + mtIpv6Reachability.EntityData.SegmentPath
     mtIpv6Reachability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mtIpv6Reachability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mtIpv6Reachability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45528,6 +46750,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "mt-ipv6-reachability"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45550,6 +46773,7 @@ func (prefixes *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIpv6Reachability_Prefixes_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the IPv6 prefix described by the TLV.
     // The type is string with pattern:
@@ -45579,6 +46803,7 @@ func (prefix *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     prefix.EntityData.BundleName = "openconfig"
     prefix.EntityData.ParentYangName = "prefixes"
     prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.Prefix, "prefix") + types.AddKeyToken(prefix.MtId, "mt-id")
+    prefix.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefix.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45636,6 +46861,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45672,6 +46898,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
     subtlvs.EntityData.BundleName = "openconfig"
     subtlvs.EntityData.ParentYangName = "prefix"
     subtlvs.EntityData.SegmentPath = "subtlvs"
+    subtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/" + subtlvs.EntityData.SegmentPath
     subtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45693,6 +46920,7 @@ func (subtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_L
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIpv6Reachability_Prefixes_Prefix_Subtlvs_Subtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
@@ -45727,6 +46955,7 @@ func (subtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     subtlv.EntityData.BundleName = "openconfig"
     subtlv.EntityData.ParentYangName = "subtlvs"
     subtlv.EntityData.SegmentPath = "subtlv" + types.AddKeyToken(subtlv.Type, "type")
+    subtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/" + subtlv.EntityData.SegmentPath
     subtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45765,6 +46994,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45794,6 +47024,7 @@ func (tag *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level
     tag.EntityData.BundleName = "openconfig"
     tag.EntityData.ParentYangName = "subtlv"
     tag.EntityData.SegmentPath = "tag"
+    tag.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/" + tag.EntityData.SegmentPath
     tag.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tag.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tag.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45827,6 +47058,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tag"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/tag/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45856,6 +47088,7 @@ func (tag64 *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     tag64.EntityData.BundleName = "openconfig"
     tag64.EntityData.ParentYangName = "subtlv"
     tag64.EntityData.SegmentPath = "tag64"
+    tag64.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/" + tag64.EntityData.SegmentPath
     tag64.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tag64.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tag64.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45889,6 +47122,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tag64"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/tag64/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45918,6 +47152,7 @@ func (flags *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     flags.EntityData.BundleName = "openconfig"
     flags.EntityData.ParentYangName = "subtlv"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     flags.EntityData.NamespaceTable = openconfig.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -45952,6 +47187,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "flags"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/flags/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46005,6 +47241,7 @@ func (ipv4SourceRouterId *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     ipv4SourceRouterId.EntityData.BundleName = "openconfig"
     ipv4SourceRouterId.EntityData.ParentYangName = "subtlv"
     ipv4SourceRouterId.EntityData.SegmentPath = "ipv4-source-router-id"
+    ipv4SourceRouterId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/" + ipv4SourceRouterId.EntityData.SegmentPath
     ipv4SourceRouterId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4SourceRouterId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4SourceRouterId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46047,6 +47284,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-source-router-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/ipv4-source-router-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46077,6 +47315,7 @@ func (ipv6SourceRouterId *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     ipv6SourceRouterId.EntityData.BundleName = "openconfig"
     ipv6SourceRouterId.EntityData.ParentYangName = "subtlv"
     ipv6SourceRouterId.EntityData.SegmentPath = "ipv6-source-router-id"
+    ipv6SourceRouterId.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/" + ipv6SourceRouterId.EntityData.SegmentPath
     ipv6SourceRouterId.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6SourceRouterId.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6SourceRouterId.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46119,6 +47358,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-source-router-id"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/ipv6-source-router-id/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46153,6 +47393,7 @@ func (prefixSids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
     prefixSids.EntityData.BundleName = "openconfig"
     prefixSids.EntityData.ParentYangName = "subtlv"
     prefixSids.EntityData.SegmentPath = "prefix-sids"
+    prefixSids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/" + prefixSids.EntityData.SegmentPath
     prefixSids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46177,6 +47418,7 @@ func (prefixSids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Level
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIpv6Reachability_Prefixes_Prefix_Subtlvs_Subtlv_PrefixSids_PrefixSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the prefix SID. The type
     // is string with range: 0..4294967295. Refers to
@@ -46193,6 +47435,7 @@ func (prefixSid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels
     prefixSid.EntityData.BundleName = "openconfig"
     prefixSid.EntityData.ParentYangName = "prefix-sids"
     prefixSid.EntityData.SegmentPath = "prefix-sid" + types.AddKeyToken(prefixSid.Value, "value")
+    prefixSid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/prefix-sids/" + prefixSid.EntityData.SegmentPath
     prefixSid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46230,6 +47473,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/subtlvs/subtlv/prefix-sids/prefix-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46303,6 +47547,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
     undefinedSubtlvs.EntityData.BundleName = "openconfig"
     undefinedSubtlvs.EntityData.ParentYangName = "prefix"
     undefinedSubtlvs.EntityData.SegmentPath = "undefined-subtlvs"
+    undefinedSubtlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/" + undefinedSubtlvs.EntityData.SegmentPath
     undefinedSubtlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46325,6 +47570,7 @@ func (undefinedSubtlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIpv6Reachability_Prefixes_Prefix_UndefinedSubtlvs_UndefinedSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the type of the undefined sub-TLV.
     // The type is string with range: 0..255. Refers to
@@ -46341,6 +47587,7 @@ func (undefinedSubtlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     undefinedSubtlv.EntityData.BundleName = "openconfig"
     undefinedSubtlv.EntityData.ParentYangName = "undefined-subtlvs"
     undefinedSubtlv.EntityData.SegmentPath = "undefined-subtlv" + types.AddKeyToken(undefinedSubtlv.Type, "type")
+    undefinedSubtlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/undefined-subtlvs/" + undefinedSubtlv.EntityData.SegmentPath
     undefinedSubtlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedSubtlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedSubtlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46377,6 +47624,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "undefined-subtlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/tlvs/tlv/mt-ipv6-reachability/prefixes/prefix/undefined-subtlvs/undefined-subtlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46410,6 +47658,7 @@ func (undefinedTlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
     undefinedTlvs.EntityData.BundleName = "openconfig"
     undefinedTlvs.EntityData.ParentYangName = "lsp"
     undefinedTlvs.EntityData.SegmentPath = "undefined-tlvs"
+    undefinedTlvs.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/" + undefinedTlvs.EntityData.SegmentPath
     undefinedTlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedTlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedTlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46432,6 +47681,7 @@ func (undefinedTlvs *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Le
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_UndefinedTlvs_UndefinedTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the undefined TLV's type. The type is
     // string with range: 0..255. Refers to
@@ -46448,6 +47698,7 @@ func (undefinedTlv *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Lev
     undefinedTlv.EntityData.BundleName = "openconfig"
     undefinedTlv.EntityData.ParentYangName = "undefined-tlvs"
     undefinedTlv.EntityData.SegmentPath = "undefined-tlv" + types.AddKeyToken(undefinedTlv.Type, "type")
+    undefinedTlv.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/undefined-tlvs/" + undefinedTlv.EntityData.SegmentPath
     undefinedTlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     undefinedTlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     undefinedTlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46484,6 +47735,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "undefined-tlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/link-state-database/lsp/undefined-tlvs/undefined-tlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46518,6 +47770,7 @@ func (trafficEngineering *NetworkInstances_NetworkInstance_Protocols_Protocol_Is
     trafficEngineering.EntityData.BundleName = "openconfig"
     trafficEngineering.EntityData.ParentYangName = "level"
     trafficEngineering.EntityData.SegmentPath = "traffic-engineering"
+    trafficEngineering.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/" + trafficEngineering.EntityData.SegmentPath
     trafficEngineering.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     trafficEngineering.EntityData.NamespaceTable = openconfig.GetNamespaces()
     trafficEngineering.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46558,6 +47811,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "traffic-engineering"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/traffic-engineering/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46599,6 +47853,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "traffic-engineering"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/traffic-engineering/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46635,6 +47890,7 @@ func (routePreference *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     routePreference.EntityData.BundleName = "openconfig"
     routePreference.EntityData.ParentYangName = "level"
     routePreference.EntityData.SegmentPath = "route-preference"
+    routePreference.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/" + routePreference.EntityData.SegmentPath
     routePreference.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routePreference.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routePreference.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46670,6 +47926,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-preference"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/route-preference/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46705,6 +47962,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-preference"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/route-preference/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46744,6 +48002,7 @@ func (authentication *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_L
     authentication.EntityData.BundleName = "openconfig"
     authentication.EntityData.ParentYangName = "level"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     authentication.EntityData.NamespaceTable = openconfig.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46785,6 +48044,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "authentication"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/authentication/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46825,6 +48085,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "authentication"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/authentication/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46859,6 +48120,7 @@ func (key *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level
     key.EntityData.BundleName = "openconfig"
     key.EntityData.ParentYangName = "authentication"
     key.EntityData.SegmentPath = "key"
+    key.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/authentication/" + key.EntityData.SegmentPath
     key.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     key.EntityData.NamespaceTable = openconfig.GetNamespaces()
     key.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46889,6 +48151,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Le
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "key"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/authentication/key/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46918,6 +48181,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Lev
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "key"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/authentication/key/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46944,6 +48208,7 @@ func (keychain *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_
     keychain.EntityData.BundleName = "openconfig"
     keychain.EntityData.ParentYangName = "authentication"
     keychain.EntityData.SegmentPath = "keychain"
+    keychain.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/levels/level/authentication/" + keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     keychain.EntityData.NamespaceTable = openconfig.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46974,6 +48239,7 @@ func (interfaces *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Inter
     interfaces.EntityData.BundleName = "openconfig"
     interfaces.EntityData.ParentYangName = "isis"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -46995,6 +48261,7 @@ func (interfaces *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Inter
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to interface-id. The type is string.
     // Refers to
@@ -47037,6 +48304,7 @@ func (self *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
+    self.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47094,6 +48362,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47146,6 +48415,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47179,6 +48449,7 @@ func (circuitCounters *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_
     circuitCounters.EntityData.BundleName = "openconfig"
     circuitCounters.EntityData.ParentYangName = "interface"
     circuitCounters.EntityData.SegmentPath = "circuit-counters"
+    circuitCounters.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/" + circuitCounters.EntityData.SegmentPath
     circuitCounters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     circuitCounters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     circuitCounters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47249,6 +48520,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "circuit-counters"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/circuit-counters/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47295,6 +48567,7 @@ func (authentication *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_I
     authentication.EntityData.BundleName = "openconfig"
     authentication.EntityData.ParentYangName = "interface"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     authentication.EntityData.NamespaceTable = openconfig.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47328,6 +48601,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "authentication"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/authentication/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47358,6 +48632,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "authentication"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/authentication/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47390,6 +48665,7 @@ func (key *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_I
     key.EntityData.BundleName = "openconfig"
     key.EntityData.ParentYangName = "authentication"
     key.EntityData.SegmentPath = "key"
+    key.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/authentication/" + key.EntityData.SegmentPath
     key.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     key.EntityData.NamespaceTable = openconfig.GetNamespaces()
     key.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47420,6 +48696,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "key"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/authentication/key/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47449,6 +48726,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "key"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/authentication/key/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47475,6 +48753,7 @@ func (keychain *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfa
     keychain.EntityData.BundleName = "openconfig"
     keychain.EntityData.ParentYangName = "authentication"
     keychain.EntityData.SegmentPath = "keychain"
+    keychain.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/authentication/" + keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     keychain.EntityData.NamespaceTable = openconfig.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47505,6 +48784,7 @@ func (afiSafi *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfac
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "interface"
     afiSafi.EntityData.SegmentPath = "afi-safi"
+    afiSafi.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/" + afiSafi.EntityData.SegmentPath
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47526,6 +48806,7 @@ func (afiSafi *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfac
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface_AfiSafi_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to address-family type. The type is one
     // of the following: IPV4IPV6.
@@ -47549,6 +48830,7 @@ func (af *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_In
     af.EntityData.BundleName = "openconfig"
     af.EntityData.ParentYangName = "afi-safi"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfiName, "afi-name") + types.AddKeyToken(af.SafiName, "safi-name")
+    af.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/afi-safi/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     af.EntityData.NamespaceTable = openconfig.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47590,6 +48872,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "af"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/afi-safi/af/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47629,6 +48912,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "af"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/afi-safi/af/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47663,6 +48947,7 @@ func (levels *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     levels.EntityData.BundleName = "openconfig"
     levels.EntityData.ParentYangName = "interface"
     levels.EntityData.SegmentPath = "levels"
+    levels.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/" + levels.EntityData.SegmentPath
     levels.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     levels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     levels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47685,6 +48970,7 @@ func (levels *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface_Levels_Level struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to ISIS level-number. The type is string
     // with range: 1..2. Refers to
@@ -47720,6 +49006,7 @@ func (level *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     level.EntityData.BundleName = "openconfig"
     level.EntityData.ParentYangName = "levels"
     level.EntityData.SegmentPath = "level" + types.AddKeyToken(level.LevelNumber, "level-number")
+    level.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/" + level.EntityData.SegmentPath
     level.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     level.EntityData.NamespaceTable = openconfig.GetNamespaces()
     level.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47770,6 +49057,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "level"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47816,6 +49104,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "level"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47867,6 +49156,7 @@ func (packetCounters *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_I
     packetCounters.EntityData.BundleName = "openconfig"
     packetCounters.EntityData.ParentYangName = "level"
     packetCounters.EntityData.SegmentPath = "packet-counters"
+    packetCounters.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/" + packetCounters.EntityData.SegmentPath
     packetCounters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     packetCounters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     packetCounters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47902,6 +49192,7 @@ func (lsp *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_I
     lsp.EntityData.BundleName = "openconfig"
     lsp.EntityData.ParentYangName = "packet-counters"
     lsp.EntityData.SegmentPath = "lsp"
+    lsp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/" + lsp.EntityData.SegmentPath
     lsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47950,6 +49241,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "lsp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/lsp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -47983,6 +49275,7 @@ func (iih *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_I
     iih.EntityData.BundleName = "openconfig"
     iih.EntityData.ParentYangName = "packet-counters"
     iih.EntityData.SegmentPath = "iih"
+    iih.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/" + iih.EntityData.SegmentPath
     iih.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     iih.EntityData.NamespaceTable = openconfig.GetNamespaces()
     iih.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48031,6 +49324,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "iih"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/iih/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48064,6 +49358,7 @@ func (ish *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_I
     ish.EntityData.BundleName = "openconfig"
     ish.EntityData.ParentYangName = "packet-counters"
     ish.EntityData.SegmentPath = "ish"
+    ish.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/" + ish.EntityData.SegmentPath
     ish.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ish.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ish.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48112,6 +49407,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ish"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/ish/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48145,6 +49441,7 @@ func (esh *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_I
     esh.EntityData.BundleName = "openconfig"
     esh.EntityData.ParentYangName = "packet-counters"
     esh.EntityData.SegmentPath = "esh"
+    esh.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/" + esh.EntityData.SegmentPath
     esh.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     esh.EntityData.NamespaceTable = openconfig.GetNamespaces()
     esh.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48193,6 +49490,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "esh"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/esh/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48226,6 +49524,7 @@ func (psnp *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_
     psnp.EntityData.BundleName = "openconfig"
     psnp.EntityData.ParentYangName = "packet-counters"
     psnp.EntityData.SegmentPath = "psnp"
+    psnp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/" + psnp.EntityData.SegmentPath
     psnp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     psnp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     psnp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48274,6 +49573,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "psnp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/psnp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48307,6 +49607,7 @@ func (cnsp *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_
     cnsp.EntityData.BundleName = "openconfig"
     cnsp.EntityData.ParentYangName = "packet-counters"
     cnsp.EntityData.SegmentPath = "cnsp"
+    cnsp.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/" + cnsp.EntityData.SegmentPath
     cnsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     cnsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     cnsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48355,6 +49656,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "cnsp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/cnsp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48389,6 +49691,7 @@ func (unknown *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfac
     unknown.EntityData.BundleName = "openconfig"
     unknown.EntityData.ParentYangName = "packet-counters"
     unknown.EntityData.SegmentPath = "unknown"
+    unknown.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/" + unknown.EntityData.SegmentPath
     unknown.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknown.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknown.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48437,6 +49740,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "unknown"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/packet-counters/unknown/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48471,6 +49775,7 @@ func (adjacencies *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Inte
     adjacencies.EntityData.BundleName = "openconfig"
     adjacencies.EntityData.ParentYangName = "level"
     adjacencies.EntityData.SegmentPath = "adjacencies"
+    adjacencies.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/" + adjacencies.EntityData.SegmentPath
     adjacencies.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencies.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencies.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48492,6 +49797,7 @@ func (adjacencies *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Inte
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface_Levels_Level_Adjacencies_Adjacency struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the IS neighbor. The type is string
     // with pattern: ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$. Refers to
@@ -48508,6 +49814,7 @@ func (adjacency *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interf
     adjacency.EntityData.BundleName = "openconfig"
     adjacency.EntityData.ParentYangName = "adjacencies"
     adjacency.EntityData.SegmentPath = "adjacency" + types.AddKeyToken(adjacency.SystemId, "system-id")
+    adjacency.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/adjacencies/" + adjacency.EntityData.SegmentPath
     adjacency.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacency.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacency.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48617,6 +49924,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "adjacency"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/adjacencies/adjacency/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48679,6 +49987,7 @@ func (timers *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     timers.EntityData.BundleName = "openconfig"
     timers.EntityData.ParentYangName = "level"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     timers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48713,6 +50022,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "timers"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/timers/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48747,6 +50057,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "timers"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/timers/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48779,6 +50090,7 @@ func (afiSafi *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfac
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "level"
     afiSafi.EntityData.SegmentPath = "afi-safi"
+    afiSafi.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/" + afiSafi.EntityData.SegmentPath
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48800,6 +50112,7 @@ func (afiSafi *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfac
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface_Levels_Level_AfiSafi_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to address-family type. The type is one
     // of the following: IPV4IPV6.
@@ -48827,6 +50140,7 @@ func (af *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_In
     af.EntityData.BundleName = "openconfig"
     af.EntityData.ParentYangName = "afi-safi"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfiName, "afi-name") + types.AddKeyToken(af.SafiName, "safi-name")
+    af.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     af.EntityData.NamespaceTable = openconfig.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48873,6 +50187,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "af"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48917,6 +50232,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "af"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48955,6 +50271,7 @@ func (segmentRouting *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_I
     segmentRouting.EntityData.BundleName = "openconfig"
     segmentRouting.EntityData.ParentYangName = "af"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = openconfig.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -48991,6 +50308,7 @@ func (prefixSids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Inter
     prefixSids.EntityData.BundleName = "openconfig"
     prefixSids.EntityData.ParentYangName = "segment-routing"
     prefixSids.EntityData.SegmentPath = "prefix-sids"
+    prefixSids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/segment-routing/" + prefixSids.EntityData.SegmentPath
     prefixSids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49015,6 +50333,7 @@ func (prefixSids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Inter
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface_Levels_Level_AfiSafi_Af_SegmentRouting_PrefixSids_PrefixSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the prefix for which the IGP-Prefix
     // SID is to be advertised. The type is one of the following types: string
@@ -49037,6 +50356,7 @@ func (prefixSid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interf
     prefixSid.EntityData.BundleName = "openconfig"
     prefixSid.EntityData.ParentYangName = "prefix-sids"
     prefixSid.EntityData.SegmentPath = "prefix-sid" + types.AddKeyToken(prefixSid.Prefix, "prefix")
+    prefixSid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/segment-routing/prefix-sids/" + prefixSid.EntityData.SegmentPath
     prefixSid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49068,8 +50388,8 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
 
     // The Segment Identifier to be used when advertising the IGP Prefix SID. The
     // type is one of the following types: int with range: 16..1048575, or
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`., or string
-    // with pattern:
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`., or string with
+    // pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SidId interface{}
 
@@ -49085,6 +50405,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-sid"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/segment-routing/prefix-sids/prefix-sid/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49129,8 +50450,8 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
 
     // The Segment Identifier to be used when advertising the IGP Prefix SID. The
     // type is one of the following types: int with range: 16..1048575, or
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`., or string
-    // with pattern:
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`., or string with
+    // pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SidId interface{}
 
@@ -49146,6 +50467,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/segment-routing/prefix-sids/prefix-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49197,6 +50519,7 @@ func (adjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_In
     adjacencySids.EntityData.BundleName = "openconfig"
     adjacencySids.EntityData.ParentYangName = "segment-routing"
     adjacencySids.EntityData.SegmentPath = "adjacency-sids"
+    adjacencySids.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/segment-routing/" + adjacencySids.EntityData.SegmentPath
     adjacencySids.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencySids.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencySids.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49222,6 +50545,7 @@ func (adjacencySids *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_In
 type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface_Levels_Level_AfiSafi_Af_SegmentRouting_AdjacencySids_AdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the neighbor with which the Adjacency
     // SID is associated. The type is one of the following types: string with
@@ -49233,8 +50557,8 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
 
     // This attribute is a key. Reference to the segment identifier to be used by
     // the local system. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`., or string with pattern:
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.,
+    // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
     // or
     // :go:struct:`NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface_Levels_Level_AfiSafi_Af_SegmentRouting_AdjacencySids_AdjacencySid_State_SidId
@@ -49254,6 +50578,7 @@ func (adjacencySid *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Int
     adjacencySid.EntityData.BundleName = "openconfig"
     adjacencySid.EntityData.ParentYangName = "adjacency-sids"
     adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddKeyToken(adjacencySid.Neighbor, "neighbor") + types.AddKeyToken(adjacencySid.SidId, "sid-id")
+    adjacencySid.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/segment-routing/adjacency-sids/" + adjacencySid.EntityData.SegmentPath
     adjacencySid.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjacencySid.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjacencySid.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49282,7 +50607,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     // allocated value. When the MPLS data plane is in use the dynamic value
     // should not fall within a reserved-label-block. The type is one of the
     // following types: int with range: 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`., or string with pattern:
+    // <ydk/models/mpls_types/MplsLabel>`., or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
     // or enumeration
     // NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.AfiSafi.Af.SegmentRouting.AdjacencySids.AdjacencySid.State.SidId.
@@ -49315,6 +50640,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "adjacency-sid"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/segment-routing/adjacency-sids/adjacency-sid/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49354,7 +50680,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     // allocated value. When the MPLS data plane is in use the dynamic value
     // should not fall within a reserved-label-block. The type is one of the
     // following types: int with range: 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`., or string with pattern:
+    // <ydk/models/mpls_types/MplsLabel>`., or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
     // or enumeration
     // NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.AfiSafi.Af.SegmentRouting.AdjacencySids.AdjacencySid.State.SidId.
@@ -49383,8 +50709,8 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     // Where an Adjacency SID with a dynamic value is to be allocated by the
     // system, this leaf reports to the value of the Adj-SID allocated to this
     // interface. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`., or string with pattern:
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.,
+    // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     AllocatedDynamicLocal interface{}
 }
@@ -49395,6 +50721,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "adjacency-sid"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/afi-safi/af/segment-routing/adjacency-sids/adjacency-sid/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49448,6 +50775,7 @@ func (helloAuthentication *NetworkInstances_NetworkInstance_Protocols_Protocol_I
     helloAuthentication.EntityData.BundleName = "openconfig"
     helloAuthentication.EntityData.ParentYangName = "level"
     helloAuthentication.EntityData.SegmentPath = "hello-authentication"
+    helloAuthentication.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/" + helloAuthentication.EntityData.SegmentPath
     helloAuthentication.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     helloAuthentication.EntityData.NamespaceTable = openconfig.GetNamespaces()
     helloAuthentication.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49481,6 +50809,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "hello-authentication"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/hello-authentication/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49511,6 +50840,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "hello-authentication"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/hello-authentication/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49543,6 +50873,7 @@ func (key *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_I
     key.EntityData.BundleName = "openconfig"
     key.EntityData.ParentYangName = "hello-authentication"
     key.EntityData.SegmentPath = "key"
+    key.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/hello-authentication/" + key.EntityData.SegmentPath
     key.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     key.EntityData.NamespaceTable = openconfig.GetNamespaces()
     key.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49573,6 +50904,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "key"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/hello-authentication/key/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49602,6 +50934,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "key"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/hello-authentication/key/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49628,6 +50961,7 @@ func (keychain *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfa
     keychain.EntityData.BundleName = "openconfig"
     keychain.EntityData.ParentYangName = "hello-authentication"
     keychain.EntityData.SegmentPath = "keychain"
+    keychain.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/levels/level/hello-authentication/" + keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     keychain.EntityData.NamespaceTable = openconfig.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49659,6 +50993,7 @@ func (timers *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     timers.EntityData.BundleName = "openconfig"
     timers.EntityData.ParentYangName = "interface"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     timers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49697,6 +51032,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "timers"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/timers/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49734,6 +51070,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "timers"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/timers/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49767,6 +51104,7 @@ func (bfd *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_I
     bfd.EntityData.BundleName = "openconfig"
     bfd.EntityData.ParentYangName = "interface"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bfd.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49800,6 +51138,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "bfd"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/bfd/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49832,6 +51171,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bfd"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/bfd/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49864,6 +51204,7 @@ func (interfaceRef *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Int
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49903,6 +51244,7 @@ func (config *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interface
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -49942,6 +51284,7 @@ func (state *NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-network-instance:network-instances/network-instance/protocols/protocol/isis/interfaces/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

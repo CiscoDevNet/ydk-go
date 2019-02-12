@@ -90,6 +90,7 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
     hardwareModule.EntityData.BundleName = "cisco_ios_xr"
     hardwareModule.EntityData.ParentYangName = "Cisco-IOS-XR-ncs1001-ots-cfg"
     hardwareModule.EntityData.SegmentPath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module"
+    hardwareModule.EntityData.AbsolutePath = hardwareModule.EntityData.SegmentPath
     hardwareModule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -111,6 +112,7 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
 type HardwareModule_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fully qualified line card specification. The type
     // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -126,6 +128,7 @@ func (node *HardwareModule_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "hardware-module"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Location, "location")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -148,6 +151,7 @@ func (node *HardwareModule_Node) GetEntityData() *types.CommonEntityData {
 type HardwareModule_Node_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set Slot. The type is interface{} with range:
     // 1..3.
@@ -172,6 +176,7 @@ func (slot *HardwareModule_Node_Slot) GetEntityData() *types.CommonEntityData {
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "node"
     slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.SlotId, "slot-id")
+    slot.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/node/" + slot.EntityData.SegmentPath
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -205,6 +210,7 @@ func (otdrs *HardwareModule_Node_Slot_Otdrs) GetEntityData() *types.CommonEntity
     otdrs.EntityData.BundleName = "cisco_ios_xr"
     otdrs.EntityData.ParentYangName = "slot"
     otdrs.EntityData.SegmentPath = "otdrs"
+    otdrs.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/node/slot/" + otdrs.EntityData.SegmentPath
     otdrs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -226,6 +232,7 @@ func (otdrs *HardwareModule_Node_Slot_Otdrs) GetEntityData() *types.CommonEntity
 type HardwareModule_Node_Slot_Otdrs_Otdr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port Id. The type is interface{} with range: 1..2.
     Port interface{}
@@ -250,6 +257,7 @@ func (otdr *HardwareModule_Node_Slot_Otdrs_Otdr) GetEntityData() *types.CommonEn
     otdr.EntityData.BundleName = "cisco_ios_xr"
     otdr.EntityData.ParentYangName = "otdrs"
     otdr.EntityData.SegmentPath = "otdr" + types.AddKeyToken(otdr.Port, "port") + types.AddKeyToken(otdr.Direction, "direction")
+    otdr.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/node/slot/otdrs/" + otdr.EntityData.SegmentPath
     otdr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -288,6 +296,7 @@ func (modeAuto *HardwareModule_Node_Slot_Otdrs_Otdr_ModeAuto) GetEntityData() *t
     modeAuto.EntityData.BundleName = "cisco_ios_xr"
     modeAuto.EntityData.ParentYangName = "otdr"
     modeAuto.EntityData.SegmentPath = "mode-auto"
+    modeAuto.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/node/slot/otdrs/otdr/" + modeAuto.EntityData.SegmentPath
     modeAuto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     modeAuto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     modeAuto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -347,6 +356,7 @@ func (modeExpert *HardwareModule_Node_Slot_Otdrs_Otdr_ModeExpert) GetEntityData(
     modeExpert.EntityData.BundleName = "cisco_ios_xr"
     modeExpert.EntityData.ParentYangName = "otdr"
     modeExpert.EntityData.SegmentPath = "mode-expert"
+    modeExpert.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/node/slot/otdrs/otdr/" + modeExpert.EntityData.SegmentPath
     modeExpert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     modeExpert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     modeExpert.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -384,6 +394,7 @@ func (otdrThresholds *HardwareModule_Node_Slot_OtdrThresholds) GetEntityData() *
     otdrThresholds.EntityData.BundleName = "cisco_ios_xr"
     otdrThresholds.EntityData.ParentYangName = "slot"
     otdrThresholds.EntityData.SegmentPath = "otdr-thresholds"
+    otdrThresholds.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/node/slot/" + otdrThresholds.EntityData.SegmentPath
     otdrThresholds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrThresholds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrThresholds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -405,6 +416,7 @@ func (otdrThresholds *HardwareModule_Node_Slot_OtdrThresholds) GetEntityData() *
 type HardwareModule_Node_Slot_OtdrThresholds_OtdrThreshold struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port Id. The type is interface{} with range:
     // 0..4294967295.
@@ -429,6 +441,7 @@ func (otdrThreshold *HardwareModule_Node_Slot_OtdrThresholds_OtdrThreshold) GetE
     otdrThreshold.EntityData.BundleName = "cisco_ios_xr"
     otdrThreshold.EntityData.ParentYangName = "otdr-thresholds"
     otdrThreshold.EntityData.SegmentPath = "otdr-threshold" + types.AddKeyToken(otdrThreshold.Port, "port")
+    otdrThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/node/slot/otdr-thresholds/" + otdrThreshold.EntityData.SegmentPath
     otdrThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otdrThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otdrThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -476,6 +489,7 @@ func (amplifier *HardwareModule_Node_Slot_Amplifier) GetEntityData() *types.Comm
     amplifier.EntityData.BundleName = "cisco_ios_xr"
     amplifier.EntityData.ParentYangName = "slot"
     amplifier.EntityData.SegmentPath = "amplifier"
+    amplifier.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/node/slot/" + amplifier.EntityData.SegmentPath
     amplifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     amplifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     amplifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -523,6 +537,7 @@ func (remoteNode *HardwareModule_Node_Slot_Amplifier_RemoteNode) GetEntityData()
     remoteNode.EntityData.BundleName = "cisco_ios_xr"
     remoteNode.EntityData.ParentYangName = "amplifier"
     remoteNode.EntityData.SegmentPath = "remote-node"
+    remoteNode.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/node/slot/amplifier/" + remoteNode.EntityData.SegmentPath
     remoteNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -566,6 +581,7 @@ func (psm *HardwareModule_Node_Slot_Psm) GetEntityData() *types.CommonEntityData
     psm.EntityData.BundleName = "cisco_ios_xr"
     psm.EntityData.ParentYangName = "slot"
     psm.EntityData.SegmentPath = "psm"
+    psm.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/node/slot/" + psm.EntityData.SegmentPath
     psm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

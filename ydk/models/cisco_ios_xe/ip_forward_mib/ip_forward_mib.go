@@ -37,6 +37,7 @@ func (iPFORWARDMIB *IPFORWARDMIB) GetEntityData() *types.CommonEntityData {
     iPFORWARDMIB.EntityData.BundleName = "cisco_ios_xe"
     iPFORWARDMIB.EntityData.ParentYangName = "IP-FORWARD-MIB"
     iPFORWARDMIB.EntityData.SegmentPath = "IP-FORWARD-MIB:IP-FORWARD-MIB"
+    iPFORWARDMIB.EntityData.AbsolutePath = iPFORWARDMIB.EntityData.SegmentPath
     iPFORWARDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iPFORWARDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iPFORWARDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -72,6 +73,7 @@ func (ipForward *IPFORWARDMIB_IpForward) GetEntityData() *types.CommonEntityData
     ipForward.EntityData.BundleName = "cisco_ios_xe"
     ipForward.EntityData.ParentYangName = "IP-FORWARD-MIB"
     ipForward.EntityData.SegmentPath = "ipForward"
+    ipForward.EntityData.AbsolutePath = "IP-FORWARD-MIB:IP-FORWARD-MIB/" + ipForward.EntityData.SegmentPath
     ipForward.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipForward.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipForward.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -103,6 +105,7 @@ func (ipForwardTable *IPFORWARDMIB_IpForwardTable) GetEntityData() *types.Common
     ipForwardTable.EntityData.BundleName = "cisco_ios_xe"
     ipForwardTable.EntityData.ParentYangName = "IP-FORWARD-MIB"
     ipForwardTable.EntityData.SegmentPath = "ipForwardTable"
+    ipForwardTable.EntityData.AbsolutePath = "IP-FORWARD-MIB:IP-FORWARD-MIB/" + ipForwardTable.EntityData.SegmentPath
     ipForwardTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipForwardTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipForwardTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -125,6 +128,7 @@ func (ipForwardTable *IPFORWARDMIB_IpForwardTable) GetEntityData() *types.Common
 type IPFORWARDMIB_IpForwardTable_IpForwardEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The destination IP address of this route.   An
     // entry  with  a value of 0.0.0.0 is considered a default route.  This object
@@ -258,6 +262,7 @@ func (ipForwardEntry *IPFORWARDMIB_IpForwardTable_IpForwardEntry) GetEntityData(
     ipForwardEntry.EntityData.BundleName = "cisco_ios_xe"
     ipForwardEntry.EntityData.ParentYangName = "ipForwardTable"
     ipForwardEntry.EntityData.SegmentPath = "ipForwardEntry" + types.AddKeyToken(ipForwardEntry.IpForwardDest, "ipForwardDest") + types.AddKeyToken(ipForwardEntry.IpForwardProto, "ipForwardProto") + types.AddKeyToken(ipForwardEntry.IpForwardPolicy, "ipForwardPolicy") + types.AddKeyToken(ipForwardEntry.IpForwardNextHop, "ipForwardNextHop")
+    ipForwardEntry.EntityData.AbsolutePath = "IP-FORWARD-MIB:IP-FORWARD-MIB/ipForwardTable/" + ipForwardEntry.EntityData.SegmentPath
     ipForwardEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipForwardEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipForwardEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -351,6 +356,7 @@ func (ipCidrRouteTable *IPFORWARDMIB_IpCidrRouteTable) GetEntityData() *types.Co
     ipCidrRouteTable.EntityData.BundleName = "cisco_ios_xe"
     ipCidrRouteTable.EntityData.ParentYangName = "IP-FORWARD-MIB"
     ipCidrRouteTable.EntityData.SegmentPath = "ipCidrRouteTable"
+    ipCidrRouteTable.EntityData.AbsolutePath = "IP-FORWARD-MIB:IP-FORWARD-MIB/" + ipCidrRouteTable.EntityData.SegmentPath
     ipCidrRouteTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipCidrRouteTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipCidrRouteTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -373,6 +379,7 @@ func (ipCidrRouteTable *IPFORWARDMIB_IpCidrRouteTable) GetEntityData() *types.Co
 type IPFORWARDMIB_IpCidrRouteTable_IpCidrRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The destination IP address of this route.  This
     // object may not take a Multicast (Class  D) address value.  Any assignment
@@ -501,6 +508,7 @@ func (ipCidrRouteEntry *IPFORWARDMIB_IpCidrRouteTable_IpCidrRouteEntry) GetEntit
     ipCidrRouteEntry.EntityData.BundleName = "cisco_ios_xe"
     ipCidrRouteEntry.EntityData.ParentYangName = "ipCidrRouteTable"
     ipCidrRouteEntry.EntityData.SegmentPath = "ipCidrRouteEntry" + types.AddKeyToken(ipCidrRouteEntry.IpCidrRouteDest, "ipCidrRouteDest") + types.AddKeyToken(ipCidrRouteEntry.IpCidrRouteMask, "ipCidrRouteMask") + types.AddKeyToken(ipCidrRouteEntry.IpCidrRouteTos, "ipCidrRouteTos") + types.AddKeyToken(ipCidrRouteEntry.IpCidrRouteNextHop, "ipCidrRouteNextHop")
+    ipCidrRouteEntry.EntityData.AbsolutePath = "IP-FORWARD-MIB:IP-FORWARD-MIB/ipCidrRouteTable/" + ipCidrRouteEntry.EntityData.SegmentPath
     ipCidrRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipCidrRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipCidrRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

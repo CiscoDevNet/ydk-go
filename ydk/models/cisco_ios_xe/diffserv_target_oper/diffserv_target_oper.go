@@ -55,6 +55,7 @@ func (diffservInterfacesState *DiffservInterfacesState) GetEntityData() *types.C
     diffservInterfacesState.EntityData.BundleName = "cisco_ios_xe"
     diffservInterfacesState.EntityData.ParentYangName = "Cisco-IOS-XE-diffserv-target-oper"
     diffservInterfacesState.EntityData.SegmentPath = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state"
+    diffservInterfacesState.EntityData.AbsolutePath = diffservInterfacesState.EntityData.SegmentPath
     diffservInterfacesState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffservInterfacesState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffservInterfacesState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -76,6 +77,7 @@ func (diffservInterfacesState *DiffservInterfacesState) GetEntityData() *types.C
 type DiffservInterfacesState_DiffservInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string.
     Name interface{}
@@ -91,6 +93,7 @@ func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetEntityDat
     diffservInterface.EntityData.BundleName = "cisco_ios_xe"
     diffservInterface.EntityData.ParentYangName = "diffserv-interfaces-state"
     diffservInterface.EntityData.SegmentPath = "diffserv-interface" + types.AddKeyToken(diffservInterface.Name, "name")
+    diffservInterface.EntityData.AbsolutePath = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state/" + diffservInterface.EntityData.SegmentPath
     diffservInterface.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffservInterface.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffservInterface.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -113,6 +116,7 @@ func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetEntityDat
 type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Direction fo the traffic flow either inbound or
     // outbound. The type is one of the following: InboundOutbound.
@@ -132,6 +136,7 @@ func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTar
     diffservTargetEntry.EntityData.BundleName = "cisco_ios_xe"
     diffservTargetEntry.EntityData.ParentYangName = "diffserv-interface"
     diffservTargetEntry.EntityData.SegmentPath = "diffserv-target-entry" + types.AddKeyToken(diffservTargetEntry.Direction, "direction") + types.AddKeyToken(diffservTargetEntry.PolicyName, "policy-name")
+    diffservTargetEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state/diffserv-interface/" + diffservTargetEntry.EntityData.SegmentPath
     diffservTargetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffservTargetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffservTargetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -155,6 +160,7 @@ func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTar
 type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Classifier Entry Name. The type is string.
     ClassifierEntryName interface{}
@@ -181,6 +187,7 @@ func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterf
     diffservTargetClassifierStatistics.EntityData.BundleName = "cisco_ios_xe"
     diffservTargetClassifierStatistics.EntityData.ParentYangName = "diffserv-target-entry"
     diffservTargetClassifierStatistics.EntityData.SegmentPath = "diffserv-target-classifier-statistics" + types.AddKeyToken(diffservTargetClassifierStatistics.ClassifierEntryName, "classifier-entry-name") + types.AddKeyToken(diffservTargetClassifierStatistics.ParentPath, "parent-path")
+    diffservTargetClassifierStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state/diffserv-interface/diffserv-target-entry/" + diffservTargetClassifierStatistics.EntityData.SegmentPath
     diffservTargetClassifierStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     diffservTargetClassifierStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     diffservTargetClassifierStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -230,6 +237,7 @@ func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_Diffs
     classifierEntryStatistics.EntityData.BundleName = "cisco_ios_xe"
     classifierEntryStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
     classifierEntryStatistics.EntityData.SegmentPath = "classifier-entry-statistics"
+    classifierEntryStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state/diffserv-interface/diffserv-target-entry/diffserv-target-classifier-statistics/" + classifierEntryStatistics.EntityData.SegmentPath
     classifierEntryStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     classifierEntryStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     classifierEntryStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -250,6 +258,7 @@ func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_Diffs
 type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Meter Identifier. The type is interface{} with
     // range: 0..65535.
@@ -278,6 +287,7 @@ func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetE
     meterStatistics.EntityData.BundleName = "cisco_ios_xe"
     meterStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
     meterStatistics.EntityData.SegmentPath = "meter-statistics" + types.AddKeyToken(meterStatistics.MeterId, "meter-id")
+    meterStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state/diffserv-interface/diffserv-target-entry/diffserv-target-classifier-statistics/" + meterStatistics.EntityData.SegmentPath
     meterStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     meterStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     meterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -335,6 +345,7 @@ func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTarge
     queuingStatistics.EntityData.BundleName = "cisco_ios_xe"
     queuingStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
     queuingStatistics.EntityData.SegmentPath = "queuing-statistics"
+    queuingStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state/diffserv-interface/diffserv-target-entry/diffserv-target-classifier-statistics/" + queuingStatistics.EntityData.SegmentPath
     queuingStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     queuingStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     queuingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -375,6 +386,7 @@ func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_D
     wredStats.EntityData.BundleName = "cisco_ios_xe"
     wredStats.EntityData.ParentYangName = "queuing-statistics"
     wredStats.EntityData.SegmentPath = "wred-stats"
+    wredStats.EntityData.AbsolutePath = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state/diffserv-interface/diffserv-target-entry/diffserv-target-classifier-statistics/queuing-statistics/" + wredStats.EntityData.SegmentPath
     wredStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     wredStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     wredStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

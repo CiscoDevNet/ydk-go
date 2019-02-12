@@ -65,6 +65,7 @@ func (fpd *Fpd) GetEntityData() *types.CommonEntityData {
     fpd.EntityData.BundleName = "cisco_ios_xr"
     fpd.EntityData.ParentYangName = "Cisco-IOS-XR-fpd-infra-cfg"
     fpd.EntityData.SegmentPath = "Cisco-IOS-XR-fpd-infra-cfg:fpd"
+    fpd.EntityData.AbsolutePath = fpd.EntityData.SegmentPath
     fpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

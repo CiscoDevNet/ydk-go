@@ -34,17 +34,17 @@ apt-get install gcc-5 g++-5 -y > /dev/null
 ln -fs /usr/bin/g++-5 /usr/bin/c++
 ln -fs /usr/bin/gcc-5 /usr/bin/cc
 
-print_msg "Installing YDK 0.8.0 core library"
+print_msg "Installing YDK 0.8.1 core library"
 if [[ $os_info == *"xenial"* ]]; then
-    run_cmd wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.0/xenial/libydk_0.8.0-1_amd64.deb
+    run_cmd wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.1/xenial/libydk_0.8.1-1_amd64.deb
 elif [[ $os_info == *"bionic"* ]]; then
-    run_cmd wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.0/bionic/libydk_0.8.0-1_amd64.deb
+    run_cmd wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.1/bionic/libydk_0.8.1-1_amd64.deb
 else
     MSG_COLOR=$RED
     print_msg "There are no pre-compiled YDK libraries for this Linux distribution"
     exit 1
 fi
-gdebi -n libydk_0.8.0-1_amd64.deb
+gdebi -n libydk_0.8.1-1_amd64.deb
 
 print_msg "Installing Golang version 1.9.2"
 wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz &> /dev/null

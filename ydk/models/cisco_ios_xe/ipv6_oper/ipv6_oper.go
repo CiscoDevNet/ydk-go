@@ -73,6 +73,7 @@ func (ipv6Data *Ipv6Data) GetEntityData() *types.CommonEntityData {
     ipv6Data.EntityData.BundleName = "cisco_ios_xe"
     ipv6Data.EntityData.ParentYangName = "Cisco-IOS-XE-ipv6-oper"
     ipv6Data.EntityData.SegmentPath = "Cisco-IOS-XE-ipv6-oper:ipv6-data"
+    ipv6Data.EntityData.AbsolutePath = ipv6Data.EntityData.SegmentPath
     ipv6Data.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipv6Data.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -94,6 +95,7 @@ func (ipv6Data *Ipv6Data) GetEntityData() *types.CommonEntityData {
 type Ipv6Data_Nd6Info struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Virtual Router and Forwarding instance that 
     // this neighbor information is associated with. The type is string.
@@ -131,6 +133,7 @@ func (nd6Info *Ipv6Data_Nd6Info) GetEntityData() *types.CommonEntityData {
     nd6Info.EntityData.BundleName = "cisco_ios_xe"
     nd6Info.EntityData.ParentYangName = "ipv6-data"
     nd6Info.EntityData.SegmentPath = "nd6-info" + types.AddKeyToken(nd6Info.VrfName, "vrf-name") + types.AddKeyToken(nd6Info.IfName, "if-name") + types.AddKeyToken(nd6Info.Ip, "ip")
+    nd6Info.EntityData.AbsolutePath = "Cisco-IOS-XE-ipv6-oper:ipv6-data/" + nd6Info.EntityData.SegmentPath
     nd6Info.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nd6Info.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nd6Info.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -31,6 +31,7 @@ func (cISCOPINGMIB *CISCOPINGMIB) GetEntityData() *types.CommonEntityData {
     cISCOPINGMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOPINGMIB.EntityData.ParentYangName = "CISCO-PING-MIB"
     cISCOPINGMIB.EntityData.SegmentPath = "CISCO-PING-MIB:CISCO-PING-MIB"
+    cISCOPINGMIB.EntityData.AbsolutePath = cISCOPINGMIB.EntityData.SegmentPath
     cISCOPINGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOPINGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOPINGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -79,6 +80,7 @@ func (ciscoPingTable *CISCOPINGMIB_CiscoPingTable) GetEntityData() *types.Common
     ciscoPingTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoPingTable.EntityData.ParentYangName = "CISCO-PING-MIB"
     ciscoPingTable.EntityData.SegmentPath = "ciscoPingTable"
+    ciscoPingTable.EntityData.AbsolutePath = "CISCO-PING-MIB:CISCO-PING-MIB/" + ciscoPingTable.EntityData.SegmentPath
     ciscoPingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoPingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoPingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -129,6 +131,7 @@ func (ciscoPingTable *CISCOPINGMIB_CiscoPingTable) GetEntityData() *types.Common
 type CISCOPINGMIB_CiscoPingTable_CiscoPingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object which specifies a unique entry in the
     // ciscoPingTable.  A management station wishing to initiate a ping operation
@@ -230,6 +233,7 @@ func (ciscoPingEntry *CISCOPINGMIB_CiscoPingTable_CiscoPingEntry) GetEntityData(
     ciscoPingEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoPingEntry.EntityData.ParentYangName = "ciscoPingTable"
     ciscoPingEntry.EntityData.SegmentPath = "ciscoPingEntry" + types.AddKeyToken(ciscoPingEntry.CiscoPingSerialNumber, "ciscoPingSerialNumber")
+    ciscoPingEntry.EntityData.AbsolutePath = "CISCO-PING-MIB:CISCO-PING-MIB/ciscoPingTable/" + ciscoPingEntry.EntityData.SegmentPath
     ciscoPingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoPingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoPingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

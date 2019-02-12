@@ -158,6 +158,7 @@ func (cISCONTPMIB *CISCONTPMIB) GetEntityData() *types.CommonEntityData {
     cISCONTPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCONTPMIB.EntityData.ParentYangName = "CISCO-NTP-MIB"
     cISCONTPMIB.EntityData.SegmentPath = "CISCO-NTP-MIB:CISCO-NTP-MIB"
+    cISCONTPMIB.EntityData.AbsolutePath = cISCONTPMIB.EntityData.SegmentPath
     cISCONTPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCONTPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCONTPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -245,6 +246,7 @@ func (cntpSystem *CISCONTPMIB_CntpSystem) GetEntityData() *types.CommonEntityDat
     cntpSystem.EntityData.BundleName = "cisco_ios_xe"
     cntpSystem.EntityData.ParentYangName = "CISCO-NTP-MIB"
     cntpSystem.EntityData.SegmentPath = "cntpSystem"
+    cntpSystem.EntityData.AbsolutePath = "CISCO-NTP-MIB:CISCO-NTP-MIB/" + cntpSystem.EntityData.SegmentPath
     cntpSystem.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cntpSystem.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cntpSystem.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -314,6 +316,7 @@ func (cntpPeersVarTable *CISCONTPMIB_CntpPeersVarTable) GetEntityData() *types.C
     cntpPeersVarTable.EntityData.BundleName = "cisco_ios_xe"
     cntpPeersVarTable.EntityData.ParentYangName = "CISCO-NTP-MIB"
     cntpPeersVarTable.EntityData.SegmentPath = "cntpPeersVarTable"
+    cntpPeersVarTable.EntityData.AbsolutePath = "CISCO-NTP-MIB:CISCO-NTP-MIB/" + cntpPeersVarTable.EntityData.SegmentPath
     cntpPeersVarTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cntpPeersVarTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cntpPeersVarTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -351,6 +354,7 @@ func (cntpPeersVarTable *CISCONTPMIB_CntpPeersVarTable) GetEntityData() *types.C
 type CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer value greater than 0 that uniquely
     // identifies a peer with which the local NTP server is associated. The type
@@ -552,6 +556,7 @@ func (cntpPeersVarEntry *CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry) GetEnt
     cntpPeersVarEntry.EntityData.BundleName = "cisco_ios_xe"
     cntpPeersVarEntry.EntityData.ParentYangName = "cntpPeersVarTable"
     cntpPeersVarEntry.EntityData.SegmentPath = "cntpPeersVarEntry" + types.AddKeyToken(cntpPeersVarEntry.CntpPeersAssocId, "cntpPeersAssocId")
+    cntpPeersVarEntry.EntityData.AbsolutePath = "CISCO-NTP-MIB:CISCO-NTP-MIB/cntpPeersVarTable/" + cntpPeersVarEntry.EntityData.SegmentPath
     cntpPeersVarEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cntpPeersVarEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cntpPeersVarEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -653,6 +658,7 @@ func (cntpFilterRegisterTable *CISCONTPMIB_CntpFilterRegisterTable) GetEntityDat
     cntpFilterRegisterTable.EntityData.BundleName = "cisco_ios_xe"
     cntpFilterRegisterTable.EntityData.ParentYangName = "CISCO-NTP-MIB"
     cntpFilterRegisterTable.EntityData.SegmentPath = "cntpFilterRegisterTable"
+    cntpFilterRegisterTable.EntityData.AbsolutePath = "CISCO-NTP-MIB:CISCO-NTP-MIB/" + cntpFilterRegisterTable.EntityData.SegmentPath
     cntpFilterRegisterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cntpFilterRegisterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cntpFilterRegisterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -679,6 +685,7 @@ func (cntpFilterRegisterTable *CISCONTPMIB_CntpFilterRegisterTable) GetEntityDat
 type CISCONTPMIB_CntpFilterRegisterTable_CntpFilterRegisterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
@@ -716,6 +723,7 @@ func (cntpFilterRegisterEntry *CISCONTPMIB_CntpFilterRegisterTable_CntpFilterReg
     cntpFilterRegisterEntry.EntityData.BundleName = "cisco_ios_xe"
     cntpFilterRegisterEntry.EntityData.ParentYangName = "cntpFilterRegisterTable"
     cntpFilterRegisterEntry.EntityData.SegmentPath = "cntpFilterRegisterEntry" + types.AddKeyToken(cntpFilterRegisterEntry.CntpPeersAssocId, "cntpPeersAssocId") + types.AddKeyToken(cntpFilterRegisterEntry.CntpFilterIndex, "cntpFilterIndex")
+    cntpFilterRegisterEntry.EntityData.AbsolutePath = "CISCO-NTP-MIB:CISCO-NTP-MIB/cntpFilterRegisterTable/" + cntpFilterRegisterEntry.EntityData.SegmentPath
     cntpFilterRegisterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cntpFilterRegisterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cntpFilterRegisterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

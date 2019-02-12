@@ -132,6 +132,7 @@ func (dOCSIETFBPI2MIB *DOCSIETFBPI2MIB) GetEntityData() *types.CommonEntityData 
     dOCSIETFBPI2MIB.EntityData.BundleName = "cisco_ios_xe"
     dOCSIETFBPI2MIB.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     dOCSIETFBPI2MIB.EntityData.SegmentPath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB"
+    dOCSIETFBPI2MIB.EntityData.AbsolutePath = dOCSIETFBPI2MIB.EntityData.SegmentPath
     dOCSIETFBPI2MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dOCSIETFBPI2MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dOCSIETFBPI2MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -221,6 +222,7 @@ func (docsIetfBpi2CodeDownloadControl *DOCSIETFBPI2MIB_DocsIetfBpi2CodeDownloadC
     docsIetfBpi2CodeDownloadControl.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CodeDownloadControl.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CodeDownloadControl.EntityData.SegmentPath = "docsIetfBpi2CodeDownloadControl"
+    docsIetfBpi2CodeDownloadControl.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CodeDownloadControl.EntityData.SegmentPath
     docsIetfBpi2CodeDownloadControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CodeDownloadControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CodeDownloadControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -282,6 +284,7 @@ func (docsIetfBpi2CmBaseTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmBaseTable) GetEntit
     docsIetfBpi2CmBaseTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmBaseTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmBaseTable.EntityData.SegmentPath = "docsIetfBpi2CmBaseTable"
+    docsIetfBpi2CmBaseTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmBaseTable.EntityData.SegmentPath
     docsIetfBpi2CmBaseTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmBaseTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmBaseTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -305,6 +308,7 @@ func (docsIetfBpi2CmBaseTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmBaseTable) GetEntit
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmBaseTable_DocsIetfBpi2CmBaseEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -454,6 +458,7 @@ func (docsIetfBpi2CmBaseEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmBaseTable_DocsIetfB
     docsIetfBpi2CmBaseEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmBaseEntry.EntityData.ParentYangName = "docsIetfBpi2CmBaseTable"
     docsIetfBpi2CmBaseEntry.EntityData.SegmentPath = "docsIetfBpi2CmBaseEntry" + types.AddKeyToken(docsIetfBpi2CmBaseEntry.IfIndex, "ifIndex")
+    docsIetfBpi2CmBaseEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmBaseTable/" + docsIetfBpi2CmBaseEntry.EntityData.SegmentPath
     docsIetfBpi2CmBaseEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmBaseEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmBaseEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -567,6 +572,7 @@ func (docsIetfBpi2CmTEKTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmTEKTable) GetEntityD
     docsIetfBpi2CmTEKTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmTEKTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmTEKTable.EntityData.SegmentPath = "docsIetfBpi2CmTEKTable"
+    docsIetfBpi2CmTEKTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmTEKTable.EntityData.SegmentPath
     docsIetfBpi2CmTEKTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmTEKTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmTEKTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -593,6 +599,7 @@ func (docsIetfBpi2CmTEKTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmTEKTable) GetEntityD
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmTEKTable_DocsIetfBpi2CmTEKEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -704,6 +711,7 @@ func (docsIetfBpi2CmTEKEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmTEKTable_DocsIetfBpi
     docsIetfBpi2CmTEKEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmTEKEntry.EntityData.ParentYangName = "docsIetfBpi2CmTEKTable"
     docsIetfBpi2CmTEKEntry.EntityData.SegmentPath = "docsIetfBpi2CmTEKEntry" + types.AddKeyToken(docsIetfBpi2CmTEKEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIetfBpi2CmTEKEntry.DocsIetfBpi2CmTEKSAId, "docsIetfBpi2CmTEKSAId")
+    docsIetfBpi2CmTEKEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmTEKTable/" + docsIetfBpi2CmTEKEntry.EntityData.SegmentPath
     docsIetfBpi2CmTEKEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmTEKEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmTEKEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -796,6 +804,7 @@ func (docsIetfBpi2CmIpMulticastMapTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmIpMultica
     docsIetfBpi2CmIpMulticastMapTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmIpMulticastMapTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmIpMulticastMapTable.EntityData.SegmentPath = "docsIetfBpi2CmIpMulticastMapTable"
+    docsIetfBpi2CmIpMulticastMapTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmIpMulticastMapTable.EntityData.SegmentPath
     docsIetfBpi2CmIpMulticastMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmIpMulticastMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmIpMulticastMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -822,6 +831,7 @@ func (docsIetfBpi2CmIpMulticastMapTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmIpMultica
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmIpMulticastMapTable_DocsIetfBpi2CmIpMulticastMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -892,6 +902,7 @@ func (docsIetfBpi2CmIpMulticastMapEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmIpMultica
     docsIetfBpi2CmIpMulticastMapEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmIpMulticastMapEntry.EntityData.ParentYangName = "docsIetfBpi2CmIpMulticastMapTable"
     docsIetfBpi2CmIpMulticastMapEntry.EntityData.SegmentPath = "docsIetfBpi2CmIpMulticastMapEntry" + types.AddKeyToken(docsIetfBpi2CmIpMulticastMapEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIetfBpi2CmIpMulticastMapEntry.DocsIetfBpi2CmIpMulticastIndex, "docsIetfBpi2CmIpMulticastIndex")
+    docsIetfBpi2CmIpMulticastMapEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmIpMulticastMapTable/" + docsIetfBpi2CmIpMulticastMapEntry.EntityData.SegmentPath
     docsIetfBpi2CmIpMulticastMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmIpMulticastMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmIpMulticastMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -959,6 +970,7 @@ func (docsIetfBpi2CmDeviceCertTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmDeviceCertTab
     docsIetfBpi2CmDeviceCertTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmDeviceCertTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmDeviceCertTable.EntityData.SegmentPath = "docsIetfBpi2CmDeviceCertTable"
+    docsIetfBpi2CmDeviceCertTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmDeviceCertTable.EntityData.SegmentPath
     docsIetfBpi2CmDeviceCertTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmDeviceCertTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmDeviceCertTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -982,6 +994,7 @@ func (docsIetfBpi2CmDeviceCertTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmDeviceCertTab
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmDeviceCertTable_DocsIetfBpi2CmDeviceCertEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1006,6 +1019,7 @@ func (docsIetfBpi2CmDeviceCertEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmDeviceCertTab
     docsIetfBpi2CmDeviceCertEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmDeviceCertEntry.EntityData.ParentYangName = "docsIetfBpi2CmDeviceCertTable"
     docsIetfBpi2CmDeviceCertEntry.EntityData.SegmentPath = "docsIetfBpi2CmDeviceCertEntry" + types.AddKeyToken(docsIetfBpi2CmDeviceCertEntry.IfIndex, "ifIndex")
+    docsIetfBpi2CmDeviceCertEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmDeviceCertTable/" + docsIetfBpi2CmDeviceCertEntry.EntityData.SegmentPath
     docsIetfBpi2CmDeviceCertEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmDeviceCertEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmDeviceCertEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1041,6 +1055,7 @@ func (docsIetfBpi2CmCryptoSuiteTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmCryptoSuiteT
     docsIetfBpi2CmCryptoSuiteTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmCryptoSuiteTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmCryptoSuiteTable.EntityData.SegmentPath = "docsIetfBpi2CmCryptoSuiteTable"
+    docsIetfBpi2CmCryptoSuiteTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmCryptoSuiteTable.EntityData.SegmentPath
     docsIetfBpi2CmCryptoSuiteTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmCryptoSuiteTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmCryptoSuiteTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1063,6 +1078,7 @@ func (docsIetfBpi2CmCryptoSuiteTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmCryptoSuiteT
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmCryptoSuiteTable_DocsIetfBpi2CmCryptoSuiteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1087,6 +1103,7 @@ func (docsIetfBpi2CmCryptoSuiteEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmCryptoSuiteT
     docsIetfBpi2CmCryptoSuiteEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmCryptoSuiteEntry.EntityData.ParentYangName = "docsIetfBpi2CmCryptoSuiteTable"
     docsIetfBpi2CmCryptoSuiteEntry.EntityData.SegmentPath = "docsIetfBpi2CmCryptoSuiteEntry" + types.AddKeyToken(docsIetfBpi2CmCryptoSuiteEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIetfBpi2CmCryptoSuiteEntry.DocsIetfBpi2CmCryptoSuiteIndex, "docsIetfBpi2CmCryptoSuiteIndex")
+    docsIetfBpi2CmCryptoSuiteEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmCryptoSuiteTable/" + docsIetfBpi2CmCryptoSuiteEntry.EntityData.SegmentPath
     docsIetfBpi2CmCryptoSuiteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmCryptoSuiteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmCryptoSuiteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1123,6 +1140,7 @@ func (docsIetfBpi2CmtsBaseTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsBaseTable) GetE
     docsIetfBpi2CmtsBaseTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsBaseTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmtsBaseTable.EntityData.SegmentPath = "docsIetfBpi2CmtsBaseTable"
+    docsIetfBpi2CmtsBaseTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmtsBaseTable.EntityData.SegmentPath
     docsIetfBpi2CmtsBaseTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsBaseTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsBaseTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1146,6 +1164,7 @@ func (docsIetfBpi2CmtsBaseTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsBaseTable) GetE
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsBaseTable_DocsIetfBpi2CmtsBaseEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1243,6 +1262,7 @@ func (docsIetfBpi2CmtsBaseEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsBaseTable_DocsI
     docsIetfBpi2CmtsBaseEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsBaseEntry.EntityData.ParentYangName = "docsIetfBpi2CmtsBaseTable"
     docsIetfBpi2CmtsBaseEntry.EntityData.SegmentPath = "docsIetfBpi2CmtsBaseEntry" + types.AddKeyToken(docsIetfBpi2CmtsBaseEntry.IfIndex, "ifIndex")
+    docsIetfBpi2CmtsBaseEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmtsBaseTable/" + docsIetfBpi2CmtsBaseEntry.EntityData.SegmentPath
     docsIetfBpi2CmtsBaseEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsBaseEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsBaseEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1301,6 +1321,7 @@ func (docsIetfBpi2CmtsAuthTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsAuthTable) GetE
     docsIetfBpi2CmtsAuthTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsAuthTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmtsAuthTable.EntityData.SegmentPath = "docsIetfBpi2CmtsAuthTable"
+    docsIetfBpi2CmtsAuthTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmtsAuthTable.EntityData.SegmentPath
     docsIetfBpi2CmtsAuthTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsAuthTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsAuthTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1326,6 +1347,7 @@ func (docsIetfBpi2CmtsAuthTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsAuthTable) GetE
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsAuthTable_DocsIetfBpi2CmtsAuthEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1490,6 +1512,7 @@ func (docsIetfBpi2CmtsAuthEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsAuthTable_DocsI
     docsIetfBpi2CmtsAuthEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsAuthEntry.EntityData.ParentYangName = "docsIetfBpi2CmtsAuthTable"
     docsIetfBpi2CmtsAuthEntry.EntityData.SegmentPath = "docsIetfBpi2CmtsAuthEntry" + types.AddKeyToken(docsIetfBpi2CmtsAuthEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIetfBpi2CmtsAuthEntry.DocsIetfBpi2CmtsAuthCmMacAddress, "docsIetfBpi2CmtsAuthCmMacAddress")
+    docsIetfBpi2CmtsAuthEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmtsAuthTable/" + docsIetfBpi2CmtsAuthEntry.EntityData.SegmentPath
     docsIetfBpi2CmtsAuthEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsAuthEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsAuthEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1627,6 +1650,7 @@ func (docsIetfBpi2CmtsTEKTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsTEKTable) GetEnt
     docsIetfBpi2CmtsTEKTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsTEKTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmtsTEKTable.EntityData.SegmentPath = "docsIetfBpi2CmtsTEKTable"
+    docsIetfBpi2CmtsTEKTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmtsTEKTable.EntityData.SegmentPath
     docsIetfBpi2CmtsTEKTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsTEKTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsTEKTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1653,6 +1677,7 @@ func (docsIetfBpi2CmtsTEKTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsTEKTable) GetEnt
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsTEKTable_DocsIetfBpi2CmtsTEKEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1763,6 +1788,7 @@ func (docsIetfBpi2CmtsTEKEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsTEKTable_DocsIet
     docsIetfBpi2CmtsTEKEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsTEKEntry.EntityData.ParentYangName = "docsIetfBpi2CmtsTEKTable"
     docsIetfBpi2CmtsTEKEntry.EntityData.SegmentPath = "docsIetfBpi2CmtsTEKEntry" + types.AddKeyToken(docsIetfBpi2CmtsTEKEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIetfBpi2CmtsTEKEntry.DocsIetfBpi2CmtsTEKSAId, "docsIetfBpi2CmtsTEKSAId")
+    docsIetfBpi2CmtsTEKEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmtsTEKTable/" + docsIetfBpi2CmtsTEKEntry.EntityData.SegmentPath
     docsIetfBpi2CmtsTEKEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsTEKEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsTEKEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1838,6 +1864,7 @@ func (docsIetfBpi2CmtsIpMulticastMapTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsIpMul
     docsIetfBpi2CmtsIpMulticastMapTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsIpMulticastMapTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmtsIpMulticastMapTable.EntityData.SegmentPath = "docsIetfBpi2CmtsIpMulticastMapTable"
+    docsIetfBpi2CmtsIpMulticastMapTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmtsIpMulticastMapTable.EntityData.SegmentPath
     docsIetfBpi2CmtsIpMulticastMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsIpMulticastMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsIpMulticastMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1863,6 +1890,7 @@ func (docsIetfBpi2CmtsIpMulticastMapTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsIpMul
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsIpMulticastMapTable_DocsIetfBpi2CmtsIpMulticastMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1969,6 +1997,7 @@ func (docsIetfBpi2CmtsIpMulticastMapEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsIpMul
     docsIetfBpi2CmtsIpMulticastMapEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsIpMulticastMapEntry.EntityData.ParentYangName = "docsIetfBpi2CmtsIpMulticastMapTable"
     docsIetfBpi2CmtsIpMulticastMapEntry.EntityData.SegmentPath = "docsIetfBpi2CmtsIpMulticastMapEntry" + types.AddKeyToken(docsIetfBpi2CmtsIpMulticastMapEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIetfBpi2CmtsIpMulticastMapEntry.DocsIetfBpi2CmtsIpMulticastIndex, "docsIetfBpi2CmtsIpMulticastIndex")
+    docsIetfBpi2CmtsIpMulticastMapEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmtsIpMulticastMapTable/" + docsIetfBpi2CmtsIpMulticastMapEntry.EntityData.SegmentPath
     docsIetfBpi2CmtsIpMulticastMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsIpMulticastMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsIpMulticastMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2030,6 +2059,7 @@ func (docsIetfBpi2CmtsMulticastAuthTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsMultic
     docsIetfBpi2CmtsMulticastAuthTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsMulticastAuthTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmtsMulticastAuthTable.EntityData.SegmentPath = "docsIetfBpi2CmtsMulticastAuthTable"
+    docsIetfBpi2CmtsMulticastAuthTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmtsMulticastAuthTable.EntityData.SegmentPath
     docsIetfBpi2CmtsMulticastAuthTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsMulticastAuthTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsMulticastAuthTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2055,6 +2085,7 @@ func (docsIetfBpi2CmtsMulticastAuthTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsMultic
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsMulticastAuthTable_DocsIetfBpi2CmtsMulticastAuthEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2080,6 +2111,7 @@ func (docsIetfBpi2CmtsMulticastAuthEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsMultic
     docsIetfBpi2CmtsMulticastAuthEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsMulticastAuthEntry.EntityData.ParentYangName = "docsIetfBpi2CmtsMulticastAuthTable"
     docsIetfBpi2CmtsMulticastAuthEntry.EntityData.SegmentPath = "docsIetfBpi2CmtsMulticastAuthEntry" + types.AddKeyToken(docsIetfBpi2CmtsMulticastAuthEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIetfBpi2CmtsMulticastAuthEntry.DocsIetfBpi2CmtsMulticastAuthSAId, "docsIetfBpi2CmtsMulticastAuthSAId") + types.AddKeyToken(docsIetfBpi2CmtsMulticastAuthEntry.DocsIetfBpi2CmtsMulticastAuthCmMacAddress, "docsIetfBpi2CmtsMulticastAuthCmMacAddress")
+    docsIetfBpi2CmtsMulticastAuthEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmtsMulticastAuthTable/" + docsIetfBpi2CmtsMulticastAuthEntry.EntityData.SegmentPath
     docsIetfBpi2CmtsMulticastAuthEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsMulticastAuthEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsMulticastAuthEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2118,6 +2150,7 @@ func (docsIetfBpi2CmtsProvisionedCmCertTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsPr
     docsIetfBpi2CmtsProvisionedCmCertTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsProvisionedCmCertTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmtsProvisionedCmCertTable.EntityData.SegmentPath = "docsIetfBpi2CmtsProvisionedCmCertTable"
+    docsIetfBpi2CmtsProvisionedCmCertTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmtsProvisionedCmCertTable.EntityData.SegmentPath
     docsIetfBpi2CmtsProvisionedCmCertTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsProvisionedCmCertTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsProvisionedCmCertTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2141,6 +2174,7 @@ func (docsIetfBpi2CmtsProvisionedCmCertTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsPr
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsProvisionedCmCertTable_DocsIetfBpi2CmtsProvisionedCmCertEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of this row. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -2174,6 +2208,7 @@ func (docsIetfBpi2CmtsProvisionedCmCertEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsPr
     docsIetfBpi2CmtsProvisionedCmCertEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsProvisionedCmCertEntry.EntityData.ParentYangName = "docsIetfBpi2CmtsProvisionedCmCertTable"
     docsIetfBpi2CmtsProvisionedCmCertEntry.EntityData.SegmentPath = "docsIetfBpi2CmtsProvisionedCmCertEntry" + types.AddKeyToken(docsIetfBpi2CmtsProvisionedCmCertEntry.DocsIetfBpi2CmtsProvisionedCmCertMacAddress, "docsIetfBpi2CmtsProvisionedCmCertMacAddress")
+    docsIetfBpi2CmtsProvisionedCmCertEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmtsProvisionedCmCertTable/" + docsIetfBpi2CmtsProvisionedCmCertEntry.EntityData.SegmentPath
     docsIetfBpi2CmtsProvisionedCmCertEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsProvisionedCmCertEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsProvisionedCmCertEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2233,6 +2268,7 @@ func (docsIetfBpi2CmtsCACertTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsCACertTable) 
     docsIetfBpi2CmtsCACertTable.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsCACertTable.EntityData.ParentYangName = "DOCS-IETF-BPI2-MIB"
     docsIetfBpi2CmtsCACertTable.EntityData.SegmentPath = "docsIetfBpi2CmtsCACertTable"
+    docsIetfBpi2CmtsCACertTable.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/" + docsIetfBpi2CmtsCACertTable.EntityData.SegmentPath
     docsIetfBpi2CmtsCACertTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsCACertTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsCACertTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2257,6 +2293,7 @@ func (docsIetfBpi2CmtsCACertTable *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsCACertTable) 
 type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsCACertTable_DocsIetfBpi2CmtsCACertEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index for this row. The type is interface{}
     // with range: 1..4294967295.
@@ -2329,6 +2366,7 @@ func (docsIetfBpi2CmtsCACertEntry *DOCSIETFBPI2MIB_DocsIetfBpi2CmtsCACertTable_D
     docsIetfBpi2CmtsCACertEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIetfBpi2CmtsCACertEntry.EntityData.ParentYangName = "docsIetfBpi2CmtsCACertTable"
     docsIetfBpi2CmtsCACertEntry.EntityData.SegmentPath = "docsIetfBpi2CmtsCACertEntry" + types.AddKeyToken(docsIetfBpi2CmtsCACertEntry.DocsIetfBpi2CmtsCACertIndex, "docsIetfBpi2CmtsCACertIndex")
+    docsIetfBpi2CmtsCACertEntry.EntityData.AbsolutePath = "DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB/docsIetfBpi2CmtsCACertTable/" + docsIetfBpi2CmtsCACertEntry.EntityData.SegmentPath
     docsIetfBpi2CmtsCACertEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIetfBpi2CmtsCACertEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIetfBpi2CmtsCACertEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -55,6 +55,7 @@ func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetEntityData() *types.CommonEntityD
     cISCOAAASERVERMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOAAASERVERMIB.EntityData.ParentYangName = "CISCO-AAA-SERVER-MIB"
     cISCOAAASERVERMIB.EntityData.SegmentPath = "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB"
+    cISCOAAASERVERMIB.EntityData.AbsolutePath = cISCOAAASERVERMIB.EntityData.SegmentPath
     cISCOAAASERVERMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOAAASERVERMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOAAASERVERMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -88,6 +89,7 @@ func (casConfig *CISCOAAASERVERMIB_CasConfig) GetEntityData() *types.CommonEntit
     casConfig.EntityData.BundleName = "cisco_ios_xe"
     casConfig.EntityData.ParentYangName = "CISCO-AAA-SERVER-MIB"
     casConfig.EntityData.SegmentPath = "casConfig"
+    casConfig.EntityData.AbsolutePath = "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB/" + casConfig.EntityData.SegmentPath
     casConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     casConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     casConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -151,6 +153,7 @@ func (casConfigTable *CISCOAAASERVERMIB_CasConfigTable) GetEntityData() *types.C
     casConfigTable.EntityData.BundleName = "cisco_ios_xe"
     casConfigTable.EntityData.ParentYangName = "CISCO-AAA-SERVER-MIB"
     casConfigTable.EntityData.SegmentPath = "casConfigTable"
+    casConfigTable.EntityData.AbsolutePath = "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB/" + casConfigTable.EntityData.SegmentPath
     casConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     casConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     casConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -227,6 +230,7 @@ func (casConfigTable *CISCOAAASERVERMIB_CasConfigTable) GetEntityData() *types.C
 type CISCOAAASERVERMIB_CasConfigTable_CasConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The variable denotes the protocol used by the
     // managed device with the AAA server corresponding to  this entry in the
@@ -466,6 +470,7 @@ func (casConfigEntry *CISCOAAASERVERMIB_CasConfigTable_CasConfigEntry) GetEntity
     casConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     casConfigEntry.EntityData.ParentYangName = "casConfigTable"
     casConfigEntry.EntityData.SegmentPath = "casConfigEntry" + types.AddKeyToken(casConfigEntry.CasProtocol, "casProtocol") + types.AddKeyToken(casConfigEntry.CasIndex, "casIndex")
+    casConfigEntry.EntityData.AbsolutePath = "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB/casConfigTable/" + casConfigEntry.EntityData.SegmentPath
     casConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     casConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     casConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -40,6 +40,7 @@ func (upgradeFpd *UpgradeFpd) GetEntityData() *types.CommonEntityData {
     upgradeFpd.EntityData.BundleName = "cisco_ios_xr"
     upgradeFpd.EntityData.ParentYangName = "Cisco-IOS-XR-upgrade-fpd-ng-act"
     upgradeFpd.EntityData.SegmentPath = "Cisco-IOS-XR-upgrade-fpd-ng-act:upgrade-fpd"
+    upgradeFpd.EntityData.AbsolutePath = upgradeFpd.EntityData.SegmentPath
     upgradeFpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     upgradeFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upgradeFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -76,6 +77,7 @@ func (input *UpgradeFpd_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "upgrade-fpd"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-upgrade-fpd-ng-act:upgrade-fpd/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -40,6 +40,7 @@ func (inventoryConfigurations *InventoryConfigurations) GetEntityData() *types.C
     inventoryConfigurations.EntityData.BundleName = "cisco_ios_xr"
     inventoryConfigurations.EntityData.ParentYangName = "Cisco-IOS-XR-invmgr-cfg"
     inventoryConfigurations.EntityData.SegmentPath = "Cisco-IOS-XR-invmgr-cfg:inventory-configurations"
+    inventoryConfigurations.EntityData.AbsolutePath = inventoryConfigurations.EntityData.SegmentPath
     inventoryConfigurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventoryConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventoryConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -61,6 +62,7 @@ func (inventoryConfigurations *InventoryConfigurations) GetEntityData() *types.C
 type InventoryConfigurations_Entity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Entity name. The type is string.
     Name interface{}
@@ -75,6 +77,7 @@ func (entity *InventoryConfigurations_Entity) GetEntityData() *types.CommonEntit
     entity.EntityData.BundleName = "cisco_ios_xr"
     entity.EntityData.ParentYangName = "inventory-configurations"
     entity.EntityData.SegmentPath = "entity" + types.AddKeyToken(entity.Name, "name")
+    entity.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-cfg:inventory-configurations/" + entity.EntityData.SegmentPath
     entity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

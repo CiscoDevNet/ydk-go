@@ -40,6 +40,7 @@ func (password *Password) GetEntityData() *types.CommonEntityData {
     password.EntityData.BundleName = "cisco_ios_xr"
     password.EntityData.ParentYangName = "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg"
     password.EntityData.SegmentPath = "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password"
+    password.EntityData.AbsolutePath = password.EntityData.SegmentPath
     password.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (encryption *Password_Encryption) GetEntityData() *types.CommonEntityData {
     encryption.EntityData.BundleName = "cisco_ios_xr"
     encryption.EntityData.ParentYangName = "password"
     encryption.EntityData.SegmentPath = "encryption"
+    encryption.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password/" + encryption.EntityData.SegmentPath
     encryption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     encryption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encryption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

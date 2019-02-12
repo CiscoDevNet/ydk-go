@@ -85,6 +85,7 @@ func (addressPoolService *AddressPoolService) GetEntityData() *types.CommonEntit
     addressPoolService.EntityData.BundleName = "cisco_ios_xr"
     addressPoolService.EntityData.ParentYangName = "Cisco-IOS-XR-ip-daps-oper"
     addressPoolService.EntityData.SegmentPath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service"
+    addressPoolService.EntityData.AbsolutePath = addressPoolService.EntityData.SegmentPath
     addressPoolService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressPoolService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressPoolService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -115,6 +116,7 @@ func (nodes *AddressPoolService_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "address-pool-service"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -136,6 +138,7 @@ func (nodes *AddressPoolService_Nodes) GetEntityData() *types.CommonEntityData {
 type AddressPoolService_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -157,6 +160,7 @@ func (node *AddressPoolService_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -190,6 +194,7 @@ func (pools *AddressPoolService_Nodes_Node_Pools) GetEntityData() *types.CommonE
     pools.EntityData.BundleName = "cisco_ios_xr"
     pools.EntityData.ParentYangName = "node"
     pools.EntityData.SegmentPath = "pools"
+    pools.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/" + pools.EntityData.SegmentPath
     pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -211,6 +216,7 @@ func (pools *AddressPoolService_Nodes_Node_Pools) GetEntityData() *types.CommonE
 type AddressPoolService_Nodes_Node_Pools_Pool struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The pool name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -232,6 +238,7 @@ func (pool *AddressPoolService_Nodes_Node_Pools_Pool) GetEntityData() *types.Com
     pool.EntityData.BundleName = "cisco_ios_xr"
     pool.EntityData.ParentYangName = "pools"
     pool.EntityData.SegmentPath = "pool" + types.AddKeyToken(pool.PoolName, "pool-name")
+    pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/" + pool.EntityData.SegmentPath
     pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -265,6 +272,7 @@ func (addressRanges *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges) Get
     addressRanges.EntityData.BundleName = "cisco_ios_xr"
     addressRanges.EntityData.ParentYangName = "pool"
     addressRanges.EntityData.SegmentPath = "address-ranges"
+    addressRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/" + addressRanges.EntityData.SegmentPath
     addressRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -286,6 +294,7 @@ func (addressRanges *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges) Get
 type AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP Address. The type is one of the following
     // types: string with pattern:
@@ -338,6 +347,7 @@ func (addressRange *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_Addre
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "address-ranges"
     addressRange.EntityData.SegmentPath = "address-range" + types.AddKeyToken(addressRange.StartAddress, "start-address")
+    addressRange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/address-ranges/" + addressRange.EntityData.SegmentPath
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -378,6 +388,7 @@ func (startAddressXr *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_Add
     startAddressXr.EntityData.BundleName = "cisco_ios_xr"
     startAddressXr.EntityData.ParentYangName = "address-range"
     startAddressXr.EntityData.SegmentPath = "start-address-xr"
+    startAddressXr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/address-ranges/address-range/" + startAddressXr.EntityData.SegmentPath
     startAddressXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startAddressXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startAddressXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -415,6 +426,7 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRan
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "start-address-xr"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/address-ranges/address-range/start-address-xr/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -446,6 +458,7 @@ func (endAddress *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_Address
     endAddress.EntityData.BundleName = "cisco_ios_xr"
     endAddress.EntityData.ParentYangName = "address-range"
     endAddress.EntityData.SegmentPath = "end-address"
+    endAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/address-ranges/address-range/" + endAddress.EntityData.SegmentPath
     endAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     endAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     endAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -483,6 +496,7 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRan
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "end-address"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/address-ranges/address-range/end-address/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -514,6 +528,7 @@ func (defaultRouter *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_Addr
     defaultRouter.EntityData.BundleName = "cisco_ios_xr"
     defaultRouter.EntityData.ParentYangName = "address-range"
     defaultRouter.EntityData.SegmentPath = "default-router"
+    defaultRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/address-ranges/address-range/" + defaultRouter.EntityData.SegmentPath
     defaultRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -551,6 +566,7 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRan
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "default-router"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/address-ranges/address-range/default-router/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -590,6 +606,7 @@ func (allocatedAddresses *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddr
     allocatedAddresses.EntityData.BundleName = "cisco_ios_xr"
     allocatedAddresses.EntityData.ParentYangName = "pool"
     allocatedAddresses.EntityData.SegmentPath = "allocated-addresses"
+    allocatedAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/" + allocatedAddresses.EntityData.SegmentPath
     allocatedAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allocatedAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocatedAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -598,10 +615,12 @@ func (allocatedAddresses *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddr
     allocatedAddresses.EntityData.Children.Append("pool-allocations", types.YChild{"PoolAllocations", &allocatedAddresses.PoolAllocations})
     allocatedAddresses.EntityData.Children.Append("address-range", types.YChild{"AddressRange", nil})
     for i := range allocatedAddresses.AddressRange {
+        types.SetYListKey(allocatedAddresses.AddressRange[i], i)
         allocatedAddresses.EntityData.Children.Append(types.GetSegmentPath(allocatedAddresses.AddressRange[i]), types.YChild{"AddressRange", allocatedAddresses.AddressRange[i]})
     }
     allocatedAddresses.EntityData.Children.Append("in-use-address", types.YChild{"InUseAddress", nil})
     for i := range allocatedAddresses.InUseAddress {
+        types.SetYListKey(allocatedAddresses.InUseAddress[i], i)
         allocatedAddresses.EntityData.Children.Append(types.GetSegmentPath(allocatedAddresses.InUseAddress[i]), types.YChild{"InUseAddress", allocatedAddresses.InUseAddress[i]})
     }
     allocatedAddresses.EntityData.Leafs = types.NewOrderedMap()
@@ -649,6 +668,7 @@ func (poolAllocations *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddress
     poolAllocations.EntityData.BundleName = "cisco_ios_xr"
     poolAllocations.EntityData.ParentYangName = "allocated-addresses"
     poolAllocations.EntityData.SegmentPath = "pool-allocations"
+    poolAllocations.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/" + poolAllocations.EntityData.SegmentPath
     poolAllocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     poolAllocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     poolAllocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -693,6 +713,7 @@ func (highThreshold *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses
     highThreshold.EntityData.BundleName = "cisco_ios_xr"
     highThreshold.EntityData.ParentYangName = "pool-allocations"
     highThreshold.EntityData.SegmentPath = "high-threshold"
+    highThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/pool-allocations/" + highThreshold.EntityData.SegmentPath
     highThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -732,6 +753,7 @@ func (lowThreshold *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_
     lowThreshold.EntityData.BundleName = "cisco_ios_xr"
     lowThreshold.EntityData.ParentYangName = "pool-allocations"
     lowThreshold.EntityData.SegmentPath = "low-threshold"
+    lowThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/pool-allocations/" + lowThreshold.EntityData.SegmentPath
     lowThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -752,6 +774,7 @@ func (lowThreshold *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_
 type AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_AddressRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Used allocations. The type is interface{} with range: 0..4294967295.
     Used interface{}
@@ -774,7 +797,8 @@ func (addressRange *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_
     addressRange.EntityData.YangName = "address-range"
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "allocated-addresses"
-    addressRange.EntityData.SegmentPath = "address-range"
+    addressRange.EntityData.SegmentPath = "address-range" + types.AddNoKeyToken(addressRange)
+    addressRange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/" + addressRange.EntityData.SegmentPath
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -808,6 +832,7 @@ func (startAddress *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_
     startAddress.EntityData.BundleName = "cisco_ios_xr"
     startAddress.EntityData.ParentYangName = "address-range"
     startAddress.EntityData.SegmentPath = "start-address"
+    startAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/address-range/" + startAddress.EntityData.SegmentPath
     startAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -845,6 +870,7 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_Addre
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "start-address"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/address-range/start-address/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -876,6 +902,7 @@ func (endAddress *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_Ad
     endAddress.EntityData.BundleName = "cisco_ios_xr"
     endAddress.EntityData.ParentYangName = "address-range"
     endAddress.EntityData.SegmentPath = "end-address"
+    endAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/address-range/" + endAddress.EntityData.SegmentPath
     endAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     endAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     endAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -913,6 +940,7 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_Addre
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "end-address"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/address-range/end-address/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -933,6 +961,7 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_Addre
 type AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUseAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client type. The type is DapsClient.
     ClientType interface{}
@@ -946,7 +975,8 @@ func (inUseAddress *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_
     inUseAddress.EntityData.YangName = "in-use-address"
     inUseAddress.EntityData.BundleName = "cisco_ios_xr"
     inUseAddress.EntityData.ParentYangName = "allocated-addresses"
-    inUseAddress.EntityData.SegmentPath = "in-use-address"
+    inUseAddress.EntityData.SegmentPath = "in-use-address" + types.AddNoKeyToken(inUseAddress)
+    inUseAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/" + inUseAddress.EntityData.SegmentPath
     inUseAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inUseAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inUseAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -977,6 +1007,7 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUse
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "in-use-address"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/in-use-address/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1014,6 +1045,7 @@ func (address *AddressPoolService_Nodes_Node_Pools_Pool_AllocatedAddresses_InUse
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "address"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/allocated-addresses/in-use-address/address/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1077,6 +1109,7 @@ func (configuration *AddressPoolService_Nodes_Node_Pools_Pool_Configuration) Get
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "pool"
     configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1122,6 +1155,7 @@ func (sergInfo *AddressPoolService_Nodes_Node_Pools_Pool_Configuration_SergInfo)
     sergInfo.EntityData.BundleName = "cisco_ios_xr"
     sergInfo.EntityData.ParentYangName = "configuration"
     sergInfo.EntityData.SegmentPath = "serg-info"
+    sergInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/pools/pool/configuration/" + sergInfo.EntityData.SegmentPath
     sergInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sergInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sergInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1159,6 +1193,7 @@ func (totalUtilization *AddressPoolService_Nodes_Node_TotalUtilization) GetEntit
     totalUtilization.EntityData.BundleName = "cisco_ios_xr"
     totalUtilization.EntityData.ParentYangName = "node"
     totalUtilization.EntityData.SegmentPath = "total-utilization"
+    totalUtilization.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/" + totalUtilization.EntityData.SegmentPath
     totalUtilization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     totalUtilization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     totalUtilization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1191,6 +1226,7 @@ func (vrfs *AddressPoolService_Nodes_Node_Vrfs) GetEntityData() *types.CommonEnt
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "node"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1212,6 +1248,7 @@ func (vrfs *AddressPoolService_Nodes_Node_Vrfs) GetEntityData() *types.CommonEnt
 type AddressPoolService_Nodes_Node_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1230,6 +1267,7 @@ func (vrf *AddressPoolService_Nodes_Node_Vrfs_Vrf) GetEntityData() *types.Common
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1265,6 +1303,7 @@ func (ipv4 *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4) GetEntityData() *types.
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "vrf"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/vrfs/vrf/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1273,6 +1312,7 @@ func (ipv4 *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4) GetEntityData() *types.
     ipv4.EntityData.Children.Append("allocation-summary", types.YChild{"AllocationSummary", &ipv4.AllocationSummary})
     ipv4.EntityData.Children.Append("pools", types.YChild{"Pools", nil})
     for i := range ipv4.Pools {
+        types.SetYListKey(ipv4.Pools[i], i)
         ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Pools[i]), types.YChild{"Pools", ipv4.Pools[i]})
     }
     ipv4.EntityData.Leafs = types.NewOrderedMap()
@@ -1319,6 +1359,7 @@ func (allocationSummary *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4_AllocationS
     allocationSummary.EntityData.BundleName = "cisco_ios_xr"
     allocationSummary.EntityData.ParentYangName = "ipv4"
     allocationSummary.EntityData.SegmentPath = "allocation-summary"
+    allocationSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/vrfs/vrf/ipv4/" + allocationSummary.EntityData.SegmentPath
     allocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1343,6 +1384,7 @@ func (allocationSummary *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4_AllocationS
 type AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4_Pools struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Pool name. The type is string with length: 0..64.
     PoolName interface{}
@@ -1368,7 +1410,8 @@ func (pools *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv4_Pools) GetEntityData() 
     pools.EntityData.YangName = "pools"
     pools.EntityData.BundleName = "cisco_ios_xr"
     pools.EntityData.ParentYangName = "ipv4"
-    pools.EntityData.SegmentPath = "pools"
+    pools.EntityData.SegmentPath = "pools" + types.AddNoKeyToken(pools)
+    pools.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/vrfs/vrf/ipv4/" + pools.EntityData.SegmentPath
     pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1407,6 +1450,7 @@ func (ipv6 *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6) GetEntityData() *types.
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "vrf"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/vrfs/vrf/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1415,6 +1459,7 @@ func (ipv6 *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6) GetEntityData() *types.
     ipv6.EntityData.Children.Append("allocation-summary", types.YChild{"AllocationSummary", &ipv6.AllocationSummary})
     ipv6.EntityData.Children.Append("pools", types.YChild{"Pools", nil})
     for i := range ipv6.Pools {
+        types.SetYListKey(ipv6.Pools[i], i)
         ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Pools[i]), types.YChild{"Pools", ipv6.Pools[i]})
     }
     ipv6.EntityData.Leafs = types.NewOrderedMap()
@@ -1461,6 +1506,7 @@ func (allocationSummary *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6_AllocationS
     allocationSummary.EntityData.BundleName = "cisco_ios_xr"
     allocationSummary.EntityData.ParentYangName = "ipv6"
     allocationSummary.EntityData.SegmentPath = "allocation-summary"
+    allocationSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/vrfs/vrf/ipv6/" + allocationSummary.EntityData.SegmentPath
     allocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1485,6 +1531,7 @@ func (allocationSummary *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6_AllocationS
 type AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6_Pools struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Pool name. The type is string with length: 0..64.
     PoolName interface{}
@@ -1510,7 +1557,8 @@ func (pools *AddressPoolService_Nodes_Node_Vrfs_Vrf_Ipv6_Pools) GetEntityData() 
     pools.EntityData.YangName = "pools"
     pools.EntityData.BundleName = "cisco_ios_xr"
     pools.EntityData.ParentYangName = "ipv6"
-    pools.EntityData.SegmentPath = "pools"
+    pools.EntityData.SegmentPath = "pools" + types.AddNoKeyToken(pools)
+    pools.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/node/vrfs/vrf/ipv6/" + pools.EntityData.SegmentPath
     pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

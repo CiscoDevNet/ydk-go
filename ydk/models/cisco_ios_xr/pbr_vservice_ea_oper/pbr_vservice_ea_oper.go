@@ -70,6 +70,7 @@ func (serviceFunctionChaining *ServiceFunctionChaining) GetEntityData() *types.C
     serviceFunctionChaining.EntityData.BundleName = "cisco_ios_xr"
     serviceFunctionChaining.EntityData.ParentYangName = "Cisco-IOS-XR-pbr-vservice-ea-oper"
     serviceFunctionChaining.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining"
+    serviceFunctionChaining.EntityData.AbsolutePath = serviceFunctionChaining.EntityData.SegmentPath
     serviceFunctionChaining.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceFunctionChaining.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunctionChaining.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -101,6 +102,7 @@ func (nodes *ServiceFunctionChaining_Nodes) GetEntityData() *types.CommonEntityD
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "service-function-chaining"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -122,6 +124,7 @@ func (nodes *ServiceFunctionChaining_Nodes) GetEntityData() *types.CommonEntityD
 type ServiceFunctionChaining_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node to collect statistics from. The type is
     // string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -137,6 +140,7 @@ func (node *ServiceFunctionChaining_Nodes_Node) GetEntityData() *types.CommonEnt
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -173,6 +177,7 @@ func (process *ServiceFunctionChaining_Nodes_Node_Process) GetEntityData() *type
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "node"
     process.EntityData.SegmentPath = "process"
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -204,6 +209,7 @@ func (serviceFunctionPath *ServiceFunctionChaining_Nodes_Node_Process_ServiceFun
     serviceFunctionPath.EntityData.BundleName = "cisco_ios_xr"
     serviceFunctionPath.EntityData.ParentYangName = "process"
     serviceFunctionPath.EntityData.SegmentPath = "service-function-path"
+    serviceFunctionPath.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/" + serviceFunctionPath.EntityData.SegmentPath
     serviceFunctionPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceFunctionPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunctionPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -234,6 +240,7 @@ func (pathIds *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Pa
     pathIds.EntityData.BundleName = "cisco_ios_xr"
     pathIds.EntityData.ParentYangName = "service-function-path"
     pathIds.EntityData.SegmentPath = "path-ids"
+    pathIds.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/" + pathIds.EntityData.SegmentPath
     pathIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -255,6 +262,7 @@ func (pathIds *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Pa
 type ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathIds_PathId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Service-Function-Path identifier. The
     // type is interface{} with range: 1..16777215.
@@ -273,6 +281,7 @@ func (pathId *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Pat
     pathId.EntityData.BundleName = "cisco_ios_xr"
     pathId.EntityData.ParentYangName = "path-ids"
     pathId.EntityData.SegmentPath = "path-id" + types.AddKeyToken(pathId.Id, "id")
+    pathId.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/" + pathId.EntityData.SegmentPath
     pathId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -305,6 +314,7 @@ func (serviceIndexes *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction
     serviceIndexes.EntityData.BundleName = "cisco_ios_xr"
     serviceIndexes.EntityData.ParentYangName = "path-id"
     serviceIndexes.EntityData.SegmentPath = "service-indexes"
+    serviceIndexes.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/" + serviceIndexes.EntityData.SegmentPath
     serviceIndexes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -327,6 +337,7 @@ func (serviceIndexes *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction
 type ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Service Index. The type is interface{} with range:
     // 1..255.
@@ -346,6 +357,7 @@ func (serviceIndex *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPa
     serviceIndex.EntityData.BundleName = "cisco_ios_xr"
     serviceIndex.EntityData.ParentYangName = "service-indexes"
     serviceIndex.EntityData.SegmentPath = "service-index" + types.AddKeyToken(serviceIndex.Index, "index")
+    serviceIndex.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/" + serviceIndex.EntityData.SegmentPath
     serviceIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -354,6 +366,7 @@ func (serviceIndex *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPa
     serviceIndex.EntityData.Children.Append("data", types.YChild{"Data", &serviceIndex.Data})
     serviceIndex.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range serviceIndex.SiArr {
+        types.SetYListKey(serviceIndex.SiArr[i], i)
         serviceIndex.EntityData.Children.Append(types.GetSegmentPath(serviceIndex.SiArr[i]), types.YChild{"SiArr", serviceIndex.SiArr[i]})
     }
     serviceIndex.EntityData.Leafs = types.NewOrderedMap()
@@ -398,6 +411,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "service-index"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -436,6 +450,7 @@ func (sfp *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathId
     sfp.EntityData.BundleName = "cisco_ios_xr"
     sfp.EntityData.ParentYangName = "data"
     sfp.EntityData.SegmentPath = "sfp"
+    sfp.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/data/" + sfp.EntityData.SegmentPath
     sfp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -471,6 +486,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "sfp"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/data/sfp/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -506,6 +522,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "sfp"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/data/sfp/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -541,6 +558,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -576,6 +594,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -611,6 +630,7 @@ func (sf *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathIds
     sf.EntityData.BundleName = "cisco_ios_xr"
     sf.EntityData.ParentYangName = "data"
     sf.EntityData.SegmentPath = "sf"
+    sf.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/data/" + sf.EntityData.SegmentPath
     sf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -646,6 +666,7 @@ func (sff *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathId
     sff.EntityData.BundleName = "cisco_ios_xr"
     sff.EntityData.ParentYangName = "data"
     sff.EntityData.SegmentPath = "sff"
+    sff.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/data/" + sff.EntityData.SegmentPath
     sff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -689,6 +710,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_P
     sffLocal.EntityData.BundleName = "cisco_ios_xr"
     sffLocal.EntityData.ParentYangName = "data"
     sffLocal.EntityData.SegmentPath = "sff-local"
+    sffLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/data/" + sffLocal.EntityData.SegmentPath
     sffLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -710,6 +732,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_P
 type ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathIds_PathId_ServiceIndexes_ServiceIndex_SiArr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Service index. The type is interface{} with range: 0..255.
     Si interface{}
@@ -723,7 +746,8 @@ func (siArr *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     siArr.EntityData.YangName = "si-arr"
     siArr.EntityData.BundleName = "cisco_ios_xr"
     siArr.EntityData.ParentYangName = "service-index"
-    siArr.EntityData.SegmentPath = "si-arr"
+    siArr.EntityData.SegmentPath = "si-arr" + types.AddNoKeyToken(siArr)
+    siArr.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/" + siArr.EntityData.SegmentPath
     siArr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -760,6 +784,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "si-arr"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/si-arr/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -796,6 +821,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/si-arr/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -831,6 +857,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/service-indexes/service-index/si-arr/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -864,6 +891,7 @@ func (stats *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "path-id"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -898,6 +926,7 @@ func (detail *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Pat
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "stats"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -906,6 +935,7 @@ func (detail *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Pat
     detail.EntityData.Children.Append("data", types.YChild{"Data", &detail.Data})
     detail.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range detail.SiArr {
+        types.SetYListKey(detail.SiArr[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.SiArr[i]), types.YChild{"SiArr", detail.SiArr[i]})
     }
     detail.EntityData.Leafs = types.NewOrderedMap()
@@ -949,6 +979,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "detail"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -987,6 +1018,7 @@ func (sfp *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathId
     sfp.EntityData.BundleName = "cisco_ios_xr"
     sfp.EntityData.ParentYangName = "data"
     sfp.EntityData.SegmentPath = "sfp"
+    sfp.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/data/" + sfp.EntityData.SegmentPath
     sfp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1022,6 +1054,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "sfp"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/data/sfp/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1057,6 +1090,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "sfp"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/data/sfp/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1092,6 +1126,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1127,6 +1162,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1162,6 +1198,7 @@ func (sf *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathIds
     sf.EntityData.BundleName = "cisco_ios_xr"
     sf.EntityData.ParentYangName = "data"
     sf.EntityData.SegmentPath = "sf"
+    sf.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/data/" + sf.EntityData.SegmentPath
     sf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1197,6 +1234,7 @@ func (sff *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathId
     sff.EntityData.BundleName = "cisco_ios_xr"
     sff.EntityData.ParentYangName = "data"
     sff.EntityData.SegmentPath = "sff"
+    sff.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/data/" + sff.EntityData.SegmentPath
     sff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1240,6 +1278,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_P
     sffLocal.EntityData.BundleName = "cisco_ios_xr"
     sffLocal.EntityData.ParentYangName = "data"
     sffLocal.EntityData.SegmentPath = "sff-local"
+    sffLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/data/" + sffLocal.EntityData.SegmentPath
     sffLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1261,6 +1300,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_P
 type ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathIds_PathId_Stats_Detail_SiArr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Service index. The type is interface{} with range: 0..255.
     Si interface{}
@@ -1274,7 +1314,8 @@ func (siArr *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     siArr.EntityData.YangName = "si-arr"
     siArr.EntityData.BundleName = "cisco_ios_xr"
     siArr.EntityData.ParentYangName = "detail"
-    siArr.EntityData.SegmentPath = "si-arr"
+    siArr.EntityData.SegmentPath = "si-arr" + types.AddNoKeyToken(siArr)
+    siArr.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/" + siArr.EntityData.SegmentPath
     siArr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1311,6 +1352,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "si-arr"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/si-arr/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1347,6 +1389,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/si-arr/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1382,6 +1425,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/detail/si-arr/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1417,6 +1461,7 @@ func (summarized *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath
     summarized.EntityData.BundleName = "cisco_ios_xr"
     summarized.EntityData.ParentYangName = "stats"
     summarized.EntityData.SegmentPath = "summarized"
+    summarized.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/" + summarized.EntityData.SegmentPath
     summarized.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summarized.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summarized.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1425,6 +1470,7 @@ func (summarized *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath
     summarized.EntityData.Children.Append("data", types.YChild{"Data", &summarized.Data})
     summarized.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range summarized.SiArr {
+        types.SetYListKey(summarized.SiArr[i], i)
         summarized.EntityData.Children.Append(types.GetSegmentPath(summarized.SiArr[i]), types.YChild{"SiArr", summarized.SiArr[i]})
     }
     summarized.EntityData.Leafs = types.NewOrderedMap()
@@ -1468,6 +1514,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "summarized"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1506,6 +1553,7 @@ func (sfp *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathId
     sfp.EntityData.BundleName = "cisco_ios_xr"
     sfp.EntityData.ParentYangName = "data"
     sfp.EntityData.SegmentPath = "sfp"
+    sfp.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/data/" + sfp.EntityData.SegmentPath
     sfp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1541,6 +1589,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "sfp"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/data/sfp/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1576,6 +1625,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "sfp"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/data/sfp/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1611,6 +1661,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1646,6 +1697,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1681,6 +1733,7 @@ func (sf *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathIds
     sf.EntityData.BundleName = "cisco_ios_xr"
     sf.EntityData.ParentYangName = "data"
     sf.EntityData.SegmentPath = "sf"
+    sf.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/data/" + sf.EntityData.SegmentPath
     sf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1716,6 +1769,7 @@ func (sff *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathId
     sff.EntityData.BundleName = "cisco_ios_xr"
     sff.EntityData.ParentYangName = "data"
     sff.EntityData.SegmentPath = "sff"
+    sff.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/data/" + sff.EntityData.SegmentPath
     sff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1759,6 +1813,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_P
     sffLocal.EntityData.BundleName = "cisco_ios_xr"
     sffLocal.EntityData.ParentYangName = "data"
     sffLocal.EntityData.SegmentPath = "sff-local"
+    sffLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/data/" + sffLocal.EntityData.SegmentPath
     sffLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1780,6 +1835,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_P
 type ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathIds_PathId_Stats_Summarized_SiArr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Service index. The type is interface{} with range: 0..255.
     Si interface{}
@@ -1793,7 +1849,8 @@ func (siArr *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     siArr.EntityData.YangName = "si-arr"
     siArr.EntityData.BundleName = "cisco_ios_xr"
     siArr.EntityData.ParentYangName = "summarized"
-    siArr.EntityData.SegmentPath = "si-arr"
+    siArr.EntityData.SegmentPath = "si-arr" + types.AddNoKeyToken(siArr)
+    siArr.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/" + siArr.EntityData.SegmentPath
     siArr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1830,6 +1887,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "si-arr"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/si-arr/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1866,6 +1924,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_Path
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/si-arr/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1901,6 +1960,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionPath_PathI
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-path/path-ids/path-id/stats/summarized/si-arr/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1931,6 +1991,7 @@ func (serviceFunction *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctio
     serviceFunction.EntityData.BundleName = "cisco_ios_xr"
     serviceFunction.EntityData.ParentYangName = "process"
     serviceFunction.EntityData.SegmentPath = "service-function"
+    serviceFunction.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/" + serviceFunction.EntityData.SegmentPath
     serviceFunction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceFunction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1961,6 +2022,7 @@ func (sfNames *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfName
     sfNames.EntityData.BundleName = "cisco_ios_xr"
     sfNames.EntityData.ParentYangName = "service-function"
     sfNames.EntityData.SegmentPath = "sf-names"
+    sfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/" + sfNames.EntityData.SegmentPath
     sfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1982,6 +2044,7 @@ func (sfNames *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfName
 type ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_SfName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name. The type is string with length: 1..32.
     Name interface{}
@@ -2000,6 +2063,7 @@ func (sfName *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames
     sfName.EntityData.BundleName = "cisco_ios_xr"
     sfName.EntityData.ParentYangName = "sf-names"
     sfName.EntityData.SegmentPath = "sf-name" + types.AddKeyToken(sfName.Name, "name")
+    sfName.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/" + sfName.EntityData.SegmentPath
     sfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2008,6 +2072,7 @@ func (sfName *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames
     sfName.EntityData.Children.Append("data", types.YChild{"Data", &sfName.Data})
     sfName.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range sfName.SiArr {
+        types.SetYListKey(sfName.SiArr[i], i)
         sfName.EntityData.Children.Append(types.GetSegmentPath(sfName.SiArr[i]), types.YChild{"SiArr", sfName.SiArr[i]})
     }
     sfName.EntityData.Leafs = types.NewOrderedMap()
@@ -2052,6 +2117,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_S
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "sf-name"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2090,6 +2156,7 @@ func (sfp *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_Sf
     sfp.EntityData.BundleName = "cisco_ios_xr"
     sfp.EntityData.ParentYangName = "data"
     sfp.EntityData.SegmentPath = "sfp"
+    sfp.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/data/" + sfp.EntityData.SegmentPath
     sfp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2125,6 +2192,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "sfp"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/data/sfp/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2160,6 +2228,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_S
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "sfp"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/data/sfp/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2195,6 +2264,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2230,6 +2300,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_S
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2265,6 +2336,7 @@ func (sf *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_SfN
     sf.EntityData.BundleName = "cisco_ios_xr"
     sf.EntityData.ParentYangName = "data"
     sf.EntityData.SegmentPath = "sf"
+    sf.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/data/" + sf.EntityData.SegmentPath
     sf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2300,6 +2372,7 @@ func (sff *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_Sf
     sff.EntityData.BundleName = "cisco_ios_xr"
     sff.EntityData.ParentYangName = "data"
     sff.EntityData.SegmentPath = "sff"
+    sff.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/data/" + sff.EntityData.SegmentPath
     sff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2343,6 +2416,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNam
     sffLocal.EntityData.BundleName = "cisco_ios_xr"
     sffLocal.EntityData.ParentYangName = "data"
     sffLocal.EntityData.SegmentPath = "sff-local"
+    sffLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/data/" + sffLocal.EntityData.SegmentPath
     sffLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2364,6 +2438,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNam
 type ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_SfName_SiArr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Service index. The type is interface{} with range: 0..255.
     Si interface{}
@@ -2377,7 +2452,8 @@ func (siArr *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_
     siArr.EntityData.YangName = "si-arr"
     siArr.EntityData.BundleName = "cisco_ios_xr"
     siArr.EntityData.ParentYangName = "sf-name"
-    siArr.EntityData.SegmentPath = "si-arr"
+    siArr.EntityData.SegmentPath = "si-arr" + types.AddNoKeyToken(siArr)
+    siArr.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/" + siArr.EntityData.SegmentPath
     siArr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2414,6 +2490,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_S
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "si-arr"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/si-arr/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2450,6 +2527,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/si-arr/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2485,6 +2563,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunction_SfNames_S
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function/sf-names/sf-name/si-arr/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2518,6 +2597,7 @@ func (serviceFunctionForwarder *ServiceFunctionChaining_Nodes_Node_Process_Servi
     serviceFunctionForwarder.EntityData.BundleName = "cisco_ios_xr"
     serviceFunctionForwarder.EntityData.ParentYangName = "process"
     serviceFunctionForwarder.EntityData.SegmentPath = "service-function-forwarder"
+    serviceFunctionForwarder.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/" + serviceFunctionForwarder.EntityData.SegmentPath
     serviceFunctionForwarder.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceFunctionForwarder.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunctionForwarder.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2549,6 +2629,7 @@ func (local *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "service-function-forwarder"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2583,6 +2664,7 @@ func (self *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "local"
     self.EntityData.SegmentPath = "error"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2591,6 +2673,7 @@ func (self *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     self.EntityData.Children.Append("data", types.YChild{"Data", &self.Data})
     self.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range self.SiArr {
+        types.SetYListKey(self.SiArr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.SiArr[i]), types.YChild{"SiArr", self.SiArr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -2634,6 +2717,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "error"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2672,6 +2756,7 @@ func (sfp *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_L
     sfp.EntityData.BundleName = "cisco_ios_xr"
     sfp.EntityData.ParentYangName = "data"
     sfp.EntityData.SegmentPath = "sfp"
+    sfp.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/data/" + sfp.EntityData.SegmentPath
     sfp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2707,6 +2792,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "sfp"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/data/sfp/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2742,6 +2828,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "sfp"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/data/sfp/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2777,6 +2864,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2812,6 +2900,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2847,6 +2936,7 @@ func (sf *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_Lo
     sf.EntityData.BundleName = "cisco_ios_xr"
     sf.EntityData.ParentYangName = "data"
     sf.EntityData.SegmentPath = "sf"
+    sf.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/data/" + sf.EntityData.SegmentPath
     sf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2882,6 +2972,7 @@ func (sff *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_L
     sff.EntityData.BundleName = "cisco_ios_xr"
     sff.EntityData.ParentYangName = "data"
     sff.EntityData.SegmentPath = "sff"
+    sff.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/data/" + sff.EntityData.SegmentPath
     sff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2925,6 +3016,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwar
     sffLocal.EntityData.BundleName = "cisco_ios_xr"
     sffLocal.EntityData.ParentYangName = "data"
     sffLocal.EntityData.SegmentPath = "sff-local"
+    sffLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/data/" + sffLocal.EntityData.SegmentPath
     sffLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2946,6 +3038,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwar
 type ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_Local_Error_SiArr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Service index. The type is interface{} with range: 0..255.
     Si interface{}
@@ -2959,7 +3052,8 @@ func (siArr *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder
     siArr.EntityData.YangName = "si-arr"
     siArr.EntityData.BundleName = "cisco_ios_xr"
     siArr.EntityData.ParentYangName = "error"
-    siArr.EntityData.SegmentPath = "si-arr"
+    siArr.EntityData.SegmentPath = "si-arr" + types.AddNoKeyToken(siArr)
+    siArr.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/" + siArr.EntityData.SegmentPath
     siArr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2996,6 +3090,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "si-arr"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/si-arr/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3032,6 +3127,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/si-arr/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3067,6 +3163,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/local/error/si-arr/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3098,6 +3195,7 @@ func (sffNames *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwar
     sffNames.EntityData.BundleName = "cisco_ios_xr"
     sffNames.EntityData.ParentYangName = "service-function-forwarder"
     sffNames.EntityData.SegmentPath = "sff-names"
+    sffNames.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/" + sffNames.EntityData.SegmentPath
     sffNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3119,6 +3217,7 @@ func (sffNames *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwar
 type ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_SffNames_SffName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name. The type is string with length: 1..32.
     Name interface{}
@@ -3137,6 +3236,7 @@ func (sffName *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForward
     sffName.EntityData.BundleName = "cisco_ios_xr"
     sffName.EntityData.ParentYangName = "sff-names"
     sffName.EntityData.SegmentPath = "sff-name" + types.AddKeyToken(sffName.Name, "name")
+    sffName.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/" + sffName.EntityData.SegmentPath
     sffName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3145,6 +3245,7 @@ func (sffName *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForward
     sffName.EntityData.Children.Append("data", types.YChild{"Data", &sffName.Data})
     sffName.EntityData.Children.Append("si-arr", types.YChild{"SiArr", nil})
     for i := range sffName.SiArr {
+        types.SetYListKey(sffName.SiArr[i], i)
         sffName.EntityData.Children.Append(types.GetSegmentPath(sffName.SiArr[i]), types.YChild{"SiArr", sffName.SiArr[i]})
     }
     sffName.EntityData.Leafs = types.NewOrderedMap()
@@ -3189,6 +3290,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "sff-name"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3227,6 +3329,7 @@ func (sfp *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_S
     sfp.EntityData.BundleName = "cisco_ios_xr"
     sfp.EntityData.ParentYangName = "data"
     sfp.EntityData.SegmentPath = "sfp"
+    sfp.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/data/" + sfp.EntityData.SegmentPath
     sfp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3262,6 +3365,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "sfp"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/data/sfp/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3297,6 +3401,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "sfp"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/data/sfp/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3332,6 +3437,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3367,6 +3473,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3402,6 +3509,7 @@ func (sf *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_Sf
     sf.EntityData.BundleName = "cisco_ios_xr"
     sf.EntityData.ParentYangName = "data"
     sf.EntityData.SegmentPath = "sf"
+    sf.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/data/" + sf.EntityData.SegmentPath
     sf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3437,6 +3545,7 @@ func (sff *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_S
     sff.EntityData.BundleName = "cisco_ios_xr"
     sff.EntityData.ParentYangName = "data"
     sff.EntityData.SegmentPath = "sff"
+    sff.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/data/" + sff.EntityData.SegmentPath
     sff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3480,6 +3589,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwar
     sffLocal.EntityData.BundleName = "cisco_ios_xr"
     sffLocal.EntityData.ParentYangName = "data"
     sffLocal.EntityData.SegmentPath = "sff-local"
+    sffLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/data/" + sffLocal.EntityData.SegmentPath
     sffLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3501,6 +3611,7 @@ func (sffLocal *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwar
 type ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_SffNames_SffName_SiArr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Service index. The type is interface{} with range: 0..255.
     Si interface{}
@@ -3514,7 +3625,8 @@ func (siArr *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder
     siArr.EntityData.YangName = "si-arr"
     siArr.EntityData.BundleName = "cisco_ios_xr"
     siArr.EntityData.ParentYangName = "sff-name"
-    siArr.EntityData.SegmentPath = "si-arr"
+    siArr.EntityData.SegmentPath = "si-arr" + types.AddNoKeyToken(siArr)
+    siArr.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/" + siArr.EntityData.SegmentPath
     siArr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siArr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siArr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3551,6 +3663,7 @@ func (data *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "si-arr"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/si-arr/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3587,6 +3700,7 @@ func (spiSi *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder
     spiSi.EntityData.BundleName = "cisco_ios_xr"
     spiSi.EntityData.ParentYangName = "data"
     spiSi.EntityData.SegmentPath = "spi-si"
+    spiSi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/si-arr/data/" + spiSi.EntityData.SegmentPath
     spiSi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spiSi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spiSi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3622,6 +3736,7 @@ func (term *ServiceFunctionChaining_Nodes_Node_Process_ServiceFunctionForwarder_
     term.EntityData.BundleName = "cisco_ios_xr"
     term.EntityData.ParentYangName = "data"
     term.EntityData.SegmentPath = "term"
+    term.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/node/process/service-function-forwarder/sff-names/sff-name/si-arr/data/" + term.EntityData.SegmentPath
     term.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     term.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     term.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

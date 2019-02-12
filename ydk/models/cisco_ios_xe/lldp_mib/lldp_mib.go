@@ -170,6 +170,7 @@ func (lLDPMIB *LLDPMIB) GetEntityData() *types.CommonEntityData {
     lLDPMIB.EntityData.BundleName = "cisco_ios_xe"
     lLDPMIB.EntityData.ParentYangName = "LLDP-MIB"
     lLDPMIB.EntityData.SegmentPath = "LLDP-MIB:LLDP-MIB"
+    lLDPMIB.EntityData.AbsolutePath = lLDPMIB.EntityData.SegmentPath
     lLDPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lLDPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lLDPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -260,6 +261,7 @@ func (lldpConfiguration *LLDPMIB_LldpConfiguration) GetEntityData() *types.Commo
     lldpConfiguration.EntityData.BundleName = "cisco_ios_xe"
     lldpConfiguration.EntityData.ParentYangName = "LLDP-MIB"
     lldpConfiguration.EntityData.SegmentPath = "lldpConfiguration"
+    lldpConfiguration.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpConfiguration.EntityData.SegmentPath
     lldpConfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpConfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -341,6 +343,7 @@ func (lldpStatistics *LLDPMIB_LldpStatistics) GetEntityData() *types.CommonEntit
     lldpStatistics.EntityData.BundleName = "cisco_ios_xe"
     lldpStatistics.EntityData.ParentYangName = "LLDP-MIB"
     lldpStatistics.EntityData.SegmentPath = "lldpStatistics"
+    lldpStatistics.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpStatistics.EntityData.SegmentPath
     lldpStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -397,6 +400,7 @@ func (lldpLocalSystemData *LLDPMIB_LldpLocalSystemData) GetEntityData() *types.C
     lldpLocalSystemData.EntityData.BundleName = "cisco_ios_xe"
     lldpLocalSystemData.EntityData.ParentYangName = "LLDP-MIB"
     lldpLocalSystemData.EntityData.SegmentPath = "lldpLocalSystemData"
+    lldpLocalSystemData.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpLocalSystemData.EntityData.SegmentPath
     lldpLocalSystemData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpLocalSystemData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpLocalSystemData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -435,6 +439,7 @@ func (lldpPortConfigTable *LLDPMIB_LldpPortConfigTable) GetEntityData() *types.C
     lldpPortConfigTable.EntityData.BundleName = "cisco_ios_xe"
     lldpPortConfigTable.EntityData.ParentYangName = "LLDP-MIB"
     lldpPortConfigTable.EntityData.SegmentPath = "lldpPortConfigTable"
+    lldpPortConfigTable.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpPortConfigTable.EntityData.SegmentPath
     lldpPortConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpPortConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpPortConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -459,6 +464,7 @@ func (lldpPortConfigTable *LLDPMIB_LldpPortConfigTable) GetEntityData() *types.C
 type LLDPMIB_LldpPortConfigTable_LldpPortConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value used to identify the port
     // component (contained in the local chassis with the LLDP agent) associated
@@ -516,6 +522,7 @@ func (lldpPortConfigEntry *LLDPMIB_LldpPortConfigTable_LldpPortConfigEntry) GetE
     lldpPortConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     lldpPortConfigEntry.EntityData.ParentYangName = "lldpPortConfigTable"
     lldpPortConfigEntry.EntityData.SegmentPath = "lldpPortConfigEntry" + types.AddKeyToken(lldpPortConfigEntry.LldpPortConfigPortNum, "lldpPortConfigPortNum")
+    lldpPortConfigEntry.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/lldpPortConfigTable/" + lldpPortConfigEntry.EntityData.SegmentPath
     lldpPortConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpPortConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpPortConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -572,6 +579,7 @@ func (lldpStatsTxPortTable *LLDPMIB_LldpStatsTxPortTable) GetEntityData() *types
     lldpStatsTxPortTable.EntityData.BundleName = "cisco_ios_xe"
     lldpStatsTxPortTable.EntityData.ParentYangName = "LLDP-MIB"
     lldpStatsTxPortTable.EntityData.SegmentPath = "lldpStatsTxPortTable"
+    lldpStatsTxPortTable.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpStatsTxPortTable.EntityData.SegmentPath
     lldpStatsTxPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpStatsTxPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpStatsTxPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -605,6 +613,7 @@ func (lldpStatsTxPortTable *LLDPMIB_LldpStatsTxPortTable) GetEntityData() *types
 type LLDPMIB_LldpStatsTxPortTable_LldpStatsTxPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value used to identify the port
     // component (contained in the local chassis with the LLDP agent) associated
@@ -623,6 +632,7 @@ func (lldpStatsTxPortEntry *LLDPMIB_LldpStatsTxPortTable_LldpStatsTxPortEntry) G
     lldpStatsTxPortEntry.EntityData.BundleName = "cisco_ios_xe"
     lldpStatsTxPortEntry.EntityData.ParentYangName = "lldpStatsTxPortTable"
     lldpStatsTxPortEntry.EntityData.SegmentPath = "lldpStatsTxPortEntry" + types.AddKeyToken(lldpStatsTxPortEntry.LldpStatsTxPortNum, "lldpStatsTxPortNum")
+    lldpStatsTxPortEntry.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/lldpStatsTxPortTable/" + lldpStatsTxPortEntry.EntityData.SegmentPath
     lldpStatsTxPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpStatsTxPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpStatsTxPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -663,6 +673,7 @@ func (lldpStatsRxPortTable *LLDPMIB_LldpStatsRxPortTable) GetEntityData() *types
     lldpStatsRxPortTable.EntityData.BundleName = "cisco_ios_xe"
     lldpStatsRxPortTable.EntityData.ParentYangName = "LLDP-MIB"
     lldpStatsRxPortTable.EntityData.SegmentPath = "lldpStatsRxPortTable"
+    lldpStatsRxPortTable.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpStatsRxPortTable.EntityData.SegmentPath
     lldpStatsRxPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpStatsRxPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpStatsRxPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -696,6 +707,7 @@ func (lldpStatsRxPortTable *LLDPMIB_LldpStatsRxPortTable) GetEntityData() *types
 type LLDPMIB_LldpStatsRxPortTable_LldpStatsRxPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value used to identify the port
     // component (contained in the local chassis with the LLDP agent) associated
@@ -760,6 +772,7 @@ func (lldpStatsRxPortEntry *LLDPMIB_LldpStatsRxPortTable_LldpStatsRxPortEntry) G
     lldpStatsRxPortEntry.EntityData.BundleName = "cisco_ios_xe"
     lldpStatsRxPortEntry.EntityData.ParentYangName = "lldpStatsRxPortTable"
     lldpStatsRxPortEntry.EntityData.SegmentPath = "lldpStatsRxPortEntry" + types.AddKeyToken(lldpStatsRxPortEntry.LldpStatsRxPortNum, "lldpStatsRxPortNum")
+    lldpStatsRxPortEntry.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/lldpStatsRxPortTable/" + lldpStatsRxPortEntry.EntityData.SegmentPath
     lldpStatsRxPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpStatsRxPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpStatsRxPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -798,6 +811,7 @@ func (lldpLocPortTable *LLDPMIB_LldpLocPortTable) GetEntityData() *types.CommonE
     lldpLocPortTable.EntityData.BundleName = "cisco_ios_xe"
     lldpLocPortTable.EntityData.ParentYangName = "LLDP-MIB"
     lldpLocPortTable.EntityData.SegmentPath = "lldpLocPortTable"
+    lldpLocPortTable.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpLocPortTable.EntityData.SegmentPath
     lldpLocPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpLocPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpLocPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -822,6 +836,7 @@ func (lldpLocPortTable *LLDPMIB_LldpLocPortTable) GetEntityData() *types.CommonE
 type LLDPMIB_LldpLocPortTable_LldpLocPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value used to identify the port
     // component (contained in the local chassis with the LLDP agent) associated
@@ -850,6 +865,7 @@ func (lldpLocPortEntry *LLDPMIB_LldpLocPortTable_LldpLocPortEntry) GetEntityData
     lldpLocPortEntry.EntityData.BundleName = "cisco_ios_xe"
     lldpLocPortEntry.EntityData.ParentYangName = "lldpLocPortTable"
     lldpLocPortEntry.EntityData.SegmentPath = "lldpLocPortEntry" + types.AddKeyToken(lldpLocPortEntry.LldpLocPortNum, "lldpLocPortNum")
+    lldpLocPortEntry.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/lldpLocPortTable/" + lldpLocPortEntry.EntityData.SegmentPath
     lldpLocPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpLocPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpLocPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -889,6 +905,7 @@ func (lldpLocManAddrTable *LLDPMIB_LldpLocManAddrTable) GetEntityData() *types.C
     lldpLocManAddrTable.EntityData.BundleName = "cisco_ios_xe"
     lldpLocManAddrTable.EntityData.ParentYangName = "LLDP-MIB"
     lldpLocManAddrTable.EntityData.SegmentPath = "lldpLocManAddrTable"
+    lldpLocManAddrTable.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpLocManAddrTable.EntityData.SegmentPath
     lldpLocManAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpLocManAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpLocManAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -918,6 +935,7 @@ func (lldpLocManAddrTable *LLDPMIB_LldpLocManAddrTable) GetEntityData() *types.C
 type LLDPMIB_LldpLocManAddrTable_LldpLocManAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of management address identifier encoding
     // used in the associated 'lldpLocManagmentAddr' object. The type is
@@ -970,6 +988,7 @@ func (lldpLocManAddrEntry *LLDPMIB_LldpLocManAddrTable_LldpLocManAddrEntry) GetE
     lldpLocManAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     lldpLocManAddrEntry.EntityData.ParentYangName = "lldpLocManAddrTable"
     lldpLocManAddrEntry.EntityData.SegmentPath = "lldpLocManAddrEntry" + types.AddKeyToken(lldpLocManAddrEntry.LldpLocManAddrSubtype, "lldpLocManAddrSubtype") + types.AddKeyToken(lldpLocManAddrEntry.LldpLocManAddr, "lldpLocManAddr")
+    lldpLocManAddrEntry.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/lldpLocManAddrTable/" + lldpLocManAddrEntry.EntityData.SegmentPath
     lldpLocManAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpLocManAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpLocManAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1056,6 +1075,7 @@ func (lldpRemTable *LLDPMIB_LldpRemTable) GetEntityData() *types.CommonEntityDat
     lldpRemTable.EntityData.BundleName = "cisco_ios_xe"
     lldpRemTable.EntityData.ParentYangName = "LLDP-MIB"
     lldpRemTable.EntityData.SegmentPath = "lldpRemTable"
+    lldpRemTable.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpRemTable.EntityData.SegmentPath
     lldpRemTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpRemTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpRemTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1079,6 +1099,7 @@ func (lldpRemTable *LLDPMIB_LldpRemTable) GetEntityData() *types.CommonEntityDat
 type LLDPMIB_LldpRemTable_LldpRemEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention in IETF RFC 2021 and 
@@ -1146,6 +1167,7 @@ func (lldpRemEntry *LLDPMIB_LldpRemTable_LldpRemEntry) GetEntityData() *types.Co
     lldpRemEntry.EntityData.BundleName = "cisco_ios_xe"
     lldpRemEntry.EntityData.ParentYangName = "lldpRemTable"
     lldpRemEntry.EntityData.SegmentPath = "lldpRemEntry" + types.AddKeyToken(lldpRemEntry.LldpRemTimeMark, "lldpRemTimeMark") + types.AddKeyToken(lldpRemEntry.LldpRemLocalPortNum, "lldpRemLocalPortNum") + types.AddKeyToken(lldpRemEntry.LldpRemIndex, "lldpRemIndex")
+    lldpRemEntry.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/lldpRemTable/" + lldpRemEntry.EntityData.SegmentPath
     lldpRemEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpRemEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpRemEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1195,6 +1217,7 @@ func (lldpRemManAddrTable *LLDPMIB_LldpRemManAddrTable) GetEntityData() *types.C
     lldpRemManAddrTable.EntityData.BundleName = "cisco_ios_xe"
     lldpRemManAddrTable.EntityData.ParentYangName = "LLDP-MIB"
     lldpRemManAddrTable.EntityData.SegmentPath = "lldpRemManAddrTable"
+    lldpRemManAddrTable.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpRemManAddrTable.EntityData.SegmentPath
     lldpRemManAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpRemManAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpRemManAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1226,6 +1249,7 @@ func (lldpRemManAddrTable *LLDPMIB_LldpRemManAddrTable) GetEntityData() *types.C
 type LLDPMIB_LldpRemManAddrTable_LldpRemManAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to lldp_mib.LLDPMIB_LldpRemTable_LldpRemEntry_LldpRemTimeMark
@@ -1273,6 +1297,7 @@ func (lldpRemManAddrEntry *LLDPMIB_LldpRemManAddrTable_LldpRemManAddrEntry) GetE
     lldpRemManAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     lldpRemManAddrEntry.EntityData.ParentYangName = "lldpRemManAddrTable"
     lldpRemManAddrEntry.EntityData.SegmentPath = "lldpRemManAddrEntry" + types.AddKeyToken(lldpRemManAddrEntry.LldpRemTimeMark, "lldpRemTimeMark") + types.AddKeyToken(lldpRemManAddrEntry.LldpRemLocalPortNum, "lldpRemLocalPortNum") + types.AddKeyToken(lldpRemManAddrEntry.LldpRemIndex, "lldpRemIndex") + types.AddKeyToken(lldpRemManAddrEntry.LldpRemManAddrSubtype, "lldpRemManAddrSubtype") + types.AddKeyToken(lldpRemManAddrEntry.LldpRemManAddr, "lldpRemManAddr")
+    lldpRemManAddrEntry.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/lldpRemManAddrTable/" + lldpRemManAddrEntry.EntityData.SegmentPath
     lldpRemManAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpRemManAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpRemManAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1324,6 +1349,7 @@ func (lldpRemUnknownTLVTable *LLDPMIB_LldpRemUnknownTLVTable) GetEntityData() *t
     lldpRemUnknownTLVTable.EntityData.BundleName = "cisco_ios_xe"
     lldpRemUnknownTLVTable.EntityData.ParentYangName = "LLDP-MIB"
     lldpRemUnknownTLVTable.EntityData.SegmentPath = "lldpRemUnknownTLVTable"
+    lldpRemUnknownTLVTable.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpRemUnknownTLVTable.EntityData.SegmentPath
     lldpRemUnknownTLVTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpRemUnknownTLVTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpRemUnknownTLVTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1348,6 +1374,7 @@ func (lldpRemUnknownTLVTable *LLDPMIB_LldpRemUnknownTLVTable) GetEntityData() *t
 type LLDPMIB_LldpRemUnknownTLVTable_LldpRemUnknownTLVEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to lldp_mib.LLDPMIB_LldpRemTable_LldpRemEntry_LldpRemTimeMark
@@ -1376,6 +1403,7 @@ func (lldpRemUnknownTLVEntry *LLDPMIB_LldpRemUnknownTLVTable_LldpRemUnknownTLVEn
     lldpRemUnknownTLVEntry.EntityData.BundleName = "cisco_ios_xe"
     lldpRemUnknownTLVEntry.EntityData.ParentYangName = "lldpRemUnknownTLVTable"
     lldpRemUnknownTLVEntry.EntityData.SegmentPath = "lldpRemUnknownTLVEntry" + types.AddKeyToken(lldpRemUnknownTLVEntry.LldpRemTimeMark, "lldpRemTimeMark") + types.AddKeyToken(lldpRemUnknownTLVEntry.LldpRemLocalPortNum, "lldpRemLocalPortNum") + types.AddKeyToken(lldpRemUnknownTLVEntry.LldpRemIndex, "lldpRemIndex") + types.AddKeyToken(lldpRemUnknownTLVEntry.LldpRemUnknownTLVType, "lldpRemUnknownTLVType")
+    lldpRemUnknownTLVEntry.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/lldpRemUnknownTLVTable/" + lldpRemUnknownTLVEntry.EntityData.SegmentPath
     lldpRemUnknownTLVEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpRemUnknownTLVEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpRemUnknownTLVEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1431,6 +1459,7 @@ func (lldpRemOrgDefInfoTable *LLDPMIB_LldpRemOrgDefInfoTable) GetEntityData() *t
     lldpRemOrgDefInfoTable.EntityData.BundleName = "cisco_ios_xe"
     lldpRemOrgDefInfoTable.EntityData.ParentYangName = "LLDP-MIB"
     lldpRemOrgDefInfoTable.EntityData.SegmentPath = "lldpRemOrgDefInfoTable"
+    lldpRemOrgDefInfoTable.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/" + lldpRemOrgDefInfoTable.EntityData.SegmentPath
     lldpRemOrgDefInfoTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpRemOrgDefInfoTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpRemOrgDefInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1466,6 +1495,7 @@ func (lldpRemOrgDefInfoTable *LLDPMIB_LldpRemOrgDefInfoTable) GetEntityData() *t
 type LLDPMIB_LldpRemOrgDefInfoTable_LldpRemOrgDefInfoEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to lldp_mib.LLDPMIB_LldpRemTable_LldpRemEntry_LldpRemTimeMark
@@ -1516,6 +1546,7 @@ func (lldpRemOrgDefInfoEntry *LLDPMIB_LldpRemOrgDefInfoTable_LldpRemOrgDefInfoEn
     lldpRemOrgDefInfoEntry.EntityData.BundleName = "cisco_ios_xe"
     lldpRemOrgDefInfoEntry.EntityData.ParentYangName = "lldpRemOrgDefInfoTable"
     lldpRemOrgDefInfoEntry.EntityData.SegmentPath = "lldpRemOrgDefInfoEntry" + types.AddKeyToken(lldpRemOrgDefInfoEntry.LldpRemTimeMark, "lldpRemTimeMark") + types.AddKeyToken(lldpRemOrgDefInfoEntry.LldpRemLocalPortNum, "lldpRemLocalPortNum") + types.AddKeyToken(lldpRemOrgDefInfoEntry.LldpRemIndex, "lldpRemIndex") + types.AddKeyToken(lldpRemOrgDefInfoEntry.LldpRemOrgDefInfoOUI, "lldpRemOrgDefInfoOUI") + types.AddKeyToken(lldpRemOrgDefInfoEntry.LldpRemOrgDefInfoSubtype, "lldpRemOrgDefInfoSubtype") + types.AddKeyToken(lldpRemOrgDefInfoEntry.LldpRemOrgDefInfoIndex, "lldpRemOrgDefInfoIndex")
+    lldpRemOrgDefInfoEntry.EntityData.AbsolutePath = "LLDP-MIB:LLDP-MIB/lldpRemOrgDefInfoTable/" + lldpRemOrgDefInfoEntry.EntityData.SegmentPath
     lldpRemOrgDefInfoEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpRemOrgDefInfoEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpRemOrgDefInfoEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

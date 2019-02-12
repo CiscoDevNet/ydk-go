@@ -249,6 +249,7 @@ func (establishSubscription *EstablishSubscription) GetEntityData() *types.Commo
     establishSubscription.EntityData.BundleName = "ietf"
     establishSubscription.EntityData.ParentYangName = "ietf-event-notifications"
     establishSubscription.EntityData.SegmentPath = "ietf-event-notifications:establish-subscription"
+    establishSubscription.EntityData.AbsolutePath = establishSubscription.EntityData.SegmentPath
     establishSubscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     establishSubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     establishSubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -383,6 +384,7 @@ func (input *EstablishSubscription_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "establish-subscription"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-event-notifications:establish-subscription/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -541,6 +543,7 @@ func (output *EstablishSubscription_Output) GetEntityData() *types.CommonEntityD
     output.EntityData.BundleName = "ietf"
     output.EntityData.ParentYangName = "establish-subscription"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "ietf-event-notifications:establish-subscription/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -593,6 +596,7 @@ func (createSubscription *CreateSubscription) GetEntityData() *types.CommonEntit
     createSubscription.EntityData.BundleName = "ietf"
     createSubscription.EntityData.ParentYangName = "ietf-event-notifications"
     createSubscription.EntityData.SegmentPath = "ietf-event-notifications:create-subscription"
+    createSubscription.EntityData.AbsolutePath = createSubscription.EntityData.SegmentPath
     createSubscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     createSubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     createSubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -658,6 +662,7 @@ func (input *CreateSubscription_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "create-subscription"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-event-notifications:create-subscription/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -706,6 +711,7 @@ func (modifySubscription *ModifySubscription) GetEntityData() *types.CommonEntit
     modifySubscription.EntityData.BundleName = "ietf"
     modifySubscription.EntityData.ParentYangName = "ietf-event-notifications"
     modifySubscription.EntityData.SegmentPath = "ietf-event-notifications:modify-subscription"
+    modifySubscription.EntityData.AbsolutePath = modifySubscription.EntityData.SegmentPath
     modifySubscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     modifySubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     modifySubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -819,6 +825,7 @@ func (input *ModifySubscription_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "modify-subscription"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-event-notifications:modify-subscription/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -973,6 +980,7 @@ func (output *ModifySubscription_Output) GetEntityData() *types.CommonEntityData
     output.EntityData.BundleName = "ietf"
     output.EntityData.ParentYangName = "modify-subscription"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "ietf-event-notifications:modify-subscription/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1023,6 +1031,7 @@ func (deleteSubscription *DeleteSubscription) GetEntityData() *types.CommonEntit
     deleteSubscription.EntityData.BundleName = "ietf"
     deleteSubscription.EntityData.ParentYangName = "ietf-event-notifications"
     deleteSubscription.EntityData.SegmentPath = "ietf-event-notifications:delete-subscription"
+    deleteSubscription.EntityData.AbsolutePath = deleteSubscription.EntityData.SegmentPath
     deleteSubscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     deleteSubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     deleteSubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1055,6 +1064,7 @@ func (input *DeleteSubscription_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "delete-subscription"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-event-notifications:delete-subscription/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1086,6 +1096,7 @@ func (output *DeleteSubscription_Output) GetEntityData() *types.CommonEntityData
     output.EntityData.BundleName = "ietf"
     output.EntityData.ParentYangName = "delete-subscription"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "ietf-event-notifications:delete-subscription/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1110,7 +1121,7 @@ type Streams struct {
     // streams are associated with their own identities, each of which carries a
     // special semantics. In case configurable custom streams are supported, as
     // indicated by the custom-stream identity, the configuration of those custom
-    // streams is provided         separately. The type is slice of ['NETCONF',
+    // streams is provided         separately. The type is slice of [u'NETCONF',
     // 'CustomStream', 'YangPush'].
     Stream []interface{}
 }
@@ -1121,6 +1132,7 @@ func (streams *Streams) GetEntityData() *types.CommonEntityData {
     streams.EntityData.BundleName = "ietf"
     streams.EntityData.ParentYangName = "ietf-event-notifications"
     streams.EntityData.SegmentPath = "ietf-event-notifications:streams"
+    streams.EntityData.AbsolutePath = streams.EntityData.SegmentPath
     streams.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     streams.EntityData.NamespaceTable = ietf.GetNamespaces()
     streams.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1153,6 +1165,7 @@ func (filters *Filters) GetEntityData() *types.CommonEntityData {
     filters.EntityData.BundleName = "ietf"
     filters.EntityData.ParentYangName = "ietf-event-notifications"
     filters.EntityData.SegmentPath = "ietf-event-notifications:filters"
+    filters.EntityData.AbsolutePath = filters.EntityData.SegmentPath
     filters.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     filters.EntityData.NamespaceTable = ietf.GetNamespaces()
     filters.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1175,6 +1188,7 @@ func (filters *Filters) GetEntityData() *types.CommonEntityData {
 type Filters_Filter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An identifier to differentiate between filters.
     // The type is interface{} with range: 0..4294967295.
@@ -1208,6 +1222,7 @@ func (filter *Filters_Filter) GetEntityData() *types.CommonEntityData {
     filter.EntityData.BundleName = "ietf"
     filter.EntityData.ParentYangName = "filters"
     filter.EntityData.SegmentPath = "filter" + types.AddKeyToken(filter.FilterId, "filter-id")
+    filter.EntityData.AbsolutePath = "ietf-event-notifications:filters/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     filter.EntityData.NamespaceTable = ietf.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1242,6 +1257,7 @@ func (subscriptionConfig *SubscriptionConfig) GetEntityData() *types.CommonEntit
     subscriptionConfig.EntityData.BundleName = "ietf"
     subscriptionConfig.EntityData.ParentYangName = "ietf-event-notifications"
     subscriptionConfig.EntityData.SegmentPath = "ietf-event-notifications:subscription-config"
+    subscriptionConfig.EntityData.AbsolutePath = subscriptionConfig.EntityData.SegmentPath
     subscriptionConfig.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     subscriptionConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
     subscriptionConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1263,6 +1279,7 @@ func (subscriptionConfig *SubscriptionConfig) GetEntityData() *types.CommonEntit
 type SubscriptionConfig_Subscription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Identifier to use for this subscription. The type
     // is interface{} with range: 0..4294967295.
@@ -1401,6 +1418,7 @@ func (subscription *SubscriptionConfig_Subscription) GetEntityData() *types.Comm
     subscription.EntityData.BundleName = "ietf"
     subscription.EntityData.ParentYangName = "subscription-config"
     subscription.EntityData.SegmentPath = "subscription" + types.AddKeyToken(subscription.SubscriptionId, "subscription-id")
+    subscription.EntityData.AbsolutePath = "ietf-event-notifications:subscription-config/" + subscription.EntityData.SegmentPath
     subscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     subscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1452,6 +1470,7 @@ func (receivers *SubscriptionConfig_Subscription_Receivers) GetEntityData() *typ
     receivers.EntityData.BundleName = "ietf"
     receivers.EntityData.ParentYangName = "subscription"
     receivers.EntityData.SegmentPath = "receivers"
+    receivers.EntityData.AbsolutePath = "ietf-event-notifications:subscription-config/subscription/" + receivers.EntityData.SegmentPath
     receivers.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     receivers.EntityData.NamespaceTable = ietf.GetNamespaces()
     receivers.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1474,6 +1493,7 @@ func (receivers *SubscriptionConfig_Subscription_Receivers) GetEntityData() *typ
 type SubscriptionConfig_Subscription_Receivers_Receiver struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specifies the address for the traffic to reach a
     // remote host. One of the following must be specified: an ipv4 address, an
@@ -1482,9 +1502,8 @@ type SubscriptionConfig_Subscription_Receivers_Receiver struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
-    // This attribute is mandatory.., or string with pattern:
-    // ((([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.)*([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.?)|\.
-    // This attribute is mandatory..
+    // This attribute is mandatory.., or string with length: 1..253 This attribute
+    // is mandatory..
     Address interface{}
 
     // This leaf specifies the port number to use for messages destined for a
@@ -1504,6 +1523,7 @@ func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetEntityDat
     receiver.EntityData.BundleName = "ietf"
     receiver.EntityData.ParentYangName = "receivers"
     receiver.EntityData.SegmentPath = "receiver" + types.AddKeyToken(receiver.Address, "address")
+    receiver.EntityData.AbsolutePath = "ietf-event-notifications:subscription-config/subscription/receivers/" + receiver.EntityData.SegmentPath
     receiver.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     receiver.EntityData.NamespaceTable = ietf.GetNamespaces()
     receiver.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1544,6 +1564,7 @@ func (subscriptions *Subscriptions) GetEntityData() *types.CommonEntityData {
     subscriptions.EntityData.BundleName = "ietf"
     subscriptions.EntityData.ParentYangName = "ietf-event-notifications"
     subscriptions.EntityData.SegmentPath = "ietf-event-notifications:subscriptions"
+    subscriptions.EntityData.AbsolutePath = subscriptions.EntityData.SegmentPath
     subscriptions.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     subscriptions.EntityData.NamespaceTable = ietf.GetNamespaces()
     subscriptions.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1567,6 +1588,7 @@ func (subscriptions *Subscriptions) GetEntityData() *types.CommonEntityData {
 type Subscriptions_Subscription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Identifier of this subscription. The type is
     // interface{} with range: 0..4294967295.
@@ -1714,6 +1736,7 @@ func (subscription *Subscriptions_Subscription) GetEntityData() *types.CommonEnt
     subscription.EntityData.BundleName = "ietf"
     subscription.EntityData.ParentYangName = "subscriptions"
     subscription.EntityData.SegmentPath = "subscription" + types.AddKeyToken(subscription.SubscriptionId, "subscription-id")
+    subscription.EntityData.AbsolutePath = "ietf-event-notifications:subscriptions/" + subscription.EntityData.SegmentPath
     subscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     subscription.EntityData.NamespaceTable = ietf.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1767,6 +1790,7 @@ func (receivers *Subscriptions_Subscription_Receivers) GetEntityData() *types.Co
     receivers.EntityData.BundleName = "ietf"
     receivers.EntityData.ParentYangName = "subscription"
     receivers.EntityData.SegmentPath = "receivers"
+    receivers.EntityData.AbsolutePath = "ietf-event-notifications:subscriptions/subscription/" + receivers.EntityData.SegmentPath
     receivers.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     receivers.EntityData.NamespaceTable = ietf.GetNamespaces()
     receivers.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1789,6 +1813,7 @@ func (receivers *Subscriptions_Subscription_Receivers) GetEntityData() *types.Co
 type Subscriptions_Subscription_Receivers_Receiver struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specifies the address for the traffic to reach a
     // remote host. One of the following must be specified: an ipv4 address, an
@@ -1797,9 +1822,8 @@ type Subscriptions_Subscription_Receivers_Receiver struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
-    // This attribute is mandatory.., or string with pattern:
-    // ((([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.)*([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.?)|\.
-    // This attribute is mandatory..
+    // This attribute is mandatory.., or string with length: 1..253 This attribute
+    // is mandatory..
     Address interface{}
 
     // This leaf specifies the port number to use for messages destined for a
@@ -1819,6 +1843,7 @@ func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetEntityData() *
     receiver.EntityData.BundleName = "ietf"
     receiver.EntityData.ParentYangName = "receivers"
     receiver.EntityData.SegmentPath = "receiver" + types.AddKeyToken(receiver.Address, "address")
+    receiver.EntityData.AbsolutePath = "ietf-event-notifications:subscriptions/subscription/receivers/" + receiver.EntityData.SegmentPath
     receiver.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     receiver.EntityData.NamespaceTable = ietf.GetNamespaces()
     receiver.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()

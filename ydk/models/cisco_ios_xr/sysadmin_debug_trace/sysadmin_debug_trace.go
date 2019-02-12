@@ -38,6 +38,7 @@ func (config *Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-debug-trace"
     config.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-debug-trace:config"
+    config.EntityData.AbsolutePath = config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -66,6 +67,7 @@ func (debug *Config_Debug) GetEntityData() *types.CommonEntityData {
     debug.EntityData.BundleName = "cisco_ios_xr"
     debug.EntityData.ParentYangName = "config"
     debug.EntityData.SegmentPath = "debug"
+    debug.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-debug-trace:config/" + debug.EntityData.SegmentPath
     debug.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     debug.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     debug.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -86,6 +88,7 @@ func (debug *Config_Debug) GetEntityData() *types.CommonEntityData {
 type Config_Debug_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     ConnectionType interface{}
@@ -103,6 +106,7 @@ func (trace *Config_Debug_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "debug"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.ConnectionType, "connection_type")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-debug-trace:config/debug/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

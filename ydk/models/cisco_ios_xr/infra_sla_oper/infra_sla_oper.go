@@ -43,6 +43,7 @@ func (sla *Sla) GetEntityData() *types.CommonEntityData {
     sla.EntityData.BundleName = "cisco_ios_xr"
     sla.EntityData.ParentYangName = "Cisco-IOS-XR-infra-sla-oper"
     sla.EntityData.SegmentPath = "Cisco-IOS-XR-infra-sla-oper:sla"
+    sla.EntityData.AbsolutePath = sla.EntityData.SegmentPath
     sla.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sla.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sla.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -72,6 +73,7 @@ func (protocols *Sla_Protocols) GetEntityData() *types.CommonEntityData {
     protocols.EntityData.BundleName = "cisco_ios_xr"
     protocols.EntityData.ParentYangName = "sla"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -119,6 +121,7 @@ func (ethernet *Sla_Protocols_Ethernet) GetEntityData() *types.CommonEntityData 
     ethernet.EntityData.BundleName = "cisco_ios_xr"
     ethernet.EntityData.ParentYangName = "protocols"
     ethernet.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-cfm-oper:ethernet"
+    ethernet.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/" + ethernet.EntityData.SegmentPath
     ethernet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -157,6 +160,7 @@ func (statisticsOnDemandCurrents *Sla_Protocols_Ethernet_StatisticsOnDemandCurre
     statisticsOnDemandCurrents.EntityData.BundleName = "cisco_ios_xr"
     statisticsOnDemandCurrents.EntityData.ParentYangName = "ethernet"
     statisticsOnDemandCurrents.EntityData.SegmentPath = "statistics-on-demand-currents"
+    statisticsOnDemandCurrents.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/" + statisticsOnDemandCurrents.EntityData.SegmentPath
     statisticsOnDemandCurrents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsOnDemandCurrents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsOnDemandCurrents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -164,6 +168,7 @@ func (statisticsOnDemandCurrents *Sla_Protocols_Ethernet_StatisticsOnDemandCurre
     statisticsOnDemandCurrents.EntityData.Children = types.NewOrderedMap()
     statisticsOnDemandCurrents.EntityData.Children.Append("statistics-on-demand-current", types.YChild{"StatisticsOnDemandCurrent", nil})
     for i := range statisticsOnDemandCurrents.StatisticsOnDemandCurrent {
+        types.SetYListKey(statisticsOnDemandCurrents.StatisticsOnDemandCurrent[i], i)
         statisticsOnDemandCurrents.EntityData.Children.Append(types.GetSegmentPath(statisticsOnDemandCurrents.StatisticsOnDemandCurrent[i]), types.YChild{"StatisticsOnDemandCurrent", statisticsOnDemandCurrents.StatisticsOnDemandCurrent[i]})
     }
     statisticsOnDemandCurrents.EntityData.Leafs = types.NewOrderedMap()
@@ -179,6 +184,7 @@ func (statisticsOnDemandCurrents *Sla_Protocols_Ethernet_StatisticsOnDemandCurre
 type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Operation ID. The type is interface{} with range: 1..4294967295.
     OperationId interface{}
@@ -227,7 +233,8 @@ func (statisticsOnDemandCurrent *Sla_Protocols_Ethernet_StatisticsOnDemandCurren
     statisticsOnDemandCurrent.EntityData.YangName = "statistics-on-demand-current"
     statisticsOnDemandCurrent.EntityData.BundleName = "cisco_ios_xr"
     statisticsOnDemandCurrent.EntityData.ParentYangName = "statistics-on-demand-currents"
-    statisticsOnDemandCurrent.EntityData.SegmentPath = "statistics-on-demand-current"
+    statisticsOnDemandCurrent.EntityData.SegmentPath = "statistics-on-demand-current" + types.AddNoKeyToken(statisticsOnDemandCurrent)
+    statisticsOnDemandCurrent.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/" + statisticsOnDemandCurrent.EntityData.SegmentPath
     statisticsOnDemandCurrent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsOnDemandCurrent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsOnDemandCurrent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -237,6 +244,7 @@ func (statisticsOnDemandCurrent *Sla_Protocols_Ethernet_StatisticsOnDemandCurren
     statisticsOnDemandCurrent.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &statisticsOnDemandCurrent.OperationSchedule})
     statisticsOnDemandCurrent.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range statisticsOnDemandCurrent.OperationMetric {
+        types.SetYListKey(statisticsOnDemandCurrent.OperationMetric[i], i)
         statisticsOnDemandCurrent.EntityData.Children.Append(types.GetSegmentPath(statisticsOnDemandCurrent.OperationMetric[i]), types.YChild{"OperationMetric", statisticsOnDemandCurrent.OperationMetric[i]})
     }
     statisticsOnDemandCurrent.EntityData.Leafs = types.NewOrderedMap()
@@ -277,6 +285,7 @@ func (specificOptions *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Statist
     specificOptions.EntityData.BundleName = "cisco_ios_xr"
     specificOptions.EntityData.ParentYangName = "statistics-on-demand-current"
     specificOptions.EntityData.SegmentPath = "specific-options"
+    specificOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/" + specificOptions.EntityData.SegmentPath
     specificOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -308,6 +317,7 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_StatisticsOnDemandCurre
     configuredOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     configuredOperationOptions.EntityData.ParentYangName = "specific-options"
     configuredOperationOptions.EntityData.SegmentPath = "configured-operation-options"
+    configuredOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/specific-options/" + configuredOperationOptions.EntityData.SegmentPath
     configuredOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -342,6 +352,7 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_StatisticsOnDemandCurrent
     ondemandOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     ondemandOperationOptions.EntityData.ParentYangName = "specific-options"
     ondemandOperationOptions.EntityData.SegmentPath = "ondemand-operation-options"
+    ondemandOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/specific-options/" + ondemandOperationOptions.EntityData.SegmentPath
     ondemandOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -385,6 +396,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Stati
     operationSchedule.EntityData.BundleName = "cisco_ios_xr"
     operationSchedule.EntityData.ParentYangName = "statistics-on-demand-current"
     operationSchedule.EntityData.SegmentPath = "operation-schedule"
+    operationSchedule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/" + operationSchedule.EntityData.SegmentPath
     operationSchedule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -406,6 +418,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Stati
 type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Configuration of the metric.
     Config Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Config
@@ -420,7 +433,8 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Statist
     operationMetric.EntityData.YangName = "operation-metric"
     operationMetric.EntityData.BundleName = "cisco_ios_xr"
     operationMetric.EntityData.ParentYangName = "statistics-on-demand-current"
-    operationMetric.EntityData.SegmentPath = "operation-metric"
+    operationMetric.EntityData.SegmentPath = "operation-metric" + types.AddNoKeyToken(operationMetric)
+    operationMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/" + operationMetric.EntityData.SegmentPath
     operationMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -429,6 +443,7 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Statist
     operationMetric.EntityData.Children.Append("config", types.YChild{"Config", &operationMetric.Config})
     operationMetric.EntityData.Children.Append("bucket", types.YChild{"Bucket", nil})
     for i := range operationMetric.Bucket {
+        types.SetYListKey(operationMetric.Bucket[i], i)
         operationMetric.EntityData.Children.Append(types.GetSegmentPath(operationMetric.Bucket[i]), types.YChild{"Bucket", operationMetric.Bucket[i]})
     }
     operationMetric.EntityData.Leafs = types.NewOrderedMap()
@@ -476,6 +491,7 @@ func (config *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDema
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "operation-metric"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -499,6 +515,7 @@ func (config *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDema
 type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Absolute time that the bucket started being filled at. The type is
     // interface{} with range: 0..4294967295.
@@ -633,7 +650,8 @@ func (bucket *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDema
     bucket.EntityData.YangName = "bucket"
     bucket.EntityData.BundleName = "cisco_ios_xr"
     bucket.EntityData.ParentYangName = "operation-metric"
-    bucket.EntityData.SegmentPath = "bucket"
+    bucket.EntityData.SegmentPath = "bucket" + types.AddNoKeyToken(bucket)
+    bucket.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/" + bucket.EntityData.SegmentPath
     bucket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -700,6 +718,7 @@ func (contents *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDe
     contents.EntityData.BundleName = "cisco_ios_xr"
     contents.EntityData.ParentYangName = "bucket"
     contents.EntityData.SegmentPath = "contents"
+    contents.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/bucket/" + contents.EntityData.SegmentPath
     contents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     contents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -732,6 +751,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOn
     aggregated.EntityData.BundleName = "cisco_ios_xr"
     aggregated.EntityData.ParentYangName = "contents"
     aggregated.EntityData.SegmentPath = "aggregated"
+    aggregated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/bucket/contents/" + aggregated.EntityData.SegmentPath
     aggregated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -739,6 +759,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOn
     aggregated.EntityData.Children = types.NewOrderedMap()
     aggregated.EntityData.Children.Append("bins", types.YChild{"Bins", nil})
     for i := range aggregated.Bins {
+        types.SetYListKey(aggregated.Bins[i], i)
         aggregated.EntityData.Children.Append(types.GetSegmentPath(aggregated.Bins[i]), types.YChild{"Bins", aggregated.Bins[i]})
     }
     aggregated.EntityData.Leafs = types.NewOrderedMap()
@@ -753,6 +774,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOn
 type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket_Contents_Aggregated_Bins struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Lower bound (inclusive) of the bin, in milliseconds or single units of
     // percent. This field is not used for LMM measurements. The type is
@@ -789,7 +811,8 @@ func (bins *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemand
     bins.EntityData.YangName = "bins"
     bins.EntityData.BundleName = "cisco_ios_xr"
     bins.EntityData.ParentYangName = "aggregated"
-    bins.EntityData.SegmentPath = "bins"
+    bins.EntityData.SegmentPath = "bins" + types.AddNoKeyToken(bins)
+    bins.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/bucket/contents/aggregated/" + bins.EntityData.SegmentPath
     bins.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -825,6 +848,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Statistics
     unaggregated.EntityData.BundleName = "cisco_ios_xr"
     unaggregated.EntityData.ParentYangName = "contents"
     unaggregated.EntityData.SegmentPath = "unaggregated"
+    unaggregated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/bucket/contents/" + unaggregated.EntityData.SegmentPath
     unaggregated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unaggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unaggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -832,6 +856,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Statistics
     unaggregated.EntityData.Children = types.NewOrderedMap()
     unaggregated.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range unaggregated.Sample {
+        types.SetYListKey(unaggregated.Sample[i], i)
         unaggregated.EntityData.Children.Append(types.GetSegmentPath(unaggregated.Sample[i]), types.YChild{"Sample", unaggregated.Sample[i]})
     }
     unaggregated.EntityData.Leafs = types.NewOrderedMap()
@@ -846,6 +871,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_Statistics
 type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent_OperationMetric_Bucket_Contents_Unaggregated_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The time (in milliseconds relative to the start time of the bucket) that
     // the sample was sent at. The type is interface{} with range: 0..4294967295.
@@ -887,7 +913,8 @@ func (sample *Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDema
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "unaggregated"
-    sample.EntityData.SegmentPath = "sample"
+    sample.EntityData.SegmentPath = "sample" + types.AddNoKeyToken(sample)
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/bucket/contents/unaggregated/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -926,6 +953,7 @@ func (operations *Sla_Protocols_Ethernet_Operations) GetEntityData() *types.Comm
     operations.EntityData.BundleName = "cisco_ios_xr"
     operations.EntityData.ParentYangName = "ethernet"
     operations.EntityData.SegmentPath = "operations"
+    operations.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/" + operations.EntityData.SegmentPath
     operations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -933,6 +961,7 @@ func (operations *Sla_Protocols_Ethernet_Operations) GetEntityData() *types.Comm
     operations.EntityData.Children = types.NewOrderedMap()
     operations.EntityData.Children.Append("operation", types.YChild{"Operation", nil})
     for i := range operations.Operation {
+        types.SetYListKey(operations.Operation[i], i)
         operations.EntityData.Children.Append(types.GetSegmentPath(operations.Operation[i]), types.YChild{"Operation", operations.Operation[i]})
     }
     operations.EntityData.Leafs = types.NewOrderedMap()
@@ -947,6 +976,7 @@ func (operations *Sla_Protocols_Ethernet_Operations) GetEntityData() *types.Comm
 type Sla_Protocols_Ethernet_Operations_Operation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
@@ -988,7 +1018,8 @@ func (operation *Sla_Protocols_Ethernet_Operations_Operation) GetEntityData() *t
     operation.EntityData.YangName = "operation"
     operation.EntityData.BundleName = "cisco_ios_xr"
     operation.EntityData.ParentYangName = "operations"
-    operation.EntityData.SegmentPath = "operation"
+    operation.EntityData.SegmentPath = "operation" + types.AddNoKeyToken(operation)
+    operation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/" + operation.EntityData.SegmentPath
     operation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1062,6 +1093,7 @@ func (profileOptions *Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions
     profileOptions.EntityData.BundleName = "cisco_ios_xr"
     profileOptions.EntityData.ParentYangName = "operation"
     profileOptions.EntityData.SegmentPath = "profile-options"
+    profileOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/" + profileOptions.EntityData.SegmentPath
     profileOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profileOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profileOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1072,6 +1104,7 @@ func (profileOptions *Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions
     profileOptions.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &profileOptions.OperationSchedule})
     profileOptions.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range profileOptions.OperationMetric {
+        types.SetYListKey(profileOptions.OperationMetric[i], i)
         profileOptions.EntityData.Children.Append(types.GetSegmentPath(profileOptions.OperationMetric[i]), types.YChild{"OperationMetric", profileOptions.OperationMetric[i]})
     }
     profileOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -1112,6 +1145,7 @@ func (packetPadding *Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions_
     packetPadding.EntityData.BundleName = "cisco_ios_xr"
     packetPadding.EntityData.ParentYangName = "profile-options"
     packetPadding.EntityData.SegmentPath = "packet-padding"
+    packetPadding.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/profile-options/" + packetPadding.EntityData.SegmentPath
     packetPadding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetPadding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetPadding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1148,6 +1182,7 @@ func (priority *Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions_Prior
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "profile-options"
     priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/profile-options/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1191,6 +1226,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_Operations_Operation_ProfileOpti
     operationSchedule.EntityData.BundleName = "cisco_ios_xr"
     operationSchedule.EntityData.ParentYangName = "profile-options"
     operationSchedule.EntityData.SegmentPath = "operation-schedule"
+    operationSchedule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/profile-options/" + operationSchedule.EntityData.SegmentPath
     operationSchedule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1213,6 +1249,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_Operations_Operation_ProfileOpti
 type Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions_OperationMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Number of valid buckets currently in the buckets archive. The type is
     // interface{} with range: 0..4294967295.
@@ -1227,7 +1264,8 @@ func (operationMetric *Sla_Protocols_Ethernet_Operations_Operation_ProfileOption
     operationMetric.EntityData.YangName = "operation-metric"
     operationMetric.EntityData.BundleName = "cisco_ios_xr"
     operationMetric.EntityData.ParentYangName = "profile-options"
-    operationMetric.EntityData.SegmentPath = "operation-metric"
+    operationMetric.EntityData.SegmentPath = "operation-metric" + types.AddNoKeyToken(operationMetric)
+    operationMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/profile-options/" + operationMetric.EntityData.SegmentPath
     operationMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1280,6 +1318,7 @@ func (metricConfig *Sla_Protocols_Ethernet_Operations_Operation_ProfileOptions_O
     metricConfig.EntityData.BundleName = "cisco_ios_xr"
     metricConfig.EntityData.ParentYangName = "operation-metric"
     metricConfig.EntityData.SegmentPath = "metric-config"
+    metricConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/profile-options/operation-metric/" + metricConfig.EntityData.SegmentPath
     metricConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metricConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metricConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1320,6 +1359,7 @@ func (specificOptions *Sla_Protocols_Ethernet_Operations_Operation_SpecificOptio
     specificOptions.EntityData.BundleName = "cisco_ios_xr"
     specificOptions.EntityData.ParentYangName = "operation"
     specificOptions.EntityData.SegmentPath = "specific-options"
+    specificOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/" + specificOptions.EntityData.SegmentPath
     specificOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1351,6 +1391,7 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_Operations_Operation_Sp
     configuredOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     configuredOperationOptions.EntityData.ParentYangName = "specific-options"
     configuredOperationOptions.EntityData.SegmentPath = "configured-operation-options"
+    configuredOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/specific-options/" + configuredOperationOptions.EntityData.SegmentPath
     configuredOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1385,6 +1426,7 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_Operations_Operation_Spec
     ondemandOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     ondemandOperationOptions.EntityData.ParentYangName = "specific-options"
     ondemandOperationOptions.EntityData.SegmentPath = "ondemand-operation-options"
+    ondemandOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/specific-options/" + ondemandOperationOptions.EntityData.SegmentPath
     ondemandOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1417,6 +1459,7 @@ func (statisticsHistoricals *Sla_Protocols_Ethernet_StatisticsHistoricals) GetEn
     statisticsHistoricals.EntityData.BundleName = "cisco_ios_xr"
     statisticsHistoricals.EntityData.ParentYangName = "ethernet"
     statisticsHistoricals.EntityData.SegmentPath = "statistics-historicals"
+    statisticsHistoricals.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/" + statisticsHistoricals.EntityData.SegmentPath
     statisticsHistoricals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsHistoricals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsHistoricals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1424,6 +1467,7 @@ func (statisticsHistoricals *Sla_Protocols_Ethernet_StatisticsHistoricals) GetEn
     statisticsHistoricals.EntityData.Children = types.NewOrderedMap()
     statisticsHistoricals.EntityData.Children.Append("statistics-historical", types.YChild{"StatisticsHistorical", nil})
     for i := range statisticsHistoricals.StatisticsHistorical {
+        types.SetYListKey(statisticsHistoricals.StatisticsHistorical[i], i)
         statisticsHistoricals.EntityData.Children.Append(types.GetSegmentPath(statisticsHistoricals.StatisticsHistorical[i]), types.YChild{"StatisticsHistorical", statisticsHistoricals.StatisticsHistorical[i]})
     }
     statisticsHistoricals.EntityData.Leafs = types.NewOrderedMap()
@@ -1439,6 +1483,7 @@ func (statisticsHistoricals *Sla_Protocols_Ethernet_StatisticsHistoricals) GetEn
 type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
@@ -1487,7 +1532,8 @@ func (statisticsHistorical *Sla_Protocols_Ethernet_StatisticsHistoricals_Statist
     statisticsHistorical.EntityData.YangName = "statistics-historical"
     statisticsHistorical.EntityData.BundleName = "cisco_ios_xr"
     statisticsHistorical.EntityData.ParentYangName = "statistics-historicals"
-    statisticsHistorical.EntityData.SegmentPath = "statistics-historical"
+    statisticsHistorical.EntityData.SegmentPath = "statistics-historical" + types.AddNoKeyToken(statisticsHistorical)
+    statisticsHistorical.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/" + statisticsHistorical.EntityData.SegmentPath
     statisticsHistorical.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsHistorical.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsHistorical.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1497,6 +1543,7 @@ func (statisticsHistorical *Sla_Protocols_Ethernet_StatisticsHistoricals_Statist
     statisticsHistorical.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &statisticsHistorical.OperationSchedule})
     statisticsHistorical.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range statisticsHistorical.OperationMetric {
+        types.SetYListKey(statisticsHistorical.OperationMetric[i], i)
         statisticsHistorical.EntityData.Children.Append(types.GetSegmentPath(statisticsHistorical.OperationMetric[i]), types.YChild{"OperationMetric", statisticsHistorical.OperationMetric[i]})
     }
     statisticsHistorical.EntityData.Leafs = types.NewOrderedMap()
@@ -1537,6 +1584,7 @@ func (specificOptions *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHi
     specificOptions.EntityData.BundleName = "cisco_ios_xr"
     specificOptions.EntityData.ParentYangName = "statistics-historical"
     specificOptions.EntityData.SegmentPath = "specific-options"
+    specificOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/" + specificOptions.EntityData.SegmentPath
     specificOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1568,6 +1616,7 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_StatisticsHistoricals_S
     configuredOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     configuredOperationOptions.EntityData.ParentYangName = "specific-options"
     configuredOperationOptions.EntityData.SegmentPath = "configured-operation-options"
+    configuredOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/specific-options/" + configuredOperationOptions.EntityData.SegmentPath
     configuredOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1602,6 +1651,7 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_StatisticsHistoricals_Sta
     ondemandOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     ondemandOperationOptions.EntityData.ParentYangName = "specific-options"
     ondemandOperationOptions.EntityData.SegmentPath = "ondemand-operation-options"
+    ondemandOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/specific-options/" + ondemandOperationOptions.EntityData.SegmentPath
     ondemandOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1645,6 +1695,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsHistoricals_Statistics
     operationSchedule.EntityData.BundleName = "cisco_ios_xr"
     operationSchedule.EntityData.ParentYangName = "statistics-historical"
     operationSchedule.EntityData.SegmentPath = "operation-schedule"
+    operationSchedule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/" + operationSchedule.EntityData.SegmentPath
     operationSchedule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1666,6 +1717,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsHistoricals_Statistics
 type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Configuration of the metric.
     Config Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Config
@@ -1680,7 +1732,8 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHi
     operationMetric.EntityData.YangName = "operation-metric"
     operationMetric.EntityData.BundleName = "cisco_ios_xr"
     operationMetric.EntityData.ParentYangName = "statistics-historical"
-    operationMetric.EntityData.SegmentPath = "operation-metric"
+    operationMetric.EntityData.SegmentPath = "operation-metric" + types.AddNoKeyToken(operationMetric)
+    operationMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/" + operationMetric.EntityData.SegmentPath
     operationMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1689,6 +1742,7 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHi
     operationMetric.EntityData.Children.Append("config", types.YChild{"Config", &operationMetric.Config})
     operationMetric.EntityData.Children.Append("bucket", types.YChild{"Bucket", nil})
     for i := range operationMetric.Bucket {
+        types.SetYListKey(operationMetric.Bucket[i], i)
         operationMetric.EntityData.Children.Append(types.GetSegmentPath(operationMetric.Bucket[i]), types.YChild{"Bucket", operationMetric.Bucket[i]})
     }
     operationMetric.EntityData.Leafs = types.NewOrderedMap()
@@ -1736,6 +1790,7 @@ func (config *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "operation-metric"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1759,6 +1814,7 @@ func (config *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_
 type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Absolute time that the bucket started being filled at. The type is
     // interface{} with range: 0..4294967295.
@@ -1893,7 +1949,8 @@ func (bucket *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_
     bucket.EntityData.YangName = "bucket"
     bucket.EntityData.BundleName = "cisco_ios_xr"
     bucket.EntityData.ParentYangName = "operation-metric"
-    bucket.EntityData.SegmentPath = "bucket"
+    bucket.EntityData.SegmentPath = "bucket" + types.AddNoKeyToken(bucket)
+    bucket.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/" + bucket.EntityData.SegmentPath
     bucket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1960,6 +2017,7 @@ func (contents *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorica
     contents.EntityData.BundleName = "cisco_ios_xr"
     contents.EntityData.ParentYangName = "bucket"
     contents.EntityData.SegmentPath = "contents"
+    contents.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/bucket/" + contents.EntityData.SegmentPath
     contents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     contents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1992,6 +2050,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistori
     aggregated.EntityData.BundleName = "cisco_ios_xr"
     aggregated.EntityData.ParentYangName = "contents"
     aggregated.EntityData.SegmentPath = "aggregated"
+    aggregated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/bucket/contents/" + aggregated.EntityData.SegmentPath
     aggregated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1999,6 +2058,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistori
     aggregated.EntityData.Children = types.NewOrderedMap()
     aggregated.EntityData.Children.Append("bins", types.YChild{"Bins", nil})
     for i := range aggregated.Bins {
+        types.SetYListKey(aggregated.Bins[i], i)
         aggregated.EntityData.Children.Append(types.GetSegmentPath(aggregated.Bins[i]), types.YChild{"Bins", aggregated.Bins[i]})
     }
     aggregated.EntityData.Leafs = types.NewOrderedMap()
@@ -2013,6 +2073,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistori
 type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket_Contents_Aggregated_Bins struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Lower bound (inclusive) of the bin, in milliseconds or single units of
     // percent. This field is not used for LMM measurements. The type is
@@ -2049,7 +2110,8 @@ func (bins *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_Op
     bins.EntityData.YangName = "bins"
     bins.EntityData.BundleName = "cisco_ios_xr"
     bins.EntityData.ParentYangName = "aggregated"
-    bins.EntityData.SegmentPath = "bins"
+    bins.EntityData.SegmentPath = "bins" + types.AddNoKeyToken(bins)
+    bins.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/bucket/contents/aggregated/" + bins.EntityData.SegmentPath
     bins.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2085,6 +2147,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHisto
     unaggregated.EntityData.BundleName = "cisco_ios_xr"
     unaggregated.EntityData.ParentYangName = "contents"
     unaggregated.EntityData.SegmentPath = "unaggregated"
+    unaggregated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/bucket/contents/" + unaggregated.EntityData.SegmentPath
     unaggregated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unaggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unaggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2092,6 +2155,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHisto
     unaggregated.EntityData.Children = types.NewOrderedMap()
     unaggregated.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range unaggregated.Sample {
+        types.SetYListKey(unaggregated.Sample[i], i)
         unaggregated.EntityData.Children.Append(types.GetSegmentPath(unaggregated.Sample[i]), types.YChild{"Sample", unaggregated.Sample[i]})
     }
     unaggregated.EntityData.Leafs = types.NewOrderedMap()
@@ -2106,6 +2170,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHisto
 type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_OperationMetric_Bucket_Contents_Unaggregated_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The time (in milliseconds relative to the start time of the bucket) that
     // the sample was sent at. The type is interface{} with range: 0..4294967295.
@@ -2147,7 +2212,8 @@ func (sample *Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical_
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "unaggregated"
-    sample.EntityData.SegmentPath = "sample"
+    sample.EntityData.SegmentPath = "sample" + types.AddNoKeyToken(sample)
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/bucket/contents/unaggregated/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2188,6 +2254,7 @@ func (statisticsOnDemandHistoricals *Sla_Protocols_Ethernet_StatisticsOnDemandHi
     statisticsOnDemandHistoricals.EntityData.BundleName = "cisco_ios_xr"
     statisticsOnDemandHistoricals.EntityData.ParentYangName = "ethernet"
     statisticsOnDemandHistoricals.EntityData.SegmentPath = "statistics-on-demand-historicals"
+    statisticsOnDemandHistoricals.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/" + statisticsOnDemandHistoricals.EntityData.SegmentPath
     statisticsOnDemandHistoricals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsOnDemandHistoricals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsOnDemandHistoricals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2195,6 +2262,7 @@ func (statisticsOnDemandHistoricals *Sla_Protocols_Ethernet_StatisticsOnDemandHi
     statisticsOnDemandHistoricals.EntityData.Children = types.NewOrderedMap()
     statisticsOnDemandHistoricals.EntityData.Children.Append("statistics-on-demand-historical", types.YChild{"StatisticsOnDemandHistorical", nil})
     for i := range statisticsOnDemandHistoricals.StatisticsOnDemandHistorical {
+        types.SetYListKey(statisticsOnDemandHistoricals.StatisticsOnDemandHistorical[i], i)
         statisticsOnDemandHistoricals.EntityData.Children.Append(types.GetSegmentPath(statisticsOnDemandHistoricals.StatisticsOnDemandHistorical[i]), types.YChild{"StatisticsOnDemandHistorical", statisticsOnDemandHistoricals.StatisticsOnDemandHistorical[i]})
     }
     statisticsOnDemandHistoricals.EntityData.Leafs = types.NewOrderedMap()
@@ -2210,6 +2278,7 @@ func (statisticsOnDemandHistoricals *Sla_Protocols_Ethernet_StatisticsOnDemandHi
 type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Operation ID. The type is interface{} with range: 1..4294967295.
     OperationId interface{}
@@ -2258,7 +2327,8 @@ func (statisticsOnDemandHistorical *Sla_Protocols_Ethernet_StatisticsOnDemandHis
     statisticsOnDemandHistorical.EntityData.YangName = "statistics-on-demand-historical"
     statisticsOnDemandHistorical.EntityData.BundleName = "cisco_ios_xr"
     statisticsOnDemandHistorical.EntityData.ParentYangName = "statistics-on-demand-historicals"
-    statisticsOnDemandHistorical.EntityData.SegmentPath = "statistics-on-demand-historical"
+    statisticsOnDemandHistorical.EntityData.SegmentPath = "statistics-on-demand-historical" + types.AddNoKeyToken(statisticsOnDemandHistorical)
+    statisticsOnDemandHistorical.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/" + statisticsOnDemandHistorical.EntityData.SegmentPath
     statisticsOnDemandHistorical.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsOnDemandHistorical.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsOnDemandHistorical.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2268,6 +2338,7 @@ func (statisticsOnDemandHistorical *Sla_Protocols_Ethernet_StatisticsOnDemandHis
     statisticsOnDemandHistorical.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &statisticsOnDemandHistorical.OperationSchedule})
     statisticsOnDemandHistorical.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range statisticsOnDemandHistorical.OperationMetric {
+        types.SetYListKey(statisticsOnDemandHistorical.OperationMetric[i], i)
         statisticsOnDemandHistorical.EntityData.Children.Append(types.GetSegmentPath(statisticsOnDemandHistorical.OperationMetric[i]), types.YChild{"OperationMetric", statisticsOnDemandHistorical.OperationMetric[i]})
     }
     statisticsOnDemandHistorical.EntityData.Leafs = types.NewOrderedMap()
@@ -2308,6 +2379,7 @@ func (specificOptions *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Stat
     specificOptions.EntityData.BundleName = "cisco_ios_xr"
     specificOptions.EntityData.ParentYangName = "statistics-on-demand-historical"
     specificOptions.EntityData.SegmentPath = "specific-options"
+    specificOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/" + specificOptions.EntityData.SegmentPath
     specificOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2339,6 +2411,7 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_StatisticsOnDemandHisto
     configuredOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     configuredOperationOptions.EntityData.ParentYangName = "specific-options"
     configuredOperationOptions.EntityData.SegmentPath = "configured-operation-options"
+    configuredOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/specific-options/" + configuredOperationOptions.EntityData.SegmentPath
     configuredOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2373,6 +2446,7 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_StatisticsOnDemandHistori
     ondemandOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     ondemandOperationOptions.EntityData.ParentYangName = "specific-options"
     ondemandOperationOptions.EntityData.SegmentPath = "ondemand-operation-options"
+    ondemandOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/specific-options/" + ondemandOperationOptions.EntityData.SegmentPath
     ondemandOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2416,6 +2490,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_St
     operationSchedule.EntityData.BundleName = "cisco_ios_xr"
     operationSchedule.EntityData.ParentYangName = "statistics-on-demand-historical"
     operationSchedule.EntityData.SegmentPath = "operation-schedule"
+    operationSchedule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/" + operationSchedule.EntityData.SegmentPath
     operationSchedule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2437,6 +2512,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_St
 type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Configuration of the metric.
     Config Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Config
@@ -2451,7 +2527,8 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Stat
     operationMetric.EntityData.YangName = "operation-metric"
     operationMetric.EntityData.BundleName = "cisco_ios_xr"
     operationMetric.EntityData.ParentYangName = "statistics-on-demand-historical"
-    operationMetric.EntityData.SegmentPath = "operation-metric"
+    operationMetric.EntityData.SegmentPath = "operation-metric" + types.AddNoKeyToken(operationMetric)
+    operationMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/" + operationMetric.EntityData.SegmentPath
     operationMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2460,6 +2537,7 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Stat
     operationMetric.EntityData.Children.Append("config", types.YChild{"Config", &operationMetric.Config})
     operationMetric.EntityData.Children.Append("bucket", types.YChild{"Bucket", nil})
     for i := range operationMetric.Bucket {
+        types.SetYListKey(operationMetric.Bucket[i], i)
         operationMetric.EntityData.Children.Append(types.GetSegmentPath(operationMetric.Bucket[i]), types.YChild{"Bucket", operationMetric.Bucket[i]})
     }
     operationMetric.EntityData.Leafs = types.NewOrderedMap()
@@ -2507,6 +2585,7 @@ func (config *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnD
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "operation-metric"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2530,6 +2609,7 @@ func (config *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnD
 type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Absolute time that the bucket started being filled at. The type is
     // interface{} with range: 0..4294967295.
@@ -2664,7 +2744,8 @@ func (bucket *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnD
     bucket.EntityData.YangName = "bucket"
     bucket.EntityData.BundleName = "cisco_ios_xr"
     bucket.EntityData.ParentYangName = "operation-metric"
-    bucket.EntityData.SegmentPath = "bucket"
+    bucket.EntityData.SegmentPath = "bucket" + types.AddNoKeyToken(bucket)
+    bucket.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/" + bucket.EntityData.SegmentPath
     bucket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2731,6 +2812,7 @@ func (contents *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsO
     contents.EntityData.BundleName = "cisco_ios_xr"
     contents.EntityData.ParentYangName = "bucket"
     contents.EntityData.SegmentPath = "contents"
+    contents.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/bucket/" + contents.EntityData.SegmentPath
     contents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     contents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2763,6 +2845,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Statistic
     aggregated.EntityData.BundleName = "cisco_ios_xr"
     aggregated.EntityData.ParentYangName = "contents"
     aggregated.EntityData.SegmentPath = "aggregated"
+    aggregated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/bucket/contents/" + aggregated.EntityData.SegmentPath
     aggregated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2770,6 +2853,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Statistic
     aggregated.EntityData.Children = types.NewOrderedMap()
     aggregated.EntityData.Children.Append("bins", types.YChild{"Bins", nil})
     for i := range aggregated.Bins {
+        types.SetYListKey(aggregated.Bins[i], i)
         aggregated.EntityData.Children.Append(types.GetSegmentPath(aggregated.Bins[i]), types.YChild{"Bins", aggregated.Bins[i]})
     }
     aggregated.EntityData.Leafs = types.NewOrderedMap()
@@ -2784,6 +2868,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Statistic
 type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket_Contents_Aggregated_Bins struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Lower bound (inclusive) of the bin, in milliseconds or single units of
     // percent. This field is not used for LMM measurements. The type is
@@ -2820,7 +2905,8 @@ func (bins *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDem
     bins.EntityData.YangName = "bins"
     bins.EntityData.BundleName = "cisco_ios_xr"
     bins.EntityData.ParentYangName = "aggregated"
-    bins.EntityData.SegmentPath = "bins"
+    bins.EntityData.SegmentPath = "bins" + types.AddNoKeyToken(bins)
+    bins.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/bucket/contents/aggregated/" + bins.EntityData.SegmentPath
     bins.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2856,6 +2942,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Statist
     unaggregated.EntityData.BundleName = "cisco_ios_xr"
     unaggregated.EntityData.ParentYangName = "contents"
     unaggregated.EntityData.SegmentPath = "unaggregated"
+    unaggregated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/bucket/contents/" + unaggregated.EntityData.SegmentPath
     unaggregated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unaggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unaggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2863,6 +2950,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Statist
     unaggregated.EntityData.Children = types.NewOrderedMap()
     unaggregated.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range unaggregated.Sample {
+        types.SetYListKey(unaggregated.Sample[i], i)
         unaggregated.EntityData.Children.Append(types.GetSegmentPath(unaggregated.Sample[i]), types.YChild{"Sample", unaggregated.Sample[i]})
     }
     unaggregated.EntityData.Leafs = types.NewOrderedMap()
@@ -2877,6 +2965,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_Statist
 type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHistorical_OperationMetric_Bucket_Contents_Unaggregated_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The time (in milliseconds relative to the start time of the bucket) that
     // the sample was sent at. The type is interface{} with range: 0..4294967295.
@@ -2918,7 +3007,8 @@ func (sample *Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnD
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "unaggregated"
-    sample.EntityData.SegmentPath = "sample"
+    sample.EntityData.SegmentPath = "sample" + types.AddNoKeyToken(sample)
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/bucket/contents/unaggregated/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2958,6 +3048,7 @@ func (configErrors *Sla_Protocols_Ethernet_ConfigErrors) GetEntityData() *types.
     configErrors.EntityData.BundleName = "cisco_ios_xr"
     configErrors.EntityData.ParentYangName = "ethernet"
     configErrors.EntityData.SegmentPath = "config-errors"
+    configErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/" + configErrors.EntityData.SegmentPath
     configErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2965,6 +3056,7 @@ func (configErrors *Sla_Protocols_Ethernet_ConfigErrors) GetEntityData() *types.
     configErrors.EntityData.Children = types.NewOrderedMap()
     configErrors.EntityData.Children.Append("config-error", types.YChild{"ConfigError", nil})
     for i := range configErrors.ConfigError {
+        types.SetYListKey(configErrors.ConfigError[i], i)
         configErrors.EntityData.Children.Append(types.GetSegmentPath(configErrors.ConfigError[i]), types.YChild{"ConfigError", configErrors.ConfigError[i]})
     }
     configErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -2980,6 +3072,7 @@ func (configErrors *Sla_Protocols_Ethernet_ConfigErrors) GetEntityData() *types.
 type Sla_Protocols_Ethernet_ConfigErrors_ConfigError struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
@@ -3079,7 +3172,8 @@ func (configError *Sla_Protocols_Ethernet_ConfigErrors_ConfigError) GetEntityDat
     configError.EntityData.YangName = "config-error"
     configError.EntityData.BundleName = "cisco_ios_xr"
     configError.EntityData.ParentYangName = "config-errors"
-    configError.EntityData.SegmentPath = "config-error"
+    configError.EntityData.SegmentPath = "config-error" + types.AddNoKeyToken(configError)
+    configError.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/config-errors/" + configError.EntityData.SegmentPath
     configError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3133,6 +3227,7 @@ func (onDemandOperations *Sla_Protocols_Ethernet_OnDemandOperations) GetEntityDa
     onDemandOperations.EntityData.BundleName = "cisco_ios_xr"
     onDemandOperations.EntityData.ParentYangName = "ethernet"
     onDemandOperations.EntityData.SegmentPath = "on-demand-operations"
+    onDemandOperations.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/" + onDemandOperations.EntityData.SegmentPath
     onDemandOperations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onDemandOperations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandOperations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3140,6 +3235,7 @@ func (onDemandOperations *Sla_Protocols_Ethernet_OnDemandOperations) GetEntityDa
     onDemandOperations.EntityData.Children = types.NewOrderedMap()
     onDemandOperations.EntityData.Children.Append("on-demand-operation", types.YChild{"OnDemandOperation", nil})
     for i := range onDemandOperations.OnDemandOperation {
+        types.SetYListKey(onDemandOperations.OnDemandOperation[i], i)
         onDemandOperations.EntityData.Children.Append(types.GetSegmentPath(onDemandOperations.OnDemandOperation[i]), types.YChild{"OnDemandOperation", onDemandOperations.OnDemandOperation[i]})
     }
     onDemandOperations.EntityData.Leafs = types.NewOrderedMap()
@@ -3155,6 +3251,7 @@ func (onDemandOperations *Sla_Protocols_Ethernet_OnDemandOperations) GetEntityDa
 type Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Operation ID. The type is interface{} with range: 1..4294967295.
     OperationId interface{}
@@ -3196,7 +3293,8 @@ func (onDemandOperation *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOpera
     onDemandOperation.EntityData.YangName = "on-demand-operation"
     onDemandOperation.EntityData.BundleName = "cisco_ios_xr"
     onDemandOperation.EntityData.ParentYangName = "on-demand-operations"
-    onDemandOperation.EntityData.SegmentPath = "on-demand-operation"
+    onDemandOperation.EntityData.SegmentPath = "on-demand-operation" + types.AddNoKeyToken(onDemandOperation)
+    onDemandOperation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/" + onDemandOperation.EntityData.SegmentPath
     onDemandOperation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onDemandOperation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandOperation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3270,6 +3368,7 @@ func (profileOptions *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperatio
     profileOptions.EntityData.BundleName = "cisco_ios_xr"
     profileOptions.EntityData.ParentYangName = "on-demand-operation"
     profileOptions.EntityData.SegmentPath = "profile-options"
+    profileOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/" + profileOptions.EntityData.SegmentPath
     profileOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profileOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profileOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3280,6 +3379,7 @@ func (profileOptions *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperatio
     profileOptions.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &profileOptions.OperationSchedule})
     profileOptions.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range profileOptions.OperationMetric {
+        types.SetYListKey(profileOptions.OperationMetric[i], i)
         profileOptions.EntityData.Children.Append(types.GetSegmentPath(profileOptions.OperationMetric[i]), types.YChild{"OperationMetric", profileOptions.OperationMetric[i]})
     }
     profileOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -3320,6 +3420,7 @@ func (packetPadding *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation
     packetPadding.EntityData.BundleName = "cisco_ios_xr"
     packetPadding.EntityData.ParentYangName = "profile-options"
     packetPadding.EntityData.SegmentPath = "packet-padding"
+    packetPadding.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/profile-options/" + packetPadding.EntityData.SegmentPath
     packetPadding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetPadding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetPadding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3356,6 +3457,7 @@ func (priority *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation_Prof
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "profile-options"
     priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/profile-options/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3399,6 +3501,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOpera
     operationSchedule.EntityData.BundleName = "cisco_ios_xr"
     operationSchedule.EntityData.ParentYangName = "profile-options"
     operationSchedule.EntityData.SegmentPath = "operation-schedule"
+    operationSchedule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/profile-options/" + operationSchedule.EntityData.SegmentPath
     operationSchedule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3421,6 +3524,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOpera
 type Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation_ProfileOptions_OperationMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Number of valid buckets currently in the buckets archive. The type is
     // interface{} with range: 0..4294967295.
@@ -3435,7 +3539,8 @@ func (operationMetric *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperati
     operationMetric.EntityData.YangName = "operation-metric"
     operationMetric.EntityData.BundleName = "cisco_ios_xr"
     operationMetric.EntityData.ParentYangName = "profile-options"
-    operationMetric.EntityData.SegmentPath = "operation-metric"
+    operationMetric.EntityData.SegmentPath = "operation-metric" + types.AddNoKeyToken(operationMetric)
+    operationMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/profile-options/" + operationMetric.EntityData.SegmentPath
     operationMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3488,6 +3593,7 @@ func (metricConfig *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation_
     metricConfig.EntityData.BundleName = "cisco_ios_xr"
     metricConfig.EntityData.ParentYangName = "operation-metric"
     metricConfig.EntityData.SegmentPath = "metric-config"
+    metricConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/profile-options/operation-metric/" + metricConfig.EntityData.SegmentPath
     metricConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metricConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metricConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3528,6 +3634,7 @@ func (specificOptions *Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperati
     specificOptions.EntityData.BundleName = "cisco_ios_xr"
     specificOptions.EntityData.ParentYangName = "on-demand-operation"
     specificOptions.EntityData.SegmentPath = "specific-options"
+    specificOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/" + specificOptions.EntityData.SegmentPath
     specificOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3559,6 +3666,7 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_OnDemandOperations_OnDe
     configuredOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     configuredOperationOptions.EntityData.ParentYangName = "specific-options"
     configuredOperationOptions.EntityData.SegmentPath = "configured-operation-options"
+    configuredOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/specific-options/" + configuredOperationOptions.EntityData.SegmentPath
     configuredOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3593,6 +3701,7 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_OnDemandOperations_OnDema
     ondemandOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     ondemandOperationOptions.EntityData.ParentYangName = "specific-options"
     ondemandOperationOptions.EntityData.SegmentPath = "ondemand-operation-options"
+    ondemandOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/specific-options/" + ondemandOperationOptions.EntityData.SegmentPath
     ondemandOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3624,6 +3733,7 @@ func (statisticsCurrents *Sla_Protocols_Ethernet_StatisticsCurrents) GetEntityDa
     statisticsCurrents.EntityData.BundleName = "cisco_ios_xr"
     statisticsCurrents.EntityData.ParentYangName = "ethernet"
     statisticsCurrents.EntityData.SegmentPath = "statistics-currents"
+    statisticsCurrents.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/" + statisticsCurrents.EntityData.SegmentPath
     statisticsCurrents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsCurrents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsCurrents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3631,6 +3741,7 @@ func (statisticsCurrents *Sla_Protocols_Ethernet_StatisticsCurrents) GetEntityDa
     statisticsCurrents.EntityData.Children = types.NewOrderedMap()
     statisticsCurrents.EntityData.Children.Append("statistics-current", types.YChild{"StatisticsCurrent", nil})
     for i := range statisticsCurrents.StatisticsCurrent {
+        types.SetYListKey(statisticsCurrents.StatisticsCurrent[i], i)
         statisticsCurrents.EntityData.Children.Append(types.GetSegmentPath(statisticsCurrents.StatisticsCurrent[i]), types.YChild{"StatisticsCurrent", statisticsCurrents.StatisticsCurrent[i]})
     }
     statisticsCurrents.EntityData.Leafs = types.NewOrderedMap()
@@ -3646,6 +3757,7 @@ func (statisticsCurrents *Sla_Protocols_Ethernet_StatisticsCurrents) GetEntityDa
 type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
@@ -3694,7 +3806,8 @@ func (statisticsCurrent *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCur
     statisticsCurrent.EntityData.YangName = "statistics-current"
     statisticsCurrent.EntityData.BundleName = "cisco_ios_xr"
     statisticsCurrent.EntityData.ParentYangName = "statistics-currents"
-    statisticsCurrent.EntityData.SegmentPath = "statistics-current"
+    statisticsCurrent.EntityData.SegmentPath = "statistics-current" + types.AddNoKeyToken(statisticsCurrent)
+    statisticsCurrent.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/" + statisticsCurrent.EntityData.SegmentPath
     statisticsCurrent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statisticsCurrent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statisticsCurrent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3704,6 +3817,7 @@ func (statisticsCurrent *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCur
     statisticsCurrent.EntityData.Children.Append("operation-schedule", types.YChild{"OperationSchedule", &statisticsCurrent.OperationSchedule})
     statisticsCurrent.EntityData.Children.Append("operation-metric", types.YChild{"OperationMetric", nil})
     for i := range statisticsCurrent.OperationMetric {
+        types.SetYListKey(statisticsCurrent.OperationMetric[i], i)
         statisticsCurrent.EntityData.Children.Append(types.GetSegmentPath(statisticsCurrent.OperationMetric[i]), types.YChild{"OperationMetric", statisticsCurrent.OperationMetric[i]})
     }
     statisticsCurrent.EntityData.Leafs = types.NewOrderedMap()
@@ -3744,6 +3858,7 @@ func (specificOptions *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurre
     specificOptions.EntityData.BundleName = "cisco_ios_xr"
     specificOptions.EntityData.ParentYangName = "statistics-current"
     specificOptions.EntityData.SegmentPath = "specific-options"
+    specificOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/" + specificOptions.EntityData.SegmentPath
     specificOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3775,6 +3890,7 @@ func (configuredOperationOptions *Sla_Protocols_Ethernet_StatisticsCurrents_Stat
     configuredOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     configuredOperationOptions.EntityData.ParentYangName = "specific-options"
     configuredOperationOptions.EntityData.SegmentPath = "configured-operation-options"
+    configuredOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/specific-options/" + configuredOperationOptions.EntityData.SegmentPath
     configuredOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3809,6 +3925,7 @@ func (ondemandOperationOptions *Sla_Protocols_Ethernet_StatisticsCurrents_Statis
     ondemandOperationOptions.EntityData.BundleName = "cisco_ios_xr"
     ondemandOperationOptions.EntityData.ParentYangName = "specific-options"
     ondemandOperationOptions.EntityData.SegmentPath = "ondemand-operation-options"
+    ondemandOperationOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/specific-options/" + ondemandOperationOptions.EntityData.SegmentPath
     ondemandOperationOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ondemandOperationOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ondemandOperationOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3852,6 +3969,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCur
     operationSchedule.EntityData.BundleName = "cisco_ios_xr"
     operationSchedule.EntityData.ParentYangName = "statistics-current"
     operationSchedule.EntityData.SegmentPath = "operation-schedule"
+    operationSchedule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/" + operationSchedule.EntityData.SegmentPath
     operationSchedule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationSchedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationSchedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3873,6 +3991,7 @@ func (operationSchedule *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCur
 type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Configuration of the metric.
     Config Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Config
@@ -3887,7 +4006,8 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurre
     operationMetric.EntityData.YangName = "operation-metric"
     operationMetric.EntityData.BundleName = "cisco_ios_xr"
     operationMetric.EntityData.ParentYangName = "statistics-current"
-    operationMetric.EntityData.SegmentPath = "operation-metric"
+    operationMetric.EntityData.SegmentPath = "operation-metric" + types.AddNoKeyToken(operationMetric)
+    operationMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/" + operationMetric.EntityData.SegmentPath
     operationMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3896,6 +4016,7 @@ func (operationMetric *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurre
     operationMetric.EntityData.Children.Append("config", types.YChild{"Config", &operationMetric.Config})
     operationMetric.EntityData.Children.Append("bucket", types.YChild{"Bucket", nil})
     for i := range operationMetric.Bucket {
+        types.SetYListKey(operationMetric.Bucket[i], i)
         operationMetric.EntityData.Children.Append(types.GetSegmentPath(operationMetric.Bucket[i]), types.YChild{"Bucket", operationMetric.Bucket[i]})
     }
     operationMetric.EntityData.Leafs = types.NewOrderedMap()
@@ -3943,6 +4064,7 @@ func (config *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Operat
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "operation-metric"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3966,6 +4088,7 @@ func (config *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Operat
 type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Absolute time that the bucket started being filled at. The type is
     // interface{} with range: 0..4294967295.
@@ -4100,7 +4223,8 @@ func (bucket *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Operat
     bucket.EntityData.YangName = "bucket"
     bucket.EntityData.BundleName = "cisco_ios_xr"
     bucket.EntityData.ParentYangName = "operation-metric"
-    bucket.EntityData.SegmentPath = "bucket"
+    bucket.EntityData.SegmentPath = "bucket" + types.AddNoKeyToken(bucket)
+    bucket.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/" + bucket.EntityData.SegmentPath
     bucket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4167,6 +4291,7 @@ func (contents *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Oper
     contents.EntityData.BundleName = "cisco_ios_xr"
     contents.EntityData.ParentYangName = "bucket"
     contents.EntityData.SegmentPath = "contents"
+    contents.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/bucket/" + contents.EntityData.SegmentPath
     contents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     contents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     contents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4199,6 +4324,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Op
     aggregated.EntityData.BundleName = "cisco_ios_xr"
     aggregated.EntityData.ParentYangName = "contents"
     aggregated.EntityData.SegmentPath = "aggregated"
+    aggregated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/bucket/contents/" + aggregated.EntityData.SegmentPath
     aggregated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4206,6 +4332,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Op
     aggregated.EntityData.Children = types.NewOrderedMap()
     aggregated.EntityData.Children.Append("bins", types.YChild{"Bins", nil})
     for i := range aggregated.Bins {
+        types.SetYListKey(aggregated.Bins[i], i)
         aggregated.EntityData.Children.Append(types.GetSegmentPath(aggregated.Bins[i]), types.YChild{"Bins", aggregated.Bins[i]})
     }
     aggregated.EntityData.Leafs = types.NewOrderedMap()
@@ -4220,6 +4347,7 @@ func (aggregated *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Op
 type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket_Contents_Aggregated_Bins struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Lower bound (inclusive) of the bin, in milliseconds or single units of
     // percent. This field is not used for LMM measurements. The type is
@@ -4256,7 +4384,8 @@ func (bins *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Operatio
     bins.EntityData.YangName = "bins"
     bins.EntityData.BundleName = "cisco_ios_xr"
     bins.EntityData.ParentYangName = "aggregated"
-    bins.EntityData.SegmentPath = "bins"
+    bins.EntityData.SegmentPath = "bins" + types.AddNoKeyToken(bins)
+    bins.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/bucket/contents/aggregated/" + bins.EntityData.SegmentPath
     bins.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4292,6 +4421,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_
     unaggregated.EntityData.BundleName = "cisco_ios_xr"
     unaggregated.EntityData.ParentYangName = "contents"
     unaggregated.EntityData.SegmentPath = "unaggregated"
+    unaggregated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/bucket/contents/" + unaggregated.EntityData.SegmentPath
     unaggregated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unaggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unaggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4299,6 +4429,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_
     unaggregated.EntityData.Children = types.NewOrderedMap()
     unaggregated.EntityData.Children.Append("sample", types.YChild{"Sample", nil})
     for i := range unaggregated.Sample {
+        types.SetYListKey(unaggregated.Sample[i], i)
         unaggregated.EntityData.Children.Append(types.GetSegmentPath(unaggregated.Sample[i]), types.YChild{"Sample", unaggregated.Sample[i]})
     }
     unaggregated.EntityData.Leafs = types.NewOrderedMap()
@@ -4313,6 +4444,7 @@ func (unaggregated *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_
 type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_OperationMetric_Bucket_Contents_Unaggregated_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The time (in milliseconds relative to the start time of the bucket) that
     // the sample was sent at. The type is interface{} with range: 0..4294967295.
@@ -4354,7 +4486,8 @@ func (sample *Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent_Operat
     sample.EntityData.YangName = "sample"
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "unaggregated"
-    sample.EntityData.SegmentPath = "sample"
+    sample.EntityData.SegmentPath = "sample" + types.AddNoKeyToken(sample)
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/bucket/contents/unaggregated/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4389,6 +4522,7 @@ func (slaNodes *SlaNodes) GetEntityData() *types.CommonEntityData {
     slaNodes.EntityData.BundleName = "cisco_ios_xr"
     slaNodes.EntityData.ParentYangName = "Cisco-IOS-XR-infra-sla-oper"
     slaNodes.EntityData.SegmentPath = "Cisco-IOS-XR-infra-sla-oper:sla-nodes"
+    slaNodes.EntityData.AbsolutePath = slaNodes.EntityData.SegmentPath
     slaNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

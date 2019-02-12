@@ -48,6 +48,7 @@ func (clearOspfRoutes *ClearOspfRoutes) GetEntityData() *types.CommonEntityData 
     clearOspfRoutes.EntityData.BundleName = "cisco_ios_xr"
     clearOspfRoutes.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-ospf-act"
     clearOspfRoutes.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-routes"
+    clearOspfRoutes.EntityData.AbsolutePath = clearOspfRoutes.EntityData.SegmentPath
     clearOspfRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearOspfRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -80,6 +81,7 @@ func (input *ClearOspfRoutes_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-ospf-routes"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-routes/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -110,6 +112,7 @@ func (instance *ClearOspfRoutes_Input_Instance) GetEntityData() *types.CommonEnt
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-routes/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -139,6 +142,7 @@ func (clearOspfRedistribution *ClearOspfRedistribution) GetEntityData() *types.C
     clearOspfRedistribution.EntityData.BundleName = "cisco_ios_xr"
     clearOspfRedistribution.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-ospf-act"
     clearOspfRedistribution.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-redistribution"
+    clearOspfRedistribution.EntityData.AbsolutePath = clearOspfRedistribution.EntityData.SegmentPath
     clearOspfRedistribution.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearOspfRedistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfRedistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -171,6 +175,7 @@ func (input *ClearOspfRedistribution_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-ospf-redistribution"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-redistribution/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +206,7 @@ func (instance *ClearOspfRedistribution_Input_Instance) GetEntityData() *types.C
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-redistribution/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -230,6 +236,7 @@ func (clearOspfStatistics *ClearOspfStatistics) GetEntityData() *types.CommonEnt
     clearOspfStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearOspfStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-ospf-act"
     clearOspfStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics"
+    clearOspfStatistics.EntityData.AbsolutePath = clearOspfStatistics.EntityData.SegmentPath
     clearOspfStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearOspfStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +280,7 @@ func (input *ClearOspfStatistics_Input) GetEntityData() *types.CommonEntityData 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-ospf-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -307,6 +315,7 @@ func (instance *ClearOspfStatistics_Input_Instance) GetEntityData() *types.Commo
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -336,6 +345,7 @@ func (clearOspfStatisticsNeighbor *ClearOspfStatisticsNeighbor) GetEntityData() 
     clearOspfStatisticsNeighbor.EntityData.BundleName = "cisco_ios_xr"
     clearOspfStatisticsNeighbor.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-ospf-act"
     clearOspfStatisticsNeighbor.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics-neighbor"
+    clearOspfStatisticsNeighbor.EntityData.AbsolutePath = clearOspfStatisticsNeighbor.EntityData.SegmentPath
     clearOspfStatisticsNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearOspfStatisticsNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfStatisticsNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -367,6 +377,7 @@ func (input *ClearOspfStatisticsNeighbor_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-ospf-statistics-neighbor"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics-neighbor/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -397,6 +408,7 @@ func (instance *ClearOspfStatisticsNeighbor_Input_Instance) GetEntityData() *typ
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics-neighbor/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -429,6 +441,7 @@ func (neighbor *ClearOspfStatisticsNeighbor_Input_Neighbor) GetEntityData() *typ
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "input"
     neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics-neighbor/input/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -459,6 +472,7 @@ func (clearOspfStatisticsInterface *ClearOspfStatisticsInterface) GetEntityData(
     clearOspfStatisticsInterface.EntityData.BundleName = "cisco_ios_xr"
     clearOspfStatisticsInterface.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-ospf-act"
     clearOspfStatisticsInterface.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics-interface"
+    clearOspfStatisticsInterface.EntityData.AbsolutePath = clearOspfStatisticsInterface.EntityData.SegmentPath
     clearOspfStatisticsInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearOspfStatisticsInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfStatisticsInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -490,6 +504,7 @@ func (input *ClearOspfStatisticsInterface_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-ospf-statistics-interface"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics-interface/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -520,6 +535,7 @@ func (instance *ClearOspfStatisticsInterface_Input_Instance) GetEntityData() *ty
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics-interface/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -549,6 +565,7 @@ func (self *ClearOspfStatisticsInterface_Input_Interface) GetEntityData() *types
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "input"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-statistics-interface/input/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -578,6 +595,7 @@ func (clearOspfProcess *ClearOspfProcess) GetEntityData() *types.CommonEntityDat
     clearOspfProcess.EntityData.BundleName = "cisco_ios_xr"
     clearOspfProcess.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-ospf-act"
     clearOspfProcess.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-process"
+    clearOspfProcess.EntityData.AbsolutePath = clearOspfProcess.EntityData.SegmentPath
     clearOspfProcess.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearOspfProcess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfProcess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -609,6 +627,7 @@ func (input *ClearOspfProcess_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-ospf-process"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-process/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -639,6 +658,7 @@ func (instance *ClearOspfProcess_Input_Instance) GetEntityData() *types.CommonEn
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-process/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -668,6 +688,7 @@ func (clearOspfInstanceVrf *ClearOspfInstanceVrf) GetEntityData() *types.CommonE
     clearOspfInstanceVrf.EntityData.BundleName = "cisco_ios_xr"
     clearOspfInstanceVrf.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-ospf-act"
     clearOspfInstanceVrf.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf"
+    clearOspfInstanceVrf.EntityData.AbsolutePath = clearOspfInstanceVrf.EntityData.SegmentPath
     clearOspfInstanceVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearOspfInstanceVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearOspfInstanceVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -696,6 +717,7 @@ func (input *ClearOspfInstanceVrf_Input) GetEntityData() *types.CommonEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-ospf-instance-vrf"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -735,6 +757,7 @@ func (instance *ClearOspfInstanceVrf_Input_Instance) GetEntityData() *types.Comm
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -779,6 +802,7 @@ func (vrf *ClearOspfInstanceVrf_Input_Instance_Vrf) GetEntityData() *types.Commo
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "instance"
     vrf.EntityData.SegmentPath = "vrf"
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -821,6 +845,7 @@ func (stats *ClearOspfInstanceVrf_Input_Instance_Vrf_Stats) GetEntityData() *typ
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "vrf"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/vrf/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -853,6 +878,7 @@ func (self *ClearOspfInstanceVrf_Input_Instance_Vrf_Stats_Interface) GetEntityDa
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "stats"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/vrf/stats/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -886,6 +912,7 @@ func (neighbor *ClearOspfInstanceVrf_Input_Instance_Vrf_Stats_Neighbor) GetEntit
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "stats"
     neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/vrf/stats/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -916,6 +943,7 @@ func (self *ClearOspfInstanceVrf_Input_Instance_Vrf_Stats_Neighbor_Interface) Ge
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "neighbor"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/vrf/stats/neighbor/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -954,6 +982,7 @@ func (all *ClearOspfInstanceVrf_Input_Instance_All) GetEntityData() *types.Commo
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "instance"
     all.EntityData.SegmentPath = "all"
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/" + all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -995,6 +1024,7 @@ func (stats *ClearOspfInstanceVrf_Input_Instance_All_Stats) GetEntityData() *typ
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "all"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/all/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1027,6 +1057,7 @@ func (self *ClearOspfInstanceVrf_Input_Instance_All_Stats_Interface) GetEntityDa
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "stats"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/all/stats/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1060,6 +1091,7 @@ func (neighbor *ClearOspfInstanceVrf_Input_Instance_All_Stats_Neighbor) GetEntit
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "stats"
     neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/all/stats/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1090,6 +1122,7 @@ func (self *ClearOspfInstanceVrf_Input_Instance_All_Stats_Neighbor_Interface) Ge
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "neighbor"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/all/stats/neighbor/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1128,6 +1161,7 @@ func (allInclusive *ClearOspfInstanceVrf_Input_Instance_AllInclusive) GetEntityD
     allInclusive.EntityData.BundleName = "cisco_ios_xr"
     allInclusive.EntityData.ParentYangName = "instance"
     allInclusive.EntityData.SegmentPath = "all-inclusive"
+    allInclusive.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/" + allInclusive.EntityData.SegmentPath
     allInclusive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allInclusive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allInclusive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1169,6 +1203,7 @@ func (stats *ClearOspfInstanceVrf_Input_Instance_AllInclusive_Stats) GetEntityDa
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "all-inclusive"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/all-inclusive/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1201,6 +1236,7 @@ func (self *ClearOspfInstanceVrf_Input_Instance_AllInclusive_Stats_Interface) Ge
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "stats"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/all-inclusive/stats/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1234,6 +1270,7 @@ func (neighbor *ClearOspfInstanceVrf_Input_Instance_AllInclusive_Stats_Neighbor)
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "stats"
     neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/all-inclusive/stats/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1264,6 +1301,7 @@ func (self *ClearOspfInstanceVrf_Input_Instance_AllInclusive_Stats_Neighbor_Inte
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "neighbor"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-act:clear-ospf-instance-vrf/input/instance/all-inclusive/stats/neighbor/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

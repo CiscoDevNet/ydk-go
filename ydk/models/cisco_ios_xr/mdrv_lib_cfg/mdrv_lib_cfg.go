@@ -44,6 +44,7 @@ func (fastShutdown *FastShutdown) GetEntityData() *types.CommonEntityData {
     fastShutdown.EntityData.BundleName = "cisco_ios_xr"
     fastShutdown.EntityData.ParentYangName = "Cisco-IOS-XR-mdrv-lib-cfg"
     fastShutdown.EntityData.SegmentPath = "Cisco-IOS-XR-mdrv-lib-cfg:fast-shutdown"
+    fastShutdown.EntityData.AbsolutePath = fastShutdown.EntityData.SegmentPath
     fastShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fastShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

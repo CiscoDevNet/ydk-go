@@ -40,6 +40,7 @@ func (cfgmgr *Cfgmgr) GetEntityData() *types.CommonEntityData {
     cfgmgr.EntityData.BundleName = "cisco_ios_xr"
     cfgmgr.EntityData.ParentYangName = "Cisco-IOS-XR-config-cfgmgr-cfg"
     cfgmgr.EntityData.SegmentPath = "Cisco-IOS-XR-config-cfgmgr-cfg:cfgmgr"
+    cfgmgr.EntityData.AbsolutePath = cfgmgr.EntityData.SegmentPath
     cfgmgr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cfgmgr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cfgmgr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

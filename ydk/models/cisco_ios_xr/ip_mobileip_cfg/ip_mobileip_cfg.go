@@ -160,6 +160,7 @@ func (mobileIp *MobileIp) GetEntityData() *types.CommonEntityData {
     mobileIp.EntityData.BundleName = "cisco_ios_xr"
     mobileIp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-mobileip-cfg"
     mobileIp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip"
+    mobileIp.EntityData.AbsolutePath = mobileIp.EntityData.SegmentPath
     mobileIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobileIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -190,6 +191,7 @@ func (domains *MobileIp_Domains) GetEntityData() *types.CommonEntityData {
     domains.EntityData.BundleName = "cisco_ios_xr"
     domains.EntityData.ParentYangName = "mobile-ip"
     domains.EntityData.SegmentPath = "domains"
+    domains.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/" + domains.EntityData.SegmentPath
     domains.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -211,6 +213,7 @@ func (domains *MobileIp_Domains) GetEntityData() *types.CommonEntityData {
 type MobileIp_Domains_Domain struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Domain Name. The type is string with length:
     // 1..125.
@@ -239,6 +242,7 @@ func (domain *MobileIp_Domains_Domain) GetEntityData() *types.CommonEntityData {
     domain.EntityData.BundleName = "cisco_ios_xr"
     domain.EntityData.ParentYangName = "domains"
     domain.EntityData.SegmentPath = "domain" + types.AddKeyToken(domain.DomainName, "domain-name")
+    domain.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/" + domain.EntityData.SegmentPath
     domain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +277,7 @@ func (mags *MobileIp_Domains_Domain_Mags) GetEntityData() *types.CommonEntityDat
     mags.EntityData.BundleName = "cisco_ios_xr"
     mags.EntityData.ParentYangName = "domain"
     mags.EntityData.SegmentPath = "mags"
+    mags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/domain/" + mags.EntityData.SegmentPath
     mags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -294,6 +299,7 @@ func (mags *MobileIp_Domains_Domain_Mags) GetEntityData() *types.CommonEntityDat
 type MobileIp_Domains_Domain_Mags_Mag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MAG Identifier. The type is string with length:
     // 1..125.
@@ -306,6 +312,7 @@ func (mag *MobileIp_Domains_Domain_Mags_Mag) GetEntityData() *types.CommonEntity
     mag.EntityData.BundleName = "cisco_ios_xr"
     mag.EntityData.ParentYangName = "mags"
     mag.EntityData.SegmentPath = "mag" + types.AddKeyToken(mag.MagName, "mag-name")
+    mag.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/domain/mags/" + mag.EntityData.SegmentPath
     mag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -336,6 +343,7 @@ func (nais *MobileIp_Domains_Domain_Nais) GetEntityData() *types.CommonEntityDat
     nais.EntityData.BundleName = "cisco_ios_xr"
     nais.EntityData.ParentYangName = "domain"
     nais.EntityData.SegmentPath = "nais"
+    nais.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/domain/" + nais.EntityData.SegmentPath
     nais.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -357,6 +365,7 @@ func (nais *MobileIp_Domains_Domain_Nais) GetEntityData() *types.CommonEntityDat
 type MobileIp_Domains_Domain_Nais_Nai struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MN Identifier. The type is string with length:
     // 1..125.
@@ -385,6 +394,7 @@ func (nai *MobileIp_Domains_Domain_Nais_Nai) GetEntityData() *types.CommonEntity
     nai.EntityData.BundleName = "cisco_ios_xr"
     nai.EntityData.ParentYangName = "nais"
     nai.EntityData.SegmentPath = "nai" + types.AddKeyToken(nai.NaiName, "nai-name")
+    nai.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/domain/nais/" + nai.EntityData.SegmentPath
     nai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -422,6 +432,7 @@ func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetEntityD
     authenticateOption.EntityData.BundleName = "cisco_ios_xr"
     authenticateOption.EntityData.ParentYangName = "domain"
     authenticateOption.EntityData.SegmentPath = "authenticate-option"
+    authenticateOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/domain/" + authenticateOption.EntityData.SegmentPath
     authenticateOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticateOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticateOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -452,6 +463,7 @@ func (lmas *MobileIp_Domains_Domain_Lmas) GetEntityData() *types.CommonEntityDat
     lmas.EntityData.BundleName = "cisco_ios_xr"
     lmas.EntityData.ParentYangName = "domain"
     lmas.EntityData.SegmentPath = "lmas"
+    lmas.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/domain/" + lmas.EntityData.SegmentPath
     lmas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lmas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -473,6 +485,7 @@ func (lmas *MobileIp_Domains_Domain_Lmas) GetEntityData() *types.CommonEntityDat
 type MobileIp_Domains_Domain_Lmas_Lma struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LMA Identifier. The type is string with length:
     // 1..125.
@@ -485,6 +498,7 @@ func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetEntityData() *types.CommonEntity
     lma.EntityData.BundleName = "cisco_ios_xr"
     lma.EntityData.ParentYangName = "lmas"
     lma.EntityData.SegmentPath = "lma" + types.AddKeyToken(lma.LmaName, "lma-name")
+    lma.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/domain/lmas/" + lma.EntityData.SegmentPath
     lma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -514,6 +528,7 @@ func (lmas *MobileIp_Lmas) GetEntityData() *types.CommonEntityData {
     lmas.EntityData.BundleName = "cisco_ios_xr"
     lmas.EntityData.ParentYangName = "mobile-ip"
     lmas.EntityData.SegmentPath = "lmas"
+    lmas.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/" + lmas.EntityData.SegmentPath
     lmas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lmas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -535,6 +550,7 @@ func (lmas *MobileIp_Lmas) GetEntityData() *types.CommonEntityData {
 type MobileIp_Lmas_Lma struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LMA name. The type is string with length: 1..125.
     LmaName interface{}
@@ -630,6 +646,7 @@ func (lma *MobileIp_Lmas_Lma) GetEntityData() *types.CommonEntityData {
     lma.EntityData.BundleName = "cisco_ios_xr"
     lma.EntityData.ParentYangName = "lmas"
     lma.EntityData.SegmentPath = "lma" + types.AddKeyToken(lma.LmaName, "lma-name") + types.AddKeyToken(lma.DomainName, "domain-name")
+    lma.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/" + lma.EntityData.SegmentPath
     lma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -690,6 +707,7 @@ func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes
     bindingRevocationAttributes.EntityData.BundleName = "cisco_ios_xr"
     bindingRevocationAttributes.EntityData.ParentYangName = "lma"
     bindingRevocationAttributes.EntityData.SegmentPath = "binding-revocation-attributes"
+    bindingRevocationAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + bindingRevocationAttributes.EntityData.SegmentPath
     bindingRevocationAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bindingRevocationAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindingRevocationAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -724,6 +742,7 @@ func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetEntityData(
     delay.EntityData.BundleName = "cisco_ios_xr"
     delay.EntityData.ParentYangName = "binding-revocation-attributes"
     delay.EntityData.SegmentPath = "delay"
+    delay.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/binding-revocation-attributes/" + delay.EntityData.SegmentPath
     delay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -757,6 +776,7 @@ func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetEntityData() *types.Com
     ratAttributes.EntityData.BundleName = "cisco_ios_xr"
     ratAttributes.EntityData.ParentYangName = "lma"
     ratAttributes.EntityData.SegmentPath = "rat-attributes"
+    ratAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + ratAttributes.EntityData.SegmentPath
     ratAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ratAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ratAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -794,6 +814,7 @@ func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetEntityData(
     heartBeatAttributes.EntityData.BundleName = "cisco_ios_xr"
     heartBeatAttributes.EntityData.ParentYangName = "lma"
     heartBeatAttributes.EntityData.SegmentPath = "heart-beat-attributes"
+    heartBeatAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + heartBeatAttributes.EntityData.SegmentPath
     heartBeatAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     heartBeatAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     heartBeatAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -826,6 +847,7 @@ func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetEntityData() *typ
     lmaipv6Addresses.EntityData.BundleName = "cisco_ios_xr"
     lmaipv6Addresses.EntityData.ParentYangName = "lma"
     lmaipv6Addresses.EntityData.SegmentPath = "lmaipv6-addresses"
+    lmaipv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + lmaipv6Addresses.EntityData.SegmentPath
     lmaipv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lmaipv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmaipv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -847,6 +869,7 @@ func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetEntityData() *typ
 type MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LMA IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -859,6 +882,7 @@ func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetEnti
     lmaipv6Address.EntityData.BundleName = "cisco_ios_xr"
     lmaipv6Address.EntityData.ParentYangName = "lmaipv6-addresses"
     lmaipv6Address.EntityData.SegmentPath = "lmaipv6-address" + types.AddKeyToken(lmaipv6Address.Address, "address")
+    lmaipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/lmaipv6-addresses/" + lmaipv6Address.EntityData.SegmentPath
     lmaipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lmaipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmaipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -889,6 +913,7 @@ func (hnp *MobileIp_Lmas_Lma_Hnp) GetEntityData() *types.CommonEntityData {
     hnp.EntityData.BundleName = "cisco_ios_xr"
     hnp.EntityData.ParentYangName = "lma"
     hnp.EntityData.SegmentPath = "hnp"
+    hnp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + hnp.EntityData.SegmentPath
     hnp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hnp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hnp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -921,6 +946,7 @@ func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetEntityData() *types.Commo
     redistribute.EntityData.BundleName = "cisco_ios_xr"
     redistribute.EntityData.ParentYangName = "lma"
     redistribute.EntityData.SegmentPath = "redistribute"
+    redistribute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + redistribute.EntityData.SegmentPath
     redistribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -951,6 +977,7 @@ func (aaa *MobileIp_Lmas_Lma_Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.BundleName = "cisco_ios_xr"
     aaa.EntityData.ParentYangName = "lma"
     aaa.EntityData.SegmentPath = "aaa"
+    aaa.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + aaa.EntityData.SegmentPath
     aaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -984,6 +1011,7 @@ func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetEntityData() *types.Commo
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "aaa"
     accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/aaa/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1017,6 +1045,7 @@ func (dscp *MobileIp_Lmas_Lma_Dscp) GetEntityData() *types.CommonEntityData {
     dscp.EntityData.BundleName = "cisco_ios_xr"
     dscp.EntityData.ParentYangName = "lma"
     dscp.EntityData.SegmentPath = "dscp"
+    dscp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + dscp.EntityData.SegmentPath
     dscp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dscp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dscp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1048,6 +1077,7 @@ func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetEntityData() *typ
     lmaipv4Addresses.EntityData.BundleName = "cisco_ios_xr"
     lmaipv4Addresses.EntityData.ParentYangName = "lma"
     lmaipv4Addresses.EntityData.SegmentPath = "lmaipv4-addresses"
+    lmaipv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + lmaipv4Addresses.EntityData.SegmentPath
     lmaipv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lmaipv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmaipv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1069,6 +1099,7 @@ func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetEntityData() *typ
 type MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LMA IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1081,6 +1112,7 @@ func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetEnti
     lmaipv4Address.EntityData.BundleName = "cisco_ios_xr"
     lmaipv4Address.EntityData.ParentYangName = "lmaipv4-addresses"
     lmaipv4Address.EntityData.SegmentPath = "lmaipv4-address" + types.AddKeyToken(lmaipv4Address.Address, "address")
+    lmaipv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/lmaipv4-addresses/" + lmaipv4Address.EntityData.SegmentPath
     lmaipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lmaipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmaipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1110,6 +1142,7 @@ func (roles *MobileIp_Lmas_Lma_Roles) GetEntityData() *types.CommonEntityData {
     roles.EntityData.BundleName = "cisco_ios_xr"
     roles.EntityData.ParentYangName = "lma"
     roles.EntityData.SegmentPath = "roles"
+    roles.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + roles.EntityData.SegmentPath
     roles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     roles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     roles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1131,6 +1164,7 @@ func (roles *MobileIp_Lmas_Lma_Roles) GetEntityData() *types.CommonEntityData {
 type MobileIp_Lmas_Lma_Roles_Role struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LMA role mode. The type is LmaRole.
     LmaRole interface{}
@@ -1142,6 +1176,7 @@ func (role *MobileIp_Lmas_Lma_Roles_Role) GetEntityData() *types.CommonEntityDat
     role.EntityData.BundleName = "cisco_ios_xr"
     role.EntityData.ParentYangName = "roles"
     role.EntityData.SegmentPath = "role" + types.AddKeyToken(role.LmaRole, "lma-role")
+    role.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/roles/" + role.EntityData.SegmentPath
     role.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     role.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     role.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1188,6 +1223,7 @@ func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetEntityData() *t
     bindingAttributes.EntityData.BundleName = "cisco_ios_xr"
     bindingAttributes.EntityData.ParentYangName = "lma"
     bindingAttributes.EntityData.SegmentPath = "binding-attributes"
+    bindingAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + bindingAttributes.EntityData.SegmentPath
     bindingAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bindingAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindingAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1221,6 +1257,7 @@ func (mags *MobileIp_Lmas_Lma_Mags) GetEntityData() *types.CommonEntityData {
     mags.EntityData.BundleName = "cisco_ios_xr"
     mags.EntityData.ParentYangName = "lma"
     mags.EntityData.SegmentPath = "mags"
+    mags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + mags.EntityData.SegmentPath
     mags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1242,6 +1279,7 @@ func (mags *MobileIp_Lmas_Lma_Mags) GetEntityData() *types.CommonEntityData {
 type MobileIp_Lmas_Lma_Mags_Mag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MAG identifier. The type is string with length:
     // 1..125.
@@ -1279,6 +1317,7 @@ func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetEntityData() *types.CommonEntityData {
     mag.EntityData.BundleName = "cisco_ios_xr"
     mag.EntityData.ParentYangName = "mags"
     mag.EntityData.SegmentPath = "mag" + types.AddKeyToken(mag.MagName, "mag-name") + types.AddKeyToken(mag.DomainName, "domain-name")
+    mag.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/mags/" + mag.EntityData.SegmentPath
     mag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1319,6 +1358,7 @@ func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetEnti
     authenticateOption.EntityData.BundleName = "cisco_ios_xr"
     authenticateOption.EntityData.ParentYangName = "mag"
     authenticateOption.EntityData.SegmentPath = "authenticate-option"
+    authenticateOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/mags/mag/" + authenticateOption.EntityData.SegmentPath
     authenticateOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticateOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticateOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1352,6 +1392,7 @@ func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetEntityData() *types.CommonEntity
     dscp.EntityData.BundleName = "cisco_ios_xr"
     dscp.EntityData.ParentYangName = "mag"
     dscp.EntityData.SegmentPath = "dscp"
+    dscp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/mags/mag/" + dscp.EntityData.SegmentPath
     dscp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dscp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dscp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1386,6 +1427,7 @@ func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetEntityData() *typ
     tunnelAttributes.EntityData.BundleName = "cisco_ios_xr"
     tunnelAttributes.EntityData.ParentYangName = "lma"
     tunnelAttributes.EntityData.SegmentPath = "tunnel-attributes"
+    tunnelAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + tunnelAttributes.EntityData.SegmentPath
     tunnelAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1417,6 +1459,7 @@ func (services *MobileIp_Lmas_Lma_Services) GetEntityData() *types.CommonEntityD
     services.EntityData.BundleName = "cisco_ios_xr"
     services.EntityData.ParentYangName = "lma"
     services.EntityData.SegmentPath = "services"
+    services.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + services.EntityData.SegmentPath
     services.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     services.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     services.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1438,6 +1481,7 @@ func (services *MobileIp_Lmas_Lma_Services) GetEntityData() *types.CommonEntityD
 type MobileIp_Lmas_Lma_Services_Service struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LMA service mode. The type is LmaService.
     LmaService interface{}
@@ -1479,6 +1523,7 @@ func (service *MobileIp_Lmas_Lma_Services_Service) GetEntityData() *types.Common
     service.EntityData.BundleName = "cisco_ios_xr"
     service.EntityData.ParentYangName = "services"
     service.EntityData.SegmentPath = "service" + types.AddKeyToken(service.LmaService, "lma-service")
+    service.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/" + service.EntityData.SegmentPath
     service.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     service.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     service.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1517,6 +1562,7 @@ func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetEntityData() *
     customers.EntityData.BundleName = "cisco_ios_xr"
     customers.EntityData.ParentYangName = "service"
     customers.EntityData.SegmentPath = "customers"
+    customers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/" + customers.EntityData.SegmentPath
     customers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     customers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     customers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1539,6 +1585,7 @@ func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetEntityData() *
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Customer name. The type is string with length:
     // 1..32.
@@ -1604,6 +1651,7 @@ func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetEntity
     customer.EntityData.BundleName = "cisco_ios_xr"
     customer.EntityData.ParentYangName = "customers"
     customer.EntityData.SegmentPath = "customer" + types.AddKeyToken(customer.CustomerName, "customer-name") + types.AddKeyToken(customer.VrfName, "vrf-name")
+    customer.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/" + customer.EntityData.SegmentPath
     customer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     customer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     customer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1652,6 +1700,7 @@ func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_
     authenticateOption.EntityData.BundleName = "cisco_ios_xr"
     authenticateOption.EntityData.ParentYangName = "customer"
     authenticateOption.EntityData.SegmentPath = "authenticate-option"
+    authenticateOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/" + authenticateOption.EntityData.SegmentPath
     authenticateOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticateOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticateOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1689,6 +1738,7 @@ func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer
     heartBeatAttributes.EntityData.BundleName = "cisco_ios_xr"
     heartBeatAttributes.EntityData.ParentYangName = "customer"
     heartBeatAttributes.EntityData.SegmentPath = "heart-beat-attributes"
+    heartBeatAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/" + heartBeatAttributes.EntityData.SegmentPath
     heartBeatAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     heartBeatAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     heartBeatAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1721,6 +1771,7 @@ func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transpor
     transports.EntityData.BundleName = "cisco_ios_xr"
     transports.EntityData.ParentYangName = "customer"
     transports.EntityData.SegmentPath = "transports"
+    transports.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/" + transports.EntityData.SegmentPath
     transports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1742,6 +1793,7 @@ func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transpor
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with length: 1..125.
     VrfName interface{}
@@ -1761,6 +1813,7 @@ func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transport
     transport.EntityData.BundleName = "cisco_ios_xr"
     transport.EntityData.ParentYangName = "transports"
     transport.EntityData.SegmentPath = "transport" + types.AddKeyToken(transport.VrfName, "vrf-name")
+    transport.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/transports/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1795,6 +1848,7 @@ func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_N
     networkAttributes.EntityData.BundleName = "cisco_ios_xr"
     networkAttributes.EntityData.ParentYangName = "customer"
     networkAttributes.EntityData.SegmentPath = "network-attributes"
+    networkAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/" + networkAttributes.EntityData.SegmentPath
     networkAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1826,6 +1880,7 @@ func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkA
     authorizes.EntityData.BundleName = "cisco_ios_xr"
     authorizes.EntityData.ParentYangName = "network-attributes"
     authorizes.EntityData.SegmentPath = "authorizes"
+    authorizes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/" + authorizes.EntityData.SegmentPath
     authorizes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1847,6 +1902,7 @@ func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkA
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ASCII string. The type is string with length:
     // 1..125.
@@ -1862,6 +1918,7 @@ func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAt
     authorize.EntityData.BundleName = "cisco_ios_xr"
     authorize.EntityData.ParentYangName = "authorizes"
     authorize.EntityData.SegmentPath = "authorize" + types.AddKeyToken(authorize.Name, "name")
+    authorize.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/authorizes/" + authorize.EntityData.SegmentPath
     authorize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1895,6 +1952,7 @@ func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Netw
     poolAttributes.EntityData.BundleName = "cisco_ios_xr"
     poolAttributes.EntityData.ParentYangName = "authorize"
     poolAttributes.EntityData.SegmentPath = "pool-attributes"
+    poolAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/authorizes/authorize/" + poolAttributes.EntityData.SegmentPath
     poolAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     poolAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     poolAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1928,6 +1986,7 @@ func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkA
     mobileNode.EntityData.BundleName = "cisco_ios_xr"
     mobileNode.EntityData.ParentYangName = "pool-attributes"
     mobileNode.EntityData.SegmentPath = "mobile-node"
+    mobileNode.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/authorizes/authorize/pool-attributes/" + mobileNode.EntityData.SegmentPath
     mobileNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobileNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1962,6 +2021,7 @@ func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAtt
     ipv4Pool.EntityData.BundleName = "cisco_ios_xr"
     ipv4Pool.EntityData.ParentYangName = "mobile-node"
     ipv4Pool.EntityData.SegmentPath = "ipv4-pool"
+    ipv4Pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/authorizes/authorize/pool-attributes/mobile-node/" + ipv4Pool.EntityData.SegmentPath
     ipv4Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1996,6 +2056,7 @@ func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAtt
     ipv6Pool.EntityData.BundleName = "cisco_ios_xr"
     ipv6Pool.EntityData.ParentYangName = "mobile-node"
     ipv6Pool.EntityData.SegmentPath = "ipv6-pool"
+    ipv6Pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/authorizes/authorize/pool-attributes/mobile-node/" + ipv6Pool.EntityData.SegmentPath
     ipv6Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2029,6 +2090,7 @@ func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Netwo
     mobileNetwork.EntityData.BundleName = "cisco_ios_xr"
     mobileNetwork.EntityData.ParentYangName = "pool-attributes"
     mobileNetwork.EntityData.SegmentPath = "mobile-network"
+    mobileNetwork.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/authorizes/authorize/pool-attributes/" + mobileNetwork.EntityData.SegmentPath
     mobileNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobileNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2060,6 +2122,7 @@ func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Network
     mripv6Pools.EntityData.BundleName = "cisco_ios_xr"
     mripv6Pools.EntityData.ParentYangName = "mobile-network"
     mripv6Pools.EntityData.SegmentPath = "mripv6-pools"
+    mripv6Pools.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/authorizes/authorize/pool-attributes/mobile-network/" + mripv6Pools.EntityData.SegmentPath
     mripv6Pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv6Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv6Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2081,6 +2144,7 @@ func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Network
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Pool IPv6 start address. The type is string with
     // pattern:
@@ -2100,6 +2164,7 @@ func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkA
     mripv6Pool.EntityData.BundleName = "cisco_ios_xr"
     mripv6Pool.EntityData.ParentYangName = "mripv6-pools"
     mripv6Pool.EntityData.SegmentPath = "mripv6-pool" + types.AddKeyToken(mripv6Pool.StartAddress, "start-address")
+    mripv6Pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/authorizes/authorize/pool-attributes/mobile-network/mripv6-pools/" + mripv6Pool.EntityData.SegmentPath
     mripv6Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2132,6 +2197,7 @@ func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Network
     mripv4Pools.EntityData.BundleName = "cisco_ios_xr"
     mripv4Pools.EntityData.ParentYangName = "mobile-network"
     mripv4Pools.EntityData.SegmentPath = "mripv4-pools"
+    mripv4Pools.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/authorizes/authorize/pool-attributes/mobile-network/" + mripv4Pools.EntityData.SegmentPath
     mripv4Pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv4Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv4Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2153,6 +2219,7 @@ func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Network
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Pool IPv4 start address. The type is string with
     // pattern:
@@ -2172,6 +2239,7 @@ func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkA
     mripv4Pool.EntityData.BundleName = "cisco_ios_xr"
     mripv4Pool.EntityData.ParentYangName = "mripv4-pools"
     mripv4Pool.EntityData.SegmentPath = "mripv4-pool" + types.AddKeyToken(mripv4Pool.StartAddress, "start-address")
+    mripv4Pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/network-attributes/authorizes/authorize/pool-attributes/mobile-network/mripv4-pools/" + mripv4Pool.EntityData.SegmentPath
     mripv4Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2206,6 +2274,7 @@ func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetE
     greKey.EntityData.BundleName = "cisco_ios_xr"
     greKey.EntityData.ParentYangName = "customer"
     greKey.EntityData.SegmentPath = "gre-key"
+    greKey.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/" + greKey.EntityData.SegmentPath
     greKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     greKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     greKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2237,6 +2306,7 @@ func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_B
     bindingAttributes.EntityData.BundleName = "cisco_ios_xr"
     bindingAttributes.EntityData.ParentYangName = "customer"
     bindingAttributes.EntityData.SegmentPath = "binding-attributes"
+    bindingAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/services/service/customers/customer/" + bindingAttributes.EntityData.SegmentPath
     bindingAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bindingAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindingAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2267,6 +2337,7 @@ func (networks *MobileIp_Lmas_Lma_Networks) GetEntityData() *types.CommonEntityD
     networks.EntityData.BundleName = "cisco_ios_xr"
     networks.EntityData.ParentYangName = "lma"
     networks.EntityData.SegmentPath = "networks"
+    networks.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + networks.EntityData.SegmentPath
     networks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2288,6 +2359,7 @@ func (networks *MobileIp_Lmas_Lma_Networks) GetEntityData() *types.CommonEntityD
 type MobileIp_Lmas_Lma_Networks_Network struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network name. The type is string with length:
     // 1..125.
@@ -2303,6 +2375,7 @@ func (network *MobileIp_Lmas_Lma_Networks_Network) GetEntityData() *types.Common
     network.EntityData.BundleName = "cisco_ios_xr"
     network.EntityData.ParentYangName = "networks"
     network.EntityData.SegmentPath = "network" + types.AddKeyToken(network.LmaNetwork, "lma-network")
+    network.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/networks/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2336,6 +2409,7 @@ func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetEnti
     poolAttributes.EntityData.BundleName = "cisco_ios_xr"
     poolAttributes.EntityData.ParentYangName = "network"
     poolAttributes.EntityData.SegmentPath = "pool-attributes"
+    poolAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/networks/network/" + poolAttributes.EntityData.SegmentPath
     poolAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     poolAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     poolAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2369,6 +2443,7 @@ func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) 
     mobileNode.EntityData.BundleName = "cisco_ios_xr"
     mobileNode.EntityData.ParentYangName = "pool-attributes"
     mobileNode.EntityData.SegmentPath = "mobile-node"
+    mobileNode.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/networks/network/pool-attributes/" + mobileNode.EntityData.SegmentPath
     mobileNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobileNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2403,6 +2478,7 @@ func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv
     ipv4Pool.EntityData.BundleName = "cisco_ios_xr"
     ipv4Pool.EntityData.ParentYangName = "mobile-node"
     ipv4Pool.EntityData.SegmentPath = "ipv4-pool"
+    ipv4Pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/networks/network/pool-attributes/mobile-node/" + ipv4Pool.EntityData.SegmentPath
     ipv4Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2437,6 +2513,7 @@ func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv
     ipv6Pool.EntityData.BundleName = "cisco_ios_xr"
     ipv6Pool.EntityData.ParentYangName = "mobile-node"
     ipv6Pool.EntityData.SegmentPath = "ipv6-pool"
+    ipv6Pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/networks/network/pool-attributes/mobile-node/" + ipv6Pool.EntityData.SegmentPath
     ipv6Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2470,6 +2547,7 @@ func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNet
     mobileNetwork.EntityData.BundleName = "cisco_ios_xr"
     mobileNetwork.EntityData.ParentYangName = "pool-attributes"
     mobileNetwork.EntityData.SegmentPath = "mobile-network"
+    mobileNetwork.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/networks/network/pool-attributes/" + mobileNetwork.EntityData.SegmentPath
     mobileNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobileNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2501,6 +2579,7 @@ func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwo
     mripv6Pools.EntityData.BundleName = "cisco_ios_xr"
     mripv6Pools.EntityData.ParentYangName = "mobile-network"
     mripv6Pools.EntityData.SegmentPath = "mripv6-pools"
+    mripv6Pools.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/networks/network/pool-attributes/mobile-network/" + mripv6Pools.EntityData.SegmentPath
     mripv6Pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv6Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv6Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2522,6 +2601,7 @@ func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwo
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Pool IPv6 start address. The type is string with
     // pattern:
@@ -2541,6 +2621,7 @@ func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwor
     mripv6Pool.EntityData.BundleName = "cisco_ios_xr"
     mripv6Pool.EntityData.ParentYangName = "mripv6-pools"
     mripv6Pool.EntityData.SegmentPath = "mripv6-pool" + types.AddKeyToken(mripv6Pool.StartAddress, "start-address")
+    mripv6Pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/networks/network/pool-attributes/mobile-network/mripv6-pools/" + mripv6Pool.EntityData.SegmentPath
     mripv6Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2573,6 +2654,7 @@ func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwo
     mripv4Pools.EntityData.BundleName = "cisco_ios_xr"
     mripv4Pools.EntityData.ParentYangName = "mobile-network"
     mripv4Pools.EntityData.SegmentPath = "mripv4-pools"
+    mripv4Pools.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/networks/network/pool-attributes/mobile-network/" + mripv4Pools.EntityData.SegmentPath
     mripv4Pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv4Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv4Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2594,6 +2676,7 @@ func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwo
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Pool IPv4 start address. The type is string with
     // pattern:
@@ -2613,6 +2696,7 @@ func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwor
     mripv4Pool.EntityData.BundleName = "cisco_ios_xr"
     mripv4Pool.EntityData.ParentYangName = "mripv4-pools"
     mripv4Pool.EntityData.SegmentPath = "mripv4-pool" + types.AddKeyToken(mripv4Pool.StartAddress, "start-address")
+    mripv4Pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/networks/network/pool-attributes/mobile-network/mripv4-pools/" + mripv4Pool.EntityData.SegmentPath
     mripv4Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mripv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mripv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2645,6 +2729,7 @@ func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetEntityData() *typ
     replayProtection.EntityData.BundleName = "cisco_ios_xr"
     replayProtection.EntityData.ParentYangName = "lma"
     replayProtection.EntityData.SegmentPath = "replay-protection"
+    replayProtection.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/lma/" + replayProtection.EntityData.SegmentPath
     replayProtection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replayProtection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replayProtection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

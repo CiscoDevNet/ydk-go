@@ -572,6 +572,7 @@ func (cellwanOperData *CellwanOperData) GetEntityData() *types.CommonEntityData 
     cellwanOperData.EntityData.BundleName = "cisco_ios_xe"
     cellwanOperData.EntityData.ParentYangName = "Cisco-IOS-XE-cellwan-oper"
     cellwanOperData.EntityData.SegmentPath = "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data"
+    cellwanOperData.EntityData.AbsolutePath = cellwanOperData.EntityData.SegmentPath
     cellwanOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -617,6 +618,7 @@ func (cellwanOperData *CellwanOperData) GetEntityData() *types.CommonEntityData 
 type CellwanOperData_CellwanHardware struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Cellular interface. The type is string.
     CellularInterface interface{}
@@ -674,6 +676,7 @@ func (cellwanHardware *CellwanOperData_CellwanHardware) GetEntityData() *types.C
     cellwanHardware.EntityData.BundleName = "cisco_ios_xe"
     cellwanHardware.EntityData.ParentYangName = "cellwan-oper-data"
     cellwanHardware.EntityData.SegmentPath = "cellwan-hardware" + types.AddKeyToken(cellwanHardware.CellularInterface, "cellular-interface")
+    cellwanHardware.EntityData.AbsolutePath = "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/" + cellwanHardware.EntityData.SegmentPath
     cellwanHardware.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanHardware.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanHardware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -707,6 +710,7 @@ func (cellwanHardware *CellwanOperData_CellwanHardware) GetEntityData() *types.C
 type CellwanOperData_CellwanRadio struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Cellular interface. The type is string.
     CellularInterface interface{}
@@ -761,6 +765,7 @@ func (cellwanRadio *CellwanOperData_CellwanRadio) GetEntityData() *types.CommonE
     cellwanRadio.EntityData.BundleName = "cisco_ios_xe"
     cellwanRadio.EntityData.ParentYangName = "cellwan-oper-data"
     cellwanRadio.EntityData.SegmentPath = "cellwan-radio" + types.AddKeyToken(cellwanRadio.CellularInterface, "cellular-interface")
+    cellwanRadio.EntityData.AbsolutePath = "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/" + cellwanRadio.EntityData.SegmentPath
     cellwanRadio.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanRadio.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanRadio.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -791,6 +796,7 @@ func (cellwanRadio *CellwanOperData_CellwanRadio) GetEntityData() *types.CommonE
 type CellwanOperData_CellwanNetwork struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Cellular interface. The type is string.
     CellularInterface interface{}
@@ -871,6 +877,7 @@ func (cellwanNetwork *CellwanOperData_CellwanNetwork) GetEntityData() *types.Com
     cellwanNetwork.EntityData.BundleName = "cisco_ios_xe"
     cellwanNetwork.EntityData.ParentYangName = "cellwan-oper-data"
     cellwanNetwork.EntityData.SegmentPath = "cellwan-network" + types.AddKeyToken(cellwanNetwork.CellularInterface, "cellular-interface")
+    cellwanNetwork.EntityData.AbsolutePath = "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/" + cellwanNetwork.EntityData.SegmentPath
     cellwanNetwork.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanNetwork.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -909,6 +916,7 @@ func (cellwanNetwork *CellwanOperData_CellwanNetwork) GetEntityData() *types.Com
 type CellwanOperData_CellwanConnection struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Cellular interface. The type is string.
     CellularInterface interface{}
@@ -988,6 +996,7 @@ func (cellwanConnection *CellwanOperData_CellwanConnection) GetEntityData() *typ
     cellwanConnection.EntityData.BundleName = "cisco_ios_xe"
     cellwanConnection.EntityData.ParentYangName = "cellwan-oper-data"
     cellwanConnection.EntityData.SegmentPath = "cellwan-connection" + types.AddKeyToken(cellwanConnection.CellularInterface, "cellular-interface")
+    cellwanConnection.EntityData.AbsolutePath = "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/" + cellwanConnection.EntityData.SegmentPath
     cellwanConnection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanConnection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanConnection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1019,6 +1028,7 @@ func (cellwanConnection *CellwanOperData_CellwanConnection) GetEntityData() *typ
 type CellwanOperData_CellwanSecurity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Cellular interface. The type is string.
     CellularInterface interface{}
@@ -1052,6 +1062,7 @@ func (cellwanSecurity *CellwanOperData_CellwanSecurity) GetEntityData() *types.C
     cellwanSecurity.EntityData.BundleName = "cisco_ios_xe"
     cellwanSecurity.EntityData.ParentYangName = "cellwan-oper-data"
     cellwanSecurity.EntityData.SegmentPath = "cellwan-security" + types.AddKeyToken(cellwanSecurity.CellularInterface, "cellular-interface")
+    cellwanSecurity.EntityData.AbsolutePath = "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/" + cellwanSecurity.EntityData.SegmentPath
     cellwanSecurity.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanSecurity.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanSecurity.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1076,6 +1087,7 @@ func (cellwanSecurity *CellwanOperData_CellwanSecurity) GetEntityData() *types.C
 type CellwanOperData_CellwanSms struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Cellular interface. The type is string.
     CellularInterface interface{}
@@ -1139,6 +1151,7 @@ func (cellwanSms *CellwanOperData_CellwanSms) GetEntityData() *types.CommonEntit
     cellwanSms.EntityData.BundleName = "cisco_ios_xe"
     cellwanSms.EntityData.ParentYangName = "cellwan-oper-data"
     cellwanSms.EntityData.SegmentPath = "cellwan-sms" + types.AddKeyToken(cellwanSms.CellularInterface, "cellular-interface")
+    cellwanSms.EntityData.AbsolutePath = "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/" + cellwanSms.EntityData.SegmentPath
     cellwanSms.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanSms.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanSms.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1170,6 +1183,7 @@ func (cellwanSms *CellwanOperData_CellwanSms) GetEntityData() *types.CommonEntit
 type CellwanOperData_CellwanGps struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Cellular interface. The type is string.
     CellularInterface interface{}
@@ -1203,6 +1217,7 @@ func (cellwanGps *CellwanOperData_CellwanGps) GetEntityData() *types.CommonEntit
     cellwanGps.EntityData.BundleName = "cisco_ios_xe"
     cellwanGps.EntityData.ParentYangName = "cellwan-oper-data"
     cellwanGps.EntityData.SegmentPath = "cellwan-gps" + types.AddKeyToken(cellwanGps.CellularInterface, "cellular-interface")
+    cellwanGps.EntityData.AbsolutePath = "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/" + cellwanGps.EntityData.SegmentPath
     cellwanGps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellwanGps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellwanGps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

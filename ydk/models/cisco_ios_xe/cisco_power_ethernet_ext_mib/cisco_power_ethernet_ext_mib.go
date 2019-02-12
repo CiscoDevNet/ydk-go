@@ -124,6 +124,7 @@ func (cISCOPOWERETHERNETEXTMIB *CISCOPOWERETHERNETEXTMIB) GetEntityData() *types
     cISCOPOWERETHERNETEXTMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOPOWERETHERNETEXTMIB.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
     cISCOPOWERETHERNETEXTMIB.EntityData.SegmentPath = "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB"
+    cISCOPOWERETHERNETEXTMIB.EntityData.AbsolutePath = cISCOPOWERETHERNETEXTMIB.EntityData.SegmentPath
     cISCOPOWERETHERNETEXTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOPOWERETHERNETEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOPOWERETHERNETEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -172,6 +173,7 @@ func (cpeExtMIBObjects *CISCOPOWERETHERNETEXTMIB_CpeExtMIBObjects) GetEntityData
     cpeExtMIBObjects.EntityData.BundleName = "cisco_ios_xe"
     cpeExtMIBObjects.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
     cpeExtMIBObjects.EntityData.SegmentPath = "cpeExtMIBObjects"
+    cpeExtMIBObjects.EntityData.AbsolutePath = "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/" + cpeExtMIBObjects.EntityData.SegmentPath
     cpeExtMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpeExtMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpeExtMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -207,6 +209,7 @@ func (cpeExtPdStatistics *CISCOPOWERETHERNETEXTMIB_CpeExtPdStatistics) GetEntity
     cpeExtPdStatistics.EntityData.BundleName = "cisco_ios_xe"
     cpeExtPdStatistics.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
     cpeExtPdStatistics.EntityData.SegmentPath = "cpeExtPdStatistics"
+    cpeExtPdStatistics.EntityData.AbsolutePath = "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/" + cpeExtPdStatistics.EntityData.SegmentPath
     cpeExtPdStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpeExtPdStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpeExtPdStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -241,6 +244,7 @@ func (cpeExtMainPseTable *CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable) GetEntity
     cpeExtMainPseTable.EntityData.BundleName = "cisco_ios_xe"
     cpeExtMainPseTable.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
     cpeExtMainPseTable.EntityData.SegmentPath = "cpeExtMainPseTable"
+    cpeExtMainPseTable.EntityData.AbsolutePath = "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/" + cpeExtMainPseTable.EntityData.SegmentPath
     cpeExtMainPseTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpeExtMainPseTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpeExtMainPseTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -267,6 +271,7 @@ func (cpeExtMainPseTable *CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable) GetEntity
 type CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable_CpeExtMainPseEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -306,6 +311,7 @@ func (cpeExtMainPseEntry *CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable_CpeExtMain
     cpeExtMainPseEntry.EntityData.BundleName = "cisco_ios_xe"
     cpeExtMainPseEntry.EntityData.ParentYangName = "cpeExtMainPseTable"
     cpeExtMainPseEntry.EntityData.SegmentPath = "cpeExtMainPseEntry" + types.AddKeyToken(cpeExtMainPseEntry.PethMainPseGroupIndex, "pethMainPseGroupIndex")
+    cpeExtMainPseEntry.EntityData.AbsolutePath = "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/cpeExtMainPseTable/" + cpeExtMainPseEntry.EntityData.SegmentPath
     cpeExtMainPseEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpeExtMainPseEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpeExtMainPseEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -344,6 +350,7 @@ func (cpeExtPdStatsTable *CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable) GetEntity
     cpeExtPdStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cpeExtPdStatsTable.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
     cpeExtPdStatsTable.EntityData.SegmentPath = "cpeExtPdStatsTable"
+    cpeExtPdStatsTable.EntityData.AbsolutePath = "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/" + cpeExtPdStatsTable.EntityData.SegmentPath
     cpeExtPdStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpeExtPdStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpeExtPdStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -367,6 +374,7 @@ func (cpeExtPdStatsTable *CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable) GetEntity
 type CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The power classification as the index for the
     // statistics information for powered devices.  A value of 'cisco' indicates
@@ -396,6 +404,7 @@ func (cpeExtPdStatsEntry *CISCOPOWERETHERNETEXTMIB_CpeExtPdStatsTable_CpeExtPdSt
     cpeExtPdStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cpeExtPdStatsEntry.EntityData.ParentYangName = "cpeExtPdStatsTable"
     cpeExtPdStatsEntry.EntityData.SegmentPath = "cpeExtPdStatsEntry" + types.AddKeyToken(cpeExtPdStatsEntry.CpeExtPdStatsClass, "cpeExtPdStatsClass")
+    cpeExtPdStatsEntry.EntityData.AbsolutePath = "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/cpeExtPdStatsTable/" + cpeExtPdStatsEntry.EntityData.SegmentPath
     cpeExtPdStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpeExtPdStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpeExtPdStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -451,6 +460,7 @@ func (cpeExtPsePortLldpTable *CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable) G
     cpeExtPsePortLldpTable.EntityData.BundleName = "cisco_ios_xe"
     cpeExtPsePortLldpTable.EntityData.ParentYangName = "CISCO-POWER-ETHERNET-EXT-MIB"
     cpeExtPsePortLldpTable.EntityData.SegmentPath = "cpeExtPsePortLldpTable"
+    cpeExtPsePortLldpTable.EntityData.AbsolutePath = "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/" + cpeExtPsePortLldpTable.EntityData.SegmentPath
     cpeExtPsePortLldpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpeExtPsePortLldpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpeExtPsePortLldpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -481,6 +491,7 @@ func (cpeExtPsePortLldpTable *CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable) G
 type CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -562,6 +573,7 @@ func (cpeExtPsePortLldpEntry *CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_Cp
     cpeExtPsePortLldpEntry.EntityData.BundleName = "cisco_ios_xe"
     cpeExtPsePortLldpEntry.EntityData.ParentYangName = "cpeExtPsePortLldpTable"
     cpeExtPsePortLldpEntry.EntityData.SegmentPath = "cpeExtPsePortLldpEntry" + types.AddKeyToken(cpeExtPsePortLldpEntry.PethPsePortGroupIndex, "pethPsePortGroupIndex") + types.AddKeyToken(cpeExtPsePortLldpEntry.PethPsePortIndex, "pethPsePortIndex")
+    cpeExtPsePortLldpEntry.EntityData.AbsolutePath = "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/cpeExtPsePortLldpTable/" + cpeExtPsePortLldpEntry.EntityData.SegmentPath
     cpeExtPsePortLldpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpeExtPsePortLldpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpeExtPsePortLldpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -40,6 +40,7 @@ func (sdrInventory *SdrInventory) GetEntityData() *types.CommonEntityData {
     sdrInventory.EntityData.BundleName = "cisco_ios_xr"
     sdrInventory.EntityData.ParentYangName = "Cisco-IOS-XR-sdr-invmgr-oper"
     sdrInventory.EntityData.SegmentPath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory"
+    sdrInventory.EntityData.AbsolutePath = sdrInventory.EntityData.SegmentPath
     sdrInventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (racks *SdrInventory_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.BundleName = "cisco_ios_xr"
     racks.EntityData.ParentYangName = "sdr-inventory"
     racks.EntityData.SegmentPath = "racks"
+    racks.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/" + racks.EntityData.SegmentPath
     racks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (racks *SdrInventory_Racks) GetEntityData() *types.CommonEntityData {
 type SdrInventory_Racks_Rack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Rack name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -105,6 +108,7 @@ func (rack *SdrInventory_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
     rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Name, "name")
+    rack.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/racks/" + rack.EntityData.SegmentPath
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -127,6 +131,7 @@ func (rack *SdrInventory_Racks_Rack) GetEntityData() *types.CommonEntityData {
 type SdrInventory_Racks_Rack_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -142,6 +147,7 @@ func (slot *SdrInventory_Racks_Rack_Slot) GetEntityData() *types.CommonEntityDat
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "rack"
     slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Name, "name")
+    slot.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/racks/rack/" + slot.EntityData.SegmentPath
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -164,6 +170,7 @@ func (slot *SdrInventory_Racks_Rack_Slot) GetEntityData() *types.CommonEntityDat
 type SdrInventory_Racks_Rack_Slot_Card struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Card. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -179,6 +186,7 @@ func (card *SdrInventory_Racks_Rack_Slot_Card) GetEntityData() *types.CommonEnti
     card.EntityData.BundleName = "cisco_ios_xr"
     card.EntityData.ParentYangName = "slot"
     card.EntityData.SegmentPath = "card" + types.AddKeyToken(card.Name, "name")
+    card.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/racks/rack/slot/" + card.EntityData.SegmentPath
     card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -258,6 +266,7 @@ func (attributes *SdrInventory_Racks_Rack_Slot_Card_Attributes) GetEntityData() 
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "card"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/racks/rack/slot/card/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

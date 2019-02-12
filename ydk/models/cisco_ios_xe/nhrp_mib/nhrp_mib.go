@@ -74,6 +74,7 @@ func (nHRPMIB *NHRPMIB) GetEntityData() *types.CommonEntityData {
     nHRPMIB.EntityData.BundleName = "cisco_ios_xe"
     nHRPMIB.EntityData.ParentYangName = "NHRP-MIB"
     nHRPMIB.EntityData.SegmentPath = "NHRP-MIB:NHRP-MIB"
+    nHRPMIB.EntityData.AbsolutePath = nHRPMIB.EntityData.SegmentPath
     nHRPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nHRPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nHRPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -124,6 +125,7 @@ func (nhrpGeneralObjects *NHRPMIB_NhrpGeneralObjects) GetEntityData() *types.Com
     nhrpGeneralObjects.EntityData.BundleName = "cisco_ios_xe"
     nhrpGeneralObjects.EntityData.ParentYangName = "NHRP-MIB"
     nhrpGeneralObjects.EntityData.SegmentPath = "nhrpGeneralObjects"
+    nhrpGeneralObjects.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpGeneralObjects.EntityData.SegmentPath
     nhrpGeneralObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpGeneralObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpGeneralObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -162,6 +164,7 @@ func (nhrpCacheTable *NHRPMIB_NhrpCacheTable) GetEntityData() *types.CommonEntit
     nhrpCacheTable.EntityData.BundleName = "cisco_ios_xe"
     nhrpCacheTable.EntityData.ParentYangName = "NHRP-MIB"
     nhrpCacheTable.EntityData.SegmentPath = "nhrpCacheTable"
+    nhrpCacheTable.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpCacheTable.EntityData.SegmentPath
     nhrpCacheTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpCacheTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpCacheTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -197,6 +200,7 @@ func (nhrpCacheTable *NHRPMIB_NhrpCacheTable) GetEntityData() *types.CommonEntit
 type NHRPMIB_NhrpCacheTable_NhrpCacheEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The internetwork layer address type of this Next
     // Hop Resolution Cache entry. The value of this object indicates how to
@@ -322,6 +326,7 @@ func (nhrpCacheEntry *NHRPMIB_NhrpCacheTable_NhrpCacheEntry) GetEntityData() *ty
     nhrpCacheEntry.EntityData.BundleName = "cisco_ios_xe"
     nhrpCacheEntry.EntityData.ParentYangName = "nhrpCacheTable"
     nhrpCacheEntry.EntityData.SegmentPath = "nhrpCacheEntry" + types.AddKeyToken(nhrpCacheEntry.NhrpCacheInternetworkAddrType, "nhrpCacheInternetworkAddrType") + types.AddKeyToken(nhrpCacheEntry.NhrpCacheInternetworkAddr, "nhrpCacheInternetworkAddr") + types.AddKeyToken(nhrpCacheEntry.IfIndex, "ifIndex") + types.AddKeyToken(nhrpCacheEntry.NhrpCacheIndex, "nhrpCacheIndex")
+    nhrpCacheEntry.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/nhrpCacheTable/" + nhrpCacheEntry.EntityData.SegmentPath
     nhrpCacheEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpCacheEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpCacheEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -400,6 +405,7 @@ func (nhrpPurgeReqTable *NHRPMIB_NhrpPurgeReqTable) GetEntityData() *types.Commo
     nhrpPurgeReqTable.EntityData.BundleName = "cisco_ios_xe"
     nhrpPurgeReqTable.EntityData.ParentYangName = "NHRP-MIB"
     nhrpPurgeReqTable.EntityData.SegmentPath = "nhrpPurgeReqTable"
+    nhrpPurgeReqTable.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpPurgeReqTable.EntityData.SegmentPath
     nhrpPurgeReqTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpPurgeReqTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpPurgeReqTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -421,6 +427,7 @@ func (nhrpPurgeReqTable *NHRPMIB_NhrpPurgeReqTable) GetEntityData() *types.Commo
 type NHRPMIB_NhrpPurgeReqTable_NhrpPurgeReqEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index for this entry that has local
     // significance within the scope of this table. The type is interface{} with
@@ -457,6 +464,7 @@ func (nhrpPurgeReqEntry *NHRPMIB_NhrpPurgeReqTable_NhrpPurgeReqEntry) GetEntityD
     nhrpPurgeReqEntry.EntityData.BundleName = "cisco_ios_xe"
     nhrpPurgeReqEntry.EntityData.ParentYangName = "nhrpPurgeReqTable"
     nhrpPurgeReqEntry.EntityData.SegmentPath = "nhrpPurgeReqEntry" + types.AddKeyToken(nhrpPurgeReqEntry.NhrpPurgeIndex, "nhrpPurgeIndex")
+    nhrpPurgeReqEntry.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/nhrpPurgeReqTable/" + nhrpPurgeReqEntry.EntityData.SegmentPath
     nhrpPurgeReqEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpPurgeReqEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpPurgeReqEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -493,6 +501,7 @@ func (nhrpClientTable *NHRPMIB_NhrpClientTable) GetEntityData() *types.CommonEnt
     nhrpClientTable.EntityData.BundleName = "cisco_ios_xe"
     nhrpClientTable.EntityData.ParentYangName = "NHRP-MIB"
     nhrpClientTable.EntityData.SegmentPath = "nhrpClientTable"
+    nhrpClientTable.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpClientTable.EntityData.SegmentPath
     nhrpClientTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpClientTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpClientTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -514,6 +523,7 @@ func (nhrpClientTable *NHRPMIB_NhrpClientTable) GetEntityData() *types.CommonEnt
 type NHRPMIB_NhrpClientTable_NhrpClientEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An identifier for the NHRP client that is unique
     // within the scope of this agent.  The 'nhrpNextIndex' value should be
@@ -600,6 +610,7 @@ func (nhrpClientEntry *NHRPMIB_NhrpClientTable_NhrpClientEntry) GetEntityData() 
     nhrpClientEntry.EntityData.BundleName = "cisco_ios_xe"
     nhrpClientEntry.EntityData.ParentYangName = "nhrpClientTable"
     nhrpClientEntry.EntityData.SegmentPath = "nhrpClientEntry" + types.AddKeyToken(nhrpClientEntry.NhrpClientIndex, "nhrpClientIndex")
+    nhrpClientEntry.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/nhrpClientTable/" + nhrpClientEntry.EntityData.SegmentPath
     nhrpClientEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpClientEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpClientEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -647,6 +658,7 @@ func (nhrpClientRegistrationTable *NHRPMIB_NhrpClientRegistrationTable) GetEntit
     nhrpClientRegistrationTable.EntityData.BundleName = "cisco_ios_xe"
     nhrpClientRegistrationTable.EntityData.ParentYangName = "NHRP-MIB"
     nhrpClientRegistrationTable.EntityData.SegmentPath = "nhrpClientRegistrationTable"
+    nhrpClientRegistrationTable.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpClientRegistrationTable.EntityData.SegmentPath
     nhrpClientRegistrationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpClientRegistrationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpClientRegistrationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -670,6 +682,7 @@ func (nhrpClientRegistrationTable *NHRPMIB_NhrpClientRegistrationTable) GetEntit
 type NHRPMIB_NhrpClientRegistrationTable_NhrpClientRegistrationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to nhrp_mib.NHRPMIB_NhrpClientTable_NhrpClientEntry_NhrpClientIndex
@@ -708,6 +721,7 @@ func (nhrpClientRegistrationEntry *NHRPMIB_NhrpClientRegistrationTable_NhrpClien
     nhrpClientRegistrationEntry.EntityData.BundleName = "cisco_ios_xe"
     nhrpClientRegistrationEntry.EntityData.ParentYangName = "nhrpClientRegistrationTable"
     nhrpClientRegistrationEntry.EntityData.SegmentPath = "nhrpClientRegistrationEntry" + types.AddKeyToken(nhrpClientRegistrationEntry.NhrpClientIndex, "nhrpClientIndex") + types.AddKeyToken(nhrpClientRegistrationEntry.NhrpClientRegIndex, "nhrpClientRegIndex")
+    nhrpClientRegistrationEntry.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/nhrpClientRegistrationTable/" + nhrpClientRegistrationEntry.EntityData.SegmentPath
     nhrpClientRegistrationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpClientRegistrationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpClientRegistrationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -766,6 +780,7 @@ func (nhrpClientNhsTable *NHRPMIB_NhrpClientNhsTable) GetEntityData() *types.Com
     nhrpClientNhsTable.EntityData.BundleName = "cisco_ios_xe"
     nhrpClientNhsTable.EntityData.ParentYangName = "NHRP-MIB"
     nhrpClientNhsTable.EntityData.SegmentPath = "nhrpClientNhsTable"
+    nhrpClientNhsTable.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpClientNhsTable.EntityData.SegmentPath
     nhrpClientNhsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpClientNhsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpClientNhsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -787,6 +802,7 @@ func (nhrpClientNhsTable *NHRPMIB_NhrpClientNhsTable) GetEntityData() *types.Com
 type NHRPMIB_NhrpClientNhsTable_NhrpClientNhsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to nhrp_mib.NHRPMIB_NhrpClientTable_NhrpClientEntry_NhrpClientIndex
@@ -837,6 +853,7 @@ func (nhrpClientNhsEntry *NHRPMIB_NhrpClientNhsTable_NhrpClientNhsEntry) GetEnti
     nhrpClientNhsEntry.EntityData.BundleName = "cisco_ios_xe"
     nhrpClientNhsEntry.EntityData.ParentYangName = "nhrpClientNhsTable"
     nhrpClientNhsEntry.EntityData.SegmentPath = "nhrpClientNhsEntry" + types.AddKeyToken(nhrpClientNhsEntry.NhrpClientIndex, "nhrpClientIndex") + types.AddKeyToken(nhrpClientNhsEntry.NhrpClientNhsIndex, "nhrpClientNhsIndex")
+    nhrpClientNhsEntry.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/nhrpClientNhsTable/" + nhrpClientNhsEntry.EntityData.SegmentPath
     nhrpClientNhsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpClientNhsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpClientNhsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -876,6 +893,7 @@ func (nhrpClientStatTable *NHRPMIB_NhrpClientStatTable) GetEntityData() *types.C
     nhrpClientStatTable.EntityData.BundleName = "cisco_ios_xe"
     nhrpClientStatTable.EntityData.ParentYangName = "NHRP-MIB"
     nhrpClientStatTable.EntityData.SegmentPath = "nhrpClientStatTable"
+    nhrpClientStatTable.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpClientStatTable.EntityData.SegmentPath
     nhrpClientStatTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpClientStatTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpClientStatTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -897,6 +915,7 @@ func (nhrpClientStatTable *NHRPMIB_NhrpClientStatTable) GetEntityData() *types.C
 type NHRPMIB_NhrpClientStatTable_NhrpClientStatEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to nhrp_mib.NHRPMIB_NhrpClientTable_NhrpClientEntry_NhrpClientIndex
@@ -1104,6 +1123,7 @@ func (nhrpClientStatEntry *NHRPMIB_NhrpClientStatTable_NhrpClientStatEntry) GetE
     nhrpClientStatEntry.EntityData.BundleName = "cisco_ios_xe"
     nhrpClientStatEntry.EntityData.ParentYangName = "nhrpClientStatTable"
     nhrpClientStatEntry.EntityData.SegmentPath = "nhrpClientStatEntry" + types.AddKeyToken(nhrpClientStatEntry.NhrpClientIndex, "nhrpClientIndex")
+    nhrpClientStatEntry.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/nhrpClientStatTable/" + nhrpClientStatEntry.EntityData.SegmentPath
     nhrpClientStatEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpClientStatEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpClientStatEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1160,6 +1180,7 @@ func (nhrpServerTable *NHRPMIB_NhrpServerTable) GetEntityData() *types.CommonEnt
     nhrpServerTable.EntityData.BundleName = "cisco_ios_xe"
     nhrpServerTable.EntityData.ParentYangName = "NHRP-MIB"
     nhrpServerTable.EntityData.SegmentPath = "nhrpServerTable"
+    nhrpServerTable.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpServerTable.EntityData.SegmentPath
     nhrpServerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpServerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpServerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1181,6 +1202,7 @@ func (nhrpServerTable *NHRPMIB_NhrpServerTable) GetEntityData() *types.CommonEnt
 type NHRPMIB_NhrpServerTable_NhrpServerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An identifier for the server that is unique within
     // the scope of this agent. The type is interface{} with range: 1..4294967295.
@@ -1225,6 +1247,7 @@ func (nhrpServerEntry *NHRPMIB_NhrpServerTable_NhrpServerEntry) GetEntityData() 
     nhrpServerEntry.EntityData.BundleName = "cisco_ios_xe"
     nhrpServerEntry.EntityData.ParentYangName = "nhrpServerTable"
     nhrpServerEntry.EntityData.SegmentPath = "nhrpServerEntry" + types.AddKeyToken(nhrpServerEntry.NhrpServerIndex, "nhrpServerIndex")
+    nhrpServerEntry.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/nhrpServerTable/" + nhrpServerEntry.EntityData.SegmentPath
     nhrpServerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpServerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpServerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1274,6 +1297,7 @@ func (nhrpServerCacheTable *NHRPMIB_NhrpServerCacheTable) GetEntityData() *types
     nhrpServerCacheTable.EntityData.BundleName = "cisco_ios_xe"
     nhrpServerCacheTable.EntityData.ParentYangName = "NHRP-MIB"
     nhrpServerCacheTable.EntityData.SegmentPath = "nhrpServerCacheTable"
+    nhrpServerCacheTable.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpServerCacheTable.EntityData.SegmentPath
     nhrpServerCacheTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpServerCacheTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpServerCacheTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1296,6 +1320,7 @@ func (nhrpServerCacheTable *NHRPMIB_NhrpServerCacheTable) GetEntityData() *types
 type NHRPMIB_NhrpServerCacheTable_NhrpServerCacheEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is AddressFamilyNumbers. Refers to
     // nhrp_mib.NHRPMIB_NhrpCacheTable_NhrpCacheEntry_NhrpCacheInternetworkAddrType
@@ -1331,6 +1356,7 @@ func (nhrpServerCacheEntry *NHRPMIB_NhrpServerCacheTable_NhrpServerCacheEntry) G
     nhrpServerCacheEntry.EntityData.BundleName = "cisco_ios_xe"
     nhrpServerCacheEntry.EntityData.ParentYangName = "nhrpServerCacheTable"
     nhrpServerCacheEntry.EntityData.SegmentPath = "nhrpServerCacheEntry" + types.AddKeyToken(nhrpServerCacheEntry.NhrpCacheInternetworkAddrType, "nhrpCacheInternetworkAddrType") + types.AddKeyToken(nhrpServerCacheEntry.NhrpCacheInternetworkAddr, "nhrpCacheInternetworkAddr") + types.AddKeyToken(nhrpServerCacheEntry.IfIndex, "ifIndex") + types.AddKeyToken(nhrpServerCacheEntry.NhrpCacheIndex, "nhrpCacheIndex")
+    nhrpServerCacheEntry.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/nhrpServerCacheTable/" + nhrpServerCacheEntry.EntityData.SegmentPath
     nhrpServerCacheEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpServerCacheEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpServerCacheEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1367,6 +1393,7 @@ func (nhrpServerNhcTable *NHRPMIB_NhrpServerNhcTable) GetEntityData() *types.Com
     nhrpServerNhcTable.EntityData.BundleName = "cisco_ios_xe"
     nhrpServerNhcTable.EntityData.ParentYangName = "NHRP-MIB"
     nhrpServerNhcTable.EntityData.SegmentPath = "nhrpServerNhcTable"
+    nhrpServerNhcTable.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpServerNhcTable.EntityData.SegmentPath
     nhrpServerNhcTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpServerNhcTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpServerNhcTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1388,6 +1415,7 @@ func (nhrpServerNhcTable *NHRPMIB_NhrpServerNhcTable) GetEntityData() *types.Com
 type NHRPMIB_NhrpServerNhcTable_NhrpServerNhcEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to nhrp_mib.NHRPMIB_NhrpServerTable_NhrpServerEntry_NhrpServerIndex
@@ -1443,6 +1471,7 @@ func (nhrpServerNhcEntry *NHRPMIB_NhrpServerNhcTable_NhrpServerNhcEntry) GetEnti
     nhrpServerNhcEntry.EntityData.BundleName = "cisco_ios_xe"
     nhrpServerNhcEntry.EntityData.ParentYangName = "nhrpServerNhcTable"
     nhrpServerNhcEntry.EntityData.SegmentPath = "nhrpServerNhcEntry" + types.AddKeyToken(nhrpServerNhcEntry.NhrpServerIndex, "nhrpServerIndex") + types.AddKeyToken(nhrpServerNhcEntry.NhrpServerNhcIndex, "nhrpServerNhcIndex")
+    nhrpServerNhcEntry.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/nhrpServerNhcTable/" + nhrpServerNhcEntry.EntityData.SegmentPath
     nhrpServerNhcEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpServerNhcEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpServerNhcEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1484,6 +1513,7 @@ func (nhrpServerStatTable *NHRPMIB_NhrpServerStatTable) GetEntityData() *types.C
     nhrpServerStatTable.EntityData.BundleName = "cisco_ios_xe"
     nhrpServerStatTable.EntityData.ParentYangName = "NHRP-MIB"
     nhrpServerStatTable.EntityData.SegmentPath = "nhrpServerStatTable"
+    nhrpServerStatTable.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/" + nhrpServerStatTable.EntityData.SegmentPath
     nhrpServerStatTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpServerStatTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpServerStatTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1508,6 +1538,7 @@ func (nhrpServerStatTable *NHRPMIB_NhrpServerStatTable) GetEntityData() *types.C
 type NHRPMIB_NhrpServerStatTable_NhrpServerStatEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to nhrp_mib.NHRPMIB_NhrpServerTable_NhrpServerEntry_NhrpServerIndex
@@ -1834,6 +1865,7 @@ func (nhrpServerStatEntry *NHRPMIB_NhrpServerStatTable_NhrpServerStatEntry) GetE
     nhrpServerStatEntry.EntityData.BundleName = "cisco_ios_xe"
     nhrpServerStatEntry.EntityData.ParentYangName = "nhrpServerStatTable"
     nhrpServerStatEntry.EntityData.SegmentPath = "nhrpServerStatEntry" + types.AddKeyToken(nhrpServerStatEntry.NhrpServerIndex, "nhrpServerIndex")
+    nhrpServerStatEntry.EntityData.AbsolutePath = "NHRP-MIB:NHRP-MIB/nhrpServerStatTable/" + nhrpServerStatEntry.EntityData.SegmentPath
     nhrpServerStatEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nhrpServerStatEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nhrpServerStatEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

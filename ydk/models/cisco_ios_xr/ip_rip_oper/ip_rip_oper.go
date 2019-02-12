@@ -86,6 +86,7 @@ func (rip *Rip) GetEntityData() *types.CommonEntityData {
     rip.EntityData.BundleName = "cisco_ios_xr"
     rip.EntityData.ParentYangName = "Cisco-IOS-XR-ip-rip-oper"
     rip.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rip-oper:rip"
+    rip.EntityData.AbsolutePath = rip.EntityData.SegmentPath
     rip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -117,6 +118,7 @@ func (vrfs *Rip_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "rip"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -138,6 +140,7 @@ func (vrfs *Rip_Vrfs) GetEntityData() *types.CommonEntityData {
 type Rip_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the VRF. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -165,6 +168,7 @@ func (vrf *Rip_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -200,6 +204,7 @@ func (routes *Rip_Vrfs_Vrf_Routes) GetEntityData() *types.CommonEntityData {
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "vrf"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -207,6 +212,7 @@ func (routes *Rip_Vrfs_Vrf_Routes) GetEntityData() *types.CommonEntityData {
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -221,6 +227,7 @@ func (routes *Rip_Vrfs_Vrf_Routes) GetEntityData() *types.CommonEntityData {
 type Rip_Vrfs_Vrf_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network prefix. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -279,7 +286,8 @@ func (route *Rip_Vrfs_Vrf_Routes_Route) GetEntityData() *types.CommonEntityData 
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -287,6 +295,7 @@ func (route *Rip_Vrfs_Vrf_Routes_Route) GetEntityData() *types.CommonEntityData 
     route.EntityData.Children = types.NewOrderedMap()
     route.EntityData.Children.Append("paths", types.YChild{"Paths", nil})
     for i := range route.Paths {
+        types.SetYListKey(route.Paths[i], i)
         route.EntityData.Children.Append(types.GetSegmentPath(route.Paths[i]), types.YChild{"Paths", route.Paths[i]})
     }
     route.EntityData.Leafs = types.NewOrderedMap()
@@ -315,6 +324,7 @@ func (route *Rip_Vrfs_Vrf_Routes_Route) GetEntityData() *types.CommonEntityData 
 type Rip_Vrfs_Vrf_Routes_Route_Paths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -345,7 +355,8 @@ func (paths *Rip_Vrfs_Vrf_Routes_Route_Paths) GetEntityData() *types.CommonEntit
     paths.EntityData.YangName = "paths"
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "route"
-    paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.SegmentPath = "paths" + types.AddNoKeyToken(paths)
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/routes/route/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -439,6 +450,7 @@ func (configuration *Rip_Vrfs_Vrf_Configuration) GetEntityData() *types.CommonEn
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "vrf"
     configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -530,6 +542,7 @@ func (statistics *Rip_Vrfs_Vrf_Statistics) GetEntityData() *types.CommonEntityDa
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "vrf"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -572,6 +585,7 @@ func (interfaces *Rip_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityDa
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "vrf"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -593,6 +607,7 @@ func (interfaces *Rip_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityDa
 type Rip_Vrfs_Vrf_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -712,6 +727,7 @@ func (self *Rip_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnti
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -719,10 +735,12 @@ func (self *Rip_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnti
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("rip-summary", types.YChild{"RipSummary", nil})
     for i := range self.RipSummary {
+        types.SetYListKey(self.RipSummary[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.RipSummary[i]), types.YChild{"RipSummary", self.RipSummary[i]})
     }
     self.EntityData.Children.Append("rip-peer", types.YChild{"RipPeer", nil})
     for i := range self.RipPeer {
+        types.SetYListKey(self.RipPeer[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.RipPeer[i]), types.YChild{"RipPeer", self.RipPeer[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -767,6 +785,7 @@ func (self *Rip_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnti
 type Rip_Vrfs_Vrf_Interfaces_Interface_RipSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary address prefix. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -790,7 +809,8 @@ func (ripSummary *Rip_Vrfs_Vrf_Interfaces_Interface_RipSummary) GetEntityData() 
     ripSummary.EntityData.YangName = "rip-summary"
     ripSummary.EntityData.BundleName = "cisco_ios_xr"
     ripSummary.EntityData.ParentYangName = "interface"
-    ripSummary.EntityData.SegmentPath = "rip-summary"
+    ripSummary.EntityData.SegmentPath = "rip-summary" + types.AddNoKeyToken(ripSummary)
+    ripSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/interfaces/interface/" + ripSummary.EntityData.SegmentPath
     ripSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ripSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ripSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -812,6 +832,7 @@ func (ripSummary *Rip_Vrfs_Vrf_Interfaces_Interface_RipSummary) GetEntityData() 
 type Rip_Vrfs_Vrf_Interfaces_Interface_RipPeer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Uptime of this peer. The type is interface{} with range: 0..4294967295.
     PeerUptime interface{}
@@ -837,7 +858,8 @@ func (ripPeer *Rip_Vrfs_Vrf_Interfaces_Interface_RipPeer) GetEntityData() *types
     ripPeer.EntityData.YangName = "rip-peer"
     ripPeer.EntityData.BundleName = "cisco_ios_xr"
     ripPeer.EntityData.ParentYangName = "interface"
-    ripPeer.EntityData.SegmentPath = "rip-peer"
+    ripPeer.EntityData.SegmentPath = "rip-peer" + types.AddNoKeyToken(ripPeer)
+    ripPeer.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/interfaces/interface/" + ripPeer.EntityData.SegmentPath
     ripPeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ripPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ripPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -875,6 +897,7 @@ func (global *Rip_Vrfs_Vrf_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "vrf"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -883,6 +906,7 @@ func (global *Rip_Vrfs_Vrf_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.Children.Append("vrf-summary", types.YChild{"VrfSummary", &global.VrfSummary})
     global.EntityData.Children.Append("interface-summary", types.YChild{"InterfaceSummary", nil})
     for i := range global.InterfaceSummary {
+        types.SetYListKey(global.InterfaceSummary[i], i)
         global.EntityData.Children.Append(types.GetSegmentPath(global.InterfaceSummary[i]), types.YChild{"InterfaceSummary", global.InterfaceSummary[i]})
     }
     global.EntityData.Leafs = types.NewOrderedMap()
@@ -946,6 +970,7 @@ func (vrfSummary *Rip_Vrfs_Vrf_Global_VrfSummary) GetEntityData() *types.CommonE
     vrfSummary.EntityData.BundleName = "cisco_ios_xr"
     vrfSummary.EntityData.ParentYangName = "global"
     vrfSummary.EntityData.SegmentPath = "vrf-summary"
+    vrfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/global/" + vrfSummary.EntityData.SegmentPath
     vrfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -975,6 +1000,7 @@ func (vrfSummary *Rip_Vrfs_Vrf_Global_VrfSummary) GetEntityData() *types.CommonE
 type Rip_Vrfs_Vrf_Global_InterfaceSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -1014,7 +1040,8 @@ func (interfaceSummary *Rip_Vrfs_Vrf_Global_InterfaceSummary) GetEntityData() *t
     interfaceSummary.EntityData.YangName = "interface-summary"
     interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummary.EntityData.ParentYangName = "global"
-    interfaceSummary.EntityData.SegmentPath = "interface-summary"
+    interfaceSummary.EntityData.SegmentPath = "interface-summary" + types.AddNoKeyToken(interfaceSummary)
+    interfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/vrf/global/" + interfaceSummary.EntityData.SegmentPath
     interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1055,6 +1082,7 @@ func (protocol *Rip_Protocol) GetEntityData() *types.CommonEntityData {
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "rip"
     protocol.EntityData.SegmentPath = "protocol"
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1109,6 +1137,7 @@ func (process *Rip_Protocol_Process) GetEntityData() *types.CommonEntityData {
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "protocol"
     process.EntityData.SegmentPath = "process"
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1116,6 +1145,7 @@ func (process *Rip_Protocol_Process) GetEntityData() *types.CommonEntityData {
     process.EntityData.Children = types.NewOrderedMap()
     process.EntityData.Children.Append("vrf-summary", types.YChild{"VrfSummary", nil})
     for i := range process.VrfSummary {
+        types.SetYListKey(process.VrfSummary[i], i)
         process.EntityData.Children.Append(types.GetSegmentPath(process.VrfSummary[i]), types.YChild{"VrfSummary", process.VrfSummary[i]})
     }
     process.EntityData.Leafs = types.NewOrderedMap()
@@ -1136,6 +1166,7 @@ func (process *Rip_Protocol_Process) GetEntityData() *types.CommonEntityData {
 type Rip_Protocol_Process_VrfSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VRF Name. The type is string.
     VrfName interface{}
@@ -1184,7 +1215,8 @@ func (vrfSummary *Rip_Protocol_Process_VrfSummary) GetEntityData() *types.Common
     vrfSummary.EntityData.YangName = "vrf-summary"
     vrfSummary.EntityData.BundleName = "cisco_ios_xr"
     vrfSummary.EntityData.ParentYangName = "process"
-    vrfSummary.EntityData.SegmentPath = "vrf-summary"
+    vrfSummary.EntityData.SegmentPath = "vrf-summary" + types.AddNoKeyToken(vrfSummary)
+    vrfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/process/" + vrfSummary.EntityData.SegmentPath
     vrfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1237,6 +1269,7 @@ func (defaultVrf *Rip_Protocol_DefaultVrf) GetEntityData() *types.CommonEntityDa
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "protocol"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1271,6 +1304,7 @@ func (routes *Rip_Protocol_DefaultVrf_Routes) GetEntityData() *types.CommonEntit
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "default-vrf"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1278,6 +1312,7 @@ func (routes *Rip_Protocol_DefaultVrf_Routes) GetEntityData() *types.CommonEntit
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -1292,6 +1327,7 @@ func (routes *Rip_Protocol_DefaultVrf_Routes) GetEntityData() *types.CommonEntit
 type Rip_Protocol_DefaultVrf_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network prefix. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1350,7 +1386,8 @@ func (route *Rip_Protocol_DefaultVrf_Routes_Route) GetEntityData() *types.Common
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1358,6 +1395,7 @@ func (route *Rip_Protocol_DefaultVrf_Routes_Route) GetEntityData() *types.Common
     route.EntityData.Children = types.NewOrderedMap()
     route.EntityData.Children.Append("paths", types.YChild{"Paths", nil})
     for i := range route.Paths {
+        types.SetYListKey(route.Paths[i], i)
         route.EntityData.Children.Append(types.GetSegmentPath(route.Paths[i]), types.YChild{"Paths", route.Paths[i]})
     }
     route.EntityData.Leafs = types.NewOrderedMap()
@@ -1386,6 +1424,7 @@ func (route *Rip_Protocol_DefaultVrf_Routes_Route) GetEntityData() *types.Common
 type Rip_Protocol_DefaultVrf_Routes_Route_Paths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1416,7 +1455,8 @@ func (paths *Rip_Protocol_DefaultVrf_Routes_Route_Paths) GetEntityData() *types.
     paths.EntityData.YangName = "paths"
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "route"
-    paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.SegmentPath = "paths" + types.AddNoKeyToken(paths)
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/routes/route/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1510,6 +1550,7 @@ func (configuration *Rip_Protocol_DefaultVrf_Configuration) GetEntityData() *typ
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "default-vrf"
     configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1601,6 +1642,7 @@ func (statistics *Rip_Protocol_DefaultVrf_Statistics) GetEntityData() *types.Com
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "default-vrf"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1643,6 +1685,7 @@ func (interfaces *Rip_Protocol_DefaultVrf_Interfaces) GetEntityData() *types.Com
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "default-vrf"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1664,6 +1707,7 @@ func (interfaces *Rip_Protocol_DefaultVrf_Interfaces) GetEntityData() *types.Com
 type Rip_Protocol_DefaultVrf_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1783,6 +1827,7 @@ func (self *Rip_Protocol_DefaultVrf_Interfaces_Interface) GetEntityData() *types
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1790,10 +1835,12 @@ func (self *Rip_Protocol_DefaultVrf_Interfaces_Interface) GetEntityData() *types
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("rip-summary", types.YChild{"RipSummary", nil})
     for i := range self.RipSummary {
+        types.SetYListKey(self.RipSummary[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.RipSummary[i]), types.YChild{"RipSummary", self.RipSummary[i]})
     }
     self.EntityData.Children.Append("rip-peer", types.YChild{"RipPeer", nil})
     for i := range self.RipPeer {
+        types.SetYListKey(self.RipPeer[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.RipPeer[i]), types.YChild{"RipPeer", self.RipPeer[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -1838,6 +1885,7 @@ func (self *Rip_Protocol_DefaultVrf_Interfaces_Interface) GetEntityData() *types
 type Rip_Protocol_DefaultVrf_Interfaces_Interface_RipSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary address prefix. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1861,7 +1909,8 @@ func (ripSummary *Rip_Protocol_DefaultVrf_Interfaces_Interface_RipSummary) GetEn
     ripSummary.EntityData.YangName = "rip-summary"
     ripSummary.EntityData.BundleName = "cisco_ios_xr"
     ripSummary.EntityData.ParentYangName = "interface"
-    ripSummary.EntityData.SegmentPath = "rip-summary"
+    ripSummary.EntityData.SegmentPath = "rip-summary" + types.AddNoKeyToken(ripSummary)
+    ripSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/interfaces/interface/" + ripSummary.EntityData.SegmentPath
     ripSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ripSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ripSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1883,6 +1932,7 @@ func (ripSummary *Rip_Protocol_DefaultVrf_Interfaces_Interface_RipSummary) GetEn
 type Rip_Protocol_DefaultVrf_Interfaces_Interface_RipPeer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Uptime of this peer. The type is interface{} with range: 0..4294967295.
     PeerUptime interface{}
@@ -1908,7 +1958,8 @@ func (ripPeer *Rip_Protocol_DefaultVrf_Interfaces_Interface_RipPeer) GetEntityDa
     ripPeer.EntityData.YangName = "rip-peer"
     ripPeer.EntityData.BundleName = "cisco_ios_xr"
     ripPeer.EntityData.ParentYangName = "interface"
-    ripPeer.EntityData.SegmentPath = "rip-peer"
+    ripPeer.EntityData.SegmentPath = "rip-peer" + types.AddNoKeyToken(ripPeer)
+    ripPeer.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/interfaces/interface/" + ripPeer.EntityData.SegmentPath
     ripPeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ripPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ripPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1946,6 +1997,7 @@ func (global *Rip_Protocol_DefaultVrf_Global) GetEntityData() *types.CommonEntit
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "default-vrf"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1954,6 +2006,7 @@ func (global *Rip_Protocol_DefaultVrf_Global) GetEntityData() *types.CommonEntit
     global.EntityData.Children.Append("vrf-summary", types.YChild{"VrfSummary", &global.VrfSummary})
     global.EntityData.Children.Append("interface-summary", types.YChild{"InterfaceSummary", nil})
     for i := range global.InterfaceSummary {
+        types.SetYListKey(global.InterfaceSummary[i], i)
         global.EntityData.Children.Append(types.GetSegmentPath(global.InterfaceSummary[i]), types.YChild{"InterfaceSummary", global.InterfaceSummary[i]})
     }
     global.EntityData.Leafs = types.NewOrderedMap()
@@ -2017,6 +2070,7 @@ func (vrfSummary *Rip_Protocol_DefaultVrf_Global_VrfSummary) GetEntityData() *ty
     vrfSummary.EntityData.BundleName = "cisco_ios_xr"
     vrfSummary.EntityData.ParentYangName = "global"
     vrfSummary.EntityData.SegmentPath = "vrf-summary"
+    vrfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/global/" + vrfSummary.EntityData.SegmentPath
     vrfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2046,6 +2100,7 @@ func (vrfSummary *Rip_Protocol_DefaultVrf_Global_VrfSummary) GetEntityData() *ty
 type Rip_Protocol_DefaultVrf_Global_InterfaceSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -2085,7 +2140,8 @@ func (interfaceSummary *Rip_Protocol_DefaultVrf_Global_InterfaceSummary) GetEnti
     interfaceSummary.EntityData.YangName = "interface-summary"
     interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummary.EntityData.ParentYangName = "global"
-    interfaceSummary.EntityData.SegmentPath = "interface-summary"
+    interfaceSummary.EntityData.SegmentPath = "interface-summary" + types.AddNoKeyToken(interfaceSummary)
+    interfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/global/" + interfaceSummary.EntityData.SegmentPath
     interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2135,6 +2191,7 @@ func (defaultVrf *Rip_DefaultVrf) GetEntityData() *types.CommonEntityData {
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "rip"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2169,6 +2226,7 @@ func (routes *Rip_DefaultVrf_Routes) GetEntityData() *types.CommonEntityData {
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "default-vrf"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2176,6 +2234,7 @@ func (routes *Rip_DefaultVrf_Routes) GetEntityData() *types.CommonEntityData {
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -2190,6 +2249,7 @@ func (routes *Rip_DefaultVrf_Routes) GetEntityData() *types.CommonEntityData {
 type Rip_DefaultVrf_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network prefix. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2248,7 +2308,8 @@ func (route *Rip_DefaultVrf_Routes_Route) GetEntityData() *types.CommonEntityDat
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2256,6 +2317,7 @@ func (route *Rip_DefaultVrf_Routes_Route) GetEntityData() *types.CommonEntityDat
     route.EntityData.Children = types.NewOrderedMap()
     route.EntityData.Children.Append("paths", types.YChild{"Paths", nil})
     for i := range route.Paths {
+        types.SetYListKey(route.Paths[i], i)
         route.EntityData.Children.Append(types.GetSegmentPath(route.Paths[i]), types.YChild{"Paths", route.Paths[i]})
     }
     route.EntityData.Leafs = types.NewOrderedMap()
@@ -2284,6 +2346,7 @@ func (route *Rip_DefaultVrf_Routes_Route) GetEntityData() *types.CommonEntityDat
 type Rip_DefaultVrf_Routes_Route_Paths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2314,7 +2377,8 @@ func (paths *Rip_DefaultVrf_Routes_Route_Paths) GetEntityData() *types.CommonEnt
     paths.EntityData.YangName = "paths"
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "route"
-    paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.SegmentPath = "paths" + types.AddNoKeyToken(paths)
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/routes/route/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2408,6 +2472,7 @@ func (configuration *Rip_DefaultVrf_Configuration) GetEntityData() *types.Common
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "default-vrf"
     configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2499,6 +2564,7 @@ func (statistics *Rip_DefaultVrf_Statistics) GetEntityData() *types.CommonEntity
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "default-vrf"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2541,6 +2607,7 @@ func (interfaces *Rip_DefaultVrf_Interfaces) GetEntityData() *types.CommonEntity
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "default-vrf"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2562,6 +2629,7 @@ func (interfaces *Rip_DefaultVrf_Interfaces) GetEntityData() *types.CommonEntity
 type Rip_DefaultVrf_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -2681,6 +2749,7 @@ func (self *Rip_DefaultVrf_Interfaces_Interface) GetEntityData() *types.CommonEn
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2688,10 +2757,12 @@ func (self *Rip_DefaultVrf_Interfaces_Interface) GetEntityData() *types.CommonEn
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("rip-summary", types.YChild{"RipSummary", nil})
     for i := range self.RipSummary {
+        types.SetYListKey(self.RipSummary[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.RipSummary[i]), types.YChild{"RipSummary", self.RipSummary[i]})
     }
     self.EntityData.Children.Append("rip-peer", types.YChild{"RipPeer", nil})
     for i := range self.RipPeer {
+        types.SetYListKey(self.RipPeer[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.RipPeer[i]), types.YChild{"RipPeer", self.RipPeer[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -2736,6 +2807,7 @@ func (self *Rip_DefaultVrf_Interfaces_Interface) GetEntityData() *types.CommonEn
 type Rip_DefaultVrf_Interfaces_Interface_RipSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary address prefix. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2759,7 +2831,8 @@ func (ripSummary *Rip_DefaultVrf_Interfaces_Interface_RipSummary) GetEntityData(
     ripSummary.EntityData.YangName = "rip-summary"
     ripSummary.EntityData.BundleName = "cisco_ios_xr"
     ripSummary.EntityData.ParentYangName = "interface"
-    ripSummary.EntityData.SegmentPath = "rip-summary"
+    ripSummary.EntityData.SegmentPath = "rip-summary" + types.AddNoKeyToken(ripSummary)
+    ripSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/interfaces/interface/" + ripSummary.EntityData.SegmentPath
     ripSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ripSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ripSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2781,6 +2854,7 @@ func (ripSummary *Rip_DefaultVrf_Interfaces_Interface_RipSummary) GetEntityData(
 type Rip_DefaultVrf_Interfaces_Interface_RipPeer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Uptime of this peer. The type is interface{} with range: 0..4294967295.
     PeerUptime interface{}
@@ -2806,7 +2880,8 @@ func (ripPeer *Rip_DefaultVrf_Interfaces_Interface_RipPeer) GetEntityData() *typ
     ripPeer.EntityData.YangName = "rip-peer"
     ripPeer.EntityData.BundleName = "cisco_ios_xr"
     ripPeer.EntityData.ParentYangName = "interface"
-    ripPeer.EntityData.SegmentPath = "rip-peer"
+    ripPeer.EntityData.SegmentPath = "rip-peer" + types.AddNoKeyToken(ripPeer)
+    ripPeer.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/interfaces/interface/" + ripPeer.EntityData.SegmentPath
     ripPeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ripPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ripPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2844,6 +2919,7 @@ func (global *Rip_DefaultVrf_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "default-vrf"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2852,6 +2928,7 @@ func (global *Rip_DefaultVrf_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.Children.Append("vrf-summary", types.YChild{"VrfSummary", &global.VrfSummary})
     global.EntityData.Children.Append("interface-summary", types.YChild{"InterfaceSummary", nil})
     for i := range global.InterfaceSummary {
+        types.SetYListKey(global.InterfaceSummary[i], i)
         global.EntityData.Children.Append(types.GetSegmentPath(global.InterfaceSummary[i]), types.YChild{"InterfaceSummary", global.InterfaceSummary[i]})
     }
     global.EntityData.Leafs = types.NewOrderedMap()
@@ -2915,6 +2992,7 @@ func (vrfSummary *Rip_DefaultVrf_Global_VrfSummary) GetEntityData() *types.Commo
     vrfSummary.EntityData.BundleName = "cisco_ios_xr"
     vrfSummary.EntityData.ParentYangName = "global"
     vrfSummary.EntityData.SegmentPath = "vrf-summary"
+    vrfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/global/" + vrfSummary.EntityData.SegmentPath
     vrfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2944,6 +3022,7 @@ func (vrfSummary *Rip_DefaultVrf_Global_VrfSummary) GetEntityData() *types.Commo
 type Rip_DefaultVrf_Global_InterfaceSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -2983,7 +3062,8 @@ func (interfaceSummary *Rip_DefaultVrf_Global_InterfaceSummary) GetEntityData() 
     interfaceSummary.EntityData.YangName = "interface-summary"
     interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummary.EntityData.ParentYangName = "global"
-    interfaceSummary.EntityData.SegmentPath = "interface-summary"
+    interfaceSummary.EntityData.SegmentPath = "interface-summary" + types.AddNoKeyToken(interfaceSummary)
+    interfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/global/" + interfaceSummary.EntityData.SegmentPath
     interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

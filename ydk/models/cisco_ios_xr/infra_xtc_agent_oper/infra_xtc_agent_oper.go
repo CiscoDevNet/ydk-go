@@ -207,6 +207,7 @@ func (pcc *Pcc) GetEntityData() *types.CommonEntityData {
     pcc.EntityData.BundleName = "cisco_ios_xr"
     pcc.EntityData.ParentYangName = "Cisco-IOS-XR-infra-xtc-agent-oper"
     pcc.EntityData.SegmentPath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc"
+    pcc.EntityData.AbsolutePath = pcc.EntityData.SegmentPath
     pcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -237,6 +238,7 @@ func (plsps *Pcc_Plsps) GetEntityData() *types.CommonEntityData {
     plsps.EntityData.BundleName = "cisco_ios_xr"
     plsps.EntityData.ParentYangName = "pcc"
     plsps.EntityData.SegmentPath = "plsps"
+    plsps.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/" + plsps.EntityData.SegmentPath
     plsps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     plsps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     plsps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -258,6 +260,7 @@ func (plsps *Pcc_Plsps) GetEntityData() *types.CommonEntityData {
 type Pcc_Plsps_Plsp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. PLSP ID. The type is interface{} with range:
     // 0..4294967295.
@@ -292,6 +295,7 @@ func (plsp *Pcc_Plsps_Plsp) GetEntityData() *types.CommonEntityData {
     plsp.EntityData.BundleName = "cisco_ios_xr"
     plsp.EntityData.ParentYangName = "plsps"
     plsp.EntityData.SegmentPath = "plsp" + types.AddKeyToken(plsp.PlspId, "plsp-id")
+    plsp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/" + plsp.EntityData.SegmentPath
     plsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     plsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     plsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -300,10 +304,12 @@ func (plsp *Pcc_Plsps_Plsp) GetEntityData() *types.CommonEntityData {
     plsp.EntityData.Children.Append("stats", types.YChild{"Stats", &plsp.Stats})
     plsp.EntityData.Children.Append("event-history", types.YChild{"EventHistory", nil})
     for i := range plsp.EventHistory {
+        types.SetYListKey(plsp.EventHistory[i], i)
         plsp.EntityData.Children.Append(types.GetSegmentPath(plsp.EventHistory[i]), types.YChild{"EventHistory", plsp.EventHistory[i]})
     }
     plsp.EntityData.Children.Append("path", types.YChild{"Path", nil})
     for i := range plsp.Path {
+        types.SetYListKey(plsp.Path[i], i)
         plsp.EntityData.Children.Append(types.GetSegmentPath(plsp.Path[i]), types.YChild{"Path", plsp.Path[i]})
     }
     plsp.EntityData.Leafs = types.NewOrderedMap()
@@ -358,6 +364,7 @@ func (stats *Pcc_Plsps_Plsp_Stats) GetEntityData() *types.CommonEntityData {
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "plsp"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -382,6 +389,7 @@ func (stats *Pcc_Plsps_Plsp_Stats) GetEntityData() *types.CommonEntityData {
 type Pcc_Plsps_Plsp_EventHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Timestamp. The type is interface{} with range: 0..18446744073709551615.
     Ts interface{}
@@ -395,7 +403,8 @@ func (eventHistory *Pcc_Plsps_Plsp_EventHistory) GetEntityData() *types.CommonEn
     eventHistory.EntityData.YangName = "event-history"
     eventHistory.EntityData.BundleName = "cisco_ios_xr"
     eventHistory.EntityData.ParentYangName = "plsp"
-    eventHistory.EntityData.SegmentPath = "event-history"
+    eventHistory.EntityData.SegmentPath = "event-history" + types.AddNoKeyToken(eventHistory)
+    eventHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/" + eventHistory.EntityData.SegmentPath
     eventHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -415,6 +424,7 @@ func (eventHistory *Pcc_Plsps_Plsp_EventHistory) GetEntityData() *types.CommonEn
 type Pcc_Plsps_Plsp_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // used bw. The type is interface{} with range:
     // -9223372036854775808..9223372036854775807.
@@ -504,7 +514,8 @@ func (path *Pcc_Plsps_Plsp_Path) GetEntityData() *types.CommonEntityData {
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "plsp"
-    path.EntityData.SegmentPath = "path"
+    path.EntityData.SegmentPath = "path" + types.AddNoKeyToken(path)
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -513,10 +524,12 @@ func (path *Pcc_Plsps_Plsp_Path) GetEntityData() *types.CommonEntityData {
     path.EntityData.Children.Append("stats", types.YChild{"Stats", &path.Stats})
     path.EntityData.Children.Append("ero-hop", types.YChild{"EroHop", nil})
     for i := range path.EroHop {
+        types.SetYListKey(path.EroHop[i], i)
         path.EntityData.Children.Append(types.GetSegmentPath(path.EroHop[i]), types.YChild{"EroHop", path.EroHop[i]})
     }
     path.EntityData.Children.Append("rro-hop", types.YChild{"RroHop", nil})
     for i := range path.RroHop {
+        types.SetYListKey(path.RroHop[i], i)
         path.EntityData.Children.Append(types.GetSegmentPath(path.RroHop[i]), types.YChild{"RroHop", path.RroHop[i]})
     }
     path.EntityData.Leafs = types.NewOrderedMap()
@@ -573,6 +586,7 @@ func (stats *Pcc_Plsps_Plsp_Path_Stats) GetEntityData() *types.CommonEntityData 
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "path"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/path/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -593,6 +607,7 @@ func (stats *Pcc_Plsps_Plsp_Path_Stats) GetEntityData() *types.CommonEntityData 
 type Pcc_Plsps_Plsp_Path_EroHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // is loose hop. The type is bool.
     Loose interface{}
@@ -606,7 +621,8 @@ func (eroHop *Pcc_Plsps_Plsp_Path_EroHop) GetEntityData() *types.CommonEntityDat
     eroHop.EntityData.YangName = "ero-hop"
     eroHop.EntityData.BundleName = "cisco_ios_xr"
     eroHop.EntityData.ParentYangName = "path"
-    eroHop.EntityData.SegmentPath = "ero-hop"
+    eroHop.EntityData.SegmentPath = "ero-hop" + types.AddNoKeyToken(eroHop)
+    eroHop.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/path/" + eroHop.EntityData.SegmentPath
     eroHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eroHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eroHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -643,6 +659,7 @@ func (data *Pcc_Plsps_Plsp_Path_EroHop_Data) GetEntityData() *types.CommonEntity
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "ero-hop"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/path/ero-hop/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -677,6 +694,7 @@ func (ipv4 *Pcc_Plsps_Plsp_Path_EroHop_Data_Ipv4) GetEntityData() *types.CommonE
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "data"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/path/ero-hop/data/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -719,6 +737,7 @@ func (srV4 *Pcc_Plsps_Plsp_Path_EroHop_Data_SrV4) GetEntityData() *types.CommonE
     srV4.EntityData.BundleName = "cisco_ios_xr"
     srV4.EntityData.ParentYangName = "data"
     srV4.EntityData.SegmentPath = "sr-v4"
+    srV4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/path/ero-hop/data/" + srV4.EntityData.SegmentPath
     srV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -741,6 +760,7 @@ func (srV4 *Pcc_Plsps_Plsp_Path_EroHop_Data_SrV4) GetEntityData() *types.CommonE
 type Pcc_Plsps_Plsp_Path_RroHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // is loose hop. The type is bool.
     Loose interface{}
@@ -754,7 +774,8 @@ func (rroHop *Pcc_Plsps_Plsp_Path_RroHop) GetEntityData() *types.CommonEntityDat
     rroHop.EntityData.YangName = "rro-hop"
     rroHop.EntityData.BundleName = "cisco_ios_xr"
     rroHop.EntityData.ParentYangName = "path"
-    rroHop.EntityData.SegmentPath = "rro-hop"
+    rroHop.EntityData.SegmentPath = "rro-hop" + types.AddNoKeyToken(rroHop)
+    rroHop.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/path/" + rroHop.EntityData.SegmentPath
     rroHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rroHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rroHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -791,6 +812,7 @@ func (data *Pcc_Plsps_Plsp_Path_RroHop_Data) GetEntityData() *types.CommonEntity
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rro-hop"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/path/rro-hop/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -825,6 +847,7 @@ func (ipv4 *Pcc_Plsps_Plsp_Path_RroHop_Data_Ipv4) GetEntityData() *types.CommonE
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "data"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/path/rro-hop/data/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -867,6 +890,7 @@ func (srV4 *Pcc_Plsps_Plsp_Path_RroHop_Data_SrV4) GetEntityData() *types.CommonE
     srV4.EntityData.BundleName = "cisco_ios_xr"
     srV4.EntityData.ParentYangName = "data"
     srV4.EntityData.SegmentPath = "sr-v4"
+    srV4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/plsps/plsp/path/rro-hop/data/" + srV4.EntityData.SegmentPath
     srV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -900,6 +924,7 @@ func (peers *Pcc_Peers) GetEntityData() *types.CommonEntityData {
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "pcc"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -921,6 +946,7 @@ func (peers *Pcc_Peers) GetEntityData() *types.CommonEntityData {
 type Pcc_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Peer Address. The type is one of the following
     // types: string with pattern:
@@ -1032,6 +1058,7 @@ func (peer *Pcc_Peers_Peer) GetEntityData() *types.CommonEntityData {
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.PeerAddr, "peer-addr")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1114,6 +1141,7 @@ func (socketInfo *Pcc_Peers_Peer_SocketInfo) GetEntityData() *types.CommonEntity
     socketInfo.EntityData.BundleName = "cisco_ios_xr"
     socketInfo.EntityData.ParentYangName = "peer"
     socketInfo.EntityData.SegmentPath = "socket-info"
+    socketInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/peers/peer/" + socketInfo.EntityData.SegmentPath
     socketInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     socketInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     socketInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1355,6 +1383,7 @@ func (stats *Pcc_Peers_Peer_Stats) GetEntityData() *types.CommonEntityData {
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "peer"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/peers/peer/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1457,6 +1486,7 @@ func (xtc *Xtc) GetEntityData() *types.CommonEntityData {
     xtc.EntityData.BundleName = "cisco_ios_xr"
     xtc.EntityData.ParentYangName = "Cisco-IOS-XR-infra-xtc-agent-oper"
     xtc.EntityData.SegmentPath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc"
+    xtc.EntityData.AbsolutePath = xtc.EntityData.SegmentPath
     xtc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xtc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xtc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1493,6 +1523,7 @@ func (policies *Xtc_Policies) GetEntityData() *types.CommonEntityData {
     policies.EntityData.BundleName = "cisco_ios_xr"
     policies.EntityData.ParentYangName = "xtc"
     policies.EntityData.SegmentPath = "policies"
+    policies.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + policies.EntityData.SegmentPath
     policies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1514,6 +1545,7 @@ func (policies *Xtc_Policies) GetEntityData() *types.CommonEntityData {
 type Xtc_Policies_Policy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Policy ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1601,6 +1633,7 @@ func (policy *Xtc_Policies_Policy) GetEntityData() *types.CommonEntityData {
     policy.EntityData.BundleName = "cisco_ios_xr"
     policy.EntityData.ParentYangName = "policies"
     policy.EntityData.SegmentPath = "policy" + types.AddKeyToken(policy.Id, "id")
+    policy.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/" + policy.EntityData.SegmentPath
     policy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1611,6 +1644,7 @@ func (policy *Xtc_Policies_Policy) GetEntityData() *types.CommonEntityData {
     policy.EntityData.Children.Append("auto-policy-info", types.YChild{"AutoPolicyInfo", &policy.AutoPolicyInfo})
     policy.EntityData.Children.Append("paths", types.YChild{"Paths", nil})
     for i := range policy.Paths {
+        types.SetYListKey(policy.Paths[i], i)
         policy.EntityData.Children.Append(types.GetSegmentPath(policy.Paths[i]), types.YChild{"Paths", policy.Paths[i]})
     }
     policy.EntityData.Leafs = types.NewOrderedMap()
@@ -1664,6 +1698,7 @@ func (destinationAddress *Xtc_Policies_Policy_DestinationAddress) GetEntityData(
     destinationAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationAddress.EntityData.ParentYangName = "policy"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1711,6 +1746,7 @@ func (bindingSid *Xtc_Policies_Policy_BindingSid) GetEntityData() *types.CommonE
     bindingSid.EntityData.BundleName = "cisco_ios_xr"
     bindingSid.EntityData.ParentYangName = "policy"
     bindingSid.EntityData.SegmentPath = "binding-sid"
+    bindingSid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/" + bindingSid.EntityData.SegmentPath
     bindingSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bindingSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindingSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1752,6 +1788,7 @@ func (value *Xtc_Policies_Policy_BindingSid_Value) GetEntityData() *types.Common
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "binding-sid"
     value.EntityData.SegmentPath = "value"
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/binding-sid/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1790,6 +1827,7 @@ func (autoPolicyInfo *Xtc_Policies_Policy_AutoPolicyInfo) GetEntityData() *types
     autoPolicyInfo.EntityData.BundleName = "cisco_ios_xr"
     autoPolicyInfo.EntityData.ParentYangName = "policy"
     autoPolicyInfo.EntityData.SegmentPath = "auto-policy-info"
+    autoPolicyInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/" + autoPolicyInfo.EntityData.SegmentPath
     autoPolicyInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoPolicyInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoPolicyInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1810,6 +1848,7 @@ func (autoPolicyInfo *Xtc_Policies_Policy_AutoPolicyInfo) GetEntityData() *types
 type Xtc_Policies_Policy_Paths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Index number. The type is interface{} with range: 0..4294967295.
     Index interface{}
@@ -1858,7 +1897,8 @@ func (paths *Xtc_Policies_Policy_Paths) GetEntityData() *types.CommonEntityData 
     paths.EntityData.YangName = "paths"
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "policy"
-    paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.SegmentPath = "paths" + types.AddNoKeyToken(paths)
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1867,6 +1907,7 @@ func (paths *Xtc_Policies_Policy_Paths) GetEntityData() *types.CommonEntityData 
     paths.EntityData.Children.Append("sr-path-constraints", types.YChild{"SrPathConstraints", &paths.SrPathConstraints})
     paths.EntityData.Children.Append("hops", types.YChild{"Hops", nil})
     for i := range paths.Hops {
+        types.SetYListKey(paths.Hops[i], i)
         paths.EntityData.Children.Append(types.GetSegmentPath(paths.Hops[i]), types.YChild{"Hops", paths.Hops[i]})
     }
     paths.EntityData.Leafs = types.NewOrderedMap()
@@ -1910,6 +1951,7 @@ func (srPathConstraints *Xtc_Policies_Policy_Paths_SrPathConstraints) GetEntityD
     srPathConstraints.EntityData.BundleName = "cisco_ios_xr"
     srPathConstraints.EntityData.ParentYangName = "paths"
     srPathConstraints.EntityData.SegmentPath = "sr-path-constraints"
+    srPathConstraints.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/" + srPathConstraints.EntityData.SegmentPath
     srPathConstraints.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srPathConstraints.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srPathConstraints.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1919,6 +1961,7 @@ func (srPathConstraints *Xtc_Policies_Policy_Paths_SrPathConstraints) GetEntityD
     srPathConstraints.EntityData.Children.Append("segments", types.YChild{"Segments", &srPathConstraints.Segments})
     srPathConstraints.EntityData.Children.Append("affinity-constraint", types.YChild{"AffinityConstraint", nil})
     for i := range srPathConstraints.AffinityConstraint {
+        types.SetYListKey(srPathConstraints.AffinityConstraint[i], i)
         srPathConstraints.EntityData.Children.Append(types.GetSegmentPath(srPathConstraints.AffinityConstraint[i]), types.YChild{"AffinityConstraint", srPathConstraints.AffinityConstraint[i]})
     }
     srPathConstraints.EntityData.Leafs = types.NewOrderedMap()
@@ -1959,6 +2002,7 @@ func (pathMetrics *Xtc_Policies_Policy_Paths_SrPathConstraints_PathMetrics) GetE
     pathMetrics.EntityData.BundleName = "cisco_ios_xr"
     pathMetrics.EntityData.ParentYangName = "sr-path-constraints"
     pathMetrics.EntityData.SegmentPath = "path-metrics"
+    pathMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/sr-path-constraints/" + pathMetrics.EntityData.SegmentPath
     pathMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1993,6 +2037,7 @@ func (segments *Xtc_Policies_Policy_Paths_SrPathConstraints_Segments) GetEntityD
     segments.EntityData.BundleName = "cisco_ios_xr"
     segments.EntityData.ParentYangName = "sr-path-constraints"
     segments.EntityData.SegmentPath = "segments"
+    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/sr-path-constraints/" + segments.EntityData.SegmentPath
     segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2011,6 +2056,7 @@ func (segments *Xtc_Policies_Policy_Paths_SrPathConstraints_Segments) GetEntityD
 type Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Affinity type. The type is interface{} with range: 0..255.
     Type interface{}
@@ -2028,7 +2074,8 @@ func (affinityConstraint *Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityCo
     affinityConstraint.EntityData.YangName = "affinity-constraint"
     affinityConstraint.EntityData.BundleName = "cisco_ios_xr"
     affinityConstraint.EntityData.ParentYangName = "sr-path-constraints"
-    affinityConstraint.EntityData.SegmentPath = "affinity-constraint"
+    affinityConstraint.EntityData.SegmentPath = "affinity-constraint" + types.AddNoKeyToken(affinityConstraint)
+    affinityConstraint.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/sr-path-constraints/" + affinityConstraint.EntityData.SegmentPath
     affinityConstraint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityConstraint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityConstraint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2036,6 +2083,7 @@ func (affinityConstraint *Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityCo
     affinityConstraint.EntityData.Children = types.NewOrderedMap()
     affinityConstraint.EntityData.Children.Append("color", types.YChild{"Color", nil})
     for i := range affinityConstraint.Color {
+        types.SetYListKey(affinityConstraint.Color[i], i)
         affinityConstraint.EntityData.Children.Append(types.GetSegmentPath(affinityConstraint.Color[i]), types.YChild{"Color", affinityConstraint.Color[i]})
     }
     affinityConstraint.EntityData.Leafs = types.NewOrderedMap()
@@ -2052,6 +2100,7 @@ func (affinityConstraint *Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityCo
 type Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint_Color struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // An affinity color. The type is string.
     Color interface{}
@@ -2062,7 +2111,8 @@ func (color *Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint_Colo
     color.EntityData.YangName = "color"
     color.EntityData.BundleName = "cisco_ios_xr"
     color.EntityData.ParentYangName = "affinity-constraint"
-    color.EntityData.SegmentPath = "color"
+    color.EntityData.SegmentPath = "color" + types.AddNoKeyToken(color)
+    color.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/sr-path-constraints/affinity-constraint/" + color.EntityData.SegmentPath
     color.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     color.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     color.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2081,6 +2131,7 @@ func (color *Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint_Colo
 type Xtc_Policies_Policy_Paths_Hops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SID type. The type is XtcSrSid.
     SidType interface{}
@@ -2103,7 +2154,8 @@ func (hops *Xtc_Policies_Policy_Paths_Hops) GetEntityData() *types.CommonEntityD
     hops.EntityData.YangName = "hops"
     hops.EntityData.BundleName = "cisco_ios_xr"
     hops.EntityData.ParentYangName = "paths"
-    hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.SegmentPath = "hops" + types.AddNoKeyToken(hops)
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2144,6 +2196,7 @@ func (sid *Xtc_Policies_Policy_Paths_Hops_Sid) GetEntityData() *types.CommonEnti
     sid.EntityData.BundleName = "cisco_ios_xr"
     sid.EntityData.ParentYangName = "hops"
     sid.EntityData.SegmentPath = "sid"
+    sid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/hops/" + sid.EntityData.SegmentPath
     sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2183,6 +2236,7 @@ func (localAddress *Xtc_Policies_Policy_Paths_Hops_LocalAddress) GetEntityData()
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "hops"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/hops/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2222,6 +2276,7 @@ func (remoteAddress *Xtc_Policies_Policy_Paths_Hops_RemoteAddress) GetEntityData
     remoteAddress.EntityData.BundleName = "cisco_ios_xr"
     remoteAddress.EntityData.ParentYangName = "hops"
     remoteAddress.EntityData.SegmentPath = "remote-address"
+    remoteAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/hops/" + remoteAddress.EntityData.SegmentPath
     remoteAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2265,6 +2320,7 @@ func (policySummary *Xtc_PolicySummary) GetEntityData() *types.CommonEntityData 
     policySummary.EntityData.BundleName = "cisco_ios_xr"
     policySummary.EntityData.ParentYangName = "xtc"
     policySummary.EntityData.SegmentPath = "policy-summary"
+    policySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + policySummary.EntityData.SegmentPath
     policySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2305,6 +2361,7 @@ func (ipv4SourceAddress *Xtc_PolicySummary_Ipv4SourceAddress) GetEntityData() *t
     ipv4SourceAddress.EntityData.BundleName = "cisco_ios_xr"
     ipv4SourceAddress.EntityData.ParentYangName = "policy-summary"
     ipv4SourceAddress.EntityData.SegmentPath = "ipv4-source-address"
+    ipv4SourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policy-summary/" + ipv4SourceAddress.EntityData.SegmentPath
     ipv4SourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2337,6 +2394,7 @@ func (onDemandColors *Xtc_OnDemandColors) GetEntityData() *types.CommonEntityDat
     onDemandColors.EntityData.BundleName = "cisco_ios_xr"
     onDemandColors.EntityData.ParentYangName = "xtc"
     onDemandColors.EntityData.SegmentPath = "on-demand-colors"
+    onDemandColors.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + onDemandColors.EntityData.SegmentPath
     onDemandColors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onDemandColors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandColors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2358,6 +2416,7 @@ func (onDemandColors *Xtc_OnDemandColors) GetEntityData() *types.CommonEntityDat
 type Xtc_OnDemandColors_OnDemandColor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Color. The type is interface{} with range:
     // 0..4294967295.
@@ -2379,6 +2438,7 @@ func (onDemandColor *Xtc_OnDemandColors_OnDemandColor) GetEntityData() *types.Co
     onDemandColor.EntityData.BundleName = "cisco_ios_xr"
     onDemandColor.EntityData.ParentYangName = "on-demand-colors"
     onDemandColor.EntityData.SegmentPath = "on-demand-color" + types.AddKeyToken(onDemandColor.Color, "color")
+    onDemandColor.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/on-demand-colors/" + onDemandColor.EntityData.SegmentPath
     onDemandColor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onDemandColor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandColor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2417,6 +2477,7 @@ func (disjointPathInfo *Xtc_OnDemandColors_OnDemandColor_DisjointPathInfo) GetEn
     disjointPathInfo.EntityData.BundleName = "cisco_ios_xr"
     disjointPathInfo.EntityData.ParentYangName = "on-demand-color"
     disjointPathInfo.EntityData.SegmentPath = "disjoint-path-info"
+    disjointPathInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/on-demand-colors/on-demand-color/" + disjointPathInfo.EntityData.SegmentPath
     disjointPathInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disjointPathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disjointPathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2448,6 +2509,7 @@ func (forwarding *Xtc_Forwarding) GetEntityData() *types.CommonEntityData {
     forwarding.EntityData.BundleName = "cisco_ios_xr"
     forwarding.EntityData.ParentYangName = "xtc"
     forwarding.EntityData.SegmentPath = "forwarding"
+    forwarding.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + forwarding.EntityData.SegmentPath
     forwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2478,6 +2540,7 @@ func (policyForwardings *Xtc_Forwarding_PolicyForwardings) GetEntityData() *type
     policyForwardings.EntityData.BundleName = "cisco_ios_xr"
     policyForwardings.EntityData.ParentYangName = "forwarding"
     policyForwardings.EntityData.SegmentPath = "policy-forwardings"
+    policyForwardings.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/forwarding/" + policyForwardings.EntityData.SegmentPath
     policyForwardings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyForwardings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyForwardings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2499,6 +2562,7 @@ func (policyForwardings *Xtc_Forwarding_PolicyForwardings) GetEntityData() *type
 type Xtc_Forwarding_PolicyForwardings_PolicyForwarding struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Policy Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2536,6 +2600,7 @@ func (policyForwarding *Xtc_Forwarding_PolicyForwardings_PolicyForwarding) GetEn
     policyForwarding.EntityData.BundleName = "cisco_ios_xr"
     policyForwarding.EntityData.ParentYangName = "policy-forwardings"
     policyForwarding.EntityData.SegmentPath = "policy-forwarding" + types.AddKeyToken(policyForwarding.Name, "name")
+    policyForwarding.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/forwarding/policy-forwardings/" + policyForwarding.EntityData.SegmentPath
     policyForwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyForwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyForwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2543,6 +2608,7 @@ func (policyForwarding *Xtc_Forwarding_PolicyForwardings_PolicyForwarding) GetEn
     policyForwarding.EntityData.Children = types.NewOrderedMap()
     policyForwarding.EntityData.Children.Append("paths", types.YChild{"Paths", nil})
     for i := range policyForwarding.Paths {
+        types.SetYListKey(policyForwarding.Paths[i], i)
         policyForwarding.EntityData.Children.Append(types.GetSegmentPath(policyForwarding.Paths[i]), types.YChild{"Paths", policyForwarding.Paths[i]})
     }
     policyForwarding.EntityData.Leafs = types.NewOrderedMap()
@@ -2564,6 +2630,7 @@ func (policyForwarding *Xtc_Forwarding_PolicyForwardings_PolicyForwarding) GetEn
 type Xtc_Forwarding_PolicyForwardings_PolicyForwarding_Paths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Outgoing interface handle. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -2617,7 +2684,8 @@ func (paths *Xtc_Forwarding_PolicyForwardings_PolicyForwarding_Paths) GetEntityD
     paths.EntityData.YangName = "paths"
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "policy-forwarding"
-    paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.SegmentPath = "paths" + types.AddNoKeyToken(paths)
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/forwarding/policy-forwardings/policy-forwarding/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2659,6 +2727,7 @@ func (controller *Xtc_Controller) GetEntityData() *types.CommonEntityData {
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "xtc"
     controller.EntityData.SegmentPath = "controller"
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2689,6 +2758,7 @@ func (policyRequests *Xtc_Controller_PolicyRequests) GetEntityData() *types.Comm
     policyRequests.EntityData.BundleName = "cisco_ios_xr"
     policyRequests.EntityData.ParentYangName = "controller"
     policyRequests.EntityData.SegmentPath = "policy-requests"
+    policyRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/" + policyRequests.EntityData.SegmentPath
     policyRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2710,6 +2780,7 @@ func (policyRequests *Xtc_Controller_PolicyRequests) GetEntityData() *types.Comm
 type Xtc_Controller_PolicyRequests_PolicyRequest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is one of the following
     // types: string with pattern:
@@ -2775,6 +2846,7 @@ func (policyRequest *Xtc_Controller_PolicyRequests_PolicyRequest) GetEntityData(
     policyRequest.EntityData.BundleName = "cisco_ios_xr"
     policyRequest.EntityData.ParentYangName = "policy-requests"
     policyRequest.EntityData.SegmentPath = "policy-request" + types.AddKeyToken(policyRequest.SourceAddress, "source-address") + types.AddKeyToken(policyRequest.EndPointType, "end-point-type") + types.AddKeyToken(policyRequest.EndPointAddress, "end-point-address") + types.AddKeyToken(policyRequest.Color, "color") + types.AddKeyToken(policyRequest.RouteDistinguisher, "route-distinguisher")
+    policyRequest.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/" + policyRequest.EntityData.SegmentPath
     policyRequest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2783,6 +2855,7 @@ func (policyRequest *Xtc_Controller_PolicyRequests_PolicyRequest) GetEntityData(
     policyRequest.EntityData.Children.Append("end-point", types.YChild{"EndPoint", &policyRequest.EndPoint})
     policyRequest.EntityData.Children.Append("paths", types.YChild{"Paths", nil})
     for i := range policyRequest.Paths {
+        types.SetYListKey(policyRequest.Paths[i], i)
         policyRequest.EntityData.Children.Append(types.GetSegmentPath(policyRequest.Paths[i]), types.YChild{"Paths", policyRequest.Paths[i]})
     }
     policyRequest.EntityData.Leafs = types.NewOrderedMap()
@@ -2828,6 +2901,7 @@ func (endPoint *Xtc_Controller_PolicyRequests_PolicyRequest_EndPoint) GetEntityD
     endPoint.EntityData.BundleName = "cisco_ios_xr"
     endPoint.EntityData.ParentYangName = "policy-request"
     endPoint.EntityData.SegmentPath = "end-point"
+    endPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/" + endPoint.EntityData.SegmentPath
     endPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     endPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     endPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2848,6 +2922,7 @@ func (endPoint *Xtc_Controller_PolicyRequests_PolicyRequest_EndPoint) GetEntityD
 type Xtc_Controller_PolicyRequests_PolicyRequest_Paths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Index number. The type is interface{} with range: 0..4294967295.
     Index interface{}
@@ -2897,7 +2972,8 @@ func (paths *Xtc_Controller_PolicyRequests_PolicyRequest_Paths) GetEntityData() 
     paths.EntityData.YangName = "paths"
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "policy-request"
-    paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.SegmentPath = "paths" + types.AddNoKeyToken(paths)
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2906,6 +2982,7 @@ func (paths *Xtc_Controller_PolicyRequests_PolicyRequest_Paths) GetEntityData() 
     paths.EntityData.Children.Append("sr-path-constraints", types.YChild{"SrPathConstraints", &paths.SrPathConstraints})
     paths.EntityData.Children.Append("hops", types.YChild{"Hops", nil})
     for i := range paths.Hops {
+        types.SetYListKey(paths.Hops[i], i)
         paths.EntityData.Children.Append(types.GetSegmentPath(paths.Hops[i]), types.YChild{"Hops", paths.Hops[i]})
     }
     paths.EntityData.Leafs = types.NewOrderedMap()
@@ -2949,6 +3026,7 @@ func (srPathConstraints *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPat
     srPathConstraints.EntityData.BundleName = "cisco_ios_xr"
     srPathConstraints.EntityData.ParentYangName = "paths"
     srPathConstraints.EntityData.SegmentPath = "sr-path-constraints"
+    srPathConstraints.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/" + srPathConstraints.EntityData.SegmentPath
     srPathConstraints.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srPathConstraints.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srPathConstraints.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2958,6 +3036,7 @@ func (srPathConstraints *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPat
     srPathConstraints.EntityData.Children.Append("segments", types.YChild{"Segments", &srPathConstraints.Segments})
     srPathConstraints.EntityData.Children.Append("affinity-constraint", types.YChild{"AffinityConstraint", nil})
     for i := range srPathConstraints.AffinityConstraint {
+        types.SetYListKey(srPathConstraints.AffinityConstraint[i], i)
         srPathConstraints.EntityData.Children.Append(types.GetSegmentPath(srPathConstraints.AffinityConstraint[i]), types.YChild{"AffinityConstraint", srPathConstraints.AffinityConstraint[i]})
     }
     srPathConstraints.EntityData.Leafs = types.NewOrderedMap()
@@ -2998,6 +3077,7 @@ func (pathMetrics *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConst
     pathMetrics.EntityData.BundleName = "cisco_ios_xr"
     pathMetrics.EntityData.ParentYangName = "sr-path-constraints"
     pathMetrics.EntityData.SegmentPath = "path-metrics"
+    pathMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/sr-path-constraints/" + pathMetrics.EntityData.SegmentPath
     pathMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3032,6 +3112,7 @@ func (segments *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstrai
     segments.EntityData.BundleName = "cisco_ios_xr"
     segments.EntityData.ParentYangName = "sr-path-constraints"
     segments.EntityData.SegmentPath = "segments"
+    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/sr-path-constraints/" + segments.EntityData.SegmentPath
     segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3050,6 +3131,7 @@ func (segments *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstrai
 type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Affinity type. The type is interface{} with range: 0..255.
     Type interface{}
@@ -3067,7 +3149,8 @@ func (affinityConstraint *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPa
     affinityConstraint.EntityData.YangName = "affinity-constraint"
     affinityConstraint.EntityData.BundleName = "cisco_ios_xr"
     affinityConstraint.EntityData.ParentYangName = "sr-path-constraints"
-    affinityConstraint.EntityData.SegmentPath = "affinity-constraint"
+    affinityConstraint.EntityData.SegmentPath = "affinity-constraint" + types.AddNoKeyToken(affinityConstraint)
+    affinityConstraint.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/sr-path-constraints/" + affinityConstraint.EntityData.SegmentPath
     affinityConstraint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityConstraint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityConstraint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3075,6 +3158,7 @@ func (affinityConstraint *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPa
     affinityConstraint.EntityData.Children = types.NewOrderedMap()
     affinityConstraint.EntityData.Children.Append("color", types.YChild{"Color", nil})
     for i := range affinityConstraint.Color {
+        types.SetYListKey(affinityConstraint.Color[i], i)
         affinityConstraint.EntityData.Children.Append(types.GetSegmentPath(affinityConstraint.Color[i]), types.YChild{"Color", affinityConstraint.Color[i]})
     }
     affinityConstraint.EntityData.Leafs = types.NewOrderedMap()
@@ -3091,6 +3175,7 @@ func (affinityConstraint *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPa
 type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint_Color struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // An affinity color. The type is string.
     Color interface{}
@@ -3101,7 +3186,8 @@ func (color *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints
     color.EntityData.YangName = "color"
     color.EntityData.BundleName = "cisco_ios_xr"
     color.EntityData.ParentYangName = "affinity-constraint"
-    color.EntityData.SegmentPath = "color"
+    color.EntityData.SegmentPath = "color" + types.AddNoKeyToken(color)
+    color.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/sr-path-constraints/affinity-constraint/" + color.EntityData.SegmentPath
     color.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     color.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     color.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3120,6 +3206,7 @@ func (color *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints
 type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SID type. The type is XtcSrSid.
     SidType interface{}
@@ -3142,7 +3229,8 @@ func (hops *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops) GetEntityDat
     hops.EntityData.YangName = "hops"
     hops.EntityData.BundleName = "cisco_ios_xr"
     hops.EntityData.ParentYangName = "paths"
-    hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.SegmentPath = "hops" + types.AddNoKeyToken(hops)
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3183,6 +3271,7 @@ func (sid *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_Sid) GetEntity
     sid.EntityData.BundleName = "cisco_ios_xr"
     sid.EntityData.ParentYangName = "hops"
     sid.EntityData.SegmentPath = "sid"
+    sid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/hops/" + sid.EntityData.SegmentPath
     sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3222,6 +3311,7 @@ func (localAddress *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_Local
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "hops"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/hops/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3261,6 +3351,7 @@ func (remoteAddress *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_Remo
     remoteAddress.EntityData.BundleName = "cisco_ios_xr"
     remoteAddress.EntityData.ParentYangName = "hops"
     remoteAddress.EntityData.SegmentPath = "remote-address"
+    remoteAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/hops/" + remoteAddress.EntityData.SegmentPath
     remoteAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3305,6 +3396,7 @@ func (topologySummary *Xtc_TopologySummary) GetEntityData() *types.CommonEntityD
     topologySummary.EntityData.BundleName = "cisco_ios_xr"
     topologySummary.EntityData.ParentYangName = "xtc"
     topologySummary.EntityData.SegmentPath = "topology-summary"
+    topologySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + topologySummary.EntityData.SegmentPath
     topologySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3338,6 +3430,7 @@ func (topologyNodes *Xtc_TopologyNodes) GetEntityData() *types.CommonEntityData 
     topologyNodes.EntityData.BundleName = "cisco_ios_xr"
     topologyNodes.EntityData.ParentYangName = "xtc"
     topologyNodes.EntityData.SegmentPath = "topology-nodes"
+    topologyNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + topologyNodes.EntityData.SegmentPath
     topologyNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologyNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologyNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3359,6 +3452,7 @@ func (topologyNodes *Xtc_TopologyNodes) GetEntityData() *types.CommonEntityData 
 type Xtc_TopologyNodes_TopologyNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node Identifier. The type is interface{} with
     // range: 0..4294967295.
@@ -3391,6 +3485,7 @@ func (topologyNode *Xtc_TopologyNodes_TopologyNode) GetEntityData() *types.Commo
     topologyNode.EntityData.BundleName = "cisco_ios_xr"
     topologyNode.EntityData.ParentYangName = "topology-nodes"
     topologyNode.EntityData.SegmentPath = "topology-node" + types.AddKeyToken(topologyNode.NodeIdentifier, "node-identifier")
+    topologyNode.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/" + topologyNode.EntityData.SegmentPath
     topologyNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologyNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologyNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3399,14 +3494,17 @@ func (topologyNode *Xtc_TopologyNodes_TopologyNode) GetEntityData() *types.Commo
     topologyNode.EntityData.Children.Append("node-protocol-identifier", types.YChild{"NodeProtocolIdentifier", &topologyNode.NodeProtocolIdentifier})
     topologyNode.EntityData.Children.Append("prefix-sid", types.YChild{"PrefixSid", nil})
     for i := range topologyNode.PrefixSid {
+        types.SetYListKey(topologyNode.PrefixSid[i], i)
         topologyNode.EntityData.Children.Append(types.GetSegmentPath(topologyNode.PrefixSid[i]), types.YChild{"PrefixSid", topologyNode.PrefixSid[i]})
     }
     topologyNode.EntityData.Children.Append("ipv4-link", types.YChild{"Ipv4Link", nil})
     for i := range topologyNode.Ipv4Link {
+        types.SetYListKey(topologyNode.Ipv4Link[i], i)
         topologyNode.EntityData.Children.Append(types.GetSegmentPath(topologyNode.Ipv4Link[i]), types.YChild{"Ipv4Link", topologyNode.Ipv4Link[i]})
     }
     topologyNode.EntityData.Children.Append("ipv6-link", types.YChild{"Ipv6Link", nil})
     for i := range topologyNode.Ipv6Link {
+        types.SetYListKey(topologyNode.Ipv6Link[i], i)
         topologyNode.EntityData.Children.Append(types.GetSegmentPath(topologyNode.Ipv6Link[i]), types.YChild{"Ipv6Link", topologyNode.Ipv6Link[i]})
     }
     topologyNode.EntityData.Leafs = types.NewOrderedMap()
@@ -3453,6 +3551,7 @@ func (nodeProtocolIdentifier *Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentif
     nodeProtocolIdentifier.EntityData.BundleName = "cisco_ios_xr"
     nodeProtocolIdentifier.EntityData.ParentYangName = "topology-node"
     nodeProtocolIdentifier.EntityData.SegmentPath = "node-protocol-identifier"
+    nodeProtocolIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/" + nodeProtocolIdentifier.EntityData.SegmentPath
     nodeProtocolIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeProtocolIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeProtocolIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3460,6 +3559,7 @@ func (nodeProtocolIdentifier *Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentif
     nodeProtocolIdentifier.EntityData.Children = types.NewOrderedMap()
     nodeProtocolIdentifier.EntityData.Children.Append("igp-information", types.YChild{"IgpInformation", nil})
     for i := range nodeProtocolIdentifier.IgpInformation {
+        types.SetYListKey(nodeProtocolIdentifier.IgpInformation[i], i)
         nodeProtocolIdentifier.EntityData.Children.Append(types.GetSegmentPath(nodeProtocolIdentifier.IgpInformation[i]), types.YChild{"IgpInformation", nodeProtocolIdentifier.IgpInformation[i]})
     }
     nodeProtocolIdentifier.EntityData.Leafs = types.NewOrderedMap()
@@ -3479,6 +3579,7 @@ func (nodeProtocolIdentifier *Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentif
 type Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Domain identifier. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -3493,7 +3594,8 @@ func (igpInformation *Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpI
     igpInformation.EntityData.YangName = "igp-information"
     igpInformation.EntityData.BundleName = "cisco_ios_xr"
     igpInformation.EntityData.ParentYangName = "node-protocol-identifier"
-    igpInformation.EntityData.SegmentPath = "igp-information"
+    igpInformation.EntityData.SegmentPath = "igp-information" + types.AddNoKeyToken(igpInformation)
+    igpInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/node-protocol-identifier/" + igpInformation.EntityData.SegmentPath
     igpInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igpInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3533,6 +3635,7 @@ func (igp *Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_
     igp.EntityData.BundleName = "cisco_ios_xr"
     igp.EntityData.ParentYangName = "igp-information"
     igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/node-protocol-identifier/igp-information/" + igp.EntityData.SegmentPath
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3568,6 +3671,7 @@ func (isis *Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/node-protocol-identifier/igp-information/igp/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3602,6 +3706,7 @@ func (ospf *Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/node-protocol-identifier/igp-information/igp/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3633,6 +3738,7 @@ func (bgp *Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/node-protocol-identifier/igp-information/igp/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3651,6 +3757,7 @@ func (bgp *Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_
 type Xtc_TopologyNodes_TopologyNode_PrefixSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SID Type. The type is XtcSid1.
     SidType interface{}
@@ -3671,7 +3778,8 @@ func (prefixSid *Xtc_TopologyNodes_TopologyNode_PrefixSid) GetEntityData() *type
     prefixSid.EntityData.YangName = "prefix-sid"
     prefixSid.EntityData.BundleName = "cisco_ios_xr"
     prefixSid.EntityData.ParentYangName = "topology-node"
-    prefixSid.EntityData.SegmentPath = "prefix-sid"
+    prefixSid.EntityData.SegmentPath = "prefix-sid" + types.AddNoKeyToken(prefixSid)
+    prefixSid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/" + prefixSid.EntityData.SegmentPath
     prefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3712,6 +3820,7 @@ func (sidPrefix *Xtc_TopologyNodes_TopologyNode_PrefixSid_SidPrefix) GetEntityDa
     sidPrefix.EntityData.BundleName = "cisco_ios_xr"
     sidPrefix.EntityData.ParentYangName = "prefix-sid"
     sidPrefix.EntityData.SegmentPath = "sid-prefix"
+    sidPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/prefix-sid/" + sidPrefix.EntityData.SegmentPath
     sidPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sidPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sidPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3732,6 +3841,7 @@ func (sidPrefix *Xtc_TopologyNodes_TopologyNode_PrefixSid_SidPrefix) GetEntityDa
 type Xtc_TopologyNodes_TopologyNode_Ipv4Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Local IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3777,7 +3887,8 @@ func (ipv4Link *Xtc_TopologyNodes_TopologyNode_Ipv4Link) GetEntityData() *types.
     ipv4Link.EntityData.YangName = "ipv4-link"
     ipv4Link.EntityData.BundleName = "cisco_ios_xr"
     ipv4Link.EntityData.ParentYangName = "topology-node"
-    ipv4Link.EntityData.SegmentPath = "ipv4-link"
+    ipv4Link.EntityData.SegmentPath = "ipv4-link" + types.AddNoKeyToken(ipv4Link)
+    ipv4Link.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/" + ipv4Link.EntityData.SegmentPath
     ipv4Link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3787,6 +3898,7 @@ func (ipv4Link *Xtc_TopologyNodes_TopologyNode_Ipv4Link) GetEntityData() *types.
     ipv4Link.EntityData.Children.Append("remote-node-protocol-identifier", types.YChild{"RemoteNodeProtocolIdentifier", &ipv4Link.RemoteNodeProtocolIdentifier})
     ipv4Link.EntityData.Children.Append("adjacency-sid", types.YChild{"AdjacencySid", nil})
     for i := range ipv4Link.AdjacencySid {
+        types.SetYListKey(ipv4Link.AdjacencySid[i], i)
         ipv4Link.EntityData.Children.Append(types.GetSegmentPath(ipv4Link.AdjacencySid[i]), types.YChild{"AdjacencySid", ipv4Link.AdjacencySid[i]})
     }
     ipv4Link.EntityData.Leafs = types.NewOrderedMap()
@@ -3824,6 +3936,7 @@ func (localIgpInformation *Xtc_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInfor
     localIgpInformation.EntityData.BundleName = "cisco_ios_xr"
     localIgpInformation.EntityData.ParentYangName = "ipv4-link"
     localIgpInformation.EntityData.SegmentPath = "local-igp-information"
+    localIgpInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/" + localIgpInformation.EntityData.SegmentPath
     localIgpInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localIgpInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localIgpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3863,6 +3976,7 @@ func (igp *Xtc_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp) GetE
     igp.EntityData.BundleName = "cisco_ios_xr"
     igp.EntityData.ParentYangName = "local-igp-information"
     igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/local-igp-information/" + igp.EntityData.SegmentPath
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3898,6 +4012,7 @@ func (isis *Xtc_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/local-igp-information/igp/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3932,6 +4047,7 @@ func (ospf *Xtc_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/local-igp-information/igp/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3963,6 +4079,7 @@ func (bgp *Xtc_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp) 
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/local-igp-information/igp/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4010,6 +4127,7 @@ func (remoteNodeProtocolIdentifier *Xtc_TopologyNodes_TopologyNode_Ipv4Link_Remo
     remoteNodeProtocolIdentifier.EntityData.BundleName = "cisco_ios_xr"
     remoteNodeProtocolIdentifier.EntityData.ParentYangName = "ipv4-link"
     remoteNodeProtocolIdentifier.EntityData.SegmentPath = "remote-node-protocol-identifier"
+    remoteNodeProtocolIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/" + remoteNodeProtocolIdentifier.EntityData.SegmentPath
     remoteNodeProtocolIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteNodeProtocolIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNodeProtocolIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4017,6 +4135,7 @@ func (remoteNodeProtocolIdentifier *Xtc_TopologyNodes_TopologyNode_Ipv4Link_Remo
     remoteNodeProtocolIdentifier.EntityData.Children = types.NewOrderedMap()
     remoteNodeProtocolIdentifier.EntityData.Children.Append("igp-information", types.YChild{"IgpInformation", nil})
     for i := range remoteNodeProtocolIdentifier.IgpInformation {
+        types.SetYListKey(remoteNodeProtocolIdentifier.IgpInformation[i], i)
         remoteNodeProtocolIdentifier.EntityData.Children.Append(types.GetSegmentPath(remoteNodeProtocolIdentifier.IgpInformation[i]), types.YChild{"IgpInformation", remoteNodeProtocolIdentifier.IgpInformation[i]})
     }
     remoteNodeProtocolIdentifier.EntityData.Leafs = types.NewOrderedMap()
@@ -4036,6 +4155,7 @@ func (remoteNodeProtocolIdentifier *Xtc_TopologyNodes_TopologyNode_Ipv4Link_Remo
 type Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Domain identifier. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -4050,7 +4170,8 @@ func (igpInformation *Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocol
     igpInformation.EntityData.YangName = "igp-information"
     igpInformation.EntityData.BundleName = "cisco_ios_xr"
     igpInformation.EntityData.ParentYangName = "remote-node-protocol-identifier"
-    igpInformation.EntityData.SegmentPath = "igp-information"
+    igpInformation.EntityData.SegmentPath = "igp-information" + types.AddNoKeyToken(igpInformation)
+    igpInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/remote-node-protocol-identifier/" + igpInformation.EntityData.SegmentPath
     igpInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igpInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4090,6 +4211,7 @@ func (igp *Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_
     igp.EntityData.BundleName = "cisco_ios_xr"
     igp.EntityData.ParentYangName = "igp-information"
     igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/remote-node-protocol-identifier/igp-information/" + igp.EntityData.SegmentPath
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4125,6 +4247,7 @@ func (isis *Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/remote-node-protocol-identifier/igp-information/igp/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4159,6 +4282,7 @@ func (ospf *Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/remote-node-protocol-identifier/igp-information/igp/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4190,6 +4314,7 @@ func (bgp *Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/remote-node-protocol-identifier/igp-information/igp/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4208,6 +4333,7 @@ func (bgp *Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_
 type Xtc_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SID Type. The type is XtcSid1.
     SidType interface{}
@@ -4228,7 +4354,8 @@ func (adjacencySid *Xtc_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid) GetEnt
     adjacencySid.EntityData.YangName = "adjacency-sid"
     adjacencySid.EntityData.BundleName = "cisco_ios_xr"
     adjacencySid.EntityData.ParentYangName = "ipv4-link"
-    adjacencySid.EntityData.SegmentPath = "adjacency-sid"
+    adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddNoKeyToken(adjacencySid)
+    adjacencySid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/" + adjacencySid.EntityData.SegmentPath
     adjacencySid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjacencySid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjacencySid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4269,6 +4396,7 @@ func (sidPrefix *Xtc_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid_SidPrefix)
     sidPrefix.EntityData.BundleName = "cisco_ios_xr"
     sidPrefix.EntityData.ParentYangName = "adjacency-sid"
     sidPrefix.EntityData.SegmentPath = "sid-prefix"
+    sidPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/adjacency-sid/" + sidPrefix.EntityData.SegmentPath
     sidPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sidPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sidPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4289,6 +4417,7 @@ func (sidPrefix *Xtc_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid_SidPrefix)
 type Xtc_TopologyNodes_TopologyNode_Ipv6Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Local IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -4328,7 +4457,8 @@ func (ipv6Link *Xtc_TopologyNodes_TopologyNode_Ipv6Link) GetEntityData() *types.
     ipv6Link.EntityData.YangName = "ipv6-link"
     ipv6Link.EntityData.BundleName = "cisco_ios_xr"
     ipv6Link.EntityData.ParentYangName = "topology-node"
-    ipv6Link.EntityData.SegmentPath = "ipv6-link"
+    ipv6Link.EntityData.SegmentPath = "ipv6-link" + types.AddNoKeyToken(ipv6Link)
+    ipv6Link.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/" + ipv6Link.EntityData.SegmentPath
     ipv6Link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4338,6 +4468,7 @@ func (ipv6Link *Xtc_TopologyNodes_TopologyNode_Ipv6Link) GetEntityData() *types.
     ipv6Link.EntityData.Children.Append("remote-node-protocol-identifier", types.YChild{"RemoteNodeProtocolIdentifier", &ipv6Link.RemoteNodeProtocolIdentifier})
     ipv6Link.EntityData.Children.Append("adjacency-sid", types.YChild{"AdjacencySid", nil})
     for i := range ipv6Link.AdjacencySid {
+        types.SetYListKey(ipv6Link.AdjacencySid[i], i)
         ipv6Link.EntityData.Children.Append(types.GetSegmentPath(ipv6Link.AdjacencySid[i]), types.YChild{"AdjacencySid", ipv6Link.AdjacencySid[i]})
     }
     ipv6Link.EntityData.Leafs = types.NewOrderedMap()
@@ -4373,6 +4504,7 @@ func (localIgpInformation *Xtc_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInfor
     localIgpInformation.EntityData.BundleName = "cisco_ios_xr"
     localIgpInformation.EntityData.ParentYangName = "ipv6-link"
     localIgpInformation.EntityData.SegmentPath = "local-igp-information"
+    localIgpInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/" + localIgpInformation.EntityData.SegmentPath
     localIgpInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localIgpInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localIgpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4412,6 +4544,7 @@ func (igp *Xtc_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp) GetE
     igp.EntityData.BundleName = "cisco_ios_xr"
     igp.EntityData.ParentYangName = "local-igp-information"
     igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/local-igp-information/" + igp.EntityData.SegmentPath
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4447,6 +4580,7 @@ func (isis *Xtc_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/local-igp-information/igp/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4481,6 +4615,7 @@ func (ospf *Xtc_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/local-igp-information/igp/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4512,6 +4647,7 @@ func (bgp *Xtc_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp) 
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/local-igp-information/igp/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4559,6 +4695,7 @@ func (remoteNodeProtocolIdentifier *Xtc_TopologyNodes_TopologyNode_Ipv6Link_Remo
     remoteNodeProtocolIdentifier.EntityData.BundleName = "cisco_ios_xr"
     remoteNodeProtocolIdentifier.EntityData.ParentYangName = "ipv6-link"
     remoteNodeProtocolIdentifier.EntityData.SegmentPath = "remote-node-protocol-identifier"
+    remoteNodeProtocolIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/" + remoteNodeProtocolIdentifier.EntityData.SegmentPath
     remoteNodeProtocolIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteNodeProtocolIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNodeProtocolIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4566,6 +4703,7 @@ func (remoteNodeProtocolIdentifier *Xtc_TopologyNodes_TopologyNode_Ipv6Link_Remo
     remoteNodeProtocolIdentifier.EntityData.Children = types.NewOrderedMap()
     remoteNodeProtocolIdentifier.EntityData.Children.Append("igp-information", types.YChild{"IgpInformation", nil})
     for i := range remoteNodeProtocolIdentifier.IgpInformation {
+        types.SetYListKey(remoteNodeProtocolIdentifier.IgpInformation[i], i)
         remoteNodeProtocolIdentifier.EntityData.Children.Append(types.GetSegmentPath(remoteNodeProtocolIdentifier.IgpInformation[i]), types.YChild{"IgpInformation", remoteNodeProtocolIdentifier.IgpInformation[i]})
     }
     remoteNodeProtocolIdentifier.EntityData.Leafs = types.NewOrderedMap()
@@ -4585,6 +4723,7 @@ func (remoteNodeProtocolIdentifier *Xtc_TopologyNodes_TopologyNode_Ipv6Link_Remo
 type Xtc_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Domain identifier. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -4599,7 +4738,8 @@ func (igpInformation *Xtc_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocol
     igpInformation.EntityData.YangName = "igp-information"
     igpInformation.EntityData.BundleName = "cisco_ios_xr"
     igpInformation.EntityData.ParentYangName = "remote-node-protocol-identifier"
-    igpInformation.EntityData.SegmentPath = "igp-information"
+    igpInformation.EntityData.SegmentPath = "igp-information" + types.AddNoKeyToken(igpInformation)
+    igpInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/remote-node-protocol-identifier/" + igpInformation.EntityData.SegmentPath
     igpInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igpInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4639,6 +4779,7 @@ func (igp *Xtc_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_
     igp.EntityData.BundleName = "cisco_ios_xr"
     igp.EntityData.ParentYangName = "igp-information"
     igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/remote-node-protocol-identifier/igp-information/" + igp.EntityData.SegmentPath
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4674,6 +4815,7 @@ func (isis *Xtc_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/remote-node-protocol-identifier/igp-information/igp/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4708,6 +4850,7 @@ func (ospf *Xtc_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/remote-node-protocol-identifier/igp-information/igp/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4739,6 +4882,7 @@ func (bgp *Xtc_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/remote-node-protocol-identifier/igp-information/igp/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4757,6 +4901,7 @@ func (bgp *Xtc_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_
 type Xtc_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SID Type. The type is XtcSid1.
     SidType interface{}
@@ -4777,7 +4922,8 @@ func (adjacencySid *Xtc_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid) GetEnt
     adjacencySid.EntityData.YangName = "adjacency-sid"
     adjacencySid.EntityData.BundleName = "cisco_ios_xr"
     adjacencySid.EntityData.ParentYangName = "ipv6-link"
-    adjacencySid.EntityData.SegmentPath = "adjacency-sid"
+    adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddNoKeyToken(adjacencySid)
+    adjacencySid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/" + adjacencySid.EntityData.SegmentPath
     adjacencySid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjacencySid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjacencySid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4818,6 +4964,7 @@ func (sidPrefix *Xtc_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid_SidPrefix)
     sidPrefix.EntityData.BundleName = "cisco_ios_xr"
     sidPrefix.EntityData.ParentYangName = "adjacency-sid"
     sidPrefix.EntityData.SegmentPath = "sid-prefix"
+    sidPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv6-link/adjacency-sid/" + sidPrefix.EntityData.SegmentPath
     sidPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sidPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sidPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4849,6 +4996,7 @@ func (prefixInfos *Xtc_PrefixInfos) GetEntityData() *types.CommonEntityData {
     prefixInfos.EntityData.BundleName = "cisco_ios_xr"
     prefixInfos.EntityData.ParentYangName = "xtc"
     prefixInfos.EntityData.SegmentPath = "prefix-infos"
+    prefixInfos.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + prefixInfos.EntityData.SegmentPath
     prefixInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4870,6 +5018,7 @@ func (prefixInfos *Xtc_PrefixInfos) GetEntityData() *types.CommonEntityData {
 type Xtc_PrefixInfos_PrefixInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is interface{} with range:
     // 0..4294967295.
@@ -4891,6 +5040,7 @@ func (prefixInfo *Xtc_PrefixInfos_PrefixInfo) GetEntityData() *types.CommonEntit
     prefixInfo.EntityData.BundleName = "cisco_ios_xr"
     prefixInfo.EntityData.ParentYangName = "prefix-infos"
     prefixInfo.EntityData.SegmentPath = "prefix-info" + types.AddKeyToken(prefixInfo.NodeIdentifier, "node-identifier")
+    prefixInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/prefix-infos/" + prefixInfo.EntityData.SegmentPath
     prefixInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4899,6 +5049,7 @@ func (prefixInfo *Xtc_PrefixInfos_PrefixInfo) GetEntityData() *types.CommonEntit
     prefixInfo.EntityData.Children.Append("node-protocol-identifier", types.YChild{"NodeProtocolIdentifier", &prefixInfo.NodeProtocolIdentifier})
     prefixInfo.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range prefixInfo.Address {
+        types.SetYListKey(prefixInfo.Address[i], i)
         prefixInfo.EntityData.Children.Append(types.GetSegmentPath(prefixInfo.Address[i]), types.YChild{"Address", prefixInfo.Address[i]})
     }
     prefixInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -4944,6 +5095,7 @@ func (nodeProtocolIdentifier *Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier)
     nodeProtocolIdentifier.EntityData.BundleName = "cisco_ios_xr"
     nodeProtocolIdentifier.EntityData.ParentYangName = "prefix-info"
     nodeProtocolIdentifier.EntityData.SegmentPath = "node-protocol-identifier"
+    nodeProtocolIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/prefix-infos/prefix-info/" + nodeProtocolIdentifier.EntityData.SegmentPath
     nodeProtocolIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeProtocolIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeProtocolIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4951,6 +5103,7 @@ func (nodeProtocolIdentifier *Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier)
     nodeProtocolIdentifier.EntityData.Children = types.NewOrderedMap()
     nodeProtocolIdentifier.EntityData.Children.Append("igp-information", types.YChild{"IgpInformation", nil})
     for i := range nodeProtocolIdentifier.IgpInformation {
+        types.SetYListKey(nodeProtocolIdentifier.IgpInformation[i], i)
         nodeProtocolIdentifier.EntityData.Children.Append(types.GetSegmentPath(nodeProtocolIdentifier.IgpInformation[i]), types.YChild{"IgpInformation", nodeProtocolIdentifier.IgpInformation[i]})
     }
     nodeProtocolIdentifier.EntityData.Leafs = types.NewOrderedMap()
@@ -4970,6 +5123,7 @@ func (nodeProtocolIdentifier *Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier)
 type Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Domain identifier. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -4984,7 +5138,8 @@ func (igpInformation *Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInfor
     igpInformation.EntityData.YangName = "igp-information"
     igpInformation.EntityData.BundleName = "cisco_ios_xr"
     igpInformation.EntityData.ParentYangName = "node-protocol-identifier"
-    igpInformation.EntityData.SegmentPath = "igp-information"
+    igpInformation.EntityData.SegmentPath = "igp-information" + types.AddNoKeyToken(igpInformation)
+    igpInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/prefix-infos/prefix-info/node-protocol-identifier/" + igpInformation.EntityData.SegmentPath
     igpInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igpInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5024,6 +5179,7 @@ func (igp *Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp)
     igp.EntityData.BundleName = "cisco_ios_xr"
     igp.EntityData.ParentYangName = "igp-information"
     igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/prefix-infos/prefix-info/node-protocol-identifier/igp-information/" + igp.EntityData.SegmentPath
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5059,6 +5215,7 @@ func (isis *Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/prefix-infos/prefix-info/node-protocol-identifier/igp-information/igp/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5093,6 +5250,7 @@ func (ospf *Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/prefix-infos/prefix-info/node-protocol-identifier/igp-information/igp/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5124,6 +5282,7 @@ func (bgp *Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/prefix-infos/prefix-info/node-protocol-identifier/igp-information/igp/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5142,6 +5301,7 @@ func (bgp *Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_
 type Xtc_PrefixInfos_PrefixInfo_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix IP address.
     IpAddress Xtc_PrefixInfos_PrefixInfo_Address_IpAddress
@@ -5152,7 +5312,8 @@ func (address *Xtc_PrefixInfos_PrefixInfo_Address) GetEntityData() *types.Common
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "prefix-info"
-    address.EntityData.SegmentPath = "address"
+    address.EntityData.SegmentPath = "address" + types.AddNoKeyToken(address)
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/prefix-infos/prefix-info/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5190,6 +5351,7 @@ func (ipAddress *Xtc_PrefixInfos_PrefixInfo_Address_IpAddress) GetEntityData() *
     ipAddress.EntityData.BundleName = "cisco_ios_xr"
     ipAddress.EntityData.ParentYangName = "address"
     ipAddress.EntityData.SegmentPath = "ip-address"
+    ipAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/prefix-infos/prefix-info/address/" + ipAddress.EntityData.SegmentPath
     ipAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

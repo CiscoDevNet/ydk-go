@@ -118,6 +118,7 @@ func (rip *Rip) GetEntityData() *types.CommonEntityData {
     rip.EntityData.BundleName = "cisco_ios_xr"
     rip.EntityData.ParentYangName = "Cisco-IOS-XR-ip-rip-cfg"
     rip.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rip-cfg:rip"
+    rip.EntityData.AbsolutePath = rip.EntityData.SegmentPath
     rip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +202,7 @@ func (defaultVrf *Rip_DefaultVrf) GetEntityData() *types.CommonEntityData {
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "rip"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -252,6 +254,7 @@ func (defaultInformation *Rip_DefaultVrf_DefaultInformation) GetEntityData() *ty
     defaultInformation.EntityData.BundleName = "cisco_ios_xr"
     defaultInformation.EntityData.ParentYangName = "default-vrf"
     defaultInformation.EntityData.SegmentPath = "default-information"
+    defaultInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/" + defaultInformation.EntityData.SegmentPath
     defaultInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -298,6 +301,7 @@ func (redistribution *Rip_DefaultVrf_Redistribution) GetEntityData() *types.Comm
     redistribution.EntityData.BundleName = "cisco_ios_xr"
     redistribution.EntityData.ParentYangName = "default-vrf"
     redistribution.EntityData.SegmentPath = "redistribution"
+    redistribution.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/" + redistribution.EntityData.SegmentPath
     redistribution.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -337,6 +341,7 @@ func (connected *Rip_DefaultVrf_Redistribution_Connected) GetEntityData() *types
     connected.EntityData.BundleName = "cisco_ios_xr"
     connected.EntityData.ParentYangName = "redistribution"
     connected.EntityData.SegmentPath = "connected"
+    connected.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/" + connected.EntityData.SegmentPath
     connected.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connected.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connected.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -368,6 +373,7 @@ func (bgps *Rip_DefaultVrf_Redistribution_Bgps) GetEntityData() *types.CommonEnt
     bgps.EntityData.BundleName = "cisco_ios_xr"
     bgps.EntityData.ParentYangName = "redistribution"
     bgps.EntityData.SegmentPath = "bgps"
+    bgps.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/" + bgps.EntityData.SegmentPath
     bgps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -389,6 +395,7 @@ func (bgps *Rip_DefaultVrf_Redistribution_Bgps) GetEntityData() *types.CommonEnt
 type Rip_DefaultVrf_Redistribution_Bgps_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Higher 16 bits of 4-byte BGP AS number. The type
     // is interface{} with range: 0..65535.
@@ -411,6 +418,7 @@ func (bgp *Rip_DefaultVrf_Redistribution_Bgps_Bgp) GetEntityData() *types.Common
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "bgps"
     bgp.EntityData.SegmentPath = "bgp" + types.AddKeyToken(bgp.Asnxx, "asnxx") + types.AddKeyToken(bgp.Asnyy, "asnyy")
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/bgps/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -444,6 +452,7 @@ func (isises *Rip_DefaultVrf_Redistribution_Isises) GetEntityData() *types.Commo
     isises.EntityData.BundleName = "cisco_ios_xr"
     isises.EntityData.ParentYangName = "redistribution"
     isises.EntityData.SegmentPath = "isises"
+    isises.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/" + isises.EntityData.SegmentPath
     isises.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isises.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isises.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -465,6 +474,7 @@ func (isises *Rip_DefaultVrf_Redistribution_Isises) GetEntityData() *types.Commo
 type Rip_DefaultVrf_Redistribution_Isises_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IS-IS instance name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -483,6 +493,7 @@ func (isis *Rip_DefaultVrf_Redistribution_Isises_Isis) GetEntityData() *types.Co
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "isises"
     isis.EntityData.SegmentPath = "isis" + types.AddKeyToken(isis.IsisName, "isis-name")
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/isises/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -515,6 +526,7 @@ func (eigrpS *Rip_DefaultVrf_Redistribution_EigrpS) GetEntityData() *types.Commo
     eigrpS.EntityData.BundleName = "cisco_ios_xr"
     eigrpS.EntityData.ParentYangName = "redistribution"
     eigrpS.EntityData.SegmentPath = "eigrp-s"
+    eigrpS.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/" + eigrpS.EntityData.SegmentPath
     eigrpS.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrpS.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpS.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -536,6 +548,7 @@ func (eigrpS *Rip_DefaultVrf_Redistribution_EigrpS) GetEntityData() *types.Commo
 type Rip_DefaultVrf_Redistribution_EigrpS_Eigrp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system number. The type is interface{}
     // with range: 1..65535.
@@ -554,6 +567,7 @@ func (eigrp *Rip_DefaultVrf_Redistribution_EigrpS_Eigrp) GetEntityData() *types.
     eigrp.EntityData.BundleName = "cisco_ios_xr"
     eigrp.EntityData.ParentYangName = "eigrp-s"
     eigrp.EntityData.SegmentPath = "eigrp" + types.AddKeyToken(eigrp.As, "as")
+    eigrp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/eigrp-s/" + eigrp.EntityData.SegmentPath
     eigrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -590,6 +604,7 @@ func (static *Rip_DefaultVrf_Redistribution_Static) GetEntityData() *types.Commo
     static.EntityData.BundleName = "cisco_ios_xr"
     static.EntityData.ParentYangName = "redistribution"
     static.EntityData.SegmentPath = "static"
+    static.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/" + static.EntityData.SegmentPath
     static.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     static.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -621,6 +636,7 @@ func (ospfs *Rip_DefaultVrf_Redistribution_Ospfs) GetEntityData() *types.CommonE
     ospfs.EntityData.BundleName = "cisco_ios_xr"
     ospfs.EntityData.ParentYangName = "redistribution"
     ospfs.EntityData.SegmentPath = "ospfs"
+    ospfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/" + ospfs.EntityData.SegmentPath
     ospfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -642,6 +658,7 @@ func (ospfs *Rip_DefaultVrf_Redistribution_Ospfs) GetEntityData() *types.CommonE
 type Rip_DefaultVrf_Redistribution_Ospfs_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Process ID for the OSPF instance. The type is
     // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -672,6 +689,7 @@ func (ospf *Rip_DefaultVrf_Redistribution_Ospfs_Ospf) GetEntityData() *types.Com
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "ospfs"
     ospf.EntityData.SegmentPath = "ospf" + types.AddKeyToken(ospf.OspfName, "ospf-name")
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/ospfs/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -708,6 +726,7 @@ func (ipDistances *Rip_DefaultVrf_IpDistances) GetEntityData() *types.CommonEnti
     ipDistances.EntityData.BundleName = "cisco_ios_xr"
     ipDistances.EntityData.ParentYangName = "default-vrf"
     ipDistances.EntityData.SegmentPath = "ip-distances"
+    ipDistances.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/" + ipDistances.EntityData.SegmentPath
     ipDistances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDistances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDistances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -729,6 +748,7 @@ func (ipDistances *Rip_DefaultVrf_IpDistances) GetEntityData() *types.CommonEnti
 type Rip_DefaultVrf_IpDistances_IpDistance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP Source address. The type is string with
     // pattern:
@@ -750,6 +770,7 @@ func (ipDistance *Rip_DefaultVrf_IpDistances_IpDistance) GetEntityData() *types.
     ipDistance.EntityData.BundleName = "cisco_ios_xr"
     ipDistance.EntityData.ParentYangName = "ip-distances"
     ipDistance.EntityData.SegmentPath = "ip-distance" + types.AddKeyToken(ipDistance.Address, "address") + types.AddKeyToken(ipDistance.Netmask, "netmask")
+    ipDistance.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/ip-distances/" + ipDistance.EntityData.SegmentPath
     ipDistance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDistance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDistance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -782,6 +803,7 @@ func (interfaces *Rip_DefaultVrf_Interfaces) GetEntityData() *types.CommonEntity
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "default-vrf"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -803,6 +825,7 @@ func (interfaces *Rip_DefaultVrf_Interfaces) GetEntityData() *types.CommonEntity
 type Rip_DefaultVrf_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -851,6 +874,7 @@ func (self *Rip_DefaultVrf_Interfaces_Interface) GetEntityData() *types.CommonEn
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -897,6 +921,7 @@ func (authentication *Rip_DefaultVrf_Interfaces_Interface_Authentication) GetEnt
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "interface"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/interfaces/interface/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -946,6 +971,7 @@ func (siteOfOrigin *Rip_DefaultVrf_Interfaces_Interface_SiteOfOrigin) GetEntityD
     siteOfOrigin.EntityData.BundleName = "cisco_ios_xr"
     siteOfOrigin.EntityData.ParentYangName = "interface"
     siteOfOrigin.EntityData.SegmentPath = "site-of-origin"
+    siteOfOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/interfaces/interface/" + siteOfOrigin.EntityData.SegmentPath
     siteOfOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -984,6 +1010,7 @@ func (receiveVersion *Rip_DefaultVrf_Interfaces_Interface_ReceiveVersion) GetEnt
     receiveVersion.EntityData.BundleName = "cisco_ios_xr"
     receiveVersion.EntityData.ParentYangName = "interface"
     receiveVersion.EntityData.SegmentPath = "receive-version"
+    receiveVersion.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/interfaces/interface/" + receiveVersion.EntityData.SegmentPath
     receiveVersion.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveVersion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveVersion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1018,6 +1045,7 @@ func (sendVersion *Rip_DefaultVrf_Interfaces_Interface_SendVersion) GetEntityDat
     sendVersion.EntityData.BundleName = "cisco_ios_xr"
     sendVersion.EntityData.ParentYangName = "interface"
     sendVersion.EntityData.SegmentPath = "send-version"
+    sendVersion.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/interfaces/interface/" + sendVersion.EntityData.SegmentPath
     sendVersion.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendVersion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendVersion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1048,6 +1076,7 @@ func (neighbors *Rip_DefaultVrf_Neighbors) GetEntityData() *types.CommonEntityDa
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "default-vrf"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1069,6 +1098,7 @@ func (neighbors *Rip_DefaultVrf_Neighbors) GetEntityData() *types.CommonEntityDa
 type Rip_DefaultVrf_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1081,6 +1111,7 @@ func (neighbor *Rip_DefaultVrf_Neighbors_Neighbor) GetEntityData() *types.Common
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1125,6 +1156,7 @@ func (timers *Rip_DefaultVrf_Timers) GetEntityData() *types.CommonEntityData {
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "default-vrf"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1157,6 +1189,7 @@ func (vrfs *Rip_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "rip"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1178,6 +1211,7 @@ func (vrfs *Rip_Vrfs) GetEntityData() *types.CommonEntityData {
 type Rip_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1246,6 +1280,7 @@ func (vrf *Rip_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1298,6 +1333,7 @@ func (defaultInformation *Rip_Vrfs_Vrf_DefaultInformation) GetEntityData() *type
     defaultInformation.EntityData.BundleName = "cisco_ios_xr"
     defaultInformation.EntityData.ParentYangName = "vrf"
     defaultInformation.EntityData.SegmentPath = "default-information"
+    defaultInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/" + defaultInformation.EntityData.SegmentPath
     defaultInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1344,6 +1380,7 @@ func (redistribution *Rip_Vrfs_Vrf_Redistribution) GetEntityData() *types.Common
     redistribution.EntityData.BundleName = "cisco_ios_xr"
     redistribution.EntityData.ParentYangName = "vrf"
     redistribution.EntityData.SegmentPath = "redistribution"
+    redistribution.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/" + redistribution.EntityData.SegmentPath
     redistribution.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1383,6 +1420,7 @@ func (connected *Rip_Vrfs_Vrf_Redistribution_Connected) GetEntityData() *types.C
     connected.EntityData.BundleName = "cisco_ios_xr"
     connected.EntityData.ParentYangName = "redistribution"
     connected.EntityData.SegmentPath = "connected"
+    connected.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/redistribution/" + connected.EntityData.SegmentPath
     connected.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connected.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connected.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1414,6 +1452,7 @@ func (bgps *Rip_Vrfs_Vrf_Redistribution_Bgps) GetEntityData() *types.CommonEntit
     bgps.EntityData.BundleName = "cisco_ios_xr"
     bgps.EntityData.ParentYangName = "redistribution"
     bgps.EntityData.SegmentPath = "bgps"
+    bgps.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/redistribution/" + bgps.EntityData.SegmentPath
     bgps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1435,6 +1474,7 @@ func (bgps *Rip_Vrfs_Vrf_Redistribution_Bgps) GetEntityData() *types.CommonEntit
 type Rip_Vrfs_Vrf_Redistribution_Bgps_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Higher 16 bits of 4-byte BGP AS number. The type
     // is interface{} with range: 0..65535.
@@ -1457,6 +1497,7 @@ func (bgp *Rip_Vrfs_Vrf_Redistribution_Bgps_Bgp) GetEntityData() *types.CommonEn
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "bgps"
     bgp.EntityData.SegmentPath = "bgp" + types.AddKeyToken(bgp.Asnxx, "asnxx") + types.AddKeyToken(bgp.Asnyy, "asnyy")
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/redistribution/bgps/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1490,6 +1531,7 @@ func (isises *Rip_Vrfs_Vrf_Redistribution_Isises) GetEntityData() *types.CommonE
     isises.EntityData.BundleName = "cisco_ios_xr"
     isises.EntityData.ParentYangName = "redistribution"
     isises.EntityData.SegmentPath = "isises"
+    isises.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/redistribution/" + isises.EntityData.SegmentPath
     isises.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isises.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isises.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1511,6 +1553,7 @@ func (isises *Rip_Vrfs_Vrf_Redistribution_Isises) GetEntityData() *types.CommonE
 type Rip_Vrfs_Vrf_Redistribution_Isises_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IS-IS instance name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1529,6 +1572,7 @@ func (isis *Rip_Vrfs_Vrf_Redistribution_Isises_Isis) GetEntityData() *types.Comm
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "isises"
     isis.EntityData.SegmentPath = "isis" + types.AddKeyToken(isis.IsisName, "isis-name")
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/redistribution/isises/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1561,6 +1605,7 @@ func (eigrpS *Rip_Vrfs_Vrf_Redistribution_EigrpS) GetEntityData() *types.CommonE
     eigrpS.EntityData.BundleName = "cisco_ios_xr"
     eigrpS.EntityData.ParentYangName = "redistribution"
     eigrpS.EntityData.SegmentPath = "eigrp-s"
+    eigrpS.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/redistribution/" + eigrpS.EntityData.SegmentPath
     eigrpS.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrpS.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpS.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1582,6 +1627,7 @@ func (eigrpS *Rip_Vrfs_Vrf_Redistribution_EigrpS) GetEntityData() *types.CommonE
 type Rip_Vrfs_Vrf_Redistribution_EigrpS_Eigrp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system number. The type is interface{}
     // with range: 1..65535.
@@ -1600,6 +1646,7 @@ func (eigrp *Rip_Vrfs_Vrf_Redistribution_EigrpS_Eigrp) GetEntityData() *types.Co
     eigrp.EntityData.BundleName = "cisco_ios_xr"
     eigrp.EntityData.ParentYangName = "eigrp-s"
     eigrp.EntityData.SegmentPath = "eigrp" + types.AddKeyToken(eigrp.As, "as")
+    eigrp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/redistribution/eigrp-s/" + eigrp.EntityData.SegmentPath
     eigrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1636,6 +1683,7 @@ func (static *Rip_Vrfs_Vrf_Redistribution_Static) GetEntityData() *types.CommonE
     static.EntityData.BundleName = "cisco_ios_xr"
     static.EntityData.ParentYangName = "redistribution"
     static.EntityData.SegmentPath = "static"
+    static.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/redistribution/" + static.EntityData.SegmentPath
     static.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     static.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1667,6 +1715,7 @@ func (ospfs *Rip_Vrfs_Vrf_Redistribution_Ospfs) GetEntityData() *types.CommonEnt
     ospfs.EntityData.BundleName = "cisco_ios_xr"
     ospfs.EntityData.ParentYangName = "redistribution"
     ospfs.EntityData.SegmentPath = "ospfs"
+    ospfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/redistribution/" + ospfs.EntityData.SegmentPath
     ospfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1688,6 +1737,7 @@ func (ospfs *Rip_Vrfs_Vrf_Redistribution_Ospfs) GetEntityData() *types.CommonEnt
 type Rip_Vrfs_Vrf_Redistribution_Ospfs_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Process ID for the OSPF instance. The type is
     // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1718,6 +1768,7 @@ func (ospf *Rip_Vrfs_Vrf_Redistribution_Ospfs_Ospf) GetEntityData() *types.Commo
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "ospfs"
     ospf.EntityData.SegmentPath = "ospf" + types.AddKeyToken(ospf.OspfName, "ospf-name")
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/redistribution/ospfs/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1754,6 +1805,7 @@ func (ipDistances *Rip_Vrfs_Vrf_IpDistances) GetEntityData() *types.CommonEntity
     ipDistances.EntityData.BundleName = "cisco_ios_xr"
     ipDistances.EntityData.ParentYangName = "vrf"
     ipDistances.EntityData.SegmentPath = "ip-distances"
+    ipDistances.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/" + ipDistances.EntityData.SegmentPath
     ipDistances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDistances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDistances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1775,6 +1827,7 @@ func (ipDistances *Rip_Vrfs_Vrf_IpDistances) GetEntityData() *types.CommonEntity
 type Rip_Vrfs_Vrf_IpDistances_IpDistance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP Source address. The type is string with
     // pattern:
@@ -1796,6 +1849,7 @@ func (ipDistance *Rip_Vrfs_Vrf_IpDistances_IpDistance) GetEntityData() *types.Co
     ipDistance.EntityData.BundleName = "cisco_ios_xr"
     ipDistance.EntityData.ParentYangName = "ip-distances"
     ipDistance.EntityData.SegmentPath = "ip-distance" + types.AddKeyToken(ipDistance.Address, "address") + types.AddKeyToken(ipDistance.Netmask, "netmask")
+    ipDistance.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/ip-distances/" + ipDistance.EntityData.SegmentPath
     ipDistance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDistance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDistance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1827,6 +1881,7 @@ func (interfaces *Rip_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityDa
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "vrf"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1848,6 +1903,7 @@ func (interfaces *Rip_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEntityDa
 type Rip_Vrfs_Vrf_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1896,6 +1952,7 @@ func (self *Rip_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.CommonEnti
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1942,6 +1999,7 @@ func (authentication *Rip_Vrfs_Vrf_Interfaces_Interface_Authentication) GetEntit
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "interface"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/interfaces/interface/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1991,6 +2049,7 @@ func (siteOfOrigin *Rip_Vrfs_Vrf_Interfaces_Interface_SiteOfOrigin) GetEntityDat
     siteOfOrigin.EntityData.BundleName = "cisco_ios_xr"
     siteOfOrigin.EntityData.ParentYangName = "interface"
     siteOfOrigin.EntityData.SegmentPath = "site-of-origin"
+    siteOfOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/interfaces/interface/" + siteOfOrigin.EntityData.SegmentPath
     siteOfOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2029,6 +2088,7 @@ func (receiveVersion *Rip_Vrfs_Vrf_Interfaces_Interface_ReceiveVersion) GetEntit
     receiveVersion.EntityData.BundleName = "cisco_ios_xr"
     receiveVersion.EntityData.ParentYangName = "interface"
     receiveVersion.EntityData.SegmentPath = "receive-version"
+    receiveVersion.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/interfaces/interface/" + receiveVersion.EntityData.SegmentPath
     receiveVersion.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveVersion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveVersion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2063,6 +2123,7 @@ func (sendVersion *Rip_Vrfs_Vrf_Interfaces_Interface_SendVersion) GetEntityData(
     sendVersion.EntityData.BundleName = "cisco_ios_xr"
     sendVersion.EntityData.ParentYangName = "interface"
     sendVersion.EntityData.SegmentPath = "send-version"
+    sendVersion.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/interfaces/interface/" + sendVersion.EntityData.SegmentPath
     sendVersion.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendVersion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendVersion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2093,6 +2154,7 @@ func (neighbors *Rip_Vrfs_Vrf_Neighbors) GetEntityData() *types.CommonEntityData
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "vrf"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2114,6 +2176,7 @@ func (neighbors *Rip_Vrfs_Vrf_Neighbors) GetEntityData() *types.CommonEntityData
 type Rip_Vrfs_Vrf_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2126,6 +2189,7 @@ func (neighbor *Rip_Vrfs_Vrf_Neighbors_Neighbor) GetEntityData() *types.CommonEn
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2170,6 +2234,7 @@ func (timers *Rip_Vrfs_Vrf_Timers) GetEntityData() *types.CommonEntityData {
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "vrf"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/vrf/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

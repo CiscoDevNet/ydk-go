@@ -640,6 +640,7 @@ func (cISCOPTPMIB *CISCOPTPMIB) GetEntityData() *types.CommonEntityData {
     cISCOPTPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOPTPMIB.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cISCOPTPMIB.EntityData.SegmentPath = "CISCO-PTP-MIB:CISCO-PTP-MIB"
+    cISCOPTPMIB.EntityData.AbsolutePath = cISCOPTPMIB.EntityData.SegmentPath
     cISCOPTPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOPTPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOPTPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -683,6 +684,7 @@ func (ciscoPtpMIBSystemInfo *CISCOPTPMIB_CiscoPtpMIBSystemInfo) GetEntityData() 
     ciscoPtpMIBSystemInfo.EntityData.BundleName = "cisco_ios_xe"
     ciscoPtpMIBSystemInfo.EntityData.ParentYangName = "CISCO-PTP-MIB"
     ciscoPtpMIBSystemInfo.EntityData.SegmentPath = "ciscoPtpMIBSystemInfo"
+    ciscoPtpMIBSystemInfo.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + ciscoPtpMIBSystemInfo.EntityData.SegmentPath
     ciscoPtpMIBSystemInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoPtpMIBSystemInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoPtpMIBSystemInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -716,6 +718,7 @@ func (cPtpSystemTable *CISCOPTPMIB_CPtpSystemTable) GetEntityData() *types.Commo
     cPtpSystemTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpSystemTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpSystemTable.EntityData.SegmentPath = "cPtpSystemTable"
+    cPtpSystemTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpSystemTable.EntityData.SegmentPath
     cPtpSystemTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpSystemTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpSystemTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -740,6 +743,7 @@ func (cPtpSystemTable *CISCOPTPMIB_CPtpSystemTable) GetEntityData() *types.Commo
 type CISCOPTPMIB_CPtpSystemTable_CPtpSystemEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The Clock Domain is a logical group of
@@ -770,6 +774,7 @@ func (cPtpSystemEntry *CISCOPTPMIB_CPtpSystemTable_CPtpSystemEntry) GetEntityDat
     cPtpSystemEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpSystemEntry.EntityData.ParentYangName = "cPtpSystemTable"
     cPtpSystemEntry.EntityData.SegmentPath = "cPtpSystemEntry" + types.AddKeyToken(cPtpSystemEntry.CPtpDomainIndex, "cPtpDomainIndex") + types.AddKeyToken(cPtpSystemEntry.CPtpInstanceIndex, "cPtpInstanceIndex")
+    cPtpSystemEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpSystemTable/" + cPtpSystemEntry.EntityData.SegmentPath
     cPtpSystemEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpSystemEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpSystemEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -806,6 +811,7 @@ func (cPtpSystemDomainTable *CISCOPTPMIB_CPtpSystemDomainTable) GetEntityData() 
     cPtpSystemDomainTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpSystemDomainTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpSystemDomainTable.EntityData.SegmentPath = "cPtpSystemDomainTable"
+    cPtpSystemDomainTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpSystemDomainTable.EntityData.SegmentPath
     cPtpSystemDomainTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpSystemDomainTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpSystemDomainTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -829,6 +835,7 @@ func (cPtpSystemDomainTable *CISCOPTPMIB_CPtpSystemDomainTable) GetEntityData() 
 type CISCOPTPMIB_CPtpSystemDomainTable_CPtpSystemDomainEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the clock type as defined in
     // the Textual convention description. The type is ClockType.
@@ -846,6 +853,7 @@ func (cPtpSystemDomainEntry *CISCOPTPMIB_CPtpSystemDomainTable_CPtpSystemDomainE
     cPtpSystemDomainEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpSystemDomainEntry.EntityData.ParentYangName = "cPtpSystemDomainTable"
     cPtpSystemDomainEntry.EntityData.SegmentPath = "cPtpSystemDomainEntry" + types.AddKeyToken(cPtpSystemDomainEntry.CPtpSystemDomainClockTypeIndex, "cPtpSystemDomainClockTypeIndex")
+    cPtpSystemDomainEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpSystemDomainTable/" + cPtpSystemDomainEntry.EntityData.SegmentPath
     cPtpSystemDomainEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpSystemDomainEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpSystemDomainEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -878,6 +886,7 @@ func (cPtpClockNodeTable *CISCOPTPMIB_CPtpClockNodeTable) GetEntityData() *types
     cPtpClockNodeTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockNodeTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockNodeTable.EntityData.SegmentPath = "cPtpClockNodeTable"
+    cPtpClockNodeTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockNodeTable.EntityData.SegmentPath
     cPtpClockNodeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockNodeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockNodeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -901,6 +910,7 @@ func (cPtpClockNodeTable *CISCOPTPMIB_CPtpClockNodeTable) GetEntityData() *types
 type CISCOPTPMIB_CPtpClockNodeTable_CPtpClockNodeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the  domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -964,6 +974,7 @@ func (cPtpClockNodeEntry *CISCOPTPMIB_CPtpClockNodeTable_CPtpClockNodeEntry) Get
     cPtpClockNodeEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockNodeEntry.EntityData.ParentYangName = "cPtpClockNodeTable"
     cPtpClockNodeEntry.EntityData.SegmentPath = "cPtpClockNodeEntry" + types.AddKeyToken(cPtpClockNodeEntry.CPtpClockDomainIndex, "cPtpClockDomainIndex") + types.AddKeyToken(cPtpClockNodeEntry.CPtpClockTypeIndex, "cPtpClockTypeIndex") + types.AddKeyToken(cPtpClockNodeEntry.CPtpClockInstanceIndex, "cPtpClockInstanceIndex")
+    cPtpClockNodeEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockNodeTable/" + cPtpClockNodeEntry.EntityData.SegmentPath
     cPtpClockNodeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockNodeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockNodeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1008,6 +1019,7 @@ func (cPtpClockCurrentDSTable *CISCOPTPMIB_CPtpClockCurrentDSTable) GetEntityDat
     cPtpClockCurrentDSTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockCurrentDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockCurrentDSTable.EntityData.SegmentPath = "cPtpClockCurrentDSTable"
+    cPtpClockCurrentDSTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockCurrentDSTable.EntityData.SegmentPath
     cPtpClockCurrentDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockCurrentDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockCurrentDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1030,6 +1042,7 @@ func (cPtpClockCurrentDSTable *CISCOPTPMIB_CPtpClockCurrentDSTable) GetEntityDat
 type CISCOPTPMIB_CPtpClockCurrentDSTable_CPtpClockCurrentDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -1069,6 +1082,7 @@ func (cPtpClockCurrentDSEntry *CISCOPTPMIB_CPtpClockCurrentDSTable_CPtpClockCurr
     cPtpClockCurrentDSEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockCurrentDSEntry.EntityData.ParentYangName = "cPtpClockCurrentDSTable"
     cPtpClockCurrentDSEntry.EntityData.SegmentPath = "cPtpClockCurrentDSEntry" + types.AddKeyToken(cPtpClockCurrentDSEntry.CPtpClockCurrentDSDomainIndex, "cPtpClockCurrentDSDomainIndex") + types.AddKeyToken(cPtpClockCurrentDSEntry.CPtpClockCurrentDSClockTypeIndex, "cPtpClockCurrentDSClockTypeIndex") + types.AddKeyToken(cPtpClockCurrentDSEntry.CPtpClockCurrentDSInstanceIndex, "cPtpClockCurrentDSInstanceIndex")
+    cPtpClockCurrentDSEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockCurrentDSTable/" + cPtpClockCurrentDSEntry.EntityData.SegmentPath
     cPtpClockCurrentDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockCurrentDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockCurrentDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1106,6 +1120,7 @@ func (cPtpClockParentDSTable *CISCOPTPMIB_CPtpClockParentDSTable) GetEntityData(
     cPtpClockParentDSTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockParentDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockParentDSTable.EntityData.SegmentPath = "cPtpClockParentDSTable"
+    cPtpClockParentDSTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockParentDSTable.EntityData.SegmentPath
     cPtpClockParentDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockParentDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockParentDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1128,6 +1143,7 @@ func (cPtpClockParentDSTable *CISCOPTPMIB_CPtpClockParentDSTable) GetEntityData(
 type CISCOPTPMIB_CPtpClockParentDSTable_CPtpClockParentDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -1196,6 +1212,7 @@ func (cPtpClockParentDSEntry *CISCOPTPMIB_CPtpClockParentDSTable_CPtpClockParent
     cPtpClockParentDSEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockParentDSEntry.EntityData.ParentYangName = "cPtpClockParentDSTable"
     cPtpClockParentDSEntry.EntityData.SegmentPath = "cPtpClockParentDSEntry" + types.AddKeyToken(cPtpClockParentDSEntry.CPtpClockParentDSDomainIndex, "cPtpClockParentDSDomainIndex") + types.AddKeyToken(cPtpClockParentDSEntry.CPtpClockParentDSClockTypeIndex, "cPtpClockParentDSClockTypeIndex") + types.AddKeyToken(cPtpClockParentDSEntry.CPtpClockParentDSInstanceIndex, "cPtpClockParentDSInstanceIndex")
+    cPtpClockParentDSEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockParentDSTable/" + cPtpClockParentDSEntry.EntityData.SegmentPath
     cPtpClockParentDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockParentDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockParentDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1240,6 +1257,7 @@ func (cPtpClockDefaultDSTable *CISCOPTPMIB_CPtpClockDefaultDSTable) GetEntityDat
     cPtpClockDefaultDSTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockDefaultDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockDefaultDSTable.EntityData.SegmentPath = "cPtpClockDefaultDSTable"
+    cPtpClockDefaultDSTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockDefaultDSTable.EntityData.SegmentPath
     cPtpClockDefaultDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockDefaultDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockDefaultDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1262,6 +1280,7 @@ func (cPtpClockDefaultDSTable *CISCOPTPMIB_CPtpClockDefaultDSTable) GetEntityDat
 type CISCOPTPMIB_CPtpClockDefaultDSTable_CPtpClockDefaultDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -1315,6 +1334,7 @@ func (cPtpClockDefaultDSEntry *CISCOPTPMIB_CPtpClockDefaultDSTable_CPtpClockDefa
     cPtpClockDefaultDSEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockDefaultDSEntry.EntityData.ParentYangName = "cPtpClockDefaultDSTable"
     cPtpClockDefaultDSEntry.EntityData.SegmentPath = "cPtpClockDefaultDSEntry" + types.AddKeyToken(cPtpClockDefaultDSEntry.CPtpClockDefaultDSDomainIndex, "cPtpClockDefaultDSDomainIndex") + types.AddKeyToken(cPtpClockDefaultDSEntry.CPtpClockDefaultDSClockTypeIndex, "cPtpClockDefaultDSClockTypeIndex") + types.AddKeyToken(cPtpClockDefaultDSEntry.CPtpClockDefaultDSInstanceIndex, "cPtpClockDefaultDSInstanceIndex")
+    cPtpClockDefaultDSEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockDefaultDSTable/" + cPtpClockDefaultDSEntry.EntityData.SegmentPath
     cPtpClockDefaultDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockDefaultDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockDefaultDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1357,6 +1377,7 @@ func (cPtpClockRunningTable *CISCOPTPMIB_CPtpClockRunningTable) GetEntityData() 
     cPtpClockRunningTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockRunningTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockRunningTable.EntityData.SegmentPath = "cPtpClockRunningTable"
+    cPtpClockRunningTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockRunningTable.EntityData.SegmentPath
     cPtpClockRunningTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockRunningTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockRunningTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1379,6 +1400,7 @@ func (cPtpClockRunningTable *CISCOPTPMIB_CPtpClockRunningTable) GetEntityData() 
 type CISCOPTPMIB_CPtpClockRunningTable_CPtpClockRunningEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -1428,6 +1450,7 @@ func (cPtpClockRunningEntry *CISCOPTPMIB_CPtpClockRunningTable_CPtpClockRunningE
     cPtpClockRunningEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockRunningEntry.EntityData.ParentYangName = "cPtpClockRunningTable"
     cPtpClockRunningEntry.EntityData.SegmentPath = "cPtpClockRunningEntry" + types.AddKeyToken(cPtpClockRunningEntry.CPtpClockRunningDomainIndex, "cPtpClockRunningDomainIndex") + types.AddKeyToken(cPtpClockRunningEntry.CPtpClockRunningClockTypeIndex, "cPtpClockRunningClockTypeIndex") + types.AddKeyToken(cPtpClockRunningEntry.CPtpClockRunningInstanceIndex, "cPtpClockRunningInstanceIndex")
+    cPtpClockRunningEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockRunningTable/" + cPtpClockRunningEntry.EntityData.SegmentPath
     cPtpClockRunningEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockRunningEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockRunningEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1465,6 +1488,7 @@ func (cPtpClockTimePropertiesDSTable *CISCOPTPMIB_CPtpClockTimePropertiesDSTable
     cPtpClockTimePropertiesDSTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockTimePropertiesDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockTimePropertiesDSTable.EntityData.SegmentPath = "cPtpClockTimePropertiesDSTable"
+    cPtpClockTimePropertiesDSTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockTimePropertiesDSTable.EntityData.SegmentPath
     cPtpClockTimePropertiesDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockTimePropertiesDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockTimePropertiesDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1487,6 +1511,7 @@ func (cPtpClockTimePropertiesDSTable *CISCOPTPMIB_CPtpClockTimePropertiesDSTable
 type CISCOPTPMIB_CPtpClockTimePropertiesDSTable_CPtpClockTimePropertiesDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -1549,6 +1574,7 @@ func (cPtpClockTimePropertiesDSEntry *CISCOPTPMIB_CPtpClockTimePropertiesDSTable
     cPtpClockTimePropertiesDSEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockTimePropertiesDSEntry.EntityData.ParentYangName = "cPtpClockTimePropertiesDSTable"
     cPtpClockTimePropertiesDSEntry.EntityData.SegmentPath = "cPtpClockTimePropertiesDSEntry" + types.AddKeyToken(cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSDomainIndex, "cPtpClockTimePropertiesDSDomainIndex") + types.AddKeyToken(cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSClockTypeIndex, "cPtpClockTimePropertiesDSClockTypeIndex") + types.AddKeyToken(cPtpClockTimePropertiesDSEntry.CPtpClockTimePropertiesDSInstanceIndex, "cPtpClockTimePropertiesDSInstanceIndex")
+    cPtpClockTimePropertiesDSEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTimePropertiesDSTable/" + cPtpClockTimePropertiesDSEntry.EntityData.SegmentPath
     cPtpClockTimePropertiesDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockTimePropertiesDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockTimePropertiesDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1591,6 +1617,7 @@ func (cPtpClockTransDefaultDSTable *CISCOPTPMIB_CPtpClockTransDefaultDSTable) Ge
     cPtpClockTransDefaultDSTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockTransDefaultDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockTransDefaultDSTable.EntityData.SegmentPath = "cPtpClockTransDefaultDSTable"
+    cPtpClockTransDefaultDSTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockTransDefaultDSTable.EntityData.SegmentPath
     cPtpClockTransDefaultDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockTransDefaultDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockTransDefaultDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1613,6 +1640,7 @@ func (cPtpClockTransDefaultDSTable *CISCOPTPMIB_CPtpClockTransDefaultDSTable) Ge
 type CISCOPTPMIB_CPtpClockTransDefaultDSTable_CPtpClockTransDefaultDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -1649,6 +1677,7 @@ func (cPtpClockTransDefaultDSEntry *CISCOPTPMIB_CPtpClockTransDefaultDSTable_CPt
     cPtpClockTransDefaultDSEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockTransDefaultDSEntry.EntityData.ParentYangName = "cPtpClockTransDefaultDSTable"
     cPtpClockTransDefaultDSEntry.EntityData.SegmentPath = "cPtpClockTransDefaultDSEntry" + types.AddKeyToken(cPtpClockTransDefaultDSEntry.CPtpClockTransDefaultDSDomainIndex, "cPtpClockTransDefaultDSDomainIndex") + types.AddKeyToken(cPtpClockTransDefaultDSEntry.CPtpClockTransDefaultDSInstanceIndex, "cPtpClockTransDefaultDSInstanceIndex")
+    cPtpClockTransDefaultDSEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTransDefaultDSTable/" + cPtpClockTransDefaultDSEntry.EntityData.SegmentPath
     cPtpClockTransDefaultDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockTransDefaultDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockTransDefaultDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1685,6 +1714,7 @@ func (cPtpClockPortTable *CISCOPTPMIB_CPtpClockPortTable) GetEntityData() *types
     cPtpClockPortTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockPortTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockPortTable.EntityData.SegmentPath = "cPtpClockPortTable"
+    cPtpClockPortTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockPortTable.EntityData.SegmentPath
     cPtpClockPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1707,6 +1737,7 @@ func (cPtpClockPortTable *CISCOPTPMIB_CPtpClockPortTable) GetEntityData() *types
 type CISCOPTPMIB_CPtpClockPortTable_CPtpClockPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -1771,6 +1802,7 @@ func (cPtpClockPortEntry *CISCOPTPMIB_CPtpClockPortTable_CPtpClockPortEntry) Get
     cPtpClockPortEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockPortEntry.EntityData.ParentYangName = "cPtpClockPortTable"
     cPtpClockPortEntry.EntityData.SegmentPath = "cPtpClockPortEntry" + types.AddKeyToken(cPtpClockPortEntry.CPtpClockPortDomainIndex, "cPtpClockPortDomainIndex") + types.AddKeyToken(cPtpClockPortEntry.CPtpClockPortClockTypeIndex, "cPtpClockPortClockTypeIndex") + types.AddKeyToken(cPtpClockPortEntry.CPtpClockPortClockInstanceIndex, "cPtpClockPortClockInstanceIndex") + types.AddKeyToken(cPtpClockPortEntry.CPtpClockPortTablePortNumberIndex, "cPtpClockPortTablePortNumberIndex")
+    cPtpClockPortEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTable/" + cPtpClockPortEntry.EntityData.SegmentPath
     cPtpClockPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1812,6 +1844,7 @@ func (cPtpClockPortDSTable *CISCOPTPMIB_CPtpClockPortDSTable) GetEntityData() *t
     cPtpClockPortDSTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockPortDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockPortDSTable.EntityData.SegmentPath = "cPtpClockPortDSTable"
+    cPtpClockPortDSTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockPortDSTable.EntityData.SegmentPath
     cPtpClockPortDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockPortDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockPortDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1834,6 +1867,7 @@ func (cPtpClockPortDSTable *CISCOPTPMIB_CPtpClockPortDSTable) GetEntityData() *t
 type CISCOPTPMIB_CPtpClockPortDSTable_CPtpClockPortDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -1906,6 +1940,7 @@ func (cPtpClockPortDSEntry *CISCOPTPMIB_CPtpClockPortDSTable_CPtpClockPortDSEntr
     cPtpClockPortDSEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockPortDSEntry.EntityData.ParentYangName = "cPtpClockPortDSTable"
     cPtpClockPortDSEntry.EntityData.SegmentPath = "cPtpClockPortDSEntry" + types.AddKeyToken(cPtpClockPortDSEntry.CPtpClockPortDSDomainIndex, "cPtpClockPortDSDomainIndex") + types.AddKeyToken(cPtpClockPortDSEntry.CPtpClockPortDSClockTypeIndex, "cPtpClockPortDSClockTypeIndex") + types.AddKeyToken(cPtpClockPortDSEntry.CPtpClockPortDSClockInstanceIndex, "cPtpClockPortDSClockInstanceIndex") + types.AddKeyToken(cPtpClockPortDSEntry.CPtpClockPortDSPortNumberIndex, "cPtpClockPortDSPortNumberIndex")
+    cPtpClockPortDSEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortDSTable/" + cPtpClockPortDSEntry.EntityData.SegmentPath
     cPtpClockPortDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockPortDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockPortDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1952,6 +1987,7 @@ func (cPtpClockPortRunningTable *CISCOPTPMIB_CPtpClockPortRunningTable) GetEntit
     cPtpClockPortRunningTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockPortRunningTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockPortRunningTable.EntityData.SegmentPath = "cPtpClockPortRunningTable"
+    cPtpClockPortRunningTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockPortRunningTable.EntityData.SegmentPath
     cPtpClockPortRunningTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockPortRunningTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockPortRunningTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1974,6 +2010,7 @@ func (cPtpClockPortRunningTable *CISCOPTPMIB_CPtpClockPortRunningTable) GetEntit
 type CISCOPTPMIB_CPtpClockPortRunningTable_CPtpClockPortRunningEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -2064,6 +2101,7 @@ func (cPtpClockPortRunningEntry *CISCOPTPMIB_CPtpClockPortRunningTable_CPtpClock
     cPtpClockPortRunningEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockPortRunningEntry.EntityData.ParentYangName = "cPtpClockPortRunningTable"
     cPtpClockPortRunningEntry.EntityData.SegmentPath = "cPtpClockPortRunningEntry" + types.AddKeyToken(cPtpClockPortRunningEntry.CPtpClockPortRunningDomainIndex, "cPtpClockPortRunningDomainIndex") + types.AddKeyToken(cPtpClockPortRunningEntry.CPtpClockPortRunningClockTypeIndex, "cPtpClockPortRunningClockTypeIndex") + types.AddKeyToken(cPtpClockPortRunningEntry.CPtpClockPortRunningClockInstanceIndex, "cPtpClockPortRunningClockInstanceIndex") + types.AddKeyToken(cPtpClockPortRunningEntry.CPtpClockPortRunningPortNumberIndex, "cPtpClockPortRunningPortNumberIndex")
+    cPtpClockPortRunningEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortRunningTable/" + cPtpClockPortRunningEntry.EntityData.SegmentPath
     cPtpClockPortRunningEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockPortRunningEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockPortRunningEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2109,6 +2147,7 @@ func (cPtpClockPortTransDSTable *CISCOPTPMIB_CPtpClockPortTransDSTable) GetEntit
     cPtpClockPortTransDSTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockPortTransDSTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockPortTransDSTable.EntityData.SegmentPath = "cPtpClockPortTransDSTable"
+    cPtpClockPortTransDSTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockPortTransDSTable.EntityData.SegmentPath
     cPtpClockPortTransDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockPortTransDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockPortTransDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2131,6 +2170,7 @@ func (cPtpClockPortTransDSTable *CISCOPTPMIB_CPtpClockPortTransDSTable) GetEntit
 type CISCOPTPMIB_CPtpClockPortTransDSTable_CPtpClockPortTransDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the domain number used to
     // create logical group of PTP devices. The type is interface{} with range:
@@ -2173,6 +2213,7 @@ func (cPtpClockPortTransDSEntry *CISCOPTPMIB_CPtpClockPortTransDSTable_CPtpClock
     cPtpClockPortTransDSEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockPortTransDSEntry.EntityData.ParentYangName = "cPtpClockPortTransDSTable"
     cPtpClockPortTransDSEntry.EntityData.SegmentPath = "cPtpClockPortTransDSEntry" + types.AddKeyToken(cPtpClockPortTransDSEntry.CPtpClockPortTransDSDomainIndex, "cPtpClockPortTransDSDomainIndex") + types.AddKeyToken(cPtpClockPortTransDSEntry.CPtpClockPortTransDSInstanceIndex, "cPtpClockPortTransDSInstanceIndex") + types.AddKeyToken(cPtpClockPortTransDSEntry.CPtpClockPortTransDSPortNumberIndex, "cPtpClockPortTransDSPortNumberIndex")
+    cPtpClockPortTransDSEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTransDSTable/" + cPtpClockPortTransDSEntry.EntityData.SegmentPath
     cPtpClockPortTransDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockPortTransDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockPortTransDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2218,6 +2259,7 @@ func (cPtpClockPortAssociateTable *CISCOPTPMIB_CPtpClockPortAssociateTable) GetE
     cPtpClockPortAssociateTable.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockPortAssociateTable.EntityData.ParentYangName = "CISCO-PTP-MIB"
     cPtpClockPortAssociateTable.EntityData.SegmentPath = "cPtpClockPortAssociateTable"
+    cPtpClockPortAssociateTable.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/" + cPtpClockPortAssociateTable.EntityData.SegmentPath
     cPtpClockPortAssociateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockPortAssociateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockPortAssociateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2240,6 +2282,7 @@ func (cPtpClockPortAssociateTable *CISCOPTPMIB_CPtpClockPortAssociateTable) GetE
 type CISCOPTPMIB_CPtpClockPortAssociateTable_CPtpClockPortAssociateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object specifies the given port's domain
     // number. The type is interface{} with range: 0..255.
@@ -2294,6 +2337,7 @@ func (cPtpClockPortAssociateEntry *CISCOPTPMIB_CPtpClockPortAssociateTable_CPtpC
     cPtpClockPortAssociateEntry.EntityData.BundleName = "cisco_ios_xe"
     cPtpClockPortAssociateEntry.EntityData.ParentYangName = "cPtpClockPortAssociateTable"
     cPtpClockPortAssociateEntry.EntityData.SegmentPath = "cPtpClockPortAssociateEntry" + types.AddKeyToken(cPtpClockPortAssociateEntry.CPtpClockPortCurrentDomainIndex, "cPtpClockPortCurrentDomainIndex") + types.AddKeyToken(cPtpClockPortAssociateEntry.CPtpClockPortCurrentClockTypeIndex, "cPtpClockPortCurrentClockTypeIndex") + types.AddKeyToken(cPtpClockPortAssociateEntry.CPtpClockPortCurrentClockInstanceIndex, "cPtpClockPortCurrentClockInstanceIndex") + types.AddKeyToken(cPtpClockPortAssociateEntry.CPtpClockPortCurrentPortNumberIndex, "cPtpClockPortCurrentPortNumberIndex") + types.AddKeyToken(cPtpClockPortAssociateEntry.CPtpClockPortAssociatePortIndex, "cPtpClockPortAssociatePortIndex")
+    cPtpClockPortAssociateEntry.EntityData.AbsolutePath = "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortAssociateTable/" + cPtpClockPortAssociateEntry.EntityData.SegmentPath
     cPtpClockPortAssociateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPtpClockPortAssociateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPtpClockPortAssociateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

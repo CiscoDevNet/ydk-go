@@ -195,6 +195,7 @@ func (pce *Pce) GetEntityData() *types.CommonEntityData {
     pce.EntityData.BundleName = "cisco_ios_xr"
     pce.EntityData.ParentYangName = "Cisco-IOS-XR-infra-xtc-cfg"
     pce.EntityData.SegmentPath = "Cisco-IOS-XR-infra-xtc-cfg:pce"
+    pce.EntityData.AbsolutePath = pce.EntityData.SegmentPath
     pce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -239,6 +240,7 @@ func (ipv6StateSyncs *Pce_Ipv6StateSyncs) GetEntityData() *types.CommonEntityDat
     ipv6StateSyncs.EntityData.BundleName = "cisco_ios_xr"
     ipv6StateSyncs.EntityData.ParentYangName = "pce"
     ipv6StateSyncs.EntityData.SegmentPath = "ipv6-state-syncs"
+    ipv6StateSyncs.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + ipv6StateSyncs.EntityData.SegmentPath
     ipv6StateSyncs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6StateSyncs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6StateSyncs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -260,6 +262,7 @@ func (ipv6StateSyncs *Pce_Ipv6StateSyncs) GetEntityData() *types.CommonEntityDat
 type Pce_Ipv6StateSyncs_Ipv6StateSync struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -272,6 +275,7 @@ func (ipv6StateSync *Pce_Ipv6StateSyncs_Ipv6StateSync) GetEntityData() *types.Co
     ipv6StateSync.EntityData.BundleName = "cisco_ios_xr"
     ipv6StateSync.EntityData.ParentYangName = "ipv6-state-syncs"
     ipv6StateSync.EntityData.SegmentPath = "ipv6-state-sync" + types.AddKeyToken(ipv6StateSync.Address, "address")
+    ipv6StateSync.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/ipv6-state-syncs/" + ipv6StateSync.EntityData.SegmentPath
     ipv6StateSync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6StateSync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6StateSync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -302,6 +306,7 @@ func (pccAddresses *Pce_PccAddresses) GetEntityData() *types.CommonEntityData {
     pccAddresses.EntityData.BundleName = "cisco_ios_xr"
     pccAddresses.EntityData.ParentYangName = "pce"
     pccAddresses.EntityData.SegmentPath = "pcc-addresses"
+    pccAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + pccAddresses.EntityData.SegmentPath
     pccAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pccAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pccAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -323,6 +328,7 @@ func (pccAddresses *Pce_PccAddresses) GetEntityData() *types.CommonEntityData {
 type Pce_PccAddresses_PccAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -341,6 +347,7 @@ func (pccAddress *Pce_PccAddresses_PccAddress) GetEntityData() *types.CommonEnti
     pccAddress.EntityData.BundleName = "cisco_ios_xr"
     pccAddress.EntityData.ParentYangName = "pcc-addresses"
     pccAddress.EntityData.SegmentPath = "pcc-address" + types.AddKeyToken(pccAddress.Address, "address")
+    pccAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/pcc-addresses/" + pccAddress.EntityData.SegmentPath
     pccAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pccAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pccAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -373,6 +380,7 @@ func (lspNames *Pce_PccAddresses_PccAddress_LspNames) GetEntityData() *types.Com
     lspNames.EntityData.BundleName = "cisco_ios_xr"
     lspNames.EntityData.ParentYangName = "pcc-address"
     lspNames.EntityData.SegmentPath = "lsp-names"
+    lspNames.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/pcc-addresses/pcc-address/" + lspNames.EntityData.SegmentPath
     lspNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -394,6 +402,7 @@ func (lspNames *Pce_PccAddresses_PccAddress_LspNames) GetEntityData() *types.Com
 type Pce_PccAddresses_PccAddress_LspNames_LspName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSP name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -418,6 +427,7 @@ func (lspName *Pce_PccAddresses_PccAddress_LspNames_LspName) GetEntityData() *ty
     lspName.EntityData.BundleName = "cisco_ios_xr"
     lspName.EntityData.ParentYangName = "lsp-names"
     lspName.EntityData.SegmentPath = "lsp-name" + types.AddKeyToken(lspName.Name, "name")
+    lspName.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/pcc-addresses/pcc-address/lsp-names/" + lspName.EntityData.SegmentPath
     lspName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -466,6 +476,7 @@ func (rsvpTe *Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe) GetEntityData
     rsvpTe.EntityData.BundleName = "cisco_ios_xr"
     rsvpTe.EntityData.ParentYangName = "lsp-name"
     rsvpTe.EntityData.SegmentPath = "rsvp-te"
+    rsvpTe.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/pcc-addresses/pcc-address/lsp-names/lsp-name/" + rsvpTe.EntityData.SegmentPath
     rsvpTe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpTe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpTe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -508,6 +519,7 @@ func (affinity *Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe_Affinity) Ge
     affinity.EntityData.BundleName = "cisco_ios_xr"
     affinity.EntityData.ParentYangName = "rsvp-te"
     affinity.EntityData.SegmentPath = "affinity"
+    affinity.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/pcc-addresses/pcc-address/lsp-names/lsp-name/rsvp-te/" + affinity.EntityData.SegmentPath
     affinity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -546,6 +558,7 @@ func (priority *Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe_Priority) Ge
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "rsvp-te"
     priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/pcc-addresses/pcc-address/lsp-names/lsp-name/rsvp-te/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -582,6 +595,7 @@ func (logging *Pce_Logging) GetEntityData() *types.CommonEntityData {
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "pce"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -624,6 +638,7 @@ func (backoff *Pce_Backoff) GetEntityData() *types.CommonEntityData {
     backoff.EntityData.BundleName = "cisco_ios_xr"
     backoff.EntityData.ParentYangName = "pce"
     backoff.EntityData.SegmentPath = "backoff"
+    backoff.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + backoff.EntityData.SegmentPath
     backoff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -664,6 +679,7 @@ func (rest *Pce_Rest) GetEntityData() *types.CommonEntityData {
     rest.EntityData.BundleName = "cisco_ios_xr"
     rest.EntityData.ParentYangName = "pce"
     rest.EntityData.SegmentPath = "rest"
+    rest.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + rest.EntityData.SegmentPath
     rest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -695,6 +711,7 @@ func (restUsers *Pce_Rest_RestUsers) GetEntityData() *types.CommonEntityData {
     restUsers.EntityData.BundleName = "cisco_ios_xr"
     restUsers.EntityData.ParentYangName = "rest"
     restUsers.EntityData.SegmentPath = "rest-users"
+    restUsers.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/rest/" + restUsers.EntityData.SegmentPath
     restUsers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     restUsers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     restUsers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -716,6 +733,7 @@ func (restUsers *Pce_Rest_RestUsers) GetEntityData() *types.CommonEntityData {
 type Pce_Rest_RestUsers_RestUser struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. User name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -735,6 +753,7 @@ func (restUser *Pce_Rest_RestUsers_RestUser) GetEntityData() *types.CommonEntity
     restUser.EntityData.BundleName = "cisco_ios_xr"
     restUser.EntityData.ParentYangName = "rest-users"
     restUser.EntityData.SegmentPath = "rest-user" + types.AddKeyToken(restUser.Name, "name")
+    restUser.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/rest/rest-users/" + restUser.EntityData.SegmentPath
     restUser.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     restUser.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     restUser.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -766,6 +785,7 @@ func (stateSyncs *Pce_StateSyncs) GetEntityData() *types.CommonEntityData {
     stateSyncs.EntityData.BundleName = "cisco_ios_xr"
     stateSyncs.EntityData.ParentYangName = "pce"
     stateSyncs.EntityData.SegmentPath = "state-syncs"
+    stateSyncs.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + stateSyncs.EntityData.SegmentPath
     stateSyncs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateSyncs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateSyncs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -787,6 +807,7 @@ func (stateSyncs *Pce_StateSyncs) GetEntityData() *types.CommonEntityData {
 type Pce_StateSyncs_StateSync struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -799,6 +820,7 @@ func (stateSync *Pce_StateSyncs_StateSync) GetEntityData() *types.CommonEntityDa
     stateSync.EntityData.BundleName = "cisco_ios_xr"
     stateSync.EntityData.ParentYangName = "state-syncs"
     stateSync.EntityData.SegmentPath = "state-sync" + types.AddKeyToken(stateSync.Address, "address")
+    stateSync.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/state-syncs/" + stateSync.EntityData.SegmentPath
     stateSync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateSync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateSync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -834,6 +856,7 @@ func (segmentRouting *Pce_SegmentRouting) GetEntityData() *types.CommonEntityDat
     segmentRouting.EntityData.BundleName = "cisco_ios_xr"
     segmentRouting.EntityData.ParentYangName = "pce"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -874,6 +897,7 @@ func (trafficEngineering *Pce_SegmentRouting_TrafficEngineering) GetEntityData()
     trafficEngineering.EntityData.BundleName = "cisco_ios_xr"
     trafficEngineering.EntityData.ParentYangName = "segment-routing"
     trafficEngineering.EntityData.SegmentPath = "traffic-engineering"
+    trafficEngineering.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/" + trafficEngineering.EntityData.SegmentPath
     trafficEngineering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficEngineering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficEngineering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -907,6 +931,7 @@ func (affinityBits *Pce_SegmentRouting_TrafficEngineering_AffinityBits) GetEntit
     affinityBits.EntityData.BundleName = "cisco_ios_xr"
     affinityBits.EntityData.ParentYangName = "traffic-engineering"
     affinityBits.EntityData.SegmentPath = "affinity-bits"
+    affinityBits.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/" + affinityBits.EntityData.SegmentPath
     affinityBits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityBits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityBits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -928,6 +953,7 @@ func (affinityBits *Pce_SegmentRouting_TrafficEngineering_AffinityBits) GetEntit
 type Pce_SegmentRouting_TrafficEngineering_AffinityBits_AffinityBit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Color Name. The type is string with length: 1..32.
     ColorName interface{}
@@ -943,6 +969,7 @@ func (affinityBit *Pce_SegmentRouting_TrafficEngineering_AffinityBits_AffinityBi
     affinityBit.EntityData.BundleName = "cisco_ios_xr"
     affinityBit.EntityData.ParentYangName = "affinity-bits"
     affinityBit.EntityData.SegmentPath = "affinity-bit" + types.AddKeyToken(affinityBit.ColorName, "color-name")
+    affinityBit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/affinity-bits/" + affinityBit.EntityData.SegmentPath
     affinityBit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityBit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityBit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -974,6 +1001,7 @@ func (peers *Pce_SegmentRouting_TrafficEngineering_Peers) GetEntityData() *types
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "traffic-engineering"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -995,6 +1023,7 @@ func (peers *Pce_SegmentRouting_TrafficEngineering_Peers) GetEntityData() *types
 type Pce_SegmentRouting_TrafficEngineering_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Peer address. The type is one of the following
     // types: string with pattern:
@@ -1016,6 +1045,7 @@ func (peer *Pce_SegmentRouting_TrafficEngineering_Peers_Peer) GetEntityData() *t
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.PeerAddr, "peer-addr")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1048,6 +1078,7 @@ func (policies *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies) GetEn
     policies.EntityData.BundleName = "cisco_ios_xr"
     policies.EntityData.ParentYangName = "peer"
     policies.EntityData.SegmentPath = "policies"
+    policies.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/" + policies.EntityData.SegmentPath
     policies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1069,6 +1100,7 @@ func (policies *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies) GetEn
 type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Policy name. The type is string with length:
     // 1..128.
@@ -1096,6 +1128,7 @@ func (policy *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy) 
     policy.EntityData.BundleName = "cisco_ios_xr"
     policy.EntityData.ParentYangName = "policies"
     policy.EntityData.SegmentPath = "policy" + types.AddKeyToken(policy.PolicyName, "policy-name")
+    policy.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/" + policy.EntityData.SegmentPath
     policy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1133,6 +1166,7 @@ func (bindingSid *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Poli
     bindingSid.EntityData.BundleName = "cisco_ios_xr"
     bindingSid.EntityData.ParentYangName = "policy"
     bindingSid.EntityData.SegmentPath = "binding-sid"
+    bindingSid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/policy/" + bindingSid.EntityData.SegmentPath
     bindingSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bindingSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindingSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1173,6 +1207,7 @@ func (colorEndpoint *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_P
     colorEndpoint.EntityData.BundleName = "cisco_ios_xr"
     colorEndpoint.EntityData.ParentYangName = "policy"
     colorEndpoint.EntityData.SegmentPath = "color-endpoint"
+    colorEndpoint.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/policy/" + colorEndpoint.EntityData.SegmentPath
     colorEndpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     colorEndpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     colorEndpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1210,6 +1245,7 @@ func (candidatePaths *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_
     candidatePaths.EntityData.BundleName = "cisco_ios_xr"
     candidatePaths.EntityData.ParentYangName = "policy"
     candidatePaths.EntityData.SegmentPath = "candidate-paths"
+    candidatePaths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/policy/" + candidatePaths.EntityData.SegmentPath
     candidatePaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidatePaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidatePaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1242,6 +1278,7 @@ func (affinityRules *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_P
     affinityRules.EntityData.BundleName = "cisco_ios_xr"
     affinityRules.EntityData.ParentYangName = "candidate-paths"
     affinityRules.EntityData.SegmentPath = "affinity-rules"
+    affinityRules.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/policy/candidate-paths/" + affinityRules.EntityData.SegmentPath
     affinityRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1263,6 +1300,7 @@ func (affinityRules *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_P
 type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_AffinityRules_AffinityRule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. affinity rule. The type is interface{} with range:
     // 0..2.
@@ -1279,6 +1317,7 @@ func (affinityRule *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Po
     affinityRule.EntityData.BundleName = "cisco_ios_xr"
     affinityRule.EntityData.ParentYangName = "affinity-rules"
     affinityRule.EntityData.SegmentPath = "affinity-rule" + types.AddKeyToken(affinityRule.Rule, "rule") + types.AddKeyToken(affinityRule.AffValue, "aff-value")
+    affinityRule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/policy/candidate-paths/affinity-rules/" + affinityRule.EntityData.SegmentPath
     affinityRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1310,6 +1349,7 @@ func (preferences *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Pol
     preferences.EntityData.BundleName = "cisco_ios_xr"
     preferences.EntityData.ParentYangName = "candidate-paths"
     preferences.EntityData.SegmentPath = "preferences"
+    preferences.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/policy/candidate-paths/" + preferences.EntityData.SegmentPath
     preferences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preferences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preferences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1331,6 +1371,7 @@ func (preferences *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Pol
 type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path-option preference. The type is interface{}
     // with range: 1..65535.
@@ -1349,6 +1390,7 @@ func (preference *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Poli
     preference.EntityData.BundleName = "cisco_ios_xr"
     preference.EntityData.ParentYangName = "preferences"
     preference.EntityData.SegmentPath = "preference" + types.AddKeyToken(preference.PathIndex, "path-index")
+    preference.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/policy/candidate-paths/preferences/" + preference.EntityData.SegmentPath
     preference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1382,6 +1424,7 @@ func (pathInfos *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Polic
     pathInfos.EntityData.BundleName = "cisco_ios_xr"
     pathInfos.EntityData.ParentYangName = "preference"
     pathInfos.EntityData.SegmentPath = "path-infos"
+    pathInfos.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/policy/candidate-paths/preferences/preference/" + pathInfos.EntityData.SegmentPath
     pathInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1403,6 +1446,7 @@ func (pathInfos *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Polic
 type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path-option type. The type is PcePath.
     Type interface{}
@@ -1428,6 +1472,7 @@ func (pathInfo *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy
     pathInfo.EntityData.BundleName = "cisco_ios_xr"
     pathInfo.EntityData.ParentYangName = "path-infos"
     pathInfo.EntityData.SegmentPath = "path-info" + types.AddKeyToken(pathInfo.Type, "type") + types.AddKeyToken(pathInfo.HopType, "hop-type") + types.AddKeyToken(pathInfo.SegmentListName, "segment-list-name")
+    pathInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/policy/candidate-paths/preferences/preference/path-infos/" + pathInfo.EntityData.SegmentPath
     pathInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1464,6 +1509,7 @@ func (metric *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_C
     metric.EntityData.BundleName = "cisco_ios_xr"
     metric.EntityData.ParentYangName = "path-info"
     metric.EntityData.SegmentPath = "metric"
+    metric.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/peers/peer/policies/policy/candidate-paths/preferences/preference/path-infos/path-info/" + metric.EntityData.SegmentPath
     metric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1494,6 +1540,7 @@ func (segments *Pce_SegmentRouting_TrafficEngineering_Segments) GetEntityData() 
     segments.EntityData.BundleName = "cisco_ios_xr"
     segments.EntityData.ParentYangName = "traffic-engineering"
     segments.EntityData.SegmentPath = "segments"
+    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/" + segments.EntityData.SegmentPath
     segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1515,6 +1562,7 @@ func (segments *Pce_SegmentRouting_TrafficEngineering_Segments) GetEntityData() 
 type Pce_SegmentRouting_TrafficEngineering_Segments_Segment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment-list name. The type is string with length:
     // 1..128.
@@ -1530,6 +1578,7 @@ func (segment *Pce_SegmentRouting_TrafficEngineering_Segments_Segment) GetEntity
     segment.EntityData.BundleName = "cisco_ios_xr"
     segment.EntityData.ParentYangName = "segments"
     segment.EntityData.SegmentPath = "segment" + types.AddKeyToken(segment.PathName, "path-name")
+    segment.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/segments/" + segment.EntityData.SegmentPath
     segment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1562,6 +1611,7 @@ func (segments *Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments)
     segments.EntityData.BundleName = "cisco_ios_xr"
     segments.EntityData.ParentYangName = "segment"
     segments.EntityData.SegmentPath = "segments"
+    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/segments/segment/" + segments.EntityData.SegmentPath
     segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1583,6 +1633,7 @@ func (segments *Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments)
 type Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments_Segment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment index. The type is interface{} with range:
     // 1..65535.
@@ -1605,6 +1656,7 @@ func (segment *Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments_S
     segment.EntityData.BundleName = "cisco_ios_xr"
     segment.EntityData.ParentYangName = "segments"
     segment.EntityData.SegmentPath = "segment" + types.AddKeyToken(segment.SegmentIndex, "segment-index")
+    segment.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/segment-routing/traffic-engineering/segments/segment/segments/" + segment.EntityData.SegmentPath
     segment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1648,6 +1700,7 @@ func (timers *Pce_Timers) GetEntityData() *types.CommonEntityData {
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "pce"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1682,6 +1735,7 @@ func (netconf *Pce_Netconf) GetEntityData() *types.CommonEntityData {
     netconf.EntityData.BundleName = "cisco_ios_xr"
     netconf.EntityData.ParentYangName = "pce"
     netconf.EntityData.SegmentPath = "netconf"
+    netconf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + netconf.EntityData.SegmentPath
     netconf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netconf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1716,6 +1770,7 @@ func (netconfSsh *Pce_Netconf_NetconfSsh) GetEntityData() *types.CommonEntityDat
     netconfSsh.EntityData.BundleName = "cisco_ios_xr"
     netconfSsh.EntityData.ParentYangName = "netconf"
     netconfSsh.EntityData.SegmentPath = "netconf-ssh"
+    netconfSsh.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/netconf/" + netconfSsh.EntityData.SegmentPath
     netconfSsh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netconfSsh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfSsh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1749,6 +1804,7 @@ func (disjointPath *Pce_DisjointPath) GetEntityData() *types.CommonEntityData {
     disjointPath.EntityData.BundleName = "cisco_ios_xr"
     disjointPath.EntityData.ParentYangName = "pce"
     disjointPath.EntityData.SegmentPath = "disjoint-path"
+    disjointPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + disjointPath.EntityData.SegmentPath
     disjointPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disjointPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disjointPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1780,6 +1836,7 @@ func (groups *Pce_DisjointPath_Groups) GetEntityData() *types.CommonEntityData {
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "disjoint-path"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/disjoint-path/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1801,6 +1858,7 @@ func (groups *Pce_DisjointPath_Groups) GetEntityData() *types.CommonEntityData {
 type Pce_DisjointPath_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group ID. The type is interface{} with range:
     // 1..65535.
@@ -1829,6 +1887,7 @@ func (group *Pce_DisjointPath_Groups_Group) GetEntityData() *types.CommonEntityD
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupId, "group-id") + types.AddKeyToken(group.DpType, "dp-type") + types.AddKeyToken(group.SubId, "sub-id")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/disjoint-path/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1865,6 +1924,7 @@ func (groupLspRecords *Pce_DisjointPath_Groups_Group_GroupLspRecords) GetEntityD
     groupLspRecords.EntityData.BundleName = "cisco_ios_xr"
     groupLspRecords.EntityData.ParentYangName = "group"
     groupLspRecords.EntityData.SegmentPath = "group-lsp-records"
+    groupLspRecords.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/disjoint-path/groups/group/" + groupLspRecords.EntityData.SegmentPath
     groupLspRecords.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupLspRecords.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupLspRecords.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1887,6 +1947,7 @@ func (groupLspRecords *Pce_DisjointPath_Groups_Group_GroupLspRecords) GetEntityD
 type Pce_DisjointPath_Groups_Group_GroupLspRecords_GroupLspRecord struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Lsp id. The type is interface{} with range: 1..2.
     LspId interface{}
@@ -1909,6 +1970,7 @@ func (groupLspRecord *Pce_DisjointPath_Groups_Group_GroupLspRecords_GroupLspReco
     groupLspRecord.EntityData.BundleName = "cisco_ios_xr"
     groupLspRecord.EntityData.ParentYangName = "group-lsp-records"
     groupLspRecord.EntityData.SegmentPath = "group-lsp-record" + types.AddKeyToken(groupLspRecord.LspId, "lsp-id")
+    groupLspRecord.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/disjoint-path/groups/group/group-lsp-records/" + groupLspRecord.EntityData.SegmentPath
     groupLspRecord.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupLspRecord.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupLspRecord.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1942,6 +2004,7 @@ func (explicitPaths *Pce_ExplicitPaths) GetEntityData() *types.CommonEntityData 
     explicitPaths.EntityData.BundleName = "cisco_ios_xr"
     explicitPaths.EntityData.ParentYangName = "pce"
     explicitPaths.EntityData.SegmentPath = "explicit-paths"
+    explicitPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + explicitPaths.EntityData.SegmentPath
     explicitPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1963,6 +2026,7 @@ func (explicitPaths *Pce_ExplicitPaths) GetEntityData() *types.CommonEntityData 
 type Pce_ExplicitPaths_ExplicitPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Explicit-path name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1981,6 +2045,7 @@ func (explicitPath *Pce_ExplicitPaths_ExplicitPath) GetEntityData() *types.Commo
     explicitPath.EntityData.BundleName = "cisco_ios_xr"
     explicitPath.EntityData.ParentYangName = "explicit-paths"
     explicitPath.EntityData.SegmentPath = "explicit-path" + types.AddKeyToken(explicitPath.Name, "name")
+    explicitPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/explicit-paths/" + explicitPath.EntityData.SegmentPath
     explicitPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2013,6 +2078,7 @@ func (pathHops *Pce_ExplicitPaths_ExplicitPath_PathHops) GetEntityData() *types.
     pathHops.EntityData.BundleName = "cisco_ios_xr"
     pathHops.EntityData.ParentYangName = "explicit-path"
     pathHops.EntityData.SegmentPath = "path-hops"
+    pathHops.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/explicit-paths/explicit-path/" + pathHops.EntityData.SegmentPath
     pathHops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathHops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathHops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2034,6 +2100,7 @@ func (pathHops *Pce_ExplicitPaths_ExplicitPath_PathHops) GetEntityData() *types.
 type Pce_ExplicitPaths_ExplicitPath_PathHops_PathHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Hop Index. The type is interface{} with range:
     // 1..65535.
@@ -2063,6 +2130,7 @@ func (pathHop *Pce_ExplicitPaths_ExplicitPath_PathHops_PathHop) GetEntityData() 
     pathHop.EntityData.BundleName = "cisco_ios_xr"
     pathHop.EntityData.ParentYangName = "path-hops"
     pathHop.EntityData.SegmentPath = "path-hop" + types.AddKeyToken(pathHop.Index, "index")
+    pathHop.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/explicit-paths/explicit-path/path-hops/" + pathHop.EntityData.SegmentPath
     pathHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

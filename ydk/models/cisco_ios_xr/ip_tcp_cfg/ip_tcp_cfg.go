@@ -83,6 +83,7 @@ func (ipTcp *IpTcp) GetEntityData() *types.CommonEntityData {
     ipTcp.EntityData.BundleName = "cisco_ios_xr"
     ipTcp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-tcp-cfg"
     ipTcp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp"
+    ipTcp.EntityData.AbsolutePath = ipTcp.EntityData.SegmentPath
     ipTcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipTcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipTcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -133,6 +134,7 @@ func (directory *IpTcp_Directory) GetEntityData() *types.CommonEntityData {
     directory.EntityData.BundleName = "cisco_ios_xr"
     directory.EntityData.ParentYangName = "ip-tcp"
     directory.EntityData.SegmentPath = "directory"
+    directory.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/" + directory.EntityData.SegmentPath
     directory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     directory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     directory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -171,6 +173,7 @@ func (throttle *IpTcp_Throttle) GetEntityData() *types.CommonEntityData {
     throttle.EntityData.BundleName = "cisco_ios_xr"
     throttle.EntityData.ParentYangName = "ip-tcp"
     throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/" + throttle.EntityData.SegmentPath
     throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -204,6 +207,7 @@ func (ao *IpTcp_Ao) GetEntityData() *types.CommonEntityData {
     ao.EntityData.BundleName = "cisco_ios_xr"
     ao.EntityData.ParentYangName = "ip-tcp"
     ao.EntityData.SegmentPath = "ao"
+    ao.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/" + ao.EntityData.SegmentPath
     ao.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ao.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ao.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -234,6 +238,7 @@ func (keychains *IpTcp_Ao_Keychains) GetEntityData() *types.CommonEntityData {
     keychains.EntityData.BundleName = "cisco_ios_xr"
     keychains.EntityData.ParentYangName = "ao"
     keychains.EntityData.SegmentPath = "keychains"
+    keychains.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/ao/" + keychains.EntityData.SegmentPath
     keychains.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keychains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -255,6 +260,7 @@ func (keychains *IpTcp_Ao_Keychains) GetEntityData() *types.CommonEntityData {
 type IpTcp_Ao_Keychains_Keychain struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the key chain. The type is string with
     // length: 1..32.
@@ -273,6 +279,7 @@ func (keychain *IpTcp_Ao_Keychains_Keychain) GetEntityData() *types.CommonEntity
     keychain.EntityData.BundleName = "cisco_ios_xr"
     keychain.EntityData.ParentYangName = "keychains"
     keychain.EntityData.SegmentPath = "keychain" + types.AddKeyToken(keychain.Name, "name")
+    keychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/ao/keychains/" + keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -304,6 +311,7 @@ func (keys *IpTcp_Ao_Keychains_Keychain_Keys) GetEntityData() *types.CommonEntit
     keys.EntityData.BundleName = "cisco_ios_xr"
     keys.EntityData.ParentYangName = "keychain"
     keys.EntityData.SegmentPath = "keys"
+    keys.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/ao/keychains/keychain/" + keys.EntityData.SegmentPath
     keys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -325,6 +333,7 @@ func (keys *IpTcp_Ao_Keychains_Keychain_Keys) GetEntityData() *types.CommonEntit
 type IpTcp_Ao_Keychains_Keychain_Keys_Key struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 48-bit Key identifier in range [0 -
     // 281474976710655]. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -345,6 +354,7 @@ func (key *IpTcp_Ao_Keychains_Keychain_Keys_Key) GetEntityData() *types.CommonEn
     key.EntityData.BundleName = "cisco_ios_xr"
     key.EntityData.ParentYangName = "keys"
     key.EntityData.SegmentPath = "key" + types.AddKeyToken(key.KeyId, "key-id")
+    key.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/ao/keychains/keychain/keys/" + key.EntityData.SegmentPath
     key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     key.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -383,6 +393,7 @@ func (numThread *IpTcp_NumThread) GetEntityData() *types.CommonEntityData {
     numThread.EntityData.BundleName = "cisco_ios_xr"
     numThread.EntityData.ParentYangName = "ip-tcp"
     numThread.EntityData.SegmentPath = "num-thread"
+    numThread.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/" + numThread.EntityData.SegmentPath
     numThread.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numThread.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numThread.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -416,6 +427,7 @@ func (ip *Ip) GetEntityData() *types.CommonEntityData {
     ip.EntityData.BundleName = "cisco_ios_xr"
     ip.EntityData.ParentYangName = "Cisco-IOS-XR-ip-tcp-cfg"
     ip.EntityData.SegmentPath = "Cisco-IOS-XR-ip-tcp-cfg:ip"
+    ip.EntityData.AbsolutePath = ip.EntityData.SegmentPath
     ip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -450,6 +462,7 @@ func (cinetd *Ip_Cinetd) GetEntityData() *types.CommonEntityData {
     cinetd.EntityData.BundleName = "cisco_ios_xr"
     cinetd.EntityData.ParentYangName = "ip"
     cinetd.EntityData.SegmentPath = "cinetd"
+    cinetd.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/" + cinetd.EntityData.SegmentPath
     cinetd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cinetd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cinetd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -486,6 +499,7 @@ func (services *Ip_Cinetd_Services) GetEntityData() *types.CommonEntityData {
     services.EntityData.BundleName = "cisco_ios_xr"
     services.EntityData.ParentYangName = "cinetd"
     services.EntityData.SegmentPath = "services"
+    services.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/" + services.EntityData.SegmentPath
     services.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     services.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     services.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -517,6 +531,7 @@ func (ipv4 *Ip_Cinetd_Services_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "services"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -549,6 +564,7 @@ func (smallServers *Ip_Cinetd_Services_Ipv4_SmallServers) GetEntityData() *types
     smallServers.EntityData.BundleName = "cisco_ios_xr"
     smallServers.EntityData.ParentYangName = "ipv4"
     smallServers.EntityData.SegmentPath = "small-servers"
+    smallServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv4/" + smallServers.EntityData.SegmentPath
     smallServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     smallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     smallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -589,6 +605,7 @@ func (tcpSmallServers *Ip_Cinetd_Services_Ipv4_SmallServers_TcpSmallServers) Get
     tcpSmallServers.EntityData.BundleName = "cisco_ios_xr"
     tcpSmallServers.EntityData.ParentYangName = "small-servers"
     tcpSmallServers.EntityData.SegmentPath = "tcp-small-servers"
+    tcpSmallServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv4/small-servers/" + tcpSmallServers.EntityData.SegmentPath
     tcpSmallServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcpSmallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpSmallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -636,6 +653,7 @@ func (udpSmallServers *Ip_Cinetd_Services_Ipv4_SmallServers_UdpSmallServers) Get
     udpSmallServers.EntityData.BundleName = "cisco_ios_xr"
     udpSmallServers.EntityData.ParentYangName = "small-servers"
     udpSmallServers.EntityData.SegmentPath = "Cisco-IOS-XR-ip-udp-cfg:udp-small-servers"
+    udpSmallServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv4/small-servers/" + udpSmallServers.EntityData.SegmentPath
     udpSmallServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpSmallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpSmallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -674,6 +692,7 @@ func (vrfs *Ip_Cinetd_Services_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "services"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -695,6 +714,7 @@ func (vrfs *Ip_Cinetd_Services_Vrfs) GetEntityData() *types.CommonEntityData {
 type Ip_Cinetd_Services_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the VRF instance. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -713,6 +733,7 @@ func (vrf *Ip_Cinetd_Services_Vrfs_Vrf) GetEntityData() *types.CommonEntityData 
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -747,6 +768,7 @@ func (ipv6 *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6) GetEntityData() *types.CommonEntit
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "vrf"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/vrf/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -777,6 +799,7 @@ func (telnet *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Telnet) GetEntityData() *types.Co
     telnet.EntityData.BundleName = "cisco_ios_xr"
     telnet.EntityData.ParentYangName = "ipv6"
     telnet.EntityData.SegmentPath = "telnet"
+    telnet.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/vrf/ipv6/" + telnet.EntityData.SegmentPath
     telnet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -812,6 +835,7 @@ func (tcp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Telnet_Tcp) GetEntityData() *types.C
     tcp.EntityData.BundleName = "cisco_ios_xr"
     tcp.EntityData.ParentYangName = "telnet"
     tcp.EntityData.SegmentPath = "tcp"
+    tcp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/vrf/ipv6/telnet/" + tcp.EntityData.SegmentPath
     tcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -842,6 +866,7 @@ func (tftp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Tftp) GetEntityData() *types.Common
     tftp.EntityData.BundleName = "cisco_ios_xr"
     tftp.EntityData.ParentYangName = "ipv6"
     tftp.EntityData.SegmentPath = "tftp"
+    tftp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/vrf/ipv6/" + tftp.EntityData.SegmentPath
     tftp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tftp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -885,6 +910,7 @@ func (udp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv6_Tftp_Udp) GetEntityData() *types.Com
     udp.EntityData.BundleName = "cisco_ios_xr"
     udp.EntityData.ParentYangName = "tftp"
     udp.EntityData.SegmentPath = "udp"
+    udp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/vrf/ipv6/tftp/" + udp.EntityData.SegmentPath
     udp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -920,6 +946,7 @@ func (ipv4 *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntit
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "vrf"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/vrf/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -950,6 +977,7 @@ func (telnet *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Telnet) GetEntityData() *types.Co
     telnet.EntityData.BundleName = "cisco_ios_xr"
     telnet.EntityData.ParentYangName = "ipv4"
     telnet.EntityData.SegmentPath = "telnet"
+    telnet.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/vrf/ipv4/" + telnet.EntityData.SegmentPath
     telnet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -985,6 +1013,7 @@ func (tcp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Telnet_Tcp) GetEntityData() *types.C
     tcp.EntityData.BundleName = "cisco_ios_xr"
     tcp.EntityData.ParentYangName = "telnet"
     tcp.EntityData.SegmentPath = "tcp"
+    tcp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/vrf/ipv4/telnet/" + tcp.EntityData.SegmentPath
     tcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1015,6 +1044,7 @@ func (tftp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Tftp) GetEntityData() *types.Common
     tftp.EntityData.BundleName = "cisco_ios_xr"
     tftp.EntityData.ParentYangName = "ipv4"
     tftp.EntityData.SegmentPath = "tftp"
+    tftp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/vrf/ipv4/" + tftp.EntityData.SegmentPath
     tftp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tftp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1058,6 +1088,7 @@ func (udp *Ip_Cinetd_Services_Vrfs_Vrf_Ipv4_Tftp_Udp) GetEntityData() *types.Com
     udp.EntityData.BundleName = "cisco_ios_xr"
     udp.EntityData.ParentYangName = "tftp"
     udp.EntityData.SegmentPath = "udp"
+    udp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/vrf/ipv4/tftp/" + udp.EntityData.SegmentPath
     udp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1090,6 +1121,7 @@ func (ipv6 *Ip_Cinetd_Services_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "services"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1122,6 +1154,7 @@ func (smallServers *Ip_Cinetd_Services_Ipv6_SmallServers) GetEntityData() *types
     smallServers.EntityData.BundleName = "cisco_ios_xr"
     smallServers.EntityData.ParentYangName = "ipv6"
     smallServers.EntityData.SegmentPath = "small-servers"
+    smallServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv6/" + smallServers.EntityData.SegmentPath
     smallServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     smallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     smallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1162,6 +1195,7 @@ func (tcpSmallServers *Ip_Cinetd_Services_Ipv6_SmallServers_TcpSmallServers) Get
     tcpSmallServers.EntityData.BundleName = "cisco_ios_xr"
     tcpSmallServers.EntityData.ParentYangName = "small-servers"
     tcpSmallServers.EntityData.SegmentPath = "tcp-small-servers"
+    tcpSmallServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv6/small-servers/" + tcpSmallServers.EntityData.SegmentPath
     tcpSmallServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcpSmallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpSmallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1209,6 +1243,7 @@ func (udpSmallServers *Ip_Cinetd_Services_Ipv6_SmallServers_UdpSmallServers) Get
     udpSmallServers.EntityData.BundleName = "cisco_ios_xr"
     udpSmallServers.EntityData.ParentYangName = "small-servers"
     udpSmallServers.EntityData.SegmentPath = "Cisco-IOS-XR-ip-udp-cfg:udp-small-servers"
+    udpSmallServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv6/small-servers/" + udpSmallServers.EntityData.SegmentPath
     udpSmallServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpSmallServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpSmallServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1248,6 +1283,7 @@ func (forwardProtocol *Ip_ForwardProtocol) GetEntityData() *types.CommonEntityDa
     forwardProtocol.EntityData.BundleName = "cisco_ios_xr"
     forwardProtocol.EntityData.ParentYangName = "ip"
     forwardProtocol.EntityData.SegmentPath = "Cisco-IOS-XR-ip-udp-cfg:forward-protocol"
+    forwardProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/" + forwardProtocol.EntityData.SegmentPath
     forwardProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1280,6 +1316,7 @@ func (udp *Ip_ForwardProtocol_Udp) GetEntityData() *types.CommonEntityData {
     udp.EntityData.BundleName = "cisco_ios_xr"
     udp.EntityData.ParentYangName = "forward-protocol"
     udp.EntityData.SegmentPath = "udp"
+    udp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/" + udp.EntityData.SegmentPath
     udp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1312,6 +1349,7 @@ func (ports *Ip_ForwardProtocol_Udp_Ports) GetEntityData() *types.CommonEntityDa
     ports.EntityData.BundleName = "cisco_ios_xr"
     ports.EntityData.ParentYangName = "udp"
     ports.EntityData.SegmentPath = "ports"
+    ports.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/udp/" + ports.EntityData.SegmentPath
     ports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1335,6 +1373,7 @@ func (ports *Ip_ForwardProtocol_Udp_Ports) GetEntityData() *types.CommonEntityDa
 type Ip_ForwardProtocol_Udp_Ports_Port struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port number. The type is interface{} with range:
     // 1..65535.
@@ -1353,6 +1392,7 @@ func (port *Ip_ForwardProtocol_Udp_Ports_Port) GetEntityData() *types.CommonEnti
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "ports"
     port.EntityData.SegmentPath = "port" + types.AddKeyToken(port.PortId, "port-id")
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/udp/ports/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

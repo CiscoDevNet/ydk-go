@@ -72,6 +72,7 @@ func (transceiverOperData *TransceiverOperData) GetEntityData() *types.CommonEnt
     transceiverOperData.EntityData.BundleName = "cisco_ios_xe"
     transceiverOperData.EntityData.ParentYangName = "Cisco-IOS-XE-transceiver-oper"
     transceiverOperData.EntityData.SegmentPath = "Cisco-IOS-XE-transceiver-oper:transceiver-oper-data"
+    transceiverOperData.EntityData.AbsolutePath = transceiverOperData.EntityData.SegmentPath
     transceiverOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     transceiverOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transceiverOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -93,6 +94,7 @@ func (transceiverOperData *TransceiverOperData) GetEntityData() *types.CommonEnt
 type TransceiverOperData_Transceiver struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string.
     Name interface{}
@@ -165,6 +167,7 @@ func (transceiver *TransceiverOperData_Transceiver) GetEntityData() *types.Commo
     transceiver.EntityData.BundleName = "cisco_ios_xe"
     transceiver.EntityData.ParentYangName = "transceiver-oper-data"
     transceiver.EntityData.SegmentPath = "transceiver" + types.AddKeyToken(transceiver.Name, "name")
+    transceiver.EntityData.AbsolutePath = "Cisco-IOS-XE-transceiver-oper:transceiver-oper-data/" + transceiver.EntityData.SegmentPath
     transceiver.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     transceiver.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transceiver.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -228,6 +231,7 @@ func (outputPower *TransceiverOperData_Transceiver_OutputPower) GetEntityData() 
     outputPower.EntityData.BundleName = "cisco_ios_xe"
     outputPower.EntityData.ParentYangName = "transceiver"
     outputPower.EntityData.SegmentPath = "output-power"
+    outputPower.EntityData.AbsolutePath = "Cisco-IOS-XE-transceiver-oper:transceiver-oper-data/transceiver/" + outputPower.EntityData.SegmentPath
     outputPower.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     outputPower.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     outputPower.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -273,6 +277,7 @@ func (inputPower *TransceiverOperData_Transceiver_InputPower) GetEntityData() *t
     inputPower.EntityData.BundleName = "cisco_ios_xe"
     inputPower.EntityData.ParentYangName = "transceiver"
     inputPower.EntityData.SegmentPath = "input-power"
+    inputPower.EntityData.AbsolutePath = "Cisco-IOS-XE-transceiver-oper:transceiver-oper-data/transceiver/" + inputPower.EntityData.SegmentPath
     inputPower.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     inputPower.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     inputPower.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -318,6 +323,7 @@ func (laserBiasCurrent *TransceiverOperData_Transceiver_LaserBiasCurrent) GetEnt
     laserBiasCurrent.EntityData.BundleName = "cisco_ios_xe"
     laserBiasCurrent.EntityData.ParentYangName = "transceiver"
     laserBiasCurrent.EntityData.SegmentPath = "laser-bias-current"
+    laserBiasCurrent.EntityData.AbsolutePath = "Cisco-IOS-XE-transceiver-oper:transceiver-oper-data/transceiver/" + laserBiasCurrent.EntityData.SegmentPath
     laserBiasCurrent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     laserBiasCurrent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     laserBiasCurrent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -339,6 +345,7 @@ func (laserBiasCurrent *TransceiverOperData_Transceiver_LaserBiasCurrent) GetEnt
 type TransceiverOperData_Transceiver_XcvrPhysicalChannel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index of the physical channnel. The type is
     // interface{} with range: 0..65535.
@@ -376,6 +383,7 @@ func (xcvrPhysicalChannel *TransceiverOperData_Transceiver_XcvrPhysicalChannel) 
     xcvrPhysicalChannel.EntityData.BundleName = "cisco_ios_xe"
     xcvrPhysicalChannel.EntityData.ParentYangName = "transceiver"
     xcvrPhysicalChannel.EntityData.SegmentPath = "xcvr-physical-channel" + types.AddKeyToken(xcvrPhysicalChannel.Index, "index")
+    xcvrPhysicalChannel.EntityData.AbsolutePath = "Cisco-IOS-XE-transceiver-oper:transceiver-oper-data/transceiver/" + xcvrPhysicalChannel.EntityData.SegmentPath
     xcvrPhysicalChannel.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     xcvrPhysicalChannel.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     xcvrPhysicalChannel.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -425,6 +433,7 @@ func (outputPower *TransceiverOperData_Transceiver_XcvrPhysicalChannel_OutputPow
     outputPower.EntityData.BundleName = "cisco_ios_xe"
     outputPower.EntityData.ParentYangName = "xcvr-physical-channel"
     outputPower.EntityData.SegmentPath = "output-power"
+    outputPower.EntityData.AbsolutePath = "Cisco-IOS-XE-transceiver-oper:transceiver-oper-data/transceiver/xcvr-physical-channel/" + outputPower.EntityData.SegmentPath
     outputPower.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     outputPower.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     outputPower.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -470,6 +479,7 @@ func (inputPower *TransceiverOperData_Transceiver_XcvrPhysicalChannel_InputPower
     inputPower.EntityData.BundleName = "cisco_ios_xe"
     inputPower.EntityData.ParentYangName = "xcvr-physical-channel"
     inputPower.EntityData.SegmentPath = "input-power"
+    inputPower.EntityData.AbsolutePath = "Cisco-IOS-XE-transceiver-oper:transceiver-oper-data/transceiver/xcvr-physical-channel/" + inputPower.EntityData.SegmentPath
     inputPower.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     inputPower.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     inputPower.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -515,6 +525,7 @@ func (laserBiasCurrent *TransceiverOperData_Transceiver_XcvrPhysicalChannel_Lase
     laserBiasCurrent.EntityData.BundleName = "cisco_ios_xe"
     laserBiasCurrent.EntityData.ParentYangName = "xcvr-physical-channel"
     laserBiasCurrent.EntityData.SegmentPath = "laser-bias-current"
+    laserBiasCurrent.EntityData.AbsolutePath = "Cisco-IOS-XE-transceiver-oper:transceiver-oper-data/transceiver/xcvr-physical-channel/" + laserBiasCurrent.EntityData.SegmentPath
     laserBiasCurrent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     laserBiasCurrent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     laserBiasCurrent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

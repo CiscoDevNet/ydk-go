@@ -70,6 +70,7 @@ func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetEntityData() *types
     cISCOIPSLAAUTOMEASUREMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIPSLAAUTOMEASUREMIB.EntityData.ParentYangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
     cISCOIPSLAAUTOMEASUREMIB.EntityData.SegmentPath = "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB"
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.AbsolutePath = cISCOIPSLAAUTOMEASUREMIB.EntityData.SegmentPath
     cISCOIPSLAAUTOMEASUREMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIPSLAAUTOMEASUREMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPSLAAUTOMEASUREMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -104,6 +105,7 @@ func (cipslaAutoGroupTable *CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupTable) GetEn
     cipslaAutoGroupTable.EntityData.BundleName = "cisco_ios_xe"
     cipslaAutoGroupTable.EntityData.ParentYangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
     cipslaAutoGroupTable.EntityData.SegmentPath = "cipslaAutoGroupTable"
+    cipslaAutoGroupTable.EntityData.AbsolutePath = "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/" + cipslaAutoGroupTable.EntityData.SegmentPath
     cipslaAutoGroupTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaAutoGroupTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaAutoGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -126,6 +128,7 @@ func (cipslaAutoGroupTable *CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupTable) GetEn
 type CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupTable_CipslaAutoGroupEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A group name which is used by a management
     // application to identify the group. The type is string with length: 1..64.
@@ -204,6 +207,7 @@ func (cipslaAutoGroupEntry *CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupTable_Cipsla
     cipslaAutoGroupEntry.EntityData.BundleName = "cisco_ios_xe"
     cipslaAutoGroupEntry.EntityData.ParentYangName = "cipslaAutoGroupTable"
     cipslaAutoGroupEntry.EntityData.SegmentPath = "cipslaAutoGroupEntry" + types.AddKeyToken(cipslaAutoGroupEntry.CipslaAutoGroupName, "cipslaAutoGroupName")
+    cipslaAutoGroupEntry.EntityData.AbsolutePath = "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupTable/" + cipslaAutoGroupEntry.EntityData.SegmentPath
     cipslaAutoGroupEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaAutoGroupEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaAutoGroupEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -249,6 +253,7 @@ func (cipslaAutoGroupDestTable *CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupDestTabl
     cipslaAutoGroupDestTable.EntityData.BundleName = "cisco_ios_xe"
     cipslaAutoGroupDestTable.EntityData.ParentYangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
     cipslaAutoGroupDestTable.EntityData.SegmentPath = "cipslaAutoGroupDestTable"
+    cipslaAutoGroupDestTable.EntityData.AbsolutePath = "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/" + cipslaAutoGroupDestTable.EntityData.SegmentPath
     cipslaAutoGroupDestTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaAutoGroupDestTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaAutoGroupDestTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -272,6 +277,7 @@ func (cipslaAutoGroupDestTable *CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupDestTabl
 type CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupDestTable_CipslaAutoGroupDestEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This is the name for an auto measure group
     // destination. The type is string with length: 1..64.
@@ -309,6 +315,7 @@ func (cipslaAutoGroupDestEntry *CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupDestTabl
     cipslaAutoGroupDestEntry.EntityData.BundleName = "cisco_ios_xe"
     cipslaAutoGroupDestEntry.EntityData.ParentYangName = "cipslaAutoGroupDestTable"
     cipslaAutoGroupDestEntry.EntityData.SegmentPath = "cipslaAutoGroupDestEntry" + types.AddKeyToken(cipslaAutoGroupDestEntry.CipslaAutoGroupDestName, "cipslaAutoGroupDestName") + types.AddKeyToken(cipslaAutoGroupDestEntry.CipslaAutoGroupDestIpAddrType, "cipslaAutoGroupDestIpAddrType") + types.AddKeyToken(cipslaAutoGroupDestEntry.CipslaAutoGroupDestIpAddr, "cipslaAutoGroupDestIpAddr") + types.AddKeyToken(cipslaAutoGroupDestEntry.CipslaAutoGroupDestPort, "cipslaAutoGroupDestPort")
+    cipslaAutoGroupDestEntry.EntityData.AbsolutePath = "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupDestTable/" + cipslaAutoGroupDestEntry.EntityData.SegmentPath
     cipslaAutoGroupDestEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaAutoGroupDestEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaAutoGroupDestEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -353,6 +360,7 @@ func (cipslaReactTable *CISCOIPSLAAUTOMEASUREMIB_CipslaReactTable) GetEntityData
     cipslaReactTable.EntityData.BundleName = "cisco_ios_xe"
     cipslaReactTable.EntityData.ParentYangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
     cipslaReactTable.EntityData.SegmentPath = "cipslaReactTable"
+    cipslaReactTable.EntityData.AbsolutePath = "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/" + cipslaReactTable.EntityData.SegmentPath
     cipslaReactTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaReactTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaReactTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -375,6 +383,7 @@ func (cipslaReactTable *CISCOIPSLAAUTOMEASUREMIB_CipslaReactTable) GetEntityData
 type CISCOIPSLAAUTOMEASUREMIB_CipslaReactTable_CipslaReactEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is IpSlaOperType. Refers to
     // cisco_ipsla_automeasure_mib.CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupTable_CipslaAutoGroupEntry_CipslaAutoGroupOperType
@@ -527,6 +536,7 @@ func (cipslaReactEntry *CISCOIPSLAAUTOMEASUREMIB_CipslaReactTable_CipslaReactEnt
     cipslaReactEntry.EntityData.BundleName = "cisco_ios_xe"
     cipslaReactEntry.EntityData.ParentYangName = "cipslaReactTable"
     cipslaReactEntry.EntityData.SegmentPath = "cipslaReactEntry" + types.AddKeyToken(cipslaReactEntry.CipslaAutoGroupOperType, "cipslaAutoGroupOperType") + types.AddKeyToken(cipslaReactEntry.CipslaReactConfigIndex, "cipslaReactConfigIndex") + types.AddKeyToken(cipslaReactEntry.CipslaAutoGroupOperTemplateName, "cipslaAutoGroupOperTemplateName")
+    cipslaReactEntry.EntityData.AbsolutePath = "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaReactTable/" + cipslaReactEntry.EntityData.SegmentPath
     cipslaReactEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaReactEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaReactEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -593,6 +603,7 @@ func (cipslaAutoGroupSchedTable *CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupSchedTa
     cipslaAutoGroupSchedTable.EntityData.BundleName = "cisco_ios_xe"
     cipslaAutoGroupSchedTable.EntityData.ParentYangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
     cipslaAutoGroupSchedTable.EntityData.SegmentPath = "cipslaAutoGroupSchedTable"
+    cipslaAutoGroupSchedTable.EntityData.AbsolutePath = "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/" + cipslaAutoGroupSchedTable.EntityData.SegmentPath
     cipslaAutoGroupSchedTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaAutoGroupSchedTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaAutoGroupSchedTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -615,6 +626,7 @@ func (cipslaAutoGroupSchedTable *CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupSchedTa
 type CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupSchedTable_CipslaAutoGroupSchedEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This string uniquely identifies a row in the
     // cipslaAutoGroupSchedTable. The type is string with length: 1..64.
@@ -685,6 +697,7 @@ func (cipslaAutoGroupSchedEntry *CISCOIPSLAAUTOMEASUREMIB_CipslaAutoGroupSchedTa
     cipslaAutoGroupSchedEntry.EntityData.BundleName = "cisco_ios_xe"
     cipslaAutoGroupSchedEntry.EntityData.ParentYangName = "cipslaAutoGroupSchedTable"
     cipslaAutoGroupSchedEntry.EntityData.SegmentPath = "cipslaAutoGroupSchedEntry" + types.AddKeyToken(cipslaAutoGroupSchedEntry.CipslaAutoGroupSchedId, "cipslaAutoGroupSchedId")
+    cipslaAutoGroupSchedEntry.EntityData.AbsolutePath = "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupSchedTable/" + cipslaAutoGroupSchedEntry.EntityData.SegmentPath
     cipslaAutoGroupSchedEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaAutoGroupSchedEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaAutoGroupSchedEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

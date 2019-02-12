@@ -203,6 +203,7 @@ func (mplsLdp *MplsLdp) GetEntityData() *types.CommonEntityData {
     mplsLdp.EntityData.BundleName = "cisco_ios_xr"
     mplsLdp.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-ldp-cfg"
     mplsLdp.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp"
+    mplsLdp.EntityData.AbsolutePath = mplsLdp.EntityData.SegmentPath
     mplsLdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -241,6 +242,7 @@ func (defaultVrf *MplsLdp_DefaultVrf) GetEntityData() *types.CommonEntityData {
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "mpls-ldp"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -274,6 +276,7 @@ func (afs *MplsLdp_DefaultVrf_Afs) GetEntityData() *types.CommonEntityData {
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "default-vrf"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -295,6 +298,7 @@ func (afs *MplsLdp_DefaultVrf_Afs) GetEntityData() *types.CommonEntityData {
 type MplsLdp_DefaultVrf_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address Family type. The type is MplsLdpafName.
     AfName interface{}
@@ -324,6 +328,7 @@ func (af *MplsLdp_DefaultVrf_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -362,6 +367,7 @@ func (label *MplsLdp_DefaultVrf_Afs_Af_Label) GetEntityData() *types.CommonEntit
     label.EntityData.BundleName = "cisco_ios_xr"
     label.EntityData.ParentYangName = "af"
     label.EntityData.SegmentPath = "label"
+    label.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/" + label.EntityData.SegmentPath
     label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -393,6 +399,7 @@ func (remote *MplsLdp_DefaultVrf_Afs_Af_Label_Remote) GetEntityData() *types.Com
     remote.EntityData.BundleName = "cisco_ios_xr"
     remote.EntityData.ParentYangName = "label"
     remote.EntityData.SegmentPath = "remote"
+    remote.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/" + remote.EntityData.SegmentPath
     remote.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remote.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remote.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -422,6 +429,7 @@ func (accept *MplsLdp_DefaultVrf_Afs_Af_Label_Remote_Accept) GetEntityData() *ty
     accept.EntityData.BundleName = "cisco_ios_xr"
     accept.EntityData.ParentYangName = "remote"
     accept.EntityData.SegmentPath = "accept"
+    accept.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/remote/" + accept.EntityData.SegmentPath
     accept.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accept.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accept.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -454,6 +462,7 @@ func (peerAcceptPolicies *MplsLdp_DefaultVrf_Afs_Af_Label_Remote_Accept_PeerAcce
     peerAcceptPolicies.EntityData.BundleName = "cisco_ios_xr"
     peerAcceptPolicies.EntityData.ParentYangName = "accept"
     peerAcceptPolicies.EntityData.SegmentPath = "peer-accept-policies"
+    peerAcceptPolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/remote/accept/" + peerAcceptPolicies.EntityData.SegmentPath
     peerAcceptPolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAcceptPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAcceptPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -476,6 +485,7 @@ func (peerAcceptPolicies *MplsLdp_DefaultVrf_Afs_Af_Label_Remote_Accept_PeerAcce
 type MplsLdp_DefaultVrf_Afs_Af_Label_Remote_Accept_PeerAcceptPolicies_PeerAcceptPolicy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
@@ -496,6 +506,7 @@ func (peerAcceptPolicy *MplsLdp_DefaultVrf_Afs_Af_Label_Remote_Accept_PeerAccept
     peerAcceptPolicy.EntityData.BundleName = "cisco_ios_xr"
     peerAcceptPolicy.EntityData.ParentYangName = "peer-accept-policies"
     peerAcceptPolicy.EntityData.SegmentPath = "peer-accept-policy" + types.AddKeyToken(peerAcceptPolicy.LsrId, "lsr-id") + types.AddKeyToken(peerAcceptPolicy.LabelSpaceId, "label-space-id")
+    peerAcceptPolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/remote/accept/peer-accept-policies/" + peerAcceptPolicy.EntityData.SegmentPath
     peerAcceptPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAcceptPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAcceptPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -537,6 +548,7 @@ func (local *MplsLdp_DefaultVrf_Afs_Af_Label_Local) GetEntityData() *types.Commo
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "label"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -581,6 +593,7 @@ func (advertise *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise) GetEntityData(
     advertise.EntityData.BundleName = "cisco_ios_xr"
     advertise.EntityData.ParentYangName = "local"
     advertise.EntityData.SegmentPath = "advertise"
+    advertise.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/local/" + advertise.EntityData.SegmentPath
     advertise.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertise.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertise.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -616,6 +629,7 @@ func (peerAdvertisePolicies *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_Pee
     peerAdvertisePolicies.EntityData.BundleName = "cisco_ios_xr"
     peerAdvertisePolicies.EntityData.ParentYangName = "advertise"
     peerAdvertisePolicies.EntityData.SegmentPath = "peer-advertise-policies"
+    peerAdvertisePolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/local/advertise/" + peerAdvertisePolicies.EntityData.SegmentPath
     peerAdvertisePolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAdvertisePolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAdvertisePolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -638,6 +652,7 @@ func (peerAdvertisePolicies *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_Pee
 type MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_PeerAdvertisePolicies_PeerAdvertisePolicy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
@@ -658,6 +673,7 @@ func (peerAdvertisePolicy *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_PeerA
     peerAdvertisePolicy.EntityData.BundleName = "cisco_ios_xr"
     peerAdvertisePolicy.EntityData.ParentYangName = "peer-advertise-policies"
     peerAdvertisePolicy.EntityData.SegmentPath = "peer-advertise-policy" + types.AddKeyToken(peerAdvertisePolicy.LsrId, "lsr-id") + types.AddKeyToken(peerAdvertisePolicy.LabelSpaceId, "label-space-id")
+    peerAdvertisePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/local/advertise/peer-advertise-policies/" + peerAdvertisePolicy.EntityData.SegmentPath
     peerAdvertisePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAdvertisePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAdvertisePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -691,6 +707,7 @@ func (prefixAdvertisePolicies *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_P
     prefixAdvertisePolicies.EntityData.BundleName = "cisco_ios_xr"
     prefixAdvertisePolicies.EntityData.ParentYangName = "advertise"
     prefixAdvertisePolicies.EntityData.SegmentPath = "prefix-advertise-policies"
+    prefixAdvertisePolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/local/advertise/" + prefixAdvertisePolicies.EntityData.SegmentPath
     prefixAdvertisePolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixAdvertisePolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixAdvertisePolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -713,6 +730,7 @@ func (prefixAdvertisePolicies *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_P
 type MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_PrefixAdvertisePolicies_PrefixAdvertisePolicy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of prefix ACL. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -731,6 +749,7 @@ func (prefixAdvertisePolicy *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_Pre
     prefixAdvertisePolicy.EntityData.BundleName = "cisco_ios_xr"
     prefixAdvertisePolicy.EntityData.ParentYangName = "prefix-advertise-policies"
     prefixAdvertisePolicy.EntityData.SegmentPath = "prefix-advertise-policy" + types.AddKeyToken(prefixAdvertisePolicy.PrefixAclName, "prefix-acl-name")
+    prefixAdvertisePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/local/advertise/prefix-advertise-policies/" + prefixAdvertisePolicy.EntityData.SegmentPath
     prefixAdvertisePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixAdvertisePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixAdvertisePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -769,6 +788,7 @@ func (explicitNull *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_ExplicitNull
     explicitNull.EntityData.BundleName = "cisco_ios_xr"
     explicitNull.EntityData.ParentYangName = "advertise"
     explicitNull.EntityData.SegmentPath = "explicit-null"
+    explicitNull.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/local/advertise/" + explicitNull.EntityData.SegmentPath
     explicitNull.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitNull.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitNull.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -802,6 +822,7 @@ func (interfaces *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_Interfaces) Ge
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "advertise"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/local/advertise/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -824,6 +845,7 @@ func (interfaces *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_Interfaces) Ge
 type MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -836,6 +858,7 @@ func (self *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_Interfaces_Interface
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/local/advertise/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -869,6 +892,7 @@ func (allocate *MplsLdp_DefaultVrf_Afs_Af_Label_Local_Allocate) GetEntityData() 
     allocate.EntityData.BundleName = "cisco_ios_xr"
     allocate.EntityData.ParentYangName = "local"
     allocate.EntityData.SegmentPath = "allocate"
+    allocate.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/label/local/" + allocate.EntityData.SegmentPath
     allocate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allocate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -906,6 +930,7 @@ func (discovery *MplsLdp_DefaultVrf_Afs_Af_Discovery) GetEntityData() *types.Com
     discovery.EntityData.BundleName = "cisco_ios_xr"
     discovery.EntityData.ParentYangName = "af"
     discovery.EntityData.SegmentPath = "discovery"
+    discovery.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/" + discovery.EntityData.SegmentPath
     discovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     discovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     discovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -940,6 +965,7 @@ func (targetedHelloAccept *MplsLdp_DefaultVrf_Afs_Af_Discovery_TargetedHelloAcce
     targetedHelloAccept.EntityData.BundleName = "cisco_ios_xr"
     targetedHelloAccept.EntityData.ParentYangName = "discovery"
     targetedHelloAccept.EntityData.SegmentPath = "targeted-hello-accept"
+    targetedHelloAccept.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/discovery/" + targetedHelloAccept.EntityData.SegmentPath
     targetedHelloAccept.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     targetedHelloAccept.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     targetedHelloAccept.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -970,6 +996,7 @@ func (trafficEngineering *MplsLdp_DefaultVrf_Afs_Af_TrafficEngineering) GetEntit
     trafficEngineering.EntityData.BundleName = "cisco_ios_xr"
     trafficEngineering.EntityData.ParentYangName = "af"
     trafficEngineering.EntityData.SegmentPath = "traffic-engineering"
+    trafficEngineering.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/" + trafficEngineering.EntityData.SegmentPath
     trafficEngineering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficEngineering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficEngineering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1004,6 +1031,7 @@ func (autoTunnelMesh *MplsLdp_DefaultVrf_Afs_Af_TrafficEngineering_AutoTunnelMes
     autoTunnelMesh.EntityData.BundleName = "cisco_ios_xr"
     autoTunnelMesh.EntityData.ParentYangName = "traffic-engineering"
     autoTunnelMesh.EntityData.SegmentPath = "auto-tunnel-mesh"
+    autoTunnelMesh.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/traffic-engineering/" + autoTunnelMesh.EntityData.SegmentPath
     autoTunnelMesh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoTunnelMesh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoTunnelMesh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1036,6 +1064,7 @@ func (groupIds *MplsLdp_DefaultVrf_Afs_Af_TrafficEngineering_AutoTunnelMesh_Grou
     groupIds.EntityData.BundleName = "cisco_ios_xr"
     groupIds.EntityData.ParentYangName = "auto-tunnel-mesh"
     groupIds.EntityData.SegmentPath = "group-ids"
+    groupIds.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/traffic-engineering/auto-tunnel-mesh/" + groupIds.EntityData.SegmentPath
     groupIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1057,6 +1086,7 @@ func (groupIds *MplsLdp_DefaultVrf_Afs_Af_TrafficEngineering_AutoTunnelMesh_Grou
 type MplsLdp_DefaultVrf_Afs_Af_TrafficEngineering_AutoTunnelMesh_GroupIds_GroupId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Mesh group ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1069,6 +1099,7 @@ func (groupId *MplsLdp_DefaultVrf_Afs_Af_TrafficEngineering_AutoTunnelMesh_Group
     groupId.EntityData.BundleName = "cisco_ios_xr"
     groupId.EntityData.ParentYangName = "group-ids"
     groupId.EntityData.SegmentPath = "group-id" + types.AddKeyToken(groupId.MeshGroupId, "mesh-group-id")
+    groupId.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/traffic-engineering/auto-tunnel-mesh/group-ids/" + groupId.EntityData.SegmentPath
     groupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1098,6 +1129,7 @@ func (neighbor *MplsLdp_DefaultVrf_Afs_Af_Neighbor) GetEntityData() *types.Commo
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "af"
     neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1129,6 +1161,7 @@ func (addresses *MplsLdp_DefaultVrf_Afs_Af_Neighbor_Addresses) GetEntityData() *
     addresses.EntityData.BundleName = "cisco_ios_xr"
     addresses.EntityData.ParentYangName = "neighbor"
     addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/neighbor/" + addresses.EntityData.SegmentPath
     addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1151,6 +1184,7 @@ func (addresses *MplsLdp_DefaultVrf_Afs_Af_Neighbor_Addresses) GetEntityData() *
 type MplsLdp_DefaultVrf_Afs_Af_Neighbor_Addresses_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP address. The type is one of the following
     // types: string with pattern:
@@ -1169,6 +1203,7 @@ func (address *MplsLdp_DefaultVrf_Afs_Af_Neighbor_Addresses_Address) GetEntityDa
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "addresses"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.IpAddress, "ip-address")
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/neighbor/addresses/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1200,6 +1235,7 @@ func (redistributionProtocol *MplsLdp_DefaultVrf_Afs_Af_RedistributionProtocol) 
     redistributionProtocol.EntityData.BundleName = "cisco_ios_xr"
     redistributionProtocol.EntityData.ParentYangName = "af"
     redistributionProtocol.EntityData.SegmentPath = "redistribution-protocol"
+    redistributionProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/" + redistributionProtocol.EntityData.SegmentPath
     redistributionProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistributionProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistributionProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1233,6 +1269,7 @@ func (bgp *MplsLdp_DefaultVrf_Afs_Af_RedistributionProtocol_Bgp) GetEntityData()
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "redistribution-protocol"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/redistribution-protocol/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1270,6 +1307,7 @@ func (as *MplsLdp_DefaultVrf_Afs_Af_RedistributionProtocol_Bgp_As) GetEntityData
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "bgp"
     as.EntityData.SegmentPath = "as"
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/redistribution-protocol/bgp/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1304,6 +1342,7 @@ func (advertiseTo *MplsLdp_DefaultVrf_Afs_Af_RedistributionProtocol_Bgp_Advertis
     advertiseTo.EntityData.BundleName = "cisco_ios_xr"
     advertiseTo.EntityData.ParentYangName = "bgp"
     advertiseTo.EntityData.SegmentPath = "advertise-to"
+    advertiseTo.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/redistribution-protocol/bgp/" + advertiseTo.EntityData.SegmentPath
     advertiseTo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseTo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseTo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1344,6 +1383,7 @@ func (global *MplsLdp_DefaultVrf_Global) GetEntityData() *types.CommonEntityData
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "default-vrf"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1379,6 +1419,7 @@ func (session *MplsLdp_DefaultVrf_Global_Session) GetEntityData() *types.CommonE
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "global"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1415,6 +1456,7 @@ func (protection *MplsLdp_DefaultVrf_Global_Session_Protection) GetEntityData() 
     protection.EntityData.BundleName = "cisco_ios_xr"
     protection.EntityData.ParentYangName = "session"
     protection.EntityData.SegmentPath = "protection"
+    protection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/session/" + protection.EntityData.SegmentPath
     protection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1450,6 +1492,7 @@ func (downstreamOnDemand *MplsLdp_DefaultVrf_Global_Session_DownstreamOnDemand) 
     downstreamOnDemand.EntityData.BundleName = "cisco_ios_xr"
     downstreamOnDemand.EntityData.ParentYangName = "session"
     downstreamOnDemand.EntityData.SegmentPath = "downstream-on-demand"
+    downstreamOnDemand.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/session/" + downstreamOnDemand.EntityData.SegmentPath
     downstreamOnDemand.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     downstreamOnDemand.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     downstreamOnDemand.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1487,6 +1530,7 @@ func (neighbor *MplsLdp_DefaultVrf_Global_Neighbor) GetEntityData() *types.Commo
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "global"
     neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1520,6 +1564,7 @@ func (ldpIds *MplsLdp_DefaultVrf_Global_Neighbor_LdpIds) GetEntityData() *types.
     ldpIds.EntityData.BundleName = "cisco_ios_xr"
     ldpIds.EntityData.ParentYangName = "neighbor"
     ldpIds.EntityData.SegmentPath = "ldp-ids"
+    ldpIds.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/neighbor/" + ldpIds.EntityData.SegmentPath
     ldpIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1542,6 +1587,7 @@ func (ldpIds *MplsLdp_DefaultVrf_Global_Neighbor_LdpIds) GetEntityData() *types.
 type MplsLdp_DefaultVrf_Global_Neighbor_LdpIds_LdpId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
@@ -1562,6 +1608,7 @@ func (ldpId *MplsLdp_DefaultVrf_Global_Neighbor_LdpIds_LdpId) GetEntityData() *t
     ldpId.EntityData.BundleName = "cisco_ios_xr"
     ldpId.EntityData.ParentYangName = "ldp-ids"
     ldpId.EntityData.SegmentPath = "ldp-id" + types.AddKeyToken(ldpId.LsrId, "lsr-id") + types.AddKeyToken(ldpId.LabelSpaceId, "label-space-id")
+    ldpId.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/neighbor/ldp-ids/" + ldpId.EntityData.SegmentPath
     ldpId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1597,6 +1644,7 @@ func (password *MplsLdp_DefaultVrf_Global_Neighbor_LdpIds_LdpId_Password) GetEnt
     password.EntityData.BundleName = "cisco_ios_xr"
     password.EntityData.ParentYangName = "ldp-id"
     password.EntityData.SegmentPath = "password"
+    password.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/neighbor/ldp-ids/ldp-id/" + password.EntityData.SegmentPath
     password.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1631,6 +1679,7 @@ func (dualStack *MplsLdp_DefaultVrf_Global_Neighbor_DualStack) GetEntityData() *
     dualStack.EntityData.BundleName = "cisco_ios_xr"
     dualStack.EntityData.ParentYangName = "neighbor"
     dualStack.EntityData.SegmentPath = "dual-stack"
+    dualStack.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/neighbor/" + dualStack.EntityData.SegmentPath
     dualStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dualStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dualStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1665,6 +1714,7 @@ func (transportConnection *MplsLdp_DefaultVrf_Global_Neighbor_DualStack_Transpor
     transportConnection.EntityData.BundleName = "cisco_ios_xr"
     transportConnection.EntityData.ParentYangName = "dual-stack"
     transportConnection.EntityData.SegmentPath = "transport-connection"
+    transportConnection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/neighbor/dual-stack/" + transportConnection.EntityData.SegmentPath
     transportConnection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportConnection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportConnection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1697,6 +1747,7 @@ func (prefer *MplsLdp_DefaultVrf_Global_Neighbor_DualStack_TransportConnection_P
     prefer.EntityData.BundleName = "cisco_ios_xr"
     prefer.EntityData.ParentYangName = "transport-connection"
     prefer.EntityData.SegmentPath = "prefer"
+    prefer.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/neighbor/dual-stack/transport-connection/" + prefer.EntityData.SegmentPath
     prefer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1727,6 +1778,7 @@ func (gracefulRestart *MplsLdp_DefaultVrf_Global_GracefulRestart) GetEntityData(
     gracefulRestart.EntityData.BundleName = "cisco_ios_xr"
     gracefulRestart.EntityData.ParentYangName = "global"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1757,6 +1809,7 @@ func (helperPeer *MplsLdp_DefaultVrf_Global_GracefulRestart_HelperPeer) GetEntit
     helperPeer.EntityData.BundleName = "cisco_ios_xr"
     helperPeer.EntityData.ParentYangName = "graceful-restart"
     helperPeer.EntityData.SegmentPath = "helper-peer"
+    helperPeer.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/global/graceful-restart/" + helperPeer.EntityData.SegmentPath
     helperPeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1787,6 +1840,7 @@ func (interfaces *MplsLdp_DefaultVrf_Interfaces) GetEntityData() *types.CommonEn
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "default-vrf"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1809,6 +1863,7 @@ func (interfaces *MplsLdp_DefaultVrf_Interfaces) GetEntityData() *types.CommonEn
 type MplsLdp_DefaultVrf_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1831,6 +1886,7 @@ func (self *MplsLdp_DefaultVrf_Interfaces_Interface) GetEntityData() *types.Comm
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1865,6 +1921,7 @@ func (afs *MplsLdp_DefaultVrf_Interfaces_Interface_Afs) GetEntityData() *types.C
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "interface"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1886,6 +1943,7 @@ func (afs *MplsLdp_DefaultVrf_Interfaces_Interface_Afs) GetEntityData() *types.C
 type MplsLdp_DefaultVrf_Interfaces_Interface_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address Family name. The type is MplsLdpafName.
     AfName interface{}
@@ -1909,6 +1967,7 @@ func (af *MplsLdp_DefaultVrf_Interfaces_Interface_Afs_Af) GetEntityData() *types
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1942,6 +2001,7 @@ func (discovery *MplsLdp_DefaultVrf_Interfaces_Interface_Afs_Af_Discovery) GetEn
     discovery.EntityData.BundleName = "cisco_ios_xr"
     discovery.EntityData.ParentYangName = "af"
     discovery.EntityData.SegmentPath = "discovery"
+    discovery.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/afs/af/" + discovery.EntityData.SegmentPath
     discovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     discovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     discovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1978,6 +2038,7 @@ func (transportAddress *MplsLdp_DefaultVrf_Interfaces_Interface_Afs_Af_Discovery
     transportAddress.EntityData.BundleName = "cisco_ios_xr"
     transportAddress.EntityData.ParentYangName = "discovery"
     transportAddress.EntityData.SegmentPath = "transport-address"
+    transportAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/afs/af/discovery/" + transportAddress.EntityData.SegmentPath
     transportAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2008,6 +2069,7 @@ func (igp *MplsLdp_DefaultVrf_Interfaces_Interface_Afs_Af_Igp) GetEntityData() *
     igp.EntityData.BundleName = "cisco_ios_xr"
     igp.EntityData.ParentYangName = "af"
     igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/afs/af/" + igp.EntityData.SegmentPath
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2037,6 +2099,7 @@ func (mldp *MplsLdp_DefaultVrf_Interfaces_Interface_Afs_Af_Mldp) GetEntityData()
     mldp.EntityData.BundleName = "cisco_ios_xr"
     mldp.EntityData.ParentYangName = "af"
     mldp.EntityData.SegmentPath = "mldp"
+    mldp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/afs/af/" + mldp.EntityData.SegmentPath
     mldp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mldp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mldp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2070,6 +2133,7 @@ func (global *MplsLdp_DefaultVrf_Interfaces_Interface_Global) GetEntityData() *t
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "interface"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2103,6 +2167,7 @@ func (discovery *MplsLdp_DefaultVrf_Interfaces_Interface_Global_Discovery) GetEn
     discovery.EntityData.BundleName = "cisco_ios_xr"
     discovery.EntityData.ParentYangName = "global"
     discovery.EntityData.SegmentPath = "discovery"
+    discovery.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/global/" + discovery.EntityData.SegmentPath
     discovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     discovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     discovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2142,6 +2207,7 @@ func (linkHello *MplsLdp_DefaultVrf_Interfaces_Interface_Global_Discovery_LinkHe
     linkHello.EntityData.BundleName = "cisco_ios_xr"
     linkHello.EntityData.ParentYangName = "discovery"
     linkHello.EntityData.SegmentPath = "link-hello"
+    linkHello.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/global/discovery/" + linkHello.EntityData.SegmentPath
     linkHello.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkHello.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkHello.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2173,6 +2239,7 @@ func (igp *MplsLdp_DefaultVrf_Interfaces_Interface_Global_Igp) GetEntityData() *
     igp.EntityData.BundleName = "cisco_ios_xr"
     igp.EntityData.ParentYangName = "global"
     igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/global/" + igp.EntityData.SegmentPath
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2202,6 +2269,7 @@ func (sync *MplsLdp_DefaultVrf_Interfaces_Interface_Global_Igp_Sync) GetEntityDa
     sync.EntityData.BundleName = "cisco_ios_xr"
     sync.EntityData.ParentYangName = "igp"
     sync.EntityData.SegmentPath = "sync"
+    sync.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/global/igp/" + sync.EntityData.SegmentPath
     sync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2231,6 +2299,7 @@ func (delay *MplsLdp_DefaultVrf_Interfaces_Interface_Global_Igp_Sync_Delay) GetE
     delay.EntityData.BundleName = "cisco_ios_xr"
     delay.EntityData.ParentYangName = "sync"
     delay.EntityData.SegmentPath = "delay"
+    delay.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/global/igp/sync/" + delay.EntityData.SegmentPath
     delay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2264,6 +2333,7 @@ func (onSessionUp *MplsLdp_DefaultVrf_Interfaces_Interface_Global_Igp_Sync_Delay
     onSessionUp.EntityData.BundleName = "cisco_ios_xr"
     onSessionUp.EntityData.ParentYangName = "delay"
     onSessionUp.EntityData.SegmentPath = "on-session-up"
+    onSessionUp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/interfaces/interface/global/igp/sync/delay/" + onSessionUp.EntityData.SegmentPath
     onSessionUp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onSessionUp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onSessionUp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2295,6 +2365,7 @@ func (vrfs *MplsLdp_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "mpls-ldp"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2316,6 +2387,7 @@ func (vrfs *MplsLdp_Vrfs) GetEntityData() *types.CommonEntityData {
 type MplsLdp_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2340,6 +2412,7 @@ func (vrf *MplsLdp_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2383,6 +2456,7 @@ func (global *MplsLdp_Vrfs_Vrf_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "vrf"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2415,6 +2489,7 @@ func (session *MplsLdp_Vrfs_Vrf_Global_Session) GetEntityData() *types.CommonEnt
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "global"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2448,6 +2523,7 @@ func (downstreamOnDemand *MplsLdp_Vrfs_Vrf_Global_Session_DownstreamOnDemand) Ge
     downstreamOnDemand.EntityData.BundleName = "cisco_ios_xr"
     downstreamOnDemand.EntityData.ParentYangName = "session"
     downstreamOnDemand.EntityData.SegmentPath = "downstream-on-demand"
+    downstreamOnDemand.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/session/" + downstreamOnDemand.EntityData.SegmentPath
     downstreamOnDemand.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     downstreamOnDemand.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     downstreamOnDemand.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2485,6 +2561,7 @@ func (neighbor *MplsLdp_Vrfs_Vrf_Global_Neighbor) GetEntityData() *types.CommonE
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "global"
     neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2516,6 +2593,7 @@ func (dualStack *MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack) GetEntityData() *ty
     dualStack.EntityData.BundleName = "cisco_ios_xr"
     dualStack.EntityData.ParentYangName = "neighbor"
     dualStack.EntityData.SegmentPath = "dual-stack"
+    dualStack.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/neighbor/" + dualStack.EntityData.SegmentPath
     dualStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dualStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dualStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2549,6 +2627,7 @@ func (transportConnection *MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack_TransportC
     transportConnection.EntityData.BundleName = "cisco_ios_xr"
     transportConnection.EntityData.ParentYangName = "dual-stack"
     transportConnection.EntityData.SegmentPath = "transport-connection"
+    transportConnection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/neighbor/dual-stack/" + transportConnection.EntityData.SegmentPath
     transportConnection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportConnection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportConnection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2581,6 +2660,7 @@ func (prefer *MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack_TransportConnection_Pre
     prefer.EntityData.BundleName = "cisco_ios_xr"
     prefer.EntityData.ParentYangName = "transport-connection"
     prefer.EntityData.SegmentPath = "prefer"
+    prefer.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/neighbor/dual-stack/transport-connection/" + prefer.EntityData.SegmentPath
     prefer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2612,6 +2692,7 @@ func (ldpIds *MplsLdp_Vrfs_Vrf_Global_Neighbor_LdpIds) GetEntityData() *types.Co
     ldpIds.EntityData.BundleName = "cisco_ios_xr"
     ldpIds.EntityData.ParentYangName = "neighbor"
     ldpIds.EntityData.SegmentPath = "ldp-ids"
+    ldpIds.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/neighbor/" + ldpIds.EntityData.SegmentPath
     ldpIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2634,6 +2715,7 @@ func (ldpIds *MplsLdp_Vrfs_Vrf_Global_Neighbor_LdpIds) GetEntityData() *types.Co
 type MplsLdp_Vrfs_Vrf_Global_Neighbor_LdpIds_LdpId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
@@ -2654,6 +2736,7 @@ func (ldpId *MplsLdp_Vrfs_Vrf_Global_Neighbor_LdpIds_LdpId) GetEntityData() *typ
     ldpId.EntityData.BundleName = "cisco_ios_xr"
     ldpId.EntityData.ParentYangName = "ldp-ids"
     ldpId.EntityData.SegmentPath = "ldp-id" + types.AddKeyToken(ldpId.LsrId, "lsr-id") + types.AddKeyToken(ldpId.LabelSpaceId, "label-space-id")
+    ldpId.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/neighbor/ldp-ids/" + ldpId.EntityData.SegmentPath
     ldpId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2689,6 +2772,7 @@ func (password *MplsLdp_Vrfs_Vrf_Global_Neighbor_LdpIds_LdpId_Password) GetEntit
     password.EntityData.BundleName = "cisco_ios_xr"
     password.EntityData.ParentYangName = "ldp-id"
     password.EntityData.SegmentPath = "password"
+    password.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/neighbor/ldp-ids/ldp-id/" + password.EntityData.SegmentPath
     password.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2720,6 +2804,7 @@ func (gracefulRestart *MplsLdp_Vrfs_Vrf_Global_GracefulRestart) GetEntityData() 
     gracefulRestart.EntityData.BundleName = "cisco_ios_xr"
     gracefulRestart.EntityData.ParentYangName = "global"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2750,6 +2835,7 @@ func (helperPeer *MplsLdp_Vrfs_Vrf_Global_GracefulRestart_HelperPeer) GetEntityD
     helperPeer.EntityData.BundleName = "cisco_ios_xr"
     helperPeer.EntityData.ParentYangName = "graceful-restart"
     helperPeer.EntityData.SegmentPath = "helper-peer"
+    helperPeer.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/global/graceful-restart/" + helperPeer.EntityData.SegmentPath
     helperPeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2781,6 +2867,7 @@ func (afs *MplsLdp_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntityData {
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "vrf"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2802,6 +2889,7 @@ func (afs *MplsLdp_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntityData {
 type MplsLdp_Vrfs_Vrf_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address Family name. The type is MplsLdpafName.
     AfName interface{}
@@ -2822,6 +2910,7 @@ func (af *MplsLdp_Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2858,6 +2947,7 @@ func (discovery *MplsLdp_Vrfs_Vrf_Afs_Af_Discovery) GetEntityData() *types.Commo
     discovery.EntityData.BundleName = "cisco_ios_xr"
     discovery.EntityData.ParentYangName = "af"
     discovery.EntityData.SegmentPath = "discovery"
+    discovery.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/" + discovery.EntityData.SegmentPath
     discovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     discovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     discovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2890,6 +2980,7 @@ func (label *MplsLdp_Vrfs_Vrf_Afs_Af_Label) GetEntityData() *types.CommonEntityD
     label.EntityData.BundleName = "cisco_ios_xr"
     label.EntityData.ParentYangName = "af"
     label.EntityData.SegmentPath = "label"
+    label.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/" + label.EntityData.SegmentPath
     label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2921,6 +3012,7 @@ func (remote *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote) GetEntityData() *types.Commo
     remote.EntityData.BundleName = "cisco_ios_xr"
     remote.EntityData.ParentYangName = "label"
     remote.EntityData.SegmentPath = "remote"
+    remote.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/" + remote.EntityData.SegmentPath
     remote.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remote.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remote.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2950,6 +3042,7 @@ func (accept *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept) GetEntityData() *type
     accept.EntityData.BundleName = "cisco_ios_xr"
     accept.EntityData.ParentYangName = "remote"
     accept.EntityData.SegmentPath = "accept"
+    accept.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/remote/" + accept.EntityData.SegmentPath
     accept.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accept.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accept.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2982,6 +3075,7 @@ func (peerAcceptPolicies *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept_PeerAccept
     peerAcceptPolicies.EntityData.BundleName = "cisco_ios_xr"
     peerAcceptPolicies.EntityData.ParentYangName = "accept"
     peerAcceptPolicies.EntityData.SegmentPath = "peer-accept-policies"
+    peerAcceptPolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/remote/accept/" + peerAcceptPolicies.EntityData.SegmentPath
     peerAcceptPolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAcceptPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAcceptPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3004,6 +3098,7 @@ func (peerAcceptPolicies *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept_PeerAccept
 type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept_PeerAcceptPolicies_PeerAcceptPolicy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Label space ID of neighbor. The type is
     // interface{} with range: 0..4294967295.
@@ -3023,6 +3118,7 @@ func (peerAcceptPolicy *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept_PeerAcceptPo
     peerAcceptPolicy.EntityData.BundleName = "cisco_ios_xr"
     peerAcceptPolicy.EntityData.ParentYangName = "peer-accept-policies"
     peerAcceptPolicy.EntityData.SegmentPath = "peer-accept-policy" + types.AddKeyToken(peerAcceptPolicy.LabelSpaceId, "label-space-id")
+    peerAcceptPolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/remote/accept/peer-accept-policies/" + peerAcceptPolicy.EntityData.SegmentPath
     peerAcceptPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAcceptPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAcceptPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3057,6 +3153,7 @@ func (peerAcceptPolicyData *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept_PeerAcce
     peerAcceptPolicyData.EntityData.BundleName = "cisco_ios_xr"
     peerAcceptPolicyData.EntityData.ParentYangName = "peer-accept-policy"
     peerAcceptPolicyData.EntityData.SegmentPath = "peer-accept-policy-data"
+    peerAcceptPolicyData.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/remote/accept/peer-accept-policies/peer-accept-policy/" + peerAcceptPolicyData.EntityData.SegmentPath
     peerAcceptPolicyData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAcceptPolicyData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAcceptPolicyData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3075,6 +3172,7 @@ func (peerAcceptPolicyData *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept_PeerAcce
 type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept_PeerAcceptPolicies_PeerAcceptPolicy_LsrId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
@@ -3091,6 +3189,7 @@ func (lsrId *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept_PeerAcceptPolicies_Peer
     lsrId.EntityData.BundleName = "cisco_ios_xr"
     lsrId.EntityData.ParentYangName = "peer-accept-policy"
     lsrId.EntityData.SegmentPath = "lsr-id" + types.AddKeyToken(lsrId.LsrId, "lsr-id")
+    lsrId.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/remote/accept/peer-accept-policies/peer-accept-policy/" + lsrId.EntityData.SegmentPath
     lsrId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsrId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsrId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3131,6 +3230,7 @@ func (local *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local) GetEntityData() *types.CommonE
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "label"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3172,6 +3272,7 @@ func (advertise *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise) GetEntityData() 
     advertise.EntityData.BundleName = "cisco_ios_xr"
     advertise.EntityData.ParentYangName = "local"
     advertise.EntityData.SegmentPath = "advertise"
+    advertise.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/local/" + advertise.EntityData.SegmentPath
     advertise.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertise.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertise.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3206,6 +3307,7 @@ func (peerAdvertisePolicies *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_PeerA
     peerAdvertisePolicies.EntityData.BundleName = "cisco_ios_xr"
     peerAdvertisePolicies.EntityData.ParentYangName = "advertise"
     peerAdvertisePolicies.EntityData.SegmentPath = "peer-advertise-policies"
+    peerAdvertisePolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/local/advertise/" + peerAdvertisePolicies.EntityData.SegmentPath
     peerAdvertisePolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAdvertisePolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAdvertisePolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3228,6 +3330,7 @@ func (peerAdvertisePolicies *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_PeerA
 type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_PeerAdvertisePolicies_PeerAdvertisePolicy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Label space ID of neighbor. The type is
     // interface{} with range: 0..4294967295.
@@ -3247,6 +3350,7 @@ func (peerAdvertisePolicy *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_PeerAdv
     peerAdvertisePolicy.EntityData.BundleName = "cisco_ios_xr"
     peerAdvertisePolicy.EntityData.ParentYangName = "peer-advertise-policies"
     peerAdvertisePolicy.EntityData.SegmentPath = "peer-advertise-policy" + types.AddKeyToken(peerAdvertisePolicy.LabelSpaceId, "label-space-id")
+    peerAdvertisePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/local/advertise/peer-advertise-policies/" + peerAdvertisePolicy.EntityData.SegmentPath
     peerAdvertisePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAdvertisePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAdvertisePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3281,6 +3385,7 @@ func (peerAdvertisePolicyData *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_Pee
     peerAdvertisePolicyData.EntityData.BundleName = "cisco_ios_xr"
     peerAdvertisePolicyData.EntityData.ParentYangName = "peer-advertise-policy"
     peerAdvertisePolicyData.EntityData.SegmentPath = "peer-advertise-policy-data"
+    peerAdvertisePolicyData.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/local/advertise/peer-advertise-policies/peer-advertise-policy/" + peerAdvertisePolicyData.EntityData.SegmentPath
     peerAdvertisePolicyData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAdvertisePolicyData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAdvertisePolicyData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3299,6 +3404,7 @@ func (peerAdvertisePolicyData *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_Pee
 type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_PeerAdvertisePolicies_PeerAdvertisePolicy_LsrId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
@@ -3315,6 +3421,7 @@ func (lsrId *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_PeerAdvertisePolicies
     lsrId.EntityData.BundleName = "cisco_ios_xr"
     lsrId.EntityData.ParentYangName = "peer-advertise-policy"
     lsrId.EntityData.SegmentPath = "lsr-id" + types.AddKeyToken(lsrId.LsrId, "lsr-id")
+    lsrId.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/local/advertise/peer-advertise-policies/peer-advertise-policy/" + lsrId.EntityData.SegmentPath
     lsrId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsrId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsrId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3347,6 +3454,7 @@ func (interfaces *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_Interfaces) GetE
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "advertise"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/local/advertise/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3369,6 +3477,7 @@ func (interfaces *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_Interfaces) GetE
 type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -3381,6 +3490,7 @@ func (self *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_Interfaces_Interface) 
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/local/advertise/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3417,6 +3527,7 @@ func (explicitNull *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_ExplicitNull) 
     explicitNull.EntityData.BundleName = "cisco_ios_xr"
     explicitNull.EntityData.ParentYangName = "advertise"
     explicitNull.EntityData.SegmentPath = "explicit-null"
+    explicitNull.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/local/advertise/" + explicitNull.EntityData.SegmentPath
     explicitNull.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitNull.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitNull.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3452,6 +3563,7 @@ func (allocate *MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Allocate) GetEntityData() *t
     allocate.EntityData.BundleName = "cisco_ios_xr"
     allocate.EntityData.ParentYangName = "local"
     allocate.EntityData.SegmentPath = "allocate"
+    allocate.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/afs/af/label/local/" + allocate.EntityData.SegmentPath
     allocate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allocate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3484,6 +3596,7 @@ func (interfaces *MplsLdp_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEnti
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "vrf"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3506,6 +3619,7 @@ func (interfaces *MplsLdp_Vrfs_Vrf_Interfaces) GetEntityData() *types.CommonEnti
 type MplsLdp_Vrfs_Vrf_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -3525,6 +3639,7 @@ func (self *MplsLdp_Vrfs_Vrf_Interfaces_Interface) GetEntityData() *types.Common
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3558,6 +3673,7 @@ func (afs *MplsLdp_Vrfs_Vrf_Interfaces_Interface_Afs) GetEntityData() *types.Com
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "interface"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/interfaces/interface/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3579,6 +3695,7 @@ func (afs *MplsLdp_Vrfs_Vrf_Interfaces_Interface_Afs) GetEntityData() *types.Com
 type MplsLdp_Vrfs_Vrf_Interfaces_Interface_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address Family name. The type is MplsLdpafName.
     AfName interface{}
@@ -3596,6 +3713,7 @@ func (af *MplsLdp_Vrfs_Vrf_Interfaces_Interface_Afs_Af) GetEntityData() *types.C
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/interfaces/interface/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3627,6 +3745,7 @@ func (discovery *MplsLdp_Vrfs_Vrf_Interfaces_Interface_Afs_Af_Discovery) GetEnti
     discovery.EntityData.BundleName = "cisco_ios_xr"
     discovery.EntityData.ParentYangName = "af"
     discovery.EntityData.SegmentPath = "discovery"
+    discovery.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/interfaces/interface/afs/af/" + discovery.EntityData.SegmentPath
     discovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     discovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     discovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3663,6 +3782,7 @@ func (transportAddress *MplsLdp_Vrfs_Vrf_Interfaces_Interface_Afs_Af_Discovery_T
     transportAddress.EntityData.BundleName = "cisco_ios_xr"
     transportAddress.EntityData.ParentYangName = "discovery"
     transportAddress.EntityData.SegmentPath = "transport-address"
+    transportAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/vrfs/vrf/interfaces/interface/afs/af/discovery/" + transportAddress.EntityData.SegmentPath
     transportAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3725,6 +3845,7 @@ func (global *MplsLdp_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "mpls-ldp"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3764,6 +3885,7 @@ func (entropyLabel *MplsLdp_Global_EntropyLabel) GetEntityData() *types.CommonEn
     entropyLabel.EntityData.BundleName = "cisco_ios_xr"
     entropyLabel.EntityData.ParentYangName = "global"
     entropyLabel.EntityData.SegmentPath = "entropy-label"
+    entropyLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/" + entropyLabel.EntityData.SegmentPath
     entropyLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entropyLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entropyLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3797,6 +3919,7 @@ func (session *MplsLdp_Global_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "global"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3832,6 +3955,7 @@ func (backoffTime *MplsLdp_Global_Session_BackoffTime) GetEntityData() *types.Co
     backoffTime.EntityData.BundleName = "cisco_ios_xr"
     backoffTime.EntityData.ParentYangName = "session"
     backoffTime.EntityData.SegmentPath = "backoff-time"
+    backoffTime.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/session/" + backoffTime.EntityData.SegmentPath
     backoffTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backoffTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backoffTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3862,6 +3986,7 @@ func (igp *MplsLdp_Global_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.BundleName = "cisco_ios_xr"
     igp.EntityData.ParentYangName = "global"
     igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/" + igp.EntityData.SegmentPath
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3891,6 +4016,7 @@ func (sync *MplsLdp_Global_Igp_Sync) GetEntityData() *types.CommonEntityData {
     sync.EntityData.BundleName = "cisco_ios_xr"
     sync.EntityData.ParentYangName = "igp"
     sync.EntityData.SegmentPath = "sync"
+    sync.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/igp/" + sync.EntityData.SegmentPath
     sync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3925,6 +4051,7 @@ func (delay *MplsLdp_Global_Igp_Sync_Delay) GetEntityData() *types.CommonEntityD
     delay.EntityData.BundleName = "cisco_ios_xr"
     delay.EntityData.ParentYangName = "sync"
     delay.EntityData.SegmentPath = "delay"
+    delay.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/igp/sync/" + delay.EntityData.SegmentPath
     delay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3967,6 +4094,7 @@ func (enableLogging *MplsLdp_Global_EnableLogging) GetEntityData() *types.Common
     enableLogging.EntityData.BundleName = "cisco_ios_xr"
     enableLogging.EntityData.ParentYangName = "global"
     enableLogging.EntityData.SegmentPath = "enable-logging"
+    enableLogging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/" + enableLogging.EntityData.SegmentPath
     enableLogging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enableLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enableLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4001,6 +4129,7 @@ func (signalling *MplsLdp_Global_Signalling) GetEntityData() *types.CommonEntity
     signalling.EntityData.BundleName = "cisco_ios_xr"
     signalling.EntityData.ParentYangName = "global"
     signalling.EntityData.SegmentPath = "signalling"
+    signalling.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/" + signalling.EntityData.SegmentPath
     signalling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signalling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signalling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4030,6 +4159,7 @@ func (nsr *MplsLdp_Global_Nsr) GetEntityData() *types.CommonEntityData {
     nsr.EntityData.BundleName = "cisco_ios_xr"
     nsr.EntityData.ParentYangName = "global"
     nsr.EntityData.SegmentPath = "nsr"
+    nsr.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/" + nsr.EntityData.SegmentPath
     nsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4068,6 +4198,7 @@ func (gracefulRestart *MplsLdp_Global_GracefulRestart) GetEntityData() *types.Co
     gracefulRestart.EntityData.BundleName = "cisco_ios_xr"
     gracefulRestart.EntityData.ParentYangName = "global"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4109,6 +4240,7 @@ func (discovery *MplsLdp_Global_Discovery) GetEntityData() *types.CommonEntityDa
     discovery.EntityData.BundleName = "cisco_ios_xr"
     discovery.EntityData.ParentYangName = "global"
     discovery.EntityData.SegmentPath = "discovery"
+    discovery.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/" + discovery.EntityData.SegmentPath
     discovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     discovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     discovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4146,6 +4278,7 @@ func (linkHello *MplsLdp_Global_Discovery_LinkHello) GetEntityData() *types.Comm
     linkHello.EntityData.BundleName = "cisco_ios_xr"
     linkHello.EntityData.ParentYangName = "discovery"
     linkHello.EntityData.SegmentPath = "link-hello"
+    linkHello.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/discovery/" + linkHello.EntityData.SegmentPath
     linkHello.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkHello.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkHello.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4181,6 +4314,7 @@ func (targetedHello *MplsLdp_Global_Discovery_TargetedHello) GetEntityData() *ty
     targetedHello.EntityData.BundleName = "cisco_ios_xr"
     targetedHello.EntityData.ParentYangName = "discovery"
     targetedHello.EntityData.SegmentPath = "targeted-hello"
+    targetedHello.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/discovery/" + targetedHello.EntityData.SegmentPath
     targetedHello.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     targetedHello.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     targetedHello.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4221,6 +4355,7 @@ func (mldp *MplsLdp_Global_Mldp) GetEntityData() *types.CommonEntityData {
     mldp.EntityData.BundleName = "cisco_ios_xr"
     mldp.EntityData.ParentYangName = "global"
     mldp.EntityData.SegmentPath = "mldp"
+    mldp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/" + mldp.EntityData.SegmentPath
     mldp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mldp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mldp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4254,6 +4389,7 @@ func (vrfs *MplsLdp_Global_Mldp_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "mldp"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4275,6 +4411,7 @@ func (vrfs *MplsLdp_Global_Mldp_Vrfs) GetEntityData() *types.CommonEntityData {
 type MplsLdp_Global_Mldp_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with length: 1..32.
     VrfName interface{}
@@ -4293,6 +4430,7 @@ func (vrf *MplsLdp_Global_Mldp_Vrfs_Vrf) GetEntityData() *types.CommonEntityData
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4325,6 +4463,7 @@ func (afs *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntity
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "vrf"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/vrf/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4346,6 +4485,7 @@ func (afs *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntity
 type MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address Family name. The type is MplsLdpafName.
     AfName interface{}
@@ -4382,6 +4522,7 @@ func (af *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEnti
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/vrf/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4422,6 +4563,7 @@ func (recursiveForwarding *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_RecursiveForwardi
     recursiveForwarding.EntityData.BundleName = "cisco_ios_xr"
     recursiveForwarding.EntityData.ParentYangName = "af"
     recursiveForwarding.EntityData.SegmentPath = "recursive-forwarding"
+    recursiveForwarding.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/vrf/afs/af/" + recursiveForwarding.EntityData.SegmentPath
     recursiveForwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recursiveForwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recursiveForwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4455,6 +4597,7 @@ func (mldpRecursiveFec *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_MldpRecursiveFec) Ge
     mldpRecursiveFec.EntityData.BundleName = "cisco_ios_xr"
     mldpRecursiveFec.EntityData.ParentYangName = "af"
     mldpRecursiveFec.EntityData.SegmentPath = "mldp-recursive-fec"
+    mldpRecursiveFec.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/vrf/afs/af/" + mldpRecursiveFec.EntityData.SegmentPath
     mldpRecursiveFec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mldpRecursiveFec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mldpRecursiveFec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4486,6 +4629,7 @@ func (neighborPolicies *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_NeighborPolicies) Ge
     neighborPolicies.EntityData.BundleName = "cisco_ios_xr"
     neighborPolicies.EntityData.ParentYangName = "af"
     neighborPolicies.EntityData.SegmentPath = "neighbor-policies"
+    neighborPolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/vrf/afs/af/" + neighborPolicies.EntityData.SegmentPath
     neighborPolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4507,6 +4651,7 @@ func (neighborPolicies *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_NeighborPolicies) Ge
 type MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_NeighborPolicies_NeighborPolicy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -4527,6 +4672,7 @@ func (neighborPolicy *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_NeighborPolicies_Neigh
     neighborPolicy.EntityData.BundleName = "cisco_ios_xr"
     neighborPolicy.EntityData.ParentYangName = "neighbor-policies"
     neighborPolicy.EntityData.SegmentPath = "neighbor-policy" + types.AddKeyToken(neighborPolicy.RootAddress, "root-address") + types.AddKeyToken(neighborPolicy.PolicyMode, "policy-mode")
+    neighborPolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/vrf/afs/af/neighbor-policies/" + neighborPolicy.EntityData.SegmentPath
     neighborPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4561,6 +4707,7 @@ func (moFrr *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_MoFrr) GetEntityData() *types.C
     moFrr.EntityData.BundleName = "cisco_ios_xr"
     moFrr.EntityData.ParentYangName = "af"
     moFrr.EntityData.SegmentPath = "mo-frr"
+    moFrr.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/vrf/afs/af/" + moFrr.EntityData.SegmentPath
     moFrr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moFrr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moFrr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4594,6 +4741,7 @@ func (makeBeforeBreak *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_MakeBeforeBreak) GetE
     makeBeforeBreak.EntityData.BundleName = "cisco_ios_xr"
     makeBeforeBreak.EntityData.ParentYangName = "af"
     makeBeforeBreak.EntityData.SegmentPath = "make-before-break"
+    makeBeforeBreak.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/vrf/afs/af/" + makeBeforeBreak.EntityData.SegmentPath
     makeBeforeBreak.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     makeBeforeBreak.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     makeBeforeBreak.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4629,6 +4777,7 @@ func (signaling *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_MakeBeforeBreak_Signaling) 
     signaling.EntityData.BundleName = "cisco_ios_xr"
     signaling.EntityData.ParentYangName = "make-before-break"
     signaling.EntityData.SegmentPath = "signaling"
+    signaling.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/vrf/afs/af/make-before-break/" + signaling.EntityData.SegmentPath
     signaling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signaling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signaling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4659,6 +4808,7 @@ func (csc *MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_Csc) GetEntityData() *types.Commo
     csc.EntityData.BundleName = "cisco_ios_xr"
     csc.EntityData.ParentYangName = "af"
     csc.EntityData.SegmentPath = "csc"
+    csc.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/vrfs/vrf/afs/af/" + csc.EntityData.SegmentPath
     csc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4688,6 +4838,7 @@ func (defaultVrf *MplsLdp_Global_Mldp_DefaultVrf) GetEntityData() *types.CommonE
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "mldp"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4718,6 +4869,7 @@ func (afs *MplsLdp_Global_Mldp_DefaultVrf_Afs) GetEntityData() *types.CommonEnti
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "default-vrf"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4739,6 +4891,7 @@ func (afs *MplsLdp_Global_Mldp_DefaultVrf_Afs) GetEntityData() *types.CommonEnti
 type MplsLdp_Global_Mldp_DefaultVrf_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address Family name. The type is MplsLdpafName.
     AfName interface{}
@@ -4775,6 +4928,7 @@ func (af *MplsLdp_Global_Mldp_DefaultVrf_Afs_Af) GetEntityData() *types.CommonEn
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4815,6 +4969,7 @@ func (recursiveForwarding *MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_RecursiveForwar
     recursiveForwarding.EntityData.BundleName = "cisco_ios_xr"
     recursiveForwarding.EntityData.ParentYangName = "af"
     recursiveForwarding.EntityData.SegmentPath = "recursive-forwarding"
+    recursiveForwarding.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/afs/af/" + recursiveForwarding.EntityData.SegmentPath
     recursiveForwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recursiveForwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recursiveForwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4848,6 +5003,7 @@ func (mldpRecursiveFec *MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_MldpRecursiveFec) 
     mldpRecursiveFec.EntityData.BundleName = "cisco_ios_xr"
     mldpRecursiveFec.EntityData.ParentYangName = "af"
     mldpRecursiveFec.EntityData.SegmentPath = "mldp-recursive-fec"
+    mldpRecursiveFec.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/afs/af/" + mldpRecursiveFec.EntityData.SegmentPath
     mldpRecursiveFec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mldpRecursiveFec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mldpRecursiveFec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4879,6 +5035,7 @@ func (neighborPolicies *MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_NeighborPolicies) 
     neighborPolicies.EntityData.BundleName = "cisco_ios_xr"
     neighborPolicies.EntityData.ParentYangName = "af"
     neighborPolicies.EntityData.SegmentPath = "neighbor-policies"
+    neighborPolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/afs/af/" + neighborPolicies.EntityData.SegmentPath
     neighborPolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4900,6 +5057,7 @@ func (neighborPolicies *MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_NeighborPolicies) 
 type MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_NeighborPolicies_NeighborPolicy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -4920,6 +5078,7 @@ func (neighborPolicy *MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_NeighborPolicies_Nei
     neighborPolicy.EntityData.BundleName = "cisco_ios_xr"
     neighborPolicy.EntityData.ParentYangName = "neighbor-policies"
     neighborPolicy.EntityData.SegmentPath = "neighbor-policy" + types.AddKeyToken(neighborPolicy.RootAddress, "root-address") + types.AddKeyToken(neighborPolicy.PolicyMode, "policy-mode")
+    neighborPolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/afs/af/neighbor-policies/" + neighborPolicy.EntityData.SegmentPath
     neighborPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4954,6 +5113,7 @@ func (moFrr *MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_MoFrr) GetEntityData() *types
     moFrr.EntityData.BundleName = "cisco_ios_xr"
     moFrr.EntityData.ParentYangName = "af"
     moFrr.EntityData.SegmentPath = "mo-frr"
+    moFrr.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/afs/af/" + moFrr.EntityData.SegmentPath
     moFrr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moFrr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moFrr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4987,6 +5147,7 @@ func (makeBeforeBreak *MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_MakeBeforeBreak) Ge
     makeBeforeBreak.EntityData.BundleName = "cisco_ios_xr"
     makeBeforeBreak.EntityData.ParentYangName = "af"
     makeBeforeBreak.EntityData.SegmentPath = "make-before-break"
+    makeBeforeBreak.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/afs/af/" + makeBeforeBreak.EntityData.SegmentPath
     makeBeforeBreak.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     makeBeforeBreak.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     makeBeforeBreak.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5022,6 +5183,7 @@ func (signaling *MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_MakeBeforeBreak_Signaling
     signaling.EntityData.BundleName = "cisco_ios_xr"
     signaling.EntityData.ParentYangName = "make-before-break"
     signaling.EntityData.SegmentPath = "signaling"
+    signaling.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/afs/af/make-before-break/" + signaling.EntityData.SegmentPath
     signaling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signaling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signaling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5052,6 +5214,7 @@ func (csc *MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_Csc) GetEntityData() *types.Com
     csc.EntityData.BundleName = "cisco_ios_xr"
     csc.EntityData.ParentYangName = "af"
     csc.EntityData.SegmentPath = "csc"
+    csc.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/default-vrf/afs/af/" + csc.EntityData.SegmentPath
     csc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5081,6 +5244,7 @@ func (mldpGlobal *MplsLdp_Global_Mldp_MldpGlobal) GetEntityData() *types.CommonE
     mldpGlobal.EntityData.BundleName = "cisco_ios_xr"
     mldpGlobal.EntityData.ParentYangName = "mldp"
     mldpGlobal.EntityData.SegmentPath = "mldp-global"
+    mldpGlobal.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/" + mldpGlobal.EntityData.SegmentPath
     mldpGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mldpGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mldpGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5110,6 +5274,7 @@ func (logging *MplsLdp_Global_Mldp_MldpGlobal_Logging) GetEntityData() *types.Co
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "mldp-global"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/global/mldp/mldp-global/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

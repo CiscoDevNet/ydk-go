@@ -35,6 +35,7 @@ func (lldpEntries *LldpEntries) GetEntityData() *types.CommonEntityData {
     lldpEntries.EntityData.BundleName = "cisco_ios_xe"
     lldpEntries.EntityData.ParentYangName = "Cisco-IOS-XE-lldp-oper"
     lldpEntries.EntityData.SegmentPath = "Cisco-IOS-XE-lldp-oper:lldp-entries"
+    lldpEntries.EntityData.AbsolutePath = lldpEntries.EntityData.SegmentPath
     lldpEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -56,6 +57,7 @@ func (lldpEntries *LldpEntries) GetEntityData() *types.CommonEntityData {
 type LldpEntries_LldpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Device ID of the link. The type is string.
     DeviceId interface{}
@@ -82,6 +84,7 @@ func (lldpEntry *LldpEntries_LldpEntry) GetEntityData() *types.CommonEntityData 
     lldpEntry.EntityData.BundleName = "cisco_ios_xe"
     lldpEntry.EntityData.ParentYangName = "lldp-entries"
     lldpEntry.EntityData.SegmentPath = "lldp-entry" + types.AddKeyToken(lldpEntry.DeviceId, "device-id") + types.AddKeyToken(lldpEntry.LocalInterface, "local-interface") + types.AddKeyToken(lldpEntry.ConnectingInterface, "connecting-interface")
+    lldpEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-lldp-oper:lldp-entries/" + lldpEntry.EntityData.SegmentPath
     lldpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lldpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lldpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -136,6 +139,7 @@ func (capabilities *LldpEntries_LldpEntry_Capabilities) GetEntityData() *types.C
     capabilities.EntityData.BundleName = "cisco_ios_xe"
     capabilities.EntityData.ParentYangName = "lldp-entry"
     capabilities.EntityData.SegmentPath = "capabilities"
+    capabilities.EntityData.AbsolutePath = "Cisco-IOS-XE-lldp-oper:lldp-entries/lldp-entry/" + capabilities.EntityData.SegmentPath
     capabilities.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     capabilities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     capabilities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

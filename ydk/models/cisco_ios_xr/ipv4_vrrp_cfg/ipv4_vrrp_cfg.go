@@ -50,6 +50,7 @@ func (vrrp *Vrrp) GetEntityData() *types.CommonEntityData {
     vrrp.EntityData.BundleName = "cisco_ios_xr"
     vrrp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-vrrp-cfg"
     vrrp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp"
+    vrrp.EntityData.AbsolutePath = vrrp.EntityData.SegmentPath
     vrrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -81,6 +82,7 @@ func (logging *Vrrp_Logging) GetEntityData() *types.CommonEntityData {
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "vrrp"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -111,6 +113,7 @@ func (interfaces *Vrrp_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "vrrp"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -132,6 +135,7 @@ func (interfaces *Vrrp_Interfaces) GetEntityData() *types.CommonEntityData {
 type Vrrp_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name to configure. The type is string
     // with pattern: [a-zA-Z0-9._/-]+.
@@ -160,6 +164,7 @@ func (self *Vrrp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -197,6 +202,7 @@ func (ipv6 *Vrrp_Interfaces_Interface_Ipv6) GetEntityData() *types.CommonEntityD
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "interface"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -227,6 +233,7 @@ func (version3 *Vrrp_Interfaces_Interface_Ipv6_Version3) GetEntityData() *types.
     version3.EntityData.BundleName = "cisco_ios_xr"
     version3.EntityData.ParentYangName = "ipv6"
     version3.EntityData.SegmentPath = "version3"
+    version3.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/" + version3.EntityData.SegmentPath
     version3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     version3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -257,6 +264,7 @@ func (virtualRouters *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters) Ge
     virtualRouters.EntityData.BundleName = "cisco_ios_xr"
     virtualRouters.EntityData.ParentYangName = "version3"
     virtualRouters.EntityData.SegmentPath = "virtual-routers"
+    virtualRouters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/version3/" + virtualRouters.EntityData.SegmentPath
     virtualRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -278,6 +286,7 @@ func (virtualRouters *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters) Ge
 type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRID Virtual Router Identifier. The type is
     // interface{} with range: 1..255.
@@ -326,6 +335,7 @@ func (virtualRouter *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_Virt
     virtualRouter.EntityData.BundleName = "cisco_ios_xr"
     virtualRouter.EntityData.ParentYangName = "virtual-routers"
     virtualRouter.EntityData.SegmentPath = "virtual-router" + types.AddKeyToken(virtualRouter.VrId, "vr-id")
+    virtualRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/version3/virtual-routers/" + virtualRouter.EntityData.SegmentPath
     virtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -367,6 +377,7 @@ func (globalIpv6Addresses *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouter
     globalIpv6Addresses.EntityData.BundleName = "cisco_ios_xr"
     globalIpv6Addresses.EntityData.ParentYangName = "virtual-router"
     globalIpv6Addresses.EntityData.SegmentPath = "global-ipv6-addresses"
+    globalIpv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/version3/virtual-routers/virtual-router/" + globalIpv6Addresses.EntityData.SegmentPath
     globalIpv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -388,6 +399,7 @@ func (globalIpv6Addresses *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouter
 type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter_GlobalIpv6Addresses_GlobalIpv6Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRRP virtual global IPv6 address. The type is one
     // of the following types: string with pattern:
@@ -403,6 +415,7 @@ func (globalIpv6Address *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_
     globalIpv6Address.EntityData.BundleName = "cisco_ios_xr"
     globalIpv6Address.EntityData.ParentYangName = "global-ipv6-addresses"
     globalIpv6Address.EntityData.SegmentPath = "global-ipv6-address" + types.AddKeyToken(globalIpv6Address.IpAddress, "ip-address")
+    globalIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/version3/virtual-routers/virtual-router/global-ipv6-addresses/" + globalIpv6Address.EntityData.SegmentPath
     globalIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -434,6 +447,7 @@ func (tracks *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRout
     tracks.EntityData.BundleName = "cisco_ios_xr"
     tracks.EntityData.ParentYangName = "virtual-router"
     tracks.EntityData.SegmentPath = "tracks"
+    tracks.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/version3/virtual-routers/virtual-router/" + tracks.EntityData.SegmentPath
     tracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -455,6 +469,7 @@ func (tracks *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRout
 type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter_Tracks_Track struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
     // interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
@@ -471,6 +486,7 @@ func (track *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRoute
     track.EntityData.BundleName = "cisco_ios_xr"
     track.EntityData.ParentYangName = "tracks"
     track.EntityData.SegmentPath = "track" + types.AddKeyToken(track.InterfaceName, "interface-name")
+    track.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/version3/virtual-routers/virtual-router/tracks/" + track.EntityData.SegmentPath
     track.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     track.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     track.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -510,6 +526,7 @@ func (timer *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRoute
     timer.EntityData.BundleName = "cisco_ios_xr"
     timer.EntityData.ParentYangName = "virtual-router"
     timer.EntityData.SegmentPath = "timer"
+    timer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/version3/virtual-routers/virtual-router/" + timer.EntityData.SegmentPath
     timer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -543,6 +560,7 @@ func (trackedObjects *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_Vir
     trackedObjects.EntityData.BundleName = "cisco_ios_xr"
     trackedObjects.EntityData.ParentYangName = "virtual-router"
     trackedObjects.EntityData.SegmentPath = "tracked-objects"
+    trackedObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/version3/virtual-routers/virtual-router/" + trackedObjects.EntityData.SegmentPath
     trackedObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -564,6 +582,7 @@ func (trackedObjects *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_Vir
 type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter_TrackedObjects_TrackedObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
     // interfaces. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -580,6 +599,7 @@ func (trackedObject *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_Virt
     trackedObject.EntityData.BundleName = "cisco_ios_xr"
     trackedObject.EntityData.ParentYangName = "tracked-objects"
     trackedObject.EntityData.SegmentPath = "tracked-object" + types.AddKeyToken(trackedObject.ObjectName, "object-name")
+    trackedObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/version3/virtual-routers/virtual-router/tracked-objects/" + trackedObject.EntityData.SegmentPath
     trackedObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -619,6 +639,7 @@ func (linkLocalIpv6Address *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRoute
     linkLocalIpv6Address.EntityData.BundleName = "cisco_ios_xr"
     linkLocalIpv6Address.EntityData.ParentYangName = "virtual-router"
     linkLocalIpv6Address.EntityData.SegmentPath = "link-local-ipv6-address"
+    linkLocalIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/version3/virtual-routers/virtual-router/" + linkLocalIpv6Address.EntityData.SegmentPath
     linkLocalIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLocalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLocalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -650,6 +671,7 @@ func (slaveVirtualRouters *Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters) G
     slaveVirtualRouters.EntityData.BundleName = "cisco_ios_xr"
     slaveVirtualRouters.EntityData.ParentYangName = "ipv6"
     slaveVirtualRouters.EntityData.SegmentPath = "slave-virtual-routers"
+    slaveVirtualRouters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/" + slaveVirtualRouters.EntityData.SegmentPath
     slaveVirtualRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaveVirtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveVirtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -671,6 +693,7 @@ func (slaveVirtualRouters *Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters) G
 type Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters_SlaveVirtualRouter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Virtual Router ID. The type is interface{} with
     // range: 1..255.
@@ -695,6 +718,7 @@ func (slaveVirtualRouter *Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters_Sla
     slaveVirtualRouter.EntityData.BundleName = "cisco_ios_xr"
     slaveVirtualRouter.EntityData.ParentYangName = "slave-virtual-routers"
     slaveVirtualRouter.EntityData.SegmentPath = "slave-virtual-router" + types.AddKeyToken(slaveVirtualRouter.SlaveVirtualRouterId, "slave-virtual-router-id")
+    slaveVirtualRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/slave-virtual-routers/" + slaveVirtualRouter.EntityData.SegmentPath
     slaveVirtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaveVirtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveVirtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -737,6 +761,7 @@ func (linkLocalIpv6Address *Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters_S
     linkLocalIpv6Address.EntityData.BundleName = "cisco_ios_xr"
     linkLocalIpv6Address.EntityData.ParentYangName = "slave-virtual-router"
     linkLocalIpv6Address.EntityData.SegmentPath = "link-local-ipv6-address"
+    linkLocalIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/slave-virtual-routers/slave-virtual-router/" + linkLocalIpv6Address.EntityData.SegmentPath
     linkLocalIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLocalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLocalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -769,6 +794,7 @@ func (globalIpv6Addresses *Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters_Sl
     globalIpv6Addresses.EntityData.BundleName = "cisco_ios_xr"
     globalIpv6Addresses.EntityData.ParentYangName = "slave-virtual-router"
     globalIpv6Addresses.EntityData.SegmentPath = "global-ipv6-addresses"
+    globalIpv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/slave-virtual-routers/slave-virtual-router/" + globalIpv6Addresses.EntityData.SegmentPath
     globalIpv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -790,6 +816,7 @@ func (globalIpv6Addresses *Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters_Sl
 type Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters_SlaveVirtualRouter_GlobalIpv6Addresses_GlobalIpv6Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRRP virtual global IPv6 address. The type is one
     // of the following types: string with pattern:
@@ -805,6 +832,7 @@ func (globalIpv6Address *Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters_Slav
     globalIpv6Address.EntityData.BundleName = "cisco_ios_xr"
     globalIpv6Address.EntityData.ParentYangName = "global-ipv6-addresses"
     globalIpv6Address.EntityData.SegmentPath = "global-ipv6-address" + types.AddKeyToken(globalIpv6Address.IpAddress, "ip-address")
+    globalIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv6/slave-virtual-routers/slave-virtual-router/global-ipv6-addresses/" + globalIpv6Address.EntityData.SegmentPath
     globalIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -841,6 +869,7 @@ func (delay *Vrrp_Interfaces_Interface_Delay) GetEntityData() *types.CommonEntit
     delay.EntityData.BundleName = "cisco_ios_xr"
     delay.EntityData.ParentYangName = "interface"
     delay.EntityData.SegmentPath = "delay"
+    delay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/" + delay.EntityData.SegmentPath
     delay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -877,6 +906,7 @@ func (ipv4 *Vrrp_Interfaces_Interface_Ipv4) GetEntityData() *types.CommonEntityD
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "interface"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -908,6 +938,7 @@ func (version3 *Vrrp_Interfaces_Interface_Ipv4_Version3) GetEntityData() *types.
     version3.EntityData.BundleName = "cisco_ios_xr"
     version3.EntityData.ParentYangName = "ipv4"
     version3.EntityData.SegmentPath = "version3"
+    version3.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/" + version3.EntityData.SegmentPath
     version3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     version3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -938,6 +969,7 @@ func (virtualRouters *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters) Ge
     virtualRouters.EntityData.BundleName = "cisco_ios_xr"
     virtualRouters.EntityData.ParentYangName = "version3"
     virtualRouters.EntityData.SegmentPath = "virtual-routers"
+    virtualRouters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version3/" + virtualRouters.EntityData.SegmentPath
     virtualRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -959,6 +991,7 @@ func (virtualRouters *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters) Ge
 type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRID Virtual Router Identifier. The type is
     // interface{} with range: 1..255.
@@ -1006,6 +1039,7 @@ func (virtualRouter *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_Virt
     virtualRouter.EntityData.BundleName = "cisco_ios_xr"
     virtualRouter.EntityData.ParentYangName = "virtual-routers"
     virtualRouter.EntityData.SegmentPath = "virtual-router" + types.AddKeyToken(virtualRouter.VrId, "vr-id")
+    virtualRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version3/virtual-routers/" + virtualRouter.EntityData.SegmentPath
     virtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1054,6 +1088,7 @@ func (timer *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRoute
     timer.EntityData.BundleName = "cisco_ios_xr"
     timer.EntityData.ParentYangName = "virtual-router"
     timer.EntityData.SegmentPath = "timer"
+    timer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version3/virtual-routers/virtual-router/" + timer.EntityData.SegmentPath
     timer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1086,6 +1121,7 @@ func (secondaryIpv4Addresses *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRou
     secondaryIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Addresses.EntityData.ParentYangName = "virtual-router"
     secondaryIpv4Addresses.EntityData.SegmentPath = "secondary-ipv4-addresses"
+    secondaryIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version3/virtual-routers/virtual-router/" + secondaryIpv4Addresses.EntityData.SegmentPath
     secondaryIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1107,6 +1143,7 @@ func (secondaryIpv4Addresses *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRou
 type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter_SecondaryIpv4Addresses_SecondaryIpv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRRP Secondary IPv4 address. The type is string
     // with pattern:
@@ -1120,6 +1157,7 @@ func (secondaryIpv4Address *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRoute
     secondaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Address.EntityData.ParentYangName = "secondary-ipv4-addresses"
     secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + types.AddKeyToken(secondaryIpv4Address.IpAddress, "ip-address")
+    secondaryIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version3/virtual-routers/virtual-router/secondary-ipv4-addresses/" + secondaryIpv4Address.EntityData.SegmentPath
     secondaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1151,6 +1189,7 @@ func (trackedObjects *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_Vir
     trackedObjects.EntityData.BundleName = "cisco_ios_xr"
     trackedObjects.EntityData.ParentYangName = "virtual-router"
     trackedObjects.EntityData.SegmentPath = "tracked-objects"
+    trackedObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version3/virtual-routers/virtual-router/" + trackedObjects.EntityData.SegmentPath
     trackedObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1172,6 +1211,7 @@ func (trackedObjects *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_Vir
 type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter_TrackedObjects_TrackedObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
     // interfaces. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1188,6 +1228,7 @@ func (trackedObject *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_Virt
     trackedObject.EntityData.BundleName = "cisco_ios_xr"
     trackedObject.EntityData.ParentYangName = "tracked-objects"
     trackedObject.EntityData.SegmentPath = "tracked-object" + types.AddKeyToken(trackedObject.ObjectName, "object-name")
+    trackedObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version3/virtual-routers/virtual-router/tracked-objects/" + trackedObject.EntityData.SegmentPath
     trackedObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1220,6 +1261,7 @@ func (tracks *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRout
     tracks.EntityData.BundleName = "cisco_ios_xr"
     tracks.EntityData.ParentYangName = "virtual-router"
     tracks.EntityData.SegmentPath = "tracks"
+    tracks.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version3/virtual-routers/virtual-router/" + tracks.EntityData.SegmentPath
     tracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1241,6 +1283,7 @@ func (tracks *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRout
 type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter_Tracks_Track struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
     // interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
@@ -1257,6 +1300,7 @@ func (track *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRoute
     track.EntityData.BundleName = "cisco_ios_xr"
     track.EntityData.ParentYangName = "tracks"
     track.EntityData.SegmentPath = "track" + types.AddKeyToken(track.InterfaceName, "interface-name")
+    track.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version3/virtual-routers/virtual-router/tracks/" + track.EntityData.SegmentPath
     track.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     track.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     track.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1288,6 +1332,7 @@ func (slaveVirtualRouters *Vrrp_Interfaces_Interface_Ipv4_SlaveVirtualRouters) G
     slaveVirtualRouters.EntityData.BundleName = "cisco_ios_xr"
     slaveVirtualRouters.EntityData.ParentYangName = "ipv4"
     slaveVirtualRouters.EntityData.SegmentPath = "slave-virtual-routers"
+    slaveVirtualRouters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/" + slaveVirtualRouters.EntityData.SegmentPath
     slaveVirtualRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaveVirtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveVirtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1309,6 +1354,7 @@ func (slaveVirtualRouters *Vrrp_Interfaces_Interface_Ipv4_SlaveVirtualRouters) G
 type Vrrp_Interfaces_Interface_Ipv4_SlaveVirtualRouters_SlaveVirtualRouter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Virtual Router ID. The type is interface{} with
     // range: 1..255.
@@ -1334,6 +1380,7 @@ func (slaveVirtualRouter *Vrrp_Interfaces_Interface_Ipv4_SlaveVirtualRouters_Sla
     slaveVirtualRouter.EntityData.BundleName = "cisco_ios_xr"
     slaveVirtualRouter.EntityData.ParentYangName = "slave-virtual-routers"
     slaveVirtualRouter.EntityData.SegmentPath = "slave-virtual-router" + types.AddKeyToken(slaveVirtualRouter.SlaveVirtualRouterId, "slave-virtual-router-id")
+    slaveVirtualRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/slave-virtual-routers/" + slaveVirtualRouter.EntityData.SegmentPath
     slaveVirtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaveVirtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveVirtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1368,6 +1415,7 @@ func (secondaryIpv4Addresses *Vrrp_Interfaces_Interface_Ipv4_SlaveVirtualRouters
     secondaryIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Addresses.EntityData.ParentYangName = "slave-virtual-router"
     secondaryIpv4Addresses.EntityData.SegmentPath = "secondary-ipv4-addresses"
+    secondaryIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/slave-virtual-routers/slave-virtual-router/" + secondaryIpv4Addresses.EntityData.SegmentPath
     secondaryIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1389,6 +1437,7 @@ func (secondaryIpv4Addresses *Vrrp_Interfaces_Interface_Ipv4_SlaveVirtualRouters
 type Vrrp_Interfaces_Interface_Ipv4_SlaveVirtualRouters_SlaveVirtualRouter_SecondaryIpv4Addresses_SecondaryIpv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRRP Secondary IPv4 address. The type is string
     // with pattern:
@@ -1402,6 +1451,7 @@ func (secondaryIpv4Address *Vrrp_Interfaces_Interface_Ipv4_SlaveVirtualRouters_S
     secondaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Address.EntityData.ParentYangName = "secondary-ipv4-addresses"
     secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + types.AddKeyToken(secondaryIpv4Address.IpAddress, "ip-address")
+    secondaryIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/slave-virtual-routers/slave-virtual-router/secondary-ipv4-addresses/" + secondaryIpv4Address.EntityData.SegmentPath
     secondaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1431,6 +1481,7 @@ func (version2 *Vrrp_Interfaces_Interface_Ipv4_Version2) GetEntityData() *types.
     version2.EntityData.BundleName = "cisco_ios_xr"
     version2.EntityData.ParentYangName = "ipv4"
     version2.EntityData.SegmentPath = "version2"
+    version2.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/" + version2.EntityData.SegmentPath
     version2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     version2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1461,6 +1512,7 @@ func (virtualRouters *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters) Ge
     virtualRouters.EntityData.BundleName = "cisco_ios_xr"
     virtualRouters.EntityData.ParentYangName = "version2"
     virtualRouters.EntityData.SegmentPath = "virtual-routers"
+    virtualRouters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version2/" + virtualRouters.EntityData.SegmentPath
     virtualRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1482,6 +1534,7 @@ func (virtualRouters *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters) Ge
 type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRID Virtual Router Identifier. The type is
     // interface{} with range: 1..255.
@@ -1532,6 +1585,7 @@ func (virtualRouter *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_Virt
     virtualRouter.EntityData.BundleName = "cisco_ios_xr"
     virtualRouter.EntityData.ParentYangName = "virtual-routers"
     virtualRouter.EntityData.SegmentPath = "virtual-router" + types.AddKeyToken(virtualRouter.VrId, "vr-id")
+    virtualRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version2/virtual-routers/" + virtualRouter.EntityData.SegmentPath
     virtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1581,6 +1635,7 @@ func (timer *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRoute
     timer.EntityData.BundleName = "cisco_ios_xr"
     timer.EntityData.ParentYangName = "virtual-router"
     timer.EntityData.SegmentPath = "timer"
+    timer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version2/virtual-routers/virtual-router/" + timer.EntityData.SegmentPath
     timer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1613,6 +1668,7 @@ func (secondaryIpv4Addresses *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRou
     secondaryIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Addresses.EntityData.ParentYangName = "virtual-router"
     secondaryIpv4Addresses.EntityData.SegmentPath = "secondary-ipv4-addresses"
+    secondaryIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version2/virtual-routers/virtual-router/" + secondaryIpv4Addresses.EntityData.SegmentPath
     secondaryIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1634,6 +1690,7 @@ func (secondaryIpv4Addresses *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRou
 type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter_SecondaryIpv4Addresses_SecondaryIpv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRRP Secondary IPv4 address. The type is string
     // with pattern:
@@ -1647,6 +1704,7 @@ func (secondaryIpv4Address *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRoute
     secondaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Address.EntityData.ParentYangName = "secondary-ipv4-addresses"
     secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + types.AddKeyToken(secondaryIpv4Address.IpAddress, "ip-address")
+    secondaryIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version2/virtual-routers/virtual-router/secondary-ipv4-addresses/" + secondaryIpv4Address.EntityData.SegmentPath
     secondaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1678,6 +1736,7 @@ func (tracks *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRout
     tracks.EntityData.BundleName = "cisco_ios_xr"
     tracks.EntityData.ParentYangName = "virtual-router"
     tracks.EntityData.SegmentPath = "tracks"
+    tracks.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version2/virtual-routers/virtual-router/" + tracks.EntityData.SegmentPath
     tracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1699,6 +1758,7 @@ func (tracks *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRout
 type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter_Tracks_Track struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
     // interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
@@ -1715,6 +1775,7 @@ func (track *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRoute
     track.EntityData.BundleName = "cisco_ios_xr"
     track.EntityData.ParentYangName = "tracks"
     track.EntityData.SegmentPath = "track" + types.AddKeyToken(track.InterfaceName, "interface-name")
+    track.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version2/virtual-routers/virtual-router/tracks/" + track.EntityData.SegmentPath
     track.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     track.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     track.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1747,6 +1808,7 @@ func (trackedObjects *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_Vir
     trackedObjects.EntityData.BundleName = "cisco_ios_xr"
     trackedObjects.EntityData.ParentYangName = "virtual-router"
     trackedObjects.EntityData.SegmentPath = "tracked-objects"
+    trackedObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version2/virtual-routers/virtual-router/" + trackedObjects.EntityData.SegmentPath
     trackedObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1768,6 +1830,7 @@ func (trackedObjects *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_Vir
 type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter_TrackedObjects_TrackedObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
     // interfaces. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1784,6 +1847,7 @@ func (trackedObject *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_Virt
     trackedObject.EntityData.BundleName = "cisco_ios_xr"
     trackedObject.EntityData.ParentYangName = "tracked-objects"
     trackedObject.EntityData.SegmentPath = "tracked-object" + types.AddKeyToken(trackedObject.ObjectName, "object-name")
+    trackedObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/ipv4/version2/virtual-routers/virtual-router/tracked-objects/" + trackedObject.EntityData.SegmentPath
     trackedObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1819,6 +1883,7 @@ func (bfd *Vrrp_Interfaces_Interface_Bfd) GetEntityData() *types.CommonEntityDat
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "interface"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/interface/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

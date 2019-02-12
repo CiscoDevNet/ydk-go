@@ -47,6 +47,7 @@ func (sNMPv2MIB *SNMPv2MIB) GetEntityData() *types.CommonEntityData {
     sNMPv2MIB.EntityData.BundleName = "cisco_ios_xe"
     sNMPv2MIB.EntityData.ParentYangName = "SNMPv2-MIB"
     sNMPv2MIB.EntityData.SegmentPath = "SNMPv2-MIB:SNMPv2-MIB"
+    sNMPv2MIB.EntityData.AbsolutePath = sNMPv2MIB.EntityData.SegmentPath
     sNMPv2MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sNMPv2MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sNMPv2MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -134,6 +135,7 @@ func (system *SNMPv2MIB_System) GetEntityData() *types.CommonEntityData {
     system.EntityData.BundleName = "cisco_ios_xe"
     system.EntityData.ParentYangName = "SNMPv2-MIB"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "SNMPv2-MIB:SNMPv2-MIB/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -341,6 +343,7 @@ func (snmp *SNMPv2MIB_Snmp) GetEntityData() *types.CommonEntityData {
     snmp.EntityData.BundleName = "cisco_ios_xe"
     snmp.EntityData.ParentYangName = "SNMPv2-MIB"
     snmp.EntityData.SegmentPath = "snmp"
+    snmp.EntityData.AbsolutePath = "SNMPv2-MIB:SNMPv2-MIB/" + snmp.EntityData.SegmentPath
     snmp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -411,6 +414,7 @@ func (snmpSet *SNMPv2MIB_SnmpSet) GetEntityData() *types.CommonEntityData {
     snmpSet.EntityData.BundleName = "cisco_ios_xe"
     snmpSet.EntityData.ParentYangName = "SNMPv2-MIB"
     snmpSet.EntityData.SegmentPath = "snmpSet"
+    snmpSet.EntityData.AbsolutePath = "SNMPv2-MIB:SNMPv2-MIB/" + snmpSet.EntityData.SegmentPath
     snmpSet.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpSet.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpSet.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -446,6 +450,7 @@ func (sysORTable *SNMPv2MIB_SysORTable) GetEntityData() *types.CommonEntityData 
     sysORTable.EntityData.BundleName = "cisco_ios_xe"
     sysORTable.EntityData.ParentYangName = "SNMPv2-MIB"
     sysORTable.EntityData.SegmentPath = "sysORTable"
+    sysORTable.EntityData.AbsolutePath = "SNMPv2-MIB:SNMPv2-MIB/" + sysORTable.EntityData.SegmentPath
     sysORTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sysORTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sysORTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -467,6 +472,7 @@ func (sysORTable *SNMPv2MIB_SysORTable) GetEntityData() *types.CommonEntityData 
 type SNMPv2MIB_SysORTable_SysOREntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The auxiliary variable used for identifying
     // instances of the columnar objects in the sysORTable. The type is
@@ -494,6 +500,7 @@ func (sysOREntry *SNMPv2MIB_SysORTable_SysOREntry) GetEntityData() *types.Common
     sysOREntry.EntityData.BundleName = "cisco_ios_xe"
     sysOREntry.EntityData.ParentYangName = "sysORTable"
     sysOREntry.EntityData.SegmentPath = "sysOREntry" + types.AddKeyToken(sysOREntry.SysORIndex, "sysORIndex")
+    sysOREntry.EntityData.AbsolutePath = "SNMPv2-MIB:SNMPv2-MIB/sysORTable/" + sysOREntry.EntityData.SegmentPath
     sysOREntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sysOREntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sysOREntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

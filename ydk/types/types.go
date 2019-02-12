@@ -90,22 +90,23 @@ type YLeaf struct {
 // CommonEntityData encapsulate common data within an Entity
 type CommonEntityData struct {
 	// static data (internals)
-	YangName				string
-	BundleName				string
-	ParentYangName				string
-	YFilter					yfilter.YFilter
-	Children				*OrderedMap
-	Leafs					*OrderedMap
-	SegmentPath				string
+	YangName			string
+	BundleName			string
+	ParentYangName			string
+	YFilter				yfilter.YFilter
+	Children			*OrderedMap
+	Leafs				*OrderedMap
+	SegmentPath			string
+	AbsolutePath			string
 
-	CapabilitiesTable			map[string]string
-	NamespaceTable				map[string]string
-	BundleYangModelsLocation		string
+	CapabilitiesTable		map[string]string
+	NamespaceTable			map[string]string
+	BundleYangModelsLocation	string
 
-	YListKeys				[]string
+	YListKeys			[]string
 
 	// dynamic data (internals)
-	Parent 					Entity
+	Parent 				Entity
 }
 
 // Entity is a basic type that represents containers in YANG
@@ -538,11 +539,17 @@ func GetChildByName(
 			} else {
 				sliceType := v.Type().Elem().Elem()
 				childValue := reflect.New(sliceType).Elem()
+				v.Set(reflect.Append(v, childValue.Addr()))
 
-				method := reflect.New(sliceType).MethodByName("GetEntityData")
+				cv := childValue.FieldByName("YListKey")
+				if cv.IsValid() {
+					key := fmt.Sprintf("%d", v.Len())
+					cv.Set(reflect.ValueOf(key))
+				}
+
+				method := childValue.Addr().MethodByName("GetEntityData")
 				in := make([]reflect.Value, method.Type().NumIn())
 				data := method.Call(in)[0].Elem().Interface().(CommonEntityData)
-				v.Set(reflect.Append(v, childValue.Addr()))
 
 				entityData = entity.GetEntityData()
 				yChild, ok = GetYChild(entityData, data.SegmentPath)
@@ -782,6 +789,9 @@ func nameValuesEqual(e1, e2 Entity) bool {
 
 func deepValueEqual(e1, e2 Entity) bool {
 	if e1 == nil && e2 == nil {
+		return true
+	}
+	if e1 == nil || e2 == nil {
 		return false
 	}
 	children1 := GetYChildrenMap(e1)
@@ -835,4 +845,26 @@ func AddKeyToken(attr interface{}, attrName string) string {
         token = fmt.Sprintf("[%s='%s']", attrName, attrStr)
     }
     return token
+}
+
+func AddNoKeyToken(ent Entity) string {
+	var token string
+	s := reflect.ValueOf(ent).Elem()
+	v := s.FieldByName("YListKey")
+	if v.IsValid() {
+		key := v.Interface().(string)
+		if len(key) > 0 {
+			token = fmt.Sprintf("[%s]", key)
+		}
+	}
+	return token
+}
+
+func SetYListKey(ent Entity, index int) {
+	key := fmt.Sprintf("%d", index+1)
+	s := reflect.ValueOf(ent).Elem()
+	v := s.FieldByName("YListKey")
+	if v.IsValid() {
+		v.Set(reflect.ValueOf(key))
+	}
 }

@@ -521,6 +521,7 @@ func (rcmd *Rcmd) GetEntityData() *types.CommonEntityData {
     rcmd.EntityData.BundleName = "cisco_ios_xr"
     rcmd.EntityData.ParentYangName = "Cisco-IOS-XR-infra-rcmd-oper"
     rcmd.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd"
+    rcmd.EntityData.AbsolutePath = rcmd.EntityData.SegmentPath
     rcmd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rcmd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rcmd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -557,6 +558,7 @@ func (ospf *Rcmd_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "rcmd"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -587,6 +589,7 @@ func (instances *Rcmd_Ospf_Instances) GetEntityData() *types.CommonEntityData {
     instances.EntityData.BundleName = "cisco_ios_xr"
     instances.EntityData.ParentYangName = "ospf"
     instances.EntityData.SegmentPath = "instances"
+    instances.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/" + instances.EntityData.SegmentPath
     instances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -608,6 +611,7 @@ func (instances *Rcmd_Ospf_Instances) GetEntityData() *types.CommonEntityData {
 type Rcmd_Ospf_Instances_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Operational data for a particular instance. The
     // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -650,6 +654,7 @@ func (instance *Rcmd_Ospf_Instances_Instance) GetEntityData() *types.CommonEntit
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instances"
     instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.InstanceName, "instance-name")
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -690,6 +695,7 @@ func (ipfrrEventSummaries *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries) Get
     ipfrrEventSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipfrrEventSummaries.EntityData.ParentYangName = "instance"
     ipfrrEventSummaries.EntityData.SegmentPath = "ipfrr-event-summaries"
+    ipfrrEventSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/" + ipfrrEventSummaries.EntityData.SegmentPath
     ipfrrEventSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrEventSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrEventSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -711,6 +717,7 @@ func (ipfrrEventSummaries *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries) Get
 type Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific IP-FRR Event. The type is interface{}
     // with range: 1..4294967295.
@@ -773,6 +780,7 @@ func (ipfrrEventSummary *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrE
     ipfrrEventSummary.EntityData.BundleName = "cisco_ios_xr"
     ipfrrEventSummary.EntityData.ParentYangName = "ipfrr-event-summaries"
     ipfrrEventSummary.EntityData.SegmentPath = "ipfrr-event-summary" + types.AddKeyToken(ipfrrEventSummary.EventId, "event-id")
+    ipfrrEventSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/ipfrr-event-summaries/" + ipfrrEventSummary.EntityData.SegmentPath
     ipfrrEventSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrEventSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrEventSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -780,10 +788,12 @@ func (ipfrrEventSummary *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrE
     ipfrrEventSummary.EntityData.Children = types.NewOrderedMap()
     ipfrrEventSummary.EntityData.Children.Append("ipfrr-statistic", types.YChild{"IpfrrStatistic", nil})
     for i := range ipfrrEventSummary.IpfrrStatistic {
+        types.SetYListKey(ipfrrEventSummary.IpfrrStatistic[i], i)
         ipfrrEventSummary.EntityData.Children.Append(types.GetSegmentPath(ipfrrEventSummary.IpfrrStatistic[i]), types.YChild{"IpfrrStatistic", ipfrrEventSummary.IpfrrStatistic[i]})
     }
     ipfrrEventSummary.EntityData.Children.Append("remote-node", types.YChild{"RemoteNode", nil})
     for i := range ipfrrEventSummary.RemoteNode {
+        types.SetYListKey(ipfrrEventSummary.RemoteNode[i], i)
         ipfrrEventSummary.EntityData.Children.Append(types.GetSegmentPath(ipfrrEventSummary.RemoteNode[i]), types.YChild{"RemoteNode", ipfrrEventSummary.RemoteNode[i]})
     }
     ipfrrEventSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -810,6 +820,7 @@ func (ipfrrEventSummary *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrE
 type Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary_IpfrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Priority. The type is RcmdPriorityLevel.
     Priority interface{}
@@ -843,7 +854,8 @@ func (ipfrrStatistic *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEven
     ipfrrStatistic.EntityData.YangName = "ipfrr-statistic"
     ipfrrStatistic.EntityData.BundleName = "cisco_ios_xr"
     ipfrrStatistic.EntityData.ParentYangName = "ipfrr-event-summary"
-    ipfrrStatistic.EntityData.SegmentPath = "ipfrr-statistic"
+    ipfrrStatistic.EntityData.SegmentPath = "ipfrr-statistic" + types.AddNoKeyToken(ipfrrStatistic)
+    ipfrrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/ipfrr-event-summaries/ipfrr-event-summary/" + ipfrrStatistic.EntityData.SegmentPath
     ipfrrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -869,6 +881,7 @@ func (ipfrrStatistic *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEven
 type Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary_RemoteNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Remote-LFA Node ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -899,7 +912,8 @@ func (remoteNode *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEventSum
     remoteNode.EntityData.YangName = "remote-node"
     remoteNode.EntityData.BundleName = "cisco_ios_xr"
     remoteNode.EntityData.ParentYangName = "ipfrr-event-summary"
-    remoteNode.EntityData.SegmentPath = "remote-node"
+    remoteNode.EntityData.SegmentPath = "remote-node" + types.AddNoKeyToken(remoteNode)
+    remoteNode.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/ipfrr-event-summaries/ipfrr-event-summary/" + remoteNode.EntityData.SegmentPath
     remoteNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -907,6 +921,7 @@ func (remoteNode *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEventSum
     remoteNode.EntityData.Children = types.NewOrderedMap()
     remoteNode.EntityData.Children.Append("primary-path", types.YChild{"PrimaryPath", nil})
     for i := range remoteNode.PrimaryPath {
+        types.SetYListKey(remoteNode.PrimaryPath[i], i)
         remoteNode.EntityData.Children.Append(types.GetSegmentPath(remoteNode.PrimaryPath[i]), types.YChild{"PrimaryPath", remoteNode.PrimaryPath[i]})
     }
     remoteNode.EntityData.Leafs = types.NewOrderedMap()
@@ -926,6 +941,7 @@ func (remoteNode *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEventSum
 type Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary_RemoteNode_PrimaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -940,7 +956,8 @@ func (primaryPath *Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEventSu
     primaryPath.EntityData.YangName = "primary-path"
     primaryPath.EntityData.BundleName = "cisco_ios_xr"
     primaryPath.EntityData.ParentYangName = "remote-node"
-    primaryPath.EntityData.SegmentPath = "primary-path"
+    primaryPath.EntityData.SegmentPath = "primary-path" + types.AddNoKeyToken(primaryPath)
+    primaryPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/ipfrr-event-summaries/ipfrr-event-summary/remote-node/" + primaryPath.EntityData.SegmentPath
     primaryPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -972,6 +989,7 @@ func (prefixEventStatistics *Rcmd_Ospf_Instances_Instance_PrefixEventStatistics)
     prefixEventStatistics.EntityData.BundleName = "cisco_ios_xr"
     prefixEventStatistics.EntityData.ParentYangName = "instance"
     prefixEventStatistics.EntityData.SegmentPath = "prefix-event-statistics"
+    prefixEventStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/" + prefixEventStatistics.EntityData.SegmentPath
     prefixEventStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -993,6 +1011,7 @@ func (prefixEventStatistics *Rcmd_Ospf_Instances_Instance_PrefixEventStatistics)
 type Rcmd_Ospf_Instances_Instance_PrefixEventStatistics_PrefixEventStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Events with Prefix. The type is one of the
     // following types: string with pattern:
@@ -1062,6 +1081,7 @@ func (prefixEventStatistic *Rcmd_Ospf_Instances_Instance_PrefixEventStatistics_P
     prefixEventStatistic.EntityData.BundleName = "cisco_ios_xr"
     prefixEventStatistic.EntityData.ParentYangName = "prefix-event-statistics"
     prefixEventStatistic.EntityData.SegmentPath = "prefix-event-statistic" + types.AddKeyToken(prefixEventStatistic.PrefixInfo, "prefix-info")
+    prefixEventStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-statistics/" + prefixEventStatistic.EntityData.SegmentPath
     prefixEventStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1107,6 +1127,7 @@ func (spfRunSummaries *Rcmd_Ospf_Instances_Instance_SpfRunSummaries) GetEntityDa
     spfRunSummaries.EntityData.BundleName = "cisco_ios_xr"
     spfRunSummaries.EntityData.ParentYangName = "instance"
     spfRunSummaries.EntityData.SegmentPath = "spf-run-summaries"
+    spfRunSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/" + spfRunSummaries.EntityData.SegmentPath
     spfRunSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRunSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRunSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1128,6 +1149,7 @@ func (spfRunSummaries *Rcmd_Ospf_Instances_Instance_SpfRunSummaries) GetEntityDa
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific SPF run. The type is interface{} with
     // range: 1..4294967295.
@@ -1151,6 +1173,7 @@ func (spfRunSummary *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary)
     spfRunSummary.EntityData.BundleName = "cisco_ios_xr"
     spfRunSummary.EntityData.ParentYangName = "spf-run-summaries"
     spfRunSummary.EntityData.SegmentPath = "spf-run-summary" + types.AddKeyToken(spfRunSummary.SpfRunNumber, "spf-run-number")
+    spfRunSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/" + spfRunSummary.EntityData.SegmentPath
     spfRunSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRunSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRunSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1159,10 +1182,12 @@ func (spfRunSummary *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary)
     spfRunSummary.EntityData.Children.Append("spf-summary", types.YChild{"SpfSummary", &spfRunSummary.SpfSummary})
     spfRunSummary.EntityData.Children.Append("dijkstra-run", types.YChild{"DijkstraRun", nil})
     for i := range spfRunSummary.DijkstraRun {
+        types.SetYListKey(spfRunSummary.DijkstraRun[i], i)
         spfRunSummary.EntityData.Children.Append(types.GetSegmentPath(spfRunSummary.DijkstraRun[i]), types.YChild{"DijkstraRun", spfRunSummary.DijkstraRun[i]})
     }
     spfRunSummary.EntityData.Children.Append("inter-area-and-external", types.YChild{"InterAreaAndExternal", nil})
     for i := range spfRunSummary.InterAreaAndExternal {
+        types.SetYListKey(spfRunSummary.InterAreaAndExternal[i], i)
         spfRunSummary.EntityData.Children.Append(types.GetSegmentPath(spfRunSummary.InterAreaAndExternal[i]), types.YChild{"InterAreaAndExternal", spfRunSummary.InterAreaAndExternal[i]})
     }
     spfRunSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -1225,6 +1250,7 @@ func (spfSummary *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Spf
     spfSummary.EntityData.BundleName = "cisco_ios_xr"
     spfSummary.EntityData.ParentYangName = "spf-run-summary"
     spfSummary.EntityData.SegmentPath = "spf-summary"
+    spfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/" + spfSummary.EntityData.SegmentPath
     spfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1232,6 +1258,7 @@ func (spfSummary *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Spf
     spfSummary.EntityData.Children = types.NewOrderedMap()
     spfSummary.EntityData.Children.Append("priority-summary", types.YChild{"PrioritySummary", nil})
     for i := range spfSummary.PrioritySummary {
+        types.SetYListKey(spfSummary.PrioritySummary[i], i)
         spfSummary.EntityData.Children.Append(types.GetSegmentPath(spfSummary.PrioritySummary[i]), types.YChild{"PrioritySummary", spfSummary.PrioritySummary[i]})
     }
     spfSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -1257,6 +1284,7 @@ func (spfSummary *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Spf
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_SpfSummary_PrioritySummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Critical, High, Medium or Low. The type is RcmdPriorityLevel.
     Level interface{}
@@ -1283,7 +1311,8 @@ func (prioritySummary *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummar
     prioritySummary.EntityData.YangName = "priority-summary"
     prioritySummary.EntityData.BundleName = "cisco_ios_xr"
     prioritySummary.EntityData.ParentYangName = "spf-summary"
-    prioritySummary.EntityData.SegmentPath = "priority-summary"
+    prioritySummary.EntityData.SegmentPath = "priority-summary" + types.AddNoKeyToken(prioritySummary)
+    prioritySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/spf-summary/" + prioritySummary.EntityData.SegmentPath
     prioritySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prioritySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prioritySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1294,6 +1323,7 @@ func (prioritySummary *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummar
     prioritySummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prioritySummary.MplsConvergenceTime})
     prioritySummary.EntityData.Children.Append("frr-statistic", types.YChild{"FrrStatistic", nil})
     for i := range prioritySummary.FrrStatistic {
+        types.SetYListKey(prioritySummary.FrrStatistic[i], i)
         prioritySummary.EntityData.Children.Append(types.GetSegmentPath(prioritySummary.FrrStatistic[i]), types.YChild{"FrrStatistic", prioritySummary.FrrStatistic[i]})
     }
     prioritySummary.EntityData.Leafs = types.NewOrderedMap()
@@ -1336,6 +1366,7 @@ func (routeStatistics *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummar
     routeStatistics.EntityData.BundleName = "cisco_ios_xr"
     routeStatistics.EntityData.ParentYangName = "priority-summary"
     routeStatistics.EntityData.SegmentPath = "route-statistics"
+    routeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/spf-summary/priority-summary/" + routeStatistics.EntityData.SegmentPath
     routeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1381,6 +1412,7 @@ func (ipConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSumm
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "priority-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/spf-summary/priority-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1424,6 +1456,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "priority-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/spf-summary/priority-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1445,6 +1478,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_SpfSummary_PrioritySummary_FrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total Number of Routes. The type is interface{} with range: 0..4294967295.
     TotalRoutes interface{}
@@ -1465,7 +1499,8 @@ func (frrStatistic *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_S
     frrStatistic.EntityData.YangName = "frr-statistic"
     frrStatistic.EntityData.BundleName = "cisco_ios_xr"
     frrStatistic.EntityData.ParentYangName = "priority-summary"
-    frrStatistic.EntityData.SegmentPath = "frr-statistic"
+    frrStatistic.EntityData.SegmentPath = "frr-statistic" + types.AddNoKeyToken(frrStatistic)
+    frrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/spf-summary/priority-summary/" + frrStatistic.EntityData.SegmentPath
     frrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1487,6 +1522,7 @@ func (frrStatistic *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_S
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area Dijkstra run number. The type is interface{} with range:
     // 0..4294967295.
@@ -1531,7 +1567,8 @@ func (dijkstraRun *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Di
     dijkstraRun.EntityData.YangName = "dijkstra-run"
     dijkstraRun.EntityData.BundleName = "cisco_ios_xr"
     dijkstraRun.EntityData.ParentYangName = "spf-run-summary"
-    dijkstraRun.EntityData.SegmentPath = "dijkstra-run"
+    dijkstraRun.EntityData.SegmentPath = "dijkstra-run" + types.AddNoKeyToken(dijkstraRun)
+    dijkstraRun.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/" + dijkstraRun.EntityData.SegmentPath
     dijkstraRun.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dijkstraRun.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dijkstraRun.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1539,14 +1576,17 @@ func (dijkstraRun *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Di
     dijkstraRun.EntityData.Children = types.NewOrderedMap()
     dijkstraRun.EntityData.Children.Append("trigger-lsa", types.YChild{"TriggerLsa", nil})
     for i := range dijkstraRun.TriggerLsa {
+        types.SetYListKey(dijkstraRun.TriggerLsa[i], i)
         dijkstraRun.EntityData.Children.Append(types.GetSegmentPath(dijkstraRun.TriggerLsa[i]), types.YChild{"TriggerLsa", dijkstraRun.TriggerLsa[i]})
     }
     dijkstraRun.EntityData.Children.Append("priority", types.YChild{"Priority", nil})
     for i := range dijkstraRun.Priority {
+        types.SetYListKey(dijkstraRun.Priority[i], i)
         dijkstraRun.EntityData.Children.Append(types.GetSegmentPath(dijkstraRun.Priority[i]), types.YChild{"Priority", dijkstraRun.Priority[i]})
     }
     dijkstraRun.EntityData.Children.Append("lsa-processed", types.YChild{"LsaProcessed", nil})
     for i := range dijkstraRun.LsaProcessed {
+        types.SetYListKey(dijkstraRun.LsaProcessed[i], i)
         dijkstraRun.EntityData.Children.Append(types.GetSegmentPath(dijkstraRun.LsaProcessed[i]), types.YChild{"LsaProcessed", dijkstraRun.LsaProcessed[i]})
     }
     dijkstraRun.EntityData.Leafs = types.NewOrderedMap()
@@ -1568,6 +1608,7 @@ func (dijkstraRun *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Di
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_TriggerLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1595,7 +1636,8 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dij
     triggerLsa.EntityData.YangName = "trigger-lsa"
     triggerLsa.EntityData.BundleName = "cisco_ios_xr"
     triggerLsa.EntityData.ParentYangName = "dijkstra-run"
-    triggerLsa.EntityData.SegmentPath = "trigger-lsa"
+    triggerLsa.EntityData.SegmentPath = "trigger-lsa" + types.AddNoKeyToken(triggerLsa)
+    triggerLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/" + triggerLsa.EntityData.SegmentPath
     triggerLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1619,6 +1661,7 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dij
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary of the priority.
     PrioritySummary Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Priority_PrioritySummary
@@ -1641,7 +1684,8 @@ func (priority *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dijks
     priority.EntityData.YangName = "priority"
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "dijkstra-run"
-    priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.SegmentPath = "priority" + types.AddNoKeyToken(priority)
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1650,14 +1694,17 @@ func (priority *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dijks
     priority.EntityData.Children.Append("priority-summary", types.YChild{"PrioritySummary", &priority.PrioritySummary})
     priority.EntityData.Children.Append("convergence-timeline", types.YChild{"ConvergenceTimeline", nil})
     for i := range priority.ConvergenceTimeline {
+        types.SetYListKey(priority.ConvergenceTimeline[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.ConvergenceTimeline[i]), types.YChild{"ConvergenceTimeline", priority.ConvergenceTimeline[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-added", types.YChild{"LeafNetworksAdded", nil})
     for i := range priority.LeafNetworksAdded {
+        types.SetYListKey(priority.LeafNetworksAdded[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksAdded[i]), types.YChild{"LeafNetworksAdded", priority.LeafNetworksAdded[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-deleted", types.YChild{"LeafNetworksDeleted", nil})
     for i := range priority.LeafNetworksDeleted {
+        types.SetYListKey(priority.LeafNetworksDeleted[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksDeleted[i]), types.YChild{"LeafNetworksDeleted", priority.LeafNetworksDeleted[i]})
     }
     priority.EntityData.Leafs = types.NewOrderedMap()
@@ -1699,6 +1746,7 @@ func (prioritySummary *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummar
     prioritySummary.EntityData.BundleName = "cisco_ios_xr"
     prioritySummary.EntityData.ParentYangName = "priority"
     prioritySummary.EntityData.SegmentPath = "priority-summary"
+    prioritySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/" + prioritySummary.EntityData.SegmentPath
     prioritySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prioritySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prioritySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1709,6 +1757,7 @@ func (prioritySummary *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummar
     prioritySummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prioritySummary.MplsConvergenceTime})
     prioritySummary.EntityData.Children.Append("frr-statistic", types.YChild{"FrrStatistic", nil})
     for i := range prioritySummary.FrrStatistic {
+        types.SetYListKey(prioritySummary.FrrStatistic[i], i)
         prioritySummary.EntityData.Children.Append(types.GetSegmentPath(prioritySummary.FrrStatistic[i]), types.YChild{"FrrStatistic", prioritySummary.FrrStatistic[i]})
     }
     prioritySummary.EntityData.Leafs = types.NewOrderedMap()
@@ -1751,6 +1800,7 @@ func (routeStatistics *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummar
     routeStatistics.EntityData.BundleName = "cisco_ios_xr"
     routeStatistics.EntityData.ParentYangName = "priority-summary"
     routeStatistics.EntityData.SegmentPath = "route-statistics"
+    routeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/priority-summary/" + routeStatistics.EntityData.SegmentPath
     routeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1796,6 +1846,7 @@ func (ipConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSumm
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "priority-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/priority-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1839,6 +1890,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "priority-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/priority-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1860,6 +1912,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Priority_PrioritySummary_FrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total Number of Routes. The type is interface{} with range: 0..4294967295.
     TotalRoutes interface{}
@@ -1880,7 +1933,8 @@ func (frrStatistic *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_D
     frrStatistic.EntityData.YangName = "frr-statistic"
     frrStatistic.EntityData.BundleName = "cisco_ios_xr"
     frrStatistic.EntityData.ParentYangName = "priority-summary"
-    frrStatistic.EntityData.SegmentPath = "frr-statistic"
+    frrStatistic.EntityData.SegmentPath = "frr-statistic" + types.AddNoKeyToken(frrStatistic)
+    frrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/priority-summary/" + frrStatistic.EntityData.SegmentPath
     frrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1902,6 +1956,7 @@ func (frrStatistic *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_D
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Priority_ConvergenceTimeline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol).
     RouteOrigin Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Priority_ConvergenceTimeline_RouteOrigin
@@ -1941,7 +1996,8 @@ func (convergenceTimeline *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
     convergenceTimeline.EntityData.YangName = "convergence-timeline"
     convergenceTimeline.EntityData.BundleName = "cisco_ios_xr"
     convergenceTimeline.EntityData.ParentYangName = "priority"
-    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline"
+    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline" + types.AddNoKeyToken(convergenceTimeline)
+    convergenceTimeline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/" + convergenceTimeline.EntityData.SegmentPath
     convergenceTimeline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     convergenceTimeline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergenceTimeline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1957,10 +2013,12 @@ func (convergenceTimeline *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
     convergenceTimeline.EntityData.Children.Append("lsd-exit", types.YChild{"LsdExit", &convergenceTimeline.LsdExit})
     convergenceTimeline.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range convergenceTimeline.LcIp {
+        types.SetYListKey(convergenceTimeline.LcIp[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcIp[i]), types.YChild{"LcIp", convergenceTimeline.LcIp[i]})
     }
     convergenceTimeline.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range convergenceTimeline.LcMpls {
+        types.SetYListKey(convergenceTimeline.LcMpls[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcMpls[i]), types.YChild{"LcMpls", convergenceTimeline.LcMpls[i]})
     }
     convergenceTimeline.EntityData.Leafs = types.NewOrderedMap()
@@ -1994,6 +2052,7 @@ func (routeOrigin *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Di
     routeOrigin.EntityData.BundleName = "cisco_ios_xr"
     routeOrigin.EntityData.ParentYangName = "convergence-timeline"
     routeOrigin.EntityData.SegmentPath = "route-origin"
+    routeOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/" + routeOrigin.EntityData.SegmentPath
     routeOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2033,6 +2092,7 @@ func (riBv4Enter *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dij
     riBv4Enter.EntityData.BundleName = "cisco_ios_xr"
     riBv4Enter.EntityData.ParentYangName = "convergence-timeline"
     riBv4Enter.EntityData.SegmentPath = "ri-bv4-enter"
+    riBv4Enter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/" + riBv4Enter.EntityData.SegmentPath
     riBv4Enter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Enter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Enter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2072,6 +2132,7 @@ func (riBv4Exit *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dijk
     riBv4Exit.EntityData.BundleName = "cisco_ios_xr"
     riBv4Exit.EntityData.ParentYangName = "convergence-timeline"
     riBv4Exit.EntityData.SegmentPath = "ri-bv4-exit"
+    riBv4Exit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/" + riBv4Exit.EntityData.SegmentPath
     riBv4Exit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Exit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Exit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2111,6 +2172,7 @@ func (riBv4Redistribute *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSumm
     riBv4Redistribute.EntityData.BundleName = "cisco_ios_xr"
     riBv4Redistribute.EntityData.ParentYangName = "convergence-timeline"
     riBv4Redistribute.EntityData.SegmentPath = "ri-bv4-redistribute"
+    riBv4Redistribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/" + riBv4Redistribute.EntityData.SegmentPath
     riBv4Redistribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Redistribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Redistribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2150,6 +2212,7 @@ func (ldpEnter *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dijks
     ldpEnter.EntityData.BundleName = "cisco_ios_xr"
     ldpEnter.EntityData.ParentYangName = "convergence-timeline"
     ldpEnter.EntityData.SegmentPath = "ldp-enter"
+    ldpEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/" + ldpEnter.EntityData.SegmentPath
     ldpEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2189,6 +2252,7 @@ func (ldpExit *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dijkst
     ldpExit.EntityData.BundleName = "cisco_ios_xr"
     ldpExit.EntityData.ParentYangName = "convergence-timeline"
     ldpExit.EntityData.SegmentPath = "ldp-exit"
+    ldpExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/" + ldpExit.EntityData.SegmentPath
     ldpExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2228,6 +2292,7 @@ func (lsdEnter *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dijks
     lsdEnter.EntityData.BundleName = "cisco_ios_xr"
     lsdEnter.EntityData.ParentYangName = "convergence-timeline"
     lsdEnter.EntityData.SegmentPath = "lsd-enter"
+    lsdEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/" + lsdEnter.EntityData.SegmentPath
     lsdEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2267,6 +2332,7 @@ func (lsdExit *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dijkst
     lsdExit.EntityData.BundleName = "cisco_ios_xr"
     lsdExit.EntityData.ParentYangName = "convergence-timeline"
     lsdExit.EntityData.SegmentPath = "lsd-exit"
+    lsdExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/" + lsdExit.EntityData.SegmentPath
     lsdExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2288,6 +2354,7 @@ func (lsdExit *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dijkst
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Priority_ConvergenceTimeline_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -2304,7 +2371,8 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraR
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "convergence-timeline"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2344,6 +2412,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Di
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-ip"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/lc-ip/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2365,6 +2434,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Di
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Priority_ConvergenceTimeline_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -2381,7 +2451,8 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Dijkstr
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "convergence-timeline"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2421,6 +2492,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Di
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-mpls"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/convergence-timeline/lc-mpls/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2441,6 +2513,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Di
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Priority_LeafNetworksAdded struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2455,7 +2528,8 @@ func (leafNetworksAdded *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSumm
     leafNetworksAdded.EntityData.YangName = "leaf-networks-added"
     leafNetworksAdded.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksAdded.EntityData.ParentYangName = "priority"
-    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added"
+    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added" + types.AddNoKeyToken(leafNetworksAdded)
+    leafNetworksAdded.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/" + leafNetworksAdded.EntityData.SegmentPath
     leafNetworksAdded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksAdded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksAdded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2475,6 +2549,7 @@ func (leafNetworksAdded *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSumm
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Priority_LeafNetworksDeleted struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2489,7 +2564,8 @@ func (leafNetworksDeleted *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
     leafNetworksDeleted.EntityData.YangName = "leaf-networks-deleted"
     leafNetworksDeleted.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksDeleted.EntityData.ParentYangName = "priority"
-    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted"
+    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted" + types.AddNoKeyToken(leafNetworksDeleted)
+    leafNetworksDeleted.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/priority/" + leafNetworksDeleted.EntityData.SegmentPath
     leafNetworksDeleted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksDeleted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksDeleted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2509,6 +2585,7 @@ func (leafNetworksDeleted *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_LsaProcessed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2536,7 +2613,8 @@ func (lsaProcessed *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_D
     lsaProcessed.EntityData.YangName = "lsa-processed"
     lsaProcessed.EntityData.BundleName = "cisco_ios_xr"
     lsaProcessed.EntityData.ParentYangName = "dijkstra-run"
-    lsaProcessed.EntityData.SegmentPath = "lsa-processed"
+    lsaProcessed.EntityData.SegmentPath = "lsa-processed" + types.AddNoKeyToken(lsaProcessed)
+    lsaProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/dijkstra-run/" + lsaProcessed.EntityData.SegmentPath
     lsaProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2560,6 +2638,7 @@ func (lsaProcessed *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_D
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExternal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Convergence information on a per-priority basis. The type is slice of
     // Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExternal_Priority.
@@ -2571,7 +2650,8 @@ func (interAreaAndExternal *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunS
     interAreaAndExternal.EntityData.YangName = "inter-area-and-external"
     interAreaAndExternal.EntityData.BundleName = "cisco_ios_xr"
     interAreaAndExternal.EntityData.ParentYangName = "spf-run-summary"
-    interAreaAndExternal.EntityData.SegmentPath = "inter-area-and-external"
+    interAreaAndExternal.EntityData.SegmentPath = "inter-area-and-external" + types.AddNoKeyToken(interAreaAndExternal)
+    interAreaAndExternal.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/" + interAreaAndExternal.EntityData.SegmentPath
     interAreaAndExternal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaAndExternal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaAndExternal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2579,6 +2659,7 @@ func (interAreaAndExternal *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunS
     interAreaAndExternal.EntityData.Children = types.NewOrderedMap()
     interAreaAndExternal.EntityData.Children.Append("priority", types.YChild{"Priority", nil})
     for i := range interAreaAndExternal.Priority {
+        types.SetYListKey(interAreaAndExternal.Priority[i], i)
         interAreaAndExternal.EntityData.Children.Append(types.GetSegmentPath(interAreaAndExternal.Priority[i]), types.YChild{"Priority", interAreaAndExternal.Priority[i]})
     }
     interAreaAndExternal.EntityData.Leafs = types.NewOrderedMap()
@@ -2593,6 +2674,7 @@ func (interAreaAndExternal *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunS
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExternal_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary of the priority.
     PrioritySummary Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExternal_Priority_PrioritySummary
@@ -2615,7 +2697,8 @@ func (priority *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Inter
     priority.EntityData.YangName = "priority"
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "inter-area-and-external"
-    priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.SegmentPath = "priority" + types.AddNoKeyToken(priority)
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2624,14 +2707,17 @@ func (priority *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Inter
     priority.EntityData.Children.Append("priority-summary", types.YChild{"PrioritySummary", &priority.PrioritySummary})
     priority.EntityData.Children.Append("convergence-timeline", types.YChild{"ConvergenceTimeline", nil})
     for i := range priority.ConvergenceTimeline {
+        types.SetYListKey(priority.ConvergenceTimeline[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.ConvergenceTimeline[i]), types.YChild{"ConvergenceTimeline", priority.ConvergenceTimeline[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-added", types.YChild{"LeafNetworksAdded", nil})
     for i := range priority.LeafNetworksAdded {
+        types.SetYListKey(priority.LeafNetworksAdded[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksAdded[i]), types.YChild{"LeafNetworksAdded", priority.LeafNetworksAdded[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-deleted", types.YChild{"LeafNetworksDeleted", nil})
     for i := range priority.LeafNetworksDeleted {
+        types.SetYListKey(priority.LeafNetworksDeleted[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksDeleted[i]), types.YChild{"LeafNetworksDeleted", priority.LeafNetworksDeleted[i]})
     }
     priority.EntityData.Leafs = types.NewOrderedMap()
@@ -2678,6 +2764,7 @@ func (prioritySummary *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummar
     prioritySummary.EntityData.BundleName = "cisco_ios_xr"
     prioritySummary.EntityData.ParentYangName = "priority"
     prioritySummary.EntityData.SegmentPath = "priority-summary"
+    prioritySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/" + prioritySummary.EntityData.SegmentPath
     prioritySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prioritySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prioritySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2729,6 +2816,7 @@ func (routeStatistics *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummar
     routeStatistics.EntityData.BundleName = "cisco_ios_xr"
     routeStatistics.EntityData.ParentYangName = "priority-summary"
     routeStatistics.EntityData.SegmentPath = "route-statistics"
+    routeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/priority-summary/" + routeStatistics.EntityData.SegmentPath
     routeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2774,6 +2862,7 @@ func (ipConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSumm
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "priority-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/priority-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2817,6 +2906,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "priority-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/priority-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2838,6 +2928,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExternal_Priority_ConvergenceTimeline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol).
     RouteOrigin Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExternal_Priority_ConvergenceTimeline_RouteOrigin
@@ -2877,7 +2968,8 @@ func (convergenceTimeline *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
     convergenceTimeline.EntityData.YangName = "convergence-timeline"
     convergenceTimeline.EntityData.BundleName = "cisco_ios_xr"
     convergenceTimeline.EntityData.ParentYangName = "priority"
-    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline"
+    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline" + types.AddNoKeyToken(convergenceTimeline)
+    convergenceTimeline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/" + convergenceTimeline.EntityData.SegmentPath
     convergenceTimeline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     convergenceTimeline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergenceTimeline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2893,10 +2985,12 @@ func (convergenceTimeline *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
     convergenceTimeline.EntityData.Children.Append("lsd-exit", types.YChild{"LsdExit", &convergenceTimeline.LsdExit})
     convergenceTimeline.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range convergenceTimeline.LcIp {
+        types.SetYListKey(convergenceTimeline.LcIp[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcIp[i]), types.YChild{"LcIp", convergenceTimeline.LcIp[i]})
     }
     convergenceTimeline.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range convergenceTimeline.LcMpls {
+        types.SetYListKey(convergenceTimeline.LcMpls[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcMpls[i]), types.YChild{"LcMpls", convergenceTimeline.LcMpls[i]})
     }
     convergenceTimeline.EntityData.Leafs = types.NewOrderedMap()
@@ -2930,6 +3024,7 @@ func (routeOrigin *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_In
     routeOrigin.EntityData.BundleName = "cisco_ios_xr"
     routeOrigin.EntityData.ParentYangName = "convergence-timeline"
     routeOrigin.EntityData.SegmentPath = "route-origin"
+    routeOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/" + routeOrigin.EntityData.SegmentPath
     routeOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2969,6 +3064,7 @@ func (riBv4Enter *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Int
     riBv4Enter.EntityData.BundleName = "cisco_ios_xr"
     riBv4Enter.EntityData.ParentYangName = "convergence-timeline"
     riBv4Enter.EntityData.SegmentPath = "ri-bv4-enter"
+    riBv4Enter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/" + riBv4Enter.EntityData.SegmentPath
     riBv4Enter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Enter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Enter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3008,6 +3104,7 @@ func (riBv4Exit *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Inte
     riBv4Exit.EntityData.BundleName = "cisco_ios_xr"
     riBv4Exit.EntityData.ParentYangName = "convergence-timeline"
     riBv4Exit.EntityData.SegmentPath = "ri-bv4-exit"
+    riBv4Exit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/" + riBv4Exit.EntityData.SegmentPath
     riBv4Exit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Exit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Exit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3047,6 +3144,7 @@ func (riBv4Redistribute *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSumm
     riBv4Redistribute.EntityData.BundleName = "cisco_ios_xr"
     riBv4Redistribute.EntityData.ParentYangName = "convergence-timeline"
     riBv4Redistribute.EntityData.SegmentPath = "ri-bv4-redistribute"
+    riBv4Redistribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/" + riBv4Redistribute.EntityData.SegmentPath
     riBv4Redistribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Redistribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Redistribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3086,6 +3184,7 @@ func (ldpEnter *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Inter
     ldpEnter.EntityData.BundleName = "cisco_ios_xr"
     ldpEnter.EntityData.ParentYangName = "convergence-timeline"
     ldpEnter.EntityData.SegmentPath = "ldp-enter"
+    ldpEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/" + ldpEnter.EntityData.SegmentPath
     ldpEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3125,6 +3224,7 @@ func (ldpExit *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterA
     ldpExit.EntityData.BundleName = "cisco_ios_xr"
     ldpExit.EntityData.ParentYangName = "convergence-timeline"
     ldpExit.EntityData.SegmentPath = "ldp-exit"
+    ldpExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/" + ldpExit.EntityData.SegmentPath
     ldpExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3164,6 +3264,7 @@ func (lsdEnter *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_Inter
     lsdEnter.EntityData.BundleName = "cisco_ios_xr"
     lsdEnter.EntityData.ParentYangName = "convergence-timeline"
     lsdEnter.EntityData.SegmentPath = "lsd-enter"
+    lsdEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/" + lsdEnter.EntityData.SegmentPath
     lsdEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3203,6 +3304,7 @@ func (lsdExit *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterA
     lsdExit.EntityData.BundleName = "cisco_ios_xr"
     lsdExit.EntityData.ParentYangName = "convergence-timeline"
     lsdExit.EntityData.SegmentPath = "lsd-exit"
+    lsdExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/" + lsdExit.EntityData.SegmentPath
     lsdExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3224,6 +3326,7 @@ func (lsdExit *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterA
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExternal_Priority_ConvergenceTimeline_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -3240,7 +3343,8 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterArea
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "convergence-timeline"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3280,6 +3384,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_In
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-ip"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/lc-ip/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3301,6 +3406,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_In
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExternal_Priority_ConvergenceTimeline_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -3317,7 +3423,8 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAr
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "convergence-timeline"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3357,6 +3464,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_In
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-mpls"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/convergence-timeline/lc-mpls/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3377,6 +3485,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_In
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExternal_Priority_LeafNetworksAdded struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3391,7 +3500,8 @@ func (leafNetworksAdded *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSumm
     leafNetworksAdded.EntityData.YangName = "leaf-networks-added"
     leafNetworksAdded.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksAdded.EntityData.ParentYangName = "priority"
-    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added"
+    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added" + types.AddNoKeyToken(leafNetworksAdded)
+    leafNetworksAdded.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/" + leafNetworksAdded.EntityData.SegmentPath
     leafNetworksAdded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksAdded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksAdded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3411,6 +3521,7 @@ func (leafNetworksAdded *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSumm
 type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExternal_Priority_LeafNetworksDeleted struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3425,7 +3536,8 @@ func (leafNetworksDeleted *Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSu
     leafNetworksDeleted.EntityData.YangName = "leaf-networks-deleted"
     leafNetworksDeleted.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksDeleted.EntityData.ParentYangName = "priority"
-    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted"
+    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted" + types.AddNoKeyToken(leafNetworksDeleted)
+    leafNetworksDeleted.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-summaries/spf-run-summary/inter-area-and-external/priority/" + leafNetworksDeleted.EntityData.SegmentPath
     leafNetworksDeleted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksDeleted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksDeleted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3457,6 +3569,7 @@ func (ipfrrEventOfflines *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines) GetEn
     ipfrrEventOfflines.EntityData.BundleName = "cisco_ios_xr"
     ipfrrEventOfflines.EntityData.ParentYangName = "instance"
     ipfrrEventOfflines.EntityData.SegmentPath = "ipfrr-event-offlines"
+    ipfrrEventOfflines.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/" + ipfrrEventOfflines.EntityData.SegmentPath
     ipfrrEventOfflines.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrEventOfflines.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrEventOfflines.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3479,6 +3592,7 @@ func (ipfrrEventOfflines *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines) GetEn
 type Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific IP-FRR Event. The type is interface{}
     // with range: 1..4294967295.
@@ -3541,6 +3655,7 @@ func (ipfrrEventOffline *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEv
     ipfrrEventOffline.EntityData.BundleName = "cisco_ios_xr"
     ipfrrEventOffline.EntityData.ParentYangName = "ipfrr-event-offlines"
     ipfrrEventOffline.EntityData.SegmentPath = "ipfrr-event-offline" + types.AddKeyToken(ipfrrEventOffline.EventId, "event-id")
+    ipfrrEventOffline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/ipfrr-event-offlines/" + ipfrrEventOffline.EntityData.SegmentPath
     ipfrrEventOffline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrEventOffline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrEventOffline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3548,10 +3663,12 @@ func (ipfrrEventOffline *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEv
     ipfrrEventOffline.EntityData.Children = types.NewOrderedMap()
     ipfrrEventOffline.EntityData.Children.Append("ipfrr-statistic", types.YChild{"IpfrrStatistic", nil})
     for i := range ipfrrEventOffline.IpfrrStatistic {
+        types.SetYListKey(ipfrrEventOffline.IpfrrStatistic[i], i)
         ipfrrEventOffline.EntityData.Children.Append(types.GetSegmentPath(ipfrrEventOffline.IpfrrStatistic[i]), types.YChild{"IpfrrStatistic", ipfrrEventOffline.IpfrrStatistic[i]})
     }
     ipfrrEventOffline.EntityData.Children.Append("remote-node", types.YChild{"RemoteNode", nil})
     for i := range ipfrrEventOffline.RemoteNode {
+        types.SetYListKey(ipfrrEventOffline.RemoteNode[i], i)
         ipfrrEventOffline.EntityData.Children.Append(types.GetSegmentPath(ipfrrEventOffline.RemoteNode[i]), types.YChild{"RemoteNode", ipfrrEventOffline.RemoteNode[i]})
     }
     ipfrrEventOffline.EntityData.Leafs = types.NewOrderedMap()
@@ -3578,6 +3695,7 @@ func (ipfrrEventOffline *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEv
 type Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline_IpfrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Priority. The type is RcmdPriorityLevel.
     Priority interface{}
@@ -3611,7 +3729,8 @@ func (ipfrrStatistic *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEvent
     ipfrrStatistic.EntityData.YangName = "ipfrr-statistic"
     ipfrrStatistic.EntityData.BundleName = "cisco_ios_xr"
     ipfrrStatistic.EntityData.ParentYangName = "ipfrr-event-offline"
-    ipfrrStatistic.EntityData.SegmentPath = "ipfrr-statistic"
+    ipfrrStatistic.EntityData.SegmentPath = "ipfrr-statistic" + types.AddNoKeyToken(ipfrrStatistic)
+    ipfrrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/ipfrr-event-offlines/ipfrr-event-offline/" + ipfrrStatistic.EntityData.SegmentPath
     ipfrrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3637,6 +3756,7 @@ func (ipfrrStatistic *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEvent
 type Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline_RemoteNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Remote-LFA Node ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3667,7 +3787,8 @@ func (remoteNode *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffl
     remoteNode.EntityData.YangName = "remote-node"
     remoteNode.EntityData.BundleName = "cisco_ios_xr"
     remoteNode.EntityData.ParentYangName = "ipfrr-event-offline"
-    remoteNode.EntityData.SegmentPath = "remote-node"
+    remoteNode.EntityData.SegmentPath = "remote-node" + types.AddNoKeyToken(remoteNode)
+    remoteNode.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/ipfrr-event-offlines/ipfrr-event-offline/" + remoteNode.EntityData.SegmentPath
     remoteNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3675,6 +3796,7 @@ func (remoteNode *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffl
     remoteNode.EntityData.Children = types.NewOrderedMap()
     remoteNode.EntityData.Children.Append("primary-path", types.YChild{"PrimaryPath", nil})
     for i := range remoteNode.PrimaryPath {
+        types.SetYListKey(remoteNode.PrimaryPath[i], i)
         remoteNode.EntityData.Children.Append(types.GetSegmentPath(remoteNode.PrimaryPath[i]), types.YChild{"PrimaryPath", remoteNode.PrimaryPath[i]})
     }
     remoteNode.EntityData.Leafs = types.NewOrderedMap()
@@ -3694,6 +3816,7 @@ func (remoteNode *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffl
 type Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline_RemoteNode_PrimaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -3708,7 +3831,8 @@ func (primaryPath *Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEventOff
     primaryPath.EntityData.YangName = "primary-path"
     primaryPath.EntityData.BundleName = "cisco_ios_xr"
     primaryPath.EntityData.ParentYangName = "remote-node"
-    primaryPath.EntityData.SegmentPath = "primary-path"
+    primaryPath.EntityData.SegmentPath = "primary-path" + types.AddNoKeyToken(primaryPath)
+    primaryPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/ipfrr-event-offlines/ipfrr-event-offline/remote-node/" + primaryPath.EntityData.SegmentPath
     primaryPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3740,6 +3864,7 @@ func (spfRunOfflines *Rcmd_Ospf_Instances_Instance_SpfRunOfflines) GetEntityData
     spfRunOfflines.EntityData.BundleName = "cisco_ios_xr"
     spfRunOfflines.EntityData.ParentYangName = "instance"
     spfRunOfflines.EntityData.SegmentPath = "spf-run-offlines"
+    spfRunOfflines.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/" + spfRunOfflines.EntityData.SegmentPath
     spfRunOfflines.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRunOfflines.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRunOfflines.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3762,6 +3887,7 @@ func (spfRunOfflines *Rcmd_Ospf_Instances_Instance_SpfRunOfflines) GetEntityData
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific SPF run. The type is interface{} with
     // range: 1..4294967295.
@@ -3785,6 +3911,7 @@ func (spfRunOffline *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline) 
     spfRunOffline.EntityData.BundleName = "cisco_ios_xr"
     spfRunOffline.EntityData.ParentYangName = "spf-run-offlines"
     spfRunOffline.EntityData.SegmentPath = "spf-run-offline" + types.AddKeyToken(spfRunOffline.SpfRunNumber, "spf-run-number")
+    spfRunOffline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/" + spfRunOffline.EntityData.SegmentPath
     spfRunOffline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRunOffline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRunOffline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3793,10 +3920,12 @@ func (spfRunOffline *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline) 
     spfRunOffline.EntityData.Children.Append("spf-summary", types.YChild{"SpfSummary", &spfRunOffline.SpfSummary})
     spfRunOffline.EntityData.Children.Append("dijkstra-run", types.YChild{"DijkstraRun", nil})
     for i := range spfRunOffline.DijkstraRun {
+        types.SetYListKey(spfRunOffline.DijkstraRun[i], i)
         spfRunOffline.EntityData.Children.Append(types.GetSegmentPath(spfRunOffline.DijkstraRun[i]), types.YChild{"DijkstraRun", spfRunOffline.DijkstraRun[i]})
     }
     spfRunOffline.EntityData.Children.Append("inter-area-and-external", types.YChild{"InterAreaAndExternal", nil})
     for i := range spfRunOffline.InterAreaAndExternal {
+        types.SetYListKey(spfRunOffline.InterAreaAndExternal[i], i)
         spfRunOffline.EntityData.Children.Append(types.GetSegmentPath(spfRunOffline.InterAreaAndExternal[i]), types.YChild{"InterAreaAndExternal", spfRunOffline.InterAreaAndExternal[i]})
     }
     spfRunOffline.EntityData.Leafs = types.NewOrderedMap()
@@ -3859,6 +3988,7 @@ func (spfSummary *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_SpfS
     spfSummary.EntityData.BundleName = "cisco_ios_xr"
     spfSummary.EntityData.ParentYangName = "spf-run-offline"
     spfSummary.EntityData.SegmentPath = "spf-summary"
+    spfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/" + spfSummary.EntityData.SegmentPath
     spfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3866,6 +3996,7 @@ func (spfSummary *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_SpfS
     spfSummary.EntityData.Children = types.NewOrderedMap()
     spfSummary.EntityData.Children.Append("priority-summary", types.YChild{"PrioritySummary", nil})
     for i := range spfSummary.PrioritySummary {
+        types.SetYListKey(spfSummary.PrioritySummary[i], i)
         spfSummary.EntityData.Children.Append(types.GetSegmentPath(spfSummary.PrioritySummary[i]), types.YChild{"PrioritySummary", spfSummary.PrioritySummary[i]})
     }
     spfSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -3891,6 +4022,7 @@ func (spfSummary *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_SpfS
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_SpfSummary_PrioritySummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Critical, High, Medium or Low. The type is RcmdPriorityLevel.
     Level interface{}
@@ -3917,7 +4049,8 @@ func (prioritySummary *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline
     prioritySummary.EntityData.YangName = "priority-summary"
     prioritySummary.EntityData.BundleName = "cisco_ios_xr"
     prioritySummary.EntityData.ParentYangName = "spf-summary"
-    prioritySummary.EntityData.SegmentPath = "priority-summary"
+    prioritySummary.EntityData.SegmentPath = "priority-summary" + types.AddNoKeyToken(prioritySummary)
+    prioritySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/spf-summary/" + prioritySummary.EntityData.SegmentPath
     prioritySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prioritySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prioritySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3928,6 +4061,7 @@ func (prioritySummary *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline
     prioritySummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prioritySummary.MplsConvergenceTime})
     prioritySummary.EntityData.Children.Append("frr-statistic", types.YChild{"FrrStatistic", nil})
     for i := range prioritySummary.FrrStatistic {
+        types.SetYListKey(prioritySummary.FrrStatistic[i], i)
         prioritySummary.EntityData.Children.Append(types.GetSegmentPath(prioritySummary.FrrStatistic[i]), types.YChild{"FrrStatistic", prioritySummary.FrrStatistic[i]})
     }
     prioritySummary.EntityData.Leafs = types.NewOrderedMap()
@@ -3970,6 +4104,7 @@ func (routeStatistics *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline
     routeStatistics.EntityData.BundleName = "cisco_ios_xr"
     routeStatistics.EntityData.ParentYangName = "priority-summary"
     routeStatistics.EntityData.SegmentPath = "route-statistics"
+    routeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/spf-summary/priority-summary/" + routeStatistics.EntityData.SegmentPath
     routeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4015,6 +4150,7 @@ func (ipConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffli
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "priority-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/spf-summary/priority-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4058,6 +4194,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "priority-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/spf-summary/priority-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4079,6 +4216,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_SpfSummary_PrioritySummary_FrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total Number of Routes. The type is interface{} with range: 0..4294967295.
     TotalRoutes interface{}
@@ -4099,7 +4237,8 @@ func (frrStatistic *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Sp
     frrStatistic.EntityData.YangName = "frr-statistic"
     frrStatistic.EntityData.BundleName = "cisco_ios_xr"
     frrStatistic.EntityData.ParentYangName = "priority-summary"
-    frrStatistic.EntityData.SegmentPath = "frr-statistic"
+    frrStatistic.EntityData.SegmentPath = "frr-statistic" + types.AddNoKeyToken(frrStatistic)
+    frrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/spf-summary/priority-summary/" + frrStatistic.EntityData.SegmentPath
     frrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4121,6 +4260,7 @@ func (frrStatistic *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Sp
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area Dijkstra run number. The type is interface{} with range:
     // 0..4294967295.
@@ -4165,7 +4305,8 @@ func (dijkstraRun *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dij
     dijkstraRun.EntityData.YangName = "dijkstra-run"
     dijkstraRun.EntityData.BundleName = "cisco_ios_xr"
     dijkstraRun.EntityData.ParentYangName = "spf-run-offline"
-    dijkstraRun.EntityData.SegmentPath = "dijkstra-run"
+    dijkstraRun.EntityData.SegmentPath = "dijkstra-run" + types.AddNoKeyToken(dijkstraRun)
+    dijkstraRun.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/" + dijkstraRun.EntityData.SegmentPath
     dijkstraRun.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dijkstraRun.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dijkstraRun.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4173,14 +4314,17 @@ func (dijkstraRun *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dij
     dijkstraRun.EntityData.Children = types.NewOrderedMap()
     dijkstraRun.EntityData.Children.Append("trigger-lsa", types.YChild{"TriggerLsa", nil})
     for i := range dijkstraRun.TriggerLsa {
+        types.SetYListKey(dijkstraRun.TriggerLsa[i], i)
         dijkstraRun.EntityData.Children.Append(types.GetSegmentPath(dijkstraRun.TriggerLsa[i]), types.YChild{"TriggerLsa", dijkstraRun.TriggerLsa[i]})
     }
     dijkstraRun.EntityData.Children.Append("priority", types.YChild{"Priority", nil})
     for i := range dijkstraRun.Priority {
+        types.SetYListKey(dijkstraRun.Priority[i], i)
         dijkstraRun.EntityData.Children.Append(types.GetSegmentPath(dijkstraRun.Priority[i]), types.YChild{"Priority", dijkstraRun.Priority[i]})
     }
     dijkstraRun.EntityData.Children.Append("lsa-processed", types.YChild{"LsaProcessed", nil})
     for i := range dijkstraRun.LsaProcessed {
+        types.SetYListKey(dijkstraRun.LsaProcessed[i], i)
         dijkstraRun.EntityData.Children.Append(types.GetSegmentPath(dijkstraRun.LsaProcessed[i]), types.YChild{"LsaProcessed", dijkstraRun.LsaProcessed[i]})
     }
     dijkstraRun.EntityData.Leafs = types.NewOrderedMap()
@@ -4202,6 +4346,7 @@ func (dijkstraRun *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dij
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_TriggerLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -4229,7 +4374,8 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijk
     triggerLsa.EntityData.YangName = "trigger-lsa"
     triggerLsa.EntityData.BundleName = "cisco_ios_xr"
     triggerLsa.EntityData.ParentYangName = "dijkstra-run"
-    triggerLsa.EntityData.SegmentPath = "trigger-lsa"
+    triggerLsa.EntityData.SegmentPath = "trigger-lsa" + types.AddNoKeyToken(triggerLsa)
+    triggerLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/" + triggerLsa.EntityData.SegmentPath
     triggerLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4253,6 +4399,7 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijk
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary of the priority.
     PrioritySummary Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Priority_PrioritySummary
@@ -4275,7 +4422,8 @@ func (priority *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijkst
     priority.EntityData.YangName = "priority"
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "dijkstra-run"
-    priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.SegmentPath = "priority" + types.AddNoKeyToken(priority)
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4284,14 +4432,17 @@ func (priority *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijkst
     priority.EntityData.Children.Append("priority-summary", types.YChild{"PrioritySummary", &priority.PrioritySummary})
     priority.EntityData.Children.Append("convergence-timeline", types.YChild{"ConvergenceTimeline", nil})
     for i := range priority.ConvergenceTimeline {
+        types.SetYListKey(priority.ConvergenceTimeline[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.ConvergenceTimeline[i]), types.YChild{"ConvergenceTimeline", priority.ConvergenceTimeline[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-added", types.YChild{"LeafNetworksAdded", nil})
     for i := range priority.LeafNetworksAdded {
+        types.SetYListKey(priority.LeafNetworksAdded[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksAdded[i]), types.YChild{"LeafNetworksAdded", priority.LeafNetworksAdded[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-deleted", types.YChild{"LeafNetworksDeleted", nil})
     for i := range priority.LeafNetworksDeleted {
+        types.SetYListKey(priority.LeafNetworksDeleted[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksDeleted[i]), types.YChild{"LeafNetworksDeleted", priority.LeafNetworksDeleted[i]})
     }
     priority.EntityData.Leafs = types.NewOrderedMap()
@@ -4333,6 +4484,7 @@ func (prioritySummary *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline
     prioritySummary.EntityData.BundleName = "cisco_ios_xr"
     prioritySummary.EntityData.ParentYangName = "priority"
     prioritySummary.EntityData.SegmentPath = "priority-summary"
+    prioritySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/" + prioritySummary.EntityData.SegmentPath
     prioritySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prioritySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prioritySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4343,6 +4495,7 @@ func (prioritySummary *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline
     prioritySummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prioritySummary.MplsConvergenceTime})
     prioritySummary.EntityData.Children.Append("frr-statistic", types.YChild{"FrrStatistic", nil})
     for i := range prioritySummary.FrrStatistic {
+        types.SetYListKey(prioritySummary.FrrStatistic[i], i)
         prioritySummary.EntityData.Children.Append(types.GetSegmentPath(prioritySummary.FrrStatistic[i]), types.YChild{"FrrStatistic", prioritySummary.FrrStatistic[i]})
     }
     prioritySummary.EntityData.Leafs = types.NewOrderedMap()
@@ -4385,6 +4538,7 @@ func (routeStatistics *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline
     routeStatistics.EntityData.BundleName = "cisco_ios_xr"
     routeStatistics.EntityData.ParentYangName = "priority-summary"
     routeStatistics.EntityData.SegmentPath = "route-statistics"
+    routeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/priority-summary/" + routeStatistics.EntityData.SegmentPath
     routeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4430,6 +4584,7 @@ func (ipConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffli
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "priority-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/priority-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4473,6 +4628,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "priority-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/priority-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4494,6 +4650,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Priority_PrioritySummary_FrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total Number of Routes. The type is interface{} with range: 0..4294967295.
     TotalRoutes interface{}
@@ -4514,7 +4671,8 @@ func (frrStatistic *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Di
     frrStatistic.EntityData.YangName = "frr-statistic"
     frrStatistic.EntityData.BundleName = "cisco_ios_xr"
     frrStatistic.EntityData.ParentYangName = "priority-summary"
-    frrStatistic.EntityData.SegmentPath = "frr-statistic"
+    frrStatistic.EntityData.SegmentPath = "frr-statistic" + types.AddNoKeyToken(frrStatistic)
+    frrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/priority-summary/" + frrStatistic.EntityData.SegmentPath
     frrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4536,6 +4694,7 @@ func (frrStatistic *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Di
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Priority_ConvergenceTimeline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol).
     RouteOrigin Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Priority_ConvergenceTimeline_RouteOrigin
@@ -4575,7 +4734,8 @@ func (convergenceTimeline *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
     convergenceTimeline.EntityData.YangName = "convergence-timeline"
     convergenceTimeline.EntityData.BundleName = "cisco_ios_xr"
     convergenceTimeline.EntityData.ParentYangName = "priority"
-    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline"
+    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline" + types.AddNoKeyToken(convergenceTimeline)
+    convergenceTimeline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/" + convergenceTimeline.EntityData.SegmentPath
     convergenceTimeline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     convergenceTimeline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergenceTimeline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4591,10 +4751,12 @@ func (convergenceTimeline *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
     convergenceTimeline.EntityData.Children.Append("lsd-exit", types.YChild{"LsdExit", &convergenceTimeline.LsdExit})
     convergenceTimeline.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range convergenceTimeline.LcIp {
+        types.SetYListKey(convergenceTimeline.LcIp[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcIp[i]), types.YChild{"LcIp", convergenceTimeline.LcIp[i]})
     }
     convergenceTimeline.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range convergenceTimeline.LcMpls {
+        types.SetYListKey(convergenceTimeline.LcMpls[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcMpls[i]), types.YChild{"LcMpls", convergenceTimeline.LcMpls[i]})
     }
     convergenceTimeline.EntityData.Leafs = types.NewOrderedMap()
@@ -4628,6 +4790,7 @@ func (routeOrigin *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dij
     routeOrigin.EntityData.BundleName = "cisco_ios_xr"
     routeOrigin.EntityData.ParentYangName = "convergence-timeline"
     routeOrigin.EntityData.SegmentPath = "route-origin"
+    routeOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/" + routeOrigin.EntityData.SegmentPath
     routeOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4667,6 +4830,7 @@ func (riBv4Enter *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijk
     riBv4Enter.EntityData.BundleName = "cisco_ios_xr"
     riBv4Enter.EntityData.ParentYangName = "convergence-timeline"
     riBv4Enter.EntityData.SegmentPath = "ri-bv4-enter"
+    riBv4Enter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/" + riBv4Enter.EntityData.SegmentPath
     riBv4Enter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Enter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Enter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4706,6 +4870,7 @@ func (riBv4Exit *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijks
     riBv4Exit.EntityData.BundleName = "cisco_ios_xr"
     riBv4Exit.EntityData.ParentYangName = "convergence-timeline"
     riBv4Exit.EntityData.SegmentPath = "ri-bv4-exit"
+    riBv4Exit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/" + riBv4Exit.EntityData.SegmentPath
     riBv4Exit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Exit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Exit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4745,6 +4910,7 @@ func (riBv4Redistribute *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffli
     riBv4Redistribute.EntityData.BundleName = "cisco_ios_xr"
     riBv4Redistribute.EntityData.ParentYangName = "convergence-timeline"
     riBv4Redistribute.EntityData.SegmentPath = "ri-bv4-redistribute"
+    riBv4Redistribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/" + riBv4Redistribute.EntityData.SegmentPath
     riBv4Redistribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Redistribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Redistribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4784,6 +4950,7 @@ func (ldpEnter *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijkst
     ldpEnter.EntityData.BundleName = "cisco_ios_xr"
     ldpEnter.EntityData.ParentYangName = "convergence-timeline"
     ldpEnter.EntityData.SegmentPath = "ldp-enter"
+    ldpEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/" + ldpEnter.EntityData.SegmentPath
     ldpEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4823,6 +4990,7 @@ func (ldpExit *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijkstr
     ldpExit.EntityData.BundleName = "cisco_ios_xr"
     ldpExit.EntityData.ParentYangName = "convergence-timeline"
     ldpExit.EntityData.SegmentPath = "ldp-exit"
+    ldpExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/" + ldpExit.EntityData.SegmentPath
     ldpExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4862,6 +5030,7 @@ func (lsdEnter *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijkst
     lsdEnter.EntityData.BundleName = "cisco_ios_xr"
     lsdEnter.EntityData.ParentYangName = "convergence-timeline"
     lsdEnter.EntityData.SegmentPath = "lsd-enter"
+    lsdEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/" + lsdEnter.EntityData.SegmentPath
     lsdEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4901,6 +5070,7 @@ func (lsdExit *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijkstr
     lsdExit.EntityData.BundleName = "cisco_ios_xr"
     lsdExit.EntityData.ParentYangName = "convergence-timeline"
     lsdExit.EntityData.SegmentPath = "lsd-exit"
+    lsdExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/" + lsdExit.EntityData.SegmentPath
     lsdExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4922,6 +5092,7 @@ func (lsdExit *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijkstr
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Priority_ConvergenceTimeline_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -4938,7 +5109,8 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRu
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "convergence-timeline"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4978,6 +5150,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dij
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-ip"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/lc-ip/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4999,6 +5172,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dij
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Priority_ConvergenceTimeline_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -5015,7 +5189,8 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dijkstra
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "convergence-timeline"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5055,6 +5230,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dij
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-mpls"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/convergence-timeline/lc-mpls/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5075,6 +5251,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Dij
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Priority_LeafNetworksAdded struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -5089,7 +5266,8 @@ func (leafNetworksAdded *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffli
     leafNetworksAdded.EntityData.YangName = "leaf-networks-added"
     leafNetworksAdded.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksAdded.EntityData.ParentYangName = "priority"
-    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added"
+    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added" + types.AddNoKeyToken(leafNetworksAdded)
+    leafNetworksAdded.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/" + leafNetworksAdded.EntityData.SegmentPath
     leafNetworksAdded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksAdded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksAdded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5109,6 +5287,7 @@ func (leafNetworksAdded *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffli
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Priority_LeafNetworksDeleted struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -5123,7 +5302,8 @@ func (leafNetworksDeleted *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
     leafNetworksDeleted.EntityData.YangName = "leaf-networks-deleted"
     leafNetworksDeleted.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksDeleted.EntityData.ParentYangName = "priority"
-    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted"
+    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted" + types.AddNoKeyToken(leafNetworksDeleted)
+    leafNetworksDeleted.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/priority/" + leafNetworksDeleted.EntityData.SegmentPath
     leafNetworksDeleted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksDeleted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksDeleted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5143,6 +5323,7 @@ func (leafNetworksDeleted *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_LsaProcessed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -5170,7 +5351,8 @@ func (lsaProcessed *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Di
     lsaProcessed.EntityData.YangName = "lsa-processed"
     lsaProcessed.EntityData.BundleName = "cisco_ios_xr"
     lsaProcessed.EntityData.ParentYangName = "dijkstra-run"
-    lsaProcessed.EntityData.SegmentPath = "lsa-processed"
+    lsaProcessed.EntityData.SegmentPath = "lsa-processed" + types.AddNoKeyToken(lsaProcessed)
+    lsaProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/dijkstra-run/" + lsaProcessed.EntityData.SegmentPath
     lsaProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5194,6 +5376,7 @@ func (lsaProcessed *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Di
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExternal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Convergence information on a per-priority basis. The type is slice of
     // Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExternal_Priority.
@@ -5205,7 +5388,8 @@ func (interAreaAndExternal *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOf
     interAreaAndExternal.EntityData.YangName = "inter-area-and-external"
     interAreaAndExternal.EntityData.BundleName = "cisco_ios_xr"
     interAreaAndExternal.EntityData.ParentYangName = "spf-run-offline"
-    interAreaAndExternal.EntityData.SegmentPath = "inter-area-and-external"
+    interAreaAndExternal.EntityData.SegmentPath = "inter-area-and-external" + types.AddNoKeyToken(interAreaAndExternal)
+    interAreaAndExternal.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/" + interAreaAndExternal.EntityData.SegmentPath
     interAreaAndExternal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaAndExternal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaAndExternal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5213,6 +5397,7 @@ func (interAreaAndExternal *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOf
     interAreaAndExternal.EntityData.Children = types.NewOrderedMap()
     interAreaAndExternal.EntityData.Children.Append("priority", types.YChild{"Priority", nil})
     for i := range interAreaAndExternal.Priority {
+        types.SetYListKey(interAreaAndExternal.Priority[i], i)
         interAreaAndExternal.EntityData.Children.Append(types.GetSegmentPath(interAreaAndExternal.Priority[i]), types.YChild{"Priority", interAreaAndExternal.Priority[i]})
     }
     interAreaAndExternal.EntityData.Leafs = types.NewOrderedMap()
@@ -5227,6 +5412,7 @@ func (interAreaAndExternal *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOf
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExternal_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary of the priority.
     PrioritySummary Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExternal_Priority_PrioritySummary
@@ -5249,7 +5435,8 @@ func (priority *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterA
     priority.EntityData.YangName = "priority"
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "inter-area-and-external"
-    priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.SegmentPath = "priority" + types.AddNoKeyToken(priority)
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5258,14 +5445,17 @@ func (priority *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterA
     priority.EntityData.Children.Append("priority-summary", types.YChild{"PrioritySummary", &priority.PrioritySummary})
     priority.EntityData.Children.Append("convergence-timeline", types.YChild{"ConvergenceTimeline", nil})
     for i := range priority.ConvergenceTimeline {
+        types.SetYListKey(priority.ConvergenceTimeline[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.ConvergenceTimeline[i]), types.YChild{"ConvergenceTimeline", priority.ConvergenceTimeline[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-added", types.YChild{"LeafNetworksAdded", nil})
     for i := range priority.LeafNetworksAdded {
+        types.SetYListKey(priority.LeafNetworksAdded[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksAdded[i]), types.YChild{"LeafNetworksAdded", priority.LeafNetworksAdded[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-deleted", types.YChild{"LeafNetworksDeleted", nil})
     for i := range priority.LeafNetworksDeleted {
+        types.SetYListKey(priority.LeafNetworksDeleted[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksDeleted[i]), types.YChild{"LeafNetworksDeleted", priority.LeafNetworksDeleted[i]})
     }
     priority.EntityData.Leafs = types.NewOrderedMap()
@@ -5312,6 +5502,7 @@ func (prioritySummary *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline
     prioritySummary.EntityData.BundleName = "cisco_ios_xr"
     prioritySummary.EntityData.ParentYangName = "priority"
     prioritySummary.EntityData.SegmentPath = "priority-summary"
+    prioritySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/" + prioritySummary.EntityData.SegmentPath
     prioritySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prioritySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prioritySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5363,6 +5554,7 @@ func (routeStatistics *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline
     routeStatistics.EntityData.BundleName = "cisco_ios_xr"
     routeStatistics.EntityData.ParentYangName = "priority-summary"
     routeStatistics.EntityData.SegmentPath = "route-statistics"
+    routeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/priority-summary/" + routeStatistics.EntityData.SegmentPath
     routeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5408,6 +5600,7 @@ func (ipConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffli
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "priority-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/priority-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5451,6 +5644,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "priority-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/priority-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5472,6 +5666,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExternal_Priority_ConvergenceTimeline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol).
     RouteOrigin Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExternal_Priority_ConvergenceTimeline_RouteOrigin
@@ -5511,7 +5706,8 @@ func (convergenceTimeline *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
     convergenceTimeline.EntityData.YangName = "convergence-timeline"
     convergenceTimeline.EntityData.BundleName = "cisco_ios_xr"
     convergenceTimeline.EntityData.ParentYangName = "priority"
-    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline"
+    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline" + types.AddNoKeyToken(convergenceTimeline)
+    convergenceTimeline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/" + convergenceTimeline.EntityData.SegmentPath
     convergenceTimeline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     convergenceTimeline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergenceTimeline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5527,10 +5723,12 @@ func (convergenceTimeline *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
     convergenceTimeline.EntityData.Children.Append("lsd-exit", types.YChild{"LsdExit", &convergenceTimeline.LsdExit})
     convergenceTimeline.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range convergenceTimeline.LcIp {
+        types.SetYListKey(convergenceTimeline.LcIp[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcIp[i]), types.YChild{"LcIp", convergenceTimeline.LcIp[i]})
     }
     convergenceTimeline.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range convergenceTimeline.LcMpls {
+        types.SetYListKey(convergenceTimeline.LcMpls[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcMpls[i]), types.YChild{"LcMpls", convergenceTimeline.LcMpls[i]})
     }
     convergenceTimeline.EntityData.Leafs = types.NewOrderedMap()
@@ -5564,6 +5762,7 @@ func (routeOrigin *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Int
     routeOrigin.EntityData.BundleName = "cisco_ios_xr"
     routeOrigin.EntityData.ParentYangName = "convergence-timeline"
     routeOrigin.EntityData.SegmentPath = "route-origin"
+    routeOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/" + routeOrigin.EntityData.SegmentPath
     routeOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5603,6 +5802,7 @@ func (riBv4Enter *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Inte
     riBv4Enter.EntityData.BundleName = "cisco_ios_xr"
     riBv4Enter.EntityData.ParentYangName = "convergence-timeline"
     riBv4Enter.EntityData.SegmentPath = "ri-bv4-enter"
+    riBv4Enter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/" + riBv4Enter.EntityData.SegmentPath
     riBv4Enter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Enter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Enter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5642,6 +5842,7 @@ func (riBv4Exit *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Inter
     riBv4Exit.EntityData.BundleName = "cisco_ios_xr"
     riBv4Exit.EntityData.ParentYangName = "convergence-timeline"
     riBv4Exit.EntityData.SegmentPath = "ri-bv4-exit"
+    riBv4Exit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/" + riBv4Exit.EntityData.SegmentPath
     riBv4Exit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Exit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Exit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5681,6 +5882,7 @@ func (riBv4Redistribute *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffli
     riBv4Redistribute.EntityData.BundleName = "cisco_ios_xr"
     riBv4Redistribute.EntityData.ParentYangName = "convergence-timeline"
     riBv4Redistribute.EntityData.SegmentPath = "ri-bv4-redistribute"
+    riBv4Redistribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/" + riBv4Redistribute.EntityData.SegmentPath
     riBv4Redistribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Redistribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Redistribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5720,6 +5922,7 @@ func (ldpEnter *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterA
     ldpEnter.EntityData.BundleName = "cisco_ios_xr"
     ldpEnter.EntityData.ParentYangName = "convergence-timeline"
     ldpEnter.EntityData.SegmentPath = "ldp-enter"
+    ldpEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/" + ldpEnter.EntityData.SegmentPath
     ldpEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5759,6 +5962,7 @@ func (ldpExit *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAr
     ldpExit.EntityData.BundleName = "cisco_ios_xr"
     ldpExit.EntityData.ParentYangName = "convergence-timeline"
     ldpExit.EntityData.SegmentPath = "ldp-exit"
+    ldpExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/" + ldpExit.EntityData.SegmentPath
     ldpExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5798,6 +6002,7 @@ func (lsdEnter *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterA
     lsdEnter.EntityData.BundleName = "cisco_ios_xr"
     lsdEnter.EntityData.ParentYangName = "convergence-timeline"
     lsdEnter.EntityData.SegmentPath = "lsd-enter"
+    lsdEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/" + lsdEnter.EntityData.SegmentPath
     lsdEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5837,6 +6042,7 @@ func (lsdExit *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAr
     lsdExit.EntityData.BundleName = "cisco_ios_xr"
     lsdExit.EntityData.ParentYangName = "convergence-timeline"
     lsdExit.EntityData.SegmentPath = "lsd-exit"
+    lsdExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/" + lsdExit.EntityData.SegmentPath
     lsdExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5858,6 +6064,7 @@ func (lsdExit *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAr
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExternal_Priority_ConvergenceTimeline_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -5874,7 +6081,8 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaA
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "convergence-timeline"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5914,6 +6122,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Int
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-ip"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/lc-ip/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5935,6 +6144,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Int
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExternal_Priority_ConvergenceTimeline_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -5951,7 +6161,8 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAre
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "convergence-timeline"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5991,6 +6202,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Int
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-mpls"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/convergence-timeline/lc-mpls/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6011,6 +6223,7 @@ func (fibComplete *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_Int
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExternal_Priority_LeafNetworksAdded struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6025,7 +6238,8 @@ func (leafNetworksAdded *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffli
     leafNetworksAdded.EntityData.YangName = "leaf-networks-added"
     leafNetworksAdded.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksAdded.EntityData.ParentYangName = "priority"
-    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added"
+    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added" + types.AddNoKeyToken(leafNetworksAdded)
+    leafNetworksAdded.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/" + leafNetworksAdded.EntityData.SegmentPath
     leafNetworksAdded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksAdded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksAdded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6045,6 +6259,7 @@ func (leafNetworksAdded *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffli
 type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExternal_Priority_LeafNetworksDeleted struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6059,7 +6274,8 @@ func (leafNetworksDeleted *Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOff
     leafNetworksDeleted.EntityData.YangName = "leaf-networks-deleted"
     leafNetworksDeleted.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksDeleted.EntityData.ParentYangName = "priority"
-    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted"
+    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted" + types.AddNoKeyToken(leafNetworksDeleted)
+    leafNetworksDeleted.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/spf-run-offlines/spf-run-offline/inter-area-and-external/priority/" + leafNetworksDeleted.EntityData.SegmentPath
     leafNetworksDeleted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksDeleted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksDeleted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6092,6 +6308,7 @@ func (summaryExternalEventSummaries *Rcmd_Ospf_Instances_Instance_SummaryExterna
     summaryExternalEventSummaries.EntityData.BundleName = "cisco_ios_xr"
     summaryExternalEventSummaries.EntityData.ParentYangName = "instance"
     summaryExternalEventSummaries.EntityData.SegmentPath = "summary-external-event-summaries"
+    summaryExternalEventSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/" + summaryExternalEventSummaries.EntityData.SegmentPath
     summaryExternalEventSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryExternalEventSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryExternalEventSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6113,6 +6330,7 @@ func (summaryExternalEventSummaries *Rcmd_Ospf_Instances_Instance_SummaryExterna
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalEventSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Event ID. The type is interface{} with
     // range: 1..4294967295.
@@ -6183,6 +6401,7 @@ func (summaryExternalEventSummary *Rcmd_Ospf_Instances_Instance_SummaryExternalE
     summaryExternalEventSummary.EntityData.BundleName = "cisco_ios_xr"
     summaryExternalEventSummary.EntityData.ParentYangName = "summary-external-event-summaries"
     summaryExternalEventSummary.EntityData.SegmentPath = "summary-external-event-summary" + types.AddKeyToken(summaryExternalEventSummary.EventId, "event-id")
+    summaryExternalEventSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-summaries/" + summaryExternalEventSummary.EntityData.SegmentPath
     summaryExternalEventSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryExternalEventSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryExternalEventSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6192,18 +6411,22 @@ func (summaryExternalEventSummary *Rcmd_Ospf_Instances_Instance_SummaryExternalE
     summaryExternalEventSummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &summaryExternalEventSummary.MplsConvergenceTime})
     summaryExternalEventSummary.EntityData.Children.Append("path", types.YChild{"Path", nil})
     for i := range summaryExternalEventSummary.Path {
+        types.SetYListKey(summaryExternalEventSummary.Path[i], i)
         summaryExternalEventSummary.EntityData.Children.Append(types.GetSegmentPath(summaryExternalEventSummary.Path[i]), types.YChild{"Path", summaryExternalEventSummary.Path[i]})
     }
     summaryExternalEventSummary.EntityData.Children.Append("trigger-lsa", types.YChild{"TriggerLsa", nil})
     for i := range summaryExternalEventSummary.TriggerLsa {
+        types.SetYListKey(summaryExternalEventSummary.TriggerLsa[i], i)
         summaryExternalEventSummary.EntityData.Children.Append(types.GetSegmentPath(summaryExternalEventSummary.TriggerLsa[i]), types.YChild{"TriggerLsa", summaryExternalEventSummary.TriggerLsa[i]})
     }
     summaryExternalEventSummary.EntityData.Children.Append("time-line", types.YChild{"TimeLine", nil})
     for i := range summaryExternalEventSummary.TimeLine {
+        types.SetYListKey(summaryExternalEventSummary.TimeLine[i], i)
         summaryExternalEventSummary.EntityData.Children.Append(types.GetSegmentPath(summaryExternalEventSummary.TimeLine[i]), types.YChild{"TimeLine", summaryExternalEventSummary.TimeLine[i]})
     }
     summaryExternalEventSummary.EntityData.Children.Append("lsa-processed", types.YChild{"LsaProcessed", nil})
     for i := range summaryExternalEventSummary.LsaProcessed {
+        types.SetYListKey(summaryExternalEventSummary.LsaProcessed[i], i)
         summaryExternalEventSummary.EntityData.Children.Append(types.GetSegmentPath(summaryExternalEventSummary.LsaProcessed[i]), types.YChild{"LsaProcessed", summaryExternalEventSummary.LsaProcessed[i]})
     }
     summaryExternalEventSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -6252,6 +6475,7 @@ func (ipConvergenceTime *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummar
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "summary-external-event-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-summaries/summary-external-event-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6295,6 +6519,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSumm
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "summary-external-event-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-summaries/summary-external-event-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6316,6 +6541,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSumm
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalEventSummary_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -6340,7 +6566,8 @@ func (path *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryEx
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "summary-external-event-summary"
-    path.EntityData.SegmentPath = "path"
+    path.EntityData.SegmentPath = "path" + types.AddNoKeyToken(path)
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-summaries/summary-external-event-summary/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6348,6 +6575,7 @@ func (path *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryEx
     path.EntityData.Children = types.NewOrderedMap()
     path.EntityData.Children.Append("lfa-path", types.YChild{"LfaPath", nil})
     for i := range path.LfaPath {
+        types.SetYListKey(path.LfaPath[i], i)
         path.EntityData.Children.Append(types.GetSegmentPath(path.LfaPath[i]), types.YChild{"LfaPath", path.LfaPath[i]})
     }
     path.EntityData.Leafs = types.NewOrderedMap()
@@ -6366,6 +6594,7 @@ func (path *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryEx
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalEventSummary_Path_LfaPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of LFA. The type is RcmdShowIpfrrLfa.
     LfaType interface{}
@@ -6393,7 +6622,8 @@ func (lfaPath *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_Summar
     lfaPath.EntityData.YangName = "lfa-path"
     lfaPath.EntityData.BundleName = "cisco_ios_xr"
     lfaPath.EntityData.ParentYangName = "path"
-    lfaPath.EntityData.SegmentPath = "lfa-path"
+    lfaPath.EntityData.SegmentPath = "lfa-path" + types.AddNoKeyToken(lfaPath)
+    lfaPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-summaries/summary-external-event-summary/path/" + lfaPath.EntityData.SegmentPath
     lfaPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lfaPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lfaPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6417,6 +6647,7 @@ func (lfaPath *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_Summar
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalEventSummary_TriggerLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6444,7 +6675,8 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_Sum
     triggerLsa.EntityData.YangName = "trigger-lsa"
     triggerLsa.EntityData.BundleName = "cisco_ios_xr"
     triggerLsa.EntityData.ParentYangName = "summary-external-event-summary"
-    triggerLsa.EntityData.SegmentPath = "trigger-lsa"
+    triggerLsa.EntityData.SegmentPath = "trigger-lsa" + types.AddNoKeyToken(triggerLsa)
+    triggerLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-summaries/summary-external-event-summary/" + triggerLsa.EntityData.SegmentPath
     triggerLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6468,6 +6700,7 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_Sum
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalEventSummary_TimeLine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol). The type is string.
     RouteOrigin interface{}
@@ -6507,7 +6740,8 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_Summa
     timeLine.EntityData.YangName = "time-line"
     timeLine.EntityData.BundleName = "cisco_ios_xr"
     timeLine.EntityData.ParentYangName = "summary-external-event-summary"
-    timeLine.EntityData.SegmentPath = "time-line"
+    timeLine.EntityData.SegmentPath = "time-line" + types.AddNoKeyToken(timeLine)
+    timeLine.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-summaries/summary-external-event-summary/" + timeLine.EntityData.SegmentPath
     timeLine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeLine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeLine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6515,10 +6749,12 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_Summa
     timeLine.EntityData.Children = types.NewOrderedMap()
     timeLine.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range timeLine.LcIp {
+        types.SetYListKey(timeLine.LcIp[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcIp[i]), types.YChild{"LcIp", timeLine.LcIp[i]})
     }
     timeLine.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range timeLine.LcMpls {
+        types.SetYListKey(timeLine.LcMpls[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcMpls[i]), types.YChild{"LcMpls", timeLine.LcMpls[i]})
     }
     timeLine.EntityData.Leafs = types.NewOrderedMap()
@@ -6542,6 +6778,7 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_Summa
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalEventSummary_TimeLine_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -6558,7 +6795,8 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryEx
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "time-line"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-summaries/summary-external-event-summary/time-line/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6580,6 +6818,7 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryEx
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalEventSummary_TimeLine_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -6596,7 +6835,8 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_Summary
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "time-line"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-summaries/summary-external-event-summary/time-line/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6617,6 +6857,7 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_Summary
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalEventSummary_LsaProcessed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6644,7 +6885,8 @@ func (lsaProcessed *Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_S
     lsaProcessed.EntityData.YangName = "lsa-processed"
     lsaProcessed.EntityData.BundleName = "cisco_ios_xr"
     lsaProcessed.EntityData.ParentYangName = "summary-external-event-summary"
-    lsaProcessed.EntityData.SegmentPath = "lsa-processed"
+    lsaProcessed.EntityData.SegmentPath = "lsa-processed" + types.AddNoKeyToken(lsaProcessed)
+    lsaProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-summaries/summary-external-event-summary/" + lsaProcessed.EntityData.SegmentPath
     lsaProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6680,6 +6922,7 @@ func (prefixEventSummaries *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries) G
     prefixEventSummaries.EntityData.BundleName = "cisco_ios_xr"
     prefixEventSummaries.EntityData.ParentYangName = "instance"
     prefixEventSummaries.EntityData.SegmentPath = "prefix-event-summaries"
+    prefixEventSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/" + prefixEventSummaries.EntityData.SegmentPath
     prefixEventSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6701,6 +6944,7 @@ func (prefixEventSummaries *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries) G
 type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Event ID. The type is interface{} with
     // range: 1..4294967295.
@@ -6771,6 +7015,7 @@ func (prefixEventSummary *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_Pref
     prefixEventSummary.EntityData.BundleName = "cisco_ios_xr"
     prefixEventSummary.EntityData.ParentYangName = "prefix-event-summaries"
     prefixEventSummary.EntityData.SegmentPath = "prefix-event-summary" + types.AddKeyToken(prefixEventSummary.EventId, "event-id")
+    prefixEventSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-summaries/" + prefixEventSummary.EntityData.SegmentPath
     prefixEventSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6780,18 +7025,22 @@ func (prefixEventSummary *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_Pref
     prefixEventSummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prefixEventSummary.MplsConvergenceTime})
     prefixEventSummary.EntityData.Children.Append("path", types.YChild{"Path", nil})
     for i := range prefixEventSummary.Path {
+        types.SetYListKey(prefixEventSummary.Path[i], i)
         prefixEventSummary.EntityData.Children.Append(types.GetSegmentPath(prefixEventSummary.Path[i]), types.YChild{"Path", prefixEventSummary.Path[i]})
     }
     prefixEventSummary.EntityData.Children.Append("trigger-lsa", types.YChild{"TriggerLsa", nil})
     for i := range prefixEventSummary.TriggerLsa {
+        types.SetYListKey(prefixEventSummary.TriggerLsa[i], i)
         prefixEventSummary.EntityData.Children.Append(types.GetSegmentPath(prefixEventSummary.TriggerLsa[i]), types.YChild{"TriggerLsa", prefixEventSummary.TriggerLsa[i]})
     }
     prefixEventSummary.EntityData.Children.Append("time-line", types.YChild{"TimeLine", nil})
     for i := range prefixEventSummary.TimeLine {
+        types.SetYListKey(prefixEventSummary.TimeLine[i], i)
         prefixEventSummary.EntityData.Children.Append(types.GetSegmentPath(prefixEventSummary.TimeLine[i]), types.YChild{"TimeLine", prefixEventSummary.TimeLine[i]})
     }
     prefixEventSummary.EntityData.Children.Append("lsa-processed", types.YChild{"LsaProcessed", nil})
     for i := range prefixEventSummary.LsaProcessed {
+        types.SetYListKey(prefixEventSummary.LsaProcessed[i], i)
         prefixEventSummary.EntityData.Children.Append(types.GetSegmentPath(prefixEventSummary.LsaProcessed[i]), types.YChild{"LsaProcessed", prefixEventSummary.LsaProcessed[i]})
     }
     prefixEventSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -6840,6 +7089,7 @@ func (ipConvergenceTime *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_Prefi
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "prefix-event-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-summaries/prefix-event-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6883,6 +7133,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_Pre
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "prefix-event-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-summaries/prefix-event-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6904,6 +7155,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_Pre
 type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -6928,7 +7180,8 @@ func (path *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "prefix-event-summary"
-    path.EntityData.SegmentPath = "path"
+    path.EntityData.SegmentPath = "path" + types.AddNoKeyToken(path)
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-summaries/prefix-event-summary/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6936,6 +7189,7 @@ func (path *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary
     path.EntityData.Children = types.NewOrderedMap()
     path.EntityData.Children.Append("lfa-path", types.YChild{"LfaPath", nil})
     for i := range path.LfaPath {
+        types.SetYListKey(path.LfaPath[i], i)
         path.EntityData.Children.Append(types.GetSegmentPath(path.LfaPath[i]), types.YChild{"LfaPath", path.LfaPath[i]})
     }
     path.EntityData.Leafs = types.NewOrderedMap()
@@ -6954,6 +7208,7 @@ func (path *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary
 type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Path_LfaPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of LFA. The type is RcmdShowIpfrrLfa.
     LfaType interface{}
@@ -6981,7 +7236,8 @@ func (lfaPath *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSumm
     lfaPath.EntityData.YangName = "lfa-path"
     lfaPath.EntityData.BundleName = "cisco_ios_xr"
     lfaPath.EntityData.ParentYangName = "path"
-    lfaPath.EntityData.SegmentPath = "lfa-path"
+    lfaPath.EntityData.SegmentPath = "lfa-path" + types.AddNoKeyToken(lfaPath)
+    lfaPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-summaries/prefix-event-summary/path/" + lfaPath.EntityData.SegmentPath
     lfaPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lfaPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lfaPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7005,6 +7261,7 @@ func (lfaPath *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSumm
 type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_TriggerLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -7032,7 +7289,8 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventS
     triggerLsa.EntityData.YangName = "trigger-lsa"
     triggerLsa.EntityData.BundleName = "cisco_ios_xr"
     triggerLsa.EntityData.ParentYangName = "prefix-event-summary"
-    triggerLsa.EntityData.SegmentPath = "trigger-lsa"
+    triggerLsa.EntityData.SegmentPath = "trigger-lsa" + types.AddNoKeyToken(triggerLsa)
+    triggerLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-summaries/prefix-event-summary/" + triggerLsa.EntityData.SegmentPath
     triggerLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7056,6 +7314,7 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventS
 type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_TimeLine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol). The type is string.
     RouteOrigin interface{}
@@ -7095,7 +7354,8 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSum
     timeLine.EntityData.YangName = "time-line"
     timeLine.EntityData.BundleName = "cisco_ios_xr"
     timeLine.EntityData.ParentYangName = "prefix-event-summary"
-    timeLine.EntityData.SegmentPath = "time-line"
+    timeLine.EntityData.SegmentPath = "time-line" + types.AddNoKeyToken(timeLine)
+    timeLine.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-summaries/prefix-event-summary/" + timeLine.EntityData.SegmentPath
     timeLine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeLine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeLine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7103,10 +7363,12 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSum
     timeLine.EntityData.Children = types.NewOrderedMap()
     timeLine.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range timeLine.LcIp {
+        types.SetYListKey(timeLine.LcIp[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcIp[i]), types.YChild{"LcIp", timeLine.LcIp[i]})
     }
     timeLine.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range timeLine.LcMpls {
+        types.SetYListKey(timeLine.LcMpls[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcMpls[i]), types.YChild{"LcMpls", timeLine.LcMpls[i]})
     }
     timeLine.EntityData.Leafs = types.NewOrderedMap()
@@ -7130,6 +7392,7 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSum
 type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_TimeLine_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -7146,7 +7409,8 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "time-line"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-summaries/prefix-event-summary/time-line/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7168,6 +7432,7 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary
 type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_TimeLine_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -7184,7 +7449,8 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSumma
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "time-line"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-summaries/prefix-event-summary/time-line/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7205,6 +7471,7 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSumma
 type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_LsaProcessed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -7232,7 +7499,8 @@ func (lsaProcessed *Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEven
     lsaProcessed.EntityData.YangName = "lsa-processed"
     lsaProcessed.EntityData.BundleName = "cisco_ios_xr"
     lsaProcessed.EntityData.ParentYangName = "prefix-event-summary"
-    lsaProcessed.EntityData.SegmentPath = "lsa-processed"
+    lsaProcessed.EntityData.SegmentPath = "lsa-processed" + types.AddNoKeyToken(lsaProcessed)
+    lsaProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-summaries/prefix-event-summary/" + lsaProcessed.EntityData.SegmentPath
     lsaProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7270,6 +7538,7 @@ func (summaryExternalEventOfflines *Rcmd_Ospf_Instances_Instance_SummaryExternal
     summaryExternalEventOfflines.EntityData.BundleName = "cisco_ios_xr"
     summaryExternalEventOfflines.EntityData.ParentYangName = "instance"
     summaryExternalEventOfflines.EntityData.SegmentPath = "summary-external-event-offlines"
+    summaryExternalEventOfflines.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/" + summaryExternalEventOfflines.EntityData.SegmentPath
     summaryExternalEventOfflines.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryExternalEventOfflines.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryExternalEventOfflines.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7292,6 +7561,7 @@ func (summaryExternalEventOfflines *Rcmd_Ospf_Instances_Instance_SummaryExternal
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEventOffline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Event ID. The type is interface{} with
     // range: 1..4294967295.
@@ -7362,6 +7632,7 @@ func (summaryExternalEventOffline *Rcmd_Ospf_Instances_Instance_SummaryExternalE
     summaryExternalEventOffline.EntityData.BundleName = "cisco_ios_xr"
     summaryExternalEventOffline.EntityData.ParentYangName = "summary-external-event-offlines"
     summaryExternalEventOffline.EntityData.SegmentPath = "summary-external-event-offline" + types.AddKeyToken(summaryExternalEventOffline.EventId, "event-id")
+    summaryExternalEventOffline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-offlines/" + summaryExternalEventOffline.EntityData.SegmentPath
     summaryExternalEventOffline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryExternalEventOffline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryExternalEventOffline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7371,18 +7642,22 @@ func (summaryExternalEventOffline *Rcmd_Ospf_Instances_Instance_SummaryExternalE
     summaryExternalEventOffline.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &summaryExternalEventOffline.MplsConvergenceTime})
     summaryExternalEventOffline.EntityData.Children.Append("path", types.YChild{"Path", nil})
     for i := range summaryExternalEventOffline.Path {
+        types.SetYListKey(summaryExternalEventOffline.Path[i], i)
         summaryExternalEventOffline.EntityData.Children.Append(types.GetSegmentPath(summaryExternalEventOffline.Path[i]), types.YChild{"Path", summaryExternalEventOffline.Path[i]})
     }
     summaryExternalEventOffline.EntityData.Children.Append("trigger-lsa", types.YChild{"TriggerLsa", nil})
     for i := range summaryExternalEventOffline.TriggerLsa {
+        types.SetYListKey(summaryExternalEventOffline.TriggerLsa[i], i)
         summaryExternalEventOffline.EntityData.Children.Append(types.GetSegmentPath(summaryExternalEventOffline.TriggerLsa[i]), types.YChild{"TriggerLsa", summaryExternalEventOffline.TriggerLsa[i]})
     }
     summaryExternalEventOffline.EntityData.Children.Append("time-line", types.YChild{"TimeLine", nil})
     for i := range summaryExternalEventOffline.TimeLine {
+        types.SetYListKey(summaryExternalEventOffline.TimeLine[i], i)
         summaryExternalEventOffline.EntityData.Children.Append(types.GetSegmentPath(summaryExternalEventOffline.TimeLine[i]), types.YChild{"TimeLine", summaryExternalEventOffline.TimeLine[i]})
     }
     summaryExternalEventOffline.EntityData.Children.Append("lsa-processed", types.YChild{"LsaProcessed", nil})
     for i := range summaryExternalEventOffline.LsaProcessed {
+        types.SetYListKey(summaryExternalEventOffline.LsaProcessed[i], i)
         summaryExternalEventOffline.EntityData.Children.Append(types.GetSegmentPath(summaryExternalEventOffline.LsaProcessed[i]), types.YChild{"LsaProcessed", summaryExternalEventOffline.LsaProcessed[i]})
     }
     summaryExternalEventOffline.EntityData.Leafs = types.NewOrderedMap()
@@ -7431,6 +7706,7 @@ func (ipConvergenceTime *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflin
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "summary-external-event-offline"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-offlines/summary-external-event-offline/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7474,6 +7750,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOffl
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "summary-external-event-offline"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-offlines/summary-external-event-offline/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7495,6 +7772,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOffl
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEventOffline_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -7519,7 +7797,8 @@ func (path *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExt
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "summary-external-event-offline"
-    path.EntityData.SegmentPath = "path"
+    path.EntityData.SegmentPath = "path" + types.AddNoKeyToken(path)
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-offlines/summary-external-event-offline/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7527,6 +7806,7 @@ func (path *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExt
     path.EntityData.Children = types.NewOrderedMap()
     path.EntityData.Children.Append("lfa-path", types.YChild{"LfaPath", nil})
     for i := range path.LfaPath {
+        types.SetYListKey(path.LfaPath[i], i)
         path.EntityData.Children.Append(types.GetSegmentPath(path.LfaPath[i]), types.YChild{"LfaPath", path.LfaPath[i]})
     }
     path.EntityData.Leafs = types.NewOrderedMap()
@@ -7545,6 +7825,7 @@ func (path *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExt
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEventOffline_Path_LfaPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of LFA. The type is RcmdShowIpfrrLfa.
     LfaType interface{}
@@ -7572,7 +7853,8 @@ func (lfaPath *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_Summary
     lfaPath.EntityData.YangName = "lfa-path"
     lfaPath.EntityData.BundleName = "cisco_ios_xr"
     lfaPath.EntityData.ParentYangName = "path"
-    lfaPath.EntityData.SegmentPath = "lfa-path"
+    lfaPath.EntityData.SegmentPath = "lfa-path" + types.AddNoKeyToken(lfaPath)
+    lfaPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-offlines/summary-external-event-offline/path/" + lfaPath.EntityData.SegmentPath
     lfaPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lfaPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lfaPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7596,6 +7878,7 @@ func (lfaPath *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_Summary
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEventOffline_TriggerLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -7623,7 +7906,8 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_Summ
     triggerLsa.EntityData.YangName = "trigger-lsa"
     triggerLsa.EntityData.BundleName = "cisco_ios_xr"
     triggerLsa.EntityData.ParentYangName = "summary-external-event-offline"
-    triggerLsa.EntityData.SegmentPath = "trigger-lsa"
+    triggerLsa.EntityData.SegmentPath = "trigger-lsa" + types.AddNoKeyToken(triggerLsa)
+    triggerLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-offlines/summary-external-event-offline/" + triggerLsa.EntityData.SegmentPath
     triggerLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7647,6 +7931,7 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_Summ
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEventOffline_TimeLine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol). The type is string.
     RouteOrigin interface{}
@@ -7686,7 +7971,8 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_Summar
     timeLine.EntityData.YangName = "time-line"
     timeLine.EntityData.BundleName = "cisco_ios_xr"
     timeLine.EntityData.ParentYangName = "summary-external-event-offline"
-    timeLine.EntityData.SegmentPath = "time-line"
+    timeLine.EntityData.SegmentPath = "time-line" + types.AddNoKeyToken(timeLine)
+    timeLine.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-offlines/summary-external-event-offline/" + timeLine.EntityData.SegmentPath
     timeLine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeLine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeLine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7694,10 +7980,12 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_Summar
     timeLine.EntityData.Children = types.NewOrderedMap()
     timeLine.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range timeLine.LcIp {
+        types.SetYListKey(timeLine.LcIp[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcIp[i]), types.YChild{"LcIp", timeLine.LcIp[i]})
     }
     timeLine.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range timeLine.LcMpls {
+        types.SetYListKey(timeLine.LcMpls[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcMpls[i]), types.YChild{"LcMpls", timeLine.LcMpls[i]})
     }
     timeLine.EntityData.Leafs = types.NewOrderedMap()
@@ -7721,6 +8009,7 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_Summar
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEventOffline_TimeLine_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -7737,7 +8026,8 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExt
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "time-line"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-offlines/summary-external-event-offline/time-line/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7759,6 +8049,7 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExt
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEventOffline_TimeLine_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -7775,7 +8066,8 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryE
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "time-line"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-offlines/summary-external-event-offline/time-line/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7796,6 +8088,7 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryE
 type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEventOffline_LsaProcessed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -7823,7 +8116,8 @@ func (lsaProcessed *Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_Su
     lsaProcessed.EntityData.YangName = "lsa-processed"
     lsaProcessed.EntityData.BundleName = "cisco_ios_xr"
     lsaProcessed.EntityData.ParentYangName = "summary-external-event-offline"
-    lsaProcessed.EntityData.SegmentPath = "lsa-processed"
+    lsaProcessed.EntityData.SegmentPath = "lsa-processed" + types.AddNoKeyToken(lsaProcessed)
+    lsaProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/summary-external-event-offlines/summary-external-event-offline/" + lsaProcessed.EntityData.SegmentPath
     lsaProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7860,6 +8154,7 @@ func (prefixEventOfflines *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines) Get
     prefixEventOfflines.EntityData.BundleName = "cisco_ios_xr"
     prefixEventOfflines.EntityData.ParentYangName = "instance"
     prefixEventOfflines.EntityData.SegmentPath = "prefix-event-offlines"
+    prefixEventOfflines.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/" + prefixEventOfflines.EntityData.SegmentPath
     prefixEventOfflines.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventOfflines.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventOfflines.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7882,6 +8177,7 @@ func (prefixEventOfflines *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines) Get
 type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Event ID. The type is interface{} with
     // range: 1..4294967295.
@@ -7952,6 +8248,7 @@ func (prefixEventOffline *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_Prefi
     prefixEventOffline.EntityData.BundleName = "cisco_ios_xr"
     prefixEventOffline.EntityData.ParentYangName = "prefix-event-offlines"
     prefixEventOffline.EntityData.SegmentPath = "prefix-event-offline" + types.AddKeyToken(prefixEventOffline.EventId, "event-id")
+    prefixEventOffline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-offlines/" + prefixEventOffline.EntityData.SegmentPath
     prefixEventOffline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventOffline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventOffline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7961,18 +8258,22 @@ func (prefixEventOffline *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_Prefi
     prefixEventOffline.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prefixEventOffline.MplsConvergenceTime})
     prefixEventOffline.EntityData.Children.Append("path", types.YChild{"Path", nil})
     for i := range prefixEventOffline.Path {
+        types.SetYListKey(prefixEventOffline.Path[i], i)
         prefixEventOffline.EntityData.Children.Append(types.GetSegmentPath(prefixEventOffline.Path[i]), types.YChild{"Path", prefixEventOffline.Path[i]})
     }
     prefixEventOffline.EntityData.Children.Append("trigger-lsa", types.YChild{"TriggerLsa", nil})
     for i := range prefixEventOffline.TriggerLsa {
+        types.SetYListKey(prefixEventOffline.TriggerLsa[i], i)
         prefixEventOffline.EntityData.Children.Append(types.GetSegmentPath(prefixEventOffline.TriggerLsa[i]), types.YChild{"TriggerLsa", prefixEventOffline.TriggerLsa[i]})
     }
     prefixEventOffline.EntityData.Children.Append("time-line", types.YChild{"TimeLine", nil})
     for i := range prefixEventOffline.TimeLine {
+        types.SetYListKey(prefixEventOffline.TimeLine[i], i)
         prefixEventOffline.EntityData.Children.Append(types.GetSegmentPath(prefixEventOffline.TimeLine[i]), types.YChild{"TimeLine", prefixEventOffline.TimeLine[i]})
     }
     prefixEventOffline.EntityData.Children.Append("lsa-processed", types.YChild{"LsaProcessed", nil})
     for i := range prefixEventOffline.LsaProcessed {
+        types.SetYListKey(prefixEventOffline.LsaProcessed[i], i)
         prefixEventOffline.EntityData.Children.Append(types.GetSegmentPath(prefixEventOffline.LsaProcessed[i]), types.YChild{"LsaProcessed", prefixEventOffline.LsaProcessed[i]})
     }
     prefixEventOffline.EntityData.Leafs = types.NewOrderedMap()
@@ -8021,6 +8322,7 @@ func (ipConvergenceTime *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_Prefix
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "prefix-event-offline"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-offlines/prefix-event-offline/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8064,6 +8366,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_Pref
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "prefix-event-offline"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-offlines/prefix-event-offline/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8085,6 +8388,7 @@ func (mplsConvergenceTime *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_Pref
 type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -8109,7 +8413,8 @@ func (path *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "prefix-event-offline"
-    path.EntityData.SegmentPath = "path"
+    path.EntityData.SegmentPath = "path" + types.AddNoKeyToken(path)
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-offlines/prefix-event-offline/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8117,6 +8422,7 @@ func (path *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_
     path.EntityData.Children = types.NewOrderedMap()
     path.EntityData.Children.Append("lfa-path", types.YChild{"LfaPath", nil})
     for i := range path.LfaPath {
+        types.SetYListKey(path.LfaPath[i], i)
         path.EntityData.Children.Append(types.GetSegmentPath(path.LfaPath[i]), types.YChild{"LfaPath", path.LfaPath[i]})
     }
     path.EntityData.Leafs = types.NewOrderedMap()
@@ -8135,6 +8441,7 @@ func (path *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_
 type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Path_LfaPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of LFA. The type is RcmdShowIpfrrLfa.
     LfaType interface{}
@@ -8162,7 +8469,8 @@ func (lfaPath *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffli
     lfaPath.EntityData.YangName = "lfa-path"
     lfaPath.EntityData.BundleName = "cisco_ios_xr"
     lfaPath.EntityData.ParentYangName = "path"
-    lfaPath.EntityData.SegmentPath = "lfa-path"
+    lfaPath.EntityData.SegmentPath = "lfa-path" + types.AddNoKeyToken(lfaPath)
+    lfaPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-offlines/prefix-event-offline/path/" + lfaPath.EntityData.SegmentPath
     lfaPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lfaPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lfaPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8186,6 +8494,7 @@ func (lfaPath *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffli
 type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_TriggerLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -8213,7 +8522,8 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOf
     triggerLsa.EntityData.YangName = "trigger-lsa"
     triggerLsa.EntityData.BundleName = "cisco_ios_xr"
     triggerLsa.EntityData.ParentYangName = "prefix-event-offline"
-    triggerLsa.EntityData.SegmentPath = "trigger-lsa"
+    triggerLsa.EntityData.SegmentPath = "trigger-lsa" + types.AddNoKeyToken(triggerLsa)
+    triggerLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-offlines/prefix-event-offline/" + triggerLsa.EntityData.SegmentPath
     triggerLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8237,6 +8547,7 @@ func (triggerLsa *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOf
 type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_TimeLine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol). The type is string.
     RouteOrigin interface{}
@@ -8276,7 +8587,8 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffl
     timeLine.EntityData.YangName = "time-line"
     timeLine.EntityData.BundleName = "cisco_ios_xr"
     timeLine.EntityData.ParentYangName = "prefix-event-offline"
-    timeLine.EntityData.SegmentPath = "time-line"
+    timeLine.EntityData.SegmentPath = "time-line" + types.AddNoKeyToken(timeLine)
+    timeLine.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-offlines/prefix-event-offline/" + timeLine.EntityData.SegmentPath
     timeLine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeLine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeLine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8284,10 +8596,12 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffl
     timeLine.EntityData.Children = types.NewOrderedMap()
     timeLine.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range timeLine.LcIp {
+        types.SetYListKey(timeLine.LcIp[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcIp[i]), types.YChild{"LcIp", timeLine.LcIp[i]})
     }
     timeLine.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range timeLine.LcMpls {
+        types.SetYListKey(timeLine.LcMpls[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcMpls[i]), types.YChild{"LcMpls", timeLine.LcMpls[i]})
     }
     timeLine.EntityData.Leafs = types.NewOrderedMap()
@@ -8311,6 +8625,7 @@ func (timeLine *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffl
 type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_TimeLine_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -8327,7 +8642,8 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "time-line"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-offlines/prefix-event-offline/time-line/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8349,6 +8665,7 @@ func (lcIp *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_
 type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_TimeLine_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -8365,7 +8682,8 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOfflin
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "time-line"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-offlines/prefix-event-offline/time-line/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8386,6 +8704,7 @@ func (lcMpls *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOfflin
 type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_LsaProcessed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -8413,7 +8732,8 @@ func (lsaProcessed *Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEvent
     lsaProcessed.EntityData.YangName = "lsa-processed"
     lsaProcessed.EntityData.BundleName = "cisco_ios_xr"
     lsaProcessed.EntityData.ParentYangName = "prefix-event-offline"
-    lsaProcessed.EntityData.SegmentPath = "lsa-processed"
+    lsaProcessed.EntityData.SegmentPath = "lsa-processed" + types.AddNoKeyToken(lsaProcessed)
+    lsaProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/prefix-event-offlines/prefix-event-offline/" + lsaProcessed.EntityData.SegmentPath
     lsaProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8498,6 +8818,7 @@ func (summaryExternalEventStatistics *Rcmd_Ospf_Instances_Instance_SummaryExtern
     summaryExternalEventStatistics.EntityData.BundleName = "cisco_ios_xr"
     summaryExternalEventStatistics.EntityData.ParentYangName = "instance"
     summaryExternalEventStatistics.EntityData.SegmentPath = "summary-external-event-statistics"
+    summaryExternalEventStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/instance/" + summaryExternalEventStatistics.EntityData.SegmentPath
     summaryExternalEventStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryExternalEventStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryExternalEventStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8545,6 +8866,7 @@ func (server *Rcmd_Server) GetEntityData() *types.CommonEntityData {
     server.EntityData.BundleName = "cisco_ios_xr"
     server.EntityData.ParentYangName = "rcmd"
     server.EntityData.SegmentPath = "server"
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/" + server.EntityData.SegmentPath
     server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8661,6 +8983,7 @@ func (normal *Rcmd_Server_Normal) GetEntityData() *types.CommonEntityData {
     normal.EntityData.BundleName = "cisco_ios_xr"
     normal.EntityData.ParentYangName = "server"
     normal.EntityData.SegmentPath = "normal"
+    normal.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/" + normal.EntityData.SegmentPath
     normal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     normal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     normal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8668,10 +8991,12 @@ func (normal *Rcmd_Server_Normal) GetEntityData() *types.CommonEntityData {
     normal.EntityData.Children = types.NewOrderedMap()
     normal.EntityData.Children.Append("protocol-config", types.YChild{"ProtocolConfig", nil})
     for i := range normal.ProtocolConfig {
+        types.SetYListKey(normal.ProtocolConfig[i], i)
         normal.EntityData.Children.Append(types.GetSegmentPath(normal.ProtocolConfig[i]), types.YChild{"ProtocolConfig", normal.ProtocolConfig[i]})
     }
     normal.EntityData.Children.Append("server-detail", types.YChild{"ServerDetail", nil})
     for i := range normal.ServerDetail {
+        types.SetYListKey(normal.ServerDetail[i], i)
         normal.EntityData.Children.Append(types.GetSegmentPath(normal.ServerDetail[i]), types.YChild{"ServerDetail", normal.ServerDetail[i]})
     }
     normal.EntityData.Leafs = types.NewOrderedMap()
@@ -8712,6 +9037,7 @@ func (normal *Rcmd_Server_Normal) GetEntityData() *types.CommonEntityData {
 type Rcmd_Server_Normal_ProtocolConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol Name. The type is string.
     ProtocolName interface{}
@@ -8726,7 +9052,8 @@ func (protocolConfig *Rcmd_Server_Normal_ProtocolConfig) GetEntityData() *types.
     protocolConfig.EntityData.YangName = "protocol-config"
     protocolConfig.EntityData.BundleName = "cisco_ios_xr"
     protocolConfig.EntityData.ParentYangName = "normal"
-    protocolConfig.EntityData.SegmentPath = "protocol-config"
+    protocolConfig.EntityData.SegmentPath = "protocol-config" + types.AddNoKeyToken(protocolConfig)
+    protocolConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/normal/" + protocolConfig.EntityData.SegmentPath
     protocolConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8734,6 +9061,7 @@ func (protocolConfig *Rcmd_Server_Normal_ProtocolConfig) GetEntityData() *types.
     protocolConfig.EntityData.Children = types.NewOrderedMap()
     protocolConfig.EntityData.Children.Append("priority", types.YChild{"Priority", nil})
     for i := range protocolConfig.Priority {
+        types.SetYListKey(protocolConfig.Priority[i], i)
         protocolConfig.EntityData.Children.Append(types.GetSegmentPath(protocolConfig.Priority[i]), types.YChild{"Priority", protocolConfig.Priority[i]})
     }
     protocolConfig.EntityData.Leafs = types.NewOrderedMap()
@@ -8749,6 +9077,7 @@ func (protocolConfig *Rcmd_Server_Normal_ProtocolConfig) GetEntityData() *types.
 type Rcmd_Server_Normal_ProtocolConfig_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Priority Level. The type is RcmdPriorityLevel.
     PriorityName interface{}
@@ -8765,7 +9094,8 @@ func (priority *Rcmd_Server_Normal_ProtocolConfig_Priority) GetEntityData() *typ
     priority.EntityData.YangName = "priority"
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "protocol-config"
-    priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.SegmentPath = "priority" + types.AddNoKeyToken(priority)
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/normal/protocol-config/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8786,6 +9116,7 @@ func (priority *Rcmd_Server_Normal_ProtocolConfig_Priority) GetEntityData() *typ
 type Rcmd_Server_Normal_ServerDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Overload suspend. The type is interface{} with range: 0..4294967295.
     OverloadSuspend interface{}
@@ -8803,7 +9134,8 @@ func (serverDetail *Rcmd_Server_Normal_ServerDetail) GetEntityData() *types.Comm
     serverDetail.EntityData.YangName = "server-detail"
     serverDetail.EntityData.BundleName = "cisco_ios_xr"
     serverDetail.EntityData.ParentYangName = "normal"
-    serverDetail.EntityData.SegmentPath = "server-detail"
+    serverDetail.EntityData.SegmentPath = "server-detail" + types.AddNoKeyToken(serverDetail)
+    serverDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/normal/" + serverDetail.EntityData.SegmentPath
     serverDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serverDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8811,6 +9143,7 @@ func (serverDetail *Rcmd_Server_Normal_ServerDetail) GetEntityData() *types.Comm
     serverDetail.EntityData.Children = types.NewOrderedMap()
     serverDetail.EntityData.Children.Append("trace-information", types.YChild{"TraceInformation", nil})
     for i := range serverDetail.TraceInformation {
+        types.SetYListKey(serverDetail.TraceInformation[i], i)
         serverDetail.EntityData.Children.Append(types.GetSegmentPath(serverDetail.TraceInformation[i]), types.YChild{"TraceInformation", serverDetail.TraceInformation[i]})
     }
     serverDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -8827,6 +9160,7 @@ func (serverDetail *Rcmd_Server_Normal_ServerDetail) GetEntityData() *types.Comm
 type Rcmd_Server_Normal_ServerDetail_TraceInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Configured Hostname. The type is string.
     TraceName interface{}
@@ -8846,7 +9180,8 @@ func (traceInformation *Rcmd_Server_Normal_ServerDetail_TraceInformation) GetEnt
     traceInformation.EntityData.YangName = "trace-information"
     traceInformation.EntityData.BundleName = "cisco_ios_xr"
     traceInformation.EntityData.ParentYangName = "server-detail"
-    traceInformation.EntityData.SegmentPath = "trace-information"
+    traceInformation.EntityData.SegmentPath = "trace-information" + types.AddNoKeyToken(traceInformation)
+    traceInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/normal/server-detail/" + traceInformation.EntityData.SegmentPath
     traceInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8965,6 +9300,7 @@ func (detail *Rcmd_Server_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "server"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8972,10 +9308,12 @@ func (detail *Rcmd_Server_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.Children = types.NewOrderedMap()
     detail.EntityData.Children.Append("protocol-config", types.YChild{"ProtocolConfig", nil})
     for i := range detail.ProtocolConfig {
+        types.SetYListKey(detail.ProtocolConfig[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.ProtocolConfig[i]), types.YChild{"ProtocolConfig", detail.ProtocolConfig[i]})
     }
     detail.EntityData.Children.Append("server-detail", types.YChild{"ServerDetail", nil})
     for i := range detail.ServerDetail {
+        types.SetYListKey(detail.ServerDetail[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.ServerDetail[i]), types.YChild{"ServerDetail", detail.ServerDetail[i]})
     }
     detail.EntityData.Leafs = types.NewOrderedMap()
@@ -9016,6 +9354,7 @@ func (detail *Rcmd_Server_Detail) GetEntityData() *types.CommonEntityData {
 type Rcmd_Server_Detail_ProtocolConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol Name. The type is string.
     ProtocolName interface{}
@@ -9030,7 +9369,8 @@ func (protocolConfig *Rcmd_Server_Detail_ProtocolConfig) GetEntityData() *types.
     protocolConfig.EntityData.YangName = "protocol-config"
     protocolConfig.EntityData.BundleName = "cisco_ios_xr"
     protocolConfig.EntityData.ParentYangName = "detail"
-    protocolConfig.EntityData.SegmentPath = "protocol-config"
+    protocolConfig.EntityData.SegmentPath = "protocol-config" + types.AddNoKeyToken(protocolConfig)
+    protocolConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/detail/" + protocolConfig.EntityData.SegmentPath
     protocolConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9038,6 +9378,7 @@ func (protocolConfig *Rcmd_Server_Detail_ProtocolConfig) GetEntityData() *types.
     protocolConfig.EntityData.Children = types.NewOrderedMap()
     protocolConfig.EntityData.Children.Append("priority", types.YChild{"Priority", nil})
     for i := range protocolConfig.Priority {
+        types.SetYListKey(protocolConfig.Priority[i], i)
         protocolConfig.EntityData.Children.Append(types.GetSegmentPath(protocolConfig.Priority[i]), types.YChild{"Priority", protocolConfig.Priority[i]})
     }
     protocolConfig.EntityData.Leafs = types.NewOrderedMap()
@@ -9053,6 +9394,7 @@ func (protocolConfig *Rcmd_Server_Detail_ProtocolConfig) GetEntityData() *types.
 type Rcmd_Server_Detail_ProtocolConfig_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Priority Level. The type is RcmdPriorityLevel.
     PriorityName interface{}
@@ -9069,7 +9411,8 @@ func (priority *Rcmd_Server_Detail_ProtocolConfig_Priority) GetEntityData() *typ
     priority.EntityData.YangName = "priority"
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "protocol-config"
-    priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.SegmentPath = "priority" + types.AddNoKeyToken(priority)
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/detail/protocol-config/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9090,6 +9433,7 @@ func (priority *Rcmd_Server_Detail_ProtocolConfig_Priority) GetEntityData() *typ
 type Rcmd_Server_Detail_ServerDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Overload suspend. The type is interface{} with range: 0..4294967295.
     OverloadSuspend interface{}
@@ -9107,7 +9451,8 @@ func (serverDetail *Rcmd_Server_Detail_ServerDetail) GetEntityData() *types.Comm
     serverDetail.EntityData.YangName = "server-detail"
     serverDetail.EntityData.BundleName = "cisco_ios_xr"
     serverDetail.EntityData.ParentYangName = "detail"
-    serverDetail.EntityData.SegmentPath = "server-detail"
+    serverDetail.EntityData.SegmentPath = "server-detail" + types.AddNoKeyToken(serverDetail)
+    serverDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/detail/" + serverDetail.EntityData.SegmentPath
     serverDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serverDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9115,6 +9460,7 @@ func (serverDetail *Rcmd_Server_Detail_ServerDetail) GetEntityData() *types.Comm
     serverDetail.EntityData.Children = types.NewOrderedMap()
     serverDetail.EntityData.Children.Append("trace-information", types.YChild{"TraceInformation", nil})
     for i := range serverDetail.TraceInformation {
+        types.SetYListKey(serverDetail.TraceInformation[i], i)
         serverDetail.EntityData.Children.Append(types.GetSegmentPath(serverDetail.TraceInformation[i]), types.YChild{"TraceInformation", serverDetail.TraceInformation[i]})
     }
     serverDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -9131,6 +9477,7 @@ func (serverDetail *Rcmd_Server_Detail_ServerDetail) GetEntityData() *types.Comm
 type Rcmd_Server_Detail_ServerDetail_TraceInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Configured Hostname. The type is string.
     TraceName interface{}
@@ -9150,7 +9497,8 @@ func (traceInformation *Rcmd_Server_Detail_ServerDetail_TraceInformation) GetEnt
     traceInformation.EntityData.YangName = "trace-information"
     traceInformation.EntityData.BundleName = "cisco_ios_xr"
     traceInformation.EntityData.ParentYangName = "server-detail"
-    traceInformation.EntityData.SegmentPath = "trace-information"
+    traceInformation.EntityData.SegmentPath = "trace-information" + types.AddNoKeyToken(traceInformation)
+    traceInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/detail/server-detail/" + traceInformation.EntityData.SegmentPath
     traceInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9183,6 +9531,7 @@ func (node *Rcmd_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "rcmd"
     node.EntityData.SegmentPath = "node"
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9190,6 +9539,7 @@ func (node *Rcmd_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.Children = types.NewOrderedMap()
     node.EntityData.Children.Append("node-information", types.YChild{"NodeInformation", nil})
     for i := range node.NodeInformation {
+        types.SetYListKey(node.NodeInformation[i], i)
         node.EntityData.Children.Append(types.GetSegmentPath(node.NodeInformation[i]), types.YChild{"NodeInformation", node.NodeInformation[i]})
     }
     node.EntityData.Leafs = types.NewOrderedMap()
@@ -9204,6 +9554,7 @@ func (node *Rcmd_Node) GetEntityData() *types.CommonEntityData {
 type Rcmd_Node_NodeInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Node Id. The type is interface{} with range: 0..4294967295.
     NodeId interface{}
@@ -9247,7 +9598,8 @@ func (nodeInformation *Rcmd_Node_NodeInformation) GetEntityData() *types.CommonE
     nodeInformation.EntityData.YangName = "node-information"
     nodeInformation.EntityData.BundleName = "cisco_ios_xr"
     nodeInformation.EntityData.ParentYangName = "node"
-    nodeInformation.EntityData.SegmentPath = "node-information"
+    nodeInformation.EntityData.SegmentPath = "node-information" + types.AddNoKeyToken(nodeInformation)
+    nodeInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/node/" + nodeInformation.EntityData.SegmentPath
     nodeInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9288,6 +9640,7 @@ func (isis *Rcmd_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "rcmd"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9318,6 +9671,7 @@ func (instances *Rcmd_Isis_Instances) GetEntityData() *types.CommonEntityData {
     instances.EntityData.BundleName = "cisco_ios_xr"
     instances.EntityData.ParentYangName = "isis"
     instances.EntityData.SegmentPath = "instances"
+    instances.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/" + instances.EntityData.SegmentPath
     instances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9339,6 +9693,7 @@ func (instances *Rcmd_Isis_Instances) GetEntityData() *types.CommonEntityData {
 type Rcmd_Isis_Instances_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Operational data for a particular instance. The
     // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -9375,6 +9730,7 @@ func (instance *Rcmd_Isis_Instances_Instance) GetEntityData() *types.CommonEntit
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instances"
     instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.InstanceName, "instance-name")
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9413,6 +9769,7 @@ func (ipfrrEventSummaries *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries) Get
     ipfrrEventSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipfrrEventSummaries.EntityData.ParentYangName = "instance"
     ipfrrEventSummaries.EntityData.SegmentPath = "ipfrr-event-summaries"
+    ipfrrEventSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/" + ipfrrEventSummaries.EntityData.SegmentPath
     ipfrrEventSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrEventSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrEventSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9434,6 +9791,7 @@ func (ipfrrEventSummaries *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries) Get
 type Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific IP-FRR Event. The type is interface{}
     // with range: 1..4294967295.
@@ -9496,6 +9854,7 @@ func (ipfrrEventSummary *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrE
     ipfrrEventSummary.EntityData.BundleName = "cisco_ios_xr"
     ipfrrEventSummary.EntityData.ParentYangName = "ipfrr-event-summaries"
     ipfrrEventSummary.EntityData.SegmentPath = "ipfrr-event-summary" + types.AddKeyToken(ipfrrEventSummary.EventId, "event-id")
+    ipfrrEventSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/ipfrr-event-summaries/" + ipfrrEventSummary.EntityData.SegmentPath
     ipfrrEventSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrEventSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrEventSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9503,10 +9862,12 @@ func (ipfrrEventSummary *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrE
     ipfrrEventSummary.EntityData.Children = types.NewOrderedMap()
     ipfrrEventSummary.EntityData.Children.Append("ipfrr-statistic", types.YChild{"IpfrrStatistic", nil})
     for i := range ipfrrEventSummary.IpfrrStatistic {
+        types.SetYListKey(ipfrrEventSummary.IpfrrStatistic[i], i)
         ipfrrEventSummary.EntityData.Children.Append(types.GetSegmentPath(ipfrrEventSummary.IpfrrStatistic[i]), types.YChild{"IpfrrStatistic", ipfrrEventSummary.IpfrrStatistic[i]})
     }
     ipfrrEventSummary.EntityData.Children.Append("remote-node", types.YChild{"RemoteNode", nil})
     for i := range ipfrrEventSummary.RemoteNode {
+        types.SetYListKey(ipfrrEventSummary.RemoteNode[i], i)
         ipfrrEventSummary.EntityData.Children.Append(types.GetSegmentPath(ipfrrEventSummary.RemoteNode[i]), types.YChild{"RemoteNode", ipfrrEventSummary.RemoteNode[i]})
     }
     ipfrrEventSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -9533,6 +9894,7 @@ func (ipfrrEventSummary *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrE
 type Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary_IpfrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Priority. The type is RcmdPriorityLevel.
     Priority interface{}
@@ -9566,7 +9928,8 @@ func (ipfrrStatistic *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEven
     ipfrrStatistic.EntityData.YangName = "ipfrr-statistic"
     ipfrrStatistic.EntityData.BundleName = "cisco_ios_xr"
     ipfrrStatistic.EntityData.ParentYangName = "ipfrr-event-summary"
-    ipfrrStatistic.EntityData.SegmentPath = "ipfrr-statistic"
+    ipfrrStatistic.EntityData.SegmentPath = "ipfrr-statistic" + types.AddNoKeyToken(ipfrrStatistic)
+    ipfrrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/ipfrr-event-summaries/ipfrr-event-summary/" + ipfrrStatistic.EntityData.SegmentPath
     ipfrrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9592,6 +9955,7 @@ func (ipfrrStatistic *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEven
 type Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary_RemoteNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Remote-LFA Node ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -9622,7 +9986,8 @@ func (remoteNode *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEventSum
     remoteNode.EntityData.YangName = "remote-node"
     remoteNode.EntityData.BundleName = "cisco_ios_xr"
     remoteNode.EntityData.ParentYangName = "ipfrr-event-summary"
-    remoteNode.EntityData.SegmentPath = "remote-node"
+    remoteNode.EntityData.SegmentPath = "remote-node" + types.AddNoKeyToken(remoteNode)
+    remoteNode.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/ipfrr-event-summaries/ipfrr-event-summary/" + remoteNode.EntityData.SegmentPath
     remoteNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9630,6 +9995,7 @@ func (remoteNode *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEventSum
     remoteNode.EntityData.Children = types.NewOrderedMap()
     remoteNode.EntityData.Children.Append("primary-path", types.YChild{"PrimaryPath", nil})
     for i := range remoteNode.PrimaryPath {
+        types.SetYListKey(remoteNode.PrimaryPath[i], i)
         remoteNode.EntityData.Children.Append(types.GetSegmentPath(remoteNode.PrimaryPath[i]), types.YChild{"PrimaryPath", remoteNode.PrimaryPath[i]})
     }
     remoteNode.EntityData.Leafs = types.NewOrderedMap()
@@ -9649,6 +10015,7 @@ func (remoteNode *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEventSum
 type Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary_RemoteNode_PrimaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -9663,7 +10030,8 @@ func (primaryPath *Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEventSu
     primaryPath.EntityData.YangName = "primary-path"
     primaryPath.EntityData.BundleName = "cisco_ios_xr"
     primaryPath.EntityData.ParentYangName = "remote-node"
-    primaryPath.EntityData.SegmentPath = "primary-path"
+    primaryPath.EntityData.SegmentPath = "primary-path" + types.AddNoKeyToken(primaryPath)
+    primaryPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/ipfrr-event-summaries/ipfrr-event-summary/remote-node/" + primaryPath.EntityData.SegmentPath
     primaryPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9695,6 +10063,7 @@ func (prefixEventStatistics *Rcmd_Isis_Instances_Instance_PrefixEventStatistics)
     prefixEventStatistics.EntityData.BundleName = "cisco_ios_xr"
     prefixEventStatistics.EntityData.ParentYangName = "instance"
     prefixEventStatistics.EntityData.SegmentPath = "prefix-event-statistics"
+    prefixEventStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/" + prefixEventStatistics.EntityData.SegmentPath
     prefixEventStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9716,6 +10085,7 @@ func (prefixEventStatistics *Rcmd_Isis_Instances_Instance_PrefixEventStatistics)
 type Rcmd_Isis_Instances_Instance_PrefixEventStatistics_PrefixEventStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Events with Prefix. The type is one of the
     // following types: string with pattern:
@@ -9785,6 +10155,7 @@ func (prefixEventStatistic *Rcmd_Isis_Instances_Instance_PrefixEventStatistics_P
     prefixEventStatistic.EntityData.BundleName = "cisco_ios_xr"
     prefixEventStatistic.EntityData.ParentYangName = "prefix-event-statistics"
     prefixEventStatistic.EntityData.SegmentPath = "prefix-event-statistic" + types.AddKeyToken(prefixEventStatistic.PrefixInfo, "prefix-info")
+    prefixEventStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-statistics/" + prefixEventStatistic.EntityData.SegmentPath
     prefixEventStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9830,6 +10201,7 @@ func (spfRunSummaries *Rcmd_Isis_Instances_Instance_SpfRunSummaries) GetEntityDa
     spfRunSummaries.EntityData.BundleName = "cisco_ios_xr"
     spfRunSummaries.EntityData.ParentYangName = "instance"
     spfRunSummaries.EntityData.SegmentPath = "spf-run-summaries"
+    spfRunSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/" + spfRunSummaries.EntityData.SegmentPath
     spfRunSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRunSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRunSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9851,6 +10223,7 @@ func (spfRunSummaries *Rcmd_Isis_Instances_Instance_SpfRunSummaries) GetEntityDa
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific SPF run. The type is interface{} with
     // range: 1..4294967295.
@@ -9897,6 +10270,7 @@ func (spfRunSummary *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary)
     spfRunSummary.EntityData.BundleName = "cisco_ios_xr"
     spfRunSummary.EntityData.ParentYangName = "spf-run-summaries"
     spfRunSummary.EntityData.SegmentPath = "spf-run-summary" + types.AddKeyToken(spfRunSummary.SpfRunNumber, "spf-run-number")
+    spfRunSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/" + spfRunSummary.EntityData.SegmentPath
     spfRunSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRunSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRunSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9906,18 +10280,22 @@ func (spfRunSummary *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary)
     spfRunSummary.EntityData.Children.Append("node-statistics", types.YChild{"NodeStatistics", &spfRunSummary.NodeStatistics})
     spfRunSummary.EntityData.Children.Append("trigger-lsp", types.YChild{"TriggerLsp", nil})
     for i := range spfRunSummary.TriggerLsp {
+        types.SetYListKey(spfRunSummary.TriggerLsp[i], i)
         spfRunSummary.EntityData.Children.Append(types.GetSegmentPath(spfRunSummary.TriggerLsp[i]), types.YChild{"TriggerLsp", spfRunSummary.TriggerLsp[i]})
     }
     spfRunSummary.EntityData.Children.Append("priority", types.YChild{"Priority", nil})
     for i := range spfRunSummary.Priority {
+        types.SetYListKey(spfRunSummary.Priority[i], i)
         spfRunSummary.EntityData.Children.Append(types.GetSegmentPath(spfRunSummary.Priority[i]), types.YChild{"Priority", spfRunSummary.Priority[i]})
     }
     spfRunSummary.EntityData.Children.Append("lsp-processed", types.YChild{"LspProcessed", nil})
     for i := range spfRunSummary.LspProcessed {
+        types.SetYListKey(spfRunSummary.LspProcessed[i], i)
         spfRunSummary.EntityData.Children.Append(types.GetSegmentPath(spfRunSummary.LspProcessed[i]), types.YChild{"LspProcessed", spfRunSummary.LspProcessed[i]})
     }
     spfRunSummary.EntityData.Children.Append("lsp-regenerated", types.YChild{"LspRegenerated", nil})
     for i := range spfRunSummary.LspRegenerated {
+        types.SetYListKey(spfRunSummary.LspRegenerated[i], i)
         spfRunSummary.EntityData.Children.Append(types.GetSegmentPath(spfRunSummary.LspRegenerated[i]), types.YChild{"LspRegenerated", spfRunSummary.LspRegenerated[i]})
     }
     spfRunSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -9977,6 +10355,7 @@ func (spfSummary *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Spf
     spfSummary.EntityData.BundleName = "cisco_ios_xr"
     spfSummary.EntityData.ParentYangName = "spf-run-summary"
     spfSummary.EntityData.SegmentPath = "spf-summary"
+    spfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/" + spfSummary.EntityData.SegmentPath
     spfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9984,6 +10363,7 @@ func (spfSummary *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Spf
     spfSummary.EntityData.Children = types.NewOrderedMap()
     spfSummary.EntityData.Children.Append("priority-summary", types.YChild{"PrioritySummary", nil})
     for i := range spfSummary.PrioritySummary {
+        types.SetYListKey(spfSummary.PrioritySummary[i], i)
         spfSummary.EntityData.Children.Append(types.GetSegmentPath(spfSummary.PrioritySummary[i]), types.YChild{"PrioritySummary", spfSummary.PrioritySummary[i]})
     }
     spfSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -10008,6 +10388,7 @@ func (spfSummary *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Spf
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_SpfSummary_PrioritySummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Critical, High, Medium or Low. The type is RcmdPriorityLevel.
     Level interface{}
@@ -10034,7 +10415,8 @@ func (prioritySummary *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummar
     prioritySummary.EntityData.YangName = "priority-summary"
     prioritySummary.EntityData.BundleName = "cisco_ios_xr"
     prioritySummary.EntityData.ParentYangName = "spf-summary"
-    prioritySummary.EntityData.SegmentPath = "priority-summary"
+    prioritySummary.EntityData.SegmentPath = "priority-summary" + types.AddNoKeyToken(prioritySummary)
+    prioritySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/spf-summary/" + prioritySummary.EntityData.SegmentPath
     prioritySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prioritySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prioritySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10045,6 +10427,7 @@ func (prioritySummary *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummar
     prioritySummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prioritySummary.MplsConvergenceTime})
     prioritySummary.EntityData.Children.Append("frr-statistic", types.YChild{"FrrStatistic", nil})
     for i := range prioritySummary.FrrStatistic {
+        types.SetYListKey(prioritySummary.FrrStatistic[i], i)
         prioritySummary.EntityData.Children.Append(types.GetSegmentPath(prioritySummary.FrrStatistic[i]), types.YChild{"FrrStatistic", prioritySummary.FrrStatistic[i]})
     }
     prioritySummary.EntityData.Leafs = types.NewOrderedMap()
@@ -10087,6 +10470,7 @@ func (routeStatistics *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummar
     routeStatistics.EntityData.BundleName = "cisco_ios_xr"
     routeStatistics.EntityData.ParentYangName = "priority-summary"
     routeStatistics.EntityData.SegmentPath = "route-statistics"
+    routeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/spf-summary/priority-summary/" + routeStatistics.EntityData.SegmentPath
     routeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10132,6 +10516,7 @@ func (ipConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSumm
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "priority-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/spf-summary/priority-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10175,6 +10560,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSu
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "priority-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/spf-summary/priority-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10196,6 +10582,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSu
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_SpfSummary_PrioritySummary_FrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total Number of Routes. The type is interface{} with range: 0..4294967295.
     TotalRoutes interface{}
@@ -10216,7 +10603,8 @@ func (frrStatistic *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_S
     frrStatistic.EntityData.YangName = "frr-statistic"
     frrStatistic.EntityData.BundleName = "cisco_ios_xr"
     frrStatistic.EntityData.ParentYangName = "priority-summary"
-    frrStatistic.EntityData.SegmentPath = "frr-statistic"
+    frrStatistic.EntityData.SegmentPath = "frr-statistic" + types.AddNoKeyToken(frrStatistic)
+    frrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/spf-summary/priority-summary/" + frrStatistic.EntityData.SegmentPath
     frrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10264,6 +10652,7 @@ func (nodeStatistics *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary
     nodeStatistics.EntityData.BundleName = "cisco_ios_xr"
     nodeStatistics.EntityData.ParentYangName = "spf-run-summary"
     nodeStatistics.EntityData.SegmentPath = "node-statistics"
+    nodeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/" + nodeStatistics.EntityData.SegmentPath
     nodeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10287,6 +10676,7 @@ func (nodeStatistics *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_TriggerLsp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSP ID. The type is string.
     LspId interface{}
@@ -10306,7 +10696,8 @@ func (triggerLsp *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Tri
     triggerLsp.EntityData.YangName = "trigger-lsp"
     triggerLsp.EntityData.BundleName = "cisco_ios_xr"
     triggerLsp.EntityData.ParentYangName = "spf-run-summary"
-    triggerLsp.EntityData.SegmentPath = "trigger-lsp"
+    triggerLsp.EntityData.SegmentPath = "trigger-lsp" + types.AddNoKeyToken(triggerLsp)
+    triggerLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/" + triggerLsp.EntityData.SegmentPath
     triggerLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10328,6 +10719,7 @@ func (triggerLsp *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Tri
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary of the priority.
     PrioritySummary Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_PrioritySummary
@@ -10350,7 +10742,8 @@ func (priority *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Prior
     priority.EntityData.YangName = "priority"
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "spf-run-summary"
-    priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.SegmentPath = "priority" + types.AddNoKeyToken(priority)
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10359,14 +10752,17 @@ func (priority *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Prior
     priority.EntityData.Children.Append("priority-summary", types.YChild{"PrioritySummary", &priority.PrioritySummary})
     priority.EntityData.Children.Append("convergence-timeline", types.YChild{"ConvergenceTimeline", nil})
     for i := range priority.ConvergenceTimeline {
+        types.SetYListKey(priority.ConvergenceTimeline[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.ConvergenceTimeline[i]), types.YChild{"ConvergenceTimeline", priority.ConvergenceTimeline[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-added", types.YChild{"LeafNetworksAdded", nil})
     for i := range priority.LeafNetworksAdded {
+        types.SetYListKey(priority.LeafNetworksAdded[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksAdded[i]), types.YChild{"LeafNetworksAdded", priority.LeafNetworksAdded[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-deleted", types.YChild{"LeafNetworksDeleted", nil})
     for i := range priority.LeafNetworksDeleted {
+        types.SetYListKey(priority.LeafNetworksDeleted[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksDeleted[i]), types.YChild{"LeafNetworksDeleted", priority.LeafNetworksDeleted[i]})
     }
     priority.EntityData.Leafs = types.NewOrderedMap()
@@ -10408,6 +10804,7 @@ func (prioritySummary *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummar
     prioritySummary.EntityData.BundleName = "cisco_ios_xr"
     prioritySummary.EntityData.ParentYangName = "priority"
     prioritySummary.EntityData.SegmentPath = "priority-summary"
+    prioritySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/" + prioritySummary.EntityData.SegmentPath
     prioritySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prioritySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prioritySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10418,6 +10815,7 @@ func (prioritySummary *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummar
     prioritySummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prioritySummary.MplsConvergenceTime})
     prioritySummary.EntityData.Children.Append("frr-statistic", types.YChild{"FrrStatistic", nil})
     for i := range prioritySummary.FrrStatistic {
+        types.SetYListKey(prioritySummary.FrrStatistic[i], i)
         prioritySummary.EntityData.Children.Append(types.GetSegmentPath(prioritySummary.FrrStatistic[i]), types.YChild{"FrrStatistic", prioritySummary.FrrStatistic[i]})
     }
     prioritySummary.EntityData.Leafs = types.NewOrderedMap()
@@ -10460,6 +10858,7 @@ func (routeStatistics *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummar
     routeStatistics.EntityData.BundleName = "cisco_ios_xr"
     routeStatistics.EntityData.ParentYangName = "priority-summary"
     routeStatistics.EntityData.SegmentPath = "route-statistics"
+    routeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/priority-summary/" + routeStatistics.EntityData.SegmentPath
     routeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10505,6 +10904,7 @@ func (ipConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSumm
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "priority-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/priority-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10548,6 +10948,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSu
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "priority-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/priority-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10569,6 +10970,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSu
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_PrioritySummary_FrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total Number of Routes. The type is interface{} with range: 0..4294967295.
     TotalRoutes interface{}
@@ -10589,7 +10991,8 @@ func (frrStatistic *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_P
     frrStatistic.EntityData.YangName = "frr-statistic"
     frrStatistic.EntityData.BundleName = "cisco_ios_xr"
     frrStatistic.EntityData.ParentYangName = "priority-summary"
-    frrStatistic.EntityData.SegmentPath = "frr-statistic"
+    frrStatistic.EntityData.SegmentPath = "frr-statistic" + types.AddNoKeyToken(frrStatistic)
+    frrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/priority-summary/" + frrStatistic.EntityData.SegmentPath
     frrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10611,6 +11014,7 @@ func (frrStatistic *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_P
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_ConvergenceTimeline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol).
     RouteOrigin Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_ConvergenceTimeline_RouteOrigin
@@ -10650,7 +11054,8 @@ func (convergenceTimeline *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSu
     convergenceTimeline.EntityData.YangName = "convergence-timeline"
     convergenceTimeline.EntityData.BundleName = "cisco_ios_xr"
     convergenceTimeline.EntityData.ParentYangName = "priority"
-    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline"
+    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline" + types.AddNoKeyToken(convergenceTimeline)
+    convergenceTimeline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/" + convergenceTimeline.EntityData.SegmentPath
     convergenceTimeline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     convergenceTimeline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergenceTimeline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10666,10 +11071,12 @@ func (convergenceTimeline *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSu
     convergenceTimeline.EntityData.Children.Append("lsd-exit", types.YChild{"LsdExit", &convergenceTimeline.LsdExit})
     convergenceTimeline.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range convergenceTimeline.LcIp {
+        types.SetYListKey(convergenceTimeline.LcIp[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcIp[i]), types.YChild{"LcIp", convergenceTimeline.LcIp[i]})
     }
     convergenceTimeline.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range convergenceTimeline.LcMpls {
+        types.SetYListKey(convergenceTimeline.LcMpls[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcMpls[i]), types.YChild{"LcMpls", convergenceTimeline.LcMpls[i]})
     }
     convergenceTimeline.EntityData.Leafs = types.NewOrderedMap()
@@ -10703,6 +11110,7 @@ func (routeOrigin *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Pr
     routeOrigin.EntityData.BundleName = "cisco_ios_xr"
     routeOrigin.EntityData.ParentYangName = "convergence-timeline"
     routeOrigin.EntityData.SegmentPath = "route-origin"
+    routeOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/" + routeOrigin.EntityData.SegmentPath
     routeOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10742,6 +11150,7 @@ func (riBv4Enter *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Pri
     riBv4Enter.EntityData.BundleName = "cisco_ios_xr"
     riBv4Enter.EntityData.ParentYangName = "convergence-timeline"
     riBv4Enter.EntityData.SegmentPath = "ri-bv4-enter"
+    riBv4Enter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/" + riBv4Enter.EntityData.SegmentPath
     riBv4Enter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Enter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Enter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10781,6 +11190,7 @@ func (riBv4Exit *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Prio
     riBv4Exit.EntityData.BundleName = "cisco_ios_xr"
     riBv4Exit.EntityData.ParentYangName = "convergence-timeline"
     riBv4Exit.EntityData.SegmentPath = "ri-bv4-exit"
+    riBv4Exit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/" + riBv4Exit.EntityData.SegmentPath
     riBv4Exit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Exit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Exit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10820,6 +11230,7 @@ func (riBv4Redistribute *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSumm
     riBv4Redistribute.EntityData.BundleName = "cisco_ios_xr"
     riBv4Redistribute.EntityData.ParentYangName = "convergence-timeline"
     riBv4Redistribute.EntityData.SegmentPath = "ri-bv4-redistribute"
+    riBv4Redistribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/" + riBv4Redistribute.EntityData.SegmentPath
     riBv4Redistribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Redistribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Redistribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10859,6 +11270,7 @@ func (ldpEnter *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Prior
     ldpEnter.EntityData.BundleName = "cisco_ios_xr"
     ldpEnter.EntityData.ParentYangName = "convergence-timeline"
     ldpEnter.EntityData.SegmentPath = "ldp-enter"
+    ldpEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/" + ldpEnter.EntityData.SegmentPath
     ldpEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10898,6 +11310,7 @@ func (ldpExit *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priori
     ldpExit.EntityData.BundleName = "cisco_ios_xr"
     ldpExit.EntityData.ParentYangName = "convergence-timeline"
     ldpExit.EntityData.SegmentPath = "ldp-exit"
+    ldpExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/" + ldpExit.EntityData.SegmentPath
     ldpExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10937,6 +11350,7 @@ func (lsdEnter *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Prior
     lsdEnter.EntityData.BundleName = "cisco_ios_xr"
     lsdEnter.EntityData.ParentYangName = "convergence-timeline"
     lsdEnter.EntityData.SegmentPath = "lsd-enter"
+    lsdEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/" + lsdEnter.EntityData.SegmentPath
     lsdEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10976,6 +11390,7 @@ func (lsdExit *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priori
     lsdExit.EntityData.BundleName = "cisco_ios_xr"
     lsdExit.EntityData.ParentYangName = "convergence-timeline"
     lsdExit.EntityData.SegmentPath = "lsd-exit"
+    lsdExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/" + lsdExit.EntityData.SegmentPath
     lsdExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10997,6 +11412,7 @@ func (lsdExit *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priori
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_ConvergenceTimeline_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -11013,7 +11429,8 @@ func (lcIp *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "convergence-timeline"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11053,6 +11470,7 @@ func (fibComplete *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Pr
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-ip"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/lc-ip/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11074,6 +11492,7 @@ func (fibComplete *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Pr
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_ConvergenceTimeline_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -11090,7 +11509,8 @@ func (lcMpls *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priorit
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "convergence-timeline"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11130,6 +11550,7 @@ func (fibComplete *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Pr
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-mpls"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/convergence-timeline/lc-mpls/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11150,6 +11571,7 @@ func (fibComplete *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Pr
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_LeafNetworksAdded struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -11164,7 +11586,8 @@ func (leafNetworksAdded *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSumm
     leafNetworksAdded.EntityData.YangName = "leaf-networks-added"
     leafNetworksAdded.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksAdded.EntityData.ParentYangName = "priority"
-    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added"
+    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added" + types.AddNoKeyToken(leafNetworksAdded)
+    leafNetworksAdded.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/" + leafNetworksAdded.EntityData.SegmentPath
     leafNetworksAdded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksAdded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksAdded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11184,6 +11607,7 @@ func (leafNetworksAdded *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSumm
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_LeafNetworksDeleted struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -11198,7 +11622,8 @@ func (leafNetworksDeleted *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSu
     leafNetworksDeleted.EntityData.YangName = "leaf-networks-deleted"
     leafNetworksDeleted.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksDeleted.EntityData.ParentYangName = "priority"
-    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted"
+    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted" + types.AddNoKeyToken(leafNetworksDeleted)
+    leafNetworksDeleted.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/priority/" + leafNetworksDeleted.EntityData.SegmentPath
     leafNetworksDeleted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksDeleted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksDeleted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11218,6 +11643,7 @@ func (leafNetworksDeleted *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSu
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_LspProcessed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSP ID. The type is string.
     LspId interface{}
@@ -11237,7 +11663,8 @@ func (lspProcessed *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_L
     lspProcessed.EntityData.YangName = "lsp-processed"
     lspProcessed.EntityData.BundleName = "cisco_ios_xr"
     lspProcessed.EntityData.ParentYangName = "spf-run-summary"
-    lspProcessed.EntityData.SegmentPath = "lsp-processed"
+    lspProcessed.EntityData.SegmentPath = "lsp-processed" + types.AddNoKeyToken(lspProcessed)
+    lspProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/" + lspProcessed.EntityData.SegmentPath
     lspProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11259,6 +11686,7 @@ func (lspProcessed *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_L
 type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_LspRegenerated struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Serial Number of the session event. The type is interface{} with range:
     // 0..4294967295.
@@ -11289,7 +11717,8 @@ func (lspRegenerated *Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary
     lspRegenerated.EntityData.YangName = "lsp-regenerated"
     lspRegenerated.EntityData.BundleName = "cisco_ios_xr"
     lspRegenerated.EntityData.ParentYangName = "spf-run-summary"
-    lspRegenerated.EntityData.SegmentPath = "lsp-regenerated"
+    lspRegenerated.EntityData.SegmentPath = "lsp-regenerated" + types.AddNoKeyToken(lspRegenerated)
+    lspRegenerated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-summaries/spf-run-summary/" + lspRegenerated.EntityData.SegmentPath
     lspRegenerated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspRegenerated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspRegenerated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11326,6 +11755,7 @@ func (ipfrrEventOfflines *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines) GetEn
     ipfrrEventOfflines.EntityData.BundleName = "cisco_ios_xr"
     ipfrrEventOfflines.EntityData.ParentYangName = "instance"
     ipfrrEventOfflines.EntityData.SegmentPath = "ipfrr-event-offlines"
+    ipfrrEventOfflines.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/" + ipfrrEventOfflines.EntityData.SegmentPath
     ipfrrEventOfflines.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrEventOfflines.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrEventOfflines.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11348,6 +11778,7 @@ func (ipfrrEventOfflines *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines) GetEn
 type Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific IP-FRR Event. The type is interface{}
     // with range: 1..4294967295.
@@ -11410,6 +11841,7 @@ func (ipfrrEventOffline *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEv
     ipfrrEventOffline.EntityData.BundleName = "cisco_ios_xr"
     ipfrrEventOffline.EntityData.ParentYangName = "ipfrr-event-offlines"
     ipfrrEventOffline.EntityData.SegmentPath = "ipfrr-event-offline" + types.AddKeyToken(ipfrrEventOffline.EventId, "event-id")
+    ipfrrEventOffline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/ipfrr-event-offlines/" + ipfrrEventOffline.EntityData.SegmentPath
     ipfrrEventOffline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrEventOffline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrEventOffline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11417,10 +11849,12 @@ func (ipfrrEventOffline *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEv
     ipfrrEventOffline.EntityData.Children = types.NewOrderedMap()
     ipfrrEventOffline.EntityData.Children.Append("ipfrr-statistic", types.YChild{"IpfrrStatistic", nil})
     for i := range ipfrrEventOffline.IpfrrStatistic {
+        types.SetYListKey(ipfrrEventOffline.IpfrrStatistic[i], i)
         ipfrrEventOffline.EntityData.Children.Append(types.GetSegmentPath(ipfrrEventOffline.IpfrrStatistic[i]), types.YChild{"IpfrrStatistic", ipfrrEventOffline.IpfrrStatistic[i]})
     }
     ipfrrEventOffline.EntityData.Children.Append("remote-node", types.YChild{"RemoteNode", nil})
     for i := range ipfrrEventOffline.RemoteNode {
+        types.SetYListKey(ipfrrEventOffline.RemoteNode[i], i)
         ipfrrEventOffline.EntityData.Children.Append(types.GetSegmentPath(ipfrrEventOffline.RemoteNode[i]), types.YChild{"RemoteNode", ipfrrEventOffline.RemoteNode[i]})
     }
     ipfrrEventOffline.EntityData.Leafs = types.NewOrderedMap()
@@ -11447,6 +11881,7 @@ func (ipfrrEventOffline *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEv
 type Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline_IpfrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Priority. The type is RcmdPriorityLevel.
     Priority interface{}
@@ -11480,7 +11915,8 @@ func (ipfrrStatistic *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEvent
     ipfrrStatistic.EntityData.YangName = "ipfrr-statistic"
     ipfrrStatistic.EntityData.BundleName = "cisco_ios_xr"
     ipfrrStatistic.EntityData.ParentYangName = "ipfrr-event-offline"
-    ipfrrStatistic.EntityData.SegmentPath = "ipfrr-statistic"
+    ipfrrStatistic.EntityData.SegmentPath = "ipfrr-statistic" + types.AddNoKeyToken(ipfrrStatistic)
+    ipfrrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/ipfrr-event-offlines/ipfrr-event-offline/" + ipfrrStatistic.EntityData.SegmentPath
     ipfrrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11506,6 +11942,7 @@ func (ipfrrStatistic *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEvent
 type Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline_RemoteNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Remote-LFA Node ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -11536,7 +11973,8 @@ func (remoteNode *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffl
     remoteNode.EntityData.YangName = "remote-node"
     remoteNode.EntityData.BundleName = "cisco_ios_xr"
     remoteNode.EntityData.ParentYangName = "ipfrr-event-offline"
-    remoteNode.EntityData.SegmentPath = "remote-node"
+    remoteNode.EntityData.SegmentPath = "remote-node" + types.AddNoKeyToken(remoteNode)
+    remoteNode.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/ipfrr-event-offlines/ipfrr-event-offline/" + remoteNode.EntityData.SegmentPath
     remoteNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11544,6 +11982,7 @@ func (remoteNode *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffl
     remoteNode.EntityData.Children = types.NewOrderedMap()
     remoteNode.EntityData.Children.Append("primary-path", types.YChild{"PrimaryPath", nil})
     for i := range remoteNode.PrimaryPath {
+        types.SetYListKey(remoteNode.PrimaryPath[i], i)
         remoteNode.EntityData.Children.Append(types.GetSegmentPath(remoteNode.PrimaryPath[i]), types.YChild{"PrimaryPath", remoteNode.PrimaryPath[i]})
     }
     remoteNode.EntityData.Leafs = types.NewOrderedMap()
@@ -11563,6 +12002,7 @@ func (remoteNode *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffl
 type Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline_RemoteNode_PrimaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -11577,7 +12017,8 @@ func (primaryPath *Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEventOff
     primaryPath.EntityData.YangName = "primary-path"
     primaryPath.EntityData.BundleName = "cisco_ios_xr"
     primaryPath.EntityData.ParentYangName = "remote-node"
-    primaryPath.EntityData.SegmentPath = "primary-path"
+    primaryPath.EntityData.SegmentPath = "primary-path" + types.AddNoKeyToken(primaryPath)
+    primaryPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/ipfrr-event-offlines/ipfrr-event-offline/remote-node/" + primaryPath.EntityData.SegmentPath
     primaryPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11609,6 +12050,7 @@ func (spfRunOfflines *Rcmd_Isis_Instances_Instance_SpfRunOfflines) GetEntityData
     spfRunOfflines.EntityData.BundleName = "cisco_ios_xr"
     spfRunOfflines.EntityData.ParentYangName = "instance"
     spfRunOfflines.EntityData.SegmentPath = "spf-run-offlines"
+    spfRunOfflines.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/" + spfRunOfflines.EntityData.SegmentPath
     spfRunOfflines.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRunOfflines.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRunOfflines.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11631,6 +12073,7 @@ func (spfRunOfflines *Rcmd_Isis_Instances_Instance_SpfRunOfflines) GetEntityData
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific SPF run. The type is interface{} with
     // range: 1..4294967295.
@@ -11677,6 +12120,7 @@ func (spfRunOffline *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline) 
     spfRunOffline.EntityData.BundleName = "cisco_ios_xr"
     spfRunOffline.EntityData.ParentYangName = "spf-run-offlines"
     spfRunOffline.EntityData.SegmentPath = "spf-run-offline" + types.AddKeyToken(spfRunOffline.SpfRunNumber, "spf-run-number")
+    spfRunOffline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/" + spfRunOffline.EntityData.SegmentPath
     spfRunOffline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRunOffline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRunOffline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11686,18 +12130,22 @@ func (spfRunOffline *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline) 
     spfRunOffline.EntityData.Children.Append("node-statistics", types.YChild{"NodeStatistics", &spfRunOffline.NodeStatistics})
     spfRunOffline.EntityData.Children.Append("trigger-lsp", types.YChild{"TriggerLsp", nil})
     for i := range spfRunOffline.TriggerLsp {
+        types.SetYListKey(spfRunOffline.TriggerLsp[i], i)
         spfRunOffline.EntityData.Children.Append(types.GetSegmentPath(spfRunOffline.TriggerLsp[i]), types.YChild{"TriggerLsp", spfRunOffline.TriggerLsp[i]})
     }
     spfRunOffline.EntityData.Children.Append("priority", types.YChild{"Priority", nil})
     for i := range spfRunOffline.Priority {
+        types.SetYListKey(spfRunOffline.Priority[i], i)
         spfRunOffline.EntityData.Children.Append(types.GetSegmentPath(spfRunOffline.Priority[i]), types.YChild{"Priority", spfRunOffline.Priority[i]})
     }
     spfRunOffline.EntityData.Children.Append("lsp-processed", types.YChild{"LspProcessed", nil})
     for i := range spfRunOffline.LspProcessed {
+        types.SetYListKey(spfRunOffline.LspProcessed[i], i)
         spfRunOffline.EntityData.Children.Append(types.GetSegmentPath(spfRunOffline.LspProcessed[i]), types.YChild{"LspProcessed", spfRunOffline.LspProcessed[i]})
     }
     spfRunOffline.EntityData.Children.Append("lsp-regenerated", types.YChild{"LspRegenerated", nil})
     for i := range spfRunOffline.LspRegenerated {
+        types.SetYListKey(spfRunOffline.LspRegenerated[i], i)
         spfRunOffline.EntityData.Children.Append(types.GetSegmentPath(spfRunOffline.LspRegenerated[i]), types.YChild{"LspRegenerated", spfRunOffline.LspRegenerated[i]})
     }
     spfRunOffline.EntityData.Leafs = types.NewOrderedMap()
@@ -11757,6 +12205,7 @@ func (spfSummary *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_SpfS
     spfSummary.EntityData.BundleName = "cisco_ios_xr"
     spfSummary.EntityData.ParentYangName = "spf-run-offline"
     spfSummary.EntityData.SegmentPath = "spf-summary"
+    spfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/" + spfSummary.EntityData.SegmentPath
     spfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11764,6 +12213,7 @@ func (spfSummary *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_SpfS
     spfSummary.EntityData.Children = types.NewOrderedMap()
     spfSummary.EntityData.Children.Append("priority-summary", types.YChild{"PrioritySummary", nil})
     for i := range spfSummary.PrioritySummary {
+        types.SetYListKey(spfSummary.PrioritySummary[i], i)
         spfSummary.EntityData.Children.Append(types.GetSegmentPath(spfSummary.PrioritySummary[i]), types.YChild{"PrioritySummary", spfSummary.PrioritySummary[i]})
     }
     spfSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -11788,6 +12238,7 @@ func (spfSummary *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_SpfS
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_SpfSummary_PrioritySummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Critical, High, Medium or Low. The type is RcmdPriorityLevel.
     Level interface{}
@@ -11814,7 +12265,8 @@ func (prioritySummary *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline
     prioritySummary.EntityData.YangName = "priority-summary"
     prioritySummary.EntityData.BundleName = "cisco_ios_xr"
     prioritySummary.EntityData.ParentYangName = "spf-summary"
-    prioritySummary.EntityData.SegmentPath = "priority-summary"
+    prioritySummary.EntityData.SegmentPath = "priority-summary" + types.AddNoKeyToken(prioritySummary)
+    prioritySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/spf-summary/" + prioritySummary.EntityData.SegmentPath
     prioritySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prioritySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prioritySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11825,6 +12277,7 @@ func (prioritySummary *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline
     prioritySummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prioritySummary.MplsConvergenceTime})
     prioritySummary.EntityData.Children.Append("frr-statistic", types.YChild{"FrrStatistic", nil})
     for i := range prioritySummary.FrrStatistic {
+        types.SetYListKey(prioritySummary.FrrStatistic[i], i)
         prioritySummary.EntityData.Children.Append(types.GetSegmentPath(prioritySummary.FrrStatistic[i]), types.YChild{"FrrStatistic", prioritySummary.FrrStatistic[i]})
     }
     prioritySummary.EntityData.Leafs = types.NewOrderedMap()
@@ -11867,6 +12320,7 @@ func (routeStatistics *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline
     routeStatistics.EntityData.BundleName = "cisco_ios_xr"
     routeStatistics.EntityData.ParentYangName = "priority-summary"
     routeStatistics.EntityData.SegmentPath = "route-statistics"
+    routeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/spf-summary/priority-summary/" + routeStatistics.EntityData.SegmentPath
     routeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11912,6 +12366,7 @@ func (ipConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffli
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "priority-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/spf-summary/priority-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11955,6 +12410,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOff
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "priority-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/spf-summary/priority-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11976,6 +12432,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOff
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_SpfSummary_PrioritySummary_FrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total Number of Routes. The type is interface{} with range: 0..4294967295.
     TotalRoutes interface{}
@@ -11996,7 +12453,8 @@ func (frrStatistic *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Sp
     frrStatistic.EntityData.YangName = "frr-statistic"
     frrStatistic.EntityData.BundleName = "cisco_ios_xr"
     frrStatistic.EntityData.ParentYangName = "priority-summary"
-    frrStatistic.EntityData.SegmentPath = "frr-statistic"
+    frrStatistic.EntityData.SegmentPath = "frr-statistic" + types.AddNoKeyToken(frrStatistic)
+    frrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/spf-summary/priority-summary/" + frrStatistic.EntityData.SegmentPath
     frrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12044,6 +12502,7 @@ func (nodeStatistics *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_
     nodeStatistics.EntityData.BundleName = "cisco_ios_xr"
     nodeStatistics.EntityData.ParentYangName = "spf-run-offline"
     nodeStatistics.EntityData.SegmentPath = "node-statistics"
+    nodeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/" + nodeStatistics.EntityData.SegmentPath
     nodeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12067,6 +12526,7 @@ func (nodeStatistics *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_TriggerLsp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSP ID. The type is string.
     LspId interface{}
@@ -12086,7 +12546,8 @@ func (triggerLsp *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Trig
     triggerLsp.EntityData.YangName = "trigger-lsp"
     triggerLsp.EntityData.BundleName = "cisco_ios_xr"
     triggerLsp.EntityData.ParentYangName = "spf-run-offline"
-    triggerLsp.EntityData.SegmentPath = "trigger-lsp"
+    triggerLsp.EntityData.SegmentPath = "trigger-lsp" + types.AddNoKeyToken(triggerLsp)
+    triggerLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/" + triggerLsp.EntityData.SegmentPath
     triggerLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12108,6 +12569,7 @@ func (triggerLsp *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Trig
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary of the priority.
     PrioritySummary Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_PrioritySummary
@@ -12130,7 +12592,8 @@ func (priority *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priori
     priority.EntityData.YangName = "priority"
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "spf-run-offline"
-    priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.SegmentPath = "priority" + types.AddNoKeyToken(priority)
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12139,14 +12602,17 @@ func (priority *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priori
     priority.EntityData.Children.Append("priority-summary", types.YChild{"PrioritySummary", &priority.PrioritySummary})
     priority.EntityData.Children.Append("convergence-timeline", types.YChild{"ConvergenceTimeline", nil})
     for i := range priority.ConvergenceTimeline {
+        types.SetYListKey(priority.ConvergenceTimeline[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.ConvergenceTimeline[i]), types.YChild{"ConvergenceTimeline", priority.ConvergenceTimeline[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-added", types.YChild{"LeafNetworksAdded", nil})
     for i := range priority.LeafNetworksAdded {
+        types.SetYListKey(priority.LeafNetworksAdded[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksAdded[i]), types.YChild{"LeafNetworksAdded", priority.LeafNetworksAdded[i]})
     }
     priority.EntityData.Children.Append("leaf-networks-deleted", types.YChild{"LeafNetworksDeleted", nil})
     for i := range priority.LeafNetworksDeleted {
+        types.SetYListKey(priority.LeafNetworksDeleted[i], i)
         priority.EntityData.Children.Append(types.GetSegmentPath(priority.LeafNetworksDeleted[i]), types.YChild{"LeafNetworksDeleted", priority.LeafNetworksDeleted[i]})
     }
     priority.EntityData.Leafs = types.NewOrderedMap()
@@ -12188,6 +12654,7 @@ func (prioritySummary *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline
     prioritySummary.EntityData.BundleName = "cisco_ios_xr"
     prioritySummary.EntityData.ParentYangName = "priority"
     prioritySummary.EntityData.SegmentPath = "priority-summary"
+    prioritySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/" + prioritySummary.EntityData.SegmentPath
     prioritySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prioritySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prioritySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12198,6 +12665,7 @@ func (prioritySummary *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline
     prioritySummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prioritySummary.MplsConvergenceTime})
     prioritySummary.EntityData.Children.Append("frr-statistic", types.YChild{"FrrStatistic", nil})
     for i := range prioritySummary.FrrStatistic {
+        types.SetYListKey(prioritySummary.FrrStatistic[i], i)
         prioritySummary.EntityData.Children.Append(types.GetSegmentPath(prioritySummary.FrrStatistic[i]), types.YChild{"FrrStatistic", prioritySummary.FrrStatistic[i]})
     }
     prioritySummary.EntityData.Leafs = types.NewOrderedMap()
@@ -12240,6 +12708,7 @@ func (routeStatistics *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline
     routeStatistics.EntityData.BundleName = "cisco_ios_xr"
     routeStatistics.EntityData.ParentYangName = "priority-summary"
     routeStatistics.EntityData.SegmentPath = "route-statistics"
+    routeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/priority-summary/" + routeStatistics.EntityData.SegmentPath
     routeStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12285,6 +12754,7 @@ func (ipConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffli
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "priority-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/priority-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12328,6 +12798,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOff
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "priority-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/priority-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12349,6 +12820,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOff
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_PrioritySummary_FrrStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total Number of Routes. The type is interface{} with range: 0..4294967295.
     TotalRoutes interface{}
@@ -12369,7 +12841,8 @@ func (frrStatistic *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Pr
     frrStatistic.EntityData.YangName = "frr-statistic"
     frrStatistic.EntityData.BundleName = "cisco_ios_xr"
     frrStatistic.EntityData.ParentYangName = "priority-summary"
-    frrStatistic.EntityData.SegmentPath = "frr-statistic"
+    frrStatistic.EntityData.SegmentPath = "frr-statistic" + types.AddNoKeyToken(frrStatistic)
+    frrStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/priority-summary/" + frrStatistic.EntityData.SegmentPath
     frrStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12391,6 +12864,7 @@ func (frrStatistic *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Pr
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_ConvergenceTimeline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol).
     RouteOrigin Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_ConvergenceTimeline_RouteOrigin
@@ -12430,7 +12904,8 @@ func (convergenceTimeline *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOff
     convergenceTimeline.EntityData.YangName = "convergence-timeline"
     convergenceTimeline.EntityData.BundleName = "cisco_ios_xr"
     convergenceTimeline.EntityData.ParentYangName = "priority"
-    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline"
+    convergenceTimeline.EntityData.SegmentPath = "convergence-timeline" + types.AddNoKeyToken(convergenceTimeline)
+    convergenceTimeline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/" + convergenceTimeline.EntityData.SegmentPath
     convergenceTimeline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     convergenceTimeline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergenceTimeline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12446,10 +12921,12 @@ func (convergenceTimeline *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOff
     convergenceTimeline.EntityData.Children.Append("lsd-exit", types.YChild{"LsdExit", &convergenceTimeline.LsdExit})
     convergenceTimeline.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range convergenceTimeline.LcIp {
+        types.SetYListKey(convergenceTimeline.LcIp[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcIp[i]), types.YChild{"LcIp", convergenceTimeline.LcIp[i]})
     }
     convergenceTimeline.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range convergenceTimeline.LcMpls {
+        types.SetYListKey(convergenceTimeline.LcMpls[i], i)
         convergenceTimeline.EntityData.Children.Append(types.GetSegmentPath(convergenceTimeline.LcMpls[i]), types.YChild{"LcMpls", convergenceTimeline.LcMpls[i]})
     }
     convergenceTimeline.EntityData.Leafs = types.NewOrderedMap()
@@ -12483,6 +12960,7 @@ func (routeOrigin *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Pri
     routeOrigin.EntityData.BundleName = "cisco_ios_xr"
     routeOrigin.EntityData.ParentYangName = "convergence-timeline"
     routeOrigin.EntityData.SegmentPath = "route-origin"
+    routeOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/" + routeOrigin.EntityData.SegmentPath
     routeOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12522,6 +13000,7 @@ func (riBv4Enter *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Prio
     riBv4Enter.EntityData.BundleName = "cisco_ios_xr"
     riBv4Enter.EntityData.ParentYangName = "convergence-timeline"
     riBv4Enter.EntityData.SegmentPath = "ri-bv4-enter"
+    riBv4Enter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/" + riBv4Enter.EntityData.SegmentPath
     riBv4Enter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Enter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Enter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12561,6 +13040,7 @@ func (riBv4Exit *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Prior
     riBv4Exit.EntityData.BundleName = "cisco_ios_xr"
     riBv4Exit.EntityData.ParentYangName = "convergence-timeline"
     riBv4Exit.EntityData.SegmentPath = "ri-bv4-exit"
+    riBv4Exit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/" + riBv4Exit.EntityData.SegmentPath
     riBv4Exit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Exit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Exit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12600,6 +13080,7 @@ func (riBv4Redistribute *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffli
     riBv4Redistribute.EntityData.BundleName = "cisco_ios_xr"
     riBv4Redistribute.EntityData.ParentYangName = "convergence-timeline"
     riBv4Redistribute.EntityData.SegmentPath = "ri-bv4-redistribute"
+    riBv4Redistribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/" + riBv4Redistribute.EntityData.SegmentPath
     riBv4Redistribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     riBv4Redistribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     riBv4Redistribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12639,6 +13120,7 @@ func (ldpEnter *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priori
     ldpEnter.EntityData.BundleName = "cisco_ios_xr"
     ldpEnter.EntityData.ParentYangName = "convergence-timeline"
     ldpEnter.EntityData.SegmentPath = "ldp-enter"
+    ldpEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/" + ldpEnter.EntityData.SegmentPath
     ldpEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12678,6 +13160,7 @@ func (ldpExit *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priorit
     ldpExit.EntityData.BundleName = "cisco_ios_xr"
     ldpExit.EntityData.ParentYangName = "convergence-timeline"
     ldpExit.EntityData.SegmentPath = "ldp-exit"
+    ldpExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/" + ldpExit.EntityData.SegmentPath
     ldpExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12717,6 +13200,7 @@ func (lsdEnter *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priori
     lsdEnter.EntityData.BundleName = "cisco_ios_xr"
     lsdEnter.EntityData.ParentYangName = "convergence-timeline"
     lsdEnter.EntityData.SegmentPath = "lsd-enter"
+    lsdEnter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/" + lsdEnter.EntityData.SegmentPath
     lsdEnter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdEnter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdEnter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12756,6 +13240,7 @@ func (lsdExit *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priorit
     lsdExit.EntityData.BundleName = "cisco_ios_xr"
     lsdExit.EntityData.ParentYangName = "convergence-timeline"
     lsdExit.EntityData.SegmentPath = "lsd-exit"
+    lsdExit.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/" + lsdExit.EntityData.SegmentPath
     lsdExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsdExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsdExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12777,6 +13262,7 @@ func (lsdExit *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priorit
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_ConvergenceTimeline_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -12793,7 +13279,8 @@ func (lcIp *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_C
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "convergence-timeline"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12833,6 +13320,7 @@ func (fibComplete *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Pri
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-ip"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/lc-ip/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12854,6 +13342,7 @@ func (fibComplete *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Pri
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_ConvergenceTimeline_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -12870,7 +13359,8 @@ func (lcMpls *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "convergence-timeline"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12910,6 +13400,7 @@ func (fibComplete *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Pri
     fibComplete.EntityData.BundleName = "cisco_ios_xr"
     fibComplete.EntityData.ParentYangName = "lc-mpls"
     fibComplete.EntityData.SegmentPath = "fib-complete"
+    fibComplete.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/convergence-timeline/lc-mpls/" + fibComplete.EntityData.SegmentPath
     fibComplete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibComplete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibComplete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12930,6 +13421,7 @@ func (fibComplete *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Pri
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_LeafNetworksAdded struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12944,7 +13436,8 @@ func (leafNetworksAdded *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffli
     leafNetworksAdded.EntityData.YangName = "leaf-networks-added"
     leafNetworksAdded.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksAdded.EntityData.ParentYangName = "priority"
-    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added"
+    leafNetworksAdded.EntityData.SegmentPath = "leaf-networks-added" + types.AddNoKeyToken(leafNetworksAdded)
+    leafNetworksAdded.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/" + leafNetworksAdded.EntityData.SegmentPath
     leafNetworksAdded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksAdded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksAdded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12964,6 +13457,7 @@ func (leafNetworksAdded *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffli
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_LeafNetworksDeleted struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12978,7 +13472,8 @@ func (leafNetworksDeleted *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOff
     leafNetworksDeleted.EntityData.YangName = "leaf-networks-deleted"
     leafNetworksDeleted.EntityData.BundleName = "cisco_ios_xr"
     leafNetworksDeleted.EntityData.ParentYangName = "priority"
-    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted"
+    leafNetworksDeleted.EntityData.SegmentPath = "leaf-networks-deleted" + types.AddNoKeyToken(leafNetworksDeleted)
+    leafNetworksDeleted.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/priority/" + leafNetworksDeleted.EntityData.SegmentPath
     leafNetworksDeleted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leafNetworksDeleted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leafNetworksDeleted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12998,6 +13493,7 @@ func (leafNetworksDeleted *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOff
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_LspProcessed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSP ID. The type is string.
     LspId interface{}
@@ -13017,7 +13513,8 @@ func (lspProcessed *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Ls
     lspProcessed.EntityData.YangName = "lsp-processed"
     lspProcessed.EntityData.BundleName = "cisco_ios_xr"
     lspProcessed.EntityData.ParentYangName = "spf-run-offline"
-    lspProcessed.EntityData.SegmentPath = "lsp-processed"
+    lspProcessed.EntityData.SegmentPath = "lsp-processed" + types.AddNoKeyToken(lspProcessed)
+    lspProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/" + lspProcessed.EntityData.SegmentPath
     lspProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13039,6 +13536,7 @@ func (lspProcessed *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Ls
 type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_LspRegenerated struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Serial Number of the session event. The type is interface{} with range:
     // 0..4294967295.
@@ -13069,7 +13567,8 @@ func (lspRegenerated *Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_
     lspRegenerated.EntityData.YangName = "lsp-regenerated"
     lspRegenerated.EntityData.BundleName = "cisco_ios_xr"
     lspRegenerated.EntityData.ParentYangName = "spf-run-offline"
-    lspRegenerated.EntityData.SegmentPath = "lsp-regenerated"
+    lspRegenerated.EntityData.SegmentPath = "lsp-regenerated" + types.AddNoKeyToken(lspRegenerated)
+    lspRegenerated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/spf-run-offlines/spf-run-offline/" + lspRegenerated.EntityData.SegmentPath
     lspRegenerated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspRegenerated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspRegenerated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13106,6 +13605,7 @@ func (prefixEventSummaries *Rcmd_Isis_Instances_Instance_PrefixEventSummaries) G
     prefixEventSummaries.EntityData.BundleName = "cisco_ios_xr"
     prefixEventSummaries.EntityData.ParentYangName = "instance"
     prefixEventSummaries.EntityData.SegmentPath = "prefix-event-summaries"
+    prefixEventSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/" + prefixEventSummaries.EntityData.SegmentPath
     prefixEventSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13127,6 +13627,7 @@ func (prefixEventSummaries *Rcmd_Isis_Instances_Instance_PrefixEventSummaries) G
 type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Event ID. The type is interface{} with
     // range: 1..4294967295.
@@ -13197,6 +13698,7 @@ func (prefixEventSummary *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_Pref
     prefixEventSummary.EntityData.BundleName = "cisco_ios_xr"
     prefixEventSummary.EntityData.ParentYangName = "prefix-event-summaries"
     prefixEventSummary.EntityData.SegmentPath = "prefix-event-summary" + types.AddKeyToken(prefixEventSummary.EventId, "event-id")
+    prefixEventSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-summaries/" + prefixEventSummary.EntityData.SegmentPath
     prefixEventSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13206,18 +13708,22 @@ func (prefixEventSummary *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_Pref
     prefixEventSummary.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prefixEventSummary.MplsConvergenceTime})
     prefixEventSummary.EntityData.Children.Append("path", types.YChild{"Path", nil})
     for i := range prefixEventSummary.Path {
+        types.SetYListKey(prefixEventSummary.Path[i], i)
         prefixEventSummary.EntityData.Children.Append(types.GetSegmentPath(prefixEventSummary.Path[i]), types.YChild{"Path", prefixEventSummary.Path[i]})
     }
     prefixEventSummary.EntityData.Children.Append("trigger-lsa", types.YChild{"TriggerLsa", nil})
     for i := range prefixEventSummary.TriggerLsa {
+        types.SetYListKey(prefixEventSummary.TriggerLsa[i], i)
         prefixEventSummary.EntityData.Children.Append(types.GetSegmentPath(prefixEventSummary.TriggerLsa[i]), types.YChild{"TriggerLsa", prefixEventSummary.TriggerLsa[i]})
     }
     prefixEventSummary.EntityData.Children.Append("time-line", types.YChild{"TimeLine", nil})
     for i := range prefixEventSummary.TimeLine {
+        types.SetYListKey(prefixEventSummary.TimeLine[i], i)
         prefixEventSummary.EntityData.Children.Append(types.GetSegmentPath(prefixEventSummary.TimeLine[i]), types.YChild{"TimeLine", prefixEventSummary.TimeLine[i]})
     }
     prefixEventSummary.EntityData.Children.Append("lsa-processed", types.YChild{"LsaProcessed", nil})
     for i := range prefixEventSummary.LsaProcessed {
+        types.SetYListKey(prefixEventSummary.LsaProcessed[i], i)
         prefixEventSummary.EntityData.Children.Append(types.GetSegmentPath(prefixEventSummary.LsaProcessed[i]), types.YChild{"LsaProcessed", prefixEventSummary.LsaProcessed[i]})
     }
     prefixEventSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -13266,6 +13772,7 @@ func (ipConvergenceTime *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_Prefi
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "prefix-event-summary"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-summaries/prefix-event-summary/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13309,6 +13816,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_Pre
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "prefix-event-summary"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-summaries/prefix-event-summary/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13330,6 +13838,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_Pre
 type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -13354,7 +13863,8 @@ func (path *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "prefix-event-summary"
-    path.EntityData.SegmentPath = "path"
+    path.EntityData.SegmentPath = "path" + types.AddNoKeyToken(path)
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-summaries/prefix-event-summary/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13362,6 +13872,7 @@ func (path *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary
     path.EntityData.Children = types.NewOrderedMap()
     path.EntityData.Children.Append("lfa-path", types.YChild{"LfaPath", nil})
     for i := range path.LfaPath {
+        types.SetYListKey(path.LfaPath[i], i)
         path.EntityData.Children.Append(types.GetSegmentPath(path.LfaPath[i]), types.YChild{"LfaPath", path.LfaPath[i]})
     }
     path.EntityData.Leafs = types.NewOrderedMap()
@@ -13380,6 +13891,7 @@ func (path *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary
 type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Path_LfaPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of LFA. The type is RcmdShowIpfrrLfa.
     LfaType interface{}
@@ -13407,7 +13919,8 @@ func (lfaPath *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSumm
     lfaPath.EntityData.YangName = "lfa-path"
     lfaPath.EntityData.BundleName = "cisco_ios_xr"
     lfaPath.EntityData.ParentYangName = "path"
-    lfaPath.EntityData.SegmentPath = "lfa-path"
+    lfaPath.EntityData.SegmentPath = "lfa-path" + types.AddNoKeyToken(lfaPath)
+    lfaPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-summaries/prefix-event-summary/path/" + lfaPath.EntityData.SegmentPath
     lfaPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lfaPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lfaPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13431,6 +13944,7 @@ func (lfaPath *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSumm
 type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_TriggerLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -13458,7 +13972,8 @@ func (triggerLsa *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventS
     triggerLsa.EntityData.YangName = "trigger-lsa"
     triggerLsa.EntityData.BundleName = "cisco_ios_xr"
     triggerLsa.EntityData.ParentYangName = "prefix-event-summary"
-    triggerLsa.EntityData.SegmentPath = "trigger-lsa"
+    triggerLsa.EntityData.SegmentPath = "trigger-lsa" + types.AddNoKeyToken(triggerLsa)
+    triggerLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-summaries/prefix-event-summary/" + triggerLsa.EntityData.SegmentPath
     triggerLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13482,6 +13997,7 @@ func (triggerLsa *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventS
 type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_TimeLine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol). The type is string.
     RouteOrigin interface{}
@@ -13521,7 +14037,8 @@ func (timeLine *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSum
     timeLine.EntityData.YangName = "time-line"
     timeLine.EntityData.BundleName = "cisco_ios_xr"
     timeLine.EntityData.ParentYangName = "prefix-event-summary"
-    timeLine.EntityData.SegmentPath = "time-line"
+    timeLine.EntityData.SegmentPath = "time-line" + types.AddNoKeyToken(timeLine)
+    timeLine.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-summaries/prefix-event-summary/" + timeLine.EntityData.SegmentPath
     timeLine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeLine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeLine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13529,10 +14046,12 @@ func (timeLine *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSum
     timeLine.EntityData.Children = types.NewOrderedMap()
     timeLine.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range timeLine.LcIp {
+        types.SetYListKey(timeLine.LcIp[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcIp[i]), types.YChild{"LcIp", timeLine.LcIp[i]})
     }
     timeLine.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range timeLine.LcMpls {
+        types.SetYListKey(timeLine.LcMpls[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcMpls[i]), types.YChild{"LcMpls", timeLine.LcMpls[i]})
     }
     timeLine.EntityData.Leafs = types.NewOrderedMap()
@@ -13556,6 +14075,7 @@ func (timeLine *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSum
 type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_TimeLine_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -13572,7 +14092,8 @@ func (lcIp *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "time-line"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-summaries/prefix-event-summary/time-line/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13594,6 +14115,7 @@ func (lcIp *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary
 type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_TimeLine_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -13610,7 +14132,8 @@ func (lcMpls *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSumma
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "time-line"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-summaries/prefix-event-summary/time-line/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13631,6 +14154,7 @@ func (lcMpls *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSumma
 type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_LsaProcessed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -13658,7 +14182,8 @@ func (lsaProcessed *Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEven
     lsaProcessed.EntityData.YangName = "lsa-processed"
     lsaProcessed.EntityData.BundleName = "cisco_ios_xr"
     lsaProcessed.EntityData.ParentYangName = "prefix-event-summary"
-    lsaProcessed.EntityData.SegmentPath = "lsa-processed"
+    lsaProcessed.EntityData.SegmentPath = "lsa-processed" + types.AddNoKeyToken(lsaProcessed)
+    lsaProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-summaries/prefix-event-summary/" + lsaProcessed.EntityData.SegmentPath
     lsaProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13695,6 +14220,7 @@ func (prefixEventOfflines *Rcmd_Isis_Instances_Instance_PrefixEventOfflines) Get
     prefixEventOfflines.EntityData.BundleName = "cisco_ios_xr"
     prefixEventOfflines.EntityData.ParentYangName = "instance"
     prefixEventOfflines.EntityData.SegmentPath = "prefix-event-offlines"
+    prefixEventOfflines.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/" + prefixEventOfflines.EntityData.SegmentPath
     prefixEventOfflines.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventOfflines.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventOfflines.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13717,6 +14243,7 @@ func (prefixEventOfflines *Rcmd_Isis_Instances_Instance_PrefixEventOfflines) Get
 type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Event ID. The type is interface{} with
     // range: 1..4294967295.
@@ -13787,6 +14314,7 @@ func (prefixEventOffline *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_Prefi
     prefixEventOffline.EntityData.BundleName = "cisco_ios_xr"
     prefixEventOffline.EntityData.ParentYangName = "prefix-event-offlines"
     prefixEventOffline.EntityData.SegmentPath = "prefix-event-offline" + types.AddKeyToken(prefixEventOffline.EventId, "event-id")
+    prefixEventOffline.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-offlines/" + prefixEventOffline.EntityData.SegmentPath
     prefixEventOffline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEventOffline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEventOffline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13796,18 +14324,22 @@ func (prefixEventOffline *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_Prefi
     prefixEventOffline.EntityData.Children.Append("mpls-convergence-time", types.YChild{"MplsConvergenceTime", &prefixEventOffline.MplsConvergenceTime})
     prefixEventOffline.EntityData.Children.Append("path", types.YChild{"Path", nil})
     for i := range prefixEventOffline.Path {
+        types.SetYListKey(prefixEventOffline.Path[i], i)
         prefixEventOffline.EntityData.Children.Append(types.GetSegmentPath(prefixEventOffline.Path[i]), types.YChild{"Path", prefixEventOffline.Path[i]})
     }
     prefixEventOffline.EntityData.Children.Append("trigger-lsa", types.YChild{"TriggerLsa", nil})
     for i := range prefixEventOffline.TriggerLsa {
+        types.SetYListKey(prefixEventOffline.TriggerLsa[i], i)
         prefixEventOffline.EntityData.Children.Append(types.GetSegmentPath(prefixEventOffline.TriggerLsa[i]), types.YChild{"TriggerLsa", prefixEventOffline.TriggerLsa[i]})
     }
     prefixEventOffline.EntityData.Children.Append("time-line", types.YChild{"TimeLine", nil})
     for i := range prefixEventOffline.TimeLine {
+        types.SetYListKey(prefixEventOffline.TimeLine[i], i)
         prefixEventOffline.EntityData.Children.Append(types.GetSegmentPath(prefixEventOffline.TimeLine[i]), types.YChild{"TimeLine", prefixEventOffline.TimeLine[i]})
     }
     prefixEventOffline.EntityData.Children.Append("lsa-processed", types.YChild{"LsaProcessed", nil})
     for i := range prefixEventOffline.LsaProcessed {
+        types.SetYListKey(prefixEventOffline.LsaProcessed[i], i)
         prefixEventOffline.EntityData.Children.Append(types.GetSegmentPath(prefixEventOffline.LsaProcessed[i]), types.YChild{"LsaProcessed", prefixEventOffline.LsaProcessed[i]})
     }
     prefixEventOffline.EntityData.Leafs = types.NewOrderedMap()
@@ -13856,6 +14388,7 @@ func (ipConvergenceTime *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_Prefix
     ipConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     ipConvergenceTime.EntityData.ParentYangName = "prefix-event-offline"
     ipConvergenceTime.EntityData.SegmentPath = "ip-convergence-time"
+    ipConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-offlines/prefix-event-offline/" + ipConvergenceTime.EntityData.SegmentPath
     ipConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13899,6 +14432,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_Pref
     mplsConvergenceTime.EntityData.BundleName = "cisco_ios_xr"
     mplsConvergenceTime.EntityData.ParentYangName = "prefix-event-offline"
     mplsConvergenceTime.EntityData.SegmentPath = "mpls-convergence-time"
+    mplsConvergenceTime.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-offlines/prefix-event-offline/" + mplsConvergenceTime.EntityData.SegmentPath
     mplsConvergenceTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsConvergenceTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsConvergenceTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13920,6 +14454,7 @@ func (mplsConvergenceTime *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_Pref
 type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -13944,7 +14479,8 @@ func (path *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "prefix-event-offline"
-    path.EntityData.SegmentPath = "path"
+    path.EntityData.SegmentPath = "path" + types.AddNoKeyToken(path)
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-offlines/prefix-event-offline/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13952,6 +14488,7 @@ func (path *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_
     path.EntityData.Children = types.NewOrderedMap()
     path.EntityData.Children.Append("lfa-path", types.YChild{"LfaPath", nil})
     for i := range path.LfaPath {
+        types.SetYListKey(path.LfaPath[i], i)
         path.EntityData.Children.Append(types.GetSegmentPath(path.LfaPath[i]), types.YChild{"LfaPath", path.LfaPath[i]})
     }
     path.EntityData.Leafs = types.NewOrderedMap()
@@ -13970,6 +14507,7 @@ func (path *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_
 type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Path_LfaPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of LFA. The type is RcmdShowIpfrrLfa.
     LfaType interface{}
@@ -13997,7 +14535,8 @@ func (lfaPath *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffli
     lfaPath.EntityData.YangName = "lfa-path"
     lfaPath.EntityData.BundleName = "cisco_ios_xr"
     lfaPath.EntityData.ParentYangName = "path"
-    lfaPath.EntityData.SegmentPath = "lfa-path"
+    lfaPath.EntityData.SegmentPath = "lfa-path" + types.AddNoKeyToken(lfaPath)
+    lfaPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-offlines/prefix-event-offline/path/" + lfaPath.EntityData.SegmentPath
     lfaPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lfaPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lfaPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14021,6 +14560,7 @@ func (lfaPath *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffli
 type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_TriggerLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -14048,7 +14588,8 @@ func (triggerLsa *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOf
     triggerLsa.EntityData.YangName = "trigger-lsa"
     triggerLsa.EntityData.BundleName = "cisco_ios_xr"
     triggerLsa.EntityData.ParentYangName = "prefix-event-offline"
-    triggerLsa.EntityData.SegmentPath = "trigger-lsa"
+    triggerLsa.EntityData.SegmentPath = "trigger-lsa" + types.AddNoKeyToken(triggerLsa)
+    triggerLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-offlines/prefix-event-offline/" + triggerLsa.EntityData.SegmentPath
     triggerLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     triggerLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     triggerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14072,6 +14613,7 @@ func (triggerLsa *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOf
 type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_TimeLine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route origin (routing protocol). The type is string.
     RouteOrigin interface{}
@@ -14111,7 +14653,8 @@ func (timeLine *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffl
     timeLine.EntityData.YangName = "time-line"
     timeLine.EntityData.BundleName = "cisco_ios_xr"
     timeLine.EntityData.ParentYangName = "prefix-event-offline"
-    timeLine.EntityData.SegmentPath = "time-line"
+    timeLine.EntityData.SegmentPath = "time-line" + types.AddNoKeyToken(timeLine)
+    timeLine.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-offlines/prefix-event-offline/" + timeLine.EntityData.SegmentPath
     timeLine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeLine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeLine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14119,10 +14662,12 @@ func (timeLine *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffl
     timeLine.EntityData.Children = types.NewOrderedMap()
     timeLine.EntityData.Children.Append("lc-ip", types.YChild{"LcIp", nil})
     for i := range timeLine.LcIp {
+        types.SetYListKey(timeLine.LcIp[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcIp[i]), types.YChild{"LcIp", timeLine.LcIp[i]})
     }
     timeLine.EntityData.Children.Append("lc-mpls", types.YChild{"LcMpls", nil})
     for i := range timeLine.LcMpls {
+        types.SetYListKey(timeLine.LcMpls[i], i)
         timeLine.EntityData.Children.Append(types.GetSegmentPath(timeLine.LcMpls[i]), types.YChild{"LcMpls", timeLine.LcMpls[i]})
     }
     timeLine.EntityData.Leafs = types.NewOrderedMap()
@@ -14146,6 +14691,7 @@ func (timeLine *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffl
 type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_TimeLine_LcIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -14162,7 +14708,8 @@ func (lcIp *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_
     lcIp.EntityData.YangName = "lc-ip"
     lcIp.EntityData.BundleName = "cisco_ios_xr"
     lcIp.EntityData.ParentYangName = "time-line"
-    lcIp.EntityData.SegmentPath = "lc-ip"
+    lcIp.EntityData.SegmentPath = "lc-ip" + types.AddNoKeyToken(lcIp)
+    lcIp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-offlines/prefix-event-offline/time-line/" + lcIp.EntityData.SegmentPath
     lcIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14184,6 +14731,7 @@ func (lcIp *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_
 type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_TimeLine_LcMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Linecard node name. The type is string.
     NodeName interface{}
@@ -14200,7 +14748,8 @@ func (lcMpls *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOfflin
     lcMpls.EntityData.YangName = "lc-mpls"
     lcMpls.EntityData.BundleName = "cisco_ios_xr"
     lcMpls.EntityData.ParentYangName = "time-line"
-    lcMpls.EntityData.SegmentPath = "lc-mpls"
+    lcMpls.EntityData.SegmentPath = "lc-mpls" + types.AddNoKeyToken(lcMpls)
+    lcMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-offlines/prefix-event-offline/time-line/" + lcMpls.EntityData.SegmentPath
     lcMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14221,6 +14770,7 @@ func (lcMpls *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOfflin
 type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_LsaProcessed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -14248,7 +14798,8 @@ func (lsaProcessed *Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEvent
     lsaProcessed.EntityData.YangName = "lsa-processed"
     lsaProcessed.EntityData.BundleName = "cisco_ios_xr"
     lsaProcessed.EntityData.ParentYangName = "prefix-event-offline"
-    lsaProcessed.EntityData.SegmentPath = "lsa-processed"
+    lsaProcessed.EntityData.SegmentPath = "lsa-processed" + types.AddNoKeyToken(lsaProcessed)
+    lsaProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/prefix-event-offlines/prefix-event-offline/" + lsaProcessed.EntityData.SegmentPath
     lsaProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14284,6 +14835,7 @@ func (lspRegenerateds *Rcmd_Isis_Instances_Instance_LspRegenerateds) GetEntityDa
     lspRegenerateds.EntityData.BundleName = "cisco_ios_xr"
     lspRegenerateds.EntityData.ParentYangName = "instance"
     lspRegenerateds.EntityData.SegmentPath = "lsp-regenerateds"
+    lspRegenerateds.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/" + lspRegenerateds.EntityData.SegmentPath
     lspRegenerateds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspRegenerateds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspRegenerateds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14305,6 +14857,7 @@ func (lspRegenerateds *Rcmd_Isis_Instances_Instance_LspRegenerateds) GetEntityDa
 type Rcmd_Isis_Instances_Instance_LspRegenerateds_LspRegenerated struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Data for a particular regenerated LSP. The type is
     // interface{} with range: 1..4294967295.
@@ -14340,6 +14893,7 @@ func (lspRegenerated *Rcmd_Isis_Instances_Instance_LspRegenerateds_LspRegenerate
     lspRegenerated.EntityData.BundleName = "cisco_ios_xr"
     lspRegenerated.EntityData.ParentYangName = "lsp-regenerateds"
     lspRegenerated.EntityData.SegmentPath = "lsp-regenerated" + types.AddKeyToken(lspRegenerated.SerialNumber, "serial-number")
+    lspRegenerated.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/instance/lsp-regenerateds/" + lspRegenerated.EntityData.SegmentPath
     lspRegenerated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspRegenerated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspRegenerated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14382,6 +14936,7 @@ func (memory *Rcmd_Memory) GetEntityData() *types.CommonEntityData {
     memory.EntityData.BundleName = "cisco_ios_xr"
     memory.EntityData.ParentYangName = "rcmd"
     memory.EntityData.SegmentPath = "memory"
+    memory.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/" + memory.EntityData.SegmentPath
     memory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14389,14 +14944,17 @@ func (memory *Rcmd_Memory) GetEntityData() *types.CommonEntityData {
     memory.EntityData.Children = types.NewOrderedMap()
     memory.EntityData.Children.Append("memory-info", types.YChild{"MemoryInfo", nil})
     for i := range memory.MemoryInfo {
+        types.SetYListKey(memory.MemoryInfo[i], i)
         memory.EntityData.Children.Append(types.GetSegmentPath(memory.MemoryInfo[i]), types.YChild{"MemoryInfo", memory.MemoryInfo[i]})
     }
     memory.EntityData.Children.Append("edm-memory-info", types.YChild{"EdmMemoryInfo", nil})
     for i := range memory.EdmMemoryInfo {
+        types.SetYListKey(memory.EdmMemoryInfo[i], i)
         memory.EntityData.Children.Append(types.GetSegmentPath(memory.EdmMemoryInfo[i]), types.YChild{"EdmMemoryInfo", memory.EdmMemoryInfo[i]})
     }
     memory.EntityData.Children.Append("string-memory-info", types.YChild{"StringMemoryInfo", nil})
     for i := range memory.StringMemoryInfo {
+        types.SetYListKey(memory.StringMemoryInfo[i], i)
         memory.EntityData.Children.Append(types.GetSegmentPath(memory.StringMemoryInfo[i]), types.YChild{"StringMemoryInfo", memory.StringMemoryInfo[i]})
     }
     memory.EntityData.Leafs = types.NewOrderedMap()
@@ -14411,6 +14969,7 @@ func (memory *Rcmd_Memory) GetEntityData() *types.CommonEntityData {
 type Rcmd_Memory_MemoryInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Structure Name. The type is string.
     StructureName interface{}
@@ -14440,7 +14999,8 @@ func (memoryInfo *Rcmd_Memory_MemoryInfo) GetEntityData() *types.CommonEntityDat
     memoryInfo.EntityData.YangName = "memory-info"
     memoryInfo.EntityData.BundleName = "cisco_ios_xr"
     memoryInfo.EntityData.ParentYangName = "memory"
-    memoryInfo.EntityData.SegmentPath = "memory-info"
+    memoryInfo.EntityData.SegmentPath = "memory-info" + types.AddNoKeyToken(memoryInfo)
+    memoryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/memory/" + memoryInfo.EntityData.SegmentPath
     memoryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14465,6 +15025,7 @@ func (memoryInfo *Rcmd_Memory_MemoryInfo) GetEntityData() *types.CommonEntityDat
 type Rcmd_Memory_EdmMemoryInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Size of the block. The type is interface{} with range: 0..4294967295.
     Size interface{}
@@ -14484,7 +15045,8 @@ func (edmMemoryInfo *Rcmd_Memory_EdmMemoryInfo) GetEntityData() *types.CommonEnt
     edmMemoryInfo.EntityData.YangName = "edm-memory-info"
     edmMemoryInfo.EntityData.BundleName = "cisco_ios_xr"
     edmMemoryInfo.EntityData.ParentYangName = "memory"
-    edmMemoryInfo.EntityData.SegmentPath = "edm-memory-info"
+    edmMemoryInfo.EntityData.SegmentPath = "edm-memory-info" + types.AddNoKeyToken(edmMemoryInfo)
+    edmMemoryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/memory/" + edmMemoryInfo.EntityData.SegmentPath
     edmMemoryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     edmMemoryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     edmMemoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14506,6 +15068,7 @@ func (edmMemoryInfo *Rcmd_Memory_EdmMemoryInfo) GetEntityData() *types.CommonEnt
 type Rcmd_Memory_StringMemoryInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Size of the block. The type is interface{} with range: 0..4294967295.
     Size interface{}
@@ -14525,7 +15088,8 @@ func (stringMemoryInfo *Rcmd_Memory_StringMemoryInfo) GetEntityData() *types.Com
     stringMemoryInfo.EntityData.YangName = "string-memory-info"
     stringMemoryInfo.EntityData.BundleName = "cisco_ios_xr"
     stringMemoryInfo.EntityData.ParentYangName = "memory"
-    stringMemoryInfo.EntityData.SegmentPath = "string-memory-info"
+    stringMemoryInfo.EntityData.SegmentPath = "string-memory-info" + types.AddNoKeyToken(stringMemoryInfo)
+    stringMemoryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/memory/" + stringMemoryInfo.EntityData.SegmentPath
     stringMemoryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stringMemoryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stringMemoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14564,6 +15128,7 @@ func (ldp *Rcmd_Ldp) GetEntityData() *types.CommonEntityData {
     ldp.EntityData.BundleName = "cisco_ios_xr"
     ldp.EntityData.ParentYangName = "rcmd"
     ldp.EntityData.SegmentPath = "ldp"
+    ldp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/" + ldp.EntityData.SegmentPath
     ldp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14595,6 +15160,7 @@ func (sessions *Rcmd_Ldp_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "ldp"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14616,6 +15182,7 @@ func (sessions *Rcmd_Ldp_Sessions) GetEntityData() *types.CommonEntityData {
 type Rcmd_Ldp_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Event ID. The type is interface{} with
     // range: 1..4294967295.
@@ -14651,6 +15218,7 @@ func (session *Rcmd_Ldp_Sessions_Session) GetEntityData() *types.CommonEntityDat
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.EventId, "event-id")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14687,6 +15255,7 @@ func (remoteLfaS *Rcmd_Ldp_RemoteLfaS) GetEntityData() *types.CommonEntityData {
     remoteLfaS.EntityData.BundleName = "cisco_ios_xr"
     remoteLfaS.EntityData.ParentYangName = "ldp"
     remoteLfaS.EntityData.SegmentPath = "remote-lfa-s"
+    remoteLfaS.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/" + remoteLfaS.EntityData.SegmentPath
     remoteLfaS.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteLfaS.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteLfaS.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14708,6 +15277,7 @@ func (remoteLfaS *Rcmd_Ldp_RemoteLfaS) GetEntityData() *types.CommonEntityData {
 type Rcmd_Ldp_RemoteLfaS_RemoteLfa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Event ID. The type is interface{} with
     // range: 1..4294967295.
@@ -14751,6 +15321,7 @@ func (remoteLfa *Rcmd_Ldp_RemoteLfaS_RemoteLfa) GetEntityData() *types.CommonEnt
     remoteLfa.EntityData.BundleName = "cisco_ios_xr"
     remoteLfa.EntityData.ParentYangName = "remote-lfa-s"
     remoteLfa.EntityData.SegmentPath = "remote-lfa" + types.AddKeyToken(remoteLfa.EventId, "event-id")
+    remoteLfa.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/remote-lfa-s/" + remoteLfa.EntityData.SegmentPath
     remoteLfa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteLfa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteLfa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14758,14 +15329,17 @@ func (remoteLfa *Rcmd_Ldp_RemoteLfaS_RemoteLfa) GetEntityData() *types.CommonEnt
     remoteLfa.EntityData.Children = types.NewOrderedMap()
     remoteLfa.EntityData.Children.Append("session-statistic", types.YChild{"SessionStatistic", nil})
     for i := range remoteLfa.SessionStatistic {
+        types.SetYListKey(remoteLfa.SessionStatistic[i], i)
         remoteLfa.EntityData.Children.Append(types.GetSegmentPath(remoteLfa.SessionStatistic[i]), types.YChild{"SessionStatistic", remoteLfa.SessionStatistic[i]})
     }
     remoteLfa.EntityData.Children.Append("remote-node", types.YChild{"RemoteNode", nil})
     for i := range remoteLfa.RemoteNode {
+        types.SetYListKey(remoteLfa.RemoteNode[i], i)
         remoteLfa.EntityData.Children.Append(types.GetSegmentPath(remoteLfa.RemoteNode[i]), types.YChild{"RemoteNode", remoteLfa.RemoteNode[i]})
     }
     remoteLfa.EntityData.Children.Append("logs", types.YChild{"Logs", nil})
     for i := range remoteLfa.Logs {
+        types.SetYListKey(remoteLfa.Logs[i], i)
         remoteLfa.EntityData.Children.Append(types.GetSegmentPath(remoteLfa.Logs[i]), types.YChild{"Logs", remoteLfa.Logs[i]})
     }
     remoteLfa.EntityData.Leafs = types.NewOrderedMap()
@@ -14787,6 +15361,7 @@ func (remoteLfa *Rcmd_Ldp_RemoteLfaS_RemoteLfa) GetEntityData() *types.CommonEnt
 type Rcmd_Ldp_RemoteLfaS_RemoteLfa_SessionStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session State. The type is RcmdShowLdpSessionState.
     SessionState interface{}
@@ -14815,7 +15390,8 @@ func (sessionStatistic *Rcmd_Ldp_RemoteLfaS_RemoteLfa_SessionStatistic) GetEntit
     sessionStatistic.EntityData.YangName = "session-statistic"
     sessionStatistic.EntityData.BundleName = "cisco_ios_xr"
     sessionStatistic.EntityData.ParentYangName = "remote-lfa"
-    sessionStatistic.EntityData.SegmentPath = "session-statistic"
+    sessionStatistic.EntityData.SegmentPath = "session-statistic" + types.AddNoKeyToken(sessionStatistic)
+    sessionStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/remote-lfa-s/remote-lfa/" + sessionStatistic.EntityData.SegmentPath
     sessionStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14840,6 +15416,7 @@ func (sessionStatistic *Rcmd_Ldp_RemoteLfaS_RemoteLfa_SessionStatistic) GetEntit
 type Rcmd_Ldp_RemoteLfaS_RemoteLfa_RemoteNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Remote Node ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -14880,7 +15457,8 @@ func (remoteNode *Rcmd_Ldp_RemoteLfaS_RemoteLfa_RemoteNode) GetEntityData() *typ
     remoteNode.EntityData.YangName = "remote-node"
     remoteNode.EntityData.BundleName = "cisco_ios_xr"
     remoteNode.EntityData.ParentYangName = "remote-lfa"
-    remoteNode.EntityData.SegmentPath = "remote-node"
+    remoteNode.EntityData.SegmentPath = "remote-node" + types.AddNoKeyToken(remoteNode)
+    remoteNode.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/remote-lfa-s/remote-lfa/" + remoteNode.EntityData.SegmentPath
     remoteNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14908,6 +15486,7 @@ func (remoteNode *Rcmd_Ldp_RemoteLfaS_RemoteLfa_RemoteNode) GetEntityData() *typ
 type Rcmd_Ldp_RemoteLfaS_RemoteLfa_Logs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Event Time (eg: Apr 24 13:16:04.961). The type is string.
     LogTime interface{}
@@ -14927,7 +15506,8 @@ func (logs *Rcmd_Ldp_RemoteLfaS_RemoteLfa_Logs) GetEntityData() *types.CommonEnt
     logs.EntityData.YangName = "logs"
     logs.EntityData.BundleName = "cisco_ios_xr"
     logs.EntityData.ParentYangName = "remote-lfa"
-    logs.EntityData.SegmentPath = "logs"
+    logs.EntityData.SegmentPath = "logs" + types.AddNoKeyToken(logs)
+    logs.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/remote-lfa-s/remote-lfa/" + logs.EntityData.SegmentPath
     logs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14961,6 +15541,7 @@ func (remoteLfaSummaries *Rcmd_Ldp_RemoteLfaSummaries) GetEntityData() *types.Co
     remoteLfaSummaries.EntityData.BundleName = "cisco_ios_xr"
     remoteLfaSummaries.EntityData.ParentYangName = "ldp"
     remoteLfaSummaries.EntityData.SegmentPath = "remote-lfa-summaries"
+    remoteLfaSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/" + remoteLfaSummaries.EntityData.SegmentPath
     remoteLfaSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteLfaSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteLfaSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14982,6 +15563,7 @@ func (remoteLfaSummaries *Rcmd_Ldp_RemoteLfaSummaries) GetEntityData() *types.Co
 type Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Event ID. The type is interface{} with
     // range: 1..4294967295.
@@ -15026,6 +15608,7 @@ func (remoteLfaSummary *Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary) GetEntityD
     remoteLfaSummary.EntityData.BundleName = "cisco_ios_xr"
     remoteLfaSummary.EntityData.ParentYangName = "remote-lfa-summaries"
     remoteLfaSummary.EntityData.SegmentPath = "remote-lfa-summary" + types.AddKeyToken(remoteLfaSummary.EventId, "event-id")
+    remoteLfaSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/remote-lfa-summaries/" + remoteLfaSummary.EntityData.SegmentPath
     remoteLfaSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteLfaSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteLfaSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15033,14 +15616,17 @@ func (remoteLfaSummary *Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary) GetEntityD
     remoteLfaSummary.EntityData.Children = types.NewOrderedMap()
     remoteLfaSummary.EntityData.Children.Append("session-statistic", types.YChild{"SessionStatistic", nil})
     for i := range remoteLfaSummary.SessionStatistic {
+        types.SetYListKey(remoteLfaSummary.SessionStatistic[i], i)
         remoteLfaSummary.EntityData.Children.Append(types.GetSegmentPath(remoteLfaSummary.SessionStatistic[i]), types.YChild{"SessionStatistic", remoteLfaSummary.SessionStatistic[i]})
     }
     remoteLfaSummary.EntityData.Children.Append("remote-node", types.YChild{"RemoteNode", nil})
     for i := range remoteLfaSummary.RemoteNode {
+        types.SetYListKey(remoteLfaSummary.RemoteNode[i], i)
         remoteLfaSummary.EntityData.Children.Append(types.GetSegmentPath(remoteLfaSummary.RemoteNode[i]), types.YChild{"RemoteNode", remoteLfaSummary.RemoteNode[i]})
     }
     remoteLfaSummary.EntityData.Children.Append("logs", types.YChild{"Logs", nil})
     for i := range remoteLfaSummary.Logs {
+        types.SetYListKey(remoteLfaSummary.Logs[i], i)
         remoteLfaSummary.EntityData.Children.Append(types.GetSegmentPath(remoteLfaSummary.Logs[i]), types.YChild{"Logs", remoteLfaSummary.Logs[i]})
     }
     remoteLfaSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -15062,6 +15648,7 @@ func (remoteLfaSummary *Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary) GetEntityD
 type Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary_SessionStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session State. The type is RcmdShowLdpSessionState.
     SessionState interface{}
@@ -15090,7 +15677,8 @@ func (sessionStatistic *Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary_SessionStat
     sessionStatistic.EntityData.YangName = "session-statistic"
     sessionStatistic.EntityData.BundleName = "cisco_ios_xr"
     sessionStatistic.EntityData.ParentYangName = "remote-lfa-summary"
-    sessionStatistic.EntityData.SegmentPath = "session-statistic"
+    sessionStatistic.EntityData.SegmentPath = "session-statistic" + types.AddNoKeyToken(sessionStatistic)
+    sessionStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/remote-lfa-summaries/remote-lfa-summary/" + sessionStatistic.EntityData.SegmentPath
     sessionStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15115,6 +15703,7 @@ func (sessionStatistic *Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary_SessionStat
 type Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary_RemoteNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Remote Node ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -15155,7 +15744,8 @@ func (remoteNode *Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary_RemoteNode) GetEn
     remoteNode.EntityData.YangName = "remote-node"
     remoteNode.EntityData.BundleName = "cisco_ios_xr"
     remoteNode.EntityData.ParentYangName = "remote-lfa-summary"
-    remoteNode.EntityData.SegmentPath = "remote-node"
+    remoteNode.EntityData.SegmentPath = "remote-node" + types.AddNoKeyToken(remoteNode)
+    remoteNode.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/remote-lfa-summaries/remote-lfa-summary/" + remoteNode.EntityData.SegmentPath
     remoteNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15183,6 +15773,7 @@ func (remoteNode *Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary_RemoteNode) GetEn
 type Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary_Logs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Event Time (eg: Apr 24 13:16:04.961). The type is string.
     LogTime interface{}
@@ -15202,7 +15793,8 @@ func (logs *Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary_Logs) GetEntityData() *
     logs.EntityData.YangName = "logs"
     logs.EntityData.BundleName = "cisco_ios_xr"
     logs.EntityData.ParentYangName = "remote-lfa-summary"
-    logs.EntityData.SegmentPath = "logs"
+    logs.EntityData.SegmentPath = "logs" + types.AddNoKeyToken(logs)
+    logs.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/remote-lfa-summaries/remote-lfa-summary/" + logs.EntityData.SegmentPath
     logs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15235,6 +15827,7 @@ func (intf *Rcmd_Intf) GetEntityData() *types.CommonEntityData {
     intf.EntityData.BundleName = "cisco_ios_xr"
     intf.EntityData.ParentYangName = "rcmd"
     intf.EntityData.SegmentPath = "intf"
+    intf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/" + intf.EntityData.SegmentPath
     intf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15264,6 +15857,7 @@ func (events *Rcmd_Intf_Events) GetEntityData() *types.CommonEntityData {
     events.EntityData.BundleName = "cisco_ios_xr"
     events.EntityData.ParentYangName = "intf"
     events.EntityData.SegmentPath = "events"
+    events.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/intf/" + events.EntityData.SegmentPath
     events.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     events.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     events.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15285,6 +15879,7 @@ func (events *Rcmd_Intf_Events) GetEntityData() *types.CommonEntityData {
 type Rcmd_Intf_Events_Event struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Event No. The type is interface{} with
     // range: 1..4294967295.
@@ -15316,6 +15911,7 @@ func (event *Rcmd_Intf_Events_Event) GetEntityData() *types.CommonEntityData {
     event.EntityData.BundleName = "cisco_ios_xr"
     event.EntityData.ParentYangName = "events"
     event.EntityData.SegmentPath = "event" + types.AddKeyToken(event.EventNo, "event-no")
+    event.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/intf/events/" + event.EntityData.SegmentPath
     event.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     event.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     event.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15357,6 +15953,7 @@ func (process *Rcmd_Process) GetEntityData() *types.CommonEntityData {
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "rcmd"
     process.EntityData.SegmentPath = "process"
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15388,6 +15985,7 @@ func (isis *Rcmd_Process_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "process"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15395,6 +15993,7 @@ func (isis *Rcmd_Process_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.Children = types.NewOrderedMap()
     isis.EntityData.Children.Append("process", types.YChild{"Process", nil})
     for i := range isis.Process {
+        types.SetYListKey(isis.Process[i], i)
         isis.EntityData.Children.Append(types.GetSegmentPath(isis.Process[i]), types.YChild{"Process", isis.Process[i]})
     }
     isis.EntityData.Leafs = types.NewOrderedMap()
@@ -15409,6 +16008,7 @@ func (isis *Rcmd_Process_Isis) GetEntityData() *types.CommonEntityData {
 type Rcmd_Process_Isis_Process struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol id. The type is RcmdProtocolId.
     ProtocolId interface{}
@@ -15426,7 +16026,8 @@ func (process *Rcmd_Process_Isis_Process) GetEntityData() *types.CommonEntityDat
     process.EntityData.YangName = "process"
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "isis"
-    process.EntityData.SegmentPath = "process"
+    process.EntityData.SegmentPath = "process" + types.AddNoKeyToken(process)
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/isis/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15434,6 +16035,7 @@ func (process *Rcmd_Process_Isis_Process) GetEntityData() *types.CommonEntityDat
     process.EntityData.Children = types.NewOrderedMap()
     process.EntityData.Children.Append("instance-name", types.YChild{"InstanceName", nil})
     for i := range process.InstanceName {
+        types.SetYListKey(process.InstanceName[i], i)
         process.EntityData.Children.Append(types.GetSegmentPath(process.InstanceName[i]), types.YChild{"InstanceName", process.InstanceName[i]})
     }
     process.EntityData.Leafs = types.NewOrderedMap()
@@ -15450,6 +16052,7 @@ func (process *Rcmd_Process_Isis_Process) GetEntityData() *types.CommonEntityDat
 type Rcmd_Process_Isis_Process_InstanceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Instance Name. The type is string.
     Name interface{}
@@ -15491,7 +16094,8 @@ func (instanceName *Rcmd_Process_Isis_Process_InstanceName) GetEntityData() *typ
     instanceName.EntityData.YangName = "instance-name"
     instanceName.EntityData.BundleName = "cisco_ios_xr"
     instanceName.EntityData.ParentYangName = "process"
-    instanceName.EntityData.SegmentPath = "instance-name"
+    instanceName.EntityData.SegmentPath = "instance-name" + types.AddNoKeyToken(instanceName)
+    instanceName.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/isis/process/" + instanceName.EntityData.SegmentPath
     instanceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instanceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instanceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15499,6 +16103,7 @@ func (instanceName *Rcmd_Process_Isis_Process_InstanceName) GetEntityData() *typ
     instanceName.EntityData.Children = types.NewOrderedMap()
     instanceName.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range instanceName.Instance {
+        types.SetYListKey(instanceName.Instance[i], i)
         instanceName.EntityData.Children.Append(types.GetSegmentPath(instanceName.Instance[i]), types.YChild{"Instance", instanceName.Instance[i]})
     }
     instanceName.EntityData.Leafs = types.NewOrderedMap()
@@ -15523,6 +16128,7 @@ func (instanceName *Rcmd_Process_Isis_Process_InstanceName) GetEntityData() *typ
 type Rcmd_Process_Isis_Process_InstanceName_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Instance Id. The type is interface{} with range: 0..4294967295.
     InstanceId interface{}
@@ -15569,7 +16175,8 @@ func (instance *Rcmd_Process_Isis_Process_InstanceName_Instance) GetEntityData()
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instance-name"
-    instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.SegmentPath = "instance" + types.AddNoKeyToken(instance)
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/isis/process/instance-name/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15611,6 +16218,7 @@ func (ospf *Rcmd_Process_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "process"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15618,6 +16226,7 @@ func (ospf *Rcmd_Process_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.Children = types.NewOrderedMap()
     ospf.EntityData.Children.Append("process", types.YChild{"Process", nil})
     for i := range ospf.Process {
+        types.SetYListKey(ospf.Process[i], i)
         ospf.EntityData.Children.Append(types.GetSegmentPath(ospf.Process[i]), types.YChild{"Process", ospf.Process[i]})
     }
     ospf.EntityData.Leafs = types.NewOrderedMap()
@@ -15632,6 +16241,7 @@ func (ospf *Rcmd_Process_Ospf) GetEntityData() *types.CommonEntityData {
 type Rcmd_Process_Ospf_Process struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol id. The type is RcmdProtocolId.
     ProtocolId interface{}
@@ -15649,7 +16259,8 @@ func (process *Rcmd_Process_Ospf_Process) GetEntityData() *types.CommonEntityDat
     process.EntityData.YangName = "process"
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "ospf"
-    process.EntityData.SegmentPath = "process"
+    process.EntityData.SegmentPath = "process" + types.AddNoKeyToken(process)
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ospf/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15657,6 +16268,7 @@ func (process *Rcmd_Process_Ospf_Process) GetEntityData() *types.CommonEntityDat
     process.EntityData.Children = types.NewOrderedMap()
     process.EntityData.Children.Append("instance-name", types.YChild{"InstanceName", nil})
     for i := range process.InstanceName {
+        types.SetYListKey(process.InstanceName[i], i)
         process.EntityData.Children.Append(types.GetSegmentPath(process.InstanceName[i]), types.YChild{"InstanceName", process.InstanceName[i]})
     }
     process.EntityData.Leafs = types.NewOrderedMap()
@@ -15673,6 +16285,7 @@ func (process *Rcmd_Process_Ospf_Process) GetEntityData() *types.CommonEntityDat
 type Rcmd_Process_Ospf_Process_InstanceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Instance Name. The type is string.
     Name interface{}
@@ -15714,7 +16327,8 @@ func (instanceName *Rcmd_Process_Ospf_Process_InstanceName) GetEntityData() *typ
     instanceName.EntityData.YangName = "instance-name"
     instanceName.EntityData.BundleName = "cisco_ios_xr"
     instanceName.EntityData.ParentYangName = "process"
-    instanceName.EntityData.SegmentPath = "instance-name"
+    instanceName.EntityData.SegmentPath = "instance-name" + types.AddNoKeyToken(instanceName)
+    instanceName.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ospf/process/" + instanceName.EntityData.SegmentPath
     instanceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instanceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instanceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15722,6 +16336,7 @@ func (instanceName *Rcmd_Process_Ospf_Process_InstanceName) GetEntityData() *typ
     instanceName.EntityData.Children = types.NewOrderedMap()
     instanceName.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range instanceName.Instance {
+        types.SetYListKey(instanceName.Instance[i], i)
         instanceName.EntityData.Children.Append(types.GetSegmentPath(instanceName.Instance[i]), types.YChild{"Instance", instanceName.Instance[i]})
     }
     instanceName.EntityData.Leafs = types.NewOrderedMap()
@@ -15746,6 +16361,7 @@ func (instanceName *Rcmd_Process_Ospf_Process_InstanceName) GetEntityData() *typ
 type Rcmd_Process_Ospf_Process_InstanceName_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Instance Id. The type is interface{} with range: 0..4294967295.
     InstanceId interface{}
@@ -15792,7 +16408,8 @@ func (instance *Rcmd_Process_Ospf_Process_InstanceName_Instance) GetEntityData()
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instance-name"
-    instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.SegmentPath = "instance" + types.AddNoKeyToken(instance)
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ospf/process/instance-name/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15834,6 +16451,7 @@ func (ldp *Rcmd_Process_Ldp) GetEntityData() *types.CommonEntityData {
     ldp.EntityData.BundleName = "cisco_ios_xr"
     ldp.EntityData.ParentYangName = "process"
     ldp.EntityData.SegmentPath = "ldp"
+    ldp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/" + ldp.EntityData.SegmentPath
     ldp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15841,6 +16459,7 @@ func (ldp *Rcmd_Process_Ldp) GetEntityData() *types.CommonEntityData {
     ldp.EntityData.Children = types.NewOrderedMap()
     ldp.EntityData.Children.Append("process", types.YChild{"Process", nil})
     for i := range ldp.Process {
+        types.SetYListKey(ldp.Process[i], i)
         ldp.EntityData.Children.Append(types.GetSegmentPath(ldp.Process[i]), types.YChild{"Process", ldp.Process[i]})
     }
     ldp.EntityData.Leafs = types.NewOrderedMap()
@@ -15855,6 +16474,7 @@ func (ldp *Rcmd_Process_Ldp) GetEntityData() *types.CommonEntityData {
 type Rcmd_Process_Ldp_Process struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol id. The type is RcmdProtocolId.
     ProtocolId interface{}
@@ -15872,7 +16492,8 @@ func (process *Rcmd_Process_Ldp_Process) GetEntityData() *types.CommonEntityData
     process.EntityData.YangName = "process"
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "ldp"
-    process.EntityData.SegmentPath = "process"
+    process.EntityData.SegmentPath = "process" + types.AddNoKeyToken(process)
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ldp/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15880,6 +16501,7 @@ func (process *Rcmd_Process_Ldp_Process) GetEntityData() *types.CommonEntityData
     process.EntityData.Children = types.NewOrderedMap()
     process.EntityData.Children.Append("instance-name", types.YChild{"InstanceName", nil})
     for i := range process.InstanceName {
+        types.SetYListKey(process.InstanceName[i], i)
         process.EntityData.Children.Append(types.GetSegmentPath(process.InstanceName[i]), types.YChild{"InstanceName", process.InstanceName[i]})
     }
     process.EntityData.Leafs = types.NewOrderedMap()
@@ -15896,6 +16518,7 @@ func (process *Rcmd_Process_Ldp_Process) GetEntityData() *types.CommonEntityData
 type Rcmd_Process_Ldp_Process_InstanceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Instance Name. The type is string.
     Name interface{}
@@ -15937,7 +16560,8 @@ func (instanceName *Rcmd_Process_Ldp_Process_InstanceName) GetEntityData() *type
     instanceName.EntityData.YangName = "instance-name"
     instanceName.EntityData.BundleName = "cisco_ios_xr"
     instanceName.EntityData.ParentYangName = "process"
-    instanceName.EntityData.SegmentPath = "instance-name"
+    instanceName.EntityData.SegmentPath = "instance-name" + types.AddNoKeyToken(instanceName)
+    instanceName.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ldp/process/" + instanceName.EntityData.SegmentPath
     instanceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instanceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instanceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15945,6 +16569,7 @@ func (instanceName *Rcmd_Process_Ldp_Process_InstanceName) GetEntityData() *type
     instanceName.EntityData.Children = types.NewOrderedMap()
     instanceName.EntityData.Children.Append("instance", types.YChild{"Instance", nil})
     for i := range instanceName.Instance {
+        types.SetYListKey(instanceName.Instance[i], i)
         instanceName.EntityData.Children.Append(types.GetSegmentPath(instanceName.Instance[i]), types.YChild{"Instance", instanceName.Instance[i]})
     }
     instanceName.EntityData.Leafs = types.NewOrderedMap()
@@ -15969,6 +16594,7 @@ func (instanceName *Rcmd_Process_Ldp_Process_InstanceName) GetEntityData() *type
 type Rcmd_Process_Ldp_Process_InstanceName_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Instance Id. The type is interface{} with range: 0..4294967295.
     InstanceId interface{}
@@ -16015,7 +16641,8 @@ func (instance *Rcmd_Process_Ldp_Process_InstanceName_Instance) GetEntityData() 
     instance.EntityData.YangName = "instance"
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instance-name"
-    instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.SegmentPath = "instance" + types.AddNoKeyToken(instance)
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ldp/process/instance-name/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

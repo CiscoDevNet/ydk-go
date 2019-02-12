@@ -36,6 +36,7 @@ func (controllerAinsSoak *ControllerAinsSoak) GetEntityData() *types.CommonEntit
     controllerAinsSoak.EntityData.BundleName = "cisco_ios_xr"
     controllerAinsSoak.EntityData.ParentYangName = "Cisco-IOS-XR-controller-ains-act"
     controllerAinsSoak.EntityData.SegmentPath = "Cisco-IOS-XR-controller-ains-act:controller-ains-soak"
+    controllerAinsSoak.EntityData.AbsolutePath = controllerAinsSoak.EntityData.SegmentPath
     controllerAinsSoak.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerAinsSoak.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerAinsSoak.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (input *ControllerAinsSoak_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "controller-ains-soak"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-ains-act:controller-ains-soak/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

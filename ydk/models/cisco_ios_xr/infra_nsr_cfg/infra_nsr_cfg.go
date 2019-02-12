@@ -40,6 +40,7 @@ func (nsr *Nsr) GetEntityData() *types.CommonEntityData {
     nsr.EntityData.BundleName = "cisco_ios_xr"
     nsr.EntityData.ParentYangName = "Cisco-IOS-XR-infra-nsr-cfg"
     nsr.EntityData.SegmentPath = "Cisco-IOS-XR-infra-nsr-cfg:nsr"
+    nsr.EntityData.AbsolutePath = nsr.EntityData.SegmentPath
     nsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (processFailure *Nsr_ProcessFailure) GetEntityData() *types.CommonEntityDat
     processFailure.EntityData.BundleName = "cisco_ios_xr"
     processFailure.EntityData.ParentYangName = "nsr"
     processFailure.EntityData.SegmentPath = "process-failure"
+    processFailure.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-nsr-cfg:nsr/" + processFailure.EntityData.SegmentPath
     processFailure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

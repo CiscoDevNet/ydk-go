@@ -44,6 +44,7 @@ func (cm *Cm) GetEntityData() *types.CommonEntityData {
     cm.EntityData.BundleName = "cisco_ios_xr"
     cm.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-show-trace-cm"
     cm.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-show-trace-cm:cm"
+    cm.EntityData.AbsolutePath = cm.EntityData.SegmentPath
     cm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -66,6 +67,7 @@ func (cm *Cm) GetEntityData() *types.CommonEntityData {
 type Cm_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -80,6 +82,7 @@ func (trace *Cm_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "cm"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-cm:cm/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -101,6 +104,7 @@ func (trace *Cm_Trace) GetEntityData() *types.CommonEntityData {
 type Cm_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -115,6 +119,7 @@ func (location *Cm_Trace_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-cm:cm/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -136,6 +141,7 @@ func (location *Cm_Trace_Location) GetEntityData() *types.CommonEntityData {
 type Cm_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -150,6 +156,7 @@ func (allOptions *Cm_Trace_Location_AllOptions) GetEntityData() *types.CommonEnt
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-cm:cm/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -157,6 +164,7 @@ func (allOptions *Cm_Trace_Location_AllOptions) GetEntityData() *types.CommonEnt
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -171,6 +179,7 @@ func (allOptions *Cm_Trace_Location_AllOptions) GetEntityData() *types.CommonEnt
 type Cm_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -181,7 +190,8 @@ func (traceBlocks *Cm_Trace_Location_AllOptions_TraceBlocks) GetEntityData() *ty
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-cm:cm/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -211,6 +221,7 @@ func (lsp *Cm_Lsp) GetEntityData() *types.CommonEntityData {
     lsp.EntityData.BundleName = "cisco_ios_xr"
     lsp.EntityData.ParentYangName = "cm"
     lsp.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-cm:lsp"
+    lsp.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-cm:cm/" + lsp.EntityData.SegmentPath
     lsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -231,6 +242,7 @@ func (lsp *Cm_Lsp) GetEntityData() *types.CommonEntityData {
 type Cm_Lsp_LspdbLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -246,6 +258,7 @@ func (lspdbLocations *Cm_Lsp_LspdbLocations) GetEntityData() *types.CommonEntity
     lspdbLocations.EntityData.BundleName = "cisco_ios_xr"
     lspdbLocations.EntityData.ParentYangName = "lsp"
     lspdbLocations.EntityData.SegmentPath = "lspdb_locations" + types.AddKeyToken(lspdbLocations.LspdbLocation, "lspdb_location")
+    lspdbLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-cm:cm/Cisco-IOS-XR-sysadmin-cm:lsp/" + lspdbLocations.EntityData.SegmentPath
     lspdbLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspdbLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspdbLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -267,6 +280,7 @@ func (lspdbLocations *Cm_Lsp_LspdbLocations) GetEntityData() *types.CommonEntity
 type Cm_Lsp_LspdbLocations_Lspdbi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSP System ID. The type is string.
     LspId interface{}
@@ -290,6 +304,7 @@ func (lspdbi *Cm_Lsp_LspdbLocations_Lspdbi) GetEntityData() *types.CommonEntityD
     lspdbi.EntityData.BundleName = "cisco_ios_xr"
     lspdbi.EntityData.ParentYangName = "lspdb_locations"
     lspdbi.EntityData.SegmentPath = "lspdbi" + types.AddKeyToken(lspdbi.LspId, "lsp_id") + types.AddKeyToken(lspdbi.LspAreaType, "lsp_area_type")
+    lspdbi.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-cm:cm/Cisco-IOS-XR-sysadmin-cm:lsp/lspdb_locations/" + lspdbi.EntityData.SegmentPath
     lspdbi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspdbi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspdbi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

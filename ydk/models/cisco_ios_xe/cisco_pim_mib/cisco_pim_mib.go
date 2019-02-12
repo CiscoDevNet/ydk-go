@@ -37,6 +37,7 @@ func (cISCOPIMMIB *CISCOPIMMIB) GetEntityData() *types.CommonEntityData {
     cISCOPIMMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOPIMMIB.EntityData.ParentYangName = "CISCO-PIM-MIB"
     cISCOPIMMIB.EntityData.SegmentPath = "CISCO-PIM-MIB:CISCO-PIM-MIB"
+    cISCOPIMMIB.EntityData.AbsolutePath = cISCOPIMMIB.EntityData.SegmentPath
     cISCOPIMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOPIMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOPIMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -122,6 +123,7 @@ func (cpim *CISCOPIMMIB_Cpim) GetEntityData() *types.CommonEntityData {
     cpim.EntityData.BundleName = "cisco_ios_xe"
     cpim.EntityData.ParentYangName = "CISCO-PIM-MIB"
     cpim.EntityData.SegmentPath = "cpim"
+    cpim.EntityData.AbsolutePath = "CISCO-PIM-MIB:CISCO-PIM-MIB/" + cpim.EntityData.SegmentPath
     cpim.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpim.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpim.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -177,6 +179,7 @@ func (ciscoPimMIBNotificationObjects *CISCOPIMMIB_CiscoPimMIBNotificationObjects
     ciscoPimMIBNotificationObjects.EntityData.BundleName = "cisco_ios_xe"
     ciscoPimMIBNotificationObjects.EntityData.ParentYangName = "CISCO-PIM-MIB"
     ciscoPimMIBNotificationObjects.EntityData.SegmentPath = "ciscoPimMIBNotificationObjects"
+    ciscoPimMIBNotificationObjects.EntityData.AbsolutePath = "CISCO-PIM-MIB:CISCO-PIM-MIB/" + ciscoPimMIBNotificationObjects.EntityData.SegmentPath
     ciscoPimMIBNotificationObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoPimMIBNotificationObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoPimMIBNotificationObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

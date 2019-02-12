@@ -72,6 +72,7 @@ func (l2tp *L2tp) GetEntityData() *types.CommonEntityData {
     l2tp.EntityData.BundleName = "cisco_ios_xr"
     l2tp.EntityData.ParentYangName = "Cisco-IOS-XR-tunnel-l2tun-oper"
     l2tp.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp"
+    l2tp.EntityData.AbsolutePath = l2tp.EntityData.SegmentPath
     l2tp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -107,6 +108,7 @@ func (counters *L2tp_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "l2tp"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -139,6 +141,7 @@ func (control *L2tp_Counters_Control) GetEntityData() *types.CommonEntityData {
     control.EntityData.BundleName = "cisco_ios_xr"
     control.EntityData.ParentYangName = "counters"
     control.EntityData.SegmentPath = "control"
+    control.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/" + control.EntityData.SegmentPath
     control.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     control.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     control.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -172,6 +175,7 @@ func (tunnelXr *L2tp_Counters_Control_TunnelXr) GetEntityData() *types.CommonEnt
     tunnelXr.EntityData.BundleName = "cisco_ios_xr"
     tunnelXr.EntityData.ParentYangName = "control"
     tunnelXr.EntityData.SegmentPath = "tunnel-xr"
+    tunnelXr.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/" + tunnelXr.EntityData.SegmentPath
     tunnelXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -226,6 +230,7 @@ func (authentication *L2tp_Counters_Control_TunnelXr_Authentication) GetEntityDa
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "tunnel-xr"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -293,6 +298,7 @@ func (nonceAvp *L2tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetEntit
     nonceAvp.EntityData.BundleName = "cisco_ios_xr"
     nonceAvp.EntityData.ParentYangName = "authentication"
     nonceAvp.EntityData.SegmentPath = "nonce-avp"
+    nonceAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + nonceAvp.EntityData.SegmentPath
     nonceAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonceAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonceAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -362,6 +368,7 @@ func (commonDigest *L2tp_Counters_Control_TunnelXr_Authentication_CommonDigest) 
     commonDigest.EntityData.BundleName = "cisco_ios_xr"
     commonDigest.EntityData.ParentYangName = "authentication"
     commonDigest.EntityData.SegmentPath = "common-digest"
+    commonDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + commonDigest.EntityData.SegmentPath
     commonDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -431,6 +438,7 @@ func (primaryDigest *L2tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest
     primaryDigest.EntityData.BundleName = "cisco_ios_xr"
     primaryDigest.EntityData.ParentYangName = "authentication"
     primaryDigest.EntityData.SegmentPath = "primary-digest"
+    primaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + primaryDigest.EntityData.SegmentPath
     primaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -500,6 +508,7 @@ func (secondaryDigest *L2tp_Counters_Control_TunnelXr_Authentication_SecondaryDi
     secondaryDigest.EntityData.BundleName = "cisco_ios_xr"
     secondaryDigest.EntityData.ParentYangName = "authentication"
     secondaryDigest.EntityData.SegmentPath = "secondary-digest"
+    secondaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + secondaryDigest.EntityData.SegmentPath
     secondaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -569,6 +578,7 @@ func (integrityCheck *L2tp_Counters_Control_TunnelXr_Authentication_IntegrityChe
     integrityCheck.EntityData.BundleName = "cisco_ios_xr"
     integrityCheck.EntityData.ParentYangName = "authentication"
     integrityCheck.EntityData.SegmentPath = "integrity-check"
+    integrityCheck.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + integrityCheck.EntityData.SegmentPath
     integrityCheck.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     integrityCheck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     integrityCheck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -638,6 +648,7 @@ func (localSecret *L2tp_Counters_Control_TunnelXr_Authentication_LocalSecret) Ge
     localSecret.EntityData.BundleName = "cisco_ios_xr"
     localSecret.EntityData.ParentYangName = "authentication"
     localSecret.EntityData.SegmentPath = "local-secret"
+    localSecret.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + localSecret.EntityData.SegmentPath
     localSecret.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localSecret.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localSecret.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -707,6 +718,7 @@ func (challengeAvp *L2tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) 
     challengeAvp.EntityData.BundleName = "cisco_ios_xr"
     challengeAvp.EntityData.ParentYangName = "authentication"
     challengeAvp.EntityData.SegmentPath = "challenge-avp"
+    challengeAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + challengeAvp.EntityData.SegmentPath
     challengeAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     challengeAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     challengeAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -776,6 +788,7 @@ func (challengeReponse *L2tp_Counters_Control_TunnelXr_Authentication_ChallengeR
     challengeReponse.EntityData.BundleName = "cisco_ios_xr"
     challengeReponse.EntityData.ParentYangName = "authentication"
     challengeReponse.EntityData.SegmentPath = "challenge-reponse"
+    challengeReponse.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + challengeReponse.EntityData.SegmentPath
     challengeReponse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     challengeReponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     challengeReponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -845,6 +858,7 @@ func (overallStatistics *L2tp_Counters_Control_TunnelXr_Authentication_OverallSt
     overallStatistics.EntityData.BundleName = "cisco_ios_xr"
     overallStatistics.EntityData.ParentYangName = "authentication"
     overallStatistics.EntityData.SegmentPath = "overall-statistics"
+    overallStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + overallStatistics.EntityData.SegmentPath
     overallStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     overallStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     overallStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -905,6 +919,7 @@ func (global *L2tp_Counters_Control_TunnelXr_Global) GetEntityData() *types.Comm
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "tunnel-xr"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1006,6 +1021,7 @@ func (transmit *L2tp_Counters_Control_TunnelXr_Global_Transmit) GetEntityData() 
     transmit.EntityData.BundleName = "cisco_ios_xr"
     transmit.EntityData.ParentYangName = "global"
     transmit.EntityData.SegmentPath = "transmit"
+    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/" + transmit.EntityData.SegmentPath
     transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1118,6 +1134,7 @@ func (retransmit *L2tp_Counters_Control_TunnelXr_Global_Retransmit) GetEntityDat
     retransmit.EntityData.BundleName = "cisco_ios_xr"
     retransmit.EntityData.ParentYangName = "global"
     retransmit.EntityData.SegmentPath = "retransmit"
+    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/" + retransmit.EntityData.SegmentPath
     retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1230,6 +1247,7 @@ func (received *L2tp_Counters_Control_TunnelXr_Global_Received) GetEntityData() 
     received.EntityData.BundleName = "cisco_ios_xr"
     received.EntityData.ParentYangName = "global"
     received.EntityData.SegmentPath = "received"
+    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1342,6 +1360,7 @@ func (drop *L2tp_Counters_Control_TunnelXr_Global_Drop) GetEntityData() *types.C
     drop.EntityData.BundleName = "cisco_ios_xr"
     drop.EntityData.ParentYangName = "global"
     drop.EntityData.SegmentPath = "drop"
+    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/" + drop.EntityData.SegmentPath
     drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1390,6 +1409,7 @@ func (tunnels *L2tp_Counters_Control_Tunnels) GetEntityData() *types.CommonEntit
     tunnels.EntityData.BundleName = "cisco_ios_xr"
     tunnels.EntityData.ParentYangName = "control"
     tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1411,6 +1431,7 @@ func (tunnels *L2tp_Counters_Control_Tunnels) GetEntityData() *types.CommonEntit
 type L2tp_Counters_Control_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. L2TP tunnel ID. The type is interface{} with
     // range: 0..4294967295.
@@ -1429,6 +1450,7 @@ func (tunnel *L2tp_Counters_Control_Tunnels_Tunnel) GetEntityData() *types.Commo
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.TunnelId, "tunnel-id")
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1468,6 +1490,7 @@ func (brief *L2tp_Counters_Control_Tunnels_Tunnel_Brief) GetEntityData() *types.
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "tunnel"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1520,6 +1543,7 @@ func (global *L2tp_Counters_Control_Tunnels_Tunnel_Global) GetEntityData() *type
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "tunnel"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1621,6 +1645,7 @@ func (transmit *L2tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetEntityD
     transmit.EntityData.BundleName = "cisco_ios_xr"
     transmit.EntityData.ParentYangName = "global"
     transmit.EntityData.SegmentPath = "transmit"
+    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/global/" + transmit.EntityData.SegmentPath
     transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1733,6 +1758,7 @@ func (retransmit *L2tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetEnt
     retransmit.EntityData.BundleName = "cisco_ios_xr"
     retransmit.EntityData.ParentYangName = "global"
     retransmit.EntityData.SegmentPath = "retransmit"
+    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/global/" + retransmit.EntityData.SegmentPath
     retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1845,6 +1871,7 @@ func (received *L2tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetEntityD
     received.EntityData.BundleName = "cisco_ios_xr"
     received.EntityData.ParentYangName = "global"
     received.EntityData.SegmentPath = "received"
+    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/global/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1957,6 +1984,7 @@ func (drop *L2tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetEntityData() *t
     drop.EntityData.BundleName = "cisco_ios_xr"
     drop.EntityData.ParentYangName = "global"
     drop.EntityData.SegmentPath = "drop"
+    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/global/" + drop.EntityData.SegmentPath
     drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2005,6 +2033,7 @@ func (tunnelConfigurations *L2tp_TunnelConfigurations) GetEntityData() *types.Co
     tunnelConfigurations.EntityData.BundleName = "cisco_ios_xr"
     tunnelConfigurations.EntityData.ParentYangName = "l2tp"
     tunnelConfigurations.EntityData.SegmentPath = "tunnel-configurations"
+    tunnelConfigurations.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + tunnelConfigurations.EntityData.SegmentPath
     tunnelConfigurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2026,6 +2055,7 @@ func (tunnelConfigurations *L2tp_TunnelConfigurations) GetEntityData() *types.Co
 type L2tp_TunnelConfigurations_TunnelConfiguration struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
     // range: 0..4294967295.
@@ -2044,6 +2074,7 @@ func (tunnelConfiguration *L2tp_TunnelConfigurations_TunnelConfiguration) GetEnt
     tunnelConfiguration.EntityData.BundleName = "cisco_ios_xr"
     tunnelConfiguration.EntityData.ParentYangName = "tunnel-configurations"
     tunnelConfiguration.EntityData.SegmentPath = "tunnel-configuration" + types.AddKeyToken(tunnelConfiguration.LocalTunnelId, "local-tunnel-id")
+    tunnelConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnel-configurations/" + tunnelConfiguration.EntityData.SegmentPath
     tunnelConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2151,6 +2182,7 @@ func (l2tpClass *L2tp_TunnelConfigurations_TunnelConfiguration_L2tpClass) GetEnt
     l2tpClass.EntityData.BundleName = "cisco_ios_xr"
     l2tpClass.EntityData.ParentYangName = "tunnel-configuration"
     l2tpClass.EntityData.SegmentPath = "l2tp-class"
+    l2tpClass.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnel-configurations/tunnel-configuration/" + l2tpClass.EntityData.SegmentPath
     l2tpClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2216,6 +2248,7 @@ func (counterHistFail *L2tp_CounterHistFail) GetEntityData() *types.CommonEntity
     counterHistFail.EntityData.BundleName = "cisco_ios_xr"
     counterHistFail.EntityData.ParentYangName = "l2tp"
     counterHistFail.EntityData.SegmentPath = "counter-hist-fail"
+    counterHistFail.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + counterHistFail.EntityData.SegmentPath
     counterHistFail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counterHistFail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counterHistFail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2223,6 +2256,7 @@ func (counterHistFail *L2tp_CounterHistFail) GetEntityData() *types.CommonEntity
     counterHistFail.EntityData.Children = types.NewOrderedMap()
     counterHistFail.EntityData.Children.Append("pkt-timeout", types.YChild{"PktTimeout", nil})
     for i := range counterHistFail.PktTimeout {
+        types.SetYListKey(counterHistFail.PktTimeout[i], i)
         counterHistFail.EntityData.Children.Append(types.GetSegmentPath(counterHistFail.PktTimeout[i]), types.YChild{"PktTimeout", counterHistFail.PktTimeout[i]})
     }
     counterHistFail.EntityData.Leafs = types.NewOrderedMap()
@@ -2240,6 +2274,7 @@ func (counterHistFail *L2tp_CounterHistFail) GetEntityData() *types.CommonEntity
 type L2tp_CounterHistFail_PktTimeout struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -2250,7 +2285,8 @@ func (pktTimeout *L2tp_CounterHistFail_PktTimeout) GetEntityData() *types.Common
     pktTimeout.EntityData.YangName = "pkt-timeout"
     pktTimeout.EntityData.BundleName = "cisco_ios_xr"
     pktTimeout.EntityData.ParentYangName = "counter-hist-fail"
-    pktTimeout.EntityData.SegmentPath = "pkt-timeout"
+    pktTimeout.EntityData.SegmentPath = "pkt-timeout" + types.AddNoKeyToken(pktTimeout)
+    pktTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counter-hist-fail/" + pktTimeout.EntityData.SegmentPath
     pktTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pktTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pktTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2280,6 +2316,7 @@ func (classes *L2tp_Classes) GetEntityData() *types.CommonEntityData {
     classes.EntityData.BundleName = "cisco_ios_xr"
     classes.EntityData.ParentYangName = "l2tp"
     classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + classes.EntityData.SegmentPath
     classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2301,6 +2338,7 @@ func (classes *L2tp_Classes) GetEntityData() *types.CommonEntityData {
 type L2tp_Classes_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. L2TP class name. The type is string with length:
     // 1..31.
@@ -2392,6 +2430,7 @@ func (class *L2tp_Classes_Class) GetEntityData() *types.CommonEntityData {
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/classes/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2445,6 +2484,7 @@ func (tunnels *L2tp_Tunnels) GetEntityData() *types.CommonEntityData {
     tunnels.EntityData.BundleName = "cisco_ios_xr"
     tunnels.EntityData.ParentYangName = "l2tp"
     tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2466,6 +2506,7 @@ func (tunnels *L2tp_Tunnels) GetEntityData() *types.CommonEntityData {
 type L2tp_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
     // range: 0..4294967295.
@@ -2586,6 +2627,7 @@ func (tunnel *L2tp_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.LocalTunnelId, "local-tunnel-id")
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2593,6 +2635,7 @@ func (tunnel *L2tp_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.Children = types.NewOrderedMap()
     tunnel.EntityData.Children.Append("retransmit-time", types.YChild{"RetransmitTime", nil})
     for i := range tunnel.RetransmitTime {
+        types.SetYListKey(tunnel.RetransmitTime[i], i)
         tunnel.EntityData.Children.Append(types.GetSegmentPath(tunnel.RetransmitTime[i]), types.YChild{"RetransmitTime", tunnel.RetransmitTime[i]})
     }
     tunnel.EntityData.Leafs = types.NewOrderedMap()
@@ -2639,6 +2682,7 @@ func (tunnel *L2tp_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
 type L2tp_Tunnels_Tunnel_RetransmitTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..65535. Units are second.
     Entry interface{}
@@ -2649,7 +2693,8 @@ func (retransmitTime *L2tp_Tunnels_Tunnel_RetransmitTime) GetEntityData() *types
     retransmitTime.EntityData.YangName = "retransmit-time"
     retransmitTime.EntityData.BundleName = "cisco_ios_xr"
     retransmitTime.EntityData.ParentYangName = "tunnel"
-    retransmitTime.EntityData.SegmentPath = "retransmit-time"
+    retransmitTime.EntityData.SegmentPath = "retransmit-time" + types.AddNoKeyToken(retransmitTime)
+    retransmitTime.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnels/tunnel/" + retransmitTime.EntityData.SegmentPath
     retransmitTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmitTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmitTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2680,6 +2725,7 @@ func (sessions *L2tp_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "l2tp"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2701,6 +2747,7 @@ func (sessions *L2tp_Sessions) GetEntityData() *types.CommonEntityData {
 type L2tp_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
     // range: 0..4294967295.
@@ -2787,6 +2834,7 @@ func (session *L2tp_Sessions_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.LocalTunnelId, "local-tunnel-id") + types.AddKeyToken(session.LocalSessionId, "local-session-id")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2845,6 +2893,7 @@ func (sessionApplicationData *L2tp_Sessions_Session_SessionApplicationData) GetE
     sessionApplicationData.EntityData.BundleName = "cisco_ios_xr"
     sessionApplicationData.EntityData.ParentYangName = "session"
     sessionApplicationData.EntityData.SegmentPath = "session-application-data"
+    sessionApplicationData.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/sessions/session/" + sessionApplicationData.EntityData.SegmentPath
     sessionApplicationData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionApplicationData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionApplicationData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2891,6 +2940,7 @@ func (xconnect *L2tp_Sessions_Session_SessionApplicationData_Xconnect) GetEntity
     xconnect.EntityData.BundleName = "cisco_ios_xr"
     xconnect.EntityData.ParentYangName = "session-application-data"
     xconnect.EntityData.SegmentPath = "xconnect"
+    xconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/sessions/session/session-application-data/" + xconnect.EntityData.SegmentPath
     xconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2928,6 +2978,7 @@ func (vpdn *L2tp_Sessions_Session_SessionApplicationData_Vpdn) GetEntityData() *
     vpdn.EntityData.BundleName = "cisco_ios_xr"
     vpdn.EntityData.ParentYangName = "session-application-data"
     vpdn.EntityData.SegmentPath = "vpdn"
+    vpdn.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/sessions/session/session-application-data/" + vpdn.EntityData.SegmentPath
     vpdn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpdn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2958,6 +3009,7 @@ func (session *L2tp_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "l2tp"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2988,6 +3040,7 @@ func (unavailable *L2tp_Session_Unavailable) GetEntityData() *types.CommonEntity
     unavailable.EntityData.BundleName = "cisco_ios_xr"
     unavailable.EntityData.ParentYangName = "session"
     unavailable.EntityData.SegmentPath = "unavailable"
+    unavailable.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/session/" + unavailable.EntityData.SegmentPath
     unavailable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unavailable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unavailable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3041,6 +3094,7 @@ func (l2tpv2 *L2tpv2) GetEntityData() *types.CommonEntityData {
     l2tpv2.EntityData.BundleName = "cisco_ios_xr"
     l2tpv2.EntityData.ParentYangName = "Cisco-IOS-XR-tunnel-l2tun-oper"
     l2tpv2.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2"
+    l2tpv2.EntityData.AbsolutePath = l2tpv2.EntityData.SegmentPath
     l2tpv2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpv2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpv2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3081,6 +3135,7 @@ func (counters *L2tpv2_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "l2tpv2"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3111,6 +3166,7 @@ func (forwarding *L2tpv2_Counters_Forwarding) GetEntityData() *types.CommonEntit
     forwarding.EntityData.BundleName = "cisco_ios_xr"
     forwarding.EntityData.ParentYangName = "counters"
     forwarding.EntityData.SegmentPath = "forwarding"
+    forwarding.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/" + forwarding.EntityData.SegmentPath
     forwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3141,6 +3197,7 @@ func (sessions *L2tpv2_Counters_Forwarding_Sessions) GetEntityData() *types.Comm
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "forwarding"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/forwarding/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3162,6 +3219,7 @@ func (sessions *L2tpv2_Counters_Forwarding_Sessions) GetEntityData() *types.Comm
 type L2tpv2_Counters_Forwarding_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
     // range: 0..4294967295.
@@ -3197,6 +3255,7 @@ func (session *L2tpv2_Counters_Forwarding_Sessions_Session) GetEntityData() *typ
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.TunnelId, "tunnel-id") + types.AddKeyToken(session.SessionId, "session-id")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/forwarding/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3235,6 +3294,7 @@ func (control *L2tpv2_Counters_Control) GetEntityData() *types.CommonEntityData 
     control.EntityData.BundleName = "cisco_ios_xr"
     control.EntityData.ParentYangName = "counters"
     control.EntityData.SegmentPath = "control"
+    control.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/" + control.EntityData.SegmentPath
     control.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     control.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     control.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3268,6 +3328,7 @@ func (tunnelXr *L2tpv2_Counters_Control_TunnelXr) GetEntityData() *types.CommonE
     tunnelXr.EntityData.BundleName = "cisco_ios_xr"
     tunnelXr.EntityData.ParentYangName = "control"
     tunnelXr.EntityData.SegmentPath = "tunnel-xr"
+    tunnelXr.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/" + tunnelXr.EntityData.SegmentPath
     tunnelXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3322,6 +3383,7 @@ func (authentication *L2tpv2_Counters_Control_TunnelXr_Authentication) GetEntity
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "tunnel-xr"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3389,6 +3451,7 @@ func (nonceAvp *L2tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetEnt
     nonceAvp.EntityData.BundleName = "cisco_ios_xr"
     nonceAvp.EntityData.ParentYangName = "authentication"
     nonceAvp.EntityData.SegmentPath = "nonce-avp"
+    nonceAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + nonceAvp.EntityData.SegmentPath
     nonceAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonceAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonceAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3458,6 +3521,7 @@ func (commonDigest *L2tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest
     commonDigest.EntityData.BundleName = "cisco_ios_xr"
     commonDigest.EntityData.ParentYangName = "authentication"
     commonDigest.EntityData.SegmentPath = "common-digest"
+    commonDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + commonDigest.EntityData.SegmentPath
     commonDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3527,6 +3591,7 @@ func (primaryDigest *L2tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDige
     primaryDigest.EntityData.BundleName = "cisco_ios_xr"
     primaryDigest.EntityData.ParentYangName = "authentication"
     primaryDigest.EntityData.SegmentPath = "primary-digest"
+    primaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + primaryDigest.EntityData.SegmentPath
     primaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3596,6 +3661,7 @@ func (secondaryDigest *L2tpv2_Counters_Control_TunnelXr_Authentication_Secondary
     secondaryDigest.EntityData.BundleName = "cisco_ios_xr"
     secondaryDigest.EntityData.ParentYangName = "authentication"
     secondaryDigest.EntityData.SegmentPath = "secondary-digest"
+    secondaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + secondaryDigest.EntityData.SegmentPath
     secondaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3665,6 +3731,7 @@ func (integrityCheck *L2tpv2_Counters_Control_TunnelXr_Authentication_IntegrityC
     integrityCheck.EntityData.BundleName = "cisco_ios_xr"
     integrityCheck.EntityData.ParentYangName = "authentication"
     integrityCheck.EntityData.SegmentPath = "integrity-check"
+    integrityCheck.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + integrityCheck.EntityData.SegmentPath
     integrityCheck.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     integrityCheck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     integrityCheck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3734,6 +3801,7 @@ func (localSecret *L2tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) 
     localSecret.EntityData.BundleName = "cisco_ios_xr"
     localSecret.EntityData.ParentYangName = "authentication"
     localSecret.EntityData.SegmentPath = "local-secret"
+    localSecret.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + localSecret.EntityData.SegmentPath
     localSecret.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localSecret.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localSecret.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3803,6 +3871,7 @@ func (challengeAvp *L2tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp
     challengeAvp.EntityData.BundleName = "cisco_ios_xr"
     challengeAvp.EntityData.ParentYangName = "authentication"
     challengeAvp.EntityData.SegmentPath = "challenge-avp"
+    challengeAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + challengeAvp.EntityData.SegmentPath
     challengeAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     challengeAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     challengeAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3872,6 +3941,7 @@ func (challengeReponse *L2tpv2_Counters_Control_TunnelXr_Authentication_Challeng
     challengeReponse.EntityData.BundleName = "cisco_ios_xr"
     challengeReponse.EntityData.ParentYangName = "authentication"
     challengeReponse.EntityData.SegmentPath = "challenge-reponse"
+    challengeReponse.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + challengeReponse.EntityData.SegmentPath
     challengeReponse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     challengeReponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     challengeReponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3941,6 +4011,7 @@ func (overallStatistics *L2tpv2_Counters_Control_TunnelXr_Authentication_Overall
     overallStatistics.EntityData.BundleName = "cisco_ios_xr"
     overallStatistics.EntityData.ParentYangName = "authentication"
     overallStatistics.EntityData.SegmentPath = "overall-statistics"
+    overallStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + overallStatistics.EntityData.SegmentPath
     overallStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     overallStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     overallStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4001,6 +4072,7 @@ func (global *L2tpv2_Counters_Control_TunnelXr_Global) GetEntityData() *types.Co
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "tunnel-xr"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4102,6 +4174,7 @@ func (transmit *L2tpv2_Counters_Control_TunnelXr_Global_Transmit) GetEntityData(
     transmit.EntityData.BundleName = "cisco_ios_xr"
     transmit.EntityData.ParentYangName = "global"
     transmit.EntityData.SegmentPath = "transmit"
+    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/" + transmit.EntityData.SegmentPath
     transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4214,6 +4287,7 @@ func (retransmit *L2tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetEntityD
     retransmit.EntityData.BundleName = "cisco_ios_xr"
     retransmit.EntityData.ParentYangName = "global"
     retransmit.EntityData.SegmentPath = "retransmit"
+    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/" + retransmit.EntityData.SegmentPath
     retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4326,6 +4400,7 @@ func (received *L2tpv2_Counters_Control_TunnelXr_Global_Received) GetEntityData(
     received.EntityData.BundleName = "cisco_ios_xr"
     received.EntityData.ParentYangName = "global"
     received.EntityData.SegmentPath = "received"
+    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4438,6 +4513,7 @@ func (drop *L2tpv2_Counters_Control_TunnelXr_Global_Drop) GetEntityData() *types
     drop.EntityData.BundleName = "cisco_ios_xr"
     drop.EntityData.ParentYangName = "global"
     drop.EntityData.SegmentPath = "drop"
+    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/" + drop.EntityData.SegmentPath
     drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4486,6 +4562,7 @@ func (tunnels *L2tpv2_Counters_Control_Tunnels) GetEntityData() *types.CommonEnt
     tunnels.EntityData.BundleName = "cisco_ios_xr"
     tunnels.EntityData.ParentYangName = "control"
     tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4507,6 +4584,7 @@ func (tunnels *L2tpv2_Counters_Control_Tunnels) GetEntityData() *types.CommonEnt
 type L2tpv2_Counters_Control_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. L2TP tunnel ID. The type is interface{} with
     // range: 0..4294967295.
@@ -4525,6 +4603,7 @@ func (tunnel *L2tpv2_Counters_Control_Tunnels_Tunnel) GetEntityData() *types.Com
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.TunnelId, "tunnel-id")
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4564,6 +4643,7 @@ func (brief *L2tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetEntityData() *type
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "tunnel"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4616,6 +4696,7 @@ func (global *L2tpv2_Counters_Control_Tunnels_Tunnel_Global) GetEntityData() *ty
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "tunnel"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4717,6 +4798,7 @@ func (transmit *L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetEntit
     transmit.EntityData.BundleName = "cisco_ios_xr"
     transmit.EntityData.ParentYangName = "global"
     transmit.EntityData.SegmentPath = "transmit"
+    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/global/" + transmit.EntityData.SegmentPath
     transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4829,6 +4911,7 @@ func (retransmit *L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetE
     retransmit.EntityData.BundleName = "cisco_ios_xr"
     retransmit.EntityData.ParentYangName = "global"
     retransmit.EntityData.SegmentPath = "retransmit"
+    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/global/" + retransmit.EntityData.SegmentPath
     retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4941,6 +5024,7 @@ func (received *L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetEntit
     received.EntityData.BundleName = "cisco_ios_xr"
     received.EntityData.ParentYangName = "global"
     received.EntityData.SegmentPath = "received"
+    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/global/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5053,6 +5137,7 @@ func (drop *L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetEntityData() 
     drop.EntityData.BundleName = "cisco_ios_xr"
     drop.EntityData.ParentYangName = "global"
     drop.EntityData.SegmentPath = "drop"
+    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/global/" + drop.EntityData.SegmentPath
     drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5134,6 +5219,7 @@ func (statistics *L2tpv2_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "l2tpv2"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5173,6 +5259,7 @@ func (tunnel *L2tpv2_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "l2tpv2"
     tunnel.EntityData.SegmentPath = "tunnel"
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5202,6 +5289,7 @@ func (accounting *L2tpv2_Tunnel_Accounting) GetEntityData() *types.CommonEntityD
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "tunnel"
     accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5285,6 +5373,7 @@ func (statistics *L2tpv2_Tunnel_Accounting_Statistics) GetEntityData() *types.Co
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "accounting"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel/accounting/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5329,6 +5418,7 @@ func (tunnelConfigurations *L2tpv2_TunnelConfigurations) GetEntityData() *types.
     tunnelConfigurations.EntityData.BundleName = "cisco_ios_xr"
     tunnelConfigurations.EntityData.ParentYangName = "l2tpv2"
     tunnelConfigurations.EntityData.SegmentPath = "tunnel-configurations"
+    tunnelConfigurations.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + tunnelConfigurations.EntityData.SegmentPath
     tunnelConfigurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5350,6 +5440,7 @@ func (tunnelConfigurations *L2tpv2_TunnelConfigurations) GetEntityData() *types.
 type L2tpv2_TunnelConfigurations_TunnelConfiguration struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
     // range: 0..4294967295.
@@ -5368,6 +5459,7 @@ func (tunnelConfiguration *L2tpv2_TunnelConfigurations_TunnelConfiguration) GetE
     tunnelConfiguration.EntityData.BundleName = "cisco_ios_xr"
     tunnelConfiguration.EntityData.ParentYangName = "tunnel-configurations"
     tunnelConfiguration.EntityData.SegmentPath = "tunnel-configuration" + types.AddKeyToken(tunnelConfiguration.LocalTunnelId, "local-tunnel-id")
+    tunnelConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel-configurations/" + tunnelConfiguration.EntityData.SegmentPath
     tunnelConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5475,6 +5567,7 @@ func (l2tpClass *L2tpv2_TunnelConfigurations_TunnelConfiguration_L2tpClass) GetE
     l2tpClass.EntityData.BundleName = "cisco_ios_xr"
     l2tpClass.EntityData.ParentYangName = "tunnel-configuration"
     l2tpClass.EntityData.SegmentPath = "l2tp-class"
+    l2tpClass.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel-configurations/tunnel-configuration/" + l2tpClass.EntityData.SegmentPath
     l2tpClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5540,6 +5633,7 @@ func (counterHistFail *L2tpv2_CounterHistFail) GetEntityData() *types.CommonEnti
     counterHistFail.EntityData.BundleName = "cisco_ios_xr"
     counterHistFail.EntityData.ParentYangName = "l2tpv2"
     counterHistFail.EntityData.SegmentPath = "counter-hist-fail"
+    counterHistFail.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + counterHistFail.EntityData.SegmentPath
     counterHistFail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counterHistFail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counterHistFail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5547,6 +5641,7 @@ func (counterHistFail *L2tpv2_CounterHistFail) GetEntityData() *types.CommonEnti
     counterHistFail.EntityData.Children = types.NewOrderedMap()
     counterHistFail.EntityData.Children.Append("pkt-timeout", types.YChild{"PktTimeout", nil})
     for i := range counterHistFail.PktTimeout {
+        types.SetYListKey(counterHistFail.PktTimeout[i], i)
         counterHistFail.EntityData.Children.Append(types.GetSegmentPath(counterHistFail.PktTimeout[i]), types.YChild{"PktTimeout", counterHistFail.PktTimeout[i]})
     }
     counterHistFail.EntityData.Leafs = types.NewOrderedMap()
@@ -5564,6 +5659,7 @@ func (counterHistFail *L2tpv2_CounterHistFail) GetEntityData() *types.CommonEnti
 type L2tpv2_CounterHistFail_PktTimeout struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5574,7 +5670,8 @@ func (pktTimeout *L2tpv2_CounterHistFail_PktTimeout) GetEntityData() *types.Comm
     pktTimeout.EntityData.YangName = "pkt-timeout"
     pktTimeout.EntityData.BundleName = "cisco_ios_xr"
     pktTimeout.EntityData.ParentYangName = "counter-hist-fail"
-    pktTimeout.EntityData.SegmentPath = "pkt-timeout"
+    pktTimeout.EntityData.SegmentPath = "pkt-timeout" + types.AddNoKeyToken(pktTimeout)
+    pktTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counter-hist-fail/" + pktTimeout.EntityData.SegmentPath
     pktTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pktTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pktTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5604,6 +5701,7 @@ func (classes *L2tpv2_Classes) GetEntityData() *types.CommonEntityData {
     classes.EntityData.BundleName = "cisco_ios_xr"
     classes.EntityData.ParentYangName = "l2tpv2"
     classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + classes.EntityData.SegmentPath
     classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5625,6 +5723,7 @@ func (classes *L2tpv2_Classes) GetEntityData() *types.CommonEntityData {
 type L2tpv2_Classes_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. L2TP class name. The type is string with length:
     // 1..31.
@@ -5716,6 +5815,7 @@ func (class *L2tpv2_Classes_Class) GetEntityData() *types.CommonEntityData {
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/classes/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5769,6 +5869,7 @@ func (tunnels *L2tpv2_Tunnels) GetEntityData() *types.CommonEntityData {
     tunnels.EntityData.BundleName = "cisco_ios_xr"
     tunnels.EntityData.ParentYangName = "l2tpv2"
     tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5790,6 +5891,7 @@ func (tunnels *L2tpv2_Tunnels) GetEntityData() *types.CommonEntityData {
 type L2tpv2_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
     // range: 0..4294967295.
@@ -5910,6 +6012,7 @@ func (tunnel *L2tpv2_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.LocalTunnelId, "local-tunnel-id")
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5917,6 +6020,7 @@ func (tunnel *L2tpv2_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.Children = types.NewOrderedMap()
     tunnel.EntityData.Children.Append("retransmit-time", types.YChild{"RetransmitTime", nil})
     for i := range tunnel.RetransmitTime {
+        types.SetYListKey(tunnel.RetransmitTime[i], i)
         tunnel.EntityData.Children.Append(types.GetSegmentPath(tunnel.RetransmitTime[i]), types.YChild{"RetransmitTime", tunnel.RetransmitTime[i]})
     }
     tunnel.EntityData.Leafs = types.NewOrderedMap()
@@ -5963,6 +6067,7 @@ func (tunnel *L2tpv2_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
 type L2tpv2_Tunnels_Tunnel_RetransmitTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..65535. Units are second.
     Entry interface{}
@@ -5973,7 +6078,8 @@ func (retransmitTime *L2tpv2_Tunnels_Tunnel_RetransmitTime) GetEntityData() *typ
     retransmitTime.EntityData.YangName = "retransmit-time"
     retransmitTime.EntityData.BundleName = "cisco_ios_xr"
     retransmitTime.EntityData.ParentYangName = "tunnel"
-    retransmitTime.EntityData.SegmentPath = "retransmit-time"
+    retransmitTime.EntityData.SegmentPath = "retransmit-time" + types.AddNoKeyToken(retransmitTime)
+    retransmitTime.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnels/tunnel/" + retransmitTime.EntityData.SegmentPath
     retransmitTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmitTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmitTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6004,6 +6110,7 @@ func (sessions *L2tpv2_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "l2tpv2"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6025,6 +6132,7 @@ func (sessions *L2tpv2_Sessions) GetEntityData() *types.CommonEntityData {
 type L2tpv2_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
     // range: 0..4294967295.
@@ -6111,6 +6219,7 @@ func (session *L2tpv2_Sessions_Session) GetEntityData() *types.CommonEntityData 
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.LocalTunnelId, "local-tunnel-id") + types.AddKeyToken(session.LocalSessionId, "local-session-id")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6169,6 +6278,7 @@ func (sessionApplicationData *L2tpv2_Sessions_Session_SessionApplicationData) Ge
     sessionApplicationData.EntityData.BundleName = "cisco_ios_xr"
     sessionApplicationData.EntityData.ParentYangName = "session"
     sessionApplicationData.EntityData.SegmentPath = "session-application-data"
+    sessionApplicationData.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/sessions/session/" + sessionApplicationData.EntityData.SegmentPath
     sessionApplicationData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionApplicationData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionApplicationData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6215,6 +6325,7 @@ func (xconnect *L2tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetEnti
     xconnect.EntityData.BundleName = "cisco_ios_xr"
     xconnect.EntityData.ParentYangName = "session-application-data"
     xconnect.EntityData.SegmentPath = "xconnect"
+    xconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/sessions/session/session-application-data/" + xconnect.EntityData.SegmentPath
     xconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6252,6 +6363,7 @@ func (vpdn *L2tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetEntityData()
     vpdn.EntityData.BundleName = "cisco_ios_xr"
     vpdn.EntityData.ParentYangName = "session-application-data"
     vpdn.EntityData.SegmentPath = "vpdn"
+    vpdn.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/sessions/session/session-application-data/" + vpdn.EntityData.SegmentPath
     vpdn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpdn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6282,6 +6394,7 @@ func (session *L2tpv2_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "l2tpv2"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6312,6 +6425,7 @@ func (unavailable *L2tpv2_Session_Unavailable) GetEntityData() *types.CommonEnti
     unavailable.EntityData.BundleName = "cisco_ios_xr"
     unavailable.EntityData.ParentYangName = "session"
     unavailable.EntityData.SegmentPath = "unavailable"
+    unavailable.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/session/" + unavailable.EntityData.SegmentPath
     unavailable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unavailable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unavailable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

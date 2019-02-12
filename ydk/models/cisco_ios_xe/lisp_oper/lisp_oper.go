@@ -117,6 +117,7 @@ func (lispState *LispState) GetEntityData() *types.CommonEntityData {
     lispState.EntityData.BundleName = "cisco_ios_xe"
     lispState.EntityData.ParentYangName = "Cisco-IOS-XE-lisp-oper"
     lispState.EntityData.SegmentPath = "Cisco-IOS-XE-lisp-oper:lisp-state"
+    lispState.EntityData.AbsolutePath = lispState.EntityData.SegmentPath
     lispState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lispState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lispState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -138,6 +139,7 @@ func (lispState *LispState) GetEntityData() *types.CommonEntityData {
 type LispState_LispRouters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ID number of the LISP router. The type is
     // interface{} with range: 0..4294967295.
@@ -173,6 +175,7 @@ func (lispRouters *LispState_LispRouters) GetEntityData() *types.CommonEntityDat
     lispRouters.EntityData.BundleName = "cisco_ios_xe"
     lispRouters.EntityData.ParentYangName = "lisp-state"
     lispRouters.EntityData.SegmentPath = "lisp-routers" + types.AddKeyToken(lispRouters.TopId, "top-id")
+    lispRouters.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/" + lispRouters.EntityData.SegmentPath
     lispRouters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lispRouters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lispRouters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -209,6 +212,7 @@ func (lispRouters *LispState_LispRouters) GetEntityData() *types.CommonEntityDat
 type LispState_LispRouters_Instances struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Instance ID. The type is interface{} with
     // range: 0..16777215.
@@ -242,6 +246,7 @@ func (instances *LispState_LispRouters_Instances) GetEntityData() *types.CommonE
     instances.EntityData.BundleName = "cisco_ios_xe"
     instances.EntityData.ParentYangName = "lisp-routers"
     instances.EntityData.SegmentPath = "instances" + types.AddKeyToken(instances.Iid, "iid")
+    instances.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/" + instances.EntityData.SegmentPath
     instances.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     instances.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -274,6 +279,7 @@ func (instances *LispState_LispRouters_Instances) GetEntityData() *types.CommonE
 type LispState_LispRouters_Instances_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Instance-specific service type. The type is
     // LispIaftypeType.
@@ -697,6 +703,7 @@ func (af *LispState_LispRouters_Instances_Af) GetEntityData() *types.CommonEntit
     af.EntityData.BundleName = "cisco_ios_xe"
     af.EntityData.ParentYangName = "instances"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.Iaftype, "iaftype")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -844,6 +851,7 @@ func (role *LispState_LispRouters_Instances_Af_Role) GetEntityData() *types.Comm
     role.EntityData.BundleName = "cisco_ios_xe"
     role.EntityData.ParentYangName = "af"
     role.EntityData.SegmentPath = "role"
+    role.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/" + role.EntityData.SegmentPath
     role.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     role.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     role.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -867,6 +875,7 @@ func (role *LispState_LispRouters_Instances_Af_Role) GetEntityData() *types.Comm
 type LispState_LispRouters_Instances_Af_MapCache struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the prefix. The type is
     // LispAddressFamilyType.
@@ -941,6 +950,7 @@ func (mapCache *LispState_LispRouters_Instances_Af_MapCache) GetEntityData() *ty
     mapCache.EntityData.BundleName = "cisco_ios_xe"
     mapCache.EntityData.ParentYangName = "af"
     mapCache.EntityData.SegmentPath = "map-cache" + types.AddKeyToken(mapCache.Afi, "afi") + types.AddKeyToken(mapCache.Prefix, "prefix")
+    mapCache.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/" + mapCache.EntityData.SegmentPath
     mapCache.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mapCache.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mapCache.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -976,6 +986,7 @@ func (mapCache *LispState_LispRouters_Instances_Af_MapCache) GetEntityData() *ty
 type LispState_LispRouters_Instances_Af_MapCache_MapCacheRloc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the address. The type is
     // LispAddressFamilyType.
@@ -1011,6 +1022,7 @@ func (mapCacheRloc *LispState_LispRouters_Instances_Af_MapCache_MapCacheRloc) Ge
     mapCacheRloc.EntityData.BundleName = "cisco_ios_xe"
     mapCacheRloc.EntityData.ParentYangName = "map-cache"
     mapCacheRloc.EntityData.SegmentPath = "map-cache-rloc" + types.AddKeyToken(mapCacheRloc.Afi, "afi") + types.AddKeyToken(mapCacheRloc.Address, "address")
+    mapCacheRloc.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/map-cache/" + mapCacheRloc.EntityData.SegmentPath
     mapCacheRloc.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mapCacheRloc.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mapCacheRloc.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1055,6 +1067,7 @@ func (params *LispState_LispRouters_Instances_Af_MapCache_MapCacheRloc_Params) G
     params.EntityData.BundleName = "cisco_ios_xe"
     params.EntityData.ParentYangName = "map-cache-rloc"
     params.EntityData.SegmentPath = "params"
+    params.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/map-cache/map-cache-rloc/" + params.EntityData.SegmentPath
     params.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     params.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     params.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1076,6 +1089,7 @@ func (params *LispState_LispRouters_Instances_Af_MapCache_MapCacheRloc_Params) G
 type LispState_LispRouters_Instances_Af_LocalDbase struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the prefix. The type is
     // LispAddressFamilyType.
@@ -1107,6 +1121,7 @@ func (localDbase *LispState_LispRouters_Instances_Af_LocalDbase) GetEntityData()
     localDbase.EntityData.BundleName = "cisco_ios_xe"
     localDbase.EntityData.ParentYangName = "af"
     localDbase.EntityData.SegmentPath = "local-dbase" + types.AddKeyToken(localDbase.Afi, "afi") + types.AddKeyToken(localDbase.Prefix, "prefix")
+    localDbase.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/" + localDbase.EntityData.SegmentPath
     localDbase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     localDbase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     localDbase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1133,6 +1148,7 @@ func (localDbase *LispState_LispRouters_Instances_Af_LocalDbase) GetEntityData()
 type LispState_LispRouters_Instances_Af_LocalDbase_LocalDbaseRloc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the address. The type is
     // LispAddressFamilyType.
@@ -1159,6 +1175,7 @@ func (localDbaseRloc *LispState_LispRouters_Instances_Af_LocalDbase_LocalDbaseRl
     localDbaseRloc.EntityData.BundleName = "cisco_ios_xe"
     localDbaseRloc.EntityData.ParentYangName = "local-dbase"
     localDbaseRloc.EntityData.SegmentPath = "local-dbase-rloc" + types.AddKeyToken(localDbaseRloc.Afi, "afi") + types.AddKeyToken(localDbaseRloc.Address, "address")
+    localDbaseRloc.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/local-dbase/" + localDbaseRloc.EntityData.SegmentPath
     localDbaseRloc.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     localDbaseRloc.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     localDbaseRloc.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1201,6 +1218,7 @@ func (params *LispState_LispRouters_Instances_Af_LocalDbase_LocalDbaseRloc_Param
     params.EntityData.BundleName = "cisco_ios_xe"
     params.EntityData.ParentYangName = "local-dbase-rloc"
     params.EntityData.SegmentPath = "params"
+    params.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/local-dbase/local-dbase-rloc/" + params.EntityData.SegmentPath
     params.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     params.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     params.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1222,6 +1240,7 @@ func (params *LispState_LispRouters_Instances_Af_LocalDbase_LocalDbaseRloc_Param
 type LispState_LispRouters_Instances_Af_MsRegistrations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the prefix. The type is
     // LispAddressFamilyType.
@@ -1280,6 +1299,7 @@ func (msRegistrations *LispState_LispRouters_Instances_Af_MsRegistrations) GetEn
     msRegistrations.EntityData.BundleName = "cisco_ios_xe"
     msRegistrations.EntityData.ParentYangName = "af"
     msRegistrations.EntityData.SegmentPath = "ms-registrations" + types.AddKeyToken(msRegistrations.Afi, "afi") + types.AddKeyToken(msRegistrations.Prefix, "prefix")
+    msRegistrations.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/" + msRegistrations.EntityData.SegmentPath
     msRegistrations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     msRegistrations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     msRegistrations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1327,6 +1347,7 @@ func (lastRegistrationSource *LispState_LispRouters_Instances_Af_MsRegistrations
     lastRegistrationSource.EntityData.BundleName = "cisco_ios_xe"
     lastRegistrationSource.EntityData.ParentYangName = "ms-registrations"
     lastRegistrationSource.EntityData.SegmentPath = "last-registration-source"
+    lastRegistrationSource.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/ms-registrations/" + lastRegistrationSource.EntityData.SegmentPath
     lastRegistrationSource.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lastRegistrationSource.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lastRegistrationSource.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1347,6 +1368,7 @@ func (lastRegistrationSource *LispState_LispRouters_Instances_Af_MsRegistrations
 type LispState_LispRouters_Instances_Af_MsRegistrations_EtrRegistrations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RLOC address of the registration source. The type
     // is one of the following types: string with pattern:
@@ -1387,6 +1409,7 @@ func (etrRegistrations *LispState_LispRouters_Instances_Af_MsRegistrations_EtrRe
     etrRegistrations.EntityData.BundleName = "cisco_ios_xe"
     etrRegistrations.EntityData.ParentYangName = "ms-registrations"
     etrRegistrations.EntityData.SegmentPath = "etr-registrations" + types.AddKeyToken(etrRegistrations.SourceAddress, "source-address") + types.AddKeyToken(etrRegistrations.SourcePort, "source-port")
+    etrRegistrations.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/ms-registrations/" + etrRegistrations.EntityData.SegmentPath
     etrRegistrations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etrRegistrations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etrRegistrations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1414,6 +1437,7 @@ func (etrRegistrations *LispState_LispRouters_Instances_Af_MsRegistrations_EtrRe
 type LispState_LispRouters_Instances_Af_MsRegistrations_EtrRegistrations_MsRegistrationRloc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the address. The type is
     // LispAddressFamilyType.
@@ -1441,6 +1465,7 @@ func (msRegistrationRloc *LispState_LispRouters_Instances_Af_MsRegistrations_Etr
     msRegistrationRloc.EntityData.BundleName = "cisco_ios_xe"
     msRegistrationRloc.EntityData.ParentYangName = "etr-registrations"
     msRegistrationRloc.EntityData.SegmentPath = "ms-registration-rloc" + types.AddKeyToken(msRegistrationRloc.Afi, "afi") + types.AddKeyToken(msRegistrationRloc.Address, "address")
+    msRegistrationRloc.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/ms-registrations/etr-registrations/" + msRegistrationRloc.EntityData.SegmentPath
     msRegistrationRloc.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     msRegistrationRloc.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     msRegistrationRloc.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1483,6 +1508,7 @@ func (params *LispState_LispRouters_Instances_Af_MsRegistrations_EtrRegistration
     params.EntityData.BundleName = "cisco_ios_xe"
     params.EntityData.ParentYangName = "ms-registration-rloc"
     params.EntityData.SegmentPath = "params"
+    params.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/ms-registrations/etr-registrations/ms-registration-rloc/" + params.EntityData.SegmentPath
     params.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     params.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     params.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1504,6 +1530,7 @@ func (params *LispState_LispRouters_Instances_Af_MsRegistrations_EtrRegistration
 type LispState_LispRouters_Instances_Af_MapServers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the address. The type is
     // LispAddressFamilyType.
@@ -1523,6 +1550,7 @@ func (mapServers *LispState_LispRouters_Instances_Af_MapServers) GetEntityData()
     mapServers.EntityData.BundleName = "cisco_ios_xe"
     mapServers.EntityData.ParentYangName = "af"
     mapServers.EntityData.SegmentPath = "map-servers" + types.AddKeyToken(mapServers.Afi, "afi") + types.AddKeyToken(mapServers.Address, "address")
+    mapServers.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/" + mapServers.EntityData.SegmentPath
     mapServers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mapServers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mapServers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1544,6 +1572,7 @@ func (mapServers *LispState_LispRouters_Instances_Af_MapServers) GetEntityData()
 type LispState_LispRouters_Instances_Af_MapResolvers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the address. The type is
     // LispAddressFamilyType.
@@ -1563,6 +1592,7 @@ func (mapResolvers *LispState_LispRouters_Instances_Af_MapResolvers) GetEntityDa
     mapResolvers.EntityData.BundleName = "cisco_ios_xe"
     mapResolvers.EntityData.ParentYangName = "af"
     mapResolvers.EntityData.SegmentPath = "map-resolvers" + types.AddKeyToken(mapResolvers.Afi, "afi") + types.AddKeyToken(mapResolvers.Address, "address")
+    mapResolvers.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/" + mapResolvers.EntityData.SegmentPath
     mapResolvers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mapResolvers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mapResolvers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1584,6 +1614,7 @@ func (mapResolvers *LispState_LispRouters_Instances_Af_MapResolvers) GetEntityDa
 type LispState_LispRouters_Instances_Af_ProxyEtrs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the address. The type is
     // LispAddressFamilyType.
@@ -1606,6 +1637,7 @@ func (proxyEtrs *LispState_LispRouters_Instances_Af_ProxyEtrs) GetEntityData() *
     proxyEtrs.EntityData.BundleName = "cisco_ios_xe"
     proxyEtrs.EntityData.ParentYangName = "af"
     proxyEtrs.EntityData.SegmentPath = "proxy-etrs" + types.AddKeyToken(proxyEtrs.Afi, "afi") + types.AddKeyToken(proxyEtrs.Address, "address")
+    proxyEtrs.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/" + proxyEtrs.EntityData.SegmentPath
     proxyEtrs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     proxyEtrs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     proxyEtrs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1647,6 +1679,7 @@ func (params *LispState_LispRouters_Instances_Af_ProxyEtrs_Params) GetEntityData
     params.EntityData.BundleName = "cisco_ios_xe"
     params.EntityData.ParentYangName = "proxy-etrs"
     params.EntityData.SegmentPath = "params"
+    params.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/af/proxy-etrs/" + params.EntityData.SegmentPath
     params.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     params.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     params.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1670,6 +1703,7 @@ func (params *LispState_LispRouters_Instances_Af_ProxyEtrs_Params) GetEntityData
 type LispState_LispRouters_Instances_MsEidMembership struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RLOC which is the allowed member. The type is one
     // of the following types: string with pattern:
@@ -1698,6 +1732,7 @@ func (msEidMembership *LispState_LispRouters_Instances_MsEidMembership) GetEntit
     msEidMembership.EntityData.BundleName = "cisco_ios_xe"
     msEidMembership.EntityData.ParentYangName = "instances"
     msEidMembership.EntityData.SegmentPath = "ms-eid-membership" + types.AddKeyToken(msEidMembership.Rloc, "rloc")
+    msEidMembership.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/" + msEidMembership.EntityData.SegmentPath
     msEidMembership.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     msEidMembership.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     msEidMembership.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1720,6 +1755,7 @@ func (msEidMembership *LispState_LispRouters_Instances_MsEidMembership) GetEntit
 type LispState_LispRouters_Instances_EtrEidMembership struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RLOC which is the allowed member. The type is one
     // of the following types: string with pattern:
@@ -1748,6 +1784,7 @@ func (etrEidMembership *LispState_LispRouters_Instances_EtrEidMembership) GetEnt
     etrEidMembership.EntityData.BundleName = "cisco_ios_xe"
     etrEidMembership.EntityData.ParentYangName = "instances"
     etrEidMembership.EntityData.SegmentPath = "etr-eid-membership" + types.AddKeyToken(etrEidMembership.Rloc, "rloc")
+    etrEidMembership.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/instances/" + etrEidMembership.EntityData.SegmentPath
     etrEidMembership.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etrEidMembership.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etrEidMembership.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1769,6 +1806,7 @@ func (etrEidMembership *LispState_LispRouters_Instances_EtrEidMembership) GetEnt
 type LispState_LispRouters_Sessions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of the local socket. The type is one of
     // the following types: string with pattern:
@@ -1829,6 +1867,7 @@ func (sessions *LispState_LispRouters_Sessions) GetEntityData() *types.CommonEnt
     sessions.EntityData.BundleName = "cisco_ios_xe"
     sessions.EntityData.ParentYangName = "lisp-routers"
     sessions.EntityData.SegmentPath = "sessions" + types.AddKeyToken(sessions.LocalAddress, "local-address") + types.AddKeyToken(sessions.PeerAddress, "peer-address") + types.AddKeyToken(sessions.LocalPort, "local-port") + types.AddKeyToken(sessions.PeerPort, "peer-port")
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1859,6 +1898,7 @@ func (sessions *LispState_LispRouters_Sessions) GetEntityData() *types.CommonEnt
 type LispState_LispRouters_LocalRlocs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the address. The type is
     // LispAddressFamilyType.
@@ -1882,6 +1922,7 @@ func (localRlocs *LispState_LispRouters_LocalRlocs) GetEntityData() *types.Commo
     localRlocs.EntityData.BundleName = "cisco_ios_xe"
     localRlocs.EntityData.ParentYangName = "lisp-routers"
     localRlocs.EntityData.SegmentPath = "local-rlocs" + types.AddKeyToken(localRlocs.Afi, "afi") + types.AddKeyToken(localRlocs.Address, "address")
+    localRlocs.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/" + localRlocs.EntityData.SegmentPath
     localRlocs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     localRlocs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     localRlocs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1903,6 +1944,7 @@ func (localRlocs *LispState_LispRouters_LocalRlocs) GetEntityData() *types.Commo
 type LispState_LispRouters_PrefixLists struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the prefix-list. The type is string.
     Name interface{}
@@ -1922,6 +1964,7 @@ func (prefixLists *LispState_LispRouters_PrefixLists) GetEntityData() *types.Com
     prefixLists.EntityData.BundleName = "cisco_ios_xe"
     prefixLists.EntityData.ParentYangName = "lisp-routers"
     prefixLists.EntityData.SegmentPath = "prefix-lists" + types.AddKeyToken(prefixLists.Name, "name")
+    prefixLists.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/" + prefixLists.EntityData.SegmentPath
     prefixLists.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     prefixLists.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prefixLists.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1945,6 +1988,7 @@ func (prefixLists *LispState_LispRouters_PrefixLists) GetEntityData() *types.Com
 type LispState_LispRouters_PrefixLists_PrefixListEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LISP Address-Family of the prefix. The type is
     // LispAddressFamilyType.
@@ -1970,6 +2014,7 @@ func (prefixListEntry *LispState_LispRouters_PrefixLists_PrefixListEntry) GetEnt
     prefixListEntry.EntityData.BundleName = "cisco_ios_xe"
     prefixListEntry.EntityData.ParentYangName = "prefix-lists"
     prefixListEntry.EntityData.SegmentPath = "prefix-list-entry" + types.AddKeyToken(prefixListEntry.Afi, "afi") + types.AddKeyToken(prefixListEntry.Prefix, "prefix")
+    prefixListEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-lisp-oper:lisp-state/lisp-routers/prefix-lists/" + prefixListEntry.EntityData.SegmentPath
     prefixListEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     prefixListEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prefixListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

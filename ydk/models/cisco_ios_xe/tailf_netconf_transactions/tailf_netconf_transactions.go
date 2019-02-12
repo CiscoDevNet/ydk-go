@@ -96,6 +96,7 @@ func (startTransaction *StartTransaction) GetEntityData() *types.CommonEntityDat
     startTransaction.EntityData.BundleName = "cisco_ios_xe"
     startTransaction.EntityData.ParentYangName = "tailf-netconf-transactions"
     startTransaction.EntityData.SegmentPath = "tailf-netconf-transactions:start-transaction"
+    startTransaction.EntityData.AbsolutePath = startTransaction.EntityData.SegmentPath
     startTransaction.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     startTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     startTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -132,6 +133,7 @@ func (input *StartTransaction_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "start-transaction"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "tailf-netconf-transactions:start-transaction/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -169,6 +171,7 @@ func (target *StartTransaction_Input_Target) GetEntityData() *types.CommonEntity
     target.EntityData.BundleName = "cisco_ios_xe"
     target.EntityData.ParentYangName = "input"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "tailf-netconf-transactions:start-transaction/input/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     target.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -216,6 +219,7 @@ func (prepareTransaction *PrepareTransaction) GetEntityData() *types.CommonEntit
     prepareTransaction.EntityData.BundleName = "cisco_ios_xe"
     prepareTransaction.EntityData.ParentYangName = "tailf-netconf-transactions"
     prepareTransaction.EntityData.SegmentPath = "tailf-netconf-transactions:prepare-transaction"
+    prepareTransaction.EntityData.AbsolutePath = prepareTransaction.EntityData.SegmentPath
     prepareTransaction.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     prepareTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prepareTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -246,6 +250,7 @@ func (commitTransaction *CommitTransaction) GetEntityData() *types.CommonEntityD
     commitTransaction.EntityData.BundleName = "cisco_ios_xe"
     commitTransaction.EntityData.ParentYangName = "tailf-netconf-transactions"
     commitTransaction.EntityData.SegmentPath = "tailf-netconf-transactions:commit-transaction"
+    commitTransaction.EntityData.AbsolutePath = commitTransaction.EntityData.SegmentPath
     commitTransaction.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     commitTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     commitTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -276,6 +281,7 @@ func (abortTransaction *AbortTransaction) GetEntityData() *types.CommonEntityDat
     abortTransaction.EntityData.BundleName = "cisco_ios_xe"
     abortTransaction.EntityData.ParentYangName = "tailf-netconf-transactions"
     abortTransaction.EntityData.SegmentPath = "tailf-netconf-transactions:abort-transaction"
+    abortTransaction.EntityData.AbsolutePath = abortTransaction.EntityData.SegmentPath
     abortTransaction.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     abortTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     abortTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

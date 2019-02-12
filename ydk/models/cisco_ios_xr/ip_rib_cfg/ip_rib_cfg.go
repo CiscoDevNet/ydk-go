@@ -48,6 +48,7 @@ func (rib *Rib) GetEntityData() *types.CommonEntityData {
     rib.EntityData.BundleName = "cisco_ios_xr"
     rib.EntityData.ParentYangName = "Cisco-IOS-XR-ip-rib-cfg"
     rib.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rib-cfg:rib"
+    rib.EntityData.AbsolutePath = rib.EntityData.SegmentPath
     rib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -81,6 +82,7 @@ func (af *Rib_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "rib"
     af.EntityData.SegmentPath = "af"
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-cfg:rib/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -114,6 +116,7 @@ func (ipv4 *Rib_Af_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "af"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-cfg:rib/af/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -152,6 +155,7 @@ func (redistributionHistory *Rib_Af_Ipv4_RedistributionHistory) GetEntityData() 
     redistributionHistory.EntityData.BundleName = "cisco_ios_xr"
     redistributionHistory.EntityData.ParentYangName = "ipv4"
     redistributionHistory.EntityData.SegmentPath = "redistribution-history"
+    redistributionHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv4/" + redistributionHistory.EntityData.SegmentPath
     redistributionHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistributionHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistributionHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -183,6 +187,7 @@ func (keep *Rib_Af_Ipv4_RedistributionHistory_Keep) GetEntityData() *types.Commo
     keep.EntityData.BundleName = "cisco_ios_xr"
     keep.EntityData.ParentYangName = "redistribution-history"
     keep.EntityData.SegmentPath = "keep"
+    keep.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv4/redistribution-history/" + keep.EntityData.SegmentPath
     keep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -215,6 +220,7 @@ func (ipv6 *Rib_Af_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "af"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-cfg:rib/af/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -253,6 +259,7 @@ func (redistributionHistory *Rib_Af_Ipv6_RedistributionHistory) GetEntityData() 
     redistributionHistory.EntityData.BundleName = "cisco_ios_xr"
     redistributionHistory.EntityData.ParentYangName = "ipv6"
     redistributionHistory.EntityData.SegmentPath = "redistribution-history"
+    redistributionHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv6/" + redistributionHistory.EntityData.SegmentPath
     redistributionHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistributionHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistributionHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -284,6 +291,7 @@ func (keep *Rib_Af_Ipv6_RedistributionHistory_Keep) GetEntityData() *types.Commo
     keep.EntityData.BundleName = "cisco_ios_xr"
     keep.EntityData.ParentYangName = "redistribution-history"
     keep.EntityData.SegmentPath = "keep"
+    keep.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv6/redistribution-history/" + keep.EntityData.SegmentPath
     keep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

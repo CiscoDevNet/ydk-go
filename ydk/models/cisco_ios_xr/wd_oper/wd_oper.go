@@ -71,6 +71,7 @@ func (watchdog *Watchdog) GetEntityData() *types.CommonEntityData {
     watchdog.EntityData.BundleName = "cisco_ios_xr"
     watchdog.EntityData.ParentYangName = "Cisco-IOS-XR-wd-oper"
     watchdog.EntityData.SegmentPath = "Cisco-IOS-XR-wd-oper:watchdog"
+    watchdog.EntityData.AbsolutePath = watchdog.EntityData.SegmentPath
     watchdog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     watchdog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     watchdog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -100,6 +101,7 @@ func (nodes *Watchdog_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "watchdog"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -121,6 +123,7 @@ func (nodes *Watchdog_Nodes) GetEntityData() *types.CommonEntityData {
 type Watchdog_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -142,6 +145,7 @@ func (node *Watchdog_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -177,6 +181,7 @@ func (thresholdMemory *Watchdog_Nodes_Node_ThresholdMemory) GetEntityData() *typ
     thresholdMemory.EntityData.BundleName = "cisco_ios_xr"
     thresholdMemory.EntityData.ParentYangName = "node"
     thresholdMemory.EntityData.SegmentPath = "threshold-memory"
+    thresholdMemory.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/nodes/node/" + thresholdMemory.EntityData.SegmentPath
     thresholdMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -210,6 +215,7 @@ func (self *Watchdog_Nodes_Node_ThresholdMemory_Default) GetEntityData() *types.
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "threshold-memory"
     self.EntityData.SegmentPath = "default"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/nodes/node/threshold-memory/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -249,6 +255,7 @@ func (configuredMemory *Watchdog_Nodes_Node_ThresholdMemory_Default_ConfiguredMe
     configuredMemory.EntityData.BundleName = "cisco_ios_xr"
     configuredMemory.EntityData.ParentYangName = "default"
     configuredMemory.EntityData.SegmentPath = "configured-memory"
+    configuredMemory.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/nodes/node/threshold-memory/default/" + configuredMemory.EntityData.SegmentPath
     configuredMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -288,6 +295,7 @@ func (memory *Watchdog_Nodes_Node_ThresholdMemory_Default_Memory) GetEntityData(
     memory.EntityData.BundleName = "cisco_ios_xr"
     memory.EntityData.ParentYangName = "default"
     memory.EntityData.SegmentPath = "memory"
+    memory.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/nodes/node/threshold-memory/default/" + memory.EntityData.SegmentPath
     memory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -328,6 +336,7 @@ func (configured *Watchdog_Nodes_Node_ThresholdMemory_Configured) GetEntityData(
     configured.EntityData.BundleName = "cisco_ios_xr"
     configured.EntityData.ParentYangName = "threshold-memory"
     configured.EntityData.SegmentPath = "configured"
+    configured.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/nodes/node/threshold-memory/" + configured.EntityData.SegmentPath
     configured.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configured.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configured.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -367,6 +376,7 @@ func (memoryState *Watchdog_Nodes_Node_MemoryState) GetEntityData() *types.Commo
     memoryState.EntityData.BundleName = "cisco_ios_xr"
     memoryState.EntityData.ParentYangName = "node"
     memoryState.EntityData.SegmentPath = "memory-state"
+    memoryState.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/nodes/node/" + memoryState.EntityData.SegmentPath
     memoryState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -412,6 +422,7 @@ func (overloadState *Watchdog_Nodes_Node_OverloadState) GetEntityData() *types.C
     overloadState.EntityData.BundleName = "cisco_ios_xr"
     overloadState.EntityData.ParentYangName = "node"
     overloadState.EntityData.SegmentPath = "overload-state"
+    overloadState.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/nodes/node/" + overloadState.EntityData.SegmentPath
     overloadState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     overloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     overloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -420,6 +431,7 @@ func (overloadState *Watchdog_Nodes_Node_OverloadState) GetEntityData() *types.C
     overloadState.EntityData.Children.Append("current-throttle", types.YChild{"CurrentThrottle", &overloadState.CurrentThrottle})
     overloadState.EntityData.Children.Append("last-throttle", types.YChild{"LastThrottle", nil})
     for i := range overloadState.LastThrottle {
+        types.SetYListKey(overloadState.LastThrottle[i], i)
         overloadState.EntityData.Children.Append(types.GetSegmentPath(overloadState.LastThrottle[i]), types.YChild{"LastThrottle", overloadState.LastThrottle[i]})
     }
     overloadState.EntityData.Leafs = types.NewOrderedMap()
@@ -454,6 +466,7 @@ func (currentThrottle *Watchdog_Nodes_Node_OverloadState_CurrentThrottle) GetEnt
     currentThrottle.EntityData.BundleName = "cisco_ios_xr"
     currentThrottle.EntityData.ParentYangName = "overload-state"
     currentThrottle.EntityData.SegmentPath = "current-throttle"
+    currentThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/nodes/node/overload-state/" + currentThrottle.EntityData.SegmentPath
     currentThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     currentThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     currentThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -473,6 +486,7 @@ func (currentThrottle *Watchdog_Nodes_Node_OverloadState_CurrentThrottle) GetEnt
 type Watchdog_Nodes_Node_OverloadState_LastThrottle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Last throttle duration in seconds. The type is interface{} with range:
     // 0..4294967295. Units are second.
@@ -493,7 +507,8 @@ func (lastThrottle *Watchdog_Nodes_Node_OverloadState_LastThrottle) GetEntityDat
     lastThrottle.EntityData.YangName = "last-throttle"
     lastThrottle.EntityData.BundleName = "cisco_ios_xr"
     lastThrottle.EntityData.ParentYangName = "overload-state"
-    lastThrottle.EntityData.SegmentPath = "last-throttle"
+    lastThrottle.EntityData.SegmentPath = "last-throttle" + types.AddNoKeyToken(lastThrottle)
+    lastThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-wd-oper:watchdog/nodes/node/overload-state/" + lastThrottle.EntityData.SegmentPath
     lastThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

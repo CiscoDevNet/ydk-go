@@ -40,6 +40,7 @@ func (showUsers *ShowUsers) GetEntityData() *types.CommonEntityData {
     showUsers.EntityData.BundleName = "cisco_ios_xr"
     showUsers.EntityData.ParentYangName = "Cisco-IOS-XR-tty-management-cmd-oper"
     showUsers.EntityData.SegmentPath = "Cisco-IOS-XR-tty-management-cmd-oper:show-users"
+    showUsers.EntityData.AbsolutePath = showUsers.EntityData.SegmentPath
     showUsers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     showUsers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     showUsers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (sessions *ShowUsers_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "show-users"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-management-cmd-oper:show-users/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (sessions *ShowUsers_Sessions) GetEntityData() *types.CommonEntityData {
 type ShowUsers_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session Id. The type is interface{} with range:
     // 0..4294967295.
@@ -120,6 +123,7 @@ func (session *ShowUsers_Sessions_Session) GetEntityData() *types.CommonEntityDa
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-management-cmd-oper:show-users/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

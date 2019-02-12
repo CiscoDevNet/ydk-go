@@ -204,6 +204,7 @@ func (subscriberRedundancyManager *SubscriberRedundancyManager) GetEntityData() 
     subscriberRedundancyManager.EntityData.BundleName = "cisco_ios_xr"
     subscriberRedundancyManager.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-srg-oper"
     subscriberRedundancyManager.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager"
+    subscriberRedundancyManager.EntityData.AbsolutePath = subscriberRedundancyManager.EntityData.SegmentPath
     subscriberRedundancyManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberRedundancyManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberRedundancyManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -236,6 +237,7 @@ func (groups *SubscriberRedundancyManager_Groups) GetEntityData() *types.CommonE
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "subscriber-redundancy-manager"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -257,6 +259,7 @@ func (groups *SubscriberRedundancyManager_Groups) GetEntityData() *types.CommonE
 type SubscriberRedundancyManager_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -310,6 +313,7 @@ func (group *SubscriberRedundancyManager_Groups_Group) GetEntityData() *types.Co
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.Group, "group")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -404,6 +408,7 @@ func (summary *SubscriberRedundancyManager_Summary) GetEntityData() *types.Commo
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "subscriber-redundancy-manager"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -449,6 +454,7 @@ func (interfaces *SubscriberRedundancyManager_Interfaces) GetEntityData() *types
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "subscriber-redundancy-manager"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -470,6 +476,7 @@ func (interfaces *SubscriberRedundancyManager_Interfaces) GetEntityData() *types
 type SubscriberRedundancyManager_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -497,6 +504,7 @@ func (self *SubscriberRedundancyManager_Interfaces_Interface) GetEntityData() *t
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -531,6 +539,7 @@ func (subscriberRedundancyAgent *SubscriberRedundancyAgent) GetEntityData() *typ
     subscriberRedundancyAgent.EntityData.BundleName = "cisco_ios_xr"
     subscriberRedundancyAgent.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-srg-oper"
     subscriberRedundancyAgent.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent"
+    subscriberRedundancyAgent.EntityData.AbsolutePath = subscriberRedundancyAgent.EntityData.SegmentPath
     subscriberRedundancyAgent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberRedundancyAgent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberRedundancyAgent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -562,6 +571,7 @@ func (nodes *SubscriberRedundancyAgent_Nodes) GetEntityData() *types.CommonEntit
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "subscriber-redundancy-agent"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -583,6 +593,7 @@ func (nodes *SubscriberRedundancyAgent_Nodes) GetEntityData() *types.CommonEntit
 type SubscriberRedundancyAgent_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -607,6 +618,7 @@ func (node *SubscriberRedundancyAgent_Nodes_Node) GetEntityData() *types.CommonE
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -641,6 +653,7 @@ func (groupIdXr *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr) GetEntityData()
     groupIdXr.EntityData.BundleName = "cisco_ios_xr"
     groupIdXr.EntityData.ParentYangName = "node"
     groupIdXr.EntityData.SegmentPath = "group-id-xr"
+    groupIdXr.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/" + groupIdXr.EntityData.SegmentPath
     groupIdXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupIdXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupIdXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -662,6 +675,7 @@ func (groupIdXr *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr) GetEntityData()
 type SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. GroupId. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -712,6 +726,7 @@ func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetEntity
     groupId.EntityData.BundleName = "cisco_ios_xr"
     groupId.EntityData.ParentYangName = "group-id-xr"
     groupId.EntityData.SegmentPath = "group-id" + types.AddKeyToken(groupId.GroupId, "group-id")
+    groupId.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/group-id-xr/" + groupId.EntityData.SegmentPath
     groupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -719,10 +734,12 @@ func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetEntity
     groupId.EntityData.Children = types.NewOrderedMap()
     groupId.EntityData.Children.Append("session-detailed-information", types.YChild{"SessionDetailedInformation", nil})
     for i := range groupId.SessionDetailedInformation {
+        types.SetYListKey(groupId.SessionDetailedInformation[i], i)
         groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.SessionDetailedInformation[i]), types.YChild{"SessionDetailedInformation", groupId.SessionDetailedInformation[i]})
     }
     groupId.EntityData.Children.Append("session-sync-error-information", types.YChild{"SessionSyncErrorInformation", nil})
     for i := range groupId.SessionSyncErrorInformation {
+        types.SetYListKey(groupId.SessionSyncErrorInformation[i], i)
         groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.SessionSyncErrorInformation[i]), types.YChild{"SessionSyncErrorInformation", groupId.SessionSyncErrorInformation[i]})
     }
     groupId.EntityData.Leafs = types.NewOrderedMap()
@@ -748,6 +765,7 @@ func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetEntity
 type SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Component. The type is SrgShowComp.
     Component interface{}
@@ -770,7 +788,8 @@ func (sessionDetailedInformation *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr
     sessionDetailedInformation.EntityData.YangName = "session-detailed-information"
     sessionDetailedInformation.EntityData.BundleName = "cisco_ios_xr"
     sessionDetailedInformation.EntityData.ParentYangName = "group-id"
-    sessionDetailedInformation.EntityData.SegmentPath = "session-detailed-information"
+    sessionDetailedInformation.EntityData.SegmentPath = "session-detailed-information" + types.AddNoKeyToken(sessionDetailedInformation)
+    sessionDetailedInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/group-id-xr/group-id/" + sessionDetailedInformation.EntityData.SegmentPath
     sessionDetailedInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetailedInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailedInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -793,6 +812,7 @@ func (sessionDetailedInformation *SubscriberRedundancyAgent_Nodes_Node_GroupIdXr
 type SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // No. of Errors occured during Synchronization. The type is interface{} with
     // range: 0..65535.
@@ -810,7 +830,8 @@ func (sessionSyncErrorInformation *SubscriberRedundancyAgent_Nodes_Node_GroupIdX
     sessionSyncErrorInformation.EntityData.YangName = "session-sync-error-information"
     sessionSyncErrorInformation.EntityData.BundleName = "cisco_ios_xr"
     sessionSyncErrorInformation.EntityData.ParentYangName = "group-id"
-    sessionSyncErrorInformation.EntityData.SegmentPath = "session-sync-error-information"
+    sessionSyncErrorInformation.EntityData.SegmentPath = "session-sync-error-information" + types.AddNoKeyToken(sessionSyncErrorInformation)
+    sessionSyncErrorInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/group-id-xr/group-id/" + sessionSyncErrorInformation.EntityData.SegmentPath
     sessionSyncErrorInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionSyncErrorInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionSyncErrorInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -843,6 +864,7 @@ func (interfaces *SubscriberRedundancyAgent_Nodes_Node_Interfaces) GetEntityData
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -864,6 +886,7 @@ func (interfaces *SubscriberRedundancyAgent_Nodes_Node_Interfaces) GetEntityData
 type SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -924,6 +947,7 @@ func (self *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface) GetEntity
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -933,6 +957,7 @@ func (self *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface) GetEntity
     self.EntityData.Children.Append("interface-status", types.YChild{"InterfaceStatus", &self.InterfaceStatus})
     self.EntityData.Children.Append("client-status", types.YChild{"ClientStatus", nil})
     for i := range self.ClientStatus {
+        types.SetYListKey(self.ClientStatus[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.ClientStatus[i]), types.YChild{"ClientStatus", self.ClientStatus[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -982,6 +1007,7 @@ func (interfaceOper *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface_I
     interfaceOper.EntityData.BundleName = "cisco_ios_xr"
     interfaceOper.EntityData.ParentYangName = "interface"
     interfaceOper.EntityData.SegmentPath = "interface-oper"
+    interfaceOper.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/interfaces/interface/" + interfaceOper.EntityData.SegmentPath
     interfaceOper.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceOper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceOper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1036,6 +1062,7 @@ func (interfaceStatus *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface
     interfaceStatus.EntityData.BundleName = "cisco_ios_xr"
     interfaceStatus.EntityData.ParentYangName = "interface"
     interfaceStatus.EntityData.SegmentPath = "interface-status"
+    interfaceStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/interfaces/interface/" + interfaceStatus.EntityData.SegmentPath
     interfaceStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1061,6 +1088,7 @@ func (interfaceStatus *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface
 type SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Component. The type is SrgShowComp.
     Component interface{}
@@ -1080,7 +1108,8 @@ func (clientStatus *SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface_Cl
     clientStatus.EntityData.YangName = "client-status"
     clientStatus.EntityData.BundleName = "cisco_ios_xr"
     clientStatus.EntityData.ParentYangName = "interface"
-    clientStatus.EntityData.SegmentPath = "client-status"
+    clientStatus.EntityData.SegmentPath = "client-status" + types.AddNoKeyToken(clientStatus)
+    clientStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/interfaces/interface/" + clientStatus.EntityData.SegmentPath
     clientStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1114,6 +1143,7 @@ func (groupSummaries *SubscriberRedundancyAgent_Nodes_Node_GroupSummaries) GetEn
     groupSummaries.EntityData.BundleName = "cisco_ios_xr"
     groupSummaries.EntityData.ParentYangName = "node"
     groupSummaries.EntityData.SegmentPath = "group-summaries"
+    groupSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/" + groupSummaries.EntityData.SegmentPath
     groupSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1135,6 +1165,7 @@ func (groupSummaries *SubscriberRedundancyAgent_Nodes_Node_GroupSummaries) GetEn
 type SubscriberRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. GroupId. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1186,6 +1217,7 @@ func (groupSummary *SubscriberRedundancyAgent_Nodes_Node_GroupSummaries_GroupSum
     groupSummary.EntityData.BundleName = "cisco_ios_xr"
     groupSummary.EntityData.ParentYangName = "group-summaries"
     groupSummary.EntityData.SegmentPath = "group-summary" + types.AddKeyToken(groupSummary.GroupId, "group-id")
+    groupSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/group-summaries/" + groupSummary.EntityData.SegmentPath
     groupSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1228,6 +1260,7 @@ func (groupIds *SubscriberRedundancyAgent_Nodes_Node_GroupIds) GetEntityData() *
     groupIds.EntityData.BundleName = "cisco_ios_xr"
     groupIds.EntityData.ParentYangName = "node"
     groupIds.EntityData.SegmentPath = "group-ids"
+    groupIds.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/" + groupIds.EntityData.SegmentPath
     groupIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1249,6 +1282,7 @@ func (groupIds *SubscriberRedundancyAgent_Nodes_Node_GroupIds) GetEntityData() *
 type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group Id. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1389,6 +1423,7 @@ func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityD
     groupId.EntityData.BundleName = "cisco_ios_xr"
     groupId.EntityData.ParentYangName = "group-ids"
     groupId.EntityData.SegmentPath = "group-id" + types.AddKeyToken(groupId.GroupId, "group-id")
+    groupId.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/group-ids/" + groupId.EntityData.SegmentPath
     groupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1396,6 +1431,7 @@ func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityD
     groupId.EntityData.Children = types.NewOrderedMap()
     groupId.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range groupId.Interface {
+        types.SetYListKey(groupId.Interface[i], i)
         groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.Interface[i]), types.YChild{"Interface", groupId.Interface[i]})
     }
     groupId.EntityData.Leafs = types.NewOrderedMap()
@@ -1449,6 +1485,7 @@ func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityD
 type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -1469,7 +1506,8 @@ func (self *SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) Get
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "group-id"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/node/group-ids/group-id/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

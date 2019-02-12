@@ -163,6 +163,7 @@ func (ipv6NodeDiscovery *Ipv6NodeDiscovery) GetEntityData() *types.CommonEntityD
     ipv6NodeDiscovery.EntityData.BundleName = "cisco_ios_xr"
     ipv6NodeDiscovery.EntityData.ParentYangName = "Cisco-IOS-XR-ipv6-nd-oper"
     ipv6NodeDiscovery.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery"
+    ipv6NodeDiscovery.EntityData.AbsolutePath = ipv6NodeDiscovery.EntityData.SegmentPath
     ipv6NodeDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6NodeDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6NodeDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -193,6 +194,7 @@ func (nodes *Ipv6NodeDiscovery_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "ipv6-node-discovery"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -215,6 +217,7 @@ func (nodes *Ipv6NodeDiscovery_Nodes) GetEntityData() *types.CommonEntityData {
 type Ipv6NodeDiscovery_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -248,6 +251,7 @@ func (node *Ipv6NodeDiscovery_Nodes_Node) GetEntityData() *types.CommonEntityDat
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -286,6 +290,7 @@ func (neighborInterfaces *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces) GetEn
     neighborInterfaces.EntityData.BundleName = "cisco_ios_xr"
     neighborInterfaces.EntityData.ParentYangName = "node"
     neighborInterfaces.EntityData.SegmentPath = "neighbor-interfaces"
+    neighborInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/" + neighborInterfaces.EntityData.SegmentPath
     neighborInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -307,6 +312,7 @@ func (neighborInterfaces *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces) GetEn
 type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -322,6 +328,7 @@ func (neighborInterface *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_Neighbo
     neighborInterface.EntityData.BundleName = "cisco_ios_xr"
     neighborInterface.EntityData.ParentYangName = "neighbor-interfaces"
     neighborInterface.EntityData.SegmentPath = "neighbor-interface" + types.AddKeyToken(neighborInterface.InterfaceName, "interface-name")
+    neighborInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/neighbor-interfaces/" + neighborInterface.EntityData.SegmentPath
     neighborInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -354,6 +361,7 @@ func (hostAddresses *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInt
     hostAddresses.EntityData.BundleName = "cisco_ios_xr"
     hostAddresses.EntityData.ParentYangName = "neighbor-interface"
     hostAddresses.EntityData.SegmentPath = "host-addresses"
+    hostAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/neighbor-interfaces/neighbor-interface/" + hostAddresses.EntityData.SegmentPath
     hostAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hostAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -375,6 +383,7 @@ func (hostAddresses *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInt
 type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface_HostAddresses_HostAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Host Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -423,6 +432,7 @@ func (hostAddress *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInter
     hostAddress.EntityData.BundleName = "cisco_ios_xr"
     hostAddress.EntityData.ParentYangName = "host-addresses"
     hostAddress.EntityData.SegmentPath = "host-address" + types.AddKeyToken(hostAddress.HostAddress, "host-address")
+    hostAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/neighbor-interfaces/neighbor-interface/host-addresses/" + hostAddress.EntityData.SegmentPath
     hostAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hostAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -464,6 +474,7 @@ func (lastReachedTime *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborI
     lastReachedTime.EntityData.BundleName = "cisco_ios_xr"
     lastReachedTime.EntityData.ParentYangName = "host-address"
     lastReachedTime.EntityData.SegmentPath = "last-reached-time"
+    lastReachedTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/neighbor-interfaces/neighbor-interface/host-addresses/host-address/" + lastReachedTime.EntityData.SegmentPath
     lastReachedTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastReachedTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastReachedTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -502,6 +513,7 @@ func (neighborSummary *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary) GetEntityDa
     neighborSummary.EntityData.BundleName = "cisco_ios_xr"
     neighborSummary.EntityData.ParentYangName = "node"
     neighborSummary.EntityData.SegmentPath = "neighbor-summary"
+    neighborSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/" + neighborSummary.EntityData.SegmentPath
     neighborSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -553,6 +565,7 @@ func (multicast *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Multicast) GetEnti
     multicast.EntityData.BundleName = "cisco_ios_xr"
     multicast.EntityData.ParentYangName = "neighbor-summary"
     multicast.EntityData.SegmentPath = "multicast"
+    multicast.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/neighbor-summary/" + multicast.EntityData.SegmentPath
     multicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -607,6 +620,7 @@ func (static *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Static) GetEntityData
     static.EntityData.BundleName = "cisco_ios_xr"
     static.EntityData.ParentYangName = "neighbor-summary"
     static.EntityData.SegmentPath = "static"
+    static.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/neighbor-summary/" + static.EntityData.SegmentPath
     static.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     static.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -661,6 +675,7 @@ func (dynamic *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Dynamic) GetEntityDa
     dynamic.EntityData.BundleName = "cisco_ios_xr"
     dynamic.EntityData.ParentYangName = "neighbor-summary"
     dynamic.EntityData.SegmentPath = "dynamic"
+    dynamic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/neighbor-summary/" + dynamic.EntityData.SegmentPath
     dynamic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -698,6 +713,7 @@ func (bundleNodes *Ipv6NodeDiscovery_Nodes_Node_BundleNodes) GetEntityData() *ty
     bundleNodes.EntityData.BundleName = "cisco_ios_xr"
     bundleNodes.EntityData.ParentYangName = "node"
     bundleNodes.EntityData.SegmentPath = "bundle-nodes"
+    bundleNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/" + bundleNodes.EntityData.SegmentPath
     bundleNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -720,6 +736,7 @@ func (bundleNodes *Ipv6NodeDiscovery_Nodes_Node_BundleNodes) GetEntityData() *ty
 type Ipv6NodeDiscovery_Nodes_Node_BundleNodes_BundleNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The bundle node name. The type is string with
     // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -759,6 +776,7 @@ func (bundleNode *Ipv6NodeDiscovery_Nodes_Node_BundleNodes_BundleNode) GetEntity
     bundleNode.EntityData.BundleName = "cisco_ios_xr"
     bundleNode.EntityData.ParentYangName = "bundle-nodes"
     bundleNode.EntityData.SegmentPath = "bundle-node" + types.AddKeyToken(bundleNode.NodeName, "node-name")
+    bundleNode.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/bundle-nodes/" + bundleNode.EntityData.SegmentPath
     bundleNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -798,6 +816,7 @@ func (age *Ipv6NodeDiscovery_Nodes_Node_BundleNodes_BundleNode_Age) GetEntityDat
     age.EntityData.BundleName = "cisco_ios_xr"
     age.EntityData.ParentYangName = "bundle-node"
     age.EntityData.SegmentPath = "age"
+    age.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/bundle-nodes/bundle-node/" + age.EntityData.SegmentPath
     age.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     age.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     age.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -829,6 +848,7 @@ func (bundleInterfaces *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces) GetEntity
     bundleInterfaces.EntityData.BundleName = "cisco_ios_xr"
     bundleInterfaces.EntityData.ParentYangName = "node"
     bundleInterfaces.EntityData.SegmentPath = "bundle-interfaces"
+    bundleInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/" + bundleInterfaces.EntityData.SegmentPath
     bundleInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -851,6 +871,7 @@ func (bundleInterfaces *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces) GetEntity
 type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -912,6 +933,7 @@ func (bundleInterface *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInter
     bundleInterface.EntityData.BundleName = "cisco_ios_xr"
     bundleInterface.EntityData.ParentYangName = "bundle-interfaces"
     bundleInterface.EntityData.SegmentPath = "bundle-interface" + types.AddKeyToken(bundleInterface.InterfaceName, "interface-name")
+    bundleInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/bundle-interfaces/" + bundleInterface.EntityData.SegmentPath
     bundleInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -921,10 +943,12 @@ func (bundleInterface *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInter
     bundleInterface.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &bundleInterface.LocalAddress})
     bundleInterface.EntityData.Children.Append("global-address", types.YChild{"GlobalAddress", nil})
     for i := range bundleInterface.GlobalAddress {
+        types.SetYListKey(bundleInterface.GlobalAddress[i], i)
         bundleInterface.EntityData.Children.Append(types.GetSegmentPath(bundleInterface.GlobalAddress[i]), types.YChild{"GlobalAddress", bundleInterface.GlobalAddress[i]})
     }
     bundleInterface.EntityData.Children.Append("member-node", types.YChild{"MemberNode", nil})
     for i := range bundleInterface.MemberNode {
+        types.SetYListKey(bundleInterface.MemberNode[i], i)
         bundleInterface.EntityData.Children.Append(types.GetSegmentPath(bundleInterface.MemberNode[i]), types.YChild{"MemberNode", bundleInterface.MemberNode[i]})
     }
     bundleInterface.EntityData.Leafs = types.NewOrderedMap()
@@ -1029,6 +1053,7 @@ func (ndParameters *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfac
     ndParameters.EntityData.BundleName = "cisco_ios_xr"
     ndParameters.EntityData.ParentYangName = "bundle-interface"
     ndParameters.EntityData.SegmentPath = "nd-parameters"
+    ndParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/bundle-interfaces/bundle-interface/" + ndParameters.EntityData.SegmentPath
     ndParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ndParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ndParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1085,6 +1110,7 @@ func (localAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfac
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "bundle-interface"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/bundle-interfaces/bundle-interface/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1105,6 +1131,7 @@ func (localAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfac
 type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_GlobalAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -1124,7 +1151,8 @@ func (globalAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfa
     globalAddress.EntityData.YangName = "global-address"
     globalAddress.EntityData.BundleName = "cisco_ios_xr"
     globalAddress.EntityData.ParentYangName = "bundle-interface"
-    globalAddress.EntityData.SegmentPath = "global-address"
+    globalAddress.EntityData.SegmentPath = "global-address" + types.AddNoKeyToken(globalAddress)
+    globalAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/bundle-interfaces/bundle-interface/" + globalAddress.EntityData.SegmentPath
     globalAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1145,6 +1173,7 @@ func (globalAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfa
 type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_MemberNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Node Name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -1160,7 +1189,8 @@ func (memberNode *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_
     memberNode.EntityData.YangName = "member-node"
     memberNode.EntityData.BundleName = "cisco_ios_xr"
     memberNode.EntityData.ParentYangName = "bundle-interface"
-    memberNode.EntityData.SegmentPath = "member-node"
+    memberNode.EntityData.SegmentPath = "member-node" + types.AddNoKeyToken(memberNode)
+    memberNode.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/bundle-interfaces/bundle-interface/" + memberNode.EntityData.SegmentPath
     memberNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1193,6 +1223,7 @@ func (interfaces *Ipv6NodeDiscovery_Nodes_Node_Interfaces) GetEntityData() *type
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1215,6 +1246,7 @@ func (interfaces *Ipv6NodeDiscovery_Nodes_Node_Interfaces) GetEntityData() *type
 type Ipv6NodeDiscovery_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1297,6 +1329,7 @@ func (self *Ipv6NodeDiscovery_Nodes_Node_Interfaces_Interface) GetEntityData() *
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1347,6 +1380,7 @@ func (ndVirtualRouters *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters) GetEntity
     ndVirtualRouters.EntityData.BundleName = "cisco_ios_xr"
     ndVirtualRouters.EntityData.ParentYangName = "node"
     ndVirtualRouters.EntityData.SegmentPath = "nd-virtual-routers"
+    ndVirtualRouters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/" + ndVirtualRouters.EntityData.SegmentPath
     ndVirtualRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ndVirtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ndVirtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1369,6 +1403,7 @@ func (ndVirtualRouters *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters) GetEntity
 type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1405,6 +1440,7 @@ func (ndVirtualRouter *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRo
     ndVirtualRouter.EntityData.BundleName = "cisco_ios_xr"
     ndVirtualRouter.EntityData.ParentYangName = "nd-virtual-routers"
     ndVirtualRouter.EntityData.SegmentPath = "nd-virtual-router" + types.AddKeyToken(ndVirtualRouter.InterfaceName, "interface-name")
+    ndVirtualRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/nd-virtual-routers/" + ndVirtualRouter.EntityData.SegmentPath
     ndVirtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ndVirtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ndVirtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1413,6 +1449,7 @@ func (ndVirtualRouter *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRo
     ndVirtualRouter.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &ndVirtualRouter.LocalAddress})
     ndVirtualRouter.EntityData.Children.Append("vr-global-address", types.YChild{"VrGlobalAddress", nil})
     for i := range ndVirtualRouter.VrGlobalAddress {
+        types.SetYListKey(ndVirtualRouter.VrGlobalAddress[i], i)
         ndVirtualRouter.EntityData.Children.Append(types.GetSegmentPath(ndVirtualRouter.VrGlobalAddress[i]), types.YChild{"VrGlobalAddress", ndVirtualRouter.VrGlobalAddress[i]})
     }
     ndVirtualRouter.EntityData.Leafs = types.NewOrderedMap()
@@ -1453,6 +1490,7 @@ func (localAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRoute
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "nd-virtual-router"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/nd-virtual-routers/nd-virtual-router/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1473,6 +1511,7 @@ func (localAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRoute
 type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_VrGlobalAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -1492,7 +1531,8 @@ func (vrGlobalAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRo
     vrGlobalAddress.EntityData.YangName = "vr-global-address"
     vrGlobalAddress.EntityData.BundleName = "cisco_ios_xr"
     vrGlobalAddress.EntityData.ParentYangName = "nd-virtual-router"
-    vrGlobalAddress.EntityData.SegmentPath = "vr-global-address"
+    vrGlobalAddress.EntityData.SegmentPath = "vr-global-address" + types.AddNoKeyToken(vrGlobalAddress)
+    vrGlobalAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/nd-virtual-routers/nd-virtual-router/" + vrGlobalAddress.EntityData.SegmentPath
     vrGlobalAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrGlobalAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrGlobalAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1526,6 +1566,7 @@ func (slaacInterfaces *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces) GetEntityDa
     slaacInterfaces.EntityData.BundleName = "cisco_ios_xr"
     slaacInterfaces.EntityData.ParentYangName = "node"
     slaacInterfaces.EntityData.SegmentPath = "slaac-interfaces"
+    slaacInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/" + slaacInterfaces.EntityData.SegmentPath
     slaacInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaacInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaacInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1548,6 +1589,7 @@ func (slaacInterfaces *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces) GetEntityDa
 type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1563,6 +1605,7 @@ func (slaacInterface *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterfac
     slaacInterface.EntityData.BundleName = "cisco_ios_xr"
     slaacInterface.EntityData.ParentYangName = "slaac-interfaces"
     slaacInterface.EntityData.SegmentPath = "slaac-interface" + types.AddKeyToken(slaacInterface.InterfaceName, "interface-name")
+    slaacInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/slaac-interfaces/" + slaacInterface.EntityData.SegmentPath
     slaacInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaacInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaacInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1598,6 +1641,7 @@ func (routerAdvertDetail *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInte
     routerAdvertDetail.EntityData.BundleName = "cisco_ios_xr"
     routerAdvertDetail.EntityData.ParentYangName = "slaac-interface"
     routerAdvertDetail.EntityData.SegmentPath = "router-advert-detail"
+    routerAdvertDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/slaac-interfaces/slaac-interface/" + routerAdvertDetail.EntityData.SegmentPath
     routerAdvertDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerAdvertDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerAdvertDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1605,6 +1649,7 @@ func (routerAdvertDetail *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInte
     routerAdvertDetail.EntityData.Children = types.NewOrderedMap()
     routerAdvertDetail.EntityData.Children.Append("ra", types.YChild{"Ra", nil})
     for i := range routerAdvertDetail.Ra {
+        types.SetYListKey(routerAdvertDetail.Ra[i], i)
         routerAdvertDetail.EntityData.Children.Append(types.GetSegmentPath(routerAdvertDetail.Ra[i]), types.YChild{"Ra", routerAdvertDetail.Ra[i]})
     }
     routerAdvertDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -1620,6 +1665,7 @@ func (routerAdvertDetail *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInte
 type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -1674,7 +1720,8 @@ func (ra *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdve
     ra.EntityData.YangName = "ra"
     ra.EntityData.BundleName = "cisco_ios_xr"
     ra.EntityData.ParentYangName = "router-advert-detail"
-    ra.EntityData.SegmentPath = "ra"
+    ra.EntityData.SegmentPath = "ra" + types.AddNoKeyToken(ra)
+    ra.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/slaac-interfaces/slaac-interface/router-advert-detail/" + ra.EntityData.SegmentPath
     ra.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ra.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ra.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1685,6 +1732,7 @@ func (ra *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdve
     ra.EntityData.Children.Append("retrans-time", types.YChild{"RetransTime", &ra.RetransTime})
     ra.EntityData.Children.Append("prefix-q", types.YChild{"PrefixQ", nil})
     for i := range ra.PrefixQ {
+        types.SetYListKey(ra.PrefixQ[i], i)
         ra.EntityData.Children.Append(types.GetSegmentPath(ra.PrefixQ[i]), types.YChild{"PrefixQ", ra.PrefixQ[i]})
     }
     ra.EntityData.Leafs = types.NewOrderedMap()
@@ -1722,6 +1770,7 @@ func (elapsedRaTime *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface
     elapsedRaTime.EntityData.BundleName = "cisco_ios_xr"
     elapsedRaTime.EntityData.ParentYangName = "ra"
     elapsedRaTime.EntityData.SegmentPath = "elapsed-ra-time"
+    elapsedRaTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/slaac-interfaces/slaac-interface/router-advert-detail/ra/" + elapsedRaTime.EntityData.SegmentPath
     elapsedRaTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     elapsedRaTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     elapsedRaTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1752,6 +1801,7 @@ func (reachableTime *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface
     reachableTime.EntityData.BundleName = "cisco_ios_xr"
     reachableTime.EntityData.ParentYangName = "ra"
     reachableTime.EntityData.SegmentPath = "reachable-time"
+    reachableTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/slaac-interfaces/slaac-interface/router-advert-detail/ra/" + reachableTime.EntityData.SegmentPath
     reachableTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reachableTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reachableTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1782,6 +1832,7 @@ func (retransTime *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_R
     retransTime.EntityData.BundleName = "cisco_ios_xr"
     retransTime.EntityData.ParentYangName = "ra"
     retransTime.EntityData.SegmentPath = "retrans-time"
+    retransTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/slaac-interfaces/slaac-interface/router-advert-detail/ra/" + retransTime.EntityData.SegmentPath
     retransTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1800,6 +1851,7 @@ func (retransTime *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_R
 type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_PrefixQ struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -1832,7 +1884,8 @@ func (prefixQ *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_Route
     prefixQ.EntityData.YangName = "prefix-q"
     prefixQ.EntityData.BundleName = "cisco_ios_xr"
     prefixQ.EntityData.ParentYangName = "ra"
-    prefixQ.EntityData.SegmentPath = "prefix-q"
+    prefixQ.EntityData.SegmentPath = "prefix-q" + types.AddNoKeyToken(prefixQ)
+    prefixQ.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/slaac-interfaces/slaac-interface/router-advert-detail/ra/" + prefixQ.EntityData.SegmentPath
     prefixQ.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixQ.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixQ.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

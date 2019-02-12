@@ -55,6 +55,7 @@ func (showFpd *ShowFpd) GetEntityData() *types.CommonEntityData {
     showFpd.EntityData.BundleName = "cisco_ios_xr"
     showFpd.EntityData.ParentYangName = "Cisco-IOS-XR-show-fpd-loc-ng-oper"
     showFpd.EntityData.SegmentPath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd"
+    showFpd.EntityData.AbsolutePath = showFpd.EntityData.SegmentPath
     showFpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     showFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     showFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -89,6 +90,7 @@ func (locations *ShowFpd_Locations) GetEntityData() *types.CommonEntityData {
     locations.EntityData.BundleName = "cisco_ios_xr"
     locations.EntityData.ParentYangName = "show-fpd"
     locations.EntityData.SegmentPath = "locations"
+    locations.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/" + locations.EntityData.SegmentPath
     locations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -110,6 +112,7 @@ func (locations *ShowFpd_Locations) GetEntityData() *types.CommonEntityData {
 type ShowFpd_Locations_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fpd location. The type is string with length:
     // 1..32.
@@ -125,6 +128,7 @@ func (location *ShowFpd_Locations_Location) GetEntityData() *types.CommonEntityD
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "locations"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location-name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -156,6 +160,7 @@ func (details *ShowFpd_Locations_Location_Details) GetEntityData() *types.Common
     details.EntityData.BundleName = "cisco_ios_xr"
     details.EntityData.ParentYangName = "location"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/location/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -177,6 +182,7 @@ func (details *ShowFpd_Locations_Location_Details) GetEntityData() *types.Common
 type ShowFpd_Locations_Location_Details_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fpd Name. The type is string with length: 1..32.
     FpdName interface{}
@@ -195,6 +201,7 @@ func (detail *ShowFpd_Locations_Location_Details_Detail) GetEntityData() *types.
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "details"
     detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.FpdName, "fpd-name")
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/location/details/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -202,6 +209,7 @@ func (detail *ShowFpd_Locations_Location_Details_Detail) GetEntityData() *types.
     detail.EntityData.Children = types.NewOrderedMap()
     detail.EntityData.Children.Append("fpd-info-detaile", types.YChild{"FpdInfoDetaile", nil})
     for i := range detail.FpdInfoDetaile {
+        types.SetYListKey(detail.FpdInfoDetaile[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.FpdInfoDetaile[i]), types.YChild{"FpdInfoDetaile", detail.FpdInfoDetaile[i]})
     }
     detail.EntityData.Leafs = types.NewOrderedMap()
@@ -218,6 +226,7 @@ func (detail *ShowFpd_Locations_Location_Details_Detail) GetEntityData() *types.
 type ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // fpd location. The type is string.
     Location interface{}
@@ -249,7 +258,8 @@ func (fpdInfoDetaile *ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile) 
     fpdInfoDetaile.EntityData.YangName = "fpd-info-detaile"
     fpdInfoDetaile.EntityData.BundleName = "cisco_ios_xr"
     fpdInfoDetaile.EntityData.ParentYangName = "detail"
-    fpdInfoDetaile.EntityData.SegmentPath = "fpd-info-detaile"
+    fpdInfoDetaile.EntityData.SegmentPath = "fpd-info-detaile" + types.AddNoKeyToken(fpdInfoDetaile)
+    fpdInfoDetaile.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/location/details/detail/" + fpdInfoDetaile.EntityData.SegmentPath
     fpdInfoDetaile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdInfoDetaile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdInfoDetaile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -291,6 +301,7 @@ func (hwModuleFpd *ShowFpd_HwModuleFpd) GetEntityData() *types.CommonEntityData 
     hwModuleFpd.EntityData.BundleName = "cisco_ios_xr"
     hwModuleFpd.EntityData.ParentYangName = "show-fpd"
     hwModuleFpd.EntityData.SegmentPath = "hw-module-fpd"
+    hwModuleFpd.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/" + hwModuleFpd.EntityData.SegmentPath
     hwModuleFpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwModuleFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModuleFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -298,6 +309,7 @@ func (hwModuleFpd *ShowFpd_HwModuleFpd) GetEntityData() *types.CommonEntityData 
     hwModuleFpd.EntityData.Children = types.NewOrderedMap()
     hwModuleFpd.EntityData.Children.Append("fpd-info-detaile", types.YChild{"FpdInfoDetaile", nil})
     for i := range hwModuleFpd.FpdInfoDetaile {
+        types.SetYListKey(hwModuleFpd.FpdInfoDetaile[i], i)
         hwModuleFpd.EntityData.Children.Append(types.GetSegmentPath(hwModuleFpd.FpdInfoDetaile[i]), types.YChild{"FpdInfoDetaile", hwModuleFpd.FpdInfoDetaile[i]})
     }
     hwModuleFpd.EntityData.Leafs = types.NewOrderedMap()
@@ -313,6 +325,7 @@ func (hwModuleFpd *ShowFpd_HwModuleFpd) GetEntityData() *types.CommonEntityData 
 type ShowFpd_HwModuleFpd_FpdInfoDetaile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // fpd location. The type is string.
     Location interface{}
@@ -344,7 +357,8 @@ func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetEntityData() *types
     fpdInfoDetaile.EntityData.YangName = "fpd-info-detaile"
     fpdInfoDetaile.EntityData.BundleName = "cisco_ios_xr"
     fpdInfoDetaile.EntityData.ParentYangName = "hw-module-fpd"
-    fpdInfoDetaile.EntityData.SegmentPath = "fpd-info-detaile"
+    fpdInfoDetaile.EntityData.SegmentPath = "fpd-info-detaile" + types.AddNoKeyToken(fpdInfoDetaile)
+    fpdInfoDetaile.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/hw-module-fpd/" + fpdInfoDetaile.EntityData.SegmentPath
     fpdInfoDetaile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdInfoDetaile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdInfoDetaile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -381,6 +395,7 @@ func (helpLocations *ShowFpd_HelpLocations) GetEntityData() *types.CommonEntityD
     helpLocations.EntityData.BundleName = "cisco_ios_xr"
     helpLocations.EntityData.ParentYangName = "show-fpd"
     helpLocations.EntityData.SegmentPath = "help-locations"
+    helpLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/" + helpLocations.EntityData.SegmentPath
     helpLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helpLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helpLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -402,6 +417,7 @@ func (helpLocations *ShowFpd_HelpLocations) GetEntityData() *types.CommonEntityD
 type ShowFpd_HelpLocations_HelpLocation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fpd location. The type is string with length:
     // 1..32.
@@ -417,6 +433,7 @@ func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetEntityData() *types.C
     helpLocation.EntityData.BundleName = "cisco_ios_xr"
     helpLocation.EntityData.ParentYangName = "help-locations"
     helpLocation.EntityData.SegmentPath = "help-location" + types.AddKeyToken(helpLocation.LocationName, "location-name")
+    helpLocation.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/help-locations/" + helpLocation.EntityData.SegmentPath
     helpLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helpLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helpLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -448,6 +465,7 @@ func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetEntityData() *type
     helpFpd.EntityData.BundleName = "cisco_ios_xr"
     helpFpd.EntityData.ParentYangName = "help-location"
     helpFpd.EntityData.SegmentPath = "help-fpd"
+    helpFpd.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/help-locations/help-location/" + helpFpd.EntityData.SegmentPath
     helpFpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helpFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helpFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -455,6 +473,7 @@ func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetEntityData() *type
     helpFpd.EntityData.Children = types.NewOrderedMap()
     helpFpd.EntityData.Children.Append("fpd-name", types.YChild{"FpdName", nil})
     for i := range helpFpd.FpdName {
+        types.SetYListKey(helpFpd.FpdName[i], i)
         helpFpd.EntityData.Children.Append(types.GetSegmentPath(helpFpd.FpdName[i]), types.YChild{"FpdName", helpFpd.FpdName[i]})
     }
     helpFpd.EntityData.Leafs = types.NewOrderedMap()
@@ -469,6 +488,7 @@ func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetEntityData() *type
 type ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // fpd location. The type is string.
     Location interface{}
@@ -482,7 +502,8 @@ func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetEntityData
     fpdName.EntityData.YangName = "fpd-name"
     fpdName.EntityData.BundleName = "cisco_ios_xr"
     fpdName.EntityData.ParentYangName = "help-fpd"
-    fpdName.EntityData.SegmentPath = "fpd-name"
+    fpdName.EntityData.SegmentPath = "fpd-name" + types.AddNoKeyToken(fpdName)
+    fpdName.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/help-locations/help-location/help-fpd/" + fpdName.EntityData.SegmentPath
     fpdName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -513,6 +534,7 @@ func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetEntityData() *types.Com
     hwModuleFpdHelpFpd.EntityData.BundleName = "cisco_ios_xr"
     hwModuleFpdHelpFpd.EntityData.ParentYangName = "show-fpd"
     hwModuleFpdHelpFpd.EntityData.SegmentPath = "hw-module-fpd-help-fpd"
+    hwModuleFpdHelpFpd.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/" + hwModuleFpdHelpFpd.EntityData.SegmentPath
     hwModuleFpdHelpFpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwModuleFpdHelpFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModuleFpdHelpFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -520,6 +542,7 @@ func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetEntityData() *types.Com
     hwModuleFpdHelpFpd.EntityData.Children = types.NewOrderedMap()
     hwModuleFpdHelpFpd.EntityData.Children.Append("fpd-name", types.YChild{"FpdName", nil})
     for i := range hwModuleFpdHelpFpd.FpdName {
+        types.SetYListKey(hwModuleFpdHelpFpd.FpdName[i], i)
         hwModuleFpdHelpFpd.EntityData.Children.Append(types.GetSegmentPath(hwModuleFpdHelpFpd.FpdName[i]), types.YChild{"FpdName", hwModuleFpdHelpFpd.FpdName[i]})
     }
     hwModuleFpdHelpFpd.EntityData.Leafs = types.NewOrderedMap()
@@ -534,6 +557,7 @@ func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetEntityData() *types.Com
 type ShowFpd_HwModuleFpdHelpFpd_FpdName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // fpd location. The type is string.
     Location interface{}
@@ -547,7 +571,8 @@ func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetEntityData() *types.Common
     fpdName.EntityData.YangName = "fpd-name"
     fpdName.EntityData.BundleName = "cisco_ios_xr"
     fpdName.EntityData.ParentYangName = "hw-module-fpd-help-fpd"
-    fpdName.EntityData.SegmentPath = "fpd-name"
+    fpdName.EntityData.SegmentPath = "fpd-name" + types.AddNoKeyToken(fpdName)
+    fpdName.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/hw-module-fpd-help-fpd/" + fpdName.EntityData.SegmentPath
     fpdName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -578,6 +603,7 @@ func (self *ShowFpd_Package) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "show-fpd"
     self.EntityData.SegmentPath = "package"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -585,6 +611,7 @@ func (self *ShowFpd_Package) GetEntityData() *types.CommonEntityData {
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("fpd-pkg-data", types.YChild{"FpdPkgData", nil})
     for i := range self.FpdPkgData {
+        types.SetYListKey(self.FpdPkgData[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.FpdPkgData[i]), types.YChild{"FpdPkgData", self.FpdPkgData[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -599,6 +626,7 @@ func (self *ShowFpd_Package) GetEntityData() *types.CommonEntityData {
 type ShowFpd_Package_FpdPkgData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // card type. The type is string.
     CardType interface{}
@@ -624,7 +652,8 @@ func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetEntityData() *types.CommonEntit
     fpdPkgData.EntityData.YangName = "fpd-pkg-data"
     fpdPkgData.EntityData.BundleName = "cisco_ios_xr"
     fpdPkgData.EntityData.ParentYangName = "package"
-    fpdPkgData.EntityData.SegmentPath = "fpd-pkg-data"
+    fpdPkgData.EntityData.SegmentPath = "fpd-pkg-data" + types.AddNoKeyToken(fpdPkgData)
+    fpdPkgData.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/package/" + fpdPkgData.EntityData.SegmentPath
     fpdPkgData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdPkgData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdPkgData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -659,6 +688,7 @@ func (locationHelp *ShowFpd_LocationHelp) GetEntityData() *types.CommonEntityDat
     locationHelp.EntityData.BundleName = "cisco_ios_xr"
     locationHelp.EntityData.ParentYangName = "show-fpd"
     locationHelp.EntityData.SegmentPath = "location-help"
+    locationHelp.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/" + locationHelp.EntityData.SegmentPath
     locationHelp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locationHelp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationHelp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -666,6 +696,7 @@ func (locationHelp *ShowFpd_LocationHelp) GetEntityData() *types.CommonEntityDat
     locationHelp.EntityData.Children = types.NewOrderedMap()
     locationHelp.EntityData.Children.Append("location-name", types.YChild{"LocationName", nil})
     for i := range locationHelp.LocationName {
+        types.SetYListKey(locationHelp.LocationName[i], i)
         locationHelp.EntityData.Children.Append(types.GetSegmentPath(locationHelp.LocationName[i]), types.YChild{"LocationName", locationHelp.LocationName[i]})
     }
     locationHelp.EntityData.Leafs = types.NewOrderedMap()
@@ -680,6 +711,7 @@ func (locationHelp *ShowFpd_LocationHelp) GetEntityData() *types.CommonEntityDat
 type ShowFpd_LocationHelp_LocationName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // card location. The type is string.
     LocationName interface{}
@@ -690,7 +722,8 @@ func (locationName *ShowFpd_LocationHelp_LocationName) GetEntityData() *types.Co
     locationName.EntityData.YangName = "location-name"
     locationName.EntityData.BundleName = "cisco_ios_xr"
     locationName.EntityData.ParentYangName = "location-help"
-    locationName.EntityData.SegmentPath = "location-name"
+    locationName.EntityData.SegmentPath = "location-name" + types.AddNoKeyToken(locationName)
+    locationName.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/location-help/" + locationName.EntityData.SegmentPath
     locationName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locationName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

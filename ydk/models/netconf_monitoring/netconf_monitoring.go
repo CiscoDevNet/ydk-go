@@ -158,6 +158,7 @@ func (getSchema *GetSchema) GetEntityData() *types.CommonEntityData {
     getSchema.EntityData.BundleName = "ietf"
     getSchema.EntityData.ParentYangName = "ietf-netconf-monitoring"
     getSchema.EntityData.SegmentPath = "ietf-netconf-monitoring:get-schema"
+    getSchema.EntityData.AbsolutePath = getSchema.EntityData.SegmentPath
     getSchema.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     getSchema.EntityData.NamespaceTable = ietf.GetNamespaces()
     getSchema.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -200,6 +201,7 @@ func (input *GetSchema_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "get-schema"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf-monitoring:get-schema/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -230,6 +232,7 @@ func (output *GetSchema_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "ietf"
     output.EntityData.ParentYangName = "get-schema"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "ietf-netconf-monitoring:get-schema/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -274,6 +277,7 @@ func (netconfState *NetconfState) GetEntityData() *types.CommonEntityData {
     netconfState.EntityData.BundleName = "ietf"
     netconfState.EntityData.ParentYangName = "ietf-netconf-monitoring"
     netconfState.EntityData.SegmentPath = "ietf-netconf-monitoring:netconf-state"
+    netconfState.EntityData.AbsolutePath = netconfState.EntityData.SegmentPath
     netconfState.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     netconfState.EntityData.NamespaceTable = ietf.GetNamespaces()
     netconfState.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -309,6 +313,7 @@ func (capabilities *NetconfState_Capabilities) GetEntityData() *types.CommonEnti
     capabilities.EntityData.BundleName = "ietf"
     capabilities.EntityData.ParentYangName = "netconf-state"
     capabilities.EntityData.SegmentPath = "capabilities"
+    capabilities.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/" + capabilities.EntityData.SegmentPath
     capabilities.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     capabilities.EntityData.NamespaceTable = ietf.GetNamespaces()
     capabilities.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -340,6 +345,7 @@ func (datastores *NetconfState_Datastores) GetEntityData() *types.CommonEntityDa
     datastores.EntityData.BundleName = "ietf"
     datastores.EntityData.ParentYangName = "netconf-state"
     datastores.EntityData.SegmentPath = "datastores"
+    datastores.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/" + datastores.EntityData.SegmentPath
     datastores.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     datastores.EntityData.NamespaceTable = ietf.GetNamespaces()
     datastores.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -362,6 +368,7 @@ func (datastores *NetconfState_Datastores) GetEntityData() *types.CommonEntityDa
 type NetconfState_Datastores_Datastore struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the datastore associated with this list
     // entry. The type is NetconfDatastoreType.
@@ -383,6 +390,7 @@ func (datastore *NetconfState_Datastores_Datastore) GetEntityData() *types.Commo
     datastore.EntityData.BundleName = "ietf"
     datastore.EntityData.ParentYangName = "datastores"
     datastore.EntityData.SegmentPath = "datastore" + types.AddKeyToken(datastore.Name, "name")
+    datastore.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/datastores/" + datastore.EntityData.SegmentPath
     datastore.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     datastore.EntityData.NamespaceTable = ietf.GetNamespaces()
     datastore.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -429,6 +437,7 @@ func (locks *NetconfState_Datastores_Datastore_Locks) GetEntityData() *types.Com
     locks.EntityData.BundleName = "ietf"
     locks.EntityData.ParentYangName = "datastore"
     locks.EntityData.SegmentPath = "locks"
+    locks.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/datastores/datastore/" + locks.EntityData.SegmentPath
     locks.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     locks.EntityData.NamespaceTable = ietf.GetNamespaces()
     locks.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -471,6 +480,7 @@ func (globalLock *NetconfState_Datastores_Datastore_Locks_GlobalLock) GetEntityD
     globalLock.EntityData.BundleName = "ietf"
     globalLock.EntityData.ParentYangName = "locks"
     globalLock.EntityData.SegmentPath = "global-lock"
+    globalLock.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/datastores/datastore/locks/" + globalLock.EntityData.SegmentPath
     globalLock.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     globalLock.EntityData.NamespaceTable = ietf.GetNamespaces()
     globalLock.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -490,6 +500,7 @@ func (globalLock *NetconfState_Datastores_Datastore_Locks_GlobalLock) GetEntityD
 type NetconfState_Datastores_Datastore_Locks_PartialLock struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This is the lock id returned in the <partial-lock>
     // response. The type is interface{} with range: 0..4294967295.
@@ -524,6 +535,7 @@ func (partialLock *NetconfState_Datastores_Datastore_Locks_PartialLock) GetEntit
     partialLock.EntityData.BundleName = "ietf"
     partialLock.EntityData.ParentYangName = "locks"
     partialLock.EntityData.SegmentPath = "partial-lock" + types.AddKeyToken(partialLock.LockId, "lock-id")
+    partialLock.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/datastores/datastore/locks/" + partialLock.EntityData.SegmentPath
     partialLock.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     partialLock.EntityData.NamespaceTable = ietf.GetNamespaces()
     partialLock.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -559,6 +571,7 @@ func (schemas *NetconfState_Schemas) GetEntityData() *types.CommonEntityData {
     schemas.EntityData.BundleName = "ietf"
     schemas.EntityData.ParentYangName = "netconf-state"
     schemas.EntityData.SegmentPath = "schemas"
+    schemas.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/" + schemas.EntityData.SegmentPath
     schemas.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     schemas.EntityData.NamespaceTable = ietf.GetNamespaces()
     schemas.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -580,6 +593,7 @@ func (schemas *NetconfState_Schemas) GetEntityData() *types.CommonEntityData {
 type NetconfState_Schemas_Schema struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Identifier to uniquely reference the schema.  The
     // identifier is used in the <get-schema> operation and may be used for other
@@ -629,6 +643,7 @@ func (schema *NetconfState_Schemas_Schema) GetEntityData() *types.CommonEntityDa
     schema.EntityData.BundleName = "ietf"
     schema.EntityData.ParentYangName = "schemas"
     schema.EntityData.SegmentPath = "schema" + types.AddKeyToken(schema.Identifier, "identifier") + types.AddKeyToken(schema.Version, "version") + types.AddKeyToken(schema.Format, "format")
+    schema.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/schemas/" + schema.EntityData.SegmentPath
     schema.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     schema.EntityData.NamespaceTable = ietf.GetNamespaces()
     schema.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -672,6 +687,7 @@ func (sessions *NetconfState_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.BundleName = "ietf"
     sessions.EntityData.ParentYangName = "netconf-state"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     sessions.EntityData.NamespaceTable = ietf.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -694,6 +710,7 @@ func (sessions *NetconfState_Sessions) GetEntityData() *types.CommonEntityData {
 type NetconfState_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique identifier for the session.  This value is
     // the NETCONF session identifier, as defined in RFC 4741. The type is
@@ -719,8 +736,7 @@ type NetconfState_Sessions_Session struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
-    // or string with pattern:
-    // ((([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.)*([a-zA-Z0-9_]([a-zA-Z0-9\-_]){0,61})?[a-zA-Z0-9]\.?)|\..
+    // or string with length: 1..253.
     SourceHost interface{}
 
     // Time at the server at which the session was established. The type is string
@@ -753,6 +769,7 @@ func (session *NetconfState_Sessions_Session) GetEntityData() *types.CommonEntit
     session.EntityData.BundleName = "ietf"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
+    session.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     session.EntityData.NamespaceTable = ietf.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -828,6 +845,7 @@ func (statistics *NetconfState_Statistics) GetEntityData() *types.CommonEntityDa
     statistics.EntityData.BundleName = "ietf"
     statistics.EntityData.ParentYangName = "netconf-state"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "ietf-netconf-monitoring:netconf-state/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     statistics.EntityData.NamespaceTable = ietf.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()

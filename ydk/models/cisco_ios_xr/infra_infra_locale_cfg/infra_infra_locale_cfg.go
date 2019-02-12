@@ -1184,6 +1184,7 @@ func (locale *Locale) GetEntityData() *types.CommonEntityData {
     locale.EntityData.BundleName = "cisco_ios_xr"
     locale.EntityData.ParentYangName = "Cisco-IOS-XR-infra-infra-locale-cfg"
     locale.EntityData.SegmentPath = "Cisco-IOS-XR-infra-infra-locale-cfg:locale"
+    locale.EntityData.AbsolutePath = locale.EntityData.SegmentPath
     locale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -54,6 +54,7 @@ func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.BundleName = "cisco_ios_xr"
     aaa.EntityData.ParentYangName = "Cisco-IOS-XR-aaa-locald-admin-cfg"
     aaa.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa"
+    aaa.EntityData.AbsolutePath = aaa.EntityData.SegmentPath
     aaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -83,6 +84,7 @@ func (usernames *Aaa_Usernames) GetEntityData() *types.CommonEntityData {
     usernames.EntityData.BundleName = "cisco_ios_xr"
     usernames.EntityData.ParentYangName = "aaa"
     usernames.EntityData.SegmentPath = "usernames"
+    usernames.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/" + usernames.EntityData.SegmentPath
     usernames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usernames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usernames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -104,6 +106,7 @@ func (usernames *Aaa_Usernames) GetEntityData() *types.CommonEntityData {
 type Aaa_Usernames_Username struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Username. The type is string.
     Name interface{}
@@ -121,6 +124,7 @@ func (username *Aaa_Usernames_Username) GetEntityData() *types.CommonEntityData 
     username.EntityData.BundleName = "cisco_ios_xr"
     username.EntityData.ParentYangName = "usernames"
     username.EntityData.SegmentPath = "username" + types.AddKeyToken(username.Name, "name")
+    username.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/usernames/" + username.EntityData.SegmentPath
     username.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     username.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     username.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -154,6 +158,7 @@ func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) G
     usergroupUnderUsernames.EntityData.BundleName = "cisco_ios_xr"
     usergroupUnderUsernames.EntityData.ParentYangName = "username"
     usergroupUnderUsernames.EntityData.SegmentPath = "usergroup-under-usernames"
+    usergroupUnderUsernames.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/usernames/username/" + usergroupUnderUsernames.EntityData.SegmentPath
     usergroupUnderUsernames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usergroupUnderUsernames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usergroupUnderUsernames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -175,6 +180,7 @@ func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) G
 type Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the usergroup. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -187,6 +193,7 @@ func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_Use
     usergroupUnderUsername.EntityData.BundleName = "cisco_ios_xr"
     usergroupUnderUsername.EntityData.ParentYangName = "usergroup-under-usernames"
     usergroupUnderUsername.EntityData.SegmentPath = "usergroup-under-username" + types.AddKeyToken(usergroupUnderUsername.Name, "name")
+    usergroupUnderUsername.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/usernames/username/usergroup-under-usernames/" + usergroupUnderUsername.EntityData.SegmentPath
     usergroupUnderUsername.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usergroupUnderUsername.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usergroupUnderUsername.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -226,6 +233,7 @@ func (secret *Aaa_Usernames_Username_Secret) GetEntityData() *types.CommonEntity
     secret.EntityData.BundleName = "cisco_ios_xr"
     secret.EntityData.ParentYangName = "username"
     secret.EntityData.SegmentPath = "secret"
+    secret.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/usernames/username/" + secret.EntityData.SegmentPath
     secret.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secret.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secret.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

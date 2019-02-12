@@ -138,6 +138,7 @@ func (ntp *Ntp) GetEntityData() *types.CommonEntityData {
     ntp.EntityData.BundleName = "cisco_ios_xr"
     ntp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-ntp-cfg"
     ntp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-ntp-cfg:ntp"
+    ntp.EntityData.AbsolutePath = ntp.EntityData.SegmentPath
     ntp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ntp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ntp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -182,6 +183,7 @@ func (adminTypes *Ntp_AdminTypes) GetEntityData() *types.CommonEntityData {
     adminTypes.EntityData.BundleName = "cisco_ios_xr"
     adminTypes.EntityData.ParentYangName = "ntp"
     adminTypes.EntityData.SegmentPath = "admin-types"
+    adminTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/" + adminTypes.EntityData.SegmentPath
     adminTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -203,6 +205,7 @@ func (adminTypes *Ntp_AdminTypes) GetEntityData() *types.CommonEntityData {
 type Ntp_AdminTypes_AdminType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Peer or Server. The type is NtpPeer.
     PeerType interface{}
@@ -235,6 +238,7 @@ func (adminType *Ntp_AdminTypes_AdminType) GetEntityData() *types.CommonEntityDa
     adminType.EntityData.BundleName = "cisco_ios_xr"
     adminType.EntityData.ParentYangName = "admin-types"
     adminType.EntityData.SegmentPath = "admin-type" + types.AddKeyToken(adminType.PeerType, "peer-type")
+    adminType.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/admin-types/" + adminType.EntityData.SegmentPath
     adminType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -272,6 +276,7 @@ func (peerVrfs *Ntp_PeerVrfs) GetEntityData() *types.CommonEntityData {
     peerVrfs.EntityData.BundleName = "cisco_ios_xr"
     peerVrfs.EntityData.ParentYangName = "ntp"
     peerVrfs.EntityData.SegmentPath = "peer-vrfs"
+    peerVrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/" + peerVrfs.EntityData.SegmentPath
     peerVrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerVrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -295,6 +300,7 @@ func (peerVrfs *Ntp_PeerVrfs) GetEntityData() *types.CommonEntityData {
 type Ntp_PeerVrfs_PeerVrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -313,6 +319,7 @@ func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetEntityData() *types.CommonEntityData {
     peerVrf.EntityData.BundleName = "cisco_ios_xr"
     peerVrf.EntityData.ParentYangName = "peer-vrfs"
     peerVrf.EntityData.SegmentPath = "peer-vrf" + types.AddKeyToken(peerVrf.VrfName, "vrf-name")
+    peerVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/peer-vrfs/" + peerVrf.EntityData.SegmentPath
     peerVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -345,6 +352,7 @@ func (peerIpv4s *Ntp_PeerVrfs_PeerVrf_PeerIpv4s) GetEntityData() *types.CommonEn
     peerIpv4s.EntityData.BundleName = "cisco_ios_xr"
     peerIpv4s.EntityData.ParentYangName = "peer-vrf"
     peerIpv4s.EntityData.SegmentPath = "peer-ipv4s"
+    peerIpv4s.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/peer-vrfs/peer-vrf/" + peerIpv4s.EntityData.SegmentPath
     peerIpv4s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerIpv4s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerIpv4s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -366,6 +374,7 @@ func (peerIpv4s *Ntp_PeerVrfs_PeerVrf_PeerIpv4s) GetEntityData() *types.CommonEn
 type Ntp_PeerVrfs_PeerVrf_PeerIpv4s_PeerIpv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 Address of a peer. The type is string with
     // pattern:
@@ -383,6 +392,7 @@ func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4s_PeerIpv4) GetEntityData() *types.
     peerIpv4.EntityData.BundleName = "cisco_ios_xr"
     peerIpv4.EntityData.ParentYangName = "peer-ipv4s"
     peerIpv4.EntityData.SegmentPath = "peer-ipv4" + types.AddKeyToken(peerIpv4.AddressIpv4, "address-ipv4")
+    peerIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/peer-vrfs/peer-vrf/peer-ipv4s/" + peerIpv4.EntityData.SegmentPath
     peerIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -405,6 +415,7 @@ func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4s_PeerIpv4) GetEntityData() *types.
 type Ntp_PeerVrfs_PeerVrf_PeerIpv4s_PeerIpv4_PeerTypeIpv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Peer or Server. The type is NtpPeer.
     PeerType interface{}
@@ -441,6 +452,7 @@ func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4s_PeerIpv4_PeerTypeIpv4) GetEnt
     peerTypeIpv4.EntityData.BundleName = "cisco_ios_xr"
     peerTypeIpv4.EntityData.ParentYangName = "peer-ipv4"
     peerTypeIpv4.EntityData.SegmentPath = "peer-type-ipv4" + types.AddKeyToken(peerTypeIpv4.PeerType, "peer-type")
+    peerTypeIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/peer-vrfs/peer-vrf/peer-ipv4s/peer-ipv4/" + peerTypeIpv4.EntityData.SegmentPath
     peerTypeIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerTypeIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerTypeIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -479,6 +491,7 @@ func (peerIpv6s *Ntp_PeerVrfs_PeerVrf_PeerIpv6s) GetEntityData() *types.CommonEn
     peerIpv6s.EntityData.BundleName = "cisco_ios_xr"
     peerIpv6s.EntityData.ParentYangName = "peer-vrf"
     peerIpv6s.EntityData.SegmentPath = "peer-ipv6s"
+    peerIpv6s.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/peer-vrfs/peer-vrf/" + peerIpv6s.EntityData.SegmentPath
     peerIpv6s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerIpv6s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerIpv6s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -500,6 +513,7 @@ func (peerIpv6s *Ntp_PeerVrfs_PeerVrf_PeerIpv6s) GetEntityData() *types.CommonEn
 type Ntp_PeerVrfs_PeerVrf_PeerIpv6s_PeerIpv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of a peer. The type is string with
     // pattern:
@@ -517,6 +531,7 @@ func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6s_PeerIpv6) GetEntityData() *types.
     peerIpv6.EntityData.BundleName = "cisco_ios_xr"
     peerIpv6.EntityData.ParentYangName = "peer-ipv6s"
     peerIpv6.EntityData.SegmentPath = "peer-ipv6" + types.AddKeyToken(peerIpv6.AddressIpv6, "address-ipv6")
+    peerIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/peer-vrfs/peer-vrf/peer-ipv6s/" + peerIpv6.EntityData.SegmentPath
     peerIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -539,6 +554,7 @@ func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6s_PeerIpv6) GetEntityData() *types.
 type Ntp_PeerVrfs_PeerVrf_PeerIpv6s_PeerIpv6_PeerTypeIpv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Peer or Server. The type is NtpPeer.
     PeerType interface{}
@@ -579,6 +595,7 @@ func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6s_PeerIpv6_PeerTypeIpv6) GetEnt
     peerTypeIpv6.EntityData.BundleName = "cisco_ios_xr"
     peerTypeIpv6.EntityData.ParentYangName = "peer-ipv6"
     peerTypeIpv6.EntityData.SegmentPath = "peer-type-ipv6" + types.AddKeyToken(peerTypeIpv6.PeerType, "peer-type")
+    peerTypeIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/peer-vrfs/peer-vrf/peer-ipv6s/peer-ipv6/" + peerTypeIpv6.EntityData.SegmentPath
     peerTypeIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerTypeIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerTypeIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -625,6 +642,7 @@ func (dscpIpv4 *Ntp_DscpIpv4) GetEntityData() *types.CommonEntityData {
     dscpIpv4.EntityData.BundleName = "cisco_ios_xr"
     dscpIpv4.EntityData.ParentYangName = "ntp"
     dscpIpv4.EntityData.SegmentPath = "dscp-ipv4"
+    dscpIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/" + dscpIpv4.EntityData.SegmentPath
     dscpIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dscpIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dscpIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -663,6 +681,7 @@ func (dscpIpv6 *Ntp_DscpIpv6) GetEntityData() *types.CommonEntityData {
     dscpIpv6.EntityData.BundleName = "cisco_ios_xr"
     dscpIpv6.EntityData.ParentYangName = "ntp"
     dscpIpv6.EntityData.SegmentPath = "dscp-ipv6"
+    dscpIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/" + dscpIpv6.EntityData.SegmentPath
     dscpIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dscpIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dscpIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -693,6 +712,7 @@ func (sources *Ntp_Sources) GetEntityData() *types.CommonEntityData {
     sources.EntityData.BundleName = "cisco_ios_xr"
     sources.EntityData.ParentYangName = "ntp"
     sources.EntityData.SegmentPath = "sources"
+    sources.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/" + sources.EntityData.SegmentPath
     sources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -714,6 +734,7 @@ func (sources *Ntp_Sources) GetEntityData() *types.CommonEntityData {
 type Ntp_Sources_Source struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -730,6 +751,7 @@ func (source *Ntp_Sources_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "sources"
     source.EntityData.SegmentPath = "source" + types.AddKeyToken(source.VrfName, "vrf-name")
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/sources/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -763,6 +785,7 @@ func (drift *Ntp_Drift) GetEntityData() *types.CommonEntityData {
     drift.EntityData.BundleName = "cisco_ios_xr"
     drift.EntityData.ParentYangName = "ntp"
     drift.EntityData.SegmentPath = "drift"
+    drift.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/" + drift.EntityData.SegmentPath
     drift.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drift.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drift.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -797,6 +820,7 @@ func (file *Ntp_Drift_File) GetEntityData() *types.CommonEntityData {
     file.EntityData.BundleName = "cisco_ios_xr"
     file.EntityData.ParentYangName = "drift"
     file.EntityData.SegmentPath = "file"
+    file.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/drift/" + file.EntityData.SegmentPath
     file.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     file.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     file.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -833,6 +857,7 @@ func (authentication *Ntp_Authentication) GetEntityData() *types.CommonEntityDat
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "ntp"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -865,6 +890,7 @@ func (keys *Ntp_Authentication_Keys) GetEntityData() *types.CommonEntityData {
     keys.EntityData.BundleName = "cisco_ios_xr"
     keys.EntityData.ParentYangName = "authentication"
     keys.EntityData.SegmentPath = "keys"
+    keys.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/authentication/" + keys.EntityData.SegmentPath
     keys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -886,6 +912,7 @@ func (keys *Ntp_Authentication_Keys) GetEntityData() *types.CommonEntityData {
 type Ntp_Authentication_Keys_Key struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Authentication Key number. The type is interface{}
     // with range: 1..65535.
@@ -902,6 +929,7 @@ func (key *Ntp_Authentication_Keys_Key) GetEntityData() *types.CommonEntityData 
     key.EntityData.BundleName = "cisco_ios_xr"
     key.EntityData.ParentYangName = "keys"
     key.EntityData.SegmentPath = "key" + types.AddKeyToken(key.KeyNumber, "key-number")
+    key.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/authentication/keys/" + key.EntityData.SegmentPath
     key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     key.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -933,6 +961,7 @@ func (trustedKeys *Ntp_Authentication_TrustedKeys) GetEntityData() *types.Common
     trustedKeys.EntityData.BundleName = "cisco_ios_xr"
     trustedKeys.EntityData.ParentYangName = "authentication"
     trustedKeys.EntityData.SegmentPath = "trusted-keys"
+    trustedKeys.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/authentication/" + trustedKeys.EntityData.SegmentPath
     trustedKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trustedKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trustedKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -954,6 +983,7 @@ func (trustedKeys *Ntp_Authentication_TrustedKeys) GetEntityData() *types.Common
 type Ntp_Authentication_TrustedKeys_TrustedKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Key number. The type is interface{} with range:
     // 1..65535.
@@ -966,6 +996,7 @@ func (trustedKey *Ntp_Authentication_TrustedKeys_TrustedKey) GetEntityData() *ty
     trustedKey.EntityData.BundleName = "cisco_ios_xr"
     trustedKey.EntityData.ParentYangName = "trusted-keys"
     trustedKey.EntityData.SegmentPath = "trusted-key" + types.AddKeyToken(trustedKey.KeyNumber, "key-number")
+    trustedKey.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/authentication/trusted-keys/" + trustedKey.EntityData.SegmentPath
     trustedKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trustedKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trustedKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -995,6 +1026,7 @@ func (passive *Ntp_Passive) GetEntityData() *types.CommonEntityData {
     passive.EntityData.BundleName = "cisco_ios_xr"
     passive.EntityData.ParentYangName = "ntp"
     passive.EntityData.SegmentPath = "passive"
+    passive.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/" + passive.EntityData.SegmentPath
     passive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     passive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1025,6 +1057,7 @@ func (interfaceTables *Ntp_InterfaceTables) GetEntityData() *types.CommonEntityD
     interfaceTables.EntityData.BundleName = "cisco_ios_xr"
     interfaceTables.EntityData.ParentYangName = "ntp"
     interfaceTables.EntityData.SegmentPath = "interface-tables"
+    interfaceTables.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/" + interfaceTables.EntityData.SegmentPath
     interfaceTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1046,6 +1079,7 @@ func (interfaceTables *Ntp_InterfaceTables) GetEntityData() *types.CommonEntityD
 type Ntp_InterfaceTables_InterfaceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1062,6 +1096,7 @@ func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetEntityData() *types
     interfaceTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceTable.EntityData.ParentYangName = "interface-tables"
     interfaceTable.EntityData.SegmentPath = "interface-table" + types.AddKeyToken(interfaceTable.VrfName, "vrf-name")
+    interfaceTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/" + interfaceTable.EntityData.SegmentPath
     interfaceTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1084,6 +1119,7 @@ func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetEntityData() *types
 type Ntp_InterfaceTables_InterfaceTable_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1105,6 +1141,7 @@ func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetEntityData() *types
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-table"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/interface-table/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1140,6 +1177,7 @@ func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_Interface
     interfaceMulticast.EntityData.BundleName = "cisco_ios_xr"
     interfaceMulticast.EntityData.ParentYangName = "interface"
     interfaceMulticast.EntityData.SegmentPath = "interface-multicast"
+    interfaceMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/interface-table/interface/" + interfaceMulticast.EntityData.SegmentPath
     interfaceMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1171,6 +1209,7 @@ func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMu
     multicastClients.EntityData.BundleName = "cisco_ios_xr"
     multicastClients.EntityData.ParentYangName = "interface-multicast"
     multicastClients.EntityData.SegmentPath = "multicast-clients"
+    multicastClients.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/interface-table/interface/interface-multicast/" + multicastClients.EntityData.SegmentPath
     multicastClients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastClients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastClients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1192,6 +1231,7 @@ func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMu
 type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of a multicast group. The type is one
     // of the following types: string with pattern:
@@ -1207,6 +1247,7 @@ func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMul
     multicastClient.EntityData.BundleName = "cisco_ios_xr"
     multicastClient.EntityData.ParentYangName = "multicast-clients"
     multicastClient.EntityData.SegmentPath = "multicast-client" + types.AddKeyToken(multicastClient.IpAddress, "ip-address")
+    multicastClient.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/interface-table/interface/interface-multicast/multicast-clients/" + multicastClient.EntityData.SegmentPath
     multicastClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1237,6 +1278,7 @@ func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMu
     multicastServers.EntityData.BundleName = "cisco_ios_xr"
     multicastServers.EntityData.ParentYangName = "interface-multicast"
     multicastServers.EntityData.SegmentPath = "multicast-servers"
+    multicastServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/interface-table/interface/interface-multicast/" + multicastServers.EntityData.SegmentPath
     multicastServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1258,6 +1300,7 @@ func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMu
 type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of a multicast group. The type is one
     // of the following types: string with pattern:
@@ -1282,6 +1325,7 @@ func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMul
     multicastServer.EntityData.BundleName = "cisco_ios_xr"
     multicastServer.EntityData.ParentYangName = "multicast-servers"
     multicastServer.EntityData.SegmentPath = "multicast-server" + types.AddKeyToken(multicastServer.IpAddress, "ip-address")
+    multicastServer.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/interface-table/interface/interface-multicast/multicast-servers/" + multicastServer.EntityData.SegmentPath
     multicastServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1317,6 +1361,7 @@ func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_Interface
     interfaceBroadcast.EntityData.BundleName = "cisco_ios_xr"
     interfaceBroadcast.EntityData.ParentYangName = "interface"
     interfaceBroadcast.EntityData.SegmentPath = "interface-broadcast"
+    interfaceBroadcast.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/interface-table/interface/" + interfaceBroadcast.EntityData.SegmentPath
     interfaceBroadcast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBroadcast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBroadcast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1348,6 +1393,7 @@ func (broadcastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBr
     broadcastServers.EntityData.BundleName = "cisco_ios_xr"
     broadcastServers.EntityData.ParentYangName = "interface-broadcast"
     broadcastServers.EntityData.SegmentPath = "broadcast-servers"
+    broadcastServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/interface-table/interface/interface-broadcast/" + broadcastServers.EntityData.SegmentPath
     broadcastServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     broadcastServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1369,6 +1415,7 @@ func (broadcastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBr
 type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_BroadcastServers_BroadcastServer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Broadcast Type. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1391,6 +1438,7 @@ func (broadcastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBro
     broadcastServer.EntityData.BundleName = "cisco_ios_xr"
     broadcastServer.EntityData.ParentYangName = "broadcast-servers"
     broadcastServer.EntityData.SegmentPath = "broadcast-server" + types.AddKeyToken(broadcastServer.BroadcastType, "broadcast-type")
+    broadcastServer.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/interface-table/interface/interface-broadcast/broadcast-servers/" + broadcastServer.EntityData.SegmentPath
     broadcastServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     broadcastServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1424,6 +1472,7 @@ func (accessGroupTables *Ntp_AccessGroupTables) GetEntityData() *types.CommonEnt
     accessGroupTables.EntityData.BundleName = "cisco_ios_xr"
     accessGroupTables.EntityData.ParentYangName = "ntp"
     accessGroupTables.EntityData.SegmentPath = "access-group-tables"
+    accessGroupTables.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/" + accessGroupTables.EntityData.SegmentPath
     accessGroupTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessGroupTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessGroupTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1445,6 +1494,7 @@ func (accessGroupTables *Ntp_AccessGroupTables) GetEntityData() *types.CommonEnt
 type Ntp_AccessGroupTables_AccessGroupTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1461,6 +1511,7 @@ func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetEntityData() 
     accessGroupTable.EntityData.BundleName = "cisco_ios_xr"
     accessGroupTable.EntityData.ParentYangName = "access-group-tables"
     accessGroupTable.EntityData.SegmentPath = "access-group-table" + types.AddKeyToken(accessGroupTable.VrfName, "vrf-name")
+    accessGroupTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/access-group-tables/" + accessGroupTable.EntityData.SegmentPath
     accessGroupTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessGroupTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1483,6 +1534,7 @@ func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetEntityData() 
 type Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address family. The type is NtpAccessAf.
     Af interface{}
@@ -1498,6 +1550,7 @@ func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTa
     accessGroupAfTable.EntityData.BundleName = "cisco_ios_xr"
     accessGroupAfTable.EntityData.ParentYangName = "access-group-table"
     accessGroupAfTable.EntityData.SegmentPath = "access-group-af-table" + types.AddKeyToken(accessGroupAfTable.Af, "af")
+    accessGroupAfTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/access-group-tables/access-group-table/" + accessGroupAfTable.EntityData.SegmentPath
     accessGroupAfTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessGroupAfTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessGroupAfTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1520,6 +1573,7 @@ func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTa
 type Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Access group type. The type is NtpAccess.
     AccessGroupType interface{}
@@ -1535,6 +1589,7 @@ func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_Acc
     accessGroup.EntityData.BundleName = "cisco_ios_xr"
     accessGroup.EntityData.ParentYangName = "access-group-af-table"
     accessGroup.EntityData.SegmentPath = "access-group" + types.AddKeyToken(accessGroup.AccessGroupType, "access-group-type")
+    accessGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-cfg:ntp/access-group-tables/access-group-table/access-group-af-table/" + accessGroup.EntityData.SegmentPath
     accessGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

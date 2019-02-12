@@ -38,6 +38,7 @@ func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetEntityData() *types.CommonEntityD
     cISCOCBPTARGETMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOCBPTARGETMIB.EntityData.ParentYangName = "CISCO-CBP-TARGET-MIB"
     cISCOCBPTARGETMIB.EntityData.SegmentPath = "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB"
+    cISCOCBPTARGETMIB.EntityData.AbsolutePath = cISCOCBPTARGETMIB.EntityData.SegmentPath
     cISCOCBPTARGETMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOCBPTARGETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCBPTARGETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -74,6 +75,7 @@ func (ccbptTargetAttachCfg *CISCOCBPTARGETMIB_CcbptTargetAttachCfg) GetEntityDat
     ccbptTargetAttachCfg.EntityData.BundleName = "cisco_ios_xe"
     ccbptTargetAttachCfg.EntityData.ParentYangName = "CISCO-CBP-TARGET-MIB"
     ccbptTargetAttachCfg.EntityData.SegmentPath = "ccbptTargetAttachCfg"
+    ccbptTargetAttachCfg.EntityData.AbsolutePath = "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/" + ccbptTargetAttachCfg.EntityData.SegmentPath
     ccbptTargetAttachCfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccbptTargetAttachCfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccbptTargetAttachCfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -126,6 +128,7 @@ func (ccbptTargetTable *CISCOCBPTARGETMIB_CcbptTargetTable) GetEntityData() *typ
     ccbptTargetTable.EntityData.BundleName = "cisco_ios_xe"
     ccbptTargetTable.EntityData.ParentYangName = "CISCO-CBP-TARGET-MIB"
     ccbptTargetTable.EntityData.SegmentPath = "ccbptTargetTable"
+    ccbptTargetTable.EntityData.AbsolutePath = "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/" + ccbptTargetTable.EntityData.SegmentPath
     ccbptTargetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccbptTargetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccbptTargetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -178,6 +181,7 @@ func (ccbptTargetTable *CISCOCBPTARGETMIB_CcbptTargetTable) GetEntityData() *typ
 type CISCOCBPTARGETMIB_CcbptTargetTable_CcbptTargetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of target for this class-based policy
     // attachment. This object identifies the format of the ccbptTargetId for this
@@ -250,6 +254,7 @@ func (ccbptTargetEntry *CISCOCBPTARGETMIB_CcbptTargetTable_CcbptTargetEntry) Get
     ccbptTargetEntry.EntityData.BundleName = "cisco_ios_xe"
     ccbptTargetEntry.EntityData.ParentYangName = "ccbptTargetTable"
     ccbptTargetEntry.EntityData.SegmentPath = "ccbptTargetEntry" + types.AddKeyToken(ccbptTargetEntry.CcbptTargetType, "ccbptTargetType") + types.AddKeyToken(ccbptTargetEntry.CcbptTargetId, "ccbptTargetId") + types.AddKeyToken(ccbptTargetEntry.CcbptTargetDir, "ccbptTargetDir") + types.AddKeyToken(ccbptTargetEntry.CcbptPolicySourceType, "ccbptPolicySourceType") + types.AddKeyToken(ccbptTargetEntry.CcbptPolicyId, "ccbptPolicyId")
+    ccbptTargetEntry.EntityData.AbsolutePath = "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/ccbptTargetTable/" + ccbptTargetEntry.EntityData.SegmentPath
     ccbptTargetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccbptTargetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccbptTargetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -62,6 +62,7 @@ func (diag *Diag) GetEntityData() *types.CommonEntityData {
     diag.EntityData.BundleName = "cisco_ios_xr"
     diag.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-show-diag"
     diag.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-show-diag:diag"
+    diag.EntityData.AbsolutePath = diag.EntityData.SegmentPath
     diag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     diag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -96,6 +97,7 @@ func (self *Diag_Default) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "diag"
     self.EntityData.SegmentPath = "default"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -116,6 +118,7 @@ func (self *Diag_Default) GetEntityData() *types.CommonEntityData {
 type Diag_Default_DefaultList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -130,6 +133,7 @@ func (defaultList *Diag_Default_DefaultList) GetEntityData() *types.CommonEntity
     defaultList.EntityData.BundleName = "cisco_ios_xr"
     defaultList.EntityData.ParentYangName = "default"
     defaultList.EntityData.SegmentPath = "default_list" + types.AddKeyToken(defaultList.Location, "location")
+    defaultList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/default/" + defaultList.EntityData.SegmentPath
     defaultList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -159,6 +163,7 @@ func (defaultData *Diag_Default_DefaultList_DefaultData) GetEntityData() *types.
     defaultData.EntityData.BundleName = "cisco_ios_xr"
     defaultData.EntityData.ParentYangName = "default_list"
     defaultData.EntityData.SegmentPath = "default-data"
+    defaultData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/default/default_list/" + defaultData.EntityData.SegmentPath
     defaultData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -187,6 +192,7 @@ func (fans *Diag_Fans) GetEntityData() *types.CommonEntityData {
     fans.EntityData.BundleName = "cisco_ios_xr"
     fans.EntityData.ParentYangName = "diag"
     fans.EntityData.SegmentPath = "fans"
+    fans.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/" + fans.EntityData.SegmentPath
     fans.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fans.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fans.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -207,6 +213,7 @@ func (fans *Diag_Fans) GetEntityData() *types.CommonEntityData {
 type Diag_Fans_FansList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -221,6 +228,7 @@ func (fansList *Diag_Fans_FansList) GetEntityData() *types.CommonEntityData {
     fansList.EntityData.BundleName = "cisco_ios_xr"
     fansList.EntityData.ParentYangName = "fans"
     fansList.EntityData.SegmentPath = "fans_list" + types.AddKeyToken(fansList.Location, "location")
+    fansList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/fans/" + fansList.EntityData.SegmentPath
     fansList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fansList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fansList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +258,7 @@ func (defaultData *Diag_Fans_FansList_DefaultData) GetEntityData() *types.Common
     defaultData.EntityData.BundleName = "cisco_ios_xr"
     defaultData.EntityData.ParentYangName = "fans_list"
     defaultData.EntityData.SegmentPath = "default-data"
+    defaultData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/fans/fans_list/" + defaultData.EntityData.SegmentPath
     defaultData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -278,6 +287,7 @@ func (powerSupply *Diag_PowerSupply) GetEntityData() *types.CommonEntityData {
     powerSupply.EntityData.BundleName = "cisco_ios_xr"
     powerSupply.EntityData.ParentYangName = "diag"
     powerSupply.EntityData.SegmentPath = "power-supply"
+    powerSupply.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/" + powerSupply.EntityData.SegmentPath
     powerSupply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     powerSupply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerSupply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -298,6 +308,7 @@ func (powerSupply *Diag_PowerSupply) GetEntityData() *types.CommonEntityData {
 type Diag_PowerSupply_PwrList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -312,6 +323,7 @@ func (pwrList *Diag_PowerSupply_PwrList) GetEntityData() *types.CommonEntityData
     pwrList.EntityData.BundleName = "cisco_ios_xr"
     pwrList.EntityData.ParentYangName = "power-supply"
     pwrList.EntityData.SegmentPath = "pwr_list" + types.AddKeyToken(pwrList.Location, "location")
+    pwrList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/power-supply/" + pwrList.EntityData.SegmentPath
     pwrList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwrList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwrList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -341,6 +353,7 @@ func (defaultData *Diag_PowerSupply_PwrList_DefaultData) GetEntityData() *types.
     defaultData.EntityData.BundleName = "cisco_ios_xr"
     defaultData.EntityData.ParentYangName = "pwr_list"
     defaultData.EntityData.SegmentPath = "default-data"
+    defaultData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/power-supply/pwr_list/" + defaultData.EntityData.SegmentPath
     defaultData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -372,6 +385,7 @@ func (chassis *Diag_Chassis) GetEntityData() *types.CommonEntityData {
     chassis.EntityData.BundleName = "cisco_ios_xr"
     chassis.EntityData.ParentYangName = "diag"
     chassis.EntityData.SegmentPath = "chassis"
+    chassis.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/" + chassis.EntityData.SegmentPath
     chassis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -401,6 +415,7 @@ func (chassisCnt *Diag_Chassis_ChassisCnt) GetEntityData() *types.CommonEntityDa
     chassisCnt.EntityData.BundleName = "cisco_ios_xr"
     chassisCnt.EntityData.ParentYangName = "chassis"
     chassisCnt.EntityData.SegmentPath = "chassis_cnt"
+    chassisCnt.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/" + chassisCnt.EntityData.SegmentPath
     chassisCnt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisCnt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisCnt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -421,6 +436,7 @@ func (chassisCnt *Diag_Chassis_ChassisCnt) GetEntityData() *types.CommonEntityDa
 type Diag_Chassis_ChassisCnt_ChassisList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -435,6 +451,7 @@ func (chassisList *Diag_Chassis_ChassisCnt_ChassisList) GetEntityData() *types.C
     chassisList.EntityData.BundleName = "cisco_ios_xr"
     chassisList.EntityData.ParentYangName = "chassis_cnt"
     chassisList.EntityData.SegmentPath = "chassis_list" + types.AddKeyToken(chassisList.Location, "location")
+    chassisList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/chassis_cnt/" + chassisList.EntityData.SegmentPath
     chassisList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -464,6 +481,7 @@ func (defaultData *Diag_Chassis_ChassisCnt_ChassisList_DefaultData) GetEntityDat
     defaultData.EntityData.BundleName = "cisco_ios_xr"
     defaultData.EntityData.ParentYangName = "chassis_list"
     defaultData.EntityData.SegmentPath = "default-data"
+    defaultData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/chassis_cnt/chassis_list/" + defaultData.EntityData.SegmentPath
     defaultData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -492,6 +510,7 @@ func (chassisEepromCnt *Diag_Chassis_ChassisEepromCnt) GetEntityData() *types.Co
     chassisEepromCnt.EntityData.BundleName = "cisco_ios_xr"
     chassisEepromCnt.EntityData.ParentYangName = "chassis"
     chassisEepromCnt.EntityData.SegmentPath = "chassis_eeprom_cnt"
+    chassisEepromCnt.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/" + chassisEepromCnt.EntityData.SegmentPath
     chassisEepromCnt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisEepromCnt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisEepromCnt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -512,6 +531,7 @@ func (chassisEepromCnt *Diag_Chassis_ChassisEepromCnt) GetEntityData() *types.Co
 type Diag_Chassis_ChassisEepromCnt_ChassisEepromList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -526,6 +546,7 @@ func (chassisEepromList *Diag_Chassis_ChassisEepromCnt_ChassisEepromList) GetEnt
     chassisEepromList.EntityData.BundleName = "cisco_ios_xr"
     chassisEepromList.EntityData.ParentYangName = "chassis_eeprom_cnt"
     chassisEepromList.EntityData.SegmentPath = "chassis_eeprom_list" + types.AddKeyToken(chassisEepromList.Location, "location")
+    chassisEepromList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/chassis_eeprom_cnt/" + chassisEepromList.EntityData.SegmentPath
     chassisEepromList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisEepromList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisEepromList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -555,6 +576,7 @@ func (eepromData *Diag_Chassis_ChassisEepromCnt_ChassisEepromList_EepromData) Ge
     eepromData.EntityData.BundleName = "cisco_ios_xr"
     eepromData.EntityData.ParentYangName = "chassis_eeprom_list"
     eepromData.EntityData.SegmentPath = "eeprom-data"
+    eepromData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/chassis_eeprom_cnt/chassis_eeprom_list/" + eepromData.EntityData.SegmentPath
     eepromData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eepromData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eepromData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -583,6 +605,7 @@ func (summary *Diag_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "diag"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -603,6 +626,7 @@ func (summary *Diag_Summary) GetEntityData() *types.CommonEntityData {
 type Diag_Summary_SummaryList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -617,6 +641,7 @@ func (summaryList *Diag_Summary_SummaryList) GetEntityData() *types.CommonEntity
     summaryList.EntityData.BundleName = "cisco_ios_xr"
     summaryList.EntityData.ParentYangName = "summary"
     summaryList.EntityData.SegmentPath = "summary_list" + types.AddKeyToken(summaryList.Location, "location")
+    summaryList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/summary/" + summaryList.EntityData.SegmentPath
     summaryList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -646,6 +671,7 @@ func (summaryData *Diag_Summary_SummaryList_SummaryData) GetEntityData() *types.
     summaryData.EntityData.BundleName = "cisco_ios_xr"
     summaryData.EntityData.ParentYangName = "summary_list"
     summaryData.EntityData.SegmentPath = "summary-data"
+    summaryData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/summary/summary_list/" + summaryData.EntityData.SegmentPath
     summaryData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -674,6 +700,7 @@ func (eeprom *Diag_Eeprom) GetEntityData() *types.CommonEntityData {
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "diag"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -694,6 +721,7 @@ func (eeprom *Diag_Eeprom) GetEntityData() *types.CommonEntityData {
 type Diag_Eeprom_EepromList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -708,6 +736,7 @@ func (eepromList *Diag_Eeprom_EepromList) GetEntityData() *types.CommonEntityDat
     eepromList.EntityData.BundleName = "cisco_ios_xr"
     eepromList.EntityData.ParentYangName = "eeprom"
     eepromList.EntityData.SegmentPath = "eeprom_list" + types.AddKeyToken(eepromList.Location, "location")
+    eepromList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/eeprom/" + eepromList.EntityData.SegmentPath
     eepromList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eepromList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eepromList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -737,6 +766,7 @@ func (eepromData *Diag_Eeprom_EepromList_EepromData) GetEntityData() *types.Comm
     eepromData.EntityData.BundleName = "cisco_ios_xr"
     eepromData.EntityData.ParentYangName = "eeprom_list"
     eepromData.EntityData.SegmentPath = "eeprom-data"
+    eepromData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/eeprom/eeprom_list/" + eepromData.EntityData.SegmentPath
     eepromData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eepromData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eepromData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -765,6 +795,7 @@ func (detail *Diag_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "diag"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -785,6 +816,7 @@ func (detail *Diag_Detail) GetEntityData() *types.CommonEntityData {
 type Diag_Detail_DetailList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -799,6 +831,7 @@ func (detailList *Diag_Detail_DetailList) GetEntityData() *types.CommonEntityDat
     detailList.EntityData.BundleName = "cisco_ios_xr"
     detailList.EntityData.ParentYangName = "detail"
     detailList.EntityData.SegmentPath = "detail_list" + types.AddKeyToken(detailList.Location, "location")
+    detailList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/detail/" + detailList.EntityData.SegmentPath
     detailList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -828,6 +861,7 @@ func (detailData *Diag_Detail_DetailList_DetailData) GetEntityData() *types.Comm
     detailData.EntityData.BundleName = "cisco_ios_xr"
     detailData.EntityData.ParentYangName = "detail_list"
     detailData.EntityData.SegmentPath = "detail-data"
+    detailData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-diag:diag/detail/detail_list/" + detailData.EntityData.SegmentPath
     detailData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

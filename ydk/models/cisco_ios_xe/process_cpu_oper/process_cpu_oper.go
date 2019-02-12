@@ -35,6 +35,7 @@ func (cpuUsage *CpuUsage) GetEntityData() *types.CommonEntityData {
     cpuUsage.EntityData.BundleName = "cisco_ios_xe"
     cpuUsage.EntityData.ParentYangName = "Cisco-IOS-XE-process-cpu-oper"
     cpuUsage.EntityData.SegmentPath = "Cisco-IOS-XE-process-cpu-oper:cpu-usage"
+    cpuUsage.EntityData.AbsolutePath = cpuUsage.EntityData.SegmentPath
     cpuUsage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpuUsage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpuUsage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -80,6 +81,7 @@ func (cpuUtilization *CpuUsage_CpuUtilization) GetEntityData() *types.CommonEnti
     cpuUtilization.EntityData.BundleName = "cisco_ios_xe"
     cpuUtilization.EntityData.ParentYangName = "cpu-usage"
     cpuUtilization.EntityData.SegmentPath = "cpu-utilization"
+    cpuUtilization.EntityData.AbsolutePath = "Cisco-IOS-XE-process-cpu-oper:cpu-usage/" + cpuUtilization.EntityData.SegmentPath
     cpuUtilization.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpuUtilization.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpuUtilization.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -114,6 +116,7 @@ func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetEntityDat
     cpuUsageProcesses.EntityData.BundleName = "cisco_ios_xe"
     cpuUsageProcesses.EntityData.ParentYangName = "cpu-utilization"
     cpuUsageProcesses.EntityData.SegmentPath = "cpu-usage-processes"
+    cpuUsageProcesses.EntityData.AbsolutePath = "Cisco-IOS-XE-process-cpu-oper:cpu-usage/cpu-utilization/" + cpuUsageProcesses.EntityData.SegmentPath
     cpuUsageProcesses.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpuUsageProcesses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpuUsageProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -135,6 +138,7 @@ func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetEntityDat
 type CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Process-ID of the process. The type is interface{}
     // with range: 0..4294967295.
@@ -177,6 +181,7 @@ func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess
     cpuUsageProcess.EntityData.BundleName = "cisco_ios_xe"
     cpuUsageProcess.EntityData.ParentYangName = "cpu-usage-processes"
     cpuUsageProcess.EntityData.SegmentPath = "cpu-usage-process" + types.AddKeyToken(cpuUsageProcess.Pid, "pid") + types.AddKeyToken(cpuUsageProcess.Name, "name")
+    cpuUsageProcess.EntityData.AbsolutePath = "Cisco-IOS-XE-process-cpu-oper:cpu-usage/cpu-utilization/cpu-usage-processes/" + cpuUsageProcess.EntityData.SegmentPath
     cpuUsageProcess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpuUsageProcess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpuUsageProcess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

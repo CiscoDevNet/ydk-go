@@ -146,6 +146,7 @@ func (syncFrom *SyncFrom) GetEntityData() *types.CommonEntityData {
     syncFrom.EntityData.BundleName = "cisco_ios_xe"
     syncFrom.EntityData.ParentYangName = "cisco-ia"
     syncFrom.EntityData.SegmentPath = "cisco-ia:sync-from"
+    syncFrom.EntityData.AbsolutePath = syncFrom.EntityData.SegmentPath
     syncFrom.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     syncFrom.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     syncFrom.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -180,6 +181,7 @@ func (input *SyncFrom_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "sync-from"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "cisco-ia:sync-from/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -209,6 +211,7 @@ func (output *SyncFrom_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "sync-from"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-ia:sync-from/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -240,6 +243,7 @@ func (saveConfig *SaveConfig) GetEntityData() *types.CommonEntityData {
     saveConfig.EntityData.BundleName = "cisco_ios_xe"
     saveConfig.EntityData.ParentYangName = "cisco-ia"
     saveConfig.EntityData.SegmentPath = "cisco-ia:save-config"
+    saveConfig.EntityData.AbsolutePath = saveConfig.EntityData.SegmentPath
     saveConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     saveConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     saveConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -268,6 +272,7 @@ func (output *SaveConfig_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "save-config"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-ia:save-config/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -299,6 +304,7 @@ func (isSyncing *IsSyncing) GetEntityData() *types.CommonEntityData {
     isSyncing.EntityData.BundleName = "cisco_ios_xe"
     isSyncing.EntityData.ParentYangName = "cisco-ia"
     isSyncing.EntityData.SegmentPath = "cisco-ia:is-syncing"
+    isSyncing.EntityData.AbsolutePath = isSyncing.EntityData.SegmentPath
     isSyncing.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     isSyncing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     isSyncing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -327,6 +333,7 @@ func (output *IsSyncing_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "is-syncing"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-ia:is-syncing/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -357,6 +364,7 @@ func (checkpoint *Checkpoint) GetEntityData() *types.CommonEntityData {
     checkpoint.EntityData.BundleName = "cisco_ios_xe"
     checkpoint.EntityData.ParentYangName = "cisco-ia"
     checkpoint.EntityData.SegmentPath = "cisco-ia:checkpoint"
+    checkpoint.EntityData.AbsolutePath = checkpoint.EntityData.SegmentPath
     checkpoint.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     checkpoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     checkpoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -385,6 +393,7 @@ func (output *Checkpoint_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "checkpoint"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-ia:checkpoint/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -419,6 +428,7 @@ func (revert *Revert) GetEntityData() *types.CommonEntityData {
     revert.EntityData.BundleName = "cisco_ios_xe"
     revert.EntityData.ParentYangName = "cisco-ia"
     revert.EntityData.SegmentPath = "cisco-ia:revert"
+    revert.EntityData.AbsolutePath = revert.EntityData.SegmentPath
     revert.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     revert.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     revert.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -457,6 +467,7 @@ func (input *Revert_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "revert"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "cisco-ia:revert/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -487,6 +498,7 @@ func (output *Revert_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "revert"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-ia:revert/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -520,6 +532,7 @@ func (rollback *Rollback) GetEntityData() *types.CommonEntityData {
     rollback.EntityData.BundleName = "cisco_ios_xe"
     rollback.EntityData.ParentYangName = "cisco-ia"
     rollback.EntityData.SegmentPath = "cisco-ia:rollback"
+    rollback.EntityData.AbsolutePath = rollback.EntityData.SegmentPath
     rollback.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rollback.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rollback.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -568,6 +581,7 @@ func (input *Rollback_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "rollback"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "cisco-ia:rollback/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -600,6 +614,7 @@ func (output *Rollback_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "rollback"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-ia:rollback/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -47,6 +47,7 @@ func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "openconfig"
     interfaces.EntityData.ParentYangName = "openconfig-interfaces"
     interfaces.EntityData.SegmentPath = "openconfig-interfaces:interfaces"
+    interfaces.EntityData.AbsolutePath = interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -68,6 +69,7 @@ func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
 type Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured name of the interface.
     // The type is string. Refers to interfaces.Interfaces_Interface_Config_Name
@@ -108,6 +110,7 @@ func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -208,6 +211,7 @@ func (config *Interfaces_Interface_Config) GetEntityData() *types.CommonEntityDa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -331,6 +335,7 @@ func (state *Interfaces_Interface_State) GetEntityData() *types.CommonEntityData
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -499,6 +504,7 @@ func (counters *Interfaces_Interface_State_Counters) GetEntityData() *types.Comm
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -586,6 +592,7 @@ func (holdTime *Interfaces_Interface_HoldTime) GetEntityData() *types.CommonEnti
     holdTime.EntityData.BundleName = "openconfig"
     holdTime.EntityData.ParentYangName = "interface"
     holdTime.EntityData.SegmentPath = "hold-time"
+    holdTime.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/" + holdTime.EntityData.SegmentPath
     holdTime.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     holdTime.EntityData.NamespaceTable = openconfig.GetNamespaces()
     holdTime.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -625,6 +632,7 @@ func (config *Interfaces_Interface_HoldTime_Config) GetEntityData() *types.Commo
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "hold-time"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/hold-time/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -664,6 +672,7 @@ func (state *Interfaces_Interface_HoldTime_State) GetEntityData() *types.CommonE
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "hold-time"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/hold-time/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -697,6 +706,7 @@ func (subinterfaces *Interfaces_Interface_Subinterfaces) GetEntityData() *types.
     subinterfaces.EntityData.BundleName = "openconfig"
     subinterfaces.EntityData.ParentYangName = "interface"
     subinterfaces.EntityData.SegmentPath = "subinterfaces"
+    subinterfaces.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/" + subinterfaces.EntityData.SegmentPath
     subinterfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subinterfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subinterfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -719,6 +729,7 @@ func (subinterfaces *Interfaces_Interface_Subinterfaces) GetEntityData() *types.
 type Interfaces_Interface_Subinterfaces_Subinterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index number of the subinterface -- used to
     // address the logical interface. The type is string with range:
@@ -748,6 +759,7 @@ func (subinterface *Interfaces_Interface_Subinterfaces_Subinterface) GetEntityDa
     subinterface.EntityData.BundleName = "openconfig"
     subinterface.EntityData.ParentYangName = "subinterfaces"
     subinterface.EntityData.SegmentPath = "subinterface" + types.AddKeyToken(subinterface.Index, "index")
+    subinterface.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/" + subinterface.EntityData.SegmentPath
     subinterface.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subinterface.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subinterface.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -833,6 +845,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Config) GetEntityD
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "subinterface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -940,6 +953,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_State) GetEntityDat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subinterface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1106,6 +1120,7 @@ func (counters *Interfaces_Interface_Subinterfaces_Subinterface_State_Counters) 
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1193,6 +1208,7 @@ func (vlan *Interfaces_Interface_Subinterfaces_Subinterface_Vlan) GetEntityData(
     vlan.EntityData.BundleName = "openconfig"
     vlan.EntityData.ParentYangName = "subinterface"
     vlan.EntityData.SegmentPath = "openconfig-vlan:vlan"
+    vlan.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/" + vlan.EntityData.SegmentPath
     vlan.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1227,6 +1243,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Vlan_Config) GetEn
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "vlan"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-vlan:vlan/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1260,6 +1277,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Vlan_State) GetEnti
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "vlan"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-vlan:vlan/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1302,6 +1320,7 @@ func (ipv4 *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4) GetEntityData(
     ipv4.EntityData.BundleName = "openconfig"
     ipv4.EntityData.ParentYangName = "subinterface"
     ipv4.EntityData.SegmentPath = "openconfig-if-ip:ipv4"
+    ipv4.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1336,6 +1355,7 @@ func (addresses *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses)
     addresses.EntityData.BundleName = "openconfig"
     addresses.EntityData.ParentYangName = "ipv4"
     addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/" + addresses.EntityData.SegmentPath
     addresses.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     addresses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1357,6 +1377,7 @@ func (addresses *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses)
 type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
@@ -1381,6 +1402,7 @@ func (address *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Ad
     address.EntityData.BundleName = "openconfig"
     address.EntityData.ParentYangName = "addresses"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
+    address.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     address.EntityData.NamespaceTable = openconfig.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1420,6 +1442,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Add
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "address"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1461,6 +1484,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Addr
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1494,6 +1518,7 @@ func (vrrp *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Addre
     vrrp.EntityData.BundleName = "openconfig"
     vrrp.EntityData.ParentYangName = "address"
     vrrp.EntityData.SegmentPath = "vrrp"
+    vrrp.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/" + vrrp.EntityData.SegmentPath
     vrrp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1515,6 +1540,7 @@ func (vrrp *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Addre
 type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Address_Vrrp_VrrpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured virtual router id for
     // this VRRP group. The type is string with range: 1..255. Refers to
@@ -1537,6 +1563,7 @@ func (vrrpGroup *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_
     vrrpGroup.EntityData.BundleName = "openconfig"
     vrrpGroup.EntityData.ParentYangName = "vrrp"
     vrrpGroup.EntityData.SegmentPath = "vrrp-group" + types.AddKeyToken(vrrpGroup.VirtualRouterId, "virtual-router-id")
+    vrrpGroup.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/vrrp/" + vrrpGroup.EntityData.SegmentPath
     vrrpGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrpGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrpGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1604,6 +1631,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Add
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "vrrp-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1678,6 +1706,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Addr
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "vrrp-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1717,6 +1746,7 @@ func (interfaceTracking *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Ad
     interfaceTracking.EntityData.BundleName = "openconfig"
     interfaceTracking.EntityData.ParentYangName = "vrrp-group"
     interfaceTracking.EntityData.SegmentPath = "interface-tracking"
+    interfaceTracking.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/" + interfaceTracking.EntityData.SegmentPath
     interfaceTracking.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceTracking.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceTracking.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1755,6 +1785,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Add
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-tracking"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/interface-tracking/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1793,6 +1824,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Addresses_Addr
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-tracking"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/interface-tracking/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1825,6 +1857,7 @@ func (neighbors *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors)
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "ipv4"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1850,6 +1883,7 @@ func (neighbors *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors)
 type Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
@@ -1871,6 +1905,7 @@ func (neighbor *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_N
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
+    neighbor.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1908,6 +1943,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Nei
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "neighbor"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/neighbors/neighbor/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1948,6 +1984,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Neighbors_Neig
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1987,6 +2024,7 @@ func (unnumbered *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbere
     unnumbered.EntityData.BundleName = "openconfig"
     unnumbered.EntityData.ParentYangName = "ipv4"
     unnumbered.EntityData.SegmentPath = "unnumbered"
+    unnumbered.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/" + unnumbered.EntityData.SegmentPath
     unnumbered.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unnumbered.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unnumbered.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2020,6 +2058,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbered_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "unnumbered"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/unnumbered/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2051,6 +2090,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbered_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "unnumbered"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/unnumbered/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2083,6 +2123,7 @@ func (interfaceRef *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbe
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "unnumbered"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/unnumbered/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2122,6 +2163,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbered_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/unnumbered/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2161,6 +2203,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Unnumbered_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/unnumbered/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2201,6 +2244,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_Config) GetEn
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv4"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2241,6 +2285,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv4_State) GetEnti
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2284,6 +2329,7 @@ func (ipv6 *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6) GetEntityData(
     ipv6.EntityData.BundleName = "openconfig"
     ipv6.EntityData.ParentYangName = "subinterface"
     ipv6.EntityData.SegmentPath = "openconfig-if-ip:ipv6"
+    ipv6.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2318,6 +2364,7 @@ func (addresses *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses)
     addresses.EntityData.BundleName = "openconfig"
     addresses.EntityData.ParentYangName = "ipv6"
     addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/" + addresses.EntityData.SegmentPath
     addresses.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     addresses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2339,6 +2386,7 @@ func (addresses *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses)
 type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
@@ -2363,6 +2411,7 @@ func (address *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Ad
     address.EntityData.BundleName = "openconfig"
     address.EntityData.ParentYangName = "addresses"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
+    address.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     address.EntityData.NamespaceTable = openconfig.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2402,6 +2451,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Add
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "address"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2448,6 +2498,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Addr
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2524,6 +2575,7 @@ func (vrrp *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Addre
     vrrp.EntityData.BundleName = "openconfig"
     vrrp.EntityData.ParentYangName = "address"
     vrrp.EntityData.SegmentPath = "vrrp"
+    vrrp.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/" + vrrp.EntityData.SegmentPath
     vrrp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2545,6 +2597,7 @@ func (vrrp *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Addre
 type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Address_Vrrp_VrrpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured virtual router id for
     // this VRRP group. The type is string with range: 1..255. Refers to
@@ -2567,6 +2620,7 @@ func (vrrpGroup *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_
     vrrpGroup.EntityData.BundleName = "openconfig"
     vrrpGroup.EntityData.ParentYangName = "vrrp"
     vrrpGroup.EntityData.SegmentPath = "vrrp-group" + types.AddKeyToken(vrrpGroup.VirtualRouterId, "virtual-router-id")
+    vrrpGroup.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/" + vrrpGroup.EntityData.SegmentPath
     vrrpGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrpGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrpGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2641,6 +2695,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Add
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "vrrp-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2723,6 +2778,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Addr
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "vrrp-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2763,6 +2819,7 @@ func (interfaceTracking *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Ad
     interfaceTracking.EntityData.BundleName = "openconfig"
     interfaceTracking.EntityData.ParentYangName = "vrrp-group"
     interfaceTracking.EntityData.SegmentPath = "interface-tracking"
+    interfaceTracking.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/" + interfaceTracking.EntityData.SegmentPath
     interfaceTracking.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceTracking.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceTracking.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2801,6 +2858,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Add
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-tracking"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/interface-tracking/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2839,6 +2897,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Addresses_Addr
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-tracking"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/interface-tracking/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2870,6 +2929,7 @@ func (neighbors *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors)
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "ipv6"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2891,6 +2951,7 @@ func (neighbors *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors)
 type Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured IP neighbor address. The
     // type is string with pattern:
@@ -2912,6 +2973,7 @@ func (neighbor *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_N
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
+    neighbor.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2951,6 +3013,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Nei
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "neighbor"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/neighbors/neighbor/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3001,6 +3064,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Neighbors_Neig
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3074,6 +3138,7 @@ func (unnumbered *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbere
     unnumbered.EntityData.BundleName = "openconfig"
     unnumbered.EntityData.ParentYangName = "ipv6"
     unnumbered.EntityData.SegmentPath = "unnumbered"
+    unnumbered.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/" + unnumbered.EntityData.SegmentPath
     unnumbered.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unnumbered.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unnumbered.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3107,6 +3172,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbered_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "unnumbered"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/unnumbered/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3138,6 +3204,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbered_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "unnumbered"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/unnumbered/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3170,6 +3237,7 @@ func (interfaceRef *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbe
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "unnumbered"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/unnumbered/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3209,6 +3277,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbered_In
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/unnumbered/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3248,6 +3317,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Unnumbered_Int
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/unnumbered/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3297,6 +3367,7 @@ func (config *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_Config) GetEn
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv6"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3347,6 +3418,7 @@ func (state *Interfaces_Interface_Subinterfaces_Subinterface_Ipv6_State) GetEnti
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3386,6 +3458,7 @@ func (ethernet *Interfaces_Interface_Ethernet) GetEntityData() *types.CommonEnti
     ethernet.EntityData.BundleName = "openconfig"
     ethernet.EntityData.ParentYangName = "interface"
     ethernet.EntityData.SegmentPath = "openconfig-if-ethernet:ethernet"
+    ethernet.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/" + ethernet.EntityData.SegmentPath
     ethernet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ethernet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3454,6 +3527,7 @@ func (config *Interfaces_Interface_Ethernet_Config) GetEntityData() *types.Commo
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ethernet"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3549,6 +3623,7 @@ func (state *Interfaces_Interface_Ethernet_State) GetEntityData() *types.CommonE
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ethernet"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3626,6 +3701,7 @@ func (counters *Interfaces_Interface_Ethernet_State_Counters) GetEntityData() *t
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3680,6 +3756,7 @@ func (switchedVlan *Interfaces_Interface_Ethernet_SwitchedVlan) GetEntityData() 
     switchedVlan.EntityData.BundleName = "openconfig"
     switchedVlan.EntityData.ParentYangName = "ethernet"
     switchedVlan.EntityData.SegmentPath = "openconfig-vlan:switched-vlan"
+    switchedVlan.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/" + switchedVlan.EntityData.SegmentPath
     switchedVlan.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     switchedVlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     switchedVlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3737,6 +3814,7 @@ func (config *Interfaces_Interface_Ethernet_SwitchedVlan_Config) GetEntityData()
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "switched-vlan"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/openconfig-vlan:switched-vlan/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3796,6 +3874,7 @@ func (state *Interfaces_Interface_Ethernet_SwitchedVlan_State) GetEntityData() *
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "switched-vlan"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/openconfig-vlan:switched-vlan/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3836,6 +3915,7 @@ func (aggregation *Interfaces_Interface_Aggregation) GetEntityData() *types.Comm
     aggregation.EntityData.BundleName = "openconfig"
     aggregation.EntityData.ParentYangName = "interface"
     aggregation.EntityData.SegmentPath = "openconfig-if-aggregate:aggregation"
+    aggregation.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/" + aggregation.EntityData.SegmentPath
     aggregation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3874,6 +3954,7 @@ func (config *Interfaces_Interface_Aggregation_Config) GetEntityData() *types.Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "aggregation"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3921,6 +4002,7 @@ func (state *Interfaces_Interface_Aggregation_State) GetEntityData() *types.Comm
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "aggregation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3958,6 +4040,7 @@ func (switchedVlan *Interfaces_Interface_Aggregation_SwitchedVlan) GetEntityData
     switchedVlan.EntityData.BundleName = "openconfig"
     switchedVlan.EntityData.ParentYangName = "aggregation"
     switchedVlan.EntityData.SegmentPath = "openconfig-vlan:switched-vlan"
+    switchedVlan.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/" + switchedVlan.EntityData.SegmentPath
     switchedVlan.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     switchedVlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     switchedVlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4015,6 +4098,7 @@ func (config *Interfaces_Interface_Aggregation_SwitchedVlan_Config) GetEntityDat
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "switched-vlan"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/openconfig-vlan:switched-vlan/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4074,6 +4158,7 @@ func (state *Interfaces_Interface_Aggregation_SwitchedVlan_State) GetEntityData(
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "switched-vlan"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/openconfig-vlan:switched-vlan/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4118,6 +4203,7 @@ func (routedVlan *Interfaces_Interface_RoutedVlan) GetEntityData() *types.Common
     routedVlan.EntityData.BundleName = "openconfig"
     routedVlan.EntityData.ParentYangName = "interface"
     routedVlan.EntityData.SegmentPath = "openconfig-vlan:routed-vlan"
+    routedVlan.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/" + routedVlan.EntityData.SegmentPath
     routedVlan.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routedVlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routedVlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4153,6 +4239,7 @@ func (config *Interfaces_Interface_RoutedVlan_Config) GetEntityData() *types.Com
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "routed-vlan"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4185,6 +4272,7 @@ func (state *Interfaces_Interface_RoutedVlan_State) GetEntityData() *types.Commo
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "routed-vlan"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4227,6 +4315,7 @@ func (ipv4 *Interfaces_Interface_RoutedVlan_Ipv4) GetEntityData() *types.CommonE
     ipv4.EntityData.BundleName = "openconfig"
     ipv4.EntityData.ParentYangName = "routed-vlan"
     ipv4.EntityData.SegmentPath = "openconfig-if-ip:ipv4"
+    ipv4.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4261,6 +4350,7 @@ func (addresses *Interfaces_Interface_RoutedVlan_Ipv4_Addresses) GetEntityData()
     addresses.EntityData.BundleName = "openconfig"
     addresses.EntityData.ParentYangName = "ipv4"
     addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/" + addresses.EntityData.SegmentPath
     addresses.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     addresses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4282,6 +4372,7 @@ func (addresses *Interfaces_Interface_RoutedVlan_Ipv4_Addresses) GetEntityData()
 type Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
@@ -4306,6 +4397,7 @@ func (address *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address) GetEntity
     address.EntityData.BundleName = "openconfig"
     address.EntityData.ParentYangName = "addresses"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
+    address.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/addresses/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     address.EntityData.NamespaceTable = openconfig.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4345,6 +4437,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Config) Get
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "address"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/addresses/address/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4386,6 +4479,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_State) GetEn
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/addresses/address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4419,6 +4513,7 @@ func (vrrp *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp) GetEnti
     vrrp.EntityData.BundleName = "openconfig"
     vrrp.EntityData.ParentYangName = "address"
     vrrp.EntityData.SegmentPath = "vrrp"
+    vrrp.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/addresses/address/" + vrrp.EntityData.SegmentPath
     vrrp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4440,6 +4535,7 @@ func (vrrp *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp) GetEnti
 type Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured virtual router id for
     // this VRRP group. The type is string with range: 1..255. Refers to
@@ -4462,6 +4558,7 @@ func (vrrpGroup *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_Vrr
     vrrpGroup.EntityData.BundleName = "openconfig"
     vrrpGroup.EntityData.ParentYangName = "vrrp"
     vrrpGroup.EntityData.SegmentPath = "vrrp-group" + types.AddKeyToken(vrrpGroup.VirtualRouterId, "virtual-router-id")
+    vrrpGroup.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/addresses/address/vrrp/" + vrrpGroup.EntityData.SegmentPath
     vrrpGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrpGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrpGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4529,6 +4626,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGr
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "vrrp-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4603,6 +4701,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGro
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "vrrp-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4642,6 +4741,7 @@ func (interfaceTracking *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_
     interfaceTracking.EntityData.BundleName = "openconfig"
     interfaceTracking.EntityData.ParentYangName = "vrrp-group"
     interfaceTracking.EntityData.SegmentPath = "interface-tracking"
+    interfaceTracking.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/" + interfaceTracking.EntityData.SegmentPath
     interfaceTracking.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceTracking.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceTracking.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4680,6 +4780,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGr
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-tracking"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/interface-tracking/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4718,6 +4819,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Addresses_Address_Vrrp_VrrpGro
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-tracking"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/interface-tracking/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4750,6 +4852,7 @@ func (neighbors *Interfaces_Interface_RoutedVlan_Ipv4_Neighbors) GetEntityData()
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "ipv4"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4775,6 +4878,7 @@ func (neighbors *Interfaces_Interface_RoutedVlan_Ipv4_Neighbors) GetEntityData()
 type Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
@@ -4796,6 +4900,7 @@ func (neighbor *Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor) GetEnti
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
+    neighbor.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4833,6 +4938,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor_Config) Ge
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "neighbor"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/neighbors/neighbor/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4873,6 +4979,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Neighbors_Neighbor_State) GetE
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4912,6 +5019,7 @@ func (unnumbered *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered) GetEntityData
     unnumbered.EntityData.BundleName = "openconfig"
     unnumbered.EntityData.ParentYangName = "ipv4"
     unnumbered.EntityData.SegmentPath = "unnumbered"
+    unnumbered.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/" + unnumbered.EntityData.SegmentPath
     unnumbered.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unnumbered.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unnumbered.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4945,6 +5053,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_Config) GetEntityD
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "unnumbered"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/unnumbered/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4976,6 +5085,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_State) GetEntityDat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "unnumbered"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/unnumbered/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5008,6 +5118,7 @@ func (interfaceRef *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_InterfaceRef
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "unnumbered"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/unnumbered/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5047,6 +5158,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_InterfaceRef_Confi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/unnumbered/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5086,6 +5198,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_Unnumbered_InterfaceRef_State)
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/unnumbered/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5126,6 +5239,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv4_Config) GetEntityData() *type
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv4"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5166,6 +5280,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv4_State) GetEntityData() *types.
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv4/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5209,6 +5324,7 @@ func (ipv6 *Interfaces_Interface_RoutedVlan_Ipv6) GetEntityData() *types.CommonE
     ipv6.EntityData.BundleName = "openconfig"
     ipv6.EntityData.ParentYangName = "routed-vlan"
     ipv6.EntityData.SegmentPath = "openconfig-if-ip:ipv6"
+    ipv6.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5243,6 +5359,7 @@ func (addresses *Interfaces_Interface_RoutedVlan_Ipv6_Addresses) GetEntityData()
     addresses.EntityData.BundleName = "openconfig"
     addresses.EntityData.ParentYangName = "ipv6"
     addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/" + addresses.EntityData.SegmentPath
     addresses.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     addresses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5264,6 +5381,7 @@ func (addresses *Interfaces_Interface_RoutedVlan_Ipv6_Addresses) GetEntityData()
 type Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured IP address. The type is
     // string with pattern:
@@ -5288,6 +5406,7 @@ func (address *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address) GetEntity
     address.EntityData.BundleName = "openconfig"
     address.EntityData.ParentYangName = "addresses"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
+    address.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/addresses/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     address.EntityData.NamespaceTable = openconfig.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5327,6 +5446,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Config) Get
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "address"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/addresses/address/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5373,6 +5493,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_State) GetEn
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "address"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/addresses/address/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5449,6 +5570,7 @@ func (vrrp *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp) GetEnti
     vrrp.EntityData.BundleName = "openconfig"
     vrrp.EntityData.ParentYangName = "address"
     vrrp.EntityData.SegmentPath = "vrrp"
+    vrrp.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/addresses/address/" + vrrp.EntityData.SegmentPath
     vrrp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5470,6 +5592,7 @@ func (vrrp *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp) GetEnti
 type Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured virtual router id for
     // this VRRP group. The type is string with range: 1..255. Refers to
@@ -5492,6 +5615,7 @@ func (vrrpGroup *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_Vrr
     vrrpGroup.EntityData.BundleName = "openconfig"
     vrrpGroup.EntityData.ParentYangName = "vrrp"
     vrrpGroup.EntityData.SegmentPath = "vrrp-group" + types.AddKeyToken(vrrpGroup.VirtualRouterId, "virtual-router-id")
+    vrrpGroup.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/addresses/address/vrrp/" + vrrpGroup.EntityData.SegmentPath
     vrrpGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vrrpGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vrrpGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5566,6 +5690,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGr
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "vrrp-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5648,6 +5773,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGro
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "vrrp-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5688,6 +5814,7 @@ func (interfaceTracking *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_
     interfaceTracking.EntityData.BundleName = "openconfig"
     interfaceTracking.EntityData.ParentYangName = "vrrp-group"
     interfaceTracking.EntityData.SegmentPath = "interface-tracking"
+    interfaceTracking.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/" + interfaceTracking.EntityData.SegmentPath
     interfaceTracking.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceTracking.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceTracking.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5726,6 +5853,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGr
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-tracking"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/interface-tracking/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5764,6 +5892,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Addresses_Address_Vrrp_VrrpGro
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-tracking"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/interface-tracking/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5795,6 +5924,7 @@ func (neighbors *Interfaces_Interface_RoutedVlan_Ipv6_Neighbors) GetEntityData()
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "ipv6"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5816,6 +5946,7 @@ func (neighbors *Interfaces_Interface_RoutedVlan_Ipv6_Neighbors) GetEntityData()
 type Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the configured IP neighbor address. The
     // type is string with pattern:
@@ -5837,6 +5968,7 @@ func (neighbor *Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor) GetEnti
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
+    neighbor.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5876,6 +6008,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor_Config) Ge
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "neighbor"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/neighbors/neighbor/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5926,6 +6059,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Neighbors_Neighbor_State) GetE
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5999,6 +6133,7 @@ func (unnumbered *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered) GetEntityData
     unnumbered.EntityData.BundleName = "openconfig"
     unnumbered.EntityData.ParentYangName = "ipv6"
     unnumbered.EntityData.SegmentPath = "unnumbered"
+    unnumbered.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/" + unnumbered.EntityData.SegmentPath
     unnumbered.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unnumbered.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unnumbered.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6032,6 +6167,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_Config) GetEntityD
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "unnumbered"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/unnumbered/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6063,6 +6199,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_State) GetEntityDat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "unnumbered"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/unnumbered/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6095,6 +6232,7 @@ func (interfaceRef *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_InterfaceRef
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "unnumbered"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/unnumbered/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6134,6 +6272,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_InterfaceRef_Confi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/unnumbered/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6173,6 +6312,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_Unnumbered_InterfaceRef_State)
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/unnumbered/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6222,6 +6362,7 @@ func (config *Interfaces_Interface_RoutedVlan_Ipv6_Config) GetEntityData() *type
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv6"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6272,6 +6413,7 @@ func (state *Interfaces_Interface_RoutedVlan_Ipv6_State) GetEntityData() *types.
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/openconfig-vlan:routed-vlan/openconfig-if-ip:ipv6/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6300,6 +6442,7 @@ func (sonet *Interfaces_Interface_Sonet) GetEntityData() *types.CommonEntityData
     sonet.EntityData.BundleName = "openconfig"
     sonet.EntityData.ParentYangName = "interface"
     sonet.EntityData.SegmentPath = "openconfig-transport-line-common:sonet"
+    sonet.EntityData.AbsolutePath = "openconfig-interfaces:interfaces/interface/" + sonet.EntityData.SegmentPath
     sonet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sonet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sonet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

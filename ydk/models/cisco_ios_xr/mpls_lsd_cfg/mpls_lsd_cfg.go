@@ -76,6 +76,7 @@ func (mplsLsd *MplsLsd) GetEntityData() *types.CommonEntityData {
     mplsLsd.EntityData.BundleName = "cisco_ios_xr"
     mplsLsd.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-lsd-cfg"
     mplsLsd.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd"
+    mplsLsd.EntityData.AbsolutePath = mplsLsd.EntityData.SegmentPath
     mplsLsd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLsd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLsd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -112,6 +113,7 @@ func (ipv6 *MplsLsd_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "mpls-lsd"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -142,6 +144,7 @@ func (ipv4 *MplsLsd_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "mpls-lsd"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -172,6 +175,7 @@ func (labelDatabases *MplsLsd_LabelDatabases) GetEntityData() *types.CommonEntit
     labelDatabases.EntityData.BundleName = "cisco_ios_xr"
     labelDatabases.EntityData.ParentYangName = "mpls-lsd"
     labelDatabases.EntityData.SegmentPath = "label-databases"
+    labelDatabases.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/" + labelDatabases.EntityData.SegmentPath
     labelDatabases.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelDatabases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelDatabases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -193,6 +197,7 @@ func (labelDatabases *MplsLsd_LabelDatabases) GetEntityData() *types.CommonEntit
 type MplsLsd_LabelDatabases_LabelDatabase struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Label database identifier. The type is interface{}
     // with range: 0..4294967295.
@@ -208,6 +213,7 @@ func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetEntityData() *type
     labelDatabase.EntityData.BundleName = "cisco_ios_xr"
     labelDatabase.EntityData.ParentYangName = "label-databases"
     labelDatabase.EntityData.SegmentPath = "label-database" + types.AddKeyToken(labelDatabase.LabelDatabaseId, "label-database-id")
+    labelDatabase.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/label-databases/" + labelDatabase.EntityData.SegmentPath
     labelDatabase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelDatabase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelDatabase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -247,6 +253,7 @@ func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetEntityData
     labelRange.EntityData.BundleName = "cisco_ios_xr"
     labelRange.EntityData.ParentYangName = "label-database"
     labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/label-databases/label-database/" + labelRange.EntityData.SegmentPath
     labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

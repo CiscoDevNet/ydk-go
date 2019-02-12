@@ -37,6 +37,7 @@ func (cISCOUBEMIB *CISCOUBEMIB) GetEntityData() *types.CommonEntityData {
     cISCOUBEMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOUBEMIB.EntityData.ParentYangName = "CISCO-UBE-MIB"
     cISCOUBEMIB.EntityData.SegmentPath = "CISCO-UBE-MIB:CISCO-UBE-MIB"
+    cISCOUBEMIB.EntityData.AbsolutePath = cISCOUBEMIB.EntityData.SegmentPath
     cISCOUBEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOUBEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOUBEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -77,6 +78,7 @@ func (ciscoUbeMIBObjects *CISCOUBEMIB_CiscoUbeMIBObjects) GetEntityData() *types
     ciscoUbeMIBObjects.EntityData.BundleName = "cisco_ios_xe"
     ciscoUbeMIBObjects.EntityData.ParentYangName = "CISCO-UBE-MIB"
     ciscoUbeMIBObjects.EntityData.SegmentPath = "ciscoUbeMIBObjects"
+    ciscoUbeMIBObjects.EntityData.AbsolutePath = "CISCO-UBE-MIB:CISCO-UBE-MIB/" + ciscoUbeMIBObjects.EntityData.SegmentPath
     ciscoUbeMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoUbeMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoUbeMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

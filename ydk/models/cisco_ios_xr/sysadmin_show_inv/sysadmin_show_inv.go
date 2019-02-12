@@ -53,6 +53,7 @@ func (inventory *Inventory) GetEntityData() *types.CommonEntityData {
     inventory.EntityData.BundleName = "cisco_ios_xr"
     inventory.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-show-inv"
     inventory.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-show-inv:inventory"
+    inventory.EntityData.AbsolutePath = inventory.EntityData.SegmentPath
     inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -93,6 +94,7 @@ func (inventory *Inventory) GetEntityData() *types.CommonEntityData {
 type Inventory_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node id of the entity. The type is string.
     Loc interface{}
@@ -122,6 +124,7 @@ func (location *Inventory_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "inventory"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Loc, "loc")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-inv:inventory/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -145,6 +148,7 @@ func (location *Inventory_Location) GetEntityData() *types.CommonEntityData {
 type Inventory_All struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index for the entity. The type is interface{} with
     // range: 0..4294967295.
@@ -175,6 +179,7 @@ func (all *Inventory_All) GetEntityData() *types.CommonEntityData {
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "inventory"
     all.EntityData.SegmentPath = "all" + types.AddKeyToken(all.Index, "index")
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-inv:inventory/" + all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -198,6 +203,7 @@ func (all *Inventory_All) GetEntityData() *types.CommonEntityData {
 type Inventory_Chassis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index for the entity. The type is interface{} with
     // range: 0..4294967295.
@@ -228,6 +234,7 @@ func (chassis *Inventory_Chassis) GetEntityData() *types.CommonEntityData {
     chassis.EntityData.BundleName = "cisco_ios_xr"
     chassis.EntityData.ParentYangName = "inventory"
     chassis.EntityData.SegmentPath = "chassis" + types.AddKeyToken(chassis.Index, "index")
+    chassis.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-inv:inventory/" + chassis.EntityData.SegmentPath
     chassis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -251,6 +258,7 @@ func (chassis *Inventory_Chassis) GetEntityData() *types.CommonEntityData {
 type Inventory_Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index for the entity. The type is interface{} with
     // range: 0..4294967295.
@@ -281,6 +289,7 @@ func (power *Inventory_Power) GetEntityData() *types.CommonEntityData {
     power.EntityData.BundleName = "cisco_ios_xr"
     power.EntityData.ParentYangName = "inventory"
     power.EntityData.SegmentPath = "power" + types.AddKeyToken(power.Index, "index")
+    power.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-inv:inventory/" + power.EntityData.SegmentPath
     power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -304,6 +313,7 @@ func (power *Inventory_Power) GetEntityData() *types.CommonEntityData {
 type Inventory_Fan struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index for the entity. The type is interface{} with
     // range: 0..4294967295.
@@ -334,6 +344,7 @@ func (fan *Inventory_Fan) GetEntityData() *types.CommonEntityData {
     fan.EntityData.BundleName = "cisco_ios_xr"
     fan.EntityData.ParentYangName = "inventory"
     fan.EntityData.SegmentPath = "fan" + types.AddKeyToken(fan.Index, "index")
+    fan.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-inv:inventory/" + fan.EntityData.SegmentPath
     fan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -357,6 +368,7 @@ func (fan *Inventory_Fan) GetEntityData() *types.CommonEntityData {
 type Inventory_Raw struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index for the entity. The type is interface{} with
     // range: 0..4294967295.
@@ -387,6 +399,7 @@ func (raw *Inventory_Raw) GetEntityData() *types.CommonEntityData {
     raw.EntityData.BundleName = "cisco_ios_xr"
     raw.EntityData.ParentYangName = "inventory"
     raw.EntityData.SegmentPath = "raw" + types.AddKeyToken(raw.Index, "index")
+    raw.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-inv:inventory/" + raw.EntityData.SegmentPath
     raw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     raw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     raw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

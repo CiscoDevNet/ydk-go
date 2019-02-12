@@ -1081,6 +1081,7 @@ func (lacpBundles *LacpBundles) GetEntityData() *types.CommonEntityData {
     lacpBundles.EntityData.BundleName = "cisco_ios_xr"
     lacpBundles.EntityData.ParentYangName = "Cisco-IOS-XR-bundlemgr-oper"
     lacpBundles.EntityData.SegmentPath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles"
+    lacpBundles.EntityData.AbsolutePath = lacpBundles.EntityData.SegmentPath
     lacpBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1110,6 +1111,7 @@ func (bundles *LacpBundles_Bundles) GetEntityData() *types.CommonEntityData {
     bundles.EntityData.BundleName = "cisco_ios_xr"
     bundles.EntityData.ParentYangName = "lacp-bundles"
     bundles.EntityData.SegmentPath = "bundles"
+    bundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/" + bundles.EntityData.SegmentPath
     bundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1131,6 +1133,7 @@ func (bundles *LacpBundles_Bundles) GetEntityData() *types.CommonEntityData {
 type LacpBundles_Bundles_Bundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LACP Bundle interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1149,6 +1152,7 @@ func (bundle *LacpBundles_Bundles_Bundle) GetEntityData() *types.CommonEntityDat
     bundle.EntityData.BundleName = "cisco_ios_xr"
     bundle.EntityData.ParentYangName = "bundles"
     bundle.EntityData.SegmentPath = "bundle" + types.AddKeyToken(bundle.BundleInterface, "bundle-interface")
+    bundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/" + bundle.EntityData.SegmentPath
     bundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1199,6 +1203,7 @@ func (data *LacpBundles_Bundles_Bundle_Data) GetEntityData() *types.CommonEntity
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1381,6 +1386,7 @@ func (actorBundleData *LacpBundles_Bundles_Bundle_Data_ActorBundleData) GetEntit
     actorBundleData.EntityData.BundleName = "cisco_ios_xr"
     actorBundleData.EntityData.ParentYangName = "data"
     actorBundleData.EntityData.SegmentPath = "actor-bundle-data"
+    actorBundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/data/" + actorBundleData.EntityData.SegmentPath
     actorBundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actorBundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actorBundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1389,6 +1395,7 @@ func (actorBundleData *LacpBundles_Bundles_Bundle_Data_ActorBundleData) GetEntit
     actorBundleData.EntityData.Children.Append("mac-address", types.YChild{"MacAddress", &actorBundleData.MacAddress})
     actorBundleData.EntityData.Children.Append("bfd-config", types.YChild{"BfdConfig", nil})
     for i := range actorBundleData.BfdConfig {
+        types.SetYListKey(actorBundleData.BfdConfig[i], i)
         actorBundleData.EntityData.Children.Append(types.GetSegmentPath(actorBundleData.BfdConfig[i]), types.YChild{"BfdConfig", actorBundleData.BfdConfig[i]})
     }
     actorBundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -1453,6 +1460,7 @@ func (macAddress *LacpBundles_Bundles_Bundle_Data_ActorBundleData_MacAddress) Ge
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "actor-bundle-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/data/actor-bundle-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1471,6 +1479,7 @@ func (macAddress *LacpBundles_Bundles_Bundle_Data_ActorBundleData_MacAddress) Ge
 type LacpBundles_Bundles_Bundle_Data_ActorBundleData_BfdConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Status of BFD on the bundle. The type is BmdBfdBdlState.
     BundleStatus interface{}
@@ -1512,7 +1521,8 @@ func (bfdConfig *LacpBundles_Bundles_Bundle_Data_ActorBundleData_BfdConfig) GetE
     bfdConfig.EntityData.YangName = "bfd-config"
     bfdConfig.EntityData.BundleName = "cisco_ios_xr"
     bfdConfig.EntityData.ParentYangName = "actor-bundle-data"
-    bfdConfig.EntityData.SegmentPath = "bfd-config"
+    bfdConfig.EntityData.SegmentPath = "bfd-config" + types.AddNoKeyToken(bfdConfig)
+    bfdConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/data/actor-bundle-data/" + bfdConfig.EntityData.SegmentPath
     bfdConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1558,6 +1568,7 @@ func (destinationAddress *LacpBundles_Bundles_Bundle_Data_ActorBundleData_BfdCon
     destinationAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationAddress.EntityData.ParentYangName = "bfd-config"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/data/actor-bundle-data/bfd-config/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1592,6 +1603,7 @@ func (bundleSystemId *LacpBundles_Bundles_Bundle_Data_BundleSystemId) GetEntityD
     bundleSystemId.EntityData.BundleName = "cisco_ios_xr"
     bundleSystemId.EntityData.ParentYangName = "data"
     bundleSystemId.EntityData.SegmentPath = "bundle-system-id"
+    bundleSystemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/data/" + bundleSystemId.EntityData.SegmentPath
     bundleSystemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleSystemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleSystemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1623,6 +1635,7 @@ func (systemMacAddr *LacpBundles_Bundles_Bundle_Data_BundleSystemId_SystemMacAdd
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "bundle-system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/data/bundle-system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1653,6 +1666,7 @@ func (members *LacpBundles_Bundles_Bundle_Members) GetEntityData() *types.Common
     members.EntityData.BundleName = "cisco_ios_xr"
     members.EntityData.ParentYangName = "bundle"
     members.EntityData.SegmentPath = "members"
+    members.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/" + members.EntityData.SegmentPath
     members.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     members.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1674,6 +1688,7 @@ func (members *LacpBundles_Bundles_Bundle_Members) GetEntityData() *types.Common
 type LacpBundles_Bundles_Bundle_Members_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1729,6 +1744,7 @@ func (member *LacpBundles_Bundles_Bundle_Members_Member) GetEntityData() *types.
     member.EntityData.BundleName = "cisco_ios_xr"
     member.EntityData.ParentYangName = "members"
     member.EntityData.SegmentPath = "member" + types.AddKeyToken(member.MemberInterface, "member-interface")
+    member.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/members/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     member.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1810,6 +1826,7 @@ func (counters *LacpBundles_Bundles_Bundle_Members_Member_Counters) GetEntityDat
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "member"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/members/member/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1903,6 +1920,7 @@ func (linkData *LacpBundles_Bundles_Bundle_Members_Member_LinkData) GetEntityDat
     linkData.EntityData.BundleName = "cisco_ios_xr"
     linkData.EntityData.ParentYangName = "member"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/members/member/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1962,6 +1980,7 @@ func (memberMuxData *LacpBundles_Bundles_Bundle_Members_Member_MemberMuxData) Ge
     memberMuxData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxData.EntityData.ParentYangName = "member"
     memberMuxData.EntityData.SegmentPath = "member-mux-data"
+    memberMuxData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/members/member/" + memberMuxData.EntityData.SegmentPath
     memberMuxData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2000,6 +2019,7 @@ func (memberMuxStateReasonData *LacpBundles_Bundles_Bundle_Members_Member_Member
     memberMuxStateReasonData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxStateReasonData.EntityData.ParentYangName = "member-mux-data"
     memberMuxStateReasonData.EntityData.SegmentPath = "member-mux-state-reason-data"
+    memberMuxStateReasonData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/members/member/member-mux-data/" + memberMuxStateReasonData.EntityData.SegmentPath
     memberMuxStateReasonData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxStateReasonData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxStateReasonData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2031,6 +2051,7 @@ func (macAddress *LacpBundles_Bundles_Bundle_Members_Member_MacAddress) GetEntit
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "member"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundles/bundles/bundle/members/member/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2108,6 +2129,7 @@ func (bundleInformation *BundleInformation) GetEntityData() *types.CommonEntityD
     bundleInformation.EntityData.BundleName = "cisco_ios_xr"
     bundleInformation.EntityData.ParentYangName = "Cisco-IOS-XR-bundlemgr-oper"
     bundleInformation.EntityData.SegmentPath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information"
+    bundleInformation.EntityData.AbsolutePath = bundleInformation.EntityData.SegmentPath
     bundleInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2156,6 +2178,7 @@ func (bfdCounters *BundleInformation_BfdCounters) GetEntityData() *types.CommonE
     bfdCounters.EntityData.BundleName = "cisco_ios_xr"
     bfdCounters.EntityData.ParentYangName = "bundle-information"
     bfdCounters.EntityData.SegmentPath = "bfd-counters"
+    bfdCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + bfdCounters.EntityData.SegmentPath
     bfdCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2187,6 +2210,7 @@ func (bfdCountersBundles *BundleInformation_BfdCounters_BfdCountersBundles) GetE
     bfdCountersBundles.EntityData.BundleName = "cisco_ios_xr"
     bfdCountersBundles.EntityData.ParentYangName = "bfd-counters"
     bfdCountersBundles.EntityData.SegmentPath = "bfd-counters-bundles"
+    bfdCountersBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/" + bfdCountersBundles.EntityData.SegmentPath
     bfdCountersBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCountersBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCountersBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2208,6 +2232,7 @@ func (bfdCountersBundles *BundleInformation_BfdCounters_BfdCountersBundles) GetE
 type BundleInformation_BfdCounters_BfdCountersBundles_BfdCountersBundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -2229,6 +2254,7 @@ func (bfdCountersBundle *BundleInformation_BfdCounters_BfdCountersBundles_BfdCou
     bfdCountersBundle.EntityData.BundleName = "cisco_ios_xr"
     bfdCountersBundle.EntityData.ParentYangName = "bfd-counters-bundles"
     bfdCountersBundle.EntityData.SegmentPath = "bfd-counters-bundle" + types.AddKeyToken(bfdCountersBundle.BundleInterface, "bundle-interface")
+    bfdCountersBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/bfd-counters-bundles/" + bfdCountersBundle.EntityData.SegmentPath
     bfdCountersBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCountersBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCountersBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2265,6 +2291,7 @@ func (bfdCountersBundleDescendant *BundleInformation_BfdCounters_BfdCountersBund
     bfdCountersBundleDescendant.EntityData.BundleName = "cisco_ios_xr"
     bfdCountersBundleDescendant.EntityData.ParentYangName = "bfd-counters-bundle"
     bfdCountersBundleDescendant.EntityData.SegmentPath = "bfd-counters-bundle-descendant"
+    bfdCountersBundleDescendant.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/bfd-counters-bundles/bfd-counters-bundle/" + bfdCountersBundleDescendant.EntityData.SegmentPath
     bfdCountersBundleDescendant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCountersBundleDescendant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCountersBundleDescendant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2273,6 +2300,7 @@ func (bfdCountersBundleDescendant *BundleInformation_BfdCounters_BfdCountersBund
     bfdCountersBundleDescendant.EntityData.Children.Append("bundle-name", types.YChild{"BundleName", &bfdCountersBundleDescendant.BundleName})
     bfdCountersBundleDescendant.EntityData.Children.Append("bfd-counter", types.YChild{"BfdCounter", nil})
     for i := range bfdCountersBundleDescendant.BfdCounter {
+        types.SetYListKey(bfdCountersBundleDescendant.BfdCounter[i], i)
         bfdCountersBundleDescendant.EntityData.Children.Append(types.GetSegmentPath(bfdCountersBundleDescendant.BfdCounter[i]), types.YChild{"BfdCounter", bfdCountersBundleDescendant.BfdCounter[i]})
     }
     bfdCountersBundleDescendant.EntityData.Leafs = types.NewOrderedMap()
@@ -2298,6 +2326,7 @@ func (bundleName *BundleInformation_BfdCounters_BfdCountersBundles_BfdCountersBu
     bundleName.EntityData.BundleName = "cisco_ios_xr"
     bundleName.EntityData.ParentYangName = "bfd-counters-bundle-descendant"
     bundleName.EntityData.SegmentPath = "bundle-name"
+    bundleName.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/bfd-counters-bundles/bfd-counters-bundle/bfd-counters-bundle-descendant/" + bundleName.EntityData.SegmentPath
     bundleName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2316,6 +2345,7 @@ func (bundleName *BundleInformation_BfdCounters_BfdCountersBundles_BfdCountersBu
 type BundleInformation_BfdCounters_BfdCountersBundles_BfdCountersBundle_BfdCountersBundleDescendant_BfdCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name of the member this information is for. The type is string.
     MemberName interface{}
@@ -2358,7 +2388,8 @@ func (bfdCounter *BundleInformation_BfdCounters_BfdCountersBundles_BfdCountersBu
     bfdCounter.EntityData.YangName = "bfd-counter"
     bfdCounter.EntityData.BundleName = "cisco_ios_xr"
     bfdCounter.EntityData.ParentYangName = "bfd-counters-bundle-descendant"
-    bfdCounter.EntityData.SegmentPath = "bfd-counter"
+    bfdCounter.EntityData.SegmentPath = "bfd-counter" + types.AddNoKeyToken(bfdCounter)
+    bfdCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/bfd-counters-bundles/bfd-counters-bundle/bfd-counters-bundle-descendant/" + bfdCounter.EntityData.SegmentPath
     bfdCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2398,6 +2429,7 @@ func (bfdCountersBundleChildrenMembers *BundleInformation_BfdCounters_BfdCounter
     bfdCountersBundleChildrenMembers.EntityData.BundleName = "cisco_ios_xr"
     bfdCountersBundleChildrenMembers.EntityData.ParentYangName = "bfd-counters-bundle"
     bfdCountersBundleChildrenMembers.EntityData.SegmentPath = "bfd-counters-bundle-children-members"
+    bfdCountersBundleChildrenMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/bfd-counters-bundles/bfd-counters-bundle/" + bfdCountersBundleChildrenMembers.EntityData.SegmentPath
     bfdCountersBundleChildrenMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCountersBundleChildrenMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCountersBundleChildrenMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2420,6 +2452,7 @@ func (bfdCountersBundleChildrenMembers *BundleInformation_BfdCounters_BfdCounter
 type BundleInformation_BfdCounters_BfdCountersBundles_BfdCountersBundle_BfdCountersBundleChildrenMembers_BfdCountersBundleChildrenMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -2466,6 +2499,7 @@ func (bfdCountersBundleChildrenMember *BundleInformation_BfdCounters_BfdCounters
     bfdCountersBundleChildrenMember.EntityData.BundleName = "cisco_ios_xr"
     bfdCountersBundleChildrenMember.EntityData.ParentYangName = "bfd-counters-bundle-children-members"
     bfdCountersBundleChildrenMember.EntityData.SegmentPath = "bfd-counters-bundle-children-member" + types.AddKeyToken(bfdCountersBundleChildrenMember.MemberInterface, "member-interface")
+    bfdCountersBundleChildrenMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/bfd-counters-bundles/bfd-counters-bundle/bfd-counters-bundle-children-members/" + bfdCountersBundleChildrenMember.EntityData.SegmentPath
     bfdCountersBundleChildrenMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCountersBundleChildrenMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCountersBundleChildrenMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2504,6 +2538,7 @@ func (bfdCountersBundleItem *BundleInformation_BfdCounters_BfdCountersBundles_Bf
     bfdCountersBundleItem.EntityData.BundleName = "cisco_ios_xr"
     bfdCountersBundleItem.EntityData.ParentYangName = "bfd-counters-bundle"
     bfdCountersBundleItem.EntityData.SegmentPath = "bfd-counters-bundle-item"
+    bfdCountersBundleItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/bfd-counters-bundles/bfd-counters-bundle/" + bfdCountersBundleItem.EntityData.SegmentPath
     bfdCountersBundleItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCountersBundleItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCountersBundleItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2534,6 +2569,7 @@ func (bfdCountersMembers *BundleInformation_BfdCounters_BfdCountersMembers) GetE
     bfdCountersMembers.EntityData.BundleName = "cisco_ios_xr"
     bfdCountersMembers.EntityData.ParentYangName = "bfd-counters"
     bfdCountersMembers.EntityData.SegmentPath = "bfd-counters-members"
+    bfdCountersMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/" + bfdCountersMembers.EntityData.SegmentPath
     bfdCountersMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCountersMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCountersMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2555,6 +2591,7 @@ func (bfdCountersMembers *BundleInformation_BfdCounters_BfdCountersMembers) GetE
 type BundleInformation_BfdCounters_BfdCountersMembers_BfdCountersMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -2569,6 +2606,7 @@ func (bfdCountersMember *BundleInformation_BfdCounters_BfdCountersMembers_BfdCou
     bfdCountersMember.EntityData.BundleName = "cisco_ios_xr"
     bfdCountersMember.EntityData.ParentYangName = "bfd-counters-members"
     bfdCountersMember.EntityData.SegmentPath = "bfd-counters-member" + types.AddKeyToken(bfdCountersMember.MemberInterface, "member-interface")
+    bfdCountersMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/bfd-counters-members/" + bfdCountersMember.EntityData.SegmentPath
     bfdCountersMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCountersMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCountersMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2631,6 +2669,7 @@ func (bfdCountersMemberItem *BundleInformation_BfdCounters_BfdCountersMembers_Bf
     bfdCountersMemberItem.EntityData.BundleName = "cisco_ios_xr"
     bfdCountersMemberItem.EntityData.ParentYangName = "bfd-counters-member"
     bfdCountersMemberItem.EntityData.SegmentPath = "bfd-counters-member-item"
+    bfdCountersMemberItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bfd-counters/bfd-counters-members/bfd-counters-member/" + bfdCountersMemberItem.EntityData.SegmentPath
     bfdCountersMemberItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdCountersMemberItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdCountersMemberItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2668,6 +2707,7 @@ func (scheduledActions *BundleInformation_ScheduledActions) GetEntityData() *typ
     scheduledActions.EntityData.BundleName = "cisco_ios_xr"
     scheduledActions.EntityData.ParentYangName = "bundle-information"
     scheduledActions.EntityData.SegmentPath = "scheduled-actions"
+    scheduledActions.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + scheduledActions.EntityData.SegmentPath
     scheduledActions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scheduledActions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scheduledActions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2698,6 +2738,7 @@ func (scheduledActionsBundles *BundleInformation_ScheduledActions_ScheduledActio
     scheduledActionsBundles.EntityData.BundleName = "cisco_ios_xr"
     scheduledActionsBundles.EntityData.ParentYangName = "scheduled-actions"
     scheduledActionsBundles.EntityData.SegmentPath = "scheduled-actions-bundles"
+    scheduledActionsBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/scheduled-actions/" + scheduledActionsBundles.EntityData.SegmentPath
     scheduledActionsBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scheduledActionsBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scheduledActionsBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2719,6 +2760,7 @@ func (scheduledActionsBundles *BundleInformation_ScheduledActions_ScheduledActio
 type BundleInformation_ScheduledActions_ScheduledActionsBundles_ScheduledActionsBundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -2734,6 +2776,7 @@ func (scheduledActionsBundle *BundleInformation_ScheduledActions_ScheduledAction
     scheduledActionsBundle.EntityData.BundleName = "cisco_ios_xr"
     scheduledActionsBundle.EntityData.ParentYangName = "scheduled-actions-bundles"
     scheduledActionsBundle.EntityData.SegmentPath = "scheduled-actions-bundle" + types.AddKeyToken(scheduledActionsBundle.BundleInterface, "bundle-interface")
+    scheduledActionsBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/scheduled-actions/scheduled-actions-bundles/" + scheduledActionsBundle.EntityData.SegmentPath
     scheduledActionsBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scheduledActionsBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scheduledActionsBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2768,6 +2811,7 @@ func (scheduledActionsBundleItem *BundleInformation_ScheduledActions_ScheduledAc
     scheduledActionsBundleItem.EntityData.BundleName = "cisco_ios_xr"
     scheduledActionsBundleItem.EntityData.ParentYangName = "scheduled-actions-bundle"
     scheduledActionsBundleItem.EntityData.SegmentPath = "scheduled-actions-bundle-item"
+    scheduledActionsBundleItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/scheduled-actions/scheduled-actions-bundles/scheduled-actions-bundle/" + scheduledActionsBundleItem.EntityData.SegmentPath
     scheduledActionsBundleItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scheduledActionsBundleItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scheduledActionsBundleItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2775,6 +2819,7 @@ func (scheduledActionsBundleItem *BundleInformation_ScheduledActions_ScheduledAc
     scheduledActionsBundleItem.EntityData.Children = types.NewOrderedMap()
     scheduledActionsBundleItem.EntityData.Children.Append("scheduled-action", types.YChild{"ScheduledAction", nil})
     for i := range scheduledActionsBundleItem.ScheduledAction {
+        types.SetYListKey(scheduledActionsBundleItem.ScheduledAction[i], i)
         scheduledActionsBundleItem.EntityData.Children.Append(types.GetSegmentPath(scheduledActionsBundleItem.ScheduledAction[i]), types.YChild{"ScheduledAction", scheduledActionsBundleItem.ScheduledAction[i]})
     }
     scheduledActionsBundleItem.EntityData.Leafs = types.NewOrderedMap()
@@ -2790,6 +2835,7 @@ func (scheduledActionsBundleItem *BundleInformation_ScheduledActions_ScheduledAc
 type BundleInformation_ScheduledActions_ScheduledActionsBundles_ScheduledActionsBundle_ScheduledActionsBundleItem_ScheduledAction struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of mLACP scheduled action for a bundle. The type is
     // BmdBagMlacpSchActionItem.
@@ -2808,7 +2854,8 @@ func (scheduledAction *BundleInformation_ScheduledActions_ScheduledActionsBundle
     scheduledAction.EntityData.YangName = "scheduled-action"
     scheduledAction.EntityData.BundleName = "cisco_ios_xr"
     scheduledAction.EntityData.ParentYangName = "scheduled-actions-bundle-item"
-    scheduledAction.EntityData.SegmentPath = "scheduled-action"
+    scheduledAction.EntityData.SegmentPath = "scheduled-action" + types.AddNoKeyToken(scheduledAction)
+    scheduledAction.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/scheduled-actions/scheduled-actions-bundles/scheduled-actions-bundle/scheduled-actions-bundle-item/" + scheduledAction.EntityData.SegmentPath
     scheduledAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scheduledAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scheduledAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2843,6 +2890,7 @@ func (bundle *BundleInformation_Bundle) GetEntityData() *types.CommonEntityData 
     bundle.EntityData.BundleName = "cisco_ios_xr"
     bundle.EntityData.ParentYangName = "bundle-information"
     bundle.EntityData.SegmentPath = "bundle"
+    bundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + bundle.EntityData.SegmentPath
     bundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2875,6 +2923,7 @@ func (bundleBundles *BundleInformation_Bundle_BundleBundles) GetEntityData() *ty
     bundleBundles.EntityData.BundleName = "cisco_ios_xr"
     bundleBundles.EntityData.ParentYangName = "bundle"
     bundleBundles.EntityData.SegmentPath = "bundle-bundles"
+    bundleBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/" + bundleBundles.EntityData.SegmentPath
     bundleBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2896,6 +2945,7 @@ func (bundleBundles *BundleInformation_Bundle_BundleBundles) GetEntityData() *ty
 type BundleInformation_Bundle_BundleBundles_BundleBundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -2917,6 +2967,7 @@ func (bundleBundle *BundleInformation_Bundle_BundleBundles_BundleBundle) GetEnti
     bundleBundle.EntityData.BundleName = "cisco_ios_xr"
     bundleBundle.EntityData.ParentYangName = "bundle-bundles"
     bundleBundle.EntityData.SegmentPath = "bundle-bundle" + types.AddKeyToken(bundleBundle.BundleInterface, "bundle-interface")
+    bundleBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/" + bundleBundle.EntityData.SegmentPath
     bundleBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2953,6 +3004,7 @@ func (bundleBundleDescendant *BundleInformation_Bundle_BundleBundles_BundleBundl
     bundleBundleDescendant.EntityData.BundleName = "cisco_ios_xr"
     bundleBundleDescendant.EntityData.ParentYangName = "bundle-bundle"
     bundleBundleDescendant.EntityData.SegmentPath = "bundle-bundle-descendant"
+    bundleBundleDescendant.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/" + bundleBundleDescendant.EntityData.SegmentPath
     bundleBundleDescendant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleBundleDescendant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleBundleDescendant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2961,6 +3013,7 @@ func (bundleBundleDescendant *BundleInformation_Bundle_BundleBundles_BundleBundl
     bundleBundleDescendant.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", &bundleBundleDescendant.BundleData})
     bundleBundleDescendant.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range bundleBundleDescendant.MemberData {
+        types.SetYListKey(bundleBundleDescendant.MemberData[i], i)
         bundleBundleDescendant.EntityData.Children.Append(types.GetSegmentPath(bundleBundleDescendant.MemberData[i]), types.YChild{"MemberData", bundleBundleDescendant.MemberData[i]})
     }
     bundleBundleDescendant.EntityData.Leafs = types.NewOrderedMap()
@@ -3134,6 +3187,7 @@ func (bundleData *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBund
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "bundle-bundle-descendant"
     bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-descendant/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3142,6 +3196,7 @@ func (bundleData *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBund
     bundleData.EntityData.Children.Append("mac-address", types.YChild{"MacAddress", &bundleData.MacAddress})
     bundleData.EntityData.Children.Append("bfd-config", types.YChild{"BfdConfig", nil})
     for i := range bundleData.BfdConfig {
+        types.SetYListKey(bundleData.BfdConfig[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.BfdConfig[i]), types.YChild{"BfdConfig", bundleData.BfdConfig[i]})
     }
     bundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -3206,6 +3261,7 @@ func (macAddress *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBund
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "bundle-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-descendant/bundle-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3224,6 +3280,7 @@ func (macAddress *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBund
 type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_BundleData_BfdConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Status of BFD on the bundle. The type is BmdBfdBdlState.
     BundleStatus interface{}
@@ -3265,7 +3322,8 @@ func (bfdConfig *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundl
     bfdConfig.EntityData.YangName = "bfd-config"
     bfdConfig.EntityData.BundleName = "cisco_ios_xr"
     bfdConfig.EntityData.ParentYangName = "bundle-data"
-    bfdConfig.EntityData.SegmentPath = "bfd-config"
+    bfdConfig.EntityData.SegmentPath = "bfd-config" + types.AddNoKeyToken(bfdConfig)
+    bfdConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-descendant/bundle-data/" + bfdConfig.EntityData.SegmentPath
     bfdConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3311,6 +3369,7 @@ func (destinationAddress *BundleInformation_Bundle_BundleBundles_BundleBundle_Bu
     destinationAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationAddress.EntityData.ParentYangName = "bfd-config"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-descendant/bundle-data/bfd-config/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3331,6 +3390,7 @@ func (destinationAddress *BundleInformation_Bundle_BundleBundles_BundleBundle_Bu
 type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -3381,7 +3441,8 @@ func (memberData *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBund
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "bundle-bundle-descendant"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-descendant/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3462,6 +3523,7 @@ func (counters *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundle
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "member-data"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-descendant/member-data/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3555,6 +3617,7 @@ func (linkData *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundle
     linkData.EntityData.BundleName = "cisco_ios_xr"
     linkData.EntityData.ParentYangName = "member-data"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-descendant/member-data/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3614,6 +3677,7 @@ func (memberMuxData *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleB
     memberMuxData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxData.EntityData.ParentYangName = "member-data"
     memberMuxData.EntityData.SegmentPath = "member-mux-data"
+    memberMuxData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-descendant/member-data/" + memberMuxData.EntityData.SegmentPath
     memberMuxData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3652,6 +3716,7 @@ func (memberMuxStateReasonData *BundleInformation_Bundle_BundleBundles_BundleBun
     memberMuxStateReasonData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxStateReasonData.EntityData.ParentYangName = "member-mux-data"
     memberMuxStateReasonData.EntityData.SegmentPath = "member-mux-state-reason-data"
+    memberMuxStateReasonData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-descendant/member-data/member-mux-data/" + memberMuxStateReasonData.EntityData.SegmentPath
     memberMuxStateReasonData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxStateReasonData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxStateReasonData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3683,6 +3748,7 @@ func (macAddress *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBund
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "member-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-descendant/member-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3714,6 +3780,7 @@ func (bundleBundleChildrenMembers *BundleInformation_Bundle_BundleBundles_Bundle
     bundleBundleChildrenMembers.EntityData.BundleName = "cisco_ios_xr"
     bundleBundleChildrenMembers.EntityData.ParentYangName = "bundle-bundle"
     bundleBundleChildrenMembers.EntityData.SegmentPath = "bundle-bundle-children-members"
+    bundleBundleChildrenMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/" + bundleBundleChildrenMembers.EntityData.SegmentPath
     bundleBundleChildrenMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleBundleChildrenMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleBundleChildrenMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3736,6 +3803,7 @@ func (bundleBundleChildrenMembers *BundleInformation_Bundle_BundleBundles_Bundle
 type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleChildrenMembers_BundleBundleChildrenMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -3790,6 +3858,7 @@ func (bundleBundleChildrenMember *BundleInformation_Bundle_BundleBundles_BundleB
     bundleBundleChildrenMember.EntityData.BundleName = "cisco_ios_xr"
     bundleBundleChildrenMember.EntityData.ParentYangName = "bundle-bundle-children-members"
     bundleBundleChildrenMember.EntityData.SegmentPath = "bundle-bundle-children-member" + types.AddKeyToken(bundleBundleChildrenMember.MemberInterface, "member-interface")
+    bundleBundleChildrenMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-children-members/" + bundleBundleChildrenMember.EntityData.SegmentPath
     bundleBundleChildrenMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleBundleChildrenMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleBundleChildrenMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3871,6 +3940,7 @@ func (counters *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundle
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "bundle-bundle-children-member"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-children-members/bundle-bundle-children-member/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3964,6 +4034,7 @@ func (linkData *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundle
     linkData.EntityData.BundleName = "cisco_ios_xr"
     linkData.EntityData.ParentYangName = "bundle-bundle-children-member"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-children-members/bundle-bundle-children-member/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4023,6 +4094,7 @@ func (memberMuxData *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleB
     memberMuxData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxData.EntityData.ParentYangName = "bundle-bundle-children-member"
     memberMuxData.EntityData.SegmentPath = "member-mux-data"
+    memberMuxData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-children-members/bundle-bundle-children-member/" + memberMuxData.EntityData.SegmentPath
     memberMuxData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4061,6 +4133,7 @@ func (memberMuxStateReasonData *BundleInformation_Bundle_BundleBundles_BundleBun
     memberMuxStateReasonData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxStateReasonData.EntityData.ParentYangName = "member-mux-data"
     memberMuxStateReasonData.EntityData.SegmentPath = "member-mux-state-reason-data"
+    memberMuxStateReasonData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-children-members/bundle-bundle-children-member/member-mux-data/" + memberMuxStateReasonData.EntityData.SegmentPath
     memberMuxStateReasonData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxStateReasonData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxStateReasonData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4092,6 +4165,7 @@ func (macAddress *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBund
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "bundle-bundle-children-member"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-children-members/bundle-bundle-children-member/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4269,6 +4343,7 @@ func (bundleBundleItem *BundleInformation_Bundle_BundleBundles_BundleBundle_Bund
     bundleBundleItem.EntityData.BundleName = "cisco_ios_xr"
     bundleBundleItem.EntityData.ParentYangName = "bundle-bundle"
     bundleBundleItem.EntityData.SegmentPath = "bundle-bundle-item"
+    bundleBundleItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/" + bundleBundleItem.EntityData.SegmentPath
     bundleBundleItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleBundleItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleBundleItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4277,6 +4352,7 @@ func (bundleBundleItem *BundleInformation_Bundle_BundleBundles_BundleBundle_Bund
     bundleBundleItem.EntityData.Children.Append("mac-address", types.YChild{"MacAddress", &bundleBundleItem.MacAddress})
     bundleBundleItem.EntityData.Children.Append("bfd-config", types.YChild{"BfdConfig", nil})
     for i := range bundleBundleItem.BfdConfig {
+        types.SetYListKey(bundleBundleItem.BfdConfig[i], i)
         bundleBundleItem.EntityData.Children.Append(types.GetSegmentPath(bundleBundleItem.BfdConfig[i]), types.YChild{"BfdConfig", bundleBundleItem.BfdConfig[i]})
     }
     bundleBundleItem.EntityData.Leafs = types.NewOrderedMap()
@@ -4341,6 +4417,7 @@ func (macAddress *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBund
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "bundle-bundle-item"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-item/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4359,6 +4436,7 @@ func (macAddress *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBund
 type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleItem_BfdConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Status of BFD on the bundle. The type is BmdBfdBdlState.
     BundleStatus interface{}
@@ -4400,7 +4478,8 @@ func (bfdConfig *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundl
     bfdConfig.EntityData.YangName = "bfd-config"
     bfdConfig.EntityData.BundleName = "cisco_ios_xr"
     bfdConfig.EntityData.ParentYangName = "bundle-bundle-item"
-    bfdConfig.EntityData.SegmentPath = "bfd-config"
+    bfdConfig.EntityData.SegmentPath = "bfd-config" + types.AddNoKeyToken(bfdConfig)
+    bfdConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-item/" + bfdConfig.EntityData.SegmentPath
     bfdConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4446,6 +4525,7 @@ func (destinationAddress *BundleInformation_Bundle_BundleBundles_BundleBundle_Bu
     destinationAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationAddress.EntityData.ParentYangName = "bfd-config"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-bundles/bundle-bundle/bundle-bundle-item/bfd-config/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4479,6 +4559,7 @@ func (bundleMembers *BundleInformation_Bundle_BundleMembers) GetEntityData() *ty
     bundleMembers.EntityData.BundleName = "cisco_ios_xr"
     bundleMembers.EntityData.ParentYangName = "bundle"
     bundleMembers.EntityData.SegmentPath = "bundle-members"
+    bundleMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/" + bundleMembers.EntityData.SegmentPath
     bundleMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4500,6 +4581,7 @@ func (bundleMembers *BundleInformation_Bundle_BundleMembers) GetEntityData() *ty
 type BundleInformation_Bundle_BundleMembers_BundleMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -4517,6 +4599,7 @@ func (bundleMember *BundleInformation_Bundle_BundleMembers_BundleMember) GetEnti
     bundleMember.EntityData.BundleName = "cisco_ios_xr"
     bundleMember.EntityData.ParentYangName = "bundle-members"
     bundleMember.EntityData.SegmentPath = "bundle-member" + types.AddKeyToken(bundleMember.MemberInterface, "member-interface")
+    bundleMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/" + bundleMember.EntityData.SegmentPath
     bundleMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4552,6 +4635,7 @@ func (bundleMemberAncestor *BundleInformation_Bundle_BundleMembers_BundleMember_
     bundleMemberAncestor.EntityData.BundleName = "cisco_ios_xr"
     bundleMemberAncestor.EntityData.ParentYangName = "bundle-member"
     bundleMemberAncestor.EntityData.SegmentPath = "bundle-member-ancestor"
+    bundleMemberAncestor.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/" + bundleMemberAncestor.EntityData.SegmentPath
     bundleMemberAncestor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleMemberAncestor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleMemberAncestor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4560,6 +4644,7 @@ func (bundleMemberAncestor *BundleInformation_Bundle_BundleMembers_BundleMember_
     bundleMemberAncestor.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", &bundleMemberAncestor.BundleData})
     bundleMemberAncestor.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range bundleMemberAncestor.MemberData {
+        types.SetYListKey(bundleMemberAncestor.MemberData[i], i)
         bundleMemberAncestor.EntityData.Children.Append(types.GetSegmentPath(bundleMemberAncestor.MemberData[i]), types.YChild{"MemberData", bundleMemberAncestor.MemberData[i]})
     }
     bundleMemberAncestor.EntityData.Leafs = types.NewOrderedMap()
@@ -4733,6 +4818,7 @@ func (bundleData *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemb
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "bundle-member-ancestor"
     bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-ancestor/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4741,6 +4827,7 @@ func (bundleData *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemb
     bundleData.EntityData.Children.Append("mac-address", types.YChild{"MacAddress", &bundleData.MacAddress})
     bundleData.EntityData.Children.Append("bfd-config", types.YChild{"BfdConfig", nil})
     for i := range bundleData.BfdConfig {
+        types.SetYListKey(bundleData.BfdConfig[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.BfdConfig[i]), types.YChild{"BfdConfig", bundleData.BfdConfig[i]})
     }
     bundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -4805,6 +4892,7 @@ func (macAddress *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemb
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "bundle-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-ancestor/bundle-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4823,6 +4911,7 @@ func (macAddress *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemb
 type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_BundleData_BfdConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Status of BFD on the bundle. The type is BmdBfdBdlState.
     BundleStatus interface{}
@@ -4864,7 +4953,8 @@ func (bfdConfig *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMembe
     bfdConfig.EntityData.YangName = "bfd-config"
     bfdConfig.EntityData.BundleName = "cisco_ios_xr"
     bfdConfig.EntityData.ParentYangName = "bundle-data"
-    bfdConfig.EntityData.SegmentPath = "bfd-config"
+    bfdConfig.EntityData.SegmentPath = "bfd-config" + types.AddNoKeyToken(bfdConfig)
+    bfdConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-ancestor/bundle-data/" + bfdConfig.EntityData.SegmentPath
     bfdConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4910,6 +5000,7 @@ func (destinationAddress *BundleInformation_Bundle_BundleMembers_BundleMember_Bu
     destinationAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationAddress.EntityData.ParentYangName = "bfd-config"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-ancestor/bundle-data/bfd-config/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4930,6 +5021,7 @@ func (destinationAddress *BundleInformation_Bundle_BundleMembers_BundleMember_Bu
 type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -4980,7 +5072,8 @@ func (memberData *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemb
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "bundle-member-ancestor"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-ancestor/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5061,6 +5154,7 @@ func (counters *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMember
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "member-data"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-ancestor/member-data/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5154,6 +5248,7 @@ func (linkData *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMember
     linkData.EntityData.BundleName = "cisco_ios_xr"
     linkData.EntityData.ParentYangName = "member-data"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-ancestor/member-data/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5213,6 +5308,7 @@ func (memberMuxData *BundleInformation_Bundle_BundleMembers_BundleMember_BundleM
     memberMuxData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxData.EntityData.ParentYangName = "member-data"
     memberMuxData.EntityData.SegmentPath = "member-mux-data"
+    memberMuxData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-ancestor/member-data/" + memberMuxData.EntityData.SegmentPath
     memberMuxData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5251,6 +5347,7 @@ func (memberMuxStateReasonData *BundleInformation_Bundle_BundleMembers_BundleMem
     memberMuxStateReasonData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxStateReasonData.EntityData.ParentYangName = "member-mux-data"
     memberMuxStateReasonData.EntityData.SegmentPath = "member-mux-state-reason-data"
+    memberMuxStateReasonData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-ancestor/member-data/member-mux-data/" + memberMuxStateReasonData.EntityData.SegmentPath
     memberMuxStateReasonData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxStateReasonData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxStateReasonData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5282,6 +5379,7 @@ func (macAddress *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemb
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "member-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-ancestor/member-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5351,6 +5449,7 @@ func (bundleMemberItem *BundleInformation_Bundle_BundleMembers_BundleMember_Bund
     bundleMemberItem.EntityData.BundleName = "cisco_ios_xr"
     bundleMemberItem.EntityData.ParentYangName = "bundle-member"
     bundleMemberItem.EntityData.SegmentPath = "bundle-member-item"
+    bundleMemberItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/" + bundleMemberItem.EntityData.SegmentPath
     bundleMemberItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleMemberItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleMemberItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5431,6 +5530,7 @@ func (counters *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMember
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "bundle-member-item"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-item/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5524,6 +5624,7 @@ func (linkData *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMember
     linkData.EntityData.BundleName = "cisco_ios_xr"
     linkData.EntityData.ParentYangName = "bundle-member-item"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-item/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5583,6 +5684,7 @@ func (memberMuxData *BundleInformation_Bundle_BundleMembers_BundleMember_BundleM
     memberMuxData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxData.EntityData.ParentYangName = "bundle-member-item"
     memberMuxData.EntityData.SegmentPath = "member-mux-data"
+    memberMuxData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-item/" + memberMuxData.EntityData.SegmentPath
     memberMuxData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5621,6 +5723,7 @@ func (memberMuxStateReasonData *BundleInformation_Bundle_BundleMembers_BundleMem
     memberMuxStateReasonData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxStateReasonData.EntityData.ParentYangName = "member-mux-data"
     memberMuxStateReasonData.EntityData.SegmentPath = "member-mux-state-reason-data"
+    memberMuxStateReasonData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-item/member-mux-data/" + memberMuxStateReasonData.EntityData.SegmentPath
     memberMuxStateReasonData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxStateReasonData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxStateReasonData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5652,6 +5755,7 @@ func (macAddress *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemb
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "bundle-member-item"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle/bundle-members/bundle-member/bundle-member-item/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5688,6 +5792,7 @@ func (eventsRg *BundleInformation_EventsRg) GetEntityData() *types.CommonEntityD
     eventsRg.EntityData.BundleName = "cisco_ios_xr"
     eventsRg.EntityData.ParentYangName = "bundle-information"
     eventsRg.EntityData.SegmentPath = "events-rg"
+    eventsRg.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + eventsRg.EntityData.SegmentPath
     eventsRg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsRg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsRg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5721,6 +5826,7 @@ func (eventsRgMembers *BundleInformation_EventsRg_EventsRgMembers) GetEntityData
     eventsRgMembers.EntityData.BundleName = "cisco_ios_xr"
     eventsRgMembers.EntityData.ParentYangName = "events-rg"
     eventsRgMembers.EntityData.SegmentPath = "events-rg-members"
+    eventsRgMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/" + eventsRgMembers.EntityData.SegmentPath
     eventsRgMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsRgMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsRgMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5742,6 +5848,7 @@ func (eventsRgMembers *BundleInformation_EventsRg_EventsRgMembers) GetEntityData
 type BundleInformation_EventsRg_EventsRgMembers_EventsRgMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -5756,6 +5863,7 @@ func (eventsRgMember *BundleInformation_EventsRg_EventsRgMembers_EventsRgMember)
     eventsRgMember.EntityData.BundleName = "cisco_ios_xr"
     eventsRgMember.EntityData.ParentYangName = "events-rg-members"
     eventsRgMember.EntityData.SegmentPath = "events-rg-member" + types.AddKeyToken(eventsRgMember.MemberInterface, "member-interface")
+    eventsRgMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-members/" + eventsRgMember.EntityData.SegmentPath
     eventsRgMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsRgMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsRgMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5790,6 +5898,7 @@ func (eventsRgMemberAncestor *BundleInformation_EventsRg_EventsRgMembers_EventsR
     eventsRgMemberAncestor.EntityData.BundleName = "cisco_ios_xr"
     eventsRgMemberAncestor.EntityData.ParentYangName = "events-rg-member"
     eventsRgMemberAncestor.EntityData.SegmentPath = "events-rg-member-ancestor"
+    eventsRgMemberAncestor.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-members/events-rg-member/" + eventsRgMemberAncestor.EntityData.SegmentPath
     eventsRgMemberAncestor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsRgMemberAncestor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsRgMemberAncestor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5797,6 +5906,7 @@ func (eventsRgMemberAncestor *BundleInformation_EventsRg_EventsRgMembers_EventsR
     eventsRgMemberAncestor.EntityData.Children = types.NewOrderedMap()
     eventsRgMemberAncestor.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsRgMemberAncestor.Items {
+        types.SetYListKey(eventsRgMemberAncestor.Items[i], i)
         eventsRgMemberAncestor.EntityData.Children.Append(types.GetSegmentPath(eventsRgMemberAncestor.Items[i]), types.YChild{"Items", eventsRgMemberAncestor.Items[i]})
     }
     eventsRgMemberAncestor.EntityData.Leafs = types.NewOrderedMap()
@@ -5812,6 +5922,7 @@ func (eventsRgMemberAncestor *BundleInformation_EventsRg_EventsRgMembers_EventsR
 type BundleInformation_EventsRg_EventsRgMembers_EventsRgMember_EventsRgMemberAncestor_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -5831,7 +5942,8 @@ func (items *BundleInformation_EventsRg_EventsRgMembers_EventsRgMember_EventsRgM
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-rg-member-ancestor"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-members/events-rg-member/events-rg-member-ancestor/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5871,6 +5983,7 @@ func (memberEvtInfo *BundleInformation_EventsRg_EventsRgMembers_EventsRgMember_E
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-members/events-rg-member/events-rg-member-ancestor/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5911,6 +6024,7 @@ func (data *BundleInformation_EventsRg_EventsRgMembers_EventsRgMember_EventsRgMe
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-members/events-rg-member/events-rg-member-ancestor/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5950,6 +6064,7 @@ func (bundleEvtInfo *BundleInformation_EventsRg_EventsRgMembers_EventsRgMember_E
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-members/events-rg-member/events-rg-member-ancestor/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5990,6 +6105,7 @@ func (data *BundleInformation_EventsRg_EventsRgMembers_EventsRgMember_EventsRgMe
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-members/events-rg-member/events-rg-member-ancestor/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6029,6 +6145,7 @@ func (rgEvtInfo *BundleInformation_EventsRg_EventsRgMembers_EventsRgMember_Event
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-members/events-rg-member/events-rg-member-ancestor/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6069,6 +6186,7 @@ func (data *BundleInformation_EventsRg_EventsRgMembers_EventsRgMember_EventsRgMe
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-members/events-rg-member/events-rg-member-ancestor/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6102,6 +6220,7 @@ func (eventsRgIccpGroups *BundleInformation_EventsRg_EventsRgIccpGroups) GetEnti
     eventsRgIccpGroups.EntityData.BundleName = "cisco_ios_xr"
     eventsRgIccpGroups.EntityData.ParentYangName = "events-rg"
     eventsRgIccpGroups.EntityData.SegmentPath = "events-rg-iccp-groups"
+    eventsRgIccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/" + eventsRgIccpGroups.EntityData.SegmentPath
     eventsRgIccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsRgIccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsRgIccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6123,6 +6242,7 @@ func (eventsRgIccpGroups *BundleInformation_EventsRg_EventsRgIccpGroups) GetEnti
 type BundleInformation_EventsRg_EventsRgIccpGroups_EventsRgIccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ICCP Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -6138,6 +6258,7 @@ func (eventsRgIccpGroup *BundleInformation_EventsRg_EventsRgIccpGroups_EventsRgI
     eventsRgIccpGroup.EntityData.BundleName = "cisco_ios_xr"
     eventsRgIccpGroup.EntityData.ParentYangName = "events-rg-iccp-groups"
     eventsRgIccpGroup.EntityData.SegmentPath = "events-rg-iccp-group" + types.AddKeyToken(eventsRgIccpGroup.IccpGroup, "iccp-group")
+    eventsRgIccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-iccp-groups/" + eventsRgIccpGroup.EntityData.SegmentPath
     eventsRgIccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsRgIccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsRgIccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6172,6 +6293,7 @@ func (eventsRgBundleItemIccpGroup *BundleInformation_EventsRg_EventsRgIccpGroups
     eventsRgBundleItemIccpGroup.EntityData.BundleName = "cisco_ios_xr"
     eventsRgBundleItemIccpGroup.EntityData.ParentYangName = "events-rg-iccp-group"
     eventsRgBundleItemIccpGroup.EntityData.SegmentPath = "events-rg-bundle-item-iccp-group"
+    eventsRgBundleItemIccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-iccp-groups/events-rg-iccp-group/" + eventsRgBundleItemIccpGroup.EntityData.SegmentPath
     eventsRgBundleItemIccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsRgBundleItemIccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsRgBundleItemIccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6179,6 +6301,7 @@ func (eventsRgBundleItemIccpGroup *BundleInformation_EventsRg_EventsRgIccpGroups
     eventsRgBundleItemIccpGroup.EntityData.Children = types.NewOrderedMap()
     eventsRgBundleItemIccpGroup.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsRgBundleItemIccpGroup.Items {
+        types.SetYListKey(eventsRgBundleItemIccpGroup.Items[i], i)
         eventsRgBundleItemIccpGroup.EntityData.Children.Append(types.GetSegmentPath(eventsRgBundleItemIccpGroup.Items[i]), types.YChild{"Items", eventsRgBundleItemIccpGroup.Items[i]})
     }
     eventsRgBundleItemIccpGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -6194,6 +6317,7 @@ func (eventsRgBundleItemIccpGroup *BundleInformation_EventsRg_EventsRgIccpGroups
 type BundleInformation_EventsRg_EventsRgIccpGroups_EventsRgIccpGroup_EventsRgBundleItemIccpGroup_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -6213,7 +6337,8 @@ func (items *BundleInformation_EventsRg_EventsRgIccpGroups_EventsRgIccpGroup_Eve
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-rg-bundle-item-iccp-group"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-iccp-groups/events-rg-iccp-group/events-rg-bundle-item-iccp-group/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6253,6 +6378,7 @@ func (memberEvtInfo *BundleInformation_EventsRg_EventsRgIccpGroups_EventsRgIccpG
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-iccp-groups/events-rg-iccp-group/events-rg-bundle-item-iccp-group/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6293,6 +6419,7 @@ func (data *BundleInformation_EventsRg_EventsRgIccpGroups_EventsRgIccpGroup_Even
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-iccp-groups/events-rg-iccp-group/events-rg-bundle-item-iccp-group/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6332,6 +6459,7 @@ func (bundleEvtInfo *BundleInformation_EventsRg_EventsRgIccpGroups_EventsRgIccpG
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-iccp-groups/events-rg-iccp-group/events-rg-bundle-item-iccp-group/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6372,6 +6500,7 @@ func (data *BundleInformation_EventsRg_EventsRgIccpGroups_EventsRgIccpGroup_Even
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-iccp-groups/events-rg-iccp-group/events-rg-bundle-item-iccp-group/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6411,6 +6540,7 @@ func (rgEvtInfo *BundleInformation_EventsRg_EventsRgIccpGroups_EventsRgIccpGroup
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-iccp-groups/events-rg-iccp-group/events-rg-bundle-item-iccp-group/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6451,6 +6581,7 @@ func (data *BundleInformation_EventsRg_EventsRgIccpGroups_EventsRgIccpGroup_Even
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-iccp-groups/events-rg-iccp-group/events-rg-bundle-item-iccp-group/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6484,6 +6615,7 @@ func (eventsRgBundles *BundleInformation_EventsRg_EventsRgBundles) GetEntityData
     eventsRgBundles.EntityData.BundleName = "cisco_ios_xr"
     eventsRgBundles.EntityData.ParentYangName = "events-rg"
     eventsRgBundles.EntityData.SegmentPath = "events-rg-bundles"
+    eventsRgBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/" + eventsRgBundles.EntityData.SegmentPath
     eventsRgBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsRgBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsRgBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6505,6 +6637,7 @@ func (eventsRgBundles *BundleInformation_EventsRg_EventsRgBundles) GetEntityData
 type BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -6520,6 +6653,7 @@ func (eventsRgBundle *BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle)
     eventsRgBundle.EntityData.BundleName = "cisco_ios_xr"
     eventsRgBundle.EntityData.ParentYangName = "events-rg-bundles"
     eventsRgBundle.EntityData.SegmentPath = "events-rg-bundle" + types.AddKeyToken(eventsRgBundle.BundleInterface, "bundle-interface")
+    eventsRgBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-bundles/" + eventsRgBundle.EntityData.SegmentPath
     eventsRgBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsRgBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsRgBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6554,6 +6688,7 @@ func (eventsRgBundleAncestor *BundleInformation_EventsRg_EventsRgBundles_EventsR
     eventsRgBundleAncestor.EntityData.BundleName = "cisco_ios_xr"
     eventsRgBundleAncestor.EntityData.ParentYangName = "events-rg-bundle"
     eventsRgBundleAncestor.EntityData.SegmentPath = "events-rg-bundle-ancestor"
+    eventsRgBundleAncestor.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-bundles/events-rg-bundle/" + eventsRgBundleAncestor.EntityData.SegmentPath
     eventsRgBundleAncestor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsRgBundleAncestor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsRgBundleAncestor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6561,6 +6696,7 @@ func (eventsRgBundleAncestor *BundleInformation_EventsRg_EventsRgBundles_EventsR
     eventsRgBundleAncestor.EntityData.Children = types.NewOrderedMap()
     eventsRgBundleAncestor.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsRgBundleAncestor.Items {
+        types.SetYListKey(eventsRgBundleAncestor.Items[i], i)
         eventsRgBundleAncestor.EntityData.Children.Append(types.GetSegmentPath(eventsRgBundleAncestor.Items[i]), types.YChild{"Items", eventsRgBundleAncestor.Items[i]})
     }
     eventsRgBundleAncestor.EntityData.Leafs = types.NewOrderedMap()
@@ -6576,6 +6712,7 @@ func (eventsRgBundleAncestor *BundleInformation_EventsRg_EventsRgBundles_EventsR
 type BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle_EventsRgBundleAncestor_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -6595,7 +6732,8 @@ func (items *BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle_EventsRgB
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-rg-bundle-ancestor"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-bundles/events-rg-bundle/events-rg-bundle-ancestor/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6635,6 +6773,7 @@ func (memberEvtInfo *BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle_E
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-bundles/events-rg-bundle/events-rg-bundle-ancestor/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6675,6 +6814,7 @@ func (data *BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle_EventsRgBu
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-bundles/events-rg-bundle/events-rg-bundle-ancestor/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6714,6 +6854,7 @@ func (bundleEvtInfo *BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle_E
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-bundles/events-rg-bundle/events-rg-bundle-ancestor/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6754,6 +6895,7 @@ func (data *BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle_EventsRgBu
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-bundles/events-rg-bundle/events-rg-bundle-ancestor/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6793,6 +6935,7 @@ func (rgEvtInfo *BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle_Event
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-bundles/events-rg-bundle/events-rg-bundle-ancestor/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6833,6 +6976,7 @@ func (data *BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle_EventsRgBu
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-rg/events-rg-bundles/events-rg-bundle/events-rg-bundle-ancestor/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6868,6 +7012,7 @@ func (lacp *BundleInformation_Lacp) GetEntityData() *types.CommonEntityData {
     lacp.EntityData.BundleName = "cisco_ios_xr"
     lacp.EntityData.ParentYangName = "bundle-information"
     lacp.EntityData.SegmentPath = "lacp"
+    lacp.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + lacp.EntityData.SegmentPath
     lacp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6899,6 +7044,7 @@ func (lacpBundles *BundleInformation_Lacp_LacpBundles) GetEntityData() *types.Co
     lacpBundles.EntityData.BundleName = "cisco_ios_xr"
     lacpBundles.EntityData.ParentYangName = "lacp"
     lacpBundles.EntityData.SegmentPath = "lacp-bundles"
+    lacpBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/" + lacpBundles.EntityData.SegmentPath
     lacpBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6920,6 +7066,7 @@ func (lacpBundles *BundleInformation_Lacp_LacpBundles) GetEntityData() *types.Co
 type BundleInformation_Lacp_LacpBundles_LacpBundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -6941,6 +7088,7 @@ func (lacpBundle *BundleInformation_Lacp_LacpBundles_LacpBundle) GetEntityData()
     lacpBundle.EntityData.BundleName = "cisco_ios_xr"
     lacpBundle.EntityData.ParentYangName = "lacp-bundles"
     lacpBundle.EntityData.SegmentPath = "lacp-bundle" + types.AddKeyToken(lacpBundle.BundleInterface, "bundle-interface")
+    lacpBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/" + lacpBundle.EntityData.SegmentPath
     lacpBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6992,6 +7140,7 @@ func (lacpBundleItem *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleIt
     lacpBundleItem.EntityData.BundleName = "cisco_ios_xr"
     lacpBundleItem.EntityData.ParentYangName = "lacp-bundle"
     lacpBundleItem.EntityData.SegmentPath = "lacp-bundle-item"
+    lacpBundleItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/" + lacpBundleItem.EntityData.SegmentPath
     lacpBundleItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpBundleItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpBundleItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7174,6 +7323,7 @@ func (actorBundleData *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleI
     actorBundleData.EntityData.BundleName = "cisco_ios_xr"
     actorBundleData.EntityData.ParentYangName = "lacp-bundle-item"
     actorBundleData.EntityData.SegmentPath = "actor-bundle-data"
+    actorBundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-item/" + actorBundleData.EntityData.SegmentPath
     actorBundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actorBundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actorBundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7182,6 +7332,7 @@ func (actorBundleData *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleI
     actorBundleData.EntityData.Children.Append("mac-address", types.YChild{"MacAddress", &actorBundleData.MacAddress})
     actorBundleData.EntityData.Children.Append("bfd-config", types.YChild{"BfdConfig", nil})
     for i := range actorBundleData.BfdConfig {
+        types.SetYListKey(actorBundleData.BfdConfig[i], i)
         actorBundleData.EntityData.Children.Append(types.GetSegmentPath(actorBundleData.BfdConfig[i]), types.YChild{"BfdConfig", actorBundleData.BfdConfig[i]})
     }
     actorBundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -7246,6 +7397,7 @@ func (macAddress *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_A
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "actor-bundle-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-item/actor-bundle-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7264,6 +7416,7 @@ func (macAddress *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_A
 type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_ActorBundleData_BfdConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Status of BFD on the bundle. The type is BmdBfdBdlState.
     BundleStatus interface{}
@@ -7305,7 +7458,8 @@ func (bfdConfig *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_Ac
     bfdConfig.EntityData.YangName = "bfd-config"
     bfdConfig.EntityData.BundleName = "cisco_ios_xr"
     bfdConfig.EntityData.ParentYangName = "actor-bundle-data"
-    bfdConfig.EntityData.SegmentPath = "bfd-config"
+    bfdConfig.EntityData.SegmentPath = "bfd-config" + types.AddNoKeyToken(bfdConfig)
+    bfdConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-item/actor-bundle-data/" + bfdConfig.EntityData.SegmentPath
     bfdConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7351,6 +7505,7 @@ func (destinationAddress *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBund
     destinationAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationAddress.EntityData.ParentYangName = "bfd-config"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-item/actor-bundle-data/bfd-config/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7385,6 +7540,7 @@ func (bundleSystemId *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleIt
     bundleSystemId.EntityData.BundleName = "cisco_ios_xr"
     bundleSystemId.EntityData.ParentYangName = "lacp-bundle-item"
     bundleSystemId.EntityData.SegmentPath = "bundle-system-id"
+    bundleSystemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-item/" + bundleSystemId.EntityData.SegmentPath
     bundleSystemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleSystemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleSystemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7416,6 +7572,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleIte
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "bundle-system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-item/bundle-system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7449,6 +7606,7 @@ func (lacpBundleDescendant *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBu
     lacpBundleDescendant.EntityData.BundleName = "cisco_ios_xr"
     lacpBundleDescendant.EntityData.ParentYangName = "lacp-bundle"
     lacpBundleDescendant.EntityData.SegmentPath = "lacp-bundle-descendant"
+    lacpBundleDescendant.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/" + lacpBundleDescendant.EntityData.SegmentPath
     lacpBundleDescendant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpBundleDescendant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpBundleDescendant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7457,6 +7615,7 @@ func (lacpBundleDescendant *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBu
     lacpBundleDescendant.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", &lacpBundleDescendant.BundleData})
     lacpBundleDescendant.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range lacpBundleDescendant.MemberData {
+        types.SetYListKey(lacpBundleDescendant.MemberData[i], i)
         lacpBundleDescendant.EntityData.Children.Append(types.GetSegmentPath(lacpBundleDescendant.MemberData[i]), types.YChild{"MemberData", lacpBundleDescendant.MemberData[i]})
     }
     lacpBundleDescendant.EntityData.Leafs = types.NewOrderedMap()
@@ -7501,6 +7660,7 @@ func (bundleData *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescen
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "lacp-bundle-descendant"
     bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7683,6 +7843,7 @@ func (actorBundleData *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleD
     actorBundleData.EntityData.BundleName = "cisco_ios_xr"
     actorBundleData.EntityData.ParentYangName = "bundle-data"
     actorBundleData.EntityData.SegmentPath = "actor-bundle-data"
+    actorBundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/bundle-data/" + actorBundleData.EntityData.SegmentPath
     actorBundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actorBundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actorBundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7691,6 +7852,7 @@ func (actorBundleData *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleD
     actorBundleData.EntityData.Children.Append("mac-address", types.YChild{"MacAddress", &actorBundleData.MacAddress})
     actorBundleData.EntityData.Children.Append("bfd-config", types.YChild{"BfdConfig", nil})
     for i := range actorBundleData.BfdConfig {
+        types.SetYListKey(actorBundleData.BfdConfig[i], i)
         actorBundleData.EntityData.Children.Append(types.GetSegmentPath(actorBundleData.BfdConfig[i]), types.YChild{"BfdConfig", actorBundleData.BfdConfig[i]})
     }
     actorBundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -7755,6 +7917,7 @@ func (macAddress *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescen
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "actor-bundle-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/bundle-data/actor-bundle-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7773,6 +7936,7 @@ func (macAddress *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescen
 type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleData_ActorBundleData_BfdConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Status of BFD on the bundle. The type is BmdBfdBdlState.
     BundleStatus interface{}
@@ -7814,7 +7978,8 @@ func (bfdConfig *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescend
     bfdConfig.EntityData.YangName = "bfd-config"
     bfdConfig.EntityData.BundleName = "cisco_ios_xr"
     bfdConfig.EntityData.ParentYangName = "actor-bundle-data"
-    bfdConfig.EntityData.SegmentPath = "bfd-config"
+    bfdConfig.EntityData.SegmentPath = "bfd-config" + types.AddNoKeyToken(bfdConfig)
+    bfdConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/bundle-data/actor-bundle-data/" + bfdConfig.EntityData.SegmentPath
     bfdConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7860,6 +8025,7 @@ func (destinationAddress *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBund
     destinationAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationAddress.EntityData.ParentYangName = "bfd-config"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/bundle-data/actor-bundle-data/bfd-config/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7894,6 +8060,7 @@ func (bundleSystemId *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDe
     bundleSystemId.EntityData.BundleName = "cisco_ios_xr"
     bundleSystemId.EntityData.ParentYangName = "bundle-data"
     bundleSystemId.EntityData.SegmentPath = "bundle-system-id"
+    bundleSystemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/bundle-data/" + bundleSystemId.EntityData.SegmentPath
     bundleSystemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleSystemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleSystemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7925,6 +8092,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDes
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "bundle-system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/bundle-data/bundle-system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7943,6 +8111,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDes
 type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // MIB ifindex of selected bundle. The type is interface{} with range:
     // 0..4294967295.
@@ -7991,7 +8160,8 @@ func (memberData *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescen
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "lacp-bundle-descendant"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8036,6 +8206,7 @@ func (actorInfo *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescend
     actorInfo.EntityData.BundleName = "cisco_ios_xr"
     actorInfo.EntityData.ParentYangName = "member-data"
     actorInfo.EntityData.SegmentPath = "actor-info"
+    actorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/" + actorInfo.EntityData.SegmentPath
     actorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8075,6 +8246,7 @@ func (portInfo *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescenda
     portInfo.EntityData.BundleName = "cisco_ios_xr"
     portInfo.EntityData.ParentYangName = "actor-info"
     portInfo.EntityData.SegmentPath = "port-info"
+    portInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/actor-info/" + portInfo.EntityData.SegmentPath
     portInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8110,6 +8282,7 @@ func (system *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant
     system.EntityData.BundleName = "cisco_ios_xr"
     system.EntityData.ParentYangName = "port-info"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/actor-info/port-info/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8141,6 +8314,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDes
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/actor-info/port-info/system/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8173,6 +8347,7 @@ func (port *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_M
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "port-info"
     port.EntityData.SegmentPath = "port"
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/actor-info/port-info/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8207,6 +8382,7 @@ func (partnerInfo *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDesce
     partnerInfo.EntityData.BundleName = "cisco_ios_xr"
     partnerInfo.EntityData.ParentYangName = "member-data"
     partnerInfo.EntityData.SegmentPath = "partner-info"
+    partnerInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/" + partnerInfo.EntityData.SegmentPath
     partnerInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     partnerInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     partnerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8246,6 +8422,7 @@ func (portInfo *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescenda
     portInfo.EntityData.BundleName = "cisco_ios_xr"
     portInfo.EntityData.ParentYangName = "partner-info"
     portInfo.EntityData.SegmentPath = "port-info"
+    portInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/partner-info/" + portInfo.EntityData.SegmentPath
     portInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8281,6 +8458,7 @@ func (system *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant
     system.EntityData.BundleName = "cisco_ios_xr"
     system.EntityData.ParentYangName = "port-info"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/partner-info/port-info/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8312,6 +8490,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDes
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/partner-info/port-info/system/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8344,6 +8523,7 @@ func (port *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_M
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "port-info"
     port.EntityData.SegmentPath = "port"
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/partner-info/port-info/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8380,6 +8560,7 @@ func (additionalInfo *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDe
     additionalInfo.EntityData.BundleName = "cisco_ios_xr"
     additionalInfo.EntityData.ParentYangName = "member-data"
     additionalInfo.EntityData.SegmentPath = "additional-info"
+    additionalInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/" + additionalInfo.EntityData.SegmentPath
     additionalInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     additionalInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     additionalInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8412,6 +8593,7 @@ func (local *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "additional-info"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/additional-info/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8446,6 +8628,7 @@ func (foreign *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendan
     foreign.EntityData.BundleName = "cisco_ios_xr"
     foreign.EntityData.ParentYangName = "additional-info"
     foreign.EntityData.SegmentPath = "foreign"
+    foreign.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-descendant/member-data/additional-info/" + foreign.EntityData.SegmentPath
     foreign.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreign.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreign.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8477,6 +8660,7 @@ func (lacpBundleChildrenMembers *BundleInformation_Lacp_LacpBundles_LacpBundle_L
     lacpBundleChildrenMembers.EntityData.BundleName = "cisco_ios_xr"
     lacpBundleChildrenMembers.EntityData.ParentYangName = "lacp-bundle"
     lacpBundleChildrenMembers.EntityData.SegmentPath = "lacp-bundle-children-members"
+    lacpBundleChildrenMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/" + lacpBundleChildrenMembers.EntityData.SegmentPath
     lacpBundleChildrenMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpBundleChildrenMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpBundleChildrenMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8498,6 +8682,7 @@ func (lacpBundleChildrenMembers *BundleInformation_Lacp_LacpBundles_LacpBundle_L
 type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMembers_LacpBundleChildrenMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -8550,6 +8735,7 @@ func (lacpBundleChildrenMember *BundleInformation_Lacp_LacpBundles_LacpBundle_La
     lacpBundleChildrenMember.EntityData.BundleName = "cisco_ios_xr"
     lacpBundleChildrenMember.EntityData.ParentYangName = "lacp-bundle-children-members"
     lacpBundleChildrenMember.EntityData.SegmentPath = "lacp-bundle-children-member" + types.AddKeyToken(lacpBundleChildrenMember.MemberInterface, "member-interface")
+    lacpBundleChildrenMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/" + lacpBundleChildrenMember.EntityData.SegmentPath
     lacpBundleChildrenMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpBundleChildrenMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpBundleChildrenMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8595,6 +8781,7 @@ func (actorInfo *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildre
     actorInfo.EntityData.BundleName = "cisco_ios_xr"
     actorInfo.EntityData.ParentYangName = "lacp-bundle-children-member"
     actorInfo.EntityData.SegmentPath = "actor-info"
+    actorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/" + actorInfo.EntityData.SegmentPath
     actorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8634,6 +8821,7 @@ func (portInfo *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildren
     portInfo.EntityData.BundleName = "cisco_ios_xr"
     portInfo.EntityData.ParentYangName = "actor-info"
     portInfo.EntityData.SegmentPath = "port-info"
+    portInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/actor-info/" + portInfo.EntityData.SegmentPath
     portInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8669,6 +8857,7 @@ func (system *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMe
     system.EntityData.BundleName = "cisco_ios_xr"
     system.EntityData.ParentYangName = "port-info"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/actor-info/port-info/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8700,6 +8889,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChi
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/actor-info/port-info/system/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8732,6 +8922,7 @@ func (port *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMemb
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "port-info"
     port.EntityData.SegmentPath = "port"
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/actor-info/port-info/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8766,6 +8957,7 @@ func (partnerInfo *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChild
     partnerInfo.EntityData.BundleName = "cisco_ios_xr"
     partnerInfo.EntityData.ParentYangName = "lacp-bundle-children-member"
     partnerInfo.EntityData.SegmentPath = "partner-info"
+    partnerInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/" + partnerInfo.EntityData.SegmentPath
     partnerInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     partnerInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     partnerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8805,6 +8997,7 @@ func (portInfo *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildren
     portInfo.EntityData.BundleName = "cisco_ios_xr"
     portInfo.EntityData.ParentYangName = "partner-info"
     portInfo.EntityData.SegmentPath = "port-info"
+    portInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/partner-info/" + portInfo.EntityData.SegmentPath
     portInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8840,6 +9033,7 @@ func (system *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMe
     system.EntityData.BundleName = "cisco_ios_xr"
     system.EntityData.ParentYangName = "port-info"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/partner-info/port-info/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8871,6 +9065,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChi
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/partner-info/port-info/system/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8903,6 +9098,7 @@ func (port *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMemb
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "port-info"
     port.EntityData.SegmentPath = "port"
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/partner-info/port-info/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8939,6 +9135,7 @@ func (additionalInfo *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleCh
     additionalInfo.EntityData.BundleName = "cisco_ios_xr"
     additionalInfo.EntityData.ParentYangName = "lacp-bundle-children-member"
     additionalInfo.EntityData.SegmentPath = "additional-info"
+    additionalInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/" + additionalInfo.EntityData.SegmentPath
     additionalInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     additionalInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     additionalInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8971,6 +9168,7 @@ func (local *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMem
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "additional-info"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/additional-info/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9005,6 +9203,7 @@ func (foreign *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenM
     foreign.EntityData.BundleName = "cisco_ios_xr"
     foreign.EntityData.ParentYangName = "additional-info"
     foreign.EntityData.SegmentPath = "foreign"
+    foreign.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-bundles/lacp-bundle/lacp-bundle-children-members/lacp-bundle-children-member/additional-info/" + foreign.EntityData.SegmentPath
     foreign.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreign.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreign.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9036,6 +9235,7 @@ func (lacpMembers *BundleInformation_Lacp_LacpMembers) GetEntityData() *types.Co
     lacpMembers.EntityData.BundleName = "cisco_ios_xr"
     lacpMembers.EntityData.ParentYangName = "lacp"
     lacpMembers.EntityData.SegmentPath = "lacp-members"
+    lacpMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/" + lacpMembers.EntityData.SegmentPath
     lacpMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9057,6 +9257,7 @@ func (lacpMembers *BundleInformation_Lacp_LacpMembers) GetEntityData() *types.Co
 type BundleInformation_Lacp_LacpMembers_LacpMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -9074,6 +9275,7 @@ func (lacpMember *BundleInformation_Lacp_LacpMembers_LacpMember) GetEntityData()
     lacpMember.EntityData.BundleName = "cisco_ios_xr"
     lacpMember.EntityData.ParentYangName = "lacp-members"
     lacpMember.EntityData.SegmentPath = "lacp-member" + types.AddKeyToken(lacpMember.MemberInterface, "member-interface")
+    lacpMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/" + lacpMember.EntityData.SegmentPath
     lacpMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9109,6 +9311,7 @@ func (lacpMemberAncestor *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemb
     lacpMemberAncestor.EntityData.BundleName = "cisco_ios_xr"
     lacpMemberAncestor.EntityData.ParentYangName = "lacp-member"
     lacpMemberAncestor.EntityData.SegmentPath = "lacp-member-ancestor"
+    lacpMemberAncestor.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/" + lacpMemberAncestor.EntityData.SegmentPath
     lacpMemberAncestor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpMemberAncestor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpMemberAncestor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9117,6 +9320,7 @@ func (lacpMemberAncestor *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemb
     lacpMemberAncestor.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", &lacpMemberAncestor.BundleData})
     lacpMemberAncestor.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range lacpMemberAncestor.MemberData {
+        types.SetYListKey(lacpMemberAncestor.MemberData[i], i)
         lacpMemberAncestor.EntityData.Children.Append(types.GetSegmentPath(lacpMemberAncestor.MemberData[i]), types.YChild{"MemberData", lacpMemberAncestor.MemberData[i]})
     }
     lacpMemberAncestor.EntityData.Leafs = types.NewOrderedMap()
@@ -9161,6 +9365,7 @@ func (bundleData *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncest
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "lacp-member-ancestor"
     bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9343,6 +9548,7 @@ func (actorBundleData *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberA
     actorBundleData.EntityData.BundleName = "cisco_ios_xr"
     actorBundleData.EntityData.ParentYangName = "bundle-data"
     actorBundleData.EntityData.SegmentPath = "actor-bundle-data"
+    actorBundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/bundle-data/" + actorBundleData.EntityData.SegmentPath
     actorBundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actorBundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actorBundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9351,6 +9557,7 @@ func (actorBundleData *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberA
     actorBundleData.EntityData.Children.Append("mac-address", types.YChild{"MacAddress", &actorBundleData.MacAddress})
     actorBundleData.EntityData.Children.Append("bfd-config", types.YChild{"BfdConfig", nil})
     for i := range actorBundleData.BfdConfig {
+        types.SetYListKey(actorBundleData.BfdConfig[i], i)
         actorBundleData.EntityData.Children.Append(types.GetSegmentPath(actorBundleData.BfdConfig[i]), types.YChild{"BfdConfig", actorBundleData.BfdConfig[i]})
     }
     actorBundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -9415,6 +9622,7 @@ func (macAddress *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncest
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "actor-bundle-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/bundle-data/actor-bundle-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9433,6 +9641,7 @@ func (macAddress *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncest
 type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData_ActorBundleData_BfdConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Status of BFD on the bundle. The type is BmdBfdBdlState.
     BundleStatus interface{}
@@ -9474,7 +9683,8 @@ func (bfdConfig *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncesto
     bfdConfig.EntityData.YangName = "bfd-config"
     bfdConfig.EntityData.BundleName = "cisco_ios_xr"
     bfdConfig.EntityData.ParentYangName = "actor-bundle-data"
-    bfdConfig.EntityData.SegmentPath = "bfd-config"
+    bfdConfig.EntityData.SegmentPath = "bfd-config" + types.AddNoKeyToken(bfdConfig)
+    bfdConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/bundle-data/actor-bundle-data/" + bfdConfig.EntityData.SegmentPath
     bfdConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9520,6 +9730,7 @@ func (destinationAddress *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemb
     destinationAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationAddress.EntityData.ParentYangName = "bfd-config"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/bundle-data/actor-bundle-data/bfd-config/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9554,6 +9765,7 @@ func (bundleSystemId *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAn
     bundleSystemId.EntityData.BundleName = "cisco_ios_xr"
     bundleSystemId.EntityData.ParentYangName = "bundle-data"
     bundleSystemId.EntityData.SegmentPath = "bundle-system-id"
+    bundleSystemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/bundle-data/" + bundleSystemId.EntityData.SegmentPath
     bundleSystemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleSystemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleSystemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9585,6 +9797,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAnc
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "bundle-system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/bundle-data/bundle-system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9603,6 +9816,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAnc
 type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // MIB ifindex of selected bundle. The type is interface{} with range:
     // 0..4294967295.
@@ -9651,7 +9865,8 @@ func (memberData *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncest
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "lacp-member-ancestor"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9696,6 +9911,7 @@ func (actorInfo *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncesto
     actorInfo.EntityData.BundleName = "cisco_ios_xr"
     actorInfo.EntityData.ParentYangName = "member-data"
     actorInfo.EntityData.SegmentPath = "actor-info"
+    actorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/" + actorInfo.EntityData.SegmentPath
     actorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9735,6 +9951,7 @@ func (portInfo *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor
     portInfo.EntityData.BundleName = "cisco_ios_xr"
     portInfo.EntityData.ParentYangName = "actor-info"
     portInfo.EntityData.SegmentPath = "port-info"
+    portInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/actor-info/" + portInfo.EntityData.SegmentPath
     portInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9770,6 +9987,7 @@ func (system *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_M
     system.EntityData.BundleName = "cisco_ios_xr"
     system.EntityData.ParentYangName = "port-info"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/actor-info/port-info/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9801,6 +10019,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAnc
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/actor-info/port-info/system/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9833,6 +10052,7 @@ func (port *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_Mem
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "port-info"
     port.EntityData.SegmentPath = "port"
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/actor-info/port-info/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9867,6 +10087,7 @@ func (partnerInfo *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAnces
     partnerInfo.EntityData.BundleName = "cisco_ios_xr"
     partnerInfo.EntityData.ParentYangName = "member-data"
     partnerInfo.EntityData.SegmentPath = "partner-info"
+    partnerInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/" + partnerInfo.EntityData.SegmentPath
     partnerInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     partnerInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     partnerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9906,6 +10127,7 @@ func (portInfo *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor
     portInfo.EntityData.BundleName = "cisco_ios_xr"
     portInfo.EntityData.ParentYangName = "partner-info"
     portInfo.EntityData.SegmentPath = "port-info"
+    portInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/partner-info/" + portInfo.EntityData.SegmentPath
     portInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9941,6 +10163,7 @@ func (system *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_M
     system.EntityData.BundleName = "cisco_ios_xr"
     system.EntityData.ParentYangName = "port-info"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/partner-info/port-info/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9972,6 +10195,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAnc
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/partner-info/port-info/system/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10004,6 +10228,7 @@ func (port *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_Mem
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "port-info"
     port.EntityData.SegmentPath = "port"
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/partner-info/port-info/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10040,6 +10265,7 @@ func (additionalInfo *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAn
     additionalInfo.EntityData.BundleName = "cisco_ios_xr"
     additionalInfo.EntityData.ParentYangName = "member-data"
     additionalInfo.EntityData.SegmentPath = "additional-info"
+    additionalInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/" + additionalInfo.EntityData.SegmentPath
     additionalInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     additionalInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     additionalInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10072,6 +10298,7 @@ func (local *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_Me
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "additional-info"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/additional-info/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10106,6 +10333,7 @@ func (foreign *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_
     foreign.EntityData.BundleName = "cisco_ios_xr"
     foreign.EntityData.ParentYangName = "additional-info"
     foreign.EntityData.SegmentPath = "foreign"
+    foreign.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-ancestor/member-data/additional-info/" + foreign.EntityData.SegmentPath
     foreign.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreign.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreign.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10174,6 +10402,7 @@ func (lacpMemberItem *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberIt
     lacpMemberItem.EntityData.BundleName = "cisco_ios_xr"
     lacpMemberItem.EntityData.ParentYangName = "lacp-member"
     lacpMemberItem.EntityData.SegmentPath = "lacp-member-item"
+    lacpMemberItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/" + lacpMemberItem.EntityData.SegmentPath
     lacpMemberItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpMemberItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpMemberItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10218,6 +10447,7 @@ func (actorInfo *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_Ac
     actorInfo.EntityData.BundleName = "cisco_ios_xr"
     actorInfo.EntityData.ParentYangName = "lacp-member-item"
     actorInfo.EntityData.SegmentPath = "actor-info"
+    actorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/" + actorInfo.EntityData.SegmentPath
     actorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10257,6 +10487,7 @@ func (portInfo *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_Act
     portInfo.EntityData.BundleName = "cisco_ios_xr"
     portInfo.EntityData.ParentYangName = "actor-info"
     portInfo.EntityData.SegmentPath = "port-info"
+    portInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/actor-info/" + portInfo.EntityData.SegmentPath
     portInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10292,6 +10523,7 @@ func (system *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_Actor
     system.EntityData.BundleName = "cisco_ios_xr"
     system.EntityData.ParentYangName = "port-info"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/actor-info/port-info/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10323,6 +10555,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberIte
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/actor-info/port-info/system/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10355,6 +10588,7 @@ func (port *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_ActorIn
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "port-info"
     port.EntityData.SegmentPath = "port"
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/actor-info/port-info/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10389,6 +10623,7 @@ func (partnerInfo *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_
     partnerInfo.EntityData.BundleName = "cisco_ios_xr"
     partnerInfo.EntityData.ParentYangName = "lacp-member-item"
     partnerInfo.EntityData.SegmentPath = "partner-info"
+    partnerInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/" + partnerInfo.EntityData.SegmentPath
     partnerInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     partnerInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     partnerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10428,6 +10663,7 @@ func (portInfo *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_Par
     portInfo.EntityData.BundleName = "cisco_ios_xr"
     portInfo.EntityData.ParentYangName = "partner-info"
     portInfo.EntityData.SegmentPath = "port-info"
+    portInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/partner-info/" + portInfo.EntityData.SegmentPath
     portInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10463,6 +10699,7 @@ func (system *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_Partn
     system.EntityData.BundleName = "cisco_ios_xr"
     system.EntityData.ParentYangName = "port-info"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/partner-info/port-info/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10494,6 +10731,7 @@ func (systemMacAddr *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberIte
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/partner-info/port-info/system/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10526,6 +10764,7 @@ func (port *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_Partner
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "port-info"
     port.EntityData.SegmentPath = "port"
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/partner-info/port-info/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10562,6 +10801,7 @@ func (additionalInfo *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberIt
     additionalInfo.EntityData.BundleName = "cisco_ios_xr"
     additionalInfo.EntityData.ParentYangName = "lacp-member-item"
     additionalInfo.EntityData.SegmentPath = "additional-info"
+    additionalInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/" + additionalInfo.EntityData.SegmentPath
     additionalInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     additionalInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     additionalInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10594,6 +10834,7 @@ func (local *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_Additi
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "additional-info"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/additional-info/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10628,6 +10869,7 @@ func (foreign *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_Addi
     foreign.EntityData.BundleName = "cisco_ios_xr"
     foreign.EntityData.ParentYangName = "additional-info"
     foreign.EntityData.SegmentPath = "foreign"
+    foreign.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/lacp/lacp-members/lacp-member/lacp-member-item/additional-info/" + foreign.EntityData.SegmentPath
     foreign.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreign.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreign.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10664,6 +10906,7 @@ func (mlacpBundleCounters *BundleInformation_MlacpBundleCounters) GetEntityData(
     mlacpBundleCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundleCounters.EntityData.ParentYangName = "bundle-information"
     mlacpBundleCounters.EntityData.SegmentPath = "mlacp-bundle-counters"
+    mlacpBundleCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + mlacpBundleCounters.EntityData.SegmentPath
     mlacpBundleCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundleCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundleCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10697,6 +10940,7 @@ func (iccpGroups *BundleInformation_MlacpBundleCounters_IccpGroups) GetEntityDat
     iccpGroups.EntityData.BundleName = "cisco_ios_xr"
     iccpGroups.EntityData.ParentYangName = "mlacp-bundle-counters"
     iccpGroups.EntityData.SegmentPath = "iccp-groups"
+    iccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/" + iccpGroups.EntityData.SegmentPath
     iccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10718,6 +10962,7 @@ func (iccpGroups *BundleInformation_MlacpBundleCounters_IccpGroups) GetEntityDat
 type BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ICCP Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -10733,6 +10978,7 @@ func (iccpGroup *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup) Get
     iccpGroup.EntityData.BundleName = "cisco_ios_xr"
     iccpGroup.EntityData.ParentYangName = "iccp-groups"
     iccpGroup.EntityData.SegmentPath = "iccp-group" + types.AddKeyToken(iccpGroup.IccpGroup, "iccp-group")
+    iccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/" + iccpGroup.EntityData.SegmentPath
     iccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10767,6 +11013,7 @@ func (iccpGroupItem *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_
     iccpGroupItem.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupItem.EntityData.ParentYangName = "iccp-group"
     iccpGroupItem.EntityData.SegmentPath = "iccp-group-item"
+    iccpGroupItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/" + iccpGroupItem.EntityData.SegmentPath
     iccpGroupItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10775,6 +11022,7 @@ func (iccpGroupItem *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_
     iccpGroupItem.EntityData.Children.Append("iccp-group-data", types.YChild{"IccpGroupData", &iccpGroupItem.IccpGroupData})
     iccpGroupItem.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range iccpGroupItem.NodeData {
+        types.SetYListKey(iccpGroupItem.NodeData[i], i)
         iccpGroupItem.EntityData.Children.Append(types.GetSegmentPath(iccpGroupItem.NodeData[i]), types.YChild{"NodeData", iccpGroupItem.NodeData[i]})
     }
     iccpGroupItem.EntityData.Leafs = types.NewOrderedMap()
@@ -10810,6 +11058,7 @@ func (iccpGroupData *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_
     iccpGroupData.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupData.EntityData.ParentYangName = "iccp-group-item"
     iccpGroupData.EntityData.SegmentPath = "iccp-group-data"
+    iccpGroupData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/" + iccpGroupData.EntityData.SegmentPath
     iccpGroupData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10819,6 +11068,7 @@ func (iccpGroupData *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_
     iccpGroupData.EntityData.Children.Append("mlacp-sync-requests-on-all-local-bundles", types.YChild{"MlacpSyncRequestsOnAllLocalBundles", &iccpGroupData.MlacpSyncRequestsOnAllLocalBundles})
     iccpGroupData.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range iccpGroupData.BundleData {
+        types.SetYListKey(iccpGroupData.BundleData[i], i)
         iccpGroupData.EntityData.Children.Append(types.GetSegmentPath(iccpGroupData.BundleData[i]), types.YChild{"BundleData", iccpGroupData.BundleData[i]})
     }
     iccpGroupData.EntityData.Leafs = types.NewOrderedMap()
@@ -10854,6 +11104,7 @@ func (mlacpSyncRequestsOnAllLocalPorts *BundleInformation_MlacpBundleCounters_Ic
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.ParentYangName = "iccp-group-data"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-local-ports"
+    mlacpSyncRequestsOnAllLocalPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-data/" + mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllLocalPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10894,6 +11145,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_IccpGroups_Icc
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-local-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-data/mlacp-sync-requests-on-all-local-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10934,6 +11186,7 @@ func (mlacpSyncRequestsOnAllLocalBundles *BundleInformation_MlacpBundleCounters_
     mlacpSyncRequestsOnAllLocalBundles.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllLocalBundles.EntityData.ParentYangName = "iccp-group-data"
     mlacpSyncRequestsOnAllLocalBundles.EntityData.SegmentPath = "mlacp-sync-requests-on-all-local-bundles"
+    mlacpSyncRequestsOnAllLocalBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-data/" + mlacpSyncRequestsOnAllLocalBundles.EntityData.SegmentPath
     mlacpSyncRequestsOnAllLocalBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllLocalBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllLocalBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10974,6 +11227,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_IccpGroups_Icc
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-local-bundles"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-data/mlacp-sync-requests-on-all-local-bundles/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10994,6 +11248,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_IccpGroups_Icc
 type BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_IccpGroupItem_IccpGroupData_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle name. The type is string.
     BundleName interface{}
@@ -11007,7 +11262,8 @@ func (bundleData *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_Icc
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "iccp-group-data"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-data/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11071,6 +11327,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGro
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "bundle-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-data/bundle-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11117,6 +11374,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_IccpGroups_Icc
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-data/bundle-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11137,6 +11395,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_IccpGroups_Icc
 type BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_IccpGroupItem_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer device mLACP TLV counter information.
     NodeData BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_IccpGroupItem_NodeData_NodeData
@@ -11151,7 +11410,8 @@ func (nodeData *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_IccpG
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "iccp-group-item"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11160,6 +11420,7 @@ func (nodeData *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_IccpG
     nodeData.EntityData.Children.Append("node-data", types.YChild{"NodeData", &nodeData.NodeData})
     nodeData.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range nodeData.BundleData {
+        types.SetYListKey(nodeData.BundleData[i], i)
         nodeData.EntityData.Children.Append(types.GetSegmentPath(nodeData.BundleData[i]), types.YChild{"BundleData", nodeData.BundleData[i]})
     }
     nodeData.EntityData.Leafs = types.NewOrderedMap()
@@ -11191,6 +11452,7 @@ func (nodeData *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_IccpG
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "node-data"
     nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/node-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11231,6 +11493,7 @@ func (mlacpSyncRequestsOnAllForeignPorts *BundleInformation_MlacpBundleCounters_
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.ParentYangName = "node-data"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-foreign-ports"
+    mlacpSyncRequestsOnAllForeignPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/node-data/node-data/" + mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllForeignPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11271,6 +11534,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_IccpGroups_Icc
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-foreign-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/node-data/node-data/mlacp-sync-requests-on-all-foreign-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11311,6 +11575,7 @@ func (mlacpSyncRequestsOnAllForeignBundles *BundleInformation_MlacpBundleCounter
     mlacpSyncRequestsOnAllForeignBundles.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllForeignBundles.EntityData.ParentYangName = "node-data"
     mlacpSyncRequestsOnAllForeignBundles.EntityData.SegmentPath = "mlacp-sync-requests-on-all-foreign-bundles"
+    mlacpSyncRequestsOnAllForeignBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/node-data/node-data/" + mlacpSyncRequestsOnAllForeignBundles.EntityData.SegmentPath
     mlacpSyncRequestsOnAllForeignBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllForeignBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllForeignBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11351,6 +11616,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_IccpGroups_Icc
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-foreign-bundles"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/node-data/node-data/mlacp-sync-requests-on-all-foreign-bundles/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11371,6 +11637,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_IccpGroups_Icc
 type BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_IccpGroupItem_NodeData_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle name. The type is string.
     BundleName interface{}
@@ -11384,7 +11651,8 @@ func (bundleData *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGroup_Icc
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "node-data"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/node-data/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11448,6 +11716,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpBundleCounters_IccpGroups_IccpGro
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "bundle-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/node-data/bundle-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11494,6 +11763,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_IccpGroups_Icc
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/iccp-groups/iccp-group/iccp-group-item/node-data/bundle-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11526,6 +11796,7 @@ func (bundles *BundleInformation_MlacpBundleCounters_Bundles) GetEntityData() *t
     bundles.EntityData.BundleName = "cisco_ios_xr"
     bundles.EntityData.ParentYangName = "mlacp-bundle-counters"
     bundles.EntityData.SegmentPath = "bundles"
+    bundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/" + bundles.EntityData.SegmentPath
     bundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11547,6 +11818,7 @@ func (bundles *BundleInformation_MlacpBundleCounters_Bundles) GetEntityData() *t
 type BundleInformation_MlacpBundleCounters_Bundles_Bundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -11562,6 +11834,7 @@ func (bundle *BundleInformation_MlacpBundleCounters_Bundles_Bundle) GetEntityDat
     bundle.EntityData.BundleName = "cisco_ios_xr"
     bundle.EntityData.ParentYangName = "bundles"
     bundle.EntityData.SegmentPath = "bundle" + types.AddKeyToken(bundle.BundleInterface, "bundle-interface")
+    bundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/" + bundle.EntityData.SegmentPath
     bundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11593,6 +11866,7 @@ func (bundleItem *BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleIte
     bundleItem.EntityData.BundleName = "cisco_ios_xr"
     bundleItem.EntityData.ParentYangName = "bundle"
     bundleItem.EntityData.SegmentPath = "bundle-item"
+    bundleItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/" + bundleItem.EntityData.SegmentPath
     bundleItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11600,6 +11874,7 @@ func (bundleItem *BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleIte
     bundleItem.EntityData.Children = types.NewOrderedMap()
     bundleItem.EntityData.Children.Append("iccp-group", types.YChild{"IccpGroup", nil})
     for i := range bundleItem.IccpGroup {
+        types.SetYListKey(bundleItem.IccpGroup[i], i)
         bundleItem.EntityData.Children.Append(types.GetSegmentPath(bundleItem.IccpGroup[i]), types.YChild{"IccpGroup", bundleItem.IccpGroup[i]})
     }
     bundleItem.EntityData.Leafs = types.NewOrderedMap()
@@ -11614,6 +11889,7 @@ func (bundleItem *BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleIte
 type BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem_IccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ICCP Group mLACP TLV counter information.
     IccpGroupData BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem_IccpGroup_IccpGroupData
@@ -11628,7 +11904,8 @@ func (iccpGroup *BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem
     iccpGroup.EntityData.YangName = "iccp-group"
     iccpGroup.EntityData.BundleName = "cisco_ios_xr"
     iccpGroup.EntityData.ParentYangName = "bundle-item"
-    iccpGroup.EntityData.SegmentPath = "iccp-group"
+    iccpGroup.EntityData.SegmentPath = "iccp-group" + types.AddNoKeyToken(iccpGroup)
+    iccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/" + iccpGroup.EntityData.SegmentPath
     iccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11637,6 +11914,7 @@ func (iccpGroup *BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem
     iccpGroup.EntityData.Children.Append("iccp-group-data", types.YChild{"IccpGroupData", &iccpGroup.IccpGroupData})
     iccpGroup.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range iccpGroup.NodeData {
+        types.SetYListKey(iccpGroup.NodeData[i], i)
         iccpGroup.EntityData.Children.Append(types.GetSegmentPath(iccpGroup.NodeData[i]), types.YChild{"NodeData", iccpGroup.NodeData[i]})
     }
     iccpGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -11672,6 +11950,7 @@ func (iccpGroupData *BundleInformation_MlacpBundleCounters_Bundles_Bundle_Bundle
     iccpGroupData.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupData.EntityData.ParentYangName = "iccp-group"
     iccpGroupData.EntityData.SegmentPath = "iccp-group-data"
+    iccpGroupData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/" + iccpGroupData.EntityData.SegmentPath
     iccpGroupData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11681,6 +11960,7 @@ func (iccpGroupData *BundleInformation_MlacpBundleCounters_Bundles_Bundle_Bundle
     iccpGroupData.EntityData.Children.Append("mlacp-sync-requests-on-all-local-bundles", types.YChild{"MlacpSyncRequestsOnAllLocalBundles", &iccpGroupData.MlacpSyncRequestsOnAllLocalBundles})
     iccpGroupData.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range iccpGroupData.BundleData {
+        types.SetYListKey(iccpGroupData.BundleData[i], i)
         iccpGroupData.EntityData.Children.Append(types.GetSegmentPath(iccpGroupData.BundleData[i]), types.YChild{"BundleData", iccpGroupData.BundleData[i]})
     }
     iccpGroupData.EntityData.Leafs = types.NewOrderedMap()
@@ -11716,6 +11996,7 @@ func (mlacpSyncRequestsOnAllLocalPorts *BundleInformation_MlacpBundleCounters_Bu
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.ParentYangName = "iccp-group-data"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-local-ports"
+    mlacpSyncRequestsOnAllLocalPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/iccp-group-data/" + mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllLocalPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11756,6 +12037,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Bundles_Bundle
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-local-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/iccp-group-data/mlacp-sync-requests-on-all-local-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11796,6 +12078,7 @@ func (mlacpSyncRequestsOnAllLocalBundles *BundleInformation_MlacpBundleCounters_
     mlacpSyncRequestsOnAllLocalBundles.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllLocalBundles.EntityData.ParentYangName = "iccp-group-data"
     mlacpSyncRequestsOnAllLocalBundles.EntityData.SegmentPath = "mlacp-sync-requests-on-all-local-bundles"
+    mlacpSyncRequestsOnAllLocalBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/iccp-group-data/" + mlacpSyncRequestsOnAllLocalBundles.EntityData.SegmentPath
     mlacpSyncRequestsOnAllLocalBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllLocalBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllLocalBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11836,6 +12119,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Bundles_Bundle
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-local-bundles"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/iccp-group-data/mlacp-sync-requests-on-all-local-bundles/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11856,6 +12140,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Bundles_Bundle
 type BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem_IccpGroup_IccpGroupData_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle name. The type is string.
     BundleName interface{}
@@ -11869,7 +12154,8 @@ func (bundleData *BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleIte
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "iccp-group-data"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/iccp-group-data/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11933,6 +12219,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpBundleCounters_Bundles_Bundle_Bun
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "bundle-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/iccp-group-data/bundle-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11979,6 +12266,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Bundles_Bundle
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/iccp-group-data/bundle-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11999,6 +12287,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Bundles_Bundle
 type BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem_IccpGroup_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer device mLACP TLV counter information.
     NodeData BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem_IccpGroup_NodeData_NodeData
@@ -12013,7 +12302,8 @@ func (nodeData *BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem_
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "iccp-group"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12022,6 +12312,7 @@ func (nodeData *BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem_
     nodeData.EntityData.Children.Append("node-data", types.YChild{"NodeData", &nodeData.NodeData})
     nodeData.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range nodeData.BundleData {
+        types.SetYListKey(nodeData.BundleData[i], i)
         nodeData.EntityData.Children.Append(types.GetSegmentPath(nodeData.BundleData[i]), types.YChild{"BundleData", nodeData.BundleData[i]})
     }
     nodeData.EntityData.Leafs = types.NewOrderedMap()
@@ -12053,6 +12344,7 @@ func (nodeData *BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem_
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "node-data"
     nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/node-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12093,6 +12385,7 @@ func (mlacpSyncRequestsOnAllForeignPorts *BundleInformation_MlacpBundleCounters_
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.ParentYangName = "node-data"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-foreign-ports"
+    mlacpSyncRequestsOnAllForeignPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/node-data/node-data/" + mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllForeignPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12133,6 +12426,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Bundles_Bundle
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-foreign-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/node-data/node-data/mlacp-sync-requests-on-all-foreign-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12173,6 +12467,7 @@ func (mlacpSyncRequestsOnAllForeignBundles *BundleInformation_MlacpBundleCounter
     mlacpSyncRequestsOnAllForeignBundles.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllForeignBundles.EntityData.ParentYangName = "node-data"
     mlacpSyncRequestsOnAllForeignBundles.EntityData.SegmentPath = "mlacp-sync-requests-on-all-foreign-bundles"
+    mlacpSyncRequestsOnAllForeignBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/node-data/node-data/" + mlacpSyncRequestsOnAllForeignBundles.EntityData.SegmentPath
     mlacpSyncRequestsOnAllForeignBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllForeignBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllForeignBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12213,6 +12508,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Bundles_Bundle
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-foreign-bundles"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/node-data/node-data/mlacp-sync-requests-on-all-foreign-bundles/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12233,6 +12529,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Bundles_Bundle
 type BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleItem_IccpGroup_NodeData_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle name. The type is string.
     BundleName interface{}
@@ -12246,7 +12543,8 @@ func (bundleData *BundleInformation_MlacpBundleCounters_Bundles_Bundle_BundleIte
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "node-data"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/node-data/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12310,6 +12608,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpBundleCounters_Bundles_Bundle_Bun
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "bundle-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/node-data/bundle-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12356,6 +12655,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Bundles_Bundle
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/bundles/bundle/bundle-item/iccp-group/node-data/bundle-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12389,6 +12689,7 @@ func (nodes *BundleInformation_MlacpBundleCounters_Nodes) GetEntityData() *types
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "mlacp-bundle-counters"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12410,6 +12711,7 @@ func (nodes *BundleInformation_MlacpBundleCounters_Nodes) GetEntityData() *types
 type BundleInformation_MlacpBundleCounters_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. For a local device the Node ID e.g. '0_0_CPU0',
     // for a peer device the LDP ID followed by the ICCP Group ID e.g. '5.4.3.2
@@ -12426,6 +12728,7 @@ func (node *BundleInformation_MlacpBundleCounters_Nodes_Node) GetEntityData() *t
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12460,6 +12763,7 @@ func (nodeItem *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem) GetEn
     nodeItem.EntityData.BundleName = "cisco_ios_xr"
     nodeItem.EntityData.ParentYangName = "node"
     nodeItem.EntityData.SegmentPath = "node-item"
+    nodeItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/" + nodeItem.EntityData.SegmentPath
     nodeItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12468,6 +12772,7 @@ func (nodeItem *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem) GetEn
     nodeItem.EntityData.Children.Append("iccp-group-data", types.YChild{"IccpGroupData", &nodeItem.IccpGroupData})
     nodeItem.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range nodeItem.NodeData {
+        types.SetYListKey(nodeItem.NodeData[i], i)
         nodeItem.EntityData.Children.Append(types.GetSegmentPath(nodeItem.NodeData[i]), types.YChild{"NodeData", nodeItem.NodeData[i]})
     }
     nodeItem.EntityData.Leafs = types.NewOrderedMap()
@@ -12503,6 +12808,7 @@ func (iccpGroupData *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_I
     iccpGroupData.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupData.EntityData.ParentYangName = "node-item"
     iccpGroupData.EntityData.SegmentPath = "iccp-group-data"
+    iccpGroupData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/" + iccpGroupData.EntityData.SegmentPath
     iccpGroupData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12512,6 +12818,7 @@ func (iccpGroupData *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_I
     iccpGroupData.EntityData.Children.Append("mlacp-sync-requests-on-all-local-bundles", types.YChild{"MlacpSyncRequestsOnAllLocalBundles", &iccpGroupData.MlacpSyncRequestsOnAllLocalBundles})
     iccpGroupData.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range iccpGroupData.BundleData {
+        types.SetYListKey(iccpGroupData.BundleData[i], i)
         iccpGroupData.EntityData.Children.Append(types.GetSegmentPath(iccpGroupData.BundleData[i]), types.YChild{"BundleData", iccpGroupData.BundleData[i]})
     }
     iccpGroupData.EntityData.Leafs = types.NewOrderedMap()
@@ -12547,6 +12854,7 @@ func (mlacpSyncRequestsOnAllLocalPorts *BundleInformation_MlacpBundleCounters_No
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.ParentYangName = "iccp-group-data"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-local-ports"
+    mlacpSyncRequestsOnAllLocalPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/iccp-group-data/" + mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllLocalPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12587,6 +12895,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Nodes_Node_Nod
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-local-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/iccp-group-data/mlacp-sync-requests-on-all-local-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12627,6 +12936,7 @@ func (mlacpSyncRequestsOnAllLocalBundles *BundleInformation_MlacpBundleCounters_
     mlacpSyncRequestsOnAllLocalBundles.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllLocalBundles.EntityData.ParentYangName = "iccp-group-data"
     mlacpSyncRequestsOnAllLocalBundles.EntityData.SegmentPath = "mlacp-sync-requests-on-all-local-bundles"
+    mlacpSyncRequestsOnAllLocalBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/iccp-group-data/" + mlacpSyncRequestsOnAllLocalBundles.EntityData.SegmentPath
     mlacpSyncRequestsOnAllLocalBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllLocalBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllLocalBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12667,6 +12977,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Nodes_Node_Nod
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-local-bundles"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/iccp-group-data/mlacp-sync-requests-on-all-local-bundles/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12687,6 +12998,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Nodes_Node_Nod
 type BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_IccpGroupData_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle name. The type is string.
     BundleName interface{}
@@ -12700,7 +13012,8 @@ func (bundleData *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_Iccp
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "iccp-group-data"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/iccp-group-data/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12764,6 +13077,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeIte
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "bundle-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/iccp-group-data/bundle-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12810,6 +13124,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Nodes_Node_Nod
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/iccp-group-data/bundle-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12830,6 +13145,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Nodes_Node_Nod
 type BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer device mLACP TLV counter information.
     NodeData BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_NodeData_NodeData
@@ -12844,7 +13160,8 @@ func (nodeData *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_NodeDa
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "node-item"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12853,6 +13170,7 @@ func (nodeData *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_NodeDa
     nodeData.EntityData.Children.Append("node-data", types.YChild{"NodeData", &nodeData.NodeData})
     nodeData.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range nodeData.BundleData {
+        types.SetYListKey(nodeData.BundleData[i], i)
         nodeData.EntityData.Children.Append(types.GetSegmentPath(nodeData.BundleData[i]), types.YChild{"BundleData", nodeData.BundleData[i]})
     }
     nodeData.EntityData.Leafs = types.NewOrderedMap()
@@ -12884,6 +13202,7 @@ func (nodeData *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_NodeDa
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "node-data"
     nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/node-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12924,6 +13243,7 @@ func (mlacpSyncRequestsOnAllForeignPorts *BundleInformation_MlacpBundleCounters_
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.ParentYangName = "node-data"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-foreign-ports"
+    mlacpSyncRequestsOnAllForeignPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/node-data/node-data/" + mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllForeignPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12964,6 +13284,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Nodes_Node_Nod
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-foreign-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/node-data/node-data/mlacp-sync-requests-on-all-foreign-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13004,6 +13325,7 @@ func (mlacpSyncRequestsOnAllForeignBundles *BundleInformation_MlacpBundleCounter
     mlacpSyncRequestsOnAllForeignBundles.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllForeignBundles.EntityData.ParentYangName = "node-data"
     mlacpSyncRequestsOnAllForeignBundles.EntityData.SegmentPath = "mlacp-sync-requests-on-all-foreign-bundles"
+    mlacpSyncRequestsOnAllForeignBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/node-data/node-data/" + mlacpSyncRequestsOnAllForeignBundles.EntityData.SegmentPath
     mlacpSyncRequestsOnAllForeignBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllForeignBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllForeignBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13044,6 +13366,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Nodes_Node_Nod
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-foreign-bundles"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/node-data/node-data/mlacp-sync-requests-on-all-foreign-bundles/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13064,6 +13387,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Nodes_Node_Nod
 type BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_NodeData_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle name. The type is string.
     BundleName interface{}
@@ -13077,7 +13401,8 @@ func (bundleData *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeItem_Node
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "node-data"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/node-data/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13141,6 +13466,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpBundleCounters_Nodes_Node_NodeIte
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "bundle-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/node-data/bundle-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13187,6 +13513,7 @@ func (receivedSyncRequests *BundleInformation_MlacpBundleCounters_Nodes_Node_Nod
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-bundle-counters/nodes/node/node-item/node-data/bundle-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13219,6 +13546,7 @@ func (protect *BundleInformation_Protect) GetEntityData() *types.CommonEntityDat
     protect.EntityData.BundleName = "cisco_ios_xr"
     protect.EntityData.ParentYangName = "bundle-information"
     protect.EntityData.SegmentPath = "protect"
+    protect.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + protect.EntityData.SegmentPath
     protect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13250,6 +13578,7 @@ func (protectBundles *BundleInformation_Protect_ProtectBundles) GetEntityData() 
     protectBundles.EntityData.BundleName = "cisco_ios_xr"
     protectBundles.EntityData.ParentYangName = "protect"
     protectBundles.EntityData.SegmentPath = "protect-bundles"
+    protectBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/protect/" + protectBundles.EntityData.SegmentPath
     protectBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13271,6 +13600,7 @@ func (protectBundles *BundleInformation_Protect_ProtectBundles) GetEntityData() 
 type BundleInformation_Protect_ProtectBundles_ProtectBundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -13286,6 +13616,7 @@ func (protectBundle *BundleInformation_Protect_ProtectBundles_ProtectBundle) Get
     protectBundle.EntityData.BundleName = "cisco_ios_xr"
     protectBundle.EntityData.ParentYangName = "protect-bundles"
     protectBundle.EntityData.SegmentPath = "protect-bundle" + types.AddKeyToken(protectBundle.BundleInterface, "bundle-interface")
+    protectBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/protect/protect-bundles/" + protectBundle.EntityData.SegmentPath
     protectBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13350,6 +13681,7 @@ func (protectBundleItem *BundleInformation_Protect_ProtectBundles_ProtectBundle_
     protectBundleItem.EntityData.BundleName = "cisco_ios_xr"
     protectBundleItem.EntityData.ParentYangName = "protect-bundle"
     protectBundleItem.EntityData.SegmentPath = "protect-bundle-item"
+    protectBundleItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/protect/protect-bundles/protect-bundle/" + protectBundleItem.EntityData.SegmentPath
     protectBundleItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectBundleItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectBundleItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13357,6 +13689,7 @@ func (protectBundleItem *BundleInformation_Protect_ProtectBundles_ProtectBundle_
     protectBundleItem.EntityData.Children = types.NewOrderedMap()
     protectBundleItem.EntityData.Children.Append("member-info", types.YChild{"MemberInfo", nil})
     for i := range protectBundleItem.MemberInfo {
+        types.SetYListKey(protectBundleItem.MemberInfo[i], i)
         protectBundleItem.EntityData.Children.Append(types.GetSegmentPath(protectBundleItem.MemberInfo[i]), types.YChild{"MemberInfo", protectBundleItem.MemberInfo[i]})
     }
     protectBundleItem.EntityData.Leafs = types.NewOrderedMap()
@@ -13380,6 +13713,7 @@ func (protectBundleItem *BundleInformation_Protect_ProtectBundles_ProtectBundle_
 type BundleInformation_Protect_ProtectBundles_ProtectBundle_ProtectBundleItem_MemberInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Member's interface handle. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -13417,7 +13751,8 @@ func (memberInfo *BundleInformation_Protect_ProtectBundles_ProtectBundle_Protect
     memberInfo.EntityData.YangName = "member-info"
     memberInfo.EntityData.BundleName = "cisco_ios_xr"
     memberInfo.EntityData.ParentYangName = "protect-bundle-item"
-    memberInfo.EntityData.SegmentPath = "member-info"
+    memberInfo.EntityData.SegmentPath = "member-info" + types.AddNoKeyToken(memberInfo)
+    memberInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/protect/protect-bundles/protect-bundle/protect-bundle-item/" + memberInfo.EntityData.SegmentPath
     memberInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13459,6 +13794,7 @@ func (mlacpBrief *BundleInformation_MlacpBrief) GetEntityData() *types.CommonEnt
     mlacpBrief.EntityData.BundleName = "cisco_ios_xr"
     mlacpBrief.EntityData.ParentYangName = "bundle-information"
     mlacpBrief.EntityData.SegmentPath = "mlacp-brief"
+    mlacpBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + mlacpBrief.EntityData.SegmentPath
     mlacpBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13490,6 +13826,7 @@ func (mlacpBundleBriefs *BundleInformation_MlacpBrief_MlacpBundleBriefs) GetEnti
     mlacpBundleBriefs.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundleBriefs.EntityData.ParentYangName = "mlacp-brief"
     mlacpBundleBriefs.EntityData.SegmentPath = "mlacp-bundle-briefs"
+    mlacpBundleBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/" + mlacpBundleBriefs.EntityData.SegmentPath
     mlacpBundleBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundleBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundleBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13511,6 +13848,7 @@ func (mlacpBundleBriefs *BundleInformation_MlacpBrief_MlacpBundleBriefs) GetEnti
 type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -13526,6 +13864,7 @@ func (mlacpBundleBrief *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBund
     mlacpBundleBrief.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundleBrief.EntityData.ParentYangName = "mlacp-bundle-briefs"
     mlacpBundleBrief.EntityData.SegmentPath = "mlacp-bundle-brief" + types.AddKeyToken(mlacpBundleBrief.BundleInterface, "bundle-interface")
+    mlacpBundleBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/" + mlacpBundleBrief.EntityData.SegmentPath
     mlacpBundleBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundleBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundleBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13557,6 +13896,7 @@ func (mlacpBundleItemBrief *BundleInformation_MlacpBrief_MlacpBundleBriefs_Mlacp
     mlacpBundleItemBrief.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundleItemBrief.EntityData.ParentYangName = "mlacp-bundle-brief"
     mlacpBundleItemBrief.EntityData.SegmentPath = "mlacp-bundle-item-brief"
+    mlacpBundleItemBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/mlacp-bundle-brief/" + mlacpBundleItemBrief.EntityData.SegmentPath
     mlacpBundleItemBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundleItemBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundleItemBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13564,6 +13904,7 @@ func (mlacpBundleItemBrief *BundleInformation_MlacpBrief_MlacpBundleBriefs_Mlacp
     mlacpBundleItemBrief.EntityData.Children = types.NewOrderedMap()
     mlacpBundleItemBrief.EntityData.Children.Append("mlacp-data", types.YChild{"MlacpData", nil})
     for i := range mlacpBundleItemBrief.MlacpData {
+        types.SetYListKey(mlacpBundleItemBrief.MlacpData[i], i)
         mlacpBundleItemBrief.EntityData.Children.Append(types.GetSegmentPath(mlacpBundleItemBrief.MlacpData[i]), types.YChild{"MlacpData", mlacpBundleItemBrief.MlacpData[i]})
     }
     mlacpBundleItemBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -13578,6 +13919,7 @@ func (mlacpBundleItemBrief *BundleInformation_MlacpBrief_MlacpBundleBriefs_Mlacp
 type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundleItemBrief_MlacpData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ICCP Group information.
     IccpGroupData BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundleItemBrief_MlacpData_IccpGroupData
@@ -13592,7 +13934,8 @@ func (mlacpData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief
     mlacpData.EntityData.YangName = "mlacp-data"
     mlacpData.EntityData.BundleName = "cisco_ios_xr"
     mlacpData.EntityData.ParentYangName = "mlacp-bundle-item-brief"
-    mlacpData.EntityData.SegmentPath = "mlacp-data"
+    mlacpData.EntityData.SegmentPath = "mlacp-data" + types.AddNoKeyToken(mlacpData)
+    mlacpData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/mlacp-bundle-brief/mlacp-bundle-item-brief/" + mlacpData.EntityData.SegmentPath
     mlacpData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13601,6 +13944,7 @@ func (mlacpData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief
     mlacpData.EntityData.Children.Append("iccp-group-data", types.YChild{"IccpGroupData", &mlacpData.IccpGroupData})
     mlacpData.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range mlacpData.BundleData {
+        types.SetYListKey(mlacpData.BundleData[i], i)
         mlacpData.EntityData.Children.Append(types.GetSegmentPath(mlacpData.BundleData[i]), types.YChild{"BundleData", mlacpData.BundleData[i]})
     }
     mlacpData.EntityData.Leafs = types.NewOrderedMap()
@@ -13640,6 +13984,7 @@ func (iccpGroupData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleB
     iccpGroupData.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupData.EntityData.ParentYangName = "mlacp-data"
     iccpGroupData.EntityData.SegmentPath = "iccp-group-data"
+    iccpGroupData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/mlacp-bundle-brief/mlacp-bundle-item-brief/mlacp-data/" + iccpGroupData.EntityData.SegmentPath
     iccpGroupData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13647,6 +13992,7 @@ func (iccpGroupData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleB
     iccpGroupData.EntityData.Children = types.NewOrderedMap()
     iccpGroupData.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range iccpGroupData.NodeData {
+        types.SetYListKey(iccpGroupData.NodeData[i], i)
         iccpGroupData.EntityData.Children.Append(types.GetSegmentPath(iccpGroupData.NodeData[i]), types.YChild{"NodeData", iccpGroupData.NodeData[i]})
     }
     iccpGroupData.EntityData.Leafs = types.NewOrderedMap()
@@ -13665,6 +14011,7 @@ func (iccpGroupData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleB
 type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundleItemBrief_MlacpData_IccpGroupData_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
     MlacpNodeId interface{}
@@ -13692,7 +14039,8 @@ func (nodeData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "iccp-group-data"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/mlacp-bundle-brief/mlacp-bundle-item-brief/mlacp-data/iccp-group-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13730,6 +14078,7 @@ func (systemId *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_
     systemId.EntityData.BundleName = "cisco_ios_xr"
     systemId.EntityData.ParentYangName = "node-data"
     systemId.EntityData.SegmentPath = "system-id"
+    systemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/mlacp-bundle-brief/mlacp-bundle-item-brief/mlacp-data/iccp-group-data/node-data/" + systemId.EntityData.SegmentPath
     systemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13761,6 +14110,7 @@ func (systemMacAddr *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleB
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/mlacp-bundle-brief/mlacp-bundle-item-brief/mlacp-data/iccp-group-data/node-data/system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13779,6 +14129,7 @@ func (systemMacAddr *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleB
 type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundleItemBrief_MlacpData_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle interface key. The type is interface{} with range: 0..65535.
     BundleInterfaceKey interface{}
@@ -13804,7 +14155,8 @@ func (bundleData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrie
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "mlacp-data"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/mlacp-bundle-brief/mlacp-bundle-item-brief/mlacp-data/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13812,10 +14164,12 @@ func (bundleData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrie
     bundleData.EntityData.Children = types.NewOrderedMap()
     bundleData.EntityData.Children.Append("mlacp-bundle-data", types.YChild{"MlacpBundleData", nil})
     for i := range bundleData.MlacpBundleData {
+        types.SetYListKey(bundleData.MlacpBundleData[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.MlacpBundleData[i]), types.YChild{"MlacpBundleData", bundleData.MlacpBundleData[i]})
     }
     bundleData.EntityData.Children.Append("mlacp-member-data", types.YChild{"MlacpMemberData", nil})
     for i := range bundleData.MlacpMemberData {
+        types.SetYListKey(bundleData.MlacpMemberData[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.MlacpMemberData[i]), types.YChild{"MlacpMemberData", bundleData.MlacpMemberData[i]})
     }
     bundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -13833,6 +14187,7 @@ func (bundleData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrie
 type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundleItemBrief_MlacpData_BundleData_MlacpBundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle name. The type is string.
     BundleName interface{}
@@ -13858,7 +14213,8 @@ func (mlacpBundleData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundl
     mlacpBundleData.EntityData.YangName = "mlacp-bundle-data"
     mlacpBundleData.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundleData.EntityData.ParentYangName = "bundle-data"
-    mlacpBundleData.EntityData.SegmentPath = "mlacp-bundle-data"
+    mlacpBundleData.EntityData.SegmentPath = "mlacp-bundle-data" + types.AddNoKeyToken(mlacpBundleData)
+    mlacpBundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/mlacp-bundle-brief/mlacp-bundle-item-brief/mlacp-data/bundle-data/" + mlacpBundleData.EntityData.SegmentPath
     mlacpBundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13894,6 +14250,7 @@ func (macAddress *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrie
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "mlacp-bundle-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/mlacp-bundle-brief/mlacp-bundle-item-brief/mlacp-data/bundle-data/mlacp-bundle-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13912,6 +14269,7 @@ func (macAddress *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrie
 type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundleItemBrief_MlacpData_BundleData_MlacpMemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port Name. The type is string.
     PortName interface{}
@@ -13943,7 +14301,8 @@ func (mlacpMemberData *BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundl
     mlacpMemberData.EntityData.YangName = "mlacp-member-data"
     mlacpMemberData.EntityData.BundleName = "cisco_ios_xr"
     mlacpMemberData.EntityData.ParentYangName = "bundle-data"
-    mlacpMemberData.EntityData.SegmentPath = "mlacp-member-data"
+    mlacpMemberData.EntityData.SegmentPath = "mlacp-member-data" + types.AddNoKeyToken(mlacpMemberData)
+    mlacpMemberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-bundle-briefs/mlacp-bundle-brief/mlacp-bundle-item-brief/mlacp-data/bundle-data/" + mlacpMemberData.EntityData.SegmentPath
     mlacpMemberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpMemberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpMemberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13980,6 +14339,7 @@ func (mlacpBriefIccpGroups *BundleInformation_MlacpBrief_MlacpBriefIccpGroups) G
     mlacpBriefIccpGroups.EntityData.BundleName = "cisco_ios_xr"
     mlacpBriefIccpGroups.EntityData.ParentYangName = "mlacp-brief"
     mlacpBriefIccpGroups.EntityData.SegmentPath = "mlacp-brief-iccp-groups"
+    mlacpBriefIccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/" + mlacpBriefIccpGroups.EntityData.SegmentPath
     mlacpBriefIccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBriefIccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBriefIccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14001,6 +14361,7 @@ func (mlacpBriefIccpGroups *BundleInformation_MlacpBrief_MlacpBriefIccpGroups) G
 type BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ICCP Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -14016,6 +14377,7 @@ func (mlacpBriefIccpGroup *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_Mla
     mlacpBriefIccpGroup.EntityData.BundleName = "cisco_ios_xr"
     mlacpBriefIccpGroup.EntityData.ParentYangName = "mlacp-brief-iccp-groups"
     mlacpBriefIccpGroup.EntityData.SegmentPath = "mlacp-brief-iccp-group" + types.AddKeyToken(mlacpBriefIccpGroup.IccpGroup, "iccp-group")
+    mlacpBriefIccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-brief-iccp-groups/" + mlacpBriefIccpGroup.EntityData.SegmentPath
     mlacpBriefIccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBriefIccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBriefIccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14050,6 +14412,7 @@ func (mlacpBriefIccpGroupItem *BundleInformation_MlacpBrief_MlacpBriefIccpGroups
     mlacpBriefIccpGroupItem.EntityData.BundleName = "cisco_ios_xr"
     mlacpBriefIccpGroupItem.EntityData.ParentYangName = "mlacp-brief-iccp-group"
     mlacpBriefIccpGroupItem.EntityData.SegmentPath = "mlacp-brief-iccp-group-item"
+    mlacpBriefIccpGroupItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-brief-iccp-groups/mlacp-brief-iccp-group/" + mlacpBriefIccpGroupItem.EntityData.SegmentPath
     mlacpBriefIccpGroupItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBriefIccpGroupItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBriefIccpGroupItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14058,6 +14421,7 @@ func (mlacpBriefIccpGroupItem *BundleInformation_MlacpBrief_MlacpBriefIccpGroups
     mlacpBriefIccpGroupItem.EntityData.Children.Append("iccp-group-data", types.YChild{"IccpGroupData", &mlacpBriefIccpGroupItem.IccpGroupData})
     mlacpBriefIccpGroupItem.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range mlacpBriefIccpGroupItem.BundleData {
+        types.SetYListKey(mlacpBriefIccpGroupItem.BundleData[i], i)
         mlacpBriefIccpGroupItem.EntityData.Children.Append(types.GetSegmentPath(mlacpBriefIccpGroupItem.BundleData[i]), types.YChild{"BundleData", mlacpBriefIccpGroupItem.BundleData[i]})
     }
     mlacpBriefIccpGroupItem.EntityData.Leafs = types.NewOrderedMap()
@@ -14097,6 +14461,7 @@ func (iccpGroupData *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBrie
     iccpGroupData.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupData.EntityData.ParentYangName = "mlacp-brief-iccp-group-item"
     iccpGroupData.EntityData.SegmentPath = "iccp-group-data"
+    iccpGroupData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-brief-iccp-groups/mlacp-brief-iccp-group/mlacp-brief-iccp-group-item/" + iccpGroupData.EntityData.SegmentPath
     iccpGroupData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14104,6 +14469,7 @@ func (iccpGroupData *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBrie
     iccpGroupData.EntityData.Children = types.NewOrderedMap()
     iccpGroupData.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range iccpGroupData.NodeData {
+        types.SetYListKey(iccpGroupData.NodeData[i], i)
         iccpGroupData.EntityData.Children.Append(types.GetSegmentPath(iccpGroupData.NodeData[i]), types.YChild{"NodeData", iccpGroupData.NodeData[i]})
     }
     iccpGroupData.EntityData.Leafs = types.NewOrderedMap()
@@ -14122,6 +14488,7 @@ func (iccpGroupData *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBrie
 type BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccpGroup_MlacpBriefIccpGroupItem_IccpGroupData_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
     MlacpNodeId interface{}
@@ -14149,7 +14516,8 @@ func (nodeData *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccp
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "iccp-group-data"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-brief-iccp-groups/mlacp-brief-iccp-group/mlacp-brief-iccp-group-item/iccp-group-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14187,6 +14555,7 @@ func (systemId *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccp
     systemId.EntityData.BundleName = "cisco_ios_xr"
     systemId.EntityData.ParentYangName = "node-data"
     systemId.EntityData.SegmentPath = "system-id"
+    systemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-brief-iccp-groups/mlacp-brief-iccp-group/mlacp-brief-iccp-group-item/iccp-group-data/node-data/" + systemId.EntityData.SegmentPath
     systemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14218,6 +14587,7 @@ func (systemMacAddr *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBrie
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-brief-iccp-groups/mlacp-brief-iccp-group/mlacp-brief-iccp-group-item/iccp-group-data/node-data/system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14236,6 +14606,7 @@ func (systemMacAddr *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBrie
 type BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccpGroup_MlacpBriefIccpGroupItem_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle interface key. The type is interface{} with range: 0..65535.
     BundleInterfaceKey interface{}
@@ -14261,7 +14632,8 @@ func (bundleData *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIc
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "mlacp-brief-iccp-group-item"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-brief-iccp-groups/mlacp-brief-iccp-group/mlacp-brief-iccp-group-item/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14269,10 +14641,12 @@ func (bundleData *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIc
     bundleData.EntityData.Children = types.NewOrderedMap()
     bundleData.EntityData.Children.Append("mlacp-bundle-data", types.YChild{"MlacpBundleData", nil})
     for i := range bundleData.MlacpBundleData {
+        types.SetYListKey(bundleData.MlacpBundleData[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.MlacpBundleData[i]), types.YChild{"MlacpBundleData", bundleData.MlacpBundleData[i]})
     }
     bundleData.EntityData.Children.Append("mlacp-member-data", types.YChild{"MlacpMemberData", nil})
     for i := range bundleData.MlacpMemberData {
+        types.SetYListKey(bundleData.MlacpMemberData[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.MlacpMemberData[i]), types.YChild{"MlacpMemberData", bundleData.MlacpMemberData[i]})
     }
     bundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -14290,6 +14664,7 @@ func (bundleData *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIc
 type BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccpGroup_MlacpBriefIccpGroupItem_BundleData_MlacpBundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle name. The type is string.
     BundleName interface{}
@@ -14315,7 +14690,8 @@ func (mlacpBundleData *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBr
     mlacpBundleData.EntityData.YangName = "mlacp-bundle-data"
     mlacpBundleData.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundleData.EntityData.ParentYangName = "bundle-data"
-    mlacpBundleData.EntityData.SegmentPath = "mlacp-bundle-data"
+    mlacpBundleData.EntityData.SegmentPath = "mlacp-bundle-data" + types.AddNoKeyToken(mlacpBundleData)
+    mlacpBundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-brief-iccp-groups/mlacp-brief-iccp-group/mlacp-brief-iccp-group-item/bundle-data/" + mlacpBundleData.EntityData.SegmentPath
     mlacpBundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14351,6 +14727,7 @@ func (macAddress *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIc
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "mlacp-bundle-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-brief-iccp-groups/mlacp-brief-iccp-group/mlacp-brief-iccp-group-item/bundle-data/mlacp-bundle-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14369,6 +14746,7 @@ func (macAddress *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIc
 type BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccpGroup_MlacpBriefIccpGroupItem_BundleData_MlacpMemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port Name. The type is string.
     PortName interface{}
@@ -14400,7 +14778,8 @@ func (mlacpMemberData *BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBr
     mlacpMemberData.EntityData.YangName = "mlacp-member-data"
     mlacpMemberData.EntityData.BundleName = "cisco_ios_xr"
     mlacpMemberData.EntityData.ParentYangName = "bundle-data"
-    mlacpMemberData.EntityData.SegmentPath = "mlacp-member-data"
+    mlacpMemberData.EntityData.SegmentPath = "mlacp-member-data" + types.AddNoKeyToken(mlacpMemberData)
+    mlacpMemberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-brief/mlacp-brief-iccp-groups/mlacp-brief-iccp-group/mlacp-brief-iccp-group-item/bundle-data/" + mlacpMemberData.EntityData.SegmentPath
     mlacpMemberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpMemberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpMemberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14440,6 +14819,7 @@ func (mlacp *BundleInformation_Mlacp) GetEntityData() *types.CommonEntityData {
     mlacp.EntityData.BundleName = "cisco_ios_xr"
     mlacp.EntityData.ParentYangName = "bundle-information"
     mlacp.EntityData.SegmentPath = "mlacp"
+    mlacp.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + mlacp.EntityData.SegmentPath
     mlacp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14471,6 +14851,7 @@ func (mlacpBundles *BundleInformation_Mlacp_MlacpBundles) GetEntityData() *types
     mlacpBundles.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundles.EntityData.ParentYangName = "mlacp"
     mlacpBundles.EntityData.SegmentPath = "mlacp-bundles"
+    mlacpBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/" + mlacpBundles.EntityData.SegmentPath
     mlacpBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14492,6 +14873,7 @@ func (mlacpBundles *BundleInformation_Mlacp_MlacpBundles) GetEntityData() *types
 type BundleInformation_Mlacp_MlacpBundles_MlacpBundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -14507,6 +14889,7 @@ func (mlacpBundle *BundleInformation_Mlacp_MlacpBundles_MlacpBundle) GetEntityDa
     mlacpBundle.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundle.EntityData.ParentYangName = "mlacp-bundles"
     mlacpBundle.EntityData.SegmentPath = "mlacp-bundle" + types.AddKeyToken(mlacpBundle.BundleInterface, "bundle-interface")
+    mlacpBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/" + mlacpBundle.EntityData.SegmentPath
     mlacpBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14538,6 +14921,7 @@ func (mlacpBundleItem *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBun
     mlacpBundleItem.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundleItem.EntityData.ParentYangName = "mlacp-bundle"
     mlacpBundleItem.EntityData.SegmentPath = "mlacp-bundle-item"
+    mlacpBundleItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/mlacp-bundle/" + mlacpBundleItem.EntityData.SegmentPath
     mlacpBundleItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundleItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundleItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14545,6 +14929,7 @@ func (mlacpBundleItem *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBun
     mlacpBundleItem.EntityData.Children = types.NewOrderedMap()
     mlacpBundleItem.EntityData.Children.Append("mlacp-data", types.YChild{"MlacpData", nil})
     for i := range mlacpBundleItem.MlacpData {
+        types.SetYListKey(mlacpBundleItem.MlacpData[i], i)
         mlacpBundleItem.EntityData.Children.Append(types.GetSegmentPath(mlacpBundleItem.MlacpData[i]), types.YChild{"MlacpData", mlacpBundleItem.MlacpData[i]})
     }
     mlacpBundleItem.EntityData.Leafs = types.NewOrderedMap()
@@ -14559,6 +14944,7 @@ func (mlacpBundleItem *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBun
 type BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ICCP Group information.
     IccpGroupData BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData_IccpGroupData
@@ -14573,7 +14959,8 @@ func (mlacpData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleIte
     mlacpData.EntityData.YangName = "mlacp-data"
     mlacpData.EntityData.BundleName = "cisco_ios_xr"
     mlacpData.EntityData.ParentYangName = "mlacp-bundle-item"
-    mlacpData.EntityData.SegmentPath = "mlacp-data"
+    mlacpData.EntityData.SegmentPath = "mlacp-data" + types.AddNoKeyToken(mlacpData)
+    mlacpData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/mlacp-bundle/mlacp-bundle-item/" + mlacpData.EntityData.SegmentPath
     mlacpData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14582,6 +14969,7 @@ func (mlacpData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleIte
     mlacpData.EntityData.Children.Append("iccp-group-data", types.YChild{"IccpGroupData", &mlacpData.IccpGroupData})
     mlacpData.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range mlacpData.BundleData {
+        types.SetYListKey(mlacpData.BundleData[i], i)
         mlacpData.EntityData.Children.Append(types.GetSegmentPath(mlacpData.BundleData[i]), types.YChild{"BundleData", mlacpData.BundleData[i]})
     }
     mlacpData.EntityData.Leafs = types.NewOrderedMap()
@@ -14621,6 +15009,7 @@ func (iccpGroupData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundl
     iccpGroupData.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupData.EntityData.ParentYangName = "mlacp-data"
     iccpGroupData.EntityData.SegmentPath = "iccp-group-data"
+    iccpGroupData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/mlacp-bundle/mlacp-bundle-item/mlacp-data/" + iccpGroupData.EntityData.SegmentPath
     iccpGroupData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14628,6 +15017,7 @@ func (iccpGroupData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundl
     iccpGroupData.EntityData.Children = types.NewOrderedMap()
     iccpGroupData.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range iccpGroupData.NodeData {
+        types.SetYListKey(iccpGroupData.NodeData[i], i)
         iccpGroupData.EntityData.Children.Append(types.GetSegmentPath(iccpGroupData.NodeData[i]), types.YChild{"NodeData", iccpGroupData.NodeData[i]})
     }
     iccpGroupData.EntityData.Leafs = types.NewOrderedMap()
@@ -14646,6 +15036,7 @@ func (iccpGroupData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundl
 type BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData_IccpGroupData_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
     MlacpNodeId interface{}
@@ -14673,7 +15064,8 @@ func (nodeData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "iccp-group-data"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/mlacp-bundle/mlacp-bundle-item/mlacp-data/iccp-group-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14711,6 +15103,7 @@ func (systemId *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem
     systemId.EntityData.BundleName = "cisco_ios_xr"
     systemId.EntityData.ParentYangName = "node-data"
     systemId.EntityData.SegmentPath = "system-id"
+    systemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/mlacp-bundle/mlacp-bundle-item/mlacp-data/iccp-group-data/node-data/" + systemId.EntityData.SegmentPath
     systemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14742,6 +15135,7 @@ func (systemMacAddr *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundl
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/mlacp-bundle/mlacp-bundle-item/mlacp-data/iccp-group-data/node-data/system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14760,6 +15154,7 @@ func (systemMacAddr *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundl
 type BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle interface key. The type is interface{} with range: 0..65535.
     BundleInterfaceKey interface{}
@@ -14785,7 +15180,8 @@ func (bundleData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleIt
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "mlacp-data"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/mlacp-bundle/mlacp-bundle-item/mlacp-data/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14793,10 +15189,12 @@ func (bundleData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleIt
     bundleData.EntityData.Children = types.NewOrderedMap()
     bundleData.EntityData.Children.Append("mlacp-bundle-data", types.YChild{"MlacpBundleData", nil})
     for i := range bundleData.MlacpBundleData {
+        types.SetYListKey(bundleData.MlacpBundleData[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.MlacpBundleData[i]), types.YChild{"MlacpBundleData", bundleData.MlacpBundleData[i]})
     }
     bundleData.EntityData.Children.Append("mlacp-member-data", types.YChild{"MlacpMemberData", nil})
     for i := range bundleData.MlacpMemberData {
+        types.SetYListKey(bundleData.MlacpMemberData[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.MlacpMemberData[i]), types.YChild{"MlacpMemberData", bundleData.MlacpMemberData[i]})
     }
     bundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -14814,6 +15212,7 @@ func (bundleData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleIt
 type BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData_BundleData_MlacpBundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle name. The type is string.
     BundleName interface{}
@@ -14839,7 +15238,8 @@ func (mlacpBundleData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBun
     mlacpBundleData.EntityData.YangName = "mlacp-bundle-data"
     mlacpBundleData.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundleData.EntityData.ParentYangName = "bundle-data"
-    mlacpBundleData.EntityData.SegmentPath = "mlacp-bundle-data"
+    mlacpBundleData.EntityData.SegmentPath = "mlacp-bundle-data" + types.AddNoKeyToken(mlacpBundleData)
+    mlacpBundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/mlacp-bundle/mlacp-bundle-item/mlacp-data/bundle-data/" + mlacpBundleData.EntityData.SegmentPath
     mlacpBundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14875,6 +15275,7 @@ func (macAddress *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleIt
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "mlacp-bundle-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/mlacp-bundle/mlacp-bundle-item/mlacp-data/bundle-data/mlacp-bundle-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14893,6 +15294,7 @@ func (macAddress *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleIt
 type BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData_BundleData_MlacpMemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port Name. The type is string.
     PortName interface{}
@@ -14924,7 +15326,8 @@ func (mlacpMemberData *BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBun
     mlacpMemberData.EntityData.YangName = "mlacp-member-data"
     mlacpMemberData.EntityData.BundleName = "cisco_ios_xr"
     mlacpMemberData.EntityData.ParentYangName = "bundle-data"
-    mlacpMemberData.EntityData.SegmentPath = "mlacp-member-data"
+    mlacpMemberData.EntityData.SegmentPath = "mlacp-member-data" + types.AddNoKeyToken(mlacpMemberData)
+    mlacpMemberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-bundles/mlacp-bundle/mlacp-bundle-item/mlacp-data/bundle-data/" + mlacpMemberData.EntityData.SegmentPath
     mlacpMemberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpMemberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpMemberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14961,6 +15364,7 @@ func (mlacpIccpGroups *BundleInformation_Mlacp_MlacpIccpGroups) GetEntityData() 
     mlacpIccpGroups.EntityData.BundleName = "cisco_ios_xr"
     mlacpIccpGroups.EntityData.ParentYangName = "mlacp"
     mlacpIccpGroups.EntityData.SegmentPath = "mlacp-iccp-groups"
+    mlacpIccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/" + mlacpIccpGroups.EntityData.SegmentPath
     mlacpIccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpIccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpIccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14982,6 +15386,7 @@ func (mlacpIccpGroups *BundleInformation_Mlacp_MlacpIccpGroups) GetEntityData() 
 type BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ICCP Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -14997,6 +15402,7 @@ func (mlacpIccpGroup *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup) Ge
     mlacpIccpGroup.EntityData.BundleName = "cisco_ios_xr"
     mlacpIccpGroup.EntityData.ParentYangName = "mlacp-iccp-groups"
     mlacpIccpGroup.EntityData.SegmentPath = "mlacp-iccp-group" + types.AddKeyToken(mlacpIccpGroup.IccpGroup, "iccp-group")
+    mlacpIccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-iccp-groups/" + mlacpIccpGroup.EntityData.SegmentPath
     mlacpIccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpIccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpIccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15031,6 +15437,7 @@ func (mlacpIccpGroupItem *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup
     mlacpIccpGroupItem.EntityData.BundleName = "cisco_ios_xr"
     mlacpIccpGroupItem.EntityData.ParentYangName = "mlacp-iccp-group"
     mlacpIccpGroupItem.EntityData.SegmentPath = "mlacp-iccp-group-item"
+    mlacpIccpGroupItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-iccp-groups/mlacp-iccp-group/" + mlacpIccpGroupItem.EntityData.SegmentPath
     mlacpIccpGroupItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpIccpGroupItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpIccpGroupItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15039,6 +15446,7 @@ func (mlacpIccpGroupItem *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup
     mlacpIccpGroupItem.EntityData.Children.Append("iccp-group-data", types.YChild{"IccpGroupData", &mlacpIccpGroupItem.IccpGroupData})
     mlacpIccpGroupItem.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range mlacpIccpGroupItem.BundleData {
+        types.SetYListKey(mlacpIccpGroupItem.BundleData[i], i)
         mlacpIccpGroupItem.EntityData.Children.Append(types.GetSegmentPath(mlacpIccpGroupItem.BundleData[i]), types.YChild{"BundleData", mlacpIccpGroupItem.BundleData[i]})
     }
     mlacpIccpGroupItem.EntityData.Leafs = types.NewOrderedMap()
@@ -15078,6 +15486,7 @@ func (iccpGroupData *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_Mlac
     iccpGroupData.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupData.EntityData.ParentYangName = "mlacp-iccp-group-item"
     iccpGroupData.EntityData.SegmentPath = "iccp-group-data"
+    iccpGroupData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-iccp-groups/mlacp-iccp-group/mlacp-iccp-group-item/" + iccpGroupData.EntityData.SegmentPath
     iccpGroupData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15085,6 +15494,7 @@ func (iccpGroupData *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_Mlac
     iccpGroupData.EntityData.Children = types.NewOrderedMap()
     iccpGroupData.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range iccpGroupData.NodeData {
+        types.SetYListKey(iccpGroupData.NodeData[i], i)
         iccpGroupData.EntityData.Children.Append(types.GetSegmentPath(iccpGroupData.NodeData[i]), types.YChild{"NodeData", iccpGroupData.NodeData[i]})
     }
     iccpGroupData.EntityData.Leafs = types.NewOrderedMap()
@@ -15103,6 +15513,7 @@ func (iccpGroupData *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_Mlac
 type BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccpGroupItem_IccpGroupData_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
     MlacpNodeId interface{}
@@ -15130,7 +15541,8 @@ func (nodeData *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccp
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "iccp-group-data"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-iccp-groups/mlacp-iccp-group/mlacp-iccp-group-item/iccp-group-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15168,6 +15580,7 @@ func (systemId *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccp
     systemId.EntityData.BundleName = "cisco_ios_xr"
     systemId.EntityData.ParentYangName = "node-data"
     systemId.EntityData.SegmentPath = "system-id"
+    systemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-iccp-groups/mlacp-iccp-group/mlacp-iccp-group-item/iccp-group-data/node-data/" + systemId.EntityData.SegmentPath
     systemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15199,6 +15612,7 @@ func (systemMacAddr *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_Mlac
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-iccp-groups/mlacp-iccp-group/mlacp-iccp-group-item/iccp-group-data/node-data/system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15217,6 +15631,7 @@ func (systemMacAddr *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_Mlac
 type BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccpGroupItem_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle interface key. The type is interface{} with range: 0..65535.
     BundleInterfaceKey interface{}
@@ -15242,7 +15657,8 @@ func (bundleData *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIc
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "mlacp-iccp-group-item"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-iccp-groups/mlacp-iccp-group/mlacp-iccp-group-item/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15250,10 +15666,12 @@ func (bundleData *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIc
     bundleData.EntityData.Children = types.NewOrderedMap()
     bundleData.EntityData.Children.Append("mlacp-bundle-data", types.YChild{"MlacpBundleData", nil})
     for i := range bundleData.MlacpBundleData {
+        types.SetYListKey(bundleData.MlacpBundleData[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.MlacpBundleData[i]), types.YChild{"MlacpBundleData", bundleData.MlacpBundleData[i]})
     }
     bundleData.EntityData.Children.Append("mlacp-member-data", types.YChild{"MlacpMemberData", nil})
     for i := range bundleData.MlacpMemberData {
+        types.SetYListKey(bundleData.MlacpMemberData[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.MlacpMemberData[i]), types.YChild{"MlacpMemberData", bundleData.MlacpMemberData[i]})
     }
     bundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -15271,6 +15689,7 @@ func (bundleData *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIc
 type BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccpGroupItem_BundleData_MlacpBundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle name. The type is string.
     BundleName interface{}
@@ -15296,7 +15715,8 @@ func (mlacpBundleData *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_Ml
     mlacpBundleData.EntityData.YangName = "mlacp-bundle-data"
     mlacpBundleData.EntityData.BundleName = "cisco_ios_xr"
     mlacpBundleData.EntityData.ParentYangName = "bundle-data"
-    mlacpBundleData.EntityData.SegmentPath = "mlacp-bundle-data"
+    mlacpBundleData.EntityData.SegmentPath = "mlacp-bundle-data" + types.AddNoKeyToken(mlacpBundleData)
+    mlacpBundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-iccp-groups/mlacp-iccp-group/mlacp-iccp-group-item/bundle-data/" + mlacpBundleData.EntityData.SegmentPath
     mlacpBundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpBundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpBundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15332,6 +15752,7 @@ func (macAddress *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIc
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "mlacp-bundle-data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-iccp-groups/mlacp-iccp-group/mlacp-iccp-group-item/bundle-data/mlacp-bundle-data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15350,6 +15771,7 @@ func (macAddress *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIc
 type BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccpGroupItem_BundleData_MlacpMemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port Name. The type is string.
     PortName interface{}
@@ -15381,7 +15803,8 @@ func (mlacpMemberData *BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_Ml
     mlacpMemberData.EntityData.YangName = "mlacp-member-data"
     mlacpMemberData.EntityData.BundleName = "cisco_ios_xr"
     mlacpMemberData.EntityData.ParentYangName = "bundle-data"
-    mlacpMemberData.EntityData.SegmentPath = "mlacp-member-data"
+    mlacpMemberData.EntityData.SegmentPath = "mlacp-member-data" + types.AddNoKeyToken(mlacpMemberData)
+    mlacpMemberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp/mlacp-iccp-groups/mlacp-iccp-group/mlacp-iccp-group-item/bundle-data/" + mlacpMemberData.EntityData.SegmentPath
     mlacpMemberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpMemberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpMemberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15418,6 +15841,7 @@ func (macAllocation *BundleInformation_MacAllocation) GetEntityData() *types.Com
     macAllocation.EntityData.BundleName = "cisco_ios_xr"
     macAllocation.EntityData.ParentYangName = "bundle-information"
     macAllocation.EntityData.SegmentPath = "mac-allocation"
+    macAllocation.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + macAllocation.EntityData.SegmentPath
     macAllocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAllocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAllocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15448,6 +15872,7 @@ func (macAllocationGlobal *BundleInformation_MacAllocation_MacAllocationGlobal) 
     macAllocationGlobal.EntityData.BundleName = "cisco_ios_xr"
     macAllocationGlobal.EntityData.ParentYangName = "mac-allocation"
     macAllocationGlobal.EntityData.SegmentPath = "mac-allocation-global"
+    macAllocationGlobal.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mac-allocation/" + macAllocationGlobal.EntityData.SegmentPath
     macAllocationGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAllocationGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAllocationGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15478,6 +15903,7 @@ func (macAllocationGlobalItem *BundleInformation_MacAllocation_MacAllocationGlob
     macAllocationGlobalItem.EntityData.BundleName = "cisco_ios_xr"
     macAllocationGlobalItem.EntityData.ParentYangName = "mac-allocation-global"
     macAllocationGlobalItem.EntityData.SegmentPath = "mac-allocation-global-item"
+    macAllocationGlobalItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mac-allocation/mac-allocation-global/" + macAllocationGlobalItem.EntityData.SegmentPath
     macAllocationGlobalItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAllocationGlobalItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAllocationGlobalItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15485,6 +15911,7 @@ func (macAllocationGlobalItem *BundleInformation_MacAllocation_MacAllocationGlob
     macAllocationGlobalItem.EntityData.Children = types.NewOrderedMap()
     macAllocationGlobalItem.EntityData.Children.Append("mac-address", types.YChild{"MacAddress", nil})
     for i := range macAllocationGlobalItem.MacAddress {
+        types.SetYListKey(macAllocationGlobalItem.MacAddress[i], i)
         macAllocationGlobalItem.EntityData.Children.Append(types.GetSegmentPath(macAllocationGlobalItem.MacAddress[i]), types.YChild{"MacAddress", macAllocationGlobalItem.MacAddress[i]})
     }
     macAllocationGlobalItem.EntityData.Leafs = types.NewOrderedMap()
@@ -15499,6 +15926,7 @@ func (macAllocationGlobalItem *BundleInformation_MacAllocation_MacAllocationGlob
 type BundleInformation_MacAllocation_MacAllocationGlobal_MacAllocationGlobalItem_MacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // MAC address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -15510,7 +15938,8 @@ func (macAddress *BundleInformation_MacAllocation_MacAllocationGlobal_MacAllocat
     macAddress.EntityData.YangName = "mac-address"
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "mac-allocation-global-item"
-    macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.SegmentPath = "mac-address" + types.AddNoKeyToken(macAddress)
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mac-allocation/mac-allocation-global/mac-allocation-global-item/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15543,6 +15972,7 @@ func (events *BundleInformation_Events) GetEntityData() *types.CommonEntityData 
     events.EntityData.BundleName = "cisco_ios_xr"
     events.EntityData.ParentYangName = "bundle-information"
     events.EntityData.SegmentPath = "events"
+    events.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + events.EntityData.SegmentPath
     events.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     events.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     events.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15574,6 +16004,7 @@ func (eventsMembers *BundleInformation_Events_EventsMembers) GetEntityData() *ty
     eventsMembers.EntityData.BundleName = "cisco_ios_xr"
     eventsMembers.EntityData.ParentYangName = "events"
     eventsMembers.EntityData.SegmentPath = "events-members"
+    eventsMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/" + eventsMembers.EntityData.SegmentPath
     eventsMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15595,6 +16026,7 @@ func (eventsMembers *BundleInformation_Events_EventsMembers) GetEntityData() *ty
 type BundleInformation_Events_EventsMembers_EventsMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -15612,6 +16044,7 @@ func (eventsMember *BundleInformation_Events_EventsMembers_EventsMember) GetEnti
     eventsMember.EntityData.BundleName = "cisco_ios_xr"
     eventsMember.EntityData.ParentYangName = "events-members"
     eventsMember.EntityData.SegmentPath = "events-member" + types.AddKeyToken(eventsMember.MemberInterface, "member-interface")
+    eventsMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/" + eventsMember.EntityData.SegmentPath
     eventsMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15647,6 +16080,7 @@ func (eventsMemberItem *BundleInformation_Events_EventsMembers_EventsMember_Even
     eventsMemberItem.EntityData.BundleName = "cisco_ios_xr"
     eventsMemberItem.EntityData.ParentYangName = "events-member"
     eventsMemberItem.EntityData.SegmentPath = "events-member-item"
+    eventsMemberItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/" + eventsMemberItem.EntityData.SegmentPath
     eventsMemberItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMemberItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMemberItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15654,6 +16088,7 @@ func (eventsMemberItem *BundleInformation_Events_EventsMembers_EventsMember_Even
     eventsMemberItem.EntityData.Children = types.NewOrderedMap()
     eventsMemberItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsMemberItem.Items {
+        types.SetYListKey(eventsMemberItem.Items[i], i)
         eventsMemberItem.EntityData.Children.Append(types.GetSegmentPath(eventsMemberItem.Items[i]), types.YChild{"Items", eventsMemberItem.Items[i]})
     }
     eventsMemberItem.EntityData.Leafs = types.NewOrderedMap()
@@ -15669,6 +16104,7 @@ func (eventsMemberItem *BundleInformation_Events_EventsMembers_EventsMember_Even
 type BundleInformation_Events_EventsMembers_EventsMember_EventsMemberItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -15688,7 +16124,8 @@ func (items *BundleInformation_Events_EventsMembers_EventsMember_EventsMemberIte
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-member-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15728,6 +16165,7 @@ func (memberEvtInfo *BundleInformation_Events_EventsMembers_EventsMember_EventsM
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-item/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15768,6 +16206,7 @@ func (data *BundleInformation_Events_EventsMembers_EventsMember_EventsMemberItem
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-item/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15807,6 +16246,7 @@ func (bundleEvtInfo *BundleInformation_Events_EventsMembers_EventsMember_EventsM
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-item/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15847,6 +16287,7 @@ func (data *BundleInformation_Events_EventsMembers_EventsMember_EventsMemberItem
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-item/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15886,6 +16327,7 @@ func (rgEvtInfo *BundleInformation_Events_EventsMembers_EventsMember_EventsMembe
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-item/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15926,6 +16368,7 @@ func (data *BundleInformation_Events_EventsMembers_EventsMember_EventsMemberItem
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-item/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15962,6 +16405,7 @@ func (eventsMemberAncestor *BundleInformation_Events_EventsMembers_EventsMember_
     eventsMemberAncestor.EntityData.BundleName = "cisco_ios_xr"
     eventsMemberAncestor.EntityData.ParentYangName = "events-member"
     eventsMemberAncestor.EntityData.SegmentPath = "events-member-ancestor"
+    eventsMemberAncestor.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/" + eventsMemberAncestor.EntityData.SegmentPath
     eventsMemberAncestor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMemberAncestor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMemberAncestor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15969,6 +16413,7 @@ func (eventsMemberAncestor *BundleInformation_Events_EventsMembers_EventsMember_
     eventsMemberAncestor.EntityData.Children = types.NewOrderedMap()
     eventsMemberAncestor.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsMemberAncestor.Items {
+        types.SetYListKey(eventsMemberAncestor.Items[i], i)
         eventsMemberAncestor.EntityData.Children.Append(types.GetSegmentPath(eventsMemberAncestor.Items[i]), types.YChild{"Items", eventsMemberAncestor.Items[i]})
     }
     eventsMemberAncestor.EntityData.Leafs = types.NewOrderedMap()
@@ -15984,6 +16429,7 @@ func (eventsMemberAncestor *BundleInformation_Events_EventsMembers_EventsMember_
 type BundleInformation_Events_EventsMembers_EventsMember_EventsMemberAncestor_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -16003,7 +16449,8 @@ func (items *BundleInformation_Events_EventsMembers_EventsMember_EventsMemberAnc
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-member-ancestor"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-ancestor/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16043,6 +16490,7 @@ func (memberEvtInfo *BundleInformation_Events_EventsMembers_EventsMember_EventsM
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-ancestor/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16083,6 +16531,7 @@ func (data *BundleInformation_Events_EventsMembers_EventsMember_EventsMemberAnce
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-ancestor/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16122,6 +16571,7 @@ func (bundleEvtInfo *BundleInformation_Events_EventsMembers_EventsMember_EventsM
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-ancestor/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16162,6 +16612,7 @@ func (data *BundleInformation_Events_EventsMembers_EventsMember_EventsMemberAnce
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-ancestor/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16201,6 +16652,7 @@ func (rgEvtInfo *BundleInformation_Events_EventsMembers_EventsMember_EventsMembe
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-ancestor/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16241,6 +16693,7 @@ func (data *BundleInformation_Events_EventsMembers_EventsMember_EventsMemberAnce
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-members/events-member/events-member-ancestor/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16274,6 +16727,7 @@ func (eventsBundles *BundleInformation_Events_EventsBundles) GetEntityData() *ty
     eventsBundles.EntityData.BundleName = "cisco_ios_xr"
     eventsBundles.EntityData.ParentYangName = "events"
     eventsBundles.EntityData.SegmentPath = "events-bundles"
+    eventsBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/" + eventsBundles.EntityData.SegmentPath
     eventsBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16295,6 +16749,7 @@ func (eventsBundles *BundleInformation_Events_EventsBundles) GetEntityData() *ty
 type BundleInformation_Events_EventsBundles_EventsBundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -16319,6 +16774,7 @@ func (eventsBundle *BundleInformation_Events_EventsBundles_EventsBundle) GetEnti
     eventsBundle.EntityData.BundleName = "cisco_ios_xr"
     eventsBundle.EntityData.ParentYangName = "events-bundles"
     eventsBundle.EntityData.SegmentPath = "events-bundle" + types.AddKeyToken(eventsBundle.BundleInterface, "bundle-interface")
+    eventsBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/" + eventsBundle.EntityData.SegmentPath
     eventsBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16356,6 +16812,7 @@ func (eventsBundleAncestor *BundleInformation_Events_EventsBundles_EventsBundle_
     eventsBundleAncestor.EntityData.BundleName = "cisco_ios_xr"
     eventsBundleAncestor.EntityData.ParentYangName = "events-bundle"
     eventsBundleAncestor.EntityData.SegmentPath = "events-bundle-ancestor"
+    eventsBundleAncestor.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/" + eventsBundleAncestor.EntityData.SegmentPath
     eventsBundleAncestor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBundleAncestor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBundleAncestor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16363,6 +16820,7 @@ func (eventsBundleAncestor *BundleInformation_Events_EventsBundles_EventsBundle_
     eventsBundleAncestor.EntityData.Children = types.NewOrderedMap()
     eventsBundleAncestor.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsBundleAncestor.Items {
+        types.SetYListKey(eventsBundleAncestor.Items[i], i)
         eventsBundleAncestor.EntityData.Children.Append(types.GetSegmentPath(eventsBundleAncestor.Items[i]), types.YChild{"Items", eventsBundleAncestor.Items[i]})
     }
     eventsBundleAncestor.EntityData.Leafs = types.NewOrderedMap()
@@ -16378,6 +16836,7 @@ func (eventsBundleAncestor *BundleInformation_Events_EventsBundles_EventsBundle_
 type BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleAncestor_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -16397,7 +16856,8 @@ func (items *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleAnc
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-bundle-ancestor"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-ancestor/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16437,6 +16897,7 @@ func (memberEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsB
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-ancestor/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16477,6 +16938,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleAnce
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-ancestor/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16516,6 +16978,7 @@ func (bundleEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsB
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-ancestor/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16556,6 +17019,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleAnce
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-ancestor/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16595,6 +17059,7 @@ func (rgEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundl
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-ancestor/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16635,6 +17100,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleAnce
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-ancestor/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16671,6 +17137,7 @@ func (eventsBundleItem *BundleInformation_Events_EventsBundles_EventsBundle_Even
     eventsBundleItem.EntityData.BundleName = "cisco_ios_xr"
     eventsBundleItem.EntityData.ParentYangName = "events-bundle"
     eventsBundleItem.EntityData.SegmentPath = "events-bundle-item"
+    eventsBundleItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/" + eventsBundleItem.EntityData.SegmentPath
     eventsBundleItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBundleItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBundleItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16678,6 +17145,7 @@ func (eventsBundleItem *BundleInformation_Events_EventsBundles_EventsBundle_Even
     eventsBundleItem.EntityData.Children = types.NewOrderedMap()
     eventsBundleItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsBundleItem.Items {
+        types.SetYListKey(eventsBundleItem.Items[i], i)
         eventsBundleItem.EntityData.Children.Append(types.GetSegmentPath(eventsBundleItem.Items[i]), types.YChild{"Items", eventsBundleItem.Items[i]})
     }
     eventsBundleItem.EntityData.Leafs = types.NewOrderedMap()
@@ -16693,6 +17161,7 @@ func (eventsBundleItem *BundleInformation_Events_EventsBundles_EventsBundle_Even
 type BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -16712,7 +17181,8 @@ func (items *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleIte
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-bundle-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16752,6 +17222,7 @@ func (memberEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsB
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-item/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16792,6 +17263,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleItem
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-item/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16831,6 +17303,7 @@ func (bundleEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsB
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-item/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16871,6 +17344,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleItem
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-item/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16910,6 +17384,7 @@ func (rgEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundl
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-item/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16950,6 +17425,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleItem
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-item/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16983,6 +17459,7 @@ func (eventsBundleDescendant *BundleInformation_Events_EventsBundles_EventsBundl
     eventsBundleDescendant.EntityData.BundleName = "cisco_ios_xr"
     eventsBundleDescendant.EntityData.ParentYangName = "events-bundle"
     eventsBundleDescendant.EntityData.SegmentPath = "events-bundle-descendant"
+    eventsBundleDescendant.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/" + eventsBundleDescendant.EntityData.SegmentPath
     eventsBundleDescendant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBundleDescendant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBundleDescendant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16990,6 +17467,7 @@ func (eventsBundleDescendant *BundleInformation_Events_EventsBundles_EventsBundl
     eventsBundleDescendant.EntityData.Children = types.NewOrderedMap()
     eventsBundleDescendant.EntityData.Children.Append("events-item", types.YChild{"EventsItem", nil})
     for i := range eventsBundleDescendant.EventsItem {
+        types.SetYListKey(eventsBundleDescendant.EventsItem[i], i)
         eventsBundleDescendant.EntityData.Children.Append(types.GetSegmentPath(eventsBundleDescendant.EventsItem[i]), types.YChild{"EventsItem", eventsBundleDescendant.EventsItem[i]})
     }
     eventsBundleDescendant.EntityData.Leafs = types.NewOrderedMap()
@@ -17004,6 +17482,7 @@ func (eventsBundleDescendant *BundleInformation_Events_EventsBundles_EventsBundl
 type BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleDescendant_EventsItem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name for the current item to use. The type is string.
     ItemName interface{}
@@ -17018,7 +17497,8 @@ func (eventsItem *BundleInformation_Events_EventsBundles_EventsBundle_EventsBund
     eventsItem.EntityData.YangName = "events-item"
     eventsItem.EntityData.BundleName = "cisco_ios_xr"
     eventsItem.EntityData.ParentYangName = "events-bundle-descendant"
-    eventsItem.EntityData.SegmentPath = "events-item"
+    eventsItem.EntityData.SegmentPath = "events-item" + types.AddNoKeyToken(eventsItem)
+    eventsItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-descendant/" + eventsItem.EntityData.SegmentPath
     eventsItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17026,6 +17506,7 @@ func (eventsItem *BundleInformation_Events_EventsBundles_EventsBundle_EventsBund
     eventsItem.EntityData.Children = types.NewOrderedMap()
     eventsItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsItem.Items {
+        types.SetYListKey(eventsItem.Items[i], i)
         eventsItem.EntityData.Children.Append(types.GetSegmentPath(eventsItem.Items[i]), types.YChild{"Items", eventsItem.Items[i]})
     }
     eventsItem.EntityData.Leafs = types.NewOrderedMap()
@@ -17041,6 +17522,7 @@ func (eventsItem *BundleInformation_Events_EventsBundles_EventsBundle_EventsBund
 type BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleDescendant_EventsItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -17060,7 +17542,8 @@ func (items *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleDes
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-descendant/events-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17100,6 +17583,7 @@ func (memberEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsB
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-descendant/events-item/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17140,6 +17624,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleDesc
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-descendant/events-item/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17179,6 +17664,7 @@ func (bundleEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsB
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-descendant/events-item/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17219,6 +17705,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleDesc
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-descendant/events-item/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17258,6 +17745,7 @@ func (rgEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundl
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-descendant/events-item/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17298,6 +17786,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleDesc
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-descendant/events-item/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17331,6 +17820,7 @@ func (eventsBundleChildrenMembers *BundleInformation_Events_EventsBundles_Events
     eventsBundleChildrenMembers.EntityData.BundleName = "cisco_ios_xr"
     eventsBundleChildrenMembers.EntityData.ParentYangName = "events-bundle"
     eventsBundleChildrenMembers.EntityData.SegmentPath = "events-bundle-children-members"
+    eventsBundleChildrenMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/" + eventsBundleChildrenMembers.EntityData.SegmentPath
     eventsBundleChildrenMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBundleChildrenMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBundleChildrenMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17352,6 +17842,7 @@ func (eventsBundleChildrenMembers *BundleInformation_Events_EventsBundles_Events
 type BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleChildrenMembers_EventsBundleChildrenMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -17370,6 +17861,7 @@ func (eventsBundleChildrenMember *BundleInformation_Events_EventsBundles_EventsB
     eventsBundleChildrenMember.EntityData.BundleName = "cisco_ios_xr"
     eventsBundleChildrenMember.EntityData.ParentYangName = "events-bundle-children-members"
     eventsBundleChildrenMember.EntityData.SegmentPath = "events-bundle-children-member" + types.AddKeyToken(eventsBundleChildrenMember.MemberInterface, "member-interface")
+    eventsBundleChildrenMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-children-members/" + eventsBundleChildrenMember.EntityData.SegmentPath
     eventsBundleChildrenMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBundleChildrenMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBundleChildrenMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17377,6 +17869,7 @@ func (eventsBundleChildrenMember *BundleInformation_Events_EventsBundles_EventsB
     eventsBundleChildrenMember.EntityData.Children = types.NewOrderedMap()
     eventsBundleChildrenMember.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsBundleChildrenMember.Items {
+        types.SetYListKey(eventsBundleChildrenMember.Items[i], i)
         eventsBundleChildrenMember.EntityData.Children.Append(types.GetSegmentPath(eventsBundleChildrenMember.Items[i]), types.YChild{"Items", eventsBundleChildrenMember.Items[i]})
     }
     eventsBundleChildrenMember.EntityData.Leafs = types.NewOrderedMap()
@@ -17393,6 +17886,7 @@ func (eventsBundleChildrenMember *BundleInformation_Events_EventsBundles_EventsB
 type BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleChildrenMembers_EventsBundleChildrenMember_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -17412,7 +17906,8 @@ func (items *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleChi
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-bundle-children-member"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-children-members/events-bundle-children-member/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17452,6 +17947,7 @@ func (memberEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsB
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-children-members/events-bundle-children-member/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17492,6 +17988,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleChil
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-children-members/events-bundle-children-member/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17531,6 +18028,7 @@ func (bundleEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsB
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-children-members/events-bundle-children-member/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17571,6 +18069,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleChil
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-children-members/events-bundle-children-member/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17610,6 +18109,7 @@ func (rgEvtInfo *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundl
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-children-members/events-bundle-children-member/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17650,6 +18150,7 @@ func (data *BundleInformation_Events_EventsBundles_EventsBundle_EventsBundleChil
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events/events-bundles/events-bundle/events-bundle-children-members/events-bundle-children-member/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17689,6 +18190,7 @@ func (eventsBdl *BundleInformation_EventsBdl) GetEntityData() *types.CommonEntit
     eventsBdl.EntityData.BundleName = "cisco_ios_xr"
     eventsBdl.EntityData.ParentYangName = "bundle-information"
     eventsBdl.EntityData.SegmentPath = "events-bdl"
+    eventsBdl.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + eventsBdl.EntityData.SegmentPath
     eventsBdl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBdl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBdl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17722,6 +18224,7 @@ func (eventsBdlMembers *BundleInformation_EventsBdl_EventsBdlMembers) GetEntityD
     eventsBdlMembers.EntityData.BundleName = "cisco_ios_xr"
     eventsBdlMembers.EntityData.ParentYangName = "events-bdl"
     eventsBdlMembers.EntityData.SegmentPath = "events-bdl-members"
+    eventsBdlMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/" + eventsBdlMembers.EntityData.SegmentPath
     eventsBdlMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBdlMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBdlMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17743,6 +18246,7 @@ func (eventsBdlMembers *BundleInformation_EventsBdl_EventsBdlMembers) GetEntityD
 type BundleInformation_EventsBdl_EventsBdlMembers_EventsBdlMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -17757,6 +18261,7 @@ func (eventsBdlMember *BundleInformation_EventsBdl_EventsBdlMembers_EventsBdlMem
     eventsBdlMember.EntityData.BundleName = "cisco_ios_xr"
     eventsBdlMember.EntityData.ParentYangName = "events-bdl-members"
     eventsBdlMember.EntityData.SegmentPath = "events-bdl-member" + types.AddKeyToken(eventsBdlMember.MemberInterface, "member-interface")
+    eventsBdlMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-members/" + eventsBdlMember.EntityData.SegmentPath
     eventsBdlMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBdlMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBdlMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17791,6 +18296,7 @@ func (eventsBdlMemberAncestor *BundleInformation_EventsBdl_EventsBdlMembers_Even
     eventsBdlMemberAncestor.EntityData.BundleName = "cisco_ios_xr"
     eventsBdlMemberAncestor.EntityData.ParentYangName = "events-bdl-member"
     eventsBdlMemberAncestor.EntityData.SegmentPath = "events-bdl-member-ancestor"
+    eventsBdlMemberAncestor.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-members/events-bdl-member/" + eventsBdlMemberAncestor.EntityData.SegmentPath
     eventsBdlMemberAncestor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBdlMemberAncestor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBdlMemberAncestor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17798,6 +18304,7 @@ func (eventsBdlMemberAncestor *BundleInformation_EventsBdl_EventsBdlMembers_Even
     eventsBdlMemberAncestor.EntityData.Children = types.NewOrderedMap()
     eventsBdlMemberAncestor.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsBdlMemberAncestor.Items {
+        types.SetYListKey(eventsBdlMemberAncestor.Items[i], i)
         eventsBdlMemberAncestor.EntityData.Children.Append(types.GetSegmentPath(eventsBdlMemberAncestor.Items[i]), types.YChild{"Items", eventsBdlMemberAncestor.Items[i]})
     }
     eventsBdlMemberAncestor.EntityData.Leafs = types.NewOrderedMap()
@@ -17813,6 +18320,7 @@ func (eventsBdlMemberAncestor *BundleInformation_EventsBdl_EventsBdlMembers_Even
 type BundleInformation_EventsBdl_EventsBdlMembers_EventsBdlMember_EventsBdlMemberAncestor_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -17832,7 +18340,8 @@ func (items *BundleInformation_EventsBdl_EventsBdlMembers_EventsBdlMember_Events
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-bdl-member-ancestor"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-members/events-bdl-member/events-bdl-member-ancestor/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17872,6 +18381,7 @@ func (memberEvtInfo *BundleInformation_EventsBdl_EventsBdlMembers_EventsBdlMembe
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-members/events-bdl-member/events-bdl-member-ancestor/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17912,6 +18422,7 @@ func (data *BundleInformation_EventsBdl_EventsBdlMembers_EventsBdlMember_EventsB
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-members/events-bdl-member/events-bdl-member-ancestor/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17951,6 +18462,7 @@ func (bundleEvtInfo *BundleInformation_EventsBdl_EventsBdlMembers_EventsBdlMembe
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-members/events-bdl-member/events-bdl-member-ancestor/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17991,6 +18503,7 @@ func (data *BundleInformation_EventsBdl_EventsBdlMembers_EventsBdlMember_EventsB
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-members/events-bdl-member/events-bdl-member-ancestor/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18030,6 +18543,7 @@ func (rgEvtInfo *BundleInformation_EventsBdl_EventsBdlMembers_EventsBdlMember_Ev
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-members/events-bdl-member/events-bdl-member-ancestor/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18070,6 +18584,7 @@ func (data *BundleInformation_EventsBdl_EventsBdlMembers_EventsBdlMember_EventsB
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-members/events-bdl-member/events-bdl-member-ancestor/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18104,6 +18619,7 @@ func (eventsBdlBundles *BundleInformation_EventsBdl_EventsBdlBundles) GetEntityD
     eventsBdlBundles.EntityData.BundleName = "cisco_ios_xr"
     eventsBdlBundles.EntityData.ParentYangName = "events-bdl"
     eventsBdlBundles.EntityData.SegmentPath = "events-bdl-bundles"
+    eventsBdlBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/" + eventsBdlBundles.EntityData.SegmentPath
     eventsBdlBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBdlBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBdlBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18125,6 +18641,7 @@ func (eventsBdlBundles *BundleInformation_EventsBdl_EventsBdlBundles) GetEntityD
 type BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -18140,6 +18657,7 @@ func (eventsBdlBundle *BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBun
     eventsBdlBundle.EntityData.BundleName = "cisco_ios_xr"
     eventsBdlBundle.EntityData.ParentYangName = "events-bdl-bundles"
     eventsBdlBundle.EntityData.SegmentPath = "events-bdl-bundle" + types.AddKeyToken(eventsBdlBundle.BundleInterface, "bundle-interface")
+    eventsBdlBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-bundles/" + eventsBdlBundle.EntityData.SegmentPath
     eventsBdlBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBdlBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBdlBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18174,6 +18692,7 @@ func (eventsBdlBundleItem *BundleInformation_EventsBdl_EventsBdlBundles_EventsBd
     eventsBdlBundleItem.EntityData.BundleName = "cisco_ios_xr"
     eventsBdlBundleItem.EntityData.ParentYangName = "events-bdl-bundle"
     eventsBdlBundleItem.EntityData.SegmentPath = "events-bdl-bundle-item"
+    eventsBdlBundleItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-bundles/events-bdl-bundle/" + eventsBdlBundleItem.EntityData.SegmentPath
     eventsBdlBundleItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBdlBundleItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBdlBundleItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18181,6 +18700,7 @@ func (eventsBdlBundleItem *BundleInformation_EventsBdl_EventsBdlBundles_EventsBd
     eventsBdlBundleItem.EntityData.Children = types.NewOrderedMap()
     eventsBdlBundleItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsBdlBundleItem.Items {
+        types.SetYListKey(eventsBdlBundleItem.Items[i], i)
         eventsBdlBundleItem.EntityData.Children.Append(types.GetSegmentPath(eventsBdlBundleItem.Items[i]), types.YChild{"Items", eventsBdlBundleItem.Items[i]})
     }
     eventsBdlBundleItem.EntityData.Leafs = types.NewOrderedMap()
@@ -18196,6 +18716,7 @@ func (eventsBdlBundleItem *BundleInformation_EventsBdl_EventsBdlBundles_EventsBd
 type BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundle_EventsBdlBundleItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -18215,7 +18736,8 @@ func (items *BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundle_Events
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-bdl-bundle-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-bundles/events-bdl-bundle/events-bdl-bundle-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18255,6 +18777,7 @@ func (memberEvtInfo *BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundl
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-bundles/events-bdl-bundle/events-bdl-bundle-item/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18295,6 +18818,7 @@ func (data *BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundle_EventsB
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-bundles/events-bdl-bundle/events-bdl-bundle-item/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18334,6 +18858,7 @@ func (bundleEvtInfo *BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundl
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-bundles/events-bdl-bundle/events-bdl-bundle-item/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18374,6 +18899,7 @@ func (data *BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundle_EventsB
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-bundles/events-bdl-bundle/events-bdl-bundle-item/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18413,6 +18939,7 @@ func (rgEvtInfo *BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundle_Ev
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-bundles/events-bdl-bundle/events-bdl-bundle-item/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18453,6 +18980,7 @@ func (data *BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundle_EventsB
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-bundles/events-bdl-bundle/events-bdl-bundle-item/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18486,6 +19014,7 @@ func (eventsBdlIccpGroups *BundleInformation_EventsBdl_EventsBdlIccpGroups) GetE
     eventsBdlIccpGroups.EntityData.BundleName = "cisco_ios_xr"
     eventsBdlIccpGroups.EntityData.ParentYangName = "events-bdl"
     eventsBdlIccpGroups.EntityData.SegmentPath = "events-bdl-iccp-groups"
+    eventsBdlIccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/" + eventsBdlIccpGroups.EntityData.SegmentPath
     eventsBdlIccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBdlIccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBdlIccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18507,6 +19036,7 @@ func (eventsBdlIccpGroups *BundleInformation_EventsBdl_EventsBdlIccpGroups) GetE
 type BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ICCP Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -18522,6 +19052,7 @@ func (eventsBdlIccpGroup *BundleInformation_EventsBdl_EventsBdlIccpGroups_Events
     eventsBdlIccpGroup.EntityData.BundleName = "cisco_ios_xr"
     eventsBdlIccpGroup.EntityData.ParentYangName = "events-bdl-iccp-groups"
     eventsBdlIccpGroup.EntityData.SegmentPath = "events-bdl-iccp-group" + types.AddKeyToken(eventsBdlIccpGroup.IccpGroup, "iccp-group")
+    eventsBdlIccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-iccp-groups/" + eventsBdlIccpGroup.EntityData.SegmentPath
     eventsBdlIccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBdlIccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBdlIccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18553,6 +19084,7 @@ func (eventsBdlBundleDescendantIccpGroup *BundleInformation_EventsBdl_EventsBdlI
     eventsBdlBundleDescendantIccpGroup.EntityData.BundleName = "cisco_ios_xr"
     eventsBdlBundleDescendantIccpGroup.EntityData.ParentYangName = "events-bdl-iccp-group"
     eventsBdlBundleDescendantIccpGroup.EntityData.SegmentPath = "events-bdl-bundle-descendant-iccp-group"
+    eventsBdlBundleDescendantIccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-iccp-groups/events-bdl-iccp-group/" + eventsBdlBundleDescendantIccpGroup.EntityData.SegmentPath
     eventsBdlBundleDescendantIccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsBdlBundleDescendantIccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsBdlBundleDescendantIccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18560,6 +19092,7 @@ func (eventsBdlBundleDescendantIccpGroup *BundleInformation_EventsBdl_EventsBdlI
     eventsBdlBundleDescendantIccpGroup.EntityData.Children = types.NewOrderedMap()
     eventsBdlBundleDescendantIccpGroup.EntityData.Children.Append("events-item", types.YChild{"EventsItem", nil})
     for i := range eventsBdlBundleDescendantIccpGroup.EventsItem {
+        types.SetYListKey(eventsBdlBundleDescendantIccpGroup.EventsItem[i], i)
         eventsBdlBundleDescendantIccpGroup.EntityData.Children.Append(types.GetSegmentPath(eventsBdlBundleDescendantIccpGroup.EventsItem[i]), types.YChild{"EventsItem", eventsBdlBundleDescendantIccpGroup.EventsItem[i]})
     }
     eventsBdlBundleDescendantIccpGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -18574,6 +19107,7 @@ func (eventsBdlBundleDescendantIccpGroup *BundleInformation_EventsBdl_EventsBdlI
 type BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpGroup_EventsBdlBundleDescendantIccpGroup_EventsItem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name for the current item to use. The type is string.
     ItemName interface{}
@@ -18588,7 +19122,8 @@ func (eventsItem *BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpG
     eventsItem.EntityData.YangName = "events-item"
     eventsItem.EntityData.BundleName = "cisco_ios_xr"
     eventsItem.EntityData.ParentYangName = "events-bdl-bundle-descendant-iccp-group"
-    eventsItem.EntityData.SegmentPath = "events-item"
+    eventsItem.EntityData.SegmentPath = "events-item" + types.AddNoKeyToken(eventsItem)
+    eventsItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-iccp-groups/events-bdl-iccp-group/events-bdl-bundle-descendant-iccp-group/" + eventsItem.EntityData.SegmentPath
     eventsItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18596,6 +19131,7 @@ func (eventsItem *BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpG
     eventsItem.EntityData.Children = types.NewOrderedMap()
     eventsItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsItem.Items {
+        types.SetYListKey(eventsItem.Items[i], i)
         eventsItem.EntityData.Children.Append(types.GetSegmentPath(eventsItem.Items[i]), types.YChild{"Items", eventsItem.Items[i]})
     }
     eventsItem.EntityData.Leafs = types.NewOrderedMap()
@@ -18611,6 +19147,7 @@ func (eventsItem *BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpG
 type BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpGroup_EventsBdlBundleDescendantIccpGroup_EventsItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -18630,7 +19167,8 @@ func (items *BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpGroup_
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-iccp-groups/events-bdl-iccp-group/events-bdl-bundle-descendant-iccp-group/events-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18670,6 +19208,7 @@ func (memberEvtInfo *BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIc
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-iccp-groups/events-bdl-iccp-group/events-bdl-bundle-descendant-iccp-group/events-item/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18710,6 +19249,7 @@ func (data *BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpGroup_E
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-iccp-groups/events-bdl-iccp-group/events-bdl-bundle-descendant-iccp-group/events-item/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18749,6 +19289,7 @@ func (bundleEvtInfo *BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIc
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-iccp-groups/events-bdl-iccp-group/events-bdl-bundle-descendant-iccp-group/events-item/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18789,6 +19330,7 @@ func (data *BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpGroup_E
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-iccp-groups/events-bdl-iccp-group/events-bdl-bundle-descendant-iccp-group/events-item/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18828,6 +19370,7 @@ func (rgEvtInfo *BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpGr
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-iccp-groups/events-bdl-iccp-group/events-bdl-bundle-descendant-iccp-group/events-item/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18868,6 +19411,7 @@ func (data *BundleInformation_EventsBdl_EventsBdlIccpGroups_EventsBdlIccpGroup_E
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-bdl/events-bdl-iccp-groups/events-bdl-iccp-group/events-bdl-bundle-descendant-iccp-group/events-item/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18901,6 +19445,7 @@ func (bundleBriefs *BundleInformation_BundleBriefs) GetEntityData() *types.Commo
     bundleBriefs.EntityData.BundleName = "cisco_ios_xr"
     bundleBriefs.EntityData.ParentYangName = "bundle-information"
     bundleBriefs.EntityData.SegmentPath = "bundle-briefs"
+    bundleBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + bundleBriefs.EntityData.SegmentPath
     bundleBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18922,6 +19467,7 @@ func (bundleBriefs *BundleInformation_BundleBriefs) GetEntityData() *types.Commo
 type BundleInformation_BundleBriefs_BundleBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -18937,6 +19483,7 @@ func (bundleBrief *BundleInformation_BundleBriefs_BundleBrief) GetEntityData() *
     bundleBrief.EntityData.BundleName = "cisco_ios_xr"
     bundleBrief.EntityData.ParentYangName = "bundle-briefs"
     bundleBrief.EntityData.SegmentPath = "bundle-brief" + types.AddKeyToken(bundleBrief.BundleInterface, "bundle-interface")
+    bundleBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle-briefs/" + bundleBrief.EntityData.SegmentPath
     bundleBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19115,6 +19662,7 @@ func (bundleBriefItem *BundleInformation_BundleBriefs_BundleBrief_BundleBriefIte
     bundleBriefItem.EntityData.BundleName = "cisco_ios_xr"
     bundleBriefItem.EntityData.ParentYangName = "bundle-brief"
     bundleBriefItem.EntityData.SegmentPath = "bundle-brief-item"
+    bundleBriefItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle-briefs/bundle-brief/" + bundleBriefItem.EntityData.SegmentPath
     bundleBriefItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleBriefItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleBriefItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19123,6 +19671,7 @@ func (bundleBriefItem *BundleInformation_BundleBriefs_BundleBrief_BundleBriefIte
     bundleBriefItem.EntityData.Children.Append("mac-address", types.YChild{"MacAddress", &bundleBriefItem.MacAddress})
     bundleBriefItem.EntityData.Children.Append("bfd-config", types.YChild{"BfdConfig", nil})
     for i := range bundleBriefItem.BfdConfig {
+        types.SetYListKey(bundleBriefItem.BfdConfig[i], i)
         bundleBriefItem.EntityData.Children.Append(types.GetSegmentPath(bundleBriefItem.BfdConfig[i]), types.YChild{"BfdConfig", bundleBriefItem.BfdConfig[i]})
     }
     bundleBriefItem.EntityData.Leafs = types.NewOrderedMap()
@@ -19187,6 +19736,7 @@ func (macAddress *BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem_Mac
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "bundle-brief-item"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle-briefs/bundle-brief/bundle-brief-item/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19205,6 +19755,7 @@ func (macAddress *BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem_Mac
 type BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem_BfdConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Status of BFD on the bundle. The type is BmdBfdBdlState.
     BundleStatus interface{}
@@ -19246,7 +19797,8 @@ func (bfdConfig *BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem_BfdC
     bfdConfig.EntityData.YangName = "bfd-config"
     bfdConfig.EntityData.BundleName = "cisco_ios_xr"
     bfdConfig.EntityData.ParentYangName = "bundle-brief-item"
-    bfdConfig.EntityData.SegmentPath = "bfd-config"
+    bfdConfig.EntityData.SegmentPath = "bfd-config" + types.AddNoKeyToken(bfdConfig)
+    bfdConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle-briefs/bundle-brief/bundle-brief-item/" + bfdConfig.EntityData.SegmentPath
     bfdConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19292,6 +19844,7 @@ func (destinationAddress *BundleInformation_BundleBriefs_BundleBrief_BundleBrief
     destinationAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationAddress.EntityData.ParentYangName = "bfd-config"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/bundle-briefs/bundle-brief/bundle-brief-item/bfd-config/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19330,6 +19883,7 @@ func (eventsMbr *BundleInformation_EventsMbr) GetEntityData() *types.CommonEntit
     eventsMbr.EntityData.BundleName = "cisco_ios_xr"
     eventsMbr.EntityData.ParentYangName = "bundle-information"
     eventsMbr.EntityData.SegmentPath = "events-mbr"
+    eventsMbr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + eventsMbr.EntityData.SegmentPath
     eventsMbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19363,6 +19917,7 @@ func (eventsMbrBundles *BundleInformation_EventsMbr_EventsMbrBundles) GetEntityD
     eventsMbrBundles.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrBundles.EntityData.ParentYangName = "events-mbr"
     eventsMbrBundles.EntityData.SegmentPath = "events-mbr-bundles"
+    eventsMbrBundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/" + eventsMbrBundles.EntityData.SegmentPath
     eventsMbrBundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrBundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrBundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19384,6 +19939,7 @@ func (eventsMbrBundles *BundleInformation_EventsMbr_EventsMbrBundles) GetEntityD
 type BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -19402,6 +19958,7 @@ func (eventsMbrBundle *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBun
     eventsMbrBundle.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrBundle.EntityData.ParentYangName = "events-mbr-bundles"
     eventsMbrBundle.EntityData.SegmentPath = "events-mbr-bundle" + types.AddKeyToken(eventsMbrBundle.BundleInterface, "bundle-interface")
+    eventsMbrBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/" + eventsMbrBundle.EntityData.SegmentPath
     eventsMbrBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19435,6 +19992,7 @@ func (eventsMbrBundleChildrenMembers *BundleInformation_EventsMbr_EventsMbrBundl
     eventsMbrBundleChildrenMembers.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrBundleChildrenMembers.EntityData.ParentYangName = "events-mbr-bundle"
     eventsMbrBundleChildrenMembers.EntityData.SegmentPath = "events-mbr-bundle-children-members"
+    eventsMbrBundleChildrenMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/" + eventsMbrBundleChildrenMembers.EntityData.SegmentPath
     eventsMbrBundleChildrenMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrBundleChildrenMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrBundleChildrenMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19457,6 +20015,7 @@ func (eventsMbrBundleChildrenMembers *BundleInformation_EventsMbr_EventsMbrBundl
 type BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_EventsMbrBundleChildrenMembers_EventsMbrBundleChildrenMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -19475,6 +20034,7 @@ func (eventsMbrBundleChildrenMember *BundleInformation_EventsMbr_EventsMbrBundle
     eventsMbrBundleChildrenMember.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrBundleChildrenMember.EntityData.ParentYangName = "events-mbr-bundle-children-members"
     eventsMbrBundleChildrenMember.EntityData.SegmentPath = "events-mbr-bundle-children-member" + types.AddKeyToken(eventsMbrBundleChildrenMember.MemberInterface, "member-interface")
+    eventsMbrBundleChildrenMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-children-members/" + eventsMbrBundleChildrenMember.EntityData.SegmentPath
     eventsMbrBundleChildrenMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrBundleChildrenMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrBundleChildrenMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19482,6 +20042,7 @@ func (eventsMbrBundleChildrenMember *BundleInformation_EventsMbr_EventsMbrBundle
     eventsMbrBundleChildrenMember.EntityData.Children = types.NewOrderedMap()
     eventsMbrBundleChildrenMember.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsMbrBundleChildrenMember.Items {
+        types.SetYListKey(eventsMbrBundleChildrenMember.Items[i], i)
         eventsMbrBundleChildrenMember.EntityData.Children.Append(types.GetSegmentPath(eventsMbrBundleChildrenMember.Items[i]), types.YChild{"Items", eventsMbrBundleChildrenMember.Items[i]})
     }
     eventsMbrBundleChildrenMember.EntityData.Leafs = types.NewOrderedMap()
@@ -19498,6 +20059,7 @@ func (eventsMbrBundleChildrenMember *BundleInformation_EventsMbr_EventsMbrBundle
 type BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_EventsMbrBundleChildrenMembers_EventsMbrBundleChildrenMember_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -19517,7 +20079,8 @@ func (items *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_Events
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-mbr-bundle-children-member"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-children-members/events-mbr-bundle-children-member/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19557,6 +20120,7 @@ func (memberEvtInfo *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundl
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-children-members/events-mbr-bundle-children-member/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19597,6 +20161,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_EventsM
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-children-members/events-mbr-bundle-children-member/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19636,6 +20201,7 @@ func (bundleEvtInfo *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundl
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-children-members/events-mbr-bundle-children-member/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19676,6 +20242,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_EventsM
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-children-members/events-mbr-bundle-children-member/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19715,6 +20282,7 @@ func (rgEvtInfo *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_Ev
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-children-members/events-mbr-bundle-children-member/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19755,6 +20323,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_EventsM
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-children-members/events-mbr-bundle-children-member/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19788,6 +20357,7 @@ func (eventsMbrBundleDescendant *BundleInformation_EventsMbr_EventsMbrBundles_Ev
     eventsMbrBundleDescendant.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrBundleDescendant.EntityData.ParentYangName = "events-mbr-bundle"
     eventsMbrBundleDescendant.EntityData.SegmentPath = "events-mbr-bundle-descendant"
+    eventsMbrBundleDescendant.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/" + eventsMbrBundleDescendant.EntityData.SegmentPath
     eventsMbrBundleDescendant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrBundleDescendant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrBundleDescendant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19795,6 +20365,7 @@ func (eventsMbrBundleDescendant *BundleInformation_EventsMbr_EventsMbrBundles_Ev
     eventsMbrBundleDescendant.EntityData.Children = types.NewOrderedMap()
     eventsMbrBundleDescendant.EntityData.Children.Append("events-item", types.YChild{"EventsItem", nil})
     for i := range eventsMbrBundleDescendant.EventsItem {
+        types.SetYListKey(eventsMbrBundleDescendant.EventsItem[i], i)
         eventsMbrBundleDescendant.EntityData.Children.Append(types.GetSegmentPath(eventsMbrBundleDescendant.EventsItem[i]), types.YChild{"EventsItem", eventsMbrBundleDescendant.EventsItem[i]})
     }
     eventsMbrBundleDescendant.EntityData.Leafs = types.NewOrderedMap()
@@ -19809,6 +20380,7 @@ func (eventsMbrBundleDescendant *BundleInformation_EventsMbr_EventsMbrBundles_Ev
 type BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_EventsMbrBundleDescendant_EventsItem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name for the current item to use. The type is string.
     ItemName interface{}
@@ -19823,7 +20395,8 @@ func (eventsItem *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_E
     eventsItem.EntityData.YangName = "events-item"
     eventsItem.EntityData.BundleName = "cisco_ios_xr"
     eventsItem.EntityData.ParentYangName = "events-mbr-bundle-descendant"
-    eventsItem.EntityData.SegmentPath = "events-item"
+    eventsItem.EntityData.SegmentPath = "events-item" + types.AddNoKeyToken(eventsItem)
+    eventsItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-descendant/" + eventsItem.EntityData.SegmentPath
     eventsItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19831,6 +20404,7 @@ func (eventsItem *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_E
     eventsItem.EntityData.Children = types.NewOrderedMap()
     eventsItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsItem.Items {
+        types.SetYListKey(eventsItem.Items[i], i)
         eventsItem.EntityData.Children.Append(types.GetSegmentPath(eventsItem.Items[i]), types.YChild{"Items", eventsItem.Items[i]})
     }
     eventsItem.EntityData.Leafs = types.NewOrderedMap()
@@ -19846,6 +20420,7 @@ func (eventsItem *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_E
 type BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_EventsMbrBundleDescendant_EventsItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -19865,7 +20440,8 @@ func (items *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_Events
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-descendant/events-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19905,6 +20481,7 @@ func (memberEvtInfo *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundl
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-descendant/events-item/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19945,6 +20522,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_EventsM
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-descendant/events-item/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19984,6 +20562,7 @@ func (bundleEvtInfo *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundl
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-descendant/events-item/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20024,6 +20603,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_EventsM
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-descendant/events-item/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20063,6 +20643,7 @@ func (rgEvtInfo *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_Ev
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-descendant/events-item/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20103,6 +20684,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle_EventsM
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-bundles/events-mbr-bundle/events-mbr-bundle-descendant/events-item/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20137,6 +20719,7 @@ func (eventsMbrMembers *BundleInformation_EventsMbr_EventsMbrMembers) GetEntityD
     eventsMbrMembers.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrMembers.EntityData.ParentYangName = "events-mbr"
     eventsMbrMembers.EntityData.SegmentPath = "events-mbr-members"
+    eventsMbrMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/" + eventsMbrMembers.EntityData.SegmentPath
     eventsMbrMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20158,6 +20741,7 @@ func (eventsMbrMembers *BundleInformation_EventsMbr_EventsMbrMembers) GetEntityD
 type BundleInformation_EventsMbr_EventsMbrMembers_EventsMbrMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -20172,6 +20756,7 @@ func (eventsMbrMember *BundleInformation_EventsMbr_EventsMbrMembers_EventsMbrMem
     eventsMbrMember.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrMember.EntityData.ParentYangName = "events-mbr-members"
     eventsMbrMember.EntityData.SegmentPath = "events-mbr-member" + types.AddKeyToken(eventsMbrMember.MemberInterface, "member-interface")
+    eventsMbrMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-members/" + eventsMbrMember.EntityData.SegmentPath
     eventsMbrMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20206,6 +20791,7 @@ func (eventsMbrMemberItem *BundleInformation_EventsMbr_EventsMbrMembers_EventsMb
     eventsMbrMemberItem.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrMemberItem.EntityData.ParentYangName = "events-mbr-member"
     eventsMbrMemberItem.EntityData.SegmentPath = "events-mbr-member-item"
+    eventsMbrMemberItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-members/events-mbr-member/" + eventsMbrMemberItem.EntityData.SegmentPath
     eventsMbrMemberItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrMemberItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrMemberItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20213,6 +20799,7 @@ func (eventsMbrMemberItem *BundleInformation_EventsMbr_EventsMbrMembers_EventsMb
     eventsMbrMemberItem.EntityData.Children = types.NewOrderedMap()
     eventsMbrMemberItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsMbrMemberItem.Items {
+        types.SetYListKey(eventsMbrMemberItem.Items[i], i)
         eventsMbrMemberItem.EntityData.Children.Append(types.GetSegmentPath(eventsMbrMemberItem.Items[i]), types.YChild{"Items", eventsMbrMemberItem.Items[i]})
     }
     eventsMbrMemberItem.EntityData.Leafs = types.NewOrderedMap()
@@ -20228,6 +20815,7 @@ func (eventsMbrMemberItem *BundleInformation_EventsMbr_EventsMbrMembers_EventsMb
 type BundleInformation_EventsMbr_EventsMbrMembers_EventsMbrMember_EventsMbrMemberItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -20247,7 +20835,8 @@ func (items *BundleInformation_EventsMbr_EventsMbrMembers_EventsMbrMember_Events
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-mbr-member-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-members/events-mbr-member/events-mbr-member-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20287,6 +20876,7 @@ func (memberEvtInfo *BundleInformation_EventsMbr_EventsMbrMembers_EventsMbrMembe
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-members/events-mbr-member/events-mbr-member-item/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20327,6 +20917,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrMembers_EventsMbrMember_EventsM
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-members/events-mbr-member/events-mbr-member-item/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20366,6 +20957,7 @@ func (bundleEvtInfo *BundleInformation_EventsMbr_EventsMbrMembers_EventsMbrMembe
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-members/events-mbr-member/events-mbr-member-item/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20406,6 +20998,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrMembers_EventsMbrMember_EventsM
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-members/events-mbr-member/events-mbr-member-item/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20445,6 +21038,7 @@ func (rgEvtInfo *BundleInformation_EventsMbr_EventsMbrMembers_EventsMbrMember_Ev
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-members/events-mbr-member/events-mbr-member-item/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20485,6 +21079,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrMembers_EventsMbrMember_EventsM
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-members/events-mbr-member/events-mbr-member-item/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20518,6 +21113,7 @@ func (eventsMbrIccpGroups *BundleInformation_EventsMbr_EventsMbrIccpGroups) GetE
     eventsMbrIccpGroups.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrIccpGroups.EntityData.ParentYangName = "events-mbr"
     eventsMbrIccpGroups.EntityData.SegmentPath = "events-mbr-iccp-groups"
+    eventsMbrIccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/" + eventsMbrIccpGroups.EntityData.SegmentPath
     eventsMbrIccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrIccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrIccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20539,6 +21135,7 @@ func (eventsMbrIccpGroups *BundleInformation_EventsMbr_EventsMbrIccpGroups) GetE
 type BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ICCP Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -20557,6 +21154,7 @@ func (eventsMbrIccpGroup *BundleInformation_EventsMbr_EventsMbrIccpGroups_Events
     eventsMbrIccpGroup.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrIccpGroup.EntityData.ParentYangName = "events-mbr-iccp-groups"
     eventsMbrIccpGroup.EntityData.SegmentPath = "events-mbr-iccp-group" + types.AddKeyToken(eventsMbrIccpGroup.IccpGroup, "iccp-group")
+    eventsMbrIccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/" + eventsMbrIccpGroup.EntityData.SegmentPath
     eventsMbrIccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrIccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrIccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20590,6 +21188,7 @@ func (eventsMbrBundleChildrenMemberIccpGroups *BundleInformation_EventsMbr_Event
     eventsMbrBundleChildrenMemberIccpGroups.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrBundleChildrenMemberIccpGroups.EntityData.ParentYangName = "events-mbr-iccp-group"
     eventsMbrBundleChildrenMemberIccpGroups.EntityData.SegmentPath = "events-mbr-bundle-children-member-iccp-groups"
+    eventsMbrBundleChildrenMemberIccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/" + eventsMbrBundleChildrenMemberIccpGroups.EntityData.SegmentPath
     eventsMbrBundleChildrenMemberIccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrBundleChildrenMemberIccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrBundleChildrenMemberIccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20612,6 +21211,7 @@ func (eventsMbrBundleChildrenMemberIccpGroups *BundleInformation_EventsMbr_Event
 type BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_EventsMbrBundleChildrenMemberIccpGroups_EventsMbrBundleChildrenMemberIccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -20630,6 +21230,7 @@ func (eventsMbrBundleChildrenMemberIccpGroup *BundleInformation_EventsMbr_Events
     eventsMbrBundleChildrenMemberIccpGroup.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrBundleChildrenMemberIccpGroup.EntityData.ParentYangName = "events-mbr-bundle-children-member-iccp-groups"
     eventsMbrBundleChildrenMemberIccpGroup.EntityData.SegmentPath = "events-mbr-bundle-children-member-iccp-group" + types.AddKeyToken(eventsMbrBundleChildrenMemberIccpGroup.MemberInterface, "member-interface")
+    eventsMbrBundleChildrenMemberIccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-children-member-iccp-groups/" + eventsMbrBundleChildrenMemberIccpGroup.EntityData.SegmentPath
     eventsMbrBundleChildrenMemberIccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrBundleChildrenMemberIccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrBundleChildrenMemberIccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20637,6 +21238,7 @@ func (eventsMbrBundleChildrenMemberIccpGroup *BundleInformation_EventsMbr_Events
     eventsMbrBundleChildrenMemberIccpGroup.EntityData.Children = types.NewOrderedMap()
     eventsMbrBundleChildrenMemberIccpGroup.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsMbrBundleChildrenMemberIccpGroup.Items {
+        types.SetYListKey(eventsMbrBundleChildrenMemberIccpGroup.Items[i], i)
         eventsMbrBundleChildrenMemberIccpGroup.EntityData.Children.Append(types.GetSegmentPath(eventsMbrBundleChildrenMemberIccpGroup.Items[i]), types.YChild{"Items", eventsMbrBundleChildrenMemberIccpGroup.Items[i]})
     }
     eventsMbrBundleChildrenMemberIccpGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -20653,6 +21255,7 @@ func (eventsMbrBundleChildrenMemberIccpGroup *BundleInformation_EventsMbr_Events
 type BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_EventsMbrBundleChildrenMemberIccpGroups_EventsMbrBundleChildrenMemberIccpGroup_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -20672,7 +21275,8 @@ func (items *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-mbr-bundle-children-member-iccp-group"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-children-member-iccp-groups/events-mbr-bundle-children-member-iccp-group/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20712,6 +21316,7 @@ func (memberEvtInfo *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIc
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-children-member-iccp-groups/events-mbr-bundle-children-member-iccp-group/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20752,6 +21357,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_E
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-children-member-iccp-groups/events-mbr-bundle-children-member-iccp-group/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20791,6 +21397,7 @@ func (bundleEvtInfo *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIc
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-children-member-iccp-groups/events-mbr-bundle-children-member-iccp-group/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20831,6 +21438,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_E
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-children-member-iccp-groups/events-mbr-bundle-children-member-iccp-group/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20870,6 +21478,7 @@ func (rgEvtInfo *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGr
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-children-member-iccp-groups/events-mbr-bundle-children-member-iccp-group/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20910,6 +21519,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_E
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-children-member-iccp-groups/events-mbr-bundle-children-member-iccp-group/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20943,6 +21553,7 @@ func (eventsMbrBundleDescendantIccpGroup *BundleInformation_EventsMbr_EventsMbrI
     eventsMbrBundleDescendantIccpGroup.EntityData.BundleName = "cisco_ios_xr"
     eventsMbrBundleDescendantIccpGroup.EntityData.ParentYangName = "events-mbr-iccp-group"
     eventsMbrBundleDescendantIccpGroup.EntityData.SegmentPath = "events-mbr-bundle-descendant-iccp-group"
+    eventsMbrBundleDescendantIccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/" + eventsMbrBundleDescendantIccpGroup.EntityData.SegmentPath
     eventsMbrBundleDescendantIccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsMbrBundleDescendantIccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsMbrBundleDescendantIccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20950,6 +21561,7 @@ func (eventsMbrBundleDescendantIccpGroup *BundleInformation_EventsMbr_EventsMbrI
     eventsMbrBundleDescendantIccpGroup.EntityData.Children = types.NewOrderedMap()
     eventsMbrBundleDescendantIccpGroup.EntityData.Children.Append("events-item", types.YChild{"EventsItem", nil})
     for i := range eventsMbrBundleDescendantIccpGroup.EventsItem {
+        types.SetYListKey(eventsMbrBundleDescendantIccpGroup.EventsItem[i], i)
         eventsMbrBundleDescendantIccpGroup.EntityData.Children.Append(types.GetSegmentPath(eventsMbrBundleDescendantIccpGroup.EventsItem[i]), types.YChild{"EventsItem", eventsMbrBundleDescendantIccpGroup.EventsItem[i]})
     }
     eventsMbrBundleDescendantIccpGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -20964,6 +21576,7 @@ func (eventsMbrBundleDescendantIccpGroup *BundleInformation_EventsMbr_EventsMbrI
 type BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_EventsMbrBundleDescendantIccpGroup_EventsItem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name for the current item to use. The type is string.
     ItemName interface{}
@@ -20978,7 +21591,8 @@ func (eventsItem *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpG
     eventsItem.EntityData.YangName = "events-item"
     eventsItem.EntityData.BundleName = "cisco_ios_xr"
     eventsItem.EntityData.ParentYangName = "events-mbr-bundle-descendant-iccp-group"
-    eventsItem.EntityData.SegmentPath = "events-item"
+    eventsItem.EntityData.SegmentPath = "events-item" + types.AddNoKeyToken(eventsItem)
+    eventsItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-descendant-iccp-group/" + eventsItem.EntityData.SegmentPath
     eventsItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventsItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventsItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20986,6 +21600,7 @@ func (eventsItem *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpG
     eventsItem.EntityData.Children = types.NewOrderedMap()
     eventsItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range eventsItem.Items {
+        types.SetYListKey(eventsItem.Items[i], i)
         eventsItem.EntityData.Children.Append(types.GetSegmentPath(eventsItem.Items[i]), types.YChild{"Items", eventsItem.Items[i]})
     }
     eventsItem.EntityData.Leafs = types.NewOrderedMap()
@@ -21001,6 +21616,7 @@ func (eventsItem *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpG
 type BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_EventsMbrBundleDescendantIccpGroup_EventsItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EventType. The type is BmdBagTarget.
     EventType interface{}
@@ -21020,7 +21636,8 @@ func (items *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "events-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-descendant-iccp-group/events-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21060,6 +21677,7 @@ func (memberEvtInfo *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIc
     memberEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     memberEvtInfo.EntityData.ParentYangName = "items"
     memberEvtInfo.EntityData.SegmentPath = "member-evt-info"
+    memberEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-descendant-iccp-group/events-item/items/" + memberEvtInfo.EntityData.SegmentPath
     memberEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21100,6 +21718,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_E
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-descendant-iccp-group/events-item/items/member-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21139,6 +21758,7 @@ func (bundleEvtInfo *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIc
     bundleEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleEvtInfo.EntityData.ParentYangName = "items"
     bundleEvtInfo.EntityData.SegmentPath = "bundle-evt-info"
+    bundleEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-descendant-iccp-group/events-item/items/" + bundleEvtInfo.EntityData.SegmentPath
     bundleEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21179,6 +21799,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_E
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-descendant-iccp-group/events-item/items/bundle-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21218,6 +21839,7 @@ func (rgEvtInfo *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGr
     rgEvtInfo.EntityData.BundleName = "cisco_ios_xr"
     rgEvtInfo.EntityData.ParentYangName = "items"
     rgEvtInfo.EntityData.SegmentPath = "rg-evt-info"
+    rgEvtInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-descendant-iccp-group/events-item/items/" + rgEvtInfo.EntityData.SegmentPath
     rgEvtInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rgEvtInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rgEvtInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21258,6 +21880,7 @@ func (data *BundleInformation_EventsMbr_EventsMbrIccpGroups_EventsMbrIccpGroup_E
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "rg-evt-info"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/events-mbr/events-mbr-iccp-groups/events-mbr-iccp-group/events-mbr-bundle-descendant-iccp-group/events-item/items/rg-evt-info/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21290,6 +21913,7 @@ func (mlacpIccpGroupCounters *BundleInformation_MlacpIccpGroupCounters) GetEntit
     mlacpIccpGroupCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpIccpGroupCounters.EntityData.ParentYangName = "bundle-information"
     mlacpIccpGroupCounters.EntityData.SegmentPath = "mlacp-iccp-group-counters"
+    mlacpIccpGroupCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + mlacpIccpGroupCounters.EntityData.SegmentPath
     mlacpIccpGroupCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpIccpGroupCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpIccpGroupCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21320,6 +21944,7 @@ func (iccpGroups *BundleInformation_MlacpIccpGroupCounters_IccpGroups) GetEntity
     iccpGroups.EntityData.BundleName = "cisco_ios_xr"
     iccpGroups.EntityData.ParentYangName = "mlacp-iccp-group-counters"
     iccpGroups.EntityData.SegmentPath = "iccp-groups"
+    iccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/" + iccpGroups.EntityData.SegmentPath
     iccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21341,6 +21966,7 @@ func (iccpGroups *BundleInformation_MlacpIccpGroupCounters_IccpGroups) GetEntity
 type BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ICCP Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -21365,6 +21991,7 @@ func (iccpGroup *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup) 
     iccpGroup.EntityData.BundleName = "cisco_ios_xr"
     iccpGroup.EntityData.ParentYangName = "iccp-groups"
     iccpGroup.EntityData.SegmentPath = "iccp-group" + types.AddKeyToken(iccpGroup.IccpGroup, "iccp-group")
+    iccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/" + iccpGroup.EntityData.SegmentPath
     iccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21401,6 +22028,7 @@ func (iccpGroupAncestorBundle *BundleInformation_MlacpIccpGroupCounters_IccpGrou
     iccpGroupAncestorBundle.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupAncestorBundle.EntityData.ParentYangName = "iccp-group"
     iccpGroupAncestorBundle.EntityData.SegmentPath = "iccp-group-ancestor-bundle"
+    iccpGroupAncestorBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/" + iccpGroupAncestorBundle.EntityData.SegmentPath
     iccpGroupAncestorBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupAncestorBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupAncestorBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21456,6 +22084,7 @@ func (iccpGroupCounters *BundleInformation_MlacpIccpGroupCounters_IccpGroups_Icc
     iccpGroupCounters.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupCounters.EntityData.ParentYangName = "iccp-group-ancestor-bundle"
     iccpGroupCounters.EntityData.SegmentPath = "iccp-group-counters"
+    iccpGroupCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-bundle/" + iccpGroupCounters.EntityData.SegmentPath
     iccpGroupCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21529,6 +22158,7 @@ func (connection *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_
     connection.EntityData.BundleName = "cisco_ios_xr"
     connection.EntityData.ParentYangName = "iccp-group-counters"
     connection.EntityData.SegmentPath = "connection"
+    connection.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-bundle/iccp-group-counters/" + connection.EntityData.SegmentPath
     connection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21627,6 +22257,7 @@ func (tlVs *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_IccpGr
     tlVs.EntityData.BundleName = "cisco_ios_xr"
     tlVs.EntityData.ParentYangName = "iccp-group-counters"
     tlVs.EntityData.SegmentPath = "tl-vs"
+    tlVs.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-bundle/iccp-group-counters/" + tlVs.EntityData.SegmentPath
     tlVs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlVs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlVs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21688,6 +22319,7 @@ func (invalidTlVs *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup
     invalidTlVs.EntityData.BundleName = "cisco_ios_xr"
     invalidTlVs.EntityData.ParentYangName = "iccp-group-counters"
     invalidTlVs.EntityData.SegmentPath = "invalid-tl-vs"
+    invalidTlVs.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-bundle/iccp-group-counters/" + invalidTlVs.EntityData.SegmentPath
     invalidTlVs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidTlVs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidTlVs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21733,6 +22365,7 @@ func (iccpMessages *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGrou
     iccpMessages.EntityData.BundleName = "cisco_ios_xr"
     iccpMessages.EntityData.ParentYangName = "iccp-group-counters"
     iccpMessages.EntityData.SegmentPath = "iccp-messages"
+    iccpMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-bundle/iccp-group-counters/" + iccpMessages.EntityData.SegmentPath
     iccpMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21806,6 +22439,7 @@ func (iccpEvents *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_
     iccpEvents.EntityData.BundleName = "cisco_ios_xr"
     iccpEvents.EntityData.ParentYangName = "iccp-group-counters"
     iccpEvents.EntityData.SegmentPath = "iccp-events"
+    iccpEvents.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-bundle/iccp-group-counters/" + iccpEvents.EntityData.SegmentPath
     iccpEvents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpEvents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpEvents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21848,6 +22482,7 @@ func (iccpGroupAncestorMember *BundleInformation_MlacpIccpGroupCounters_IccpGrou
     iccpGroupAncestorMember.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupAncestorMember.EntityData.ParentYangName = "iccp-group"
     iccpGroupAncestorMember.EntityData.SegmentPath = "iccp-group-ancestor-member"
+    iccpGroupAncestorMember.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/" + iccpGroupAncestorMember.EntityData.SegmentPath
     iccpGroupAncestorMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupAncestorMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupAncestorMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21903,6 +22538,7 @@ func (iccpGroupCounters *BundleInformation_MlacpIccpGroupCounters_IccpGroups_Icc
     iccpGroupCounters.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupCounters.EntityData.ParentYangName = "iccp-group-ancestor-member"
     iccpGroupCounters.EntityData.SegmentPath = "iccp-group-counters"
+    iccpGroupCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-member/" + iccpGroupCounters.EntityData.SegmentPath
     iccpGroupCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21976,6 +22612,7 @@ func (connection *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_
     connection.EntityData.BundleName = "cisco_ios_xr"
     connection.EntityData.ParentYangName = "iccp-group-counters"
     connection.EntityData.SegmentPath = "connection"
+    connection.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-member/iccp-group-counters/" + connection.EntityData.SegmentPath
     connection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22074,6 +22711,7 @@ func (tlVs *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_IccpGr
     tlVs.EntityData.BundleName = "cisco_ios_xr"
     tlVs.EntityData.ParentYangName = "iccp-group-counters"
     tlVs.EntityData.SegmentPath = "tl-vs"
+    tlVs.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-member/iccp-group-counters/" + tlVs.EntityData.SegmentPath
     tlVs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlVs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlVs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22135,6 +22773,7 @@ func (invalidTlVs *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup
     invalidTlVs.EntityData.BundleName = "cisco_ios_xr"
     invalidTlVs.EntityData.ParentYangName = "iccp-group-counters"
     invalidTlVs.EntityData.SegmentPath = "invalid-tl-vs"
+    invalidTlVs.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-member/iccp-group-counters/" + invalidTlVs.EntityData.SegmentPath
     invalidTlVs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidTlVs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidTlVs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22180,6 +22819,7 @@ func (iccpMessages *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGrou
     iccpMessages.EntityData.BundleName = "cisco_ios_xr"
     iccpMessages.EntityData.ParentYangName = "iccp-group-counters"
     iccpMessages.EntityData.SegmentPath = "iccp-messages"
+    iccpMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-member/iccp-group-counters/" + iccpMessages.EntityData.SegmentPath
     iccpMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22253,6 +22893,7 @@ func (iccpEvents *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_
     iccpEvents.EntityData.BundleName = "cisco_ios_xr"
     iccpEvents.EntityData.ParentYangName = "iccp-group-counters"
     iccpEvents.EntityData.SegmentPath = "iccp-events"
+    iccpEvents.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-member/iccp-group-counters/" + iccpEvents.EntityData.SegmentPath
     iccpEvents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpEvents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpEvents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22295,6 +22936,7 @@ func (iccpGroupAncestorNode *BundleInformation_MlacpIccpGroupCounters_IccpGroups
     iccpGroupAncestorNode.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupAncestorNode.EntityData.ParentYangName = "iccp-group"
     iccpGroupAncestorNode.EntityData.SegmentPath = "iccp-group-ancestor-node"
+    iccpGroupAncestorNode.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/" + iccpGroupAncestorNode.EntityData.SegmentPath
     iccpGroupAncestorNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupAncestorNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupAncestorNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22350,6 +22992,7 @@ func (iccpGroupCounters *BundleInformation_MlacpIccpGroupCounters_IccpGroups_Icc
     iccpGroupCounters.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupCounters.EntityData.ParentYangName = "iccp-group-ancestor-node"
     iccpGroupCounters.EntityData.SegmentPath = "iccp-group-counters"
+    iccpGroupCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-node/" + iccpGroupCounters.EntityData.SegmentPath
     iccpGroupCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22423,6 +23066,7 @@ func (connection *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_
     connection.EntityData.BundleName = "cisco_ios_xr"
     connection.EntityData.ParentYangName = "iccp-group-counters"
     connection.EntityData.SegmentPath = "connection"
+    connection.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-node/iccp-group-counters/" + connection.EntityData.SegmentPath
     connection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22521,6 +23165,7 @@ func (tlVs *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_IccpGr
     tlVs.EntityData.BundleName = "cisco_ios_xr"
     tlVs.EntityData.ParentYangName = "iccp-group-counters"
     tlVs.EntityData.SegmentPath = "tl-vs"
+    tlVs.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-node/iccp-group-counters/" + tlVs.EntityData.SegmentPath
     tlVs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlVs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlVs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22582,6 +23227,7 @@ func (invalidTlVs *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup
     invalidTlVs.EntityData.BundleName = "cisco_ios_xr"
     invalidTlVs.EntityData.ParentYangName = "iccp-group-counters"
     invalidTlVs.EntityData.SegmentPath = "invalid-tl-vs"
+    invalidTlVs.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-node/iccp-group-counters/" + invalidTlVs.EntityData.SegmentPath
     invalidTlVs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidTlVs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidTlVs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22627,6 +23273,7 @@ func (iccpMessages *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGrou
     iccpMessages.EntityData.BundleName = "cisco_ios_xr"
     iccpMessages.EntityData.ParentYangName = "iccp-group-counters"
     iccpMessages.EntityData.SegmentPath = "iccp-messages"
+    iccpMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-node/iccp-group-counters/" + iccpMessages.EntityData.SegmentPath
     iccpMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22700,6 +23347,7 @@ func (iccpEvents *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_
     iccpEvents.EntityData.BundleName = "cisco_ios_xr"
     iccpEvents.EntityData.ParentYangName = "iccp-group-counters"
     iccpEvents.EntityData.SegmentPath = "iccp-events"
+    iccpEvents.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-ancestor-node/iccp-group-counters/" + iccpEvents.EntityData.SegmentPath
     iccpEvents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpEvents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpEvents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22742,6 +23390,7 @@ func (iccpGroupItem *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGro
     iccpGroupItem.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupItem.EntityData.ParentYangName = "iccp-group"
     iccpGroupItem.EntityData.SegmentPath = "iccp-group-item"
+    iccpGroupItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/" + iccpGroupItem.EntityData.SegmentPath
     iccpGroupItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22797,6 +23446,7 @@ func (iccpGroupCounters *BundleInformation_MlacpIccpGroupCounters_IccpGroups_Icc
     iccpGroupCounters.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupCounters.EntityData.ParentYangName = "iccp-group-item"
     iccpGroupCounters.EntityData.SegmentPath = "iccp-group-counters"
+    iccpGroupCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-item/" + iccpGroupCounters.EntityData.SegmentPath
     iccpGroupCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22870,6 +23520,7 @@ func (connection *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_
     connection.EntityData.BundleName = "cisco_ios_xr"
     connection.EntityData.ParentYangName = "iccp-group-counters"
     connection.EntityData.SegmentPath = "connection"
+    connection.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-counters/" + connection.EntityData.SegmentPath
     connection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22968,6 +23619,7 @@ func (tlVs *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_IccpGr
     tlVs.EntityData.BundleName = "cisco_ios_xr"
     tlVs.EntityData.ParentYangName = "iccp-group-counters"
     tlVs.EntityData.SegmentPath = "tl-vs"
+    tlVs.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-counters/" + tlVs.EntityData.SegmentPath
     tlVs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlVs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlVs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23029,6 +23681,7 @@ func (invalidTlVs *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup
     invalidTlVs.EntityData.BundleName = "cisco_ios_xr"
     invalidTlVs.EntityData.ParentYangName = "iccp-group-counters"
     invalidTlVs.EntityData.SegmentPath = "invalid-tl-vs"
+    invalidTlVs.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-counters/" + invalidTlVs.EntityData.SegmentPath
     invalidTlVs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidTlVs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidTlVs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23074,6 +23727,7 @@ func (iccpMessages *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGrou
     iccpMessages.EntityData.BundleName = "cisco_ios_xr"
     iccpMessages.EntityData.ParentYangName = "iccp-group-counters"
     iccpMessages.EntityData.SegmentPath = "iccp-messages"
+    iccpMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-counters/" + iccpMessages.EntityData.SegmentPath
     iccpMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23147,6 +23801,7 @@ func (iccpEvents *BundleInformation_MlacpIccpGroupCounters_IccpGroups_IccpGroup_
     iccpEvents.EntityData.BundleName = "cisco_ios_xr"
     iccpEvents.EntityData.ParentYangName = "iccp-group-counters"
     iccpEvents.EntityData.SegmentPath = "iccp-events"
+    iccpEvents.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-iccp-group-counters/iccp-groups/iccp-group/iccp-group-item/iccp-group-counters/" + iccpEvents.EntityData.SegmentPath
     iccpEvents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpEvents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpEvents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23190,6 +23845,7 @@ func (systemId *BundleInformation_SystemId) GetEntityData() *types.CommonEntityD
     systemId.EntityData.BundleName = "cisco_ios_xr"
     systemId.EntityData.ParentYangName = "bundle-information"
     systemId.EntityData.SegmentPath = "system-id"
+    systemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + systemId.EntityData.SegmentPath
     systemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23220,6 +23876,7 @@ func (systemIdGlobal *BundleInformation_SystemId_SystemIdGlobal) GetEntityData()
     systemIdGlobal.EntityData.BundleName = "cisco_ios_xr"
     systemIdGlobal.EntityData.ParentYangName = "system-id"
     systemIdGlobal.EntityData.SegmentPath = "system-id-global"
+    systemIdGlobal.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/system-id/" + systemIdGlobal.EntityData.SegmentPath
     systemIdGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemIdGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemIdGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23261,6 +23918,7 @@ func (systemIdGlobalItem *BundleInformation_SystemId_SystemIdGlobal_SystemIdGlob
     systemIdGlobalItem.EntityData.BundleName = "cisco_ios_xr"
     systemIdGlobalItem.EntityData.ParentYangName = "system-id-global"
     systemIdGlobalItem.EntityData.SegmentPath = "system-id-global-item"
+    systemIdGlobalItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/system-id/system-id-global/" + systemIdGlobalItem.EntityData.SegmentPath
     systemIdGlobalItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemIdGlobalItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemIdGlobalItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23296,6 +23954,7 @@ func (systemId *BundleInformation_SystemId_SystemIdGlobal_SystemIdGlobalItem_Sys
     systemId.EntityData.BundleName = "cisco_ios_xr"
     systemId.EntityData.ParentYangName = "system-id-global-item"
     systemId.EntityData.SegmentPath = "system-id"
+    systemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/system-id/system-id-global/system-id-global-item/" + systemId.EntityData.SegmentPath
     systemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23327,6 +23986,7 @@ func (systemMacAddr *BundleInformation_SystemId_SystemIdGlobal_SystemIdGlobalIte
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/system-id/system-id-global/system-id-global-item/system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23357,6 +24017,7 @@ func (systemIdIccpGroups *BundleInformation_SystemId_SystemIdIccpGroups) GetEnti
     systemIdIccpGroups.EntityData.BundleName = "cisco_ios_xr"
     systemIdIccpGroups.EntityData.ParentYangName = "system-id"
     systemIdIccpGroups.EntityData.SegmentPath = "system-id-iccp-groups"
+    systemIdIccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/system-id/" + systemIdIccpGroups.EntityData.SegmentPath
     systemIdIccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemIdIccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemIdIccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23378,6 +24039,7 @@ func (systemIdIccpGroups *BundleInformation_SystemId_SystemIdIccpGroups) GetEnti
 type BundleInformation_SystemId_SystemIdIccpGroups_SystemIdIccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ICCP Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -23393,6 +24055,7 @@ func (systemIdIccpGroup *BundleInformation_SystemId_SystemIdIccpGroups_SystemIdI
     systemIdIccpGroup.EntityData.BundleName = "cisco_ios_xr"
     systemIdIccpGroup.EntityData.ParentYangName = "system-id-iccp-groups"
     systemIdIccpGroup.EntityData.SegmentPath = "system-id-iccp-group" + types.AddKeyToken(systemIdIccpGroup.IccpGroup, "iccp-group")
+    systemIdIccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/system-id/system-id-iccp-groups/" + systemIdIccpGroup.EntityData.SegmentPath
     systemIdIccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemIdIccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemIdIccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23435,6 +24098,7 @@ func (systemIdIccpGroupItem *BundleInformation_SystemId_SystemIdIccpGroups_Syste
     systemIdIccpGroupItem.EntityData.BundleName = "cisco_ios_xr"
     systemIdIccpGroupItem.EntityData.ParentYangName = "system-id-iccp-group"
     systemIdIccpGroupItem.EntityData.SegmentPath = "system-id-iccp-group-item"
+    systemIdIccpGroupItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/system-id/system-id-iccp-groups/system-id-iccp-group/" + systemIdIccpGroupItem.EntityData.SegmentPath
     systemIdIccpGroupItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemIdIccpGroupItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemIdIccpGroupItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23470,6 +24134,7 @@ func (systemId *BundleInformation_SystemId_SystemIdIccpGroups_SystemIdIccpGroup_
     systemId.EntityData.BundleName = "cisco_ios_xr"
     systemId.EntityData.ParentYangName = "system-id-iccp-group-item"
     systemId.EntityData.SegmentPath = "system-id"
+    systemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/system-id/system-id-iccp-groups/system-id-iccp-group/system-id-iccp-group-item/" + systemId.EntityData.SegmentPath
     systemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23501,6 +24166,7 @@ func (systemMacAddr *BundleInformation_SystemId_SystemIdIccpGroups_SystemIdIccpG
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/system-id/system-id-iccp-groups/system-id-iccp-group/system-id-iccp-group-item/system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23539,6 +24205,7 @@ func (mlacpMemberCounters *BundleInformation_MlacpMemberCounters) GetEntityData(
     mlacpMemberCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpMemberCounters.EntityData.ParentYangName = "bundle-information"
     mlacpMemberCounters.EntityData.SegmentPath = "mlacp-member-counters"
+    mlacpMemberCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/" + mlacpMemberCounters.EntityData.SegmentPath
     mlacpMemberCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpMemberCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpMemberCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23573,6 +24240,7 @@ func (iccpGroups *BundleInformation_MlacpMemberCounters_IccpGroups) GetEntityDat
     iccpGroups.EntityData.BundleName = "cisco_ios_xr"
     iccpGroups.EntityData.ParentYangName = "mlacp-member-counters"
     iccpGroups.EntityData.SegmentPath = "iccp-groups"
+    iccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/" + iccpGroups.EntityData.SegmentPath
     iccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23594,6 +24262,7 @@ func (iccpGroups *BundleInformation_MlacpMemberCounters_IccpGroups) GetEntityDat
 type BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ICCP Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -23609,6 +24278,7 @@ func (iccpGroup *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup) Get
     iccpGroup.EntityData.BundleName = "cisco_ios_xr"
     iccpGroup.EntityData.ParentYangName = "iccp-groups"
     iccpGroup.EntityData.SegmentPath = "iccp-group" + types.AddKeyToken(iccpGroup.IccpGroup, "iccp-group")
+    iccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/" + iccpGroup.EntityData.SegmentPath
     iccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23640,6 +24310,7 @@ func (iccpGroupItem *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_
     iccpGroupItem.EntityData.BundleName = "cisco_ios_xr"
     iccpGroupItem.EntityData.ParentYangName = "iccp-group"
     iccpGroupItem.EntityData.SegmentPath = "iccp-group-item"
+    iccpGroupItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/" + iccpGroupItem.EntityData.SegmentPath
     iccpGroupItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroupItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroupItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23647,6 +24318,7 @@ func (iccpGroupItem *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_
     iccpGroupItem.EntityData.Children = types.NewOrderedMap()
     iccpGroupItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range iccpGroupItem.Items {
+        types.SetYListKey(iccpGroupItem.Items[i], i)
         iccpGroupItem.EntityData.Children.Append(types.GetSegmentPath(iccpGroupItem.Items[i]), types.YChild{"Items", iccpGroupItem.Items[i]})
     }
     iccpGroupItem.EntityData.Leafs = types.NewOrderedMap()
@@ -23661,6 +24333,7 @@ func (iccpGroupItem *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_
 type BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpGroupItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle mLACP TLV counter information.
     BundleData BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpGroupItem_Items_BundleData
@@ -23679,7 +24352,8 @@ func (items *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpGrou
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "iccp-group-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23688,10 +24362,12 @@ func (items *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpGrou
     items.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", &items.BundleData})
     items.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range items.NodeData {
+        types.SetYListKey(items.NodeData[i], i)
         items.EntityData.Children.Append(types.GetSegmentPath(items.NodeData[i]), types.YChild{"NodeData", items.NodeData[i]})
     }
     items.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range items.MemberData {
+        types.SetYListKey(items.MemberData[i], i)
         items.EntityData.Children.Append(types.GetSegmentPath(items.MemberData[i]), types.YChild{"MemberData", items.MemberData[i]})
     }
     items.EntityData.Leafs = types.NewOrderedMap()
@@ -23723,6 +24399,7 @@ func (bundleData *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_Icc
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "items"
     bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23763,6 +24440,7 @@ func (mlacpSyncRequestsOnAllLocalPorts *BundleInformation_MlacpMemberCounters_Ic
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.ParentYangName = "bundle-data"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-local-ports"
+    mlacpSyncRequestsOnAllLocalPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/bundle-data/" + mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllLocalPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23803,6 +24481,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_IccpGroups_Icc
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-local-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/bundle-data/mlacp-sync-requests-on-all-local-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23823,6 +24502,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_IccpGroups_Icc
 type BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpGroupItem_Items_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer device mLACP TLV counter information.
     NodeData BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpGroupItem_Items_NodeData_NodeData
@@ -23840,7 +24520,8 @@ func (nodeData *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpG
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "items"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23850,6 +24531,7 @@ func (nodeData *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpG
     nodeData.EntityData.Children.Append("mlacp-sync-requests-on-all-foreign-ports", types.YChild{"MlacpSyncRequestsOnAllForeignPorts", &nodeData.MlacpSyncRequestsOnAllForeignPorts})
     nodeData.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range nodeData.MemberData {
+        types.SetYListKey(nodeData.MemberData[i], i)
         nodeData.EntityData.Children.Append(types.GetSegmentPath(nodeData.MemberData[i]), types.YChild{"MemberData", nodeData.MemberData[i]})
     }
     nodeData.EntityData.Leafs = types.NewOrderedMap()
@@ -23878,6 +24560,7 @@ func (nodeData *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpG
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "node-data"
     nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/node-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23917,6 +24600,7 @@ func (mlacpSyncRequestsOnAllForeignPorts *BundleInformation_MlacpMemberCounters_
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.ParentYangName = "node-data"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-foreign-ports"
+    mlacpSyncRequestsOnAllForeignPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/node-data/" + mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllForeignPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23957,6 +24641,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_IccpGroups_Icc
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-foreign-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/node-data/mlacp-sync-requests-on-all-foreign-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23977,6 +24662,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_IccpGroups_Icc
 type BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpGroupItem_Items_NodeData_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port name of member. The type is string.
     PortName interface{}
@@ -23990,7 +24676,8 @@ func (memberData *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_Icc
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "node-data"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/node-data/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24054,6 +24741,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGro
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "member-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/node-data/member-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24100,6 +24788,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_IccpGroups_Icc
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/node-data/member-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24120,6 +24809,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_IccpGroups_Icc
 type BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_IccpGroupItem_Items_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port name of member. The type is string.
     PortName interface{}
@@ -24133,7 +24823,8 @@ func (memberData *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGroup_Icc
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "items"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24197,6 +24888,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpMemberCounters_IccpGroups_IccpGro
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "member-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/member-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24243,6 +24935,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_IccpGroups_Icc
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/iccp-groups/iccp-group/iccp-group-item/items/member-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24275,6 +24968,7 @@ func (members *BundleInformation_MlacpMemberCounters_Members) GetEntityData() *t
     members.EntityData.BundleName = "cisco_ios_xr"
     members.EntityData.ParentYangName = "mlacp-member-counters"
     members.EntityData.SegmentPath = "members"
+    members.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/" + members.EntityData.SegmentPath
     members.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     members.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24296,6 +24990,7 @@ func (members *BundleInformation_MlacpMemberCounters_Members) GetEntityData() *t
 type BundleInformation_MlacpMemberCounters_Members_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
@@ -24310,6 +25005,7 @@ func (member *BundleInformation_MlacpMemberCounters_Members_Member) GetEntityDat
     member.EntityData.BundleName = "cisco_ios_xr"
     member.EntityData.ParentYangName = "members"
     member.EntityData.SegmentPath = "member" + types.AddKeyToken(member.MemberInterface, "member-interface")
+    member.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     member.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24341,6 +25037,7 @@ func (memberItem *BundleInformation_MlacpMemberCounters_Members_Member_MemberIte
     memberItem.EntityData.BundleName = "cisco_ios_xr"
     memberItem.EntityData.ParentYangName = "member"
     memberItem.EntityData.SegmentPath = "member-item"
+    memberItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/" + memberItem.EntityData.SegmentPath
     memberItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24348,6 +25045,7 @@ func (memberItem *BundleInformation_MlacpMemberCounters_Members_Member_MemberIte
     memberItem.EntityData.Children = types.NewOrderedMap()
     memberItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range memberItem.Items {
+        types.SetYListKey(memberItem.Items[i], i)
         memberItem.EntityData.Children.Append(types.GetSegmentPath(memberItem.Items[i]), types.YChild{"Items", memberItem.Items[i]})
     }
     memberItem.EntityData.Leafs = types.NewOrderedMap()
@@ -24362,6 +25060,7 @@ func (memberItem *BundleInformation_MlacpMemberCounters_Members_Member_MemberIte
 type BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle mLACP TLV counter information.
     BundleData BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_Items_BundleData
@@ -24380,7 +25079,8 @@ func (items *BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_Ite
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "member-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24389,10 +25089,12 @@ func (items *BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_Ite
     items.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", &items.BundleData})
     items.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range items.NodeData {
+        types.SetYListKey(items.NodeData[i], i)
         items.EntityData.Children.Append(types.GetSegmentPath(items.NodeData[i]), types.YChild{"NodeData", items.NodeData[i]})
     }
     items.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range items.MemberData {
+        types.SetYListKey(items.MemberData[i], i)
         items.EntityData.Children.Append(types.GetSegmentPath(items.MemberData[i]), types.YChild{"MemberData", items.MemberData[i]})
     }
     items.EntityData.Leafs = types.NewOrderedMap()
@@ -24424,6 +25126,7 @@ func (bundleData *BundleInformation_MlacpMemberCounters_Members_Member_MemberIte
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "items"
     bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24464,6 +25167,7 @@ func (mlacpSyncRequestsOnAllLocalPorts *BundleInformation_MlacpMemberCounters_Me
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.ParentYangName = "bundle-data"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-local-ports"
+    mlacpSyncRequestsOnAllLocalPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/bundle-data/" + mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllLocalPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24504,6 +25208,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Members_Member
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-local-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/bundle-data/mlacp-sync-requests-on-all-local-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24524,6 +25229,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Members_Member
 type BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_Items_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer device mLACP TLV counter information.
     NodeData BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_Items_NodeData_NodeData
@@ -24541,7 +25247,8 @@ func (nodeData *BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "items"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24551,6 +25258,7 @@ func (nodeData *BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_
     nodeData.EntityData.Children.Append("mlacp-sync-requests-on-all-foreign-ports", types.YChild{"MlacpSyncRequestsOnAllForeignPorts", &nodeData.MlacpSyncRequestsOnAllForeignPorts})
     nodeData.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range nodeData.MemberData {
+        types.SetYListKey(nodeData.MemberData[i], i)
         nodeData.EntityData.Children.Append(types.GetSegmentPath(nodeData.MemberData[i]), types.YChild{"MemberData", nodeData.MemberData[i]})
     }
     nodeData.EntityData.Leafs = types.NewOrderedMap()
@@ -24579,6 +25287,7 @@ func (nodeData *BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "node-data"
     nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/node-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24618,6 +25327,7 @@ func (mlacpSyncRequestsOnAllForeignPorts *BundleInformation_MlacpMemberCounters_
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.ParentYangName = "node-data"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-foreign-ports"
+    mlacpSyncRequestsOnAllForeignPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/node-data/" + mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllForeignPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24658,6 +25368,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Members_Member
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-foreign-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/node-data/mlacp-sync-requests-on-all-foreign-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24678,6 +25389,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Members_Member
 type BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_Items_NodeData_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port name of member. The type is string.
     PortName interface{}
@@ -24691,7 +25403,8 @@ func (memberData *BundleInformation_MlacpMemberCounters_Members_Member_MemberIte
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "node-data"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/node-data/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24755,6 +25468,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpMemberCounters_Members_Member_Mem
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "member-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/node-data/member-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24801,6 +25515,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Members_Member
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/node-data/member-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24821,6 +25536,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Members_Member
 type BundleInformation_MlacpMemberCounters_Members_Member_MemberItem_Items_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port name of member. The type is string.
     PortName interface{}
@@ -24834,7 +25550,8 @@ func (memberData *BundleInformation_MlacpMemberCounters_Members_Member_MemberIte
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "items"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24898,6 +25615,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpMemberCounters_Members_Member_Mem
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "member-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/member-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24944,6 +25662,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Members_Member
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/members/member/member-item/items/member-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24977,6 +25696,7 @@ func (bundles *BundleInformation_MlacpMemberCounters_Bundles) GetEntityData() *t
     bundles.EntityData.BundleName = "cisco_ios_xr"
     bundles.EntityData.ParentYangName = "mlacp-member-counters"
     bundles.EntityData.SegmentPath = "bundles"
+    bundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/" + bundles.EntityData.SegmentPath
     bundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24998,6 +25718,7 @@ func (bundles *BundleInformation_MlacpMemberCounters_Bundles) GetEntityData() *t
 type BundleInformation_MlacpMemberCounters_Bundles_Bundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -25013,6 +25734,7 @@ func (bundle *BundleInformation_MlacpMemberCounters_Bundles_Bundle) GetEntityDat
     bundle.EntityData.BundleName = "cisco_ios_xr"
     bundle.EntityData.ParentYangName = "bundles"
     bundle.EntityData.SegmentPath = "bundle" + types.AddKeyToken(bundle.BundleInterface, "bundle-interface")
+    bundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/" + bundle.EntityData.SegmentPath
     bundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25051,6 +25773,7 @@ func (bundleItem *BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleIte
     bundleItem.EntityData.BundleName = "cisco_ios_xr"
     bundleItem.EntityData.ParentYangName = "bundle"
     bundleItem.EntityData.SegmentPath = "bundle-item"
+    bundleItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/" + bundleItem.EntityData.SegmentPath
     bundleItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25059,10 +25782,12 @@ func (bundleItem *BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleIte
     bundleItem.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", &bundleItem.BundleData})
     bundleItem.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range bundleItem.NodeData {
+        types.SetYListKey(bundleItem.NodeData[i], i)
         bundleItem.EntityData.Children.Append(types.GetSegmentPath(bundleItem.NodeData[i]), types.YChild{"NodeData", bundleItem.NodeData[i]})
     }
     bundleItem.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range bundleItem.MemberData {
+        types.SetYListKey(bundleItem.MemberData[i], i)
         bundleItem.EntityData.Children.Append(types.GetSegmentPath(bundleItem.MemberData[i]), types.YChild{"MemberData", bundleItem.MemberData[i]})
     }
     bundleItem.EntityData.Leafs = types.NewOrderedMap()
@@ -25094,6 +25819,7 @@ func (bundleData *BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleIte
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "bundle-item"
     bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25134,6 +25860,7 @@ func (mlacpSyncRequestsOnAllLocalPorts *BundleInformation_MlacpMemberCounters_Bu
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.ParentYangName = "bundle-data"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-local-ports"
+    mlacpSyncRequestsOnAllLocalPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/bundle-data/" + mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllLocalPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25174,6 +25901,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Bundles_Bundle
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-local-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/bundle-data/mlacp-sync-requests-on-all-local-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25194,6 +25922,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Bundles_Bundle
 type BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleItem_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer device mLACP TLV counter information.
     NodeData BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleItem_NodeData_NodeData
@@ -25211,7 +25940,8 @@ func (nodeData *BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleItem_
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "bundle-item"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25221,6 +25951,7 @@ func (nodeData *BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleItem_
     nodeData.EntityData.Children.Append("mlacp-sync-requests-on-all-foreign-ports", types.YChild{"MlacpSyncRequestsOnAllForeignPorts", &nodeData.MlacpSyncRequestsOnAllForeignPorts})
     nodeData.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range nodeData.MemberData {
+        types.SetYListKey(nodeData.MemberData[i], i)
         nodeData.EntityData.Children.Append(types.GetSegmentPath(nodeData.MemberData[i]), types.YChild{"MemberData", nodeData.MemberData[i]})
     }
     nodeData.EntityData.Leafs = types.NewOrderedMap()
@@ -25249,6 +25980,7 @@ func (nodeData *BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleItem_
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "node-data"
     nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/node-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25288,6 +26020,7 @@ func (mlacpSyncRequestsOnAllForeignPorts *BundleInformation_MlacpMemberCounters_
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.ParentYangName = "node-data"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-foreign-ports"
+    mlacpSyncRequestsOnAllForeignPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/node-data/" + mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllForeignPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25328,6 +26061,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Bundles_Bundle
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-foreign-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/node-data/mlacp-sync-requests-on-all-foreign-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25348,6 +26082,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Bundles_Bundle
 type BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleItem_NodeData_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port name of member. The type is string.
     PortName interface{}
@@ -25361,7 +26096,8 @@ func (memberData *BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleIte
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "node-data"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/node-data/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25425,6 +26161,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpMemberCounters_Bundles_Bundle_Bun
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "member-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/node-data/member-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25471,6 +26208,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Bundles_Bundle
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/node-data/member-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25491,6 +26229,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Bundles_Bundle
 type BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleItem_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port name of member. The type is string.
     PortName interface{}
@@ -25504,7 +26243,8 @@ func (memberData *BundleInformation_MlacpMemberCounters_Bundles_Bundle_BundleIte
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "bundle-item"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25568,6 +26308,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpMemberCounters_Bundles_Bundle_Bun
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "member-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/member-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25614,6 +26355,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Bundles_Bundle
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/bundles/bundle/bundle-item/member-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25647,6 +26389,7 @@ func (nodes *BundleInformation_MlacpMemberCounters_Nodes) GetEntityData() *types
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "mlacp-member-counters"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25668,6 +26411,7 @@ func (nodes *BundleInformation_MlacpMemberCounters_Nodes) GetEntityData() *types
 type BundleInformation_MlacpMemberCounters_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. For a local device the Node ID e.g. '0_0_CPU0',
     // for a peer device the LDP ID followed by the ICCP Group ID e.g. '5.4.3.2
@@ -25684,6 +26428,7 @@ func (node *BundleInformation_MlacpMemberCounters_Nodes_Node) GetEntityData() *t
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25715,6 +26460,7 @@ func (nodeItem *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem) GetEn
     nodeItem.EntityData.BundleName = "cisco_ios_xr"
     nodeItem.EntityData.ParentYangName = "node"
     nodeItem.EntityData.SegmentPath = "node-item"
+    nodeItem.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/" + nodeItem.EntityData.SegmentPath
     nodeItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25722,6 +26468,7 @@ func (nodeItem *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem) GetEn
     nodeItem.EntityData.Children = types.NewOrderedMap()
     nodeItem.EntityData.Children.Append("items", types.YChild{"Items", nil})
     for i := range nodeItem.Items {
+        types.SetYListKey(nodeItem.Items[i], i)
         nodeItem.EntityData.Children.Append(types.GetSegmentPath(nodeItem.Items[i]), types.YChild{"Items", nodeItem.Items[i]})
     }
     nodeItem.EntityData.Leafs = types.NewOrderedMap()
@@ -25736,6 +26483,7 @@ func (nodeItem *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem) GetEn
 type BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle mLACP TLV counter information.
     BundleData BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items_BundleData
@@ -25754,7 +26502,8 @@ func (items *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items) Ge
     items.EntityData.YangName = "items"
     items.EntityData.BundleName = "cisco_ios_xr"
     items.EntityData.ParentYangName = "node-item"
-    items.EntityData.SegmentPath = "items"
+    items.EntityData.SegmentPath = "items" + types.AddNoKeyToken(items)
+    items.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/" + items.EntityData.SegmentPath
     items.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     items.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     items.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25763,10 +26512,12 @@ func (items *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items) Ge
     items.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", &items.BundleData})
     items.EntityData.Children.Append("node-data", types.YChild{"NodeData", nil})
     for i := range items.NodeData {
+        types.SetYListKey(items.NodeData[i], i)
         items.EntityData.Children.Append(types.GetSegmentPath(items.NodeData[i]), types.YChild{"NodeData", items.NodeData[i]})
     }
     items.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range items.MemberData {
+        types.SetYListKey(items.MemberData[i], i)
         items.EntityData.Children.Append(types.GetSegmentPath(items.MemberData[i]), types.YChild{"MemberData", items.MemberData[i]})
     }
     items.EntityData.Leafs = types.NewOrderedMap()
@@ -25798,6 +26549,7 @@ func (bundleData *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Item
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "items"
     bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25838,6 +26590,7 @@ func (mlacpSyncRequestsOnAllLocalPorts *BundleInformation_MlacpMemberCounters_No
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.ParentYangName = "bundle-data"
     mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-local-ports"
+    mlacpSyncRequestsOnAllLocalPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/bundle-data/" + mlacpSyncRequestsOnAllLocalPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllLocalPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllLocalPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25878,6 +26631,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Nodes_Node_Nod
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-local-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/bundle-data/mlacp-sync-requests-on-all-local-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25898,6 +26652,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Nodes_Node_Nod
 type BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items_NodeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer device mLACP TLV counter information.
     NodeData BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items_NodeData_NodeData
@@ -25915,7 +26670,8 @@ func (nodeData *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items_
     nodeData.EntityData.YangName = "node-data"
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "items"
-    nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.SegmentPath = "node-data" + types.AddNoKeyToken(nodeData)
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25925,6 +26681,7 @@ func (nodeData *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items_
     nodeData.EntityData.Children.Append("mlacp-sync-requests-on-all-foreign-ports", types.YChild{"MlacpSyncRequestsOnAllForeignPorts", &nodeData.MlacpSyncRequestsOnAllForeignPorts})
     nodeData.EntityData.Children.Append("member-data", types.YChild{"MemberData", nil})
     for i := range nodeData.MemberData {
+        types.SetYListKey(nodeData.MemberData[i], i)
         nodeData.EntityData.Children.Append(types.GetSegmentPath(nodeData.MemberData[i]), types.YChild{"MemberData", nodeData.MemberData[i]})
     }
     nodeData.EntityData.Leafs = types.NewOrderedMap()
@@ -25953,6 +26710,7 @@ func (nodeData *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items_
     nodeData.EntityData.BundleName = "cisco_ios_xr"
     nodeData.EntityData.ParentYangName = "node-data"
     nodeData.EntityData.SegmentPath = "node-data"
+    nodeData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/node-data/" + nodeData.EntityData.SegmentPath
     nodeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25992,6 +26750,7 @@ func (mlacpSyncRequestsOnAllForeignPorts *BundleInformation_MlacpMemberCounters_
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleName = "cisco_ios_xr"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.ParentYangName = "node-data"
     mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath = "mlacp-sync-requests-on-all-foreign-ports"
+    mlacpSyncRequestsOnAllForeignPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/node-data/" + mlacpSyncRequestsOnAllForeignPorts.EntityData.SegmentPath
     mlacpSyncRequestsOnAllForeignPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpSyncRequestsOnAllForeignPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26032,6 +26791,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Nodes_Node_Nod
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-sync-requests-on-all-foreign-ports"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/node-data/mlacp-sync-requests-on-all-foreign-ports/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26052,6 +26812,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Nodes_Node_Nod
 type BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items_NodeData_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port name of member. The type is string.
     PortName interface{}
@@ -26065,7 +26826,8 @@ func (memberData *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Item
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "node-data"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/node-data/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26129,6 +26891,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeIte
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "member-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/node-data/member-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26175,6 +26938,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Nodes_Node_Nod
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/node-data/member-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26195,6 +26959,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Nodes_Node_Nod
 type BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Items_MemberData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Port name of member. The type is string.
     PortName interface{}
@@ -26208,7 +26973,8 @@ func (memberData *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeItem_Item
     memberData.EntityData.YangName = "member-data"
     memberData.EntityData.BundleName = "cisco_ios_xr"
     memberData.EntityData.ParentYangName = "items"
-    memberData.EntityData.SegmentPath = "member-data"
+    memberData.EntityData.SegmentPath = "member-data" + types.AddNoKeyToken(memberData)
+    memberData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/" + memberData.EntityData.SegmentPath
     memberData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26272,6 +27038,7 @@ func (mlacpTlvCounters *BundleInformation_MlacpMemberCounters_Nodes_Node_NodeIte
     mlacpTlvCounters.EntityData.BundleName = "cisco_ios_xr"
     mlacpTlvCounters.EntityData.ParentYangName = "member-data"
     mlacpTlvCounters.EntityData.SegmentPath = "mlacp-tlv-counters"
+    mlacpTlvCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/member-data/" + mlacpTlvCounters.EntityData.SegmentPath
     mlacpTlvCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacpTlvCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacpTlvCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26318,6 +27085,7 @@ func (receivedSyncRequests *BundleInformation_MlacpMemberCounters_Nodes_Node_Nod
     receivedSyncRequests.EntityData.BundleName = "cisco_ios_xr"
     receivedSyncRequests.EntityData.ParentYangName = "mlacp-tlv-counters"
     receivedSyncRequests.EntityData.SegmentPath = "received-sync-requests"
+    receivedSyncRequests.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundle-information/mlacp-member-counters/nodes/node/node-item/items/member-data/mlacp-tlv-counters/" + receivedSyncRequests.EntityData.SegmentPath
     receivedSyncRequests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedSyncRequests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedSyncRequests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26349,6 +27117,7 @@ func (lacpData *LacpData) GetEntityData() *types.CommonEntityData {
     lacpData.EntityData.BundleName = "cisco_ios_xr"
     lacpData.EntityData.ParentYangName = "Cisco-IOS-XR-bundlemgr-oper"
     lacpData.EntityData.SegmentPath = "Cisco-IOS-XR-bundlemgr-oper:lacp-data"
+    lacpData.EntityData.AbsolutePath = lacpData.EntityData.SegmentPath
     lacpData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26378,6 +27147,7 @@ func (global *LacpData_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "lacp-data"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-data/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26419,6 +27189,7 @@ func (systemId *LacpData_Global_SystemId) GetEntityData() *types.CommonEntityDat
     systemId.EntityData.BundleName = "cisco_ios_xr"
     systemId.EntityData.ParentYangName = "global"
     systemId.EntityData.SegmentPath = "system-id"
+    systemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-data/global/" + systemId.EntityData.SegmentPath
     systemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26454,6 +27225,7 @@ func (systemId *LacpData_Global_SystemId_SystemId) GetEntityData() *types.Common
     systemId.EntityData.BundleName = "cisco_ios_xr"
     systemId.EntityData.ParentYangName = "system-id"
     systemId.EntityData.SegmentPath = "system-id"
+    systemId.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-data/global/system-id/" + systemId.EntityData.SegmentPath
     systemId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26485,6 +27257,7 @@ func (systemMacAddr *LacpData_Global_SystemId_SystemId_SystemMacAddr) GetEntityD
     systemMacAddr.EntityData.BundleName = "cisco_ios_xr"
     systemMacAddr.EntityData.ParentYangName = "system-id"
     systemMacAddr.EntityData.SegmentPath = "system-mac-addr"
+    systemMacAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-data/global/system-id/system-id/" + systemMacAddr.EntityData.SegmentPath
     systemMacAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemMacAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemMacAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26514,6 +27287,7 @@ func (bundles *Bundles) GetEntityData() *types.CommonEntityData {
     bundles.EntityData.BundleName = "cisco_ios_xr"
     bundles.EntityData.ParentYangName = "Cisco-IOS-XR-bundlemgr-oper"
     bundles.EntityData.SegmentPath = "Cisco-IOS-XR-bundlemgr-oper:bundles"
+    bundles.EntityData.AbsolutePath = bundles.EntityData.SegmentPath
     bundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26543,6 +27317,7 @@ func (bundles *Bundles_Bundles) GetEntityData() *types.CommonEntityData {
     bundles.EntityData.BundleName = "cisco_ios_xr"
     bundles.EntityData.ParentYangName = "bundles"
     bundles.EntityData.SegmentPath = "bundles"
+    bundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/" + bundles.EntityData.SegmentPath
     bundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26564,6 +27339,7 @@ func (bundles *Bundles_Bundles) GetEntityData() *types.CommonEntityData {
 type Bundles_Bundles_Bundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -26582,6 +27358,7 @@ func (bundle *Bundles_Bundles_Bundle) GetEntityData() *types.CommonEntityData {
     bundle.EntityData.BundleName = "cisco_ios_xr"
     bundle.EntityData.ParentYangName = "bundles"
     bundle.EntityData.SegmentPath = "bundle" + types.AddKeyToken(bundle.BundleInterface, "bundle-interface")
+    bundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/" + bundle.EntityData.SegmentPath
     bundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26761,6 +27538,7 @@ func (data *Bundles_Bundles_Bundle_Data) GetEntityData() *types.CommonEntityData
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "bundle"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26769,6 +27547,7 @@ func (data *Bundles_Bundles_Bundle_Data) GetEntityData() *types.CommonEntityData
     data.EntityData.Children.Append("mac-address", types.YChild{"MacAddress", &data.MacAddress})
     data.EntityData.Children.Append("bfd-config", types.YChild{"BfdConfig", nil})
     for i := range data.BfdConfig {
+        types.SetYListKey(data.BfdConfig[i], i)
         data.EntityData.Children.Append(types.GetSegmentPath(data.BfdConfig[i]), types.YChild{"BfdConfig", data.BfdConfig[i]})
     }
     data.EntityData.Leafs = types.NewOrderedMap()
@@ -26833,6 +27612,7 @@ func (macAddress *Bundles_Bundles_Bundle_Data_MacAddress) GetEntityData() *types
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "data"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/data/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26851,6 +27631,7 @@ func (macAddress *Bundles_Bundles_Bundle_Data_MacAddress) GetEntityData() *types
 type Bundles_Bundles_Bundle_Data_BfdConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Status of BFD on the bundle. The type is BmdBfdBdlState.
     BundleStatus interface{}
@@ -26892,7 +27673,8 @@ func (bfdConfig *Bundles_Bundles_Bundle_Data_BfdConfig) GetEntityData() *types.C
     bfdConfig.EntityData.YangName = "bfd-config"
     bfdConfig.EntityData.BundleName = "cisco_ios_xr"
     bfdConfig.EntityData.ParentYangName = "data"
-    bfdConfig.EntityData.SegmentPath = "bfd-config"
+    bfdConfig.EntityData.SegmentPath = "bfd-config" + types.AddNoKeyToken(bfdConfig)
+    bfdConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/data/" + bfdConfig.EntityData.SegmentPath
     bfdConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26938,6 +27720,7 @@ func (destinationAddress *Bundles_Bundles_Bundle_Data_BfdConfig_DestinationAddre
     destinationAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationAddress.EntityData.ParentYangName = "bfd-config"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/data/bfd-config/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26970,6 +27753,7 @@ func (members *Bundles_Bundles_Bundle_Members) GetEntityData() *types.CommonEnti
     members.EntityData.BundleName = "cisco_ios_xr"
     members.EntityData.ParentYangName = "bundle"
     members.EntityData.SegmentPath = "members"
+    members.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/" + members.EntityData.SegmentPath
     members.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     members.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26991,6 +27775,7 @@ func (members *Bundles_Bundles_Bundle_Members) GetEntityData() *types.CommonEnti
 type Bundles_Bundles_Bundle_Members_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -27046,6 +27831,7 @@ func (member *Bundles_Bundles_Bundle_Members_Member) GetEntityData() *types.Comm
     member.EntityData.BundleName = "cisco_ios_xr"
     member.EntityData.ParentYangName = "members"
     member.EntityData.SegmentPath = "member" + types.AddKeyToken(member.MemberInterface, "member-interface")
+    member.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/members/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     member.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27127,6 +27913,7 @@ func (counters *Bundles_Bundles_Bundle_Members_Member_Counters) GetEntityData() 
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "member"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/members/member/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27220,6 +28007,7 @@ func (linkData *Bundles_Bundles_Bundle_Members_Member_LinkData) GetEntityData() 
     linkData.EntityData.BundleName = "cisco_ios_xr"
     linkData.EntityData.ParentYangName = "member"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/members/member/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27279,6 +28067,7 @@ func (memberMuxData *Bundles_Bundles_Bundle_Members_Member_MemberMuxData) GetEnt
     memberMuxData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxData.EntityData.ParentYangName = "member"
     memberMuxData.EntityData.SegmentPath = "member-mux-data"
+    memberMuxData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/members/member/" + memberMuxData.EntityData.SegmentPath
     memberMuxData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27317,6 +28106,7 @@ func (memberMuxStateReasonData *Bundles_Bundles_Bundle_Members_Member_MemberMuxD
     memberMuxStateReasonData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxStateReasonData.EntityData.ParentYangName = "member-mux-data"
     memberMuxStateReasonData.EntityData.SegmentPath = "member-mux-state-reason-data"
+    memberMuxStateReasonData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/members/member/member-mux-data/" + memberMuxStateReasonData.EntityData.SegmentPath
     memberMuxStateReasonData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxStateReasonData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxStateReasonData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27348,6 +28138,7 @@ func (macAddress *Bundles_Bundles_Bundle_Members_Member_MacAddress) GetEntityDat
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "member"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/members/member/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27380,6 +28171,7 @@ func (lacpBundleMembers *LacpBundleMembers) GetEntityData() *types.CommonEntityD
     lacpBundleMembers.EntityData.BundleName = "cisco_ios_xr"
     lacpBundleMembers.EntityData.ParentYangName = "Cisco-IOS-XR-bundlemgr-oper"
     lacpBundleMembers.EntityData.SegmentPath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundle-members"
+    lacpBundleMembers.EntityData.AbsolutePath = lacpBundleMembers.EntityData.SegmentPath
     lacpBundleMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lacpBundleMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lacpBundleMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27411,6 +28203,7 @@ func (nodes *LacpBundleMembers_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "lacp-bundle-members"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundle-members/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27432,6 +28225,7 @@ func (nodes *LacpBundleMembers_Nodes) GetEntityData() *types.CommonEntityData {
 type LacpBundleMembers_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. For a local device the Node ID e.g. '0_0_CPU0' ,
     // for a peer device the LDP ID followed by the ICCP Group ID e.g.
@@ -27448,6 +28242,7 @@ func (node *LacpBundleMembers_Nodes_Node) GetEntityData() *types.CommonEntityDat
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundle-members/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27503,6 +28298,7 @@ func (counters *LacpBundleMembers_Nodes_Node_Counters) GetEntityData() *types.Co
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "node"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundle-members/nodes/node/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27539,6 +28335,7 @@ func (members *LacpBundleMembers_Members) GetEntityData() *types.CommonEntityDat
     members.EntityData.BundleName = "cisco_ios_xr"
     members.EntityData.ParentYangName = "lacp-bundle-members"
     members.EntityData.SegmentPath = "members"
+    members.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundle-members/" + members.EntityData.SegmentPath
     members.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     members.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27560,6 +28357,7 @@ func (members *LacpBundleMembers_Members) GetEntityData() *types.CommonEntityDat
 type LacpBundleMembers_Members_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -27578,6 +28376,7 @@ func (member *LacpBundleMembers_Members_Member) GetEntityData() *types.CommonEnt
     member.EntityData.BundleName = "cisco_ios_xr"
     member.EntityData.ParentYangName = "members"
     member.EntityData.SegmentPath = "member" + types.AddKeyToken(member.MemberInterface, "member-interface")
+    member.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundle-members/members/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     member.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27663,6 +28462,7 @@ func (data *LacpBundleMembers_Members_Member_Data) GetEntityData() *types.Common
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "member"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundle-members/members/member/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27756,6 +28556,7 @@ func (counters *LacpBundleMembers_Members_Member_Counters) GetEntityData() *type
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "member"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:lacp-bundle-members/members/member/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27798,6 +28599,7 @@ func (bundlesAdjacency *BundlesAdjacency) GetEntityData() *types.CommonEntityDat
     bundlesAdjacency.EntityData.BundleName = "cisco_ios_xr"
     bundlesAdjacency.EntityData.ParentYangName = "Cisco-IOS-XR-bundlemgr-oper"
     bundlesAdjacency.EntityData.SegmentPath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency"
+    bundlesAdjacency.EntityData.AbsolutePath = bundlesAdjacency.EntityData.SegmentPath
     bundlesAdjacency.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundlesAdjacency.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundlesAdjacency.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27827,6 +28629,7 @@ func (nodes *BundlesAdjacency_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "bundles-adjacency"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27848,6 +28651,7 @@ func (nodes *BundlesAdjacency_Nodes) GetEntityData() *types.CommonEntityData {
 type BundlesAdjacency_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -27866,6 +28670,7 @@ func (node *BundlesAdjacency_Nodes_Node) GetEntityData() *types.CommonEntityData
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27898,6 +28703,7 @@ func (brief *BundlesAdjacency_Nodes_Node_Brief) GetEntityData() *types.CommonEnt
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "node"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27905,6 +28711,7 @@ func (brief *BundlesAdjacency_Nodes_Node_Brief) GetEntityData() *types.CommonEnt
     brief.EntityData.Children = types.NewOrderedMap()
     brief.EntityData.Children.Append("bundle-data", types.YChild{"BundleData", nil})
     for i := range brief.BundleData {
+        types.SetYListKey(brief.BundleData[i], i)
         brief.EntityData.Children.Append(types.GetSegmentPath(brief.BundleData[i]), types.YChild{"BundleData", brief.BundleData[i]})
     }
     brief.EntityData.Leafs = types.NewOrderedMap()
@@ -27919,6 +28726,7 @@ func (brief *BundlesAdjacency_Nodes_Node_Brief) GetEntityData() *types.CommonEnt
 type BundlesAdjacency_Nodes_Node_Brief_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -27945,7 +28753,8 @@ func (bundleData *BundlesAdjacency_Nodes_Node_Brief_BundleData) GetEntityData() 
     bundleData.EntityData.YangName = "bundle-data"
     bundleData.EntityData.BundleName = "cisco_ios_xr"
     bundleData.EntityData.ParentYangName = "brief"
-    bundleData.EntityData.SegmentPath = "bundle-data"
+    bundleData.EntityData.SegmentPath = "bundle-data" + types.AddNoKeyToken(bundleData)
+    bundleData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/brief/" + bundleData.EntityData.SegmentPath
     bundleData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27953,6 +28762,7 @@ func (bundleData *BundlesAdjacency_Nodes_Node_Brief_BundleData) GetEntityData() 
     bundleData.EntityData.Children = types.NewOrderedMap()
     bundleData.EntityData.Children.Append("sub-interface", types.YChild{"SubInterface", nil})
     for i := range bundleData.SubInterface {
+        types.SetYListKey(bundleData.SubInterface[i], i)
         bundleData.EntityData.Children.Append(types.GetSegmentPath(bundleData.SubInterface[i]), types.YChild{"SubInterface", bundleData.SubInterface[i]})
     }
     bundleData.EntityData.Leafs = types.NewOrderedMap()
@@ -27971,6 +28781,7 @@ func (bundleData *BundlesAdjacency_Nodes_Node_Brief_BundleData) GetEntityData() 
 type BundlesAdjacency_Nodes_Node_Brief_BundleData_SubInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sub interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -27984,7 +28795,8 @@ func (subInterface *BundlesAdjacency_Nodes_Node_Brief_BundleData_SubInterface) G
     subInterface.EntityData.YangName = "sub-interface"
     subInterface.EntityData.BundleName = "cisco_ios_xr"
     subInterface.EntityData.ParentYangName = "bundle-data"
-    subInterface.EntityData.SegmentPath = "sub-interface"
+    subInterface.EntityData.SegmentPath = "sub-interface" + types.AddNoKeyToken(subInterface)
+    subInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/brief/bundle-data/" + subInterface.EntityData.SegmentPath
     subInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28022,6 +28834,7 @@ func (loadBalanceData *BundlesAdjacency_Nodes_Node_Brief_BundleData_SubInterface
     loadBalanceData.EntityData.BundleName = "cisco_ios_xr"
     loadBalanceData.EntityData.ParentYangName = "sub-interface"
     loadBalanceData.EntityData.SegmentPath = "load-balance-data"
+    loadBalanceData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/brief/bundle-data/sub-interface/" + loadBalanceData.EntityData.SegmentPath
     loadBalanceData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadBalanceData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadBalanceData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28054,6 +28867,7 @@ func (bundles *BundlesAdjacency_Nodes_Node_Bundles) GetEntityData() *types.Commo
     bundles.EntityData.BundleName = "cisco_ios_xr"
     bundles.EntityData.ParentYangName = "node"
     bundles.EntityData.SegmentPath = "bundles"
+    bundles.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/" + bundles.EntityData.SegmentPath
     bundles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28075,6 +28889,7 @@ func (bundles *BundlesAdjacency_Nodes_Node_Bundles) GetEntityData() *types.Commo
 type BundlesAdjacency_Nodes_Node_Bundles_Bundle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -28090,6 +28905,7 @@ func (bundle *BundlesAdjacency_Nodes_Node_Bundles_Bundle) GetEntityData() *types
     bundle.EntityData.BundleName = "cisco_ios_xr"
     bundle.EntityData.ParentYangName = "bundles"
     bundle.EntityData.SegmentPath = "bundle" + types.AddKeyToken(bundle.BundleName, "bundle-name")
+    bundle.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/bundles/" + bundle.EntityData.SegmentPath
     bundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28141,6 +28957,7 @@ func (bundleInfo *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo) GetEnti
     bundleInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleInfo.EntityData.ParentYangName = "bundle"
     bundleInfo.EntityData.SegmentPath = "bundle-info"
+    bundleInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/bundles/bundle/" + bundleInfo.EntityData.SegmentPath
     bundleInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28150,10 +28967,12 @@ func (bundleInfo *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo) GetEnti
     bundleInfo.EntityData.Children.Append("load-balance-data", types.YChild{"LoadBalanceData", &bundleInfo.LoadBalanceData})
     bundleInfo.EntityData.Children.Append("member", types.YChild{"Member", nil})
     for i := range bundleInfo.Member {
+        types.SetYListKey(bundleInfo.Member[i], i)
         bundleInfo.EntityData.Children.Append(types.GetSegmentPath(bundleInfo.Member[i]), types.YChild{"Member", bundleInfo.Member[i]})
     }
     bundleInfo.EntityData.Children.Append("sub-interface", types.YChild{"SubInterface", nil})
     for i := range bundleInfo.SubInterface {
+        types.SetYListKey(bundleInfo.SubInterface[i], i)
         bundleInfo.EntityData.Children.Append(types.GetSegmentPath(bundleInfo.SubInterface[i]), types.YChild{"SubInterface", bundleInfo.SubInterface[i]})
     }
     bundleInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -28198,6 +29017,7 @@ func (brief *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Brief) GetEnt
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "bundle-info"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/bundles/bundle/bundle-info/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28205,6 +29025,7 @@ func (brief *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Brief) GetEnt
     brief.EntityData.Children = types.NewOrderedMap()
     brief.EntityData.Children.Append("sub-interface", types.YChild{"SubInterface", nil})
     for i := range brief.SubInterface {
+        types.SetYListKey(brief.SubInterface[i], i)
         brief.EntityData.Children.Append(types.GetSegmentPath(brief.SubInterface[i]), types.YChild{"SubInterface", brief.SubInterface[i]})
     }
     brief.EntityData.Leafs = types.NewOrderedMap()
@@ -28223,6 +29044,7 @@ func (brief *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Brief) GetEnt
 type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Brief_SubInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sub interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -28236,7 +29058,8 @@ func (subInterface *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Brief_
     subInterface.EntityData.YangName = "sub-interface"
     subInterface.EntityData.BundleName = "cisco_ios_xr"
     subInterface.EntityData.ParentYangName = "brief"
-    subInterface.EntityData.SegmentPath = "sub-interface"
+    subInterface.EntityData.SegmentPath = "sub-interface" + types.AddNoKeyToken(subInterface)
+    subInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/bundles/bundle/bundle-info/brief/" + subInterface.EntityData.SegmentPath
     subInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28274,6 +29097,7 @@ func (loadBalanceData *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Bri
     loadBalanceData.EntityData.BundleName = "cisco_ios_xr"
     loadBalanceData.EntityData.ParentYangName = "sub-interface"
     loadBalanceData.EntityData.SegmentPath = "load-balance-data"
+    loadBalanceData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/bundles/bundle/bundle-info/brief/sub-interface/" + loadBalanceData.EntityData.SegmentPath
     loadBalanceData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadBalanceData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadBalanceData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28312,6 +29136,7 @@ func (loadBalanceData *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Loa
     loadBalanceData.EntityData.BundleName = "cisco_ios_xr"
     loadBalanceData.EntityData.ParentYangName = "bundle-info"
     loadBalanceData.EntityData.SegmentPath = "load-balance-data"
+    loadBalanceData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/bundles/bundle/bundle-info/" + loadBalanceData.EntityData.SegmentPath
     loadBalanceData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadBalanceData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadBalanceData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28332,6 +29157,7 @@ func (loadBalanceData *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Loa
 type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Member interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -28352,7 +29178,8 @@ func (member *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Member) GetE
     member.EntityData.YangName = "member"
     member.EntityData.BundleName = "cisco_ios_xr"
     member.EntityData.ParentYangName = "bundle-info"
-    member.EntityData.SegmentPath = "member"
+    member.EntityData.SegmentPath = "member" + types.AddNoKeyToken(member)
+    member.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/bundles/bundle/bundle-info/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     member.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28374,6 +29201,7 @@ func (member *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Member) GetE
 type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_SubInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Sub interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -28387,7 +29215,8 @@ func (subInterface *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_SubInt
     subInterface.EntityData.YangName = "sub-interface"
     subInterface.EntityData.BundleName = "cisco_ios_xr"
     subInterface.EntityData.ParentYangName = "bundle-info"
-    subInterface.EntityData.SegmentPath = "sub-interface"
+    subInterface.EntityData.SegmentPath = "sub-interface" + types.AddNoKeyToken(subInterface)
+    subInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/bundles/bundle/bundle-info/" + subInterface.EntityData.SegmentPath
     subInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28425,6 +29254,7 @@ func (loadBalanceData *BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Sub
     loadBalanceData.EntityData.BundleName = "cisco_ios_xr"
     loadBalanceData.EntityData.ParentYangName = "sub-interface"
     loadBalanceData.EntityData.SegmentPath = "load-balance-data"
+    loadBalanceData.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency/nodes/node/bundles/bundle/bundle-info/sub-interface/" + loadBalanceData.EntityData.SegmentPath
     loadBalanceData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadBalanceData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadBalanceData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

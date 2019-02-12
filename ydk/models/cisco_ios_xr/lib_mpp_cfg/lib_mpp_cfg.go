@@ -40,6 +40,7 @@ func (controlPlane *ControlPlane) GetEntityData() *types.CommonEntityData {
     controlPlane.EntityData.BundleName = "cisco_ios_xr"
     controlPlane.EntityData.ParentYangName = "Cisco-IOS-XR-lib-mpp-cfg"
     controlPlane.EntityData.SegmentPath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane"
+    controlPlane.EntityData.AbsolutePath = controlPlane.EntityData.SegmentPath
     controlPlane.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controlPlane.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controlPlane.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -75,6 +76,7 @@ func (managementPlaneProtection *ControlPlane_ManagementPlaneProtection) GetEnti
     managementPlaneProtection.EntityData.BundleName = "cisco_ios_xr"
     managementPlaneProtection.EntityData.ParentYangName = "control-plane"
     managementPlaneProtection.EntityData.SegmentPath = "management-plane-protection"
+    managementPlaneProtection.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/" + managementPlaneProtection.EntityData.SegmentPath
     managementPlaneProtection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     managementPlaneProtection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     managementPlaneProtection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -109,6 +111,7 @@ func (outband *ControlPlane_ManagementPlaneProtection_Outband) GetEntityData() *
     outband.EntityData.BundleName = "cisco_ios_xr"
     outband.EntityData.ParentYangName = "management-plane-protection"
     outband.EntityData.SegmentPath = "outband"
+    outband.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/" + outband.EntityData.SegmentPath
     outband.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outband.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outband.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -142,6 +145,7 @@ func (interfaceSelection *ControlPlane_ManagementPlaneProtection_Outband_Interfa
     interfaceSelection.EntityData.BundleName = "cisco_ios_xr"
     interfaceSelection.EntityData.ParentYangName = "outband"
     interfaceSelection.EntityData.SegmentPath = "interface-selection"
+    interfaceSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/" + interfaceSelection.EntityData.SegmentPath
     interfaceSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -173,6 +177,7 @@ func (interfaces *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interface-selection"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -194,6 +199,7 @@ func (interfaces *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -230,6 +236,7 @@ func (self *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -267,6 +274,7 @@ func (httpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     httpProtocol.EntityData.BundleName = "cisco_ios_xr"
     httpProtocol.EntityData.ParentYangName = "interface"
     httpProtocol.EntityData.SegmentPath = "http-protocol"
+    httpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/" + httpProtocol.EntityData.SegmentPath
     httpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     httpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -302,6 +310,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "http-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -336,6 +345,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -367,6 +377,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -388,6 +399,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -403,6 +415,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -433,6 +446,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -454,6 +468,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -469,6 +484,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -501,6 +517,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -532,6 +549,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -553,6 +571,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -568,6 +587,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -598,6 +618,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -619,6 +640,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -634,6 +656,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -663,6 +686,7 @@ func (tftpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     tftpProtocol.EntityData.BundleName = "cisco_ios_xr"
     tftpProtocol.EntityData.ParentYangName = "interface"
     tftpProtocol.EntityData.SegmentPath = "tftp-protocol"
+    tftpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/" + tftpProtocol.EntityData.SegmentPath
     tftpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tftpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -698,6 +722,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "tftp-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -732,6 +757,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -763,6 +789,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -784,6 +811,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -799,6 +827,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -829,6 +858,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -850,6 +880,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -865,6 +896,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -897,6 +929,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -928,6 +961,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -949,6 +983,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -964,6 +999,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -994,6 +1030,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1015,6 +1052,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -1030,6 +1068,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1059,6 +1098,7 @@ func (netconfProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceS
     netconfProtocol.EntityData.BundleName = "cisco_ios_xr"
     netconfProtocol.EntityData.ParentYangName = "interface"
     netconfProtocol.EntityData.SegmentPath = "netconf-protocol"
+    netconfProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/" + netconfProtocol.EntityData.SegmentPath
     netconfProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netconfProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1094,6 +1134,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "netconf-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1128,6 +1169,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1159,6 +1201,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1180,6 +1223,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -1195,6 +1239,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1225,6 +1270,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1246,6 +1292,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -1261,6 +1308,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1293,6 +1341,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1324,6 +1373,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1345,6 +1395,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -1360,6 +1411,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1390,6 +1442,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1411,6 +1464,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -1426,6 +1480,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1455,6 +1510,7 @@ func (xrXml *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     xrXml.EntityData.BundleName = "cisco_ios_xr"
     xrXml.EntityData.ParentYangName = "interface"
     xrXml.EntityData.SegmentPath = "xr-xml"
+    xrXml.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/" + xrXml.EntityData.SegmentPath
     xrXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1490,6 +1546,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "xr-xml"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1524,6 +1581,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1555,6 +1613,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1576,6 +1635,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -1591,6 +1651,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1621,6 +1682,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1642,6 +1704,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -1657,6 +1720,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1689,6 +1753,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1720,6 +1785,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1741,6 +1807,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -1756,6 +1823,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1786,6 +1854,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1807,6 +1876,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -1822,6 +1892,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1851,6 +1922,7 @@ func (sshProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelec
     sshProtocol.EntityData.BundleName = "cisco_ios_xr"
     sshProtocol.EntityData.ParentYangName = "interface"
     sshProtocol.EntityData.SegmentPath = "ssh-protocol"
+    sshProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/" + sshProtocol.EntityData.SegmentPath
     sshProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sshProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sshProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1886,6 +1958,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "ssh-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1920,6 +1993,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1951,6 +2025,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1972,6 +2047,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -1987,6 +2063,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2017,6 +2094,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2038,6 +2116,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -2053,6 +2132,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2085,6 +2165,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2116,6 +2197,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2137,6 +2219,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -2152,6 +2235,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2182,6 +2266,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2203,6 +2288,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -2218,6 +2304,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2247,6 +2334,7 @@ func (snmpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     snmpProtocol.EntityData.BundleName = "cisco_ios_xr"
     snmpProtocol.EntityData.ParentYangName = "interface"
     snmpProtocol.EntityData.SegmentPath = "snmp-protocol"
+    snmpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/" + snmpProtocol.EntityData.SegmentPath
     snmpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snmpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2282,6 +2370,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "snmp-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2316,6 +2405,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2347,6 +2437,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2368,6 +2459,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -2383,6 +2475,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2413,6 +2506,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2434,6 +2528,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -2449,6 +2544,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2481,6 +2577,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2512,6 +2609,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2533,6 +2631,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -2548,6 +2647,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2578,6 +2678,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2599,6 +2700,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -2614,6 +2716,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2643,6 +2746,7 @@ func (telnetProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSe
     telnetProtocol.EntityData.BundleName = "cisco_ios_xr"
     telnetProtocol.EntityData.ParentYangName = "interface"
     telnetProtocol.EntityData.SegmentPath = "telnet-protocol"
+    telnetProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/" + telnetProtocol.EntityData.SegmentPath
     telnetProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     telnetProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnetProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2678,6 +2782,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "telnet-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2712,6 +2817,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2743,6 +2849,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2764,6 +2871,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -2779,6 +2887,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2809,6 +2918,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2830,6 +2940,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -2845,6 +2956,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2877,6 +2989,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2908,6 +3021,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2929,6 +3043,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -2944,6 +3059,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2974,6 +3090,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2995,6 +3112,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -3010,6 +3128,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3039,6 +3158,7 @@ func (allProtocols *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     allProtocols.EntityData.BundleName = "cisco_ios_xr"
     allProtocols.EntityData.ParentYangName = "interface"
     allProtocols.EntityData.SegmentPath = "all-protocols"
+    allProtocols.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/" + allProtocols.EntityData.SegmentPath
     allProtocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allProtocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allProtocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3074,6 +3194,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "all-protocols"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3108,6 +3229,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3139,6 +3261,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3160,6 +3283,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -3175,6 +3299,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3205,6 +3330,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3226,6 +3352,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -3241,6 +3368,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3273,6 +3401,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3304,6 +3433,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3325,6 +3455,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_I
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -3340,6 +3471,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_In
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3370,6 +3502,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3391,6 +3524,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -3406,6 +3540,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3456,6 +3591,7 @@ func (allInterfaces *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSel
     allInterfaces.EntityData.BundleName = "cisco_ios_xr"
     allInterfaces.EntityData.ParentYangName = "interface-selection"
     allInterfaces.EntityData.SegmentPath = "all-interfaces"
+    allInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/" + allInterfaces.EntityData.SegmentPath
     allInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3492,6 +3628,7 @@ func (httpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     httpProtocol.EntityData.BundleName = "cisco_ios_xr"
     httpProtocol.EntityData.ParentYangName = "all-interfaces"
     httpProtocol.EntityData.SegmentPath = "http-protocol"
+    httpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/" + httpProtocol.EntityData.SegmentPath
     httpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     httpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3527,6 +3664,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "http-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3561,6 +3699,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3592,6 +3731,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3613,6 +3753,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -3628,6 +3769,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3658,6 +3800,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3679,6 +3822,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -3694,6 +3838,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3726,6 +3871,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3757,6 +3903,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3778,6 +3925,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -3793,6 +3941,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3823,6 +3972,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3844,6 +3994,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -3859,6 +4010,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3888,6 +4040,7 @@ func (tftpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     tftpProtocol.EntityData.BundleName = "cisco_ios_xr"
     tftpProtocol.EntityData.ParentYangName = "all-interfaces"
     tftpProtocol.EntityData.SegmentPath = "tftp-protocol"
+    tftpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/" + tftpProtocol.EntityData.SegmentPath
     tftpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tftpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3923,6 +4076,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "tftp-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3957,6 +4111,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3988,6 +4143,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4009,6 +4165,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -4024,6 +4181,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4054,6 +4212,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4075,6 +4234,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -4090,6 +4250,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4122,6 +4283,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4153,6 +4315,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4174,6 +4337,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -4189,6 +4353,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4219,6 +4384,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4240,6 +4406,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -4255,6 +4422,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4284,6 +4452,7 @@ func (netconfProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceS
     netconfProtocol.EntityData.BundleName = "cisco_ios_xr"
     netconfProtocol.EntityData.ParentYangName = "all-interfaces"
     netconfProtocol.EntityData.SegmentPath = "netconf-protocol"
+    netconfProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/" + netconfProtocol.EntityData.SegmentPath
     netconfProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netconfProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4319,6 +4488,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "netconf-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4353,6 +4523,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4384,6 +4555,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4405,6 +4577,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -4420,6 +4593,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4450,6 +4624,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4471,6 +4646,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -4486,6 +4662,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4518,6 +4695,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4549,6 +4727,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4570,6 +4749,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -4585,6 +4765,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4615,6 +4796,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4636,6 +4818,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -4651,6 +4834,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4680,6 +4864,7 @@ func (xrXml *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     xrXml.EntityData.BundleName = "cisco_ios_xr"
     xrXml.EntityData.ParentYangName = "all-interfaces"
     xrXml.EntityData.SegmentPath = "xr-xml"
+    xrXml.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/" + xrXml.EntityData.SegmentPath
     xrXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4715,6 +4900,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "xr-xml"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4749,6 +4935,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4780,6 +4967,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4801,6 +4989,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -4816,6 +5005,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4846,6 +5036,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4867,6 +5058,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -4882,6 +5074,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4914,6 +5107,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4945,6 +5139,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4966,6 +5161,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -4981,6 +5177,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5011,6 +5208,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5032,6 +5230,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -5047,6 +5246,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5076,6 +5276,7 @@ func (sshProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelec
     sshProtocol.EntityData.BundleName = "cisco_ios_xr"
     sshProtocol.EntityData.ParentYangName = "all-interfaces"
     sshProtocol.EntityData.SegmentPath = "ssh-protocol"
+    sshProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/" + sshProtocol.EntityData.SegmentPath
     sshProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sshProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sshProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5111,6 +5312,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "ssh-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5145,6 +5347,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5176,6 +5379,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5197,6 +5401,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -5212,6 +5417,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5242,6 +5448,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5263,6 +5470,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -5278,6 +5486,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5310,6 +5519,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5341,6 +5551,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5362,6 +5573,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -5377,6 +5589,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5407,6 +5620,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5428,6 +5642,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -5443,6 +5658,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5472,6 +5688,7 @@ func (snmpProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     snmpProtocol.EntityData.BundleName = "cisco_ios_xr"
     snmpProtocol.EntityData.ParentYangName = "all-interfaces"
     snmpProtocol.EntityData.SegmentPath = "snmp-protocol"
+    snmpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/" + snmpProtocol.EntityData.SegmentPath
     snmpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snmpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5507,6 +5724,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "snmp-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5541,6 +5759,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5572,6 +5791,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5593,6 +5813,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -5608,6 +5829,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5638,6 +5860,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5659,6 +5882,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -5674,6 +5898,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5706,6 +5931,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5737,6 +5963,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5758,6 +5985,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -5773,6 +6001,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5803,6 +6032,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5824,6 +6054,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -5839,6 +6070,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5868,6 +6100,7 @@ func (telnetProtocol *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSe
     telnetProtocol.EntityData.BundleName = "cisco_ios_xr"
     telnetProtocol.EntityData.ParentYangName = "all-interfaces"
     telnetProtocol.EntityData.SegmentPath = "telnet-protocol"
+    telnetProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/" + telnetProtocol.EntityData.SegmentPath
     telnetProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     telnetProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnetProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5903,6 +6136,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "telnet-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5937,6 +6171,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5968,6 +6203,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5989,6 +6225,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -6004,6 +6241,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6034,6 +6272,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6055,6 +6294,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -6070,6 +6310,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6102,6 +6343,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6133,6 +6375,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6154,6 +6397,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -6169,6 +6413,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6199,6 +6444,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6220,6 +6466,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -6235,6 +6482,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6264,6 +6512,7 @@ func (allProtocols *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     allProtocols.EntityData.BundleName = "cisco_ios_xr"
     allProtocols.EntityData.ParentYangName = "all-interfaces"
     allProtocols.EntityData.SegmentPath = "all-protocols"
+    allProtocols.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/" + allProtocols.EntityData.SegmentPath
     allProtocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allProtocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allProtocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6299,6 +6548,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelecti
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "all-protocols"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6333,6 +6583,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6364,6 +6615,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6385,6 +6637,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -6400,6 +6653,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6430,6 +6684,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6451,6 +6706,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -6466,6 +6722,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6498,6 +6755,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6529,6 +6787,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6550,6 +6809,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_A
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -6565,6 +6825,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Al
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6595,6 +6856,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6616,6 +6878,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSele
 type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -6631,6 +6894,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelect
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6660,6 +6924,7 @@ func (inband *ControlPlane_ManagementPlaneProtection_Inband) GetEntityData() *ty
     inband.EntityData.BundleName = "cisco_ios_xr"
     inband.EntityData.ParentYangName = "management-plane-protection"
     inband.EntityData.SegmentPath = "inband"
+    inband.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/" + inband.EntityData.SegmentPath
     inband.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inband.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inband.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6692,6 +6957,7 @@ func (interfaceSelection *ControlPlane_ManagementPlaneProtection_Inband_Interfac
     interfaceSelection.EntityData.BundleName = "cisco_ios_xr"
     interfaceSelection.EntityData.ParentYangName = "inband"
     interfaceSelection.EntityData.SegmentPath = "interface-selection"
+    interfaceSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/" + interfaceSelection.EntityData.SegmentPath
     interfaceSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6723,6 +6989,7 @@ func (interfaces *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interface-selection"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6744,6 +7011,7 @@ func (interfaces *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -6780,6 +7048,7 @@ func (self *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6817,6 +7086,7 @@ func (httpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     httpProtocol.EntityData.BundleName = "cisco_ios_xr"
     httpProtocol.EntityData.ParentYangName = "interface"
     httpProtocol.EntityData.SegmentPath = "http-protocol"
+    httpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/" + httpProtocol.EntityData.SegmentPath
     httpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     httpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6852,6 +7122,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "http-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6886,6 +7157,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6917,6 +7189,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6938,6 +7211,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -6953,6 +7227,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6983,6 +7258,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7004,6 +7280,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -7019,6 +7296,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7051,6 +7329,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7082,6 +7361,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7103,6 +7383,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -7118,6 +7399,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7148,6 +7430,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7169,6 +7452,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -7184,6 +7468,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/http-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7213,6 +7498,7 @@ func (tftpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     tftpProtocol.EntityData.BundleName = "cisco_ios_xr"
     tftpProtocol.EntityData.ParentYangName = "interface"
     tftpProtocol.EntityData.SegmentPath = "tftp-protocol"
+    tftpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/" + tftpProtocol.EntityData.SegmentPath
     tftpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tftpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7248,6 +7534,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "tftp-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7282,6 +7569,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7313,6 +7601,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7334,6 +7623,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -7349,6 +7639,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7379,6 +7670,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7400,6 +7692,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -7415,6 +7708,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7447,6 +7741,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7478,6 +7773,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7499,6 +7795,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -7514,6 +7811,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7544,6 +7842,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7565,6 +7864,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -7580,6 +7880,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/tftp-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7609,6 +7910,7 @@ func (netconfProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSe
     netconfProtocol.EntityData.BundleName = "cisco_ios_xr"
     netconfProtocol.EntityData.ParentYangName = "interface"
     netconfProtocol.EntityData.SegmentPath = "netconf-protocol"
+    netconfProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/" + netconfProtocol.EntityData.SegmentPath
     netconfProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netconfProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7644,6 +7946,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "netconf-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7678,6 +7981,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7709,6 +8013,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7730,6 +8035,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -7745,6 +8051,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7775,6 +8082,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7796,6 +8104,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -7811,6 +8120,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7843,6 +8153,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7874,6 +8185,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7895,6 +8207,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -7910,6 +8223,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7940,6 +8254,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7961,6 +8276,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -7976,6 +8292,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/netconf-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8005,6 +8322,7 @@ func (xrXml *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     xrXml.EntityData.BundleName = "cisco_ios_xr"
     xrXml.EntityData.ParentYangName = "interface"
     xrXml.EntityData.SegmentPath = "xr-xml"
+    xrXml.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/" + xrXml.EntityData.SegmentPath
     xrXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8040,6 +8358,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "xr-xml"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8074,6 +8393,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8105,6 +8425,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8126,6 +8447,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -8141,6 +8463,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8171,6 +8494,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8192,6 +8516,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -8207,6 +8532,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8239,6 +8565,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8270,6 +8597,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8291,6 +8619,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -8306,6 +8635,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8336,6 +8666,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8357,6 +8688,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -8372,6 +8704,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/xr-xml/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8401,6 +8734,7 @@ func (sshProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelect
     sshProtocol.EntityData.BundleName = "cisco_ios_xr"
     sshProtocol.EntityData.ParentYangName = "interface"
     sshProtocol.EntityData.SegmentPath = "ssh-protocol"
+    sshProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/" + sshProtocol.EntityData.SegmentPath
     sshProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sshProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sshProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8436,6 +8770,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "ssh-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8470,6 +8805,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8501,6 +8837,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8522,6 +8859,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -8537,6 +8875,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8567,6 +8906,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8588,6 +8928,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -8603,6 +8944,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8635,6 +8977,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8666,6 +9009,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8687,6 +9031,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -8702,6 +9047,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8732,6 +9078,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8753,6 +9100,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -8768,6 +9116,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/ssh-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8797,6 +9146,7 @@ func (snmpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     snmpProtocol.EntityData.BundleName = "cisco_ios_xr"
     snmpProtocol.EntityData.ParentYangName = "interface"
     snmpProtocol.EntityData.SegmentPath = "snmp-protocol"
+    snmpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/" + snmpProtocol.EntityData.SegmentPath
     snmpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snmpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8832,6 +9182,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "snmp-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8866,6 +9217,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8897,6 +9249,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8918,6 +9271,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -8933,6 +9287,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8963,6 +9318,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8984,6 +9340,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -8999,6 +9356,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9031,6 +9389,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9062,6 +9421,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9083,6 +9443,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -9098,6 +9459,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9128,6 +9490,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9149,6 +9512,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -9164,6 +9528,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/snmp-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9193,6 +9558,7 @@ func (telnetProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSel
     telnetProtocol.EntityData.BundleName = "cisco_ios_xr"
     telnetProtocol.EntityData.ParentYangName = "interface"
     telnetProtocol.EntityData.SegmentPath = "telnet-protocol"
+    telnetProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/" + telnetProtocol.EntityData.SegmentPath
     telnetProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     telnetProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnetProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9228,6 +9594,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "telnet-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9262,6 +9629,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9293,6 +9661,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9314,6 +9683,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -9329,6 +9699,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9359,6 +9730,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9380,6 +9752,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -9395,6 +9768,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9427,6 +9801,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9458,6 +9833,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9479,6 +9855,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -9494,6 +9871,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9524,6 +9902,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9545,6 +9924,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -9560,6 +9940,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/telnet-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9589,6 +9970,7 @@ func (allProtocols *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     allProtocols.EntityData.BundleName = "cisco_ios_xr"
     allProtocols.EntityData.ParentYangName = "interface"
     allProtocols.EntityData.SegmentPath = "all-protocols"
+    allProtocols.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/" + allProtocols.EntityData.SegmentPath
     allProtocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allProtocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allProtocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9624,6 +10006,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "all-protocols"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9658,6 +10041,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9689,6 +10073,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9710,6 +10095,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -9725,6 +10111,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9755,6 +10142,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9776,6 +10164,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -9791,6 +10180,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9823,6 +10213,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_I
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9854,6 +10245,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9875,6 +10267,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_In
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -9890,6 +10283,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Int
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9920,6 +10314,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9941,6 +10336,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces_Interface_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -9956,6 +10352,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/interface/all-protocols/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10006,6 +10403,7 @@ func (allInterfaces *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSele
     allInterfaces.EntityData.BundleName = "cisco_ios_xr"
     allInterfaces.EntityData.ParentYangName = "interface-selection"
     allInterfaces.EntityData.SegmentPath = "all-interfaces"
+    allInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/" + allInterfaces.EntityData.SegmentPath
     allInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10042,6 +10440,7 @@ func (httpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     httpProtocol.EntityData.BundleName = "cisco_ios_xr"
     httpProtocol.EntityData.ParentYangName = "all-interfaces"
     httpProtocol.EntityData.SegmentPath = "http-protocol"
+    httpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/" + httpProtocol.EntityData.SegmentPath
     httpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     httpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10077,6 +10476,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "http-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10111,6 +10511,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10142,6 +10543,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10163,6 +10565,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -10178,6 +10581,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10208,6 +10612,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10229,6 +10634,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -10244,6 +10650,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10276,6 +10683,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10307,6 +10715,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10328,6 +10737,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -10343,6 +10753,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10373,6 +10784,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10394,6 +10806,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_HttpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -10409,6 +10822,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10438,6 +10852,7 @@ func (tftpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     tftpProtocol.EntityData.BundleName = "cisco_ios_xr"
     tftpProtocol.EntityData.ParentYangName = "all-interfaces"
     tftpProtocol.EntityData.SegmentPath = "tftp-protocol"
+    tftpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/" + tftpProtocol.EntityData.SegmentPath
     tftpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tftpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10473,6 +10888,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "tftp-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10507,6 +10923,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10538,6 +10955,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10559,6 +10977,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -10574,6 +10993,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10604,6 +11024,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10625,6 +11046,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -10640,6 +11062,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10672,6 +11095,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10703,6 +11127,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10724,6 +11149,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -10739,6 +11165,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10769,6 +11196,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10790,6 +11218,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TftpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -10805,6 +11234,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10834,6 +11264,7 @@ func (netconfProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSe
     netconfProtocol.EntityData.BundleName = "cisco_ios_xr"
     netconfProtocol.EntityData.ParentYangName = "all-interfaces"
     netconfProtocol.EntityData.SegmentPath = "netconf-protocol"
+    netconfProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/" + netconfProtocol.EntityData.SegmentPath
     netconfProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netconfProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10869,6 +11300,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "netconf-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10903,6 +11335,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10934,6 +11367,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10955,6 +11389,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -10970,6 +11405,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11000,6 +11436,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11021,6 +11458,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -11036,6 +11474,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11068,6 +11507,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11099,6 +11539,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11120,6 +11561,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -11135,6 +11577,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11165,6 +11608,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11186,6 +11630,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_NetconfProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -11201,6 +11646,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11230,6 +11676,7 @@ func (xrXml *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     xrXml.EntityData.BundleName = "cisco_ios_xr"
     xrXml.EntityData.ParentYangName = "all-interfaces"
     xrXml.EntityData.SegmentPath = "xr-xml"
+    xrXml.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/" + xrXml.EntityData.SegmentPath
     xrXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11265,6 +11712,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "xr-xml"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11299,6 +11747,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11330,6 +11779,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11351,6 +11801,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -11366,6 +11817,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11396,6 +11848,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11417,6 +11870,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -11432,6 +11886,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11464,6 +11919,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11495,6 +11951,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11516,6 +11973,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -11531,6 +11989,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11561,6 +12020,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11582,6 +12042,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_XrXml_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -11597,6 +12058,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11626,6 +12088,7 @@ func (sshProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelect
     sshProtocol.EntityData.BundleName = "cisco_ios_xr"
     sshProtocol.EntityData.ParentYangName = "all-interfaces"
     sshProtocol.EntityData.SegmentPath = "ssh-protocol"
+    sshProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/" + sshProtocol.EntityData.SegmentPath
     sshProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sshProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sshProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11661,6 +12124,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "ssh-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11695,6 +12159,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11726,6 +12191,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11747,6 +12213,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -11762,6 +12229,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11792,6 +12260,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11813,6 +12282,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -11828,6 +12298,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11860,6 +12331,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11891,6 +12363,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11912,6 +12385,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -11927,6 +12401,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11957,6 +12432,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11978,6 +12454,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SshProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -11993,6 +12470,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12022,6 +12500,7 @@ func (snmpProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     snmpProtocol.EntityData.BundleName = "cisco_ios_xr"
     snmpProtocol.EntityData.ParentYangName = "all-interfaces"
     snmpProtocol.EntityData.SegmentPath = "snmp-protocol"
+    snmpProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/" + snmpProtocol.EntityData.SegmentPath
     snmpProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snmpProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12057,6 +12536,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "snmp-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12091,6 +12571,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12122,6 +12603,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12143,6 +12625,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -12158,6 +12641,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12188,6 +12672,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12209,6 +12694,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -12224,6 +12710,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12256,6 +12743,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12287,6 +12775,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12308,6 +12797,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -12323,6 +12813,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12353,6 +12844,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12374,6 +12866,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_SnmpProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -12389,6 +12882,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12418,6 +12912,7 @@ func (telnetProtocol *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSel
     telnetProtocol.EntityData.BundleName = "cisco_ios_xr"
     telnetProtocol.EntityData.ParentYangName = "all-interfaces"
     telnetProtocol.EntityData.SegmentPath = "telnet-protocol"
+    telnetProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/" + telnetProtocol.EntityData.SegmentPath
     telnetProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     telnetProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     telnetProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12453,6 +12948,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "telnet-protocol"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12487,6 +12983,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12518,6 +13015,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12539,6 +13037,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -12554,6 +13053,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12584,6 +13084,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12605,6 +13106,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -12620,6 +13122,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12652,6 +13155,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12683,6 +13187,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12704,6 +13209,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -12719,6 +13225,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12749,6 +13256,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12770,6 +13278,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_TelnetProtocol_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -12785,6 +13294,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12814,6 +13324,7 @@ func (allProtocols *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     allProtocols.EntityData.BundleName = "cisco_ios_xr"
     allProtocols.EntityData.ParentYangName = "all-interfaces"
     allProtocols.EntityData.SegmentPath = "all-protocols"
+    allProtocols.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/" + allProtocols.EntityData.SegmentPath
     allProtocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allProtocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allProtocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12849,6 +13360,7 @@ func (peerClass *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelectio
     peerClass.EntityData.BundleName = "cisco_ios_xr"
     peerClass.EntityData.ParentYangName = "all-protocols"
     peerClass.EntityData.SegmentPath = "peer-class"
+    peerClass.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/" + peerClass.EntityData.SegmentPath
     peerClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12883,6 +13395,7 @@ func (peerV4 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV4.EntityData.BundleName = "cisco_ios_xr"
     peerV4.EntityData.ParentYangName = "peer-class"
     peerV4.EntityData.SegmentPath = "peer-v4"
+    peerV4.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/" + peerV4.EntityData.SegmentPath
     peerV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12914,6 +13427,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v4"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12935,6 +13449,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -12950,6 +13465,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12980,6 +13496,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v4"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13001,6 +13518,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV4_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -13016,6 +13534,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13048,6 +13567,7 @@ func (peerV6 *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_A
     peerV6.EntityData.BundleName = "cisco_ios_xr"
     peerV6.EntityData.ParentYangName = "peer-class"
     peerV6.EntityData.SegmentPath = "peer-v6"
+    peerV6.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/" + peerV6.EntityData.SegmentPath
     peerV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13079,6 +13599,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "peer-v6"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13100,6 +13621,7 @@ func (peers *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Al
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix. The type is one of the following types:
     // string with pattern:
@@ -13115,6 +13637,7 @@ func (peer *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_All
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.Address, "address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13145,6 +13668,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
     peerPrefixes.EntityData.BundleName = "cisco_ios_xr"
     peerPrefixes.EntityData.ParentYangName = "peer-v6"
     peerPrefixes.EntityData.SegmentPath = "peer-prefixes"
+    peerPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/" + peerPrefixes.EntityData.SegmentPath
     peerPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13166,6 +13690,7 @@ func (peerPrefixes *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelec
 type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_AllInterfaces_AllProtocols_PeerClass_PeerV6_PeerPrefixes_PeerPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix/length. The type is one of the following
     // types: string with pattern:
@@ -13181,6 +13706,7 @@ func (peerPrefix *ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelecti
     peerPrefix.EntityData.BundleName = "cisco_ios_xr"
     peerPrefix.EntityData.ParentYangName = "peer-prefixes"
     peerPrefix.EntityData.SegmentPath = "peer-prefix" + types.AddKeyToken(peerPrefix.AddressPrefix, "address-prefix")
+    peerPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/peer-prefixes/" + peerPrefix.EntityData.SegmentPath
     peerPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13211,6 +13737,7 @@ func (tpa *ControlPlane_ManagementPlaneProtection_Tpa) GetEntityData() *types.Co
     tpa.EntityData.BundleName = "cisco_ios_xr"
     tpa.EntityData.ParentYangName = "management-plane-protection"
     tpa.EntityData.SegmentPath = "tpa"
+    tpa.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/" + tpa.EntityData.SegmentPath
     tpa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tpa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tpa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13241,6 +13768,7 @@ func (vrfs *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs) GetEntityData() *ty
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "tpa"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13262,6 +13790,7 @@ func (vrfs *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs) GetEntityData() *ty
 type ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with length: 1..32.
     VrfName interface{}
@@ -13276,6 +13805,7 @@ func (vrf *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf) GetEntityData() 
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13309,6 +13839,7 @@ func (addressFamily *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_Address
     addressFamily.EntityData.BundleName = "cisco_ios_xr"
     addressFamily.EntityData.ParentYangName = "vrf"
     addressFamily.EntityData.SegmentPath = "address-family"
+    addressFamily.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/vrfs/vrf/" + addressFamily.EntityData.SegmentPath
     addressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13340,6 +13871,7 @@ func (ipv4Table *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFami
     ipv4Table.EntityData.BundleName = "cisco_ios_xr"
     ipv4Table.EntityData.ParentYangName = "address-family"
     ipv4Table.EntityData.SegmentPath = "ipv4-table"
+    ipv4Table.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/vrfs/vrf/address-family/" + ipv4Table.EntityData.SegmentPath
     ipv4Table.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Table.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Table.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13361,6 +13893,7 @@ func (ipv4Table *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFami
 type ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv4Table_TpaAllow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local port value. The type is interface{} with
     // range: 1..65535.
@@ -13397,6 +13930,7 @@ func (tpaAllow *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamil
     tpaAllow.EntityData.BundleName = "cisco_ios_xr"
     tpaAllow.EntityData.ParentYangName = "ipv4-table"
     tpaAllow.EntityData.SegmentPath = "tpa-allow" + types.AddKeyToken(tpaAllow.LocalPort, "local-port") + types.AddKeyToken(tpaAllow.Protocol, "protocol")
+    tpaAllow.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/vrfs/vrf/address-family/ipv4-table/" + tpaAllow.EntityData.SegmentPath
     tpaAllow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tpaAllow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tpaAllow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13433,6 +13967,7 @@ func (ipv6Table *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFami
     ipv6Table.EntityData.BundleName = "cisco_ios_xr"
     ipv6Table.EntityData.ParentYangName = "address-family"
     ipv6Table.EntityData.SegmentPath = "ipv6-table"
+    ipv6Table.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/vrfs/vrf/address-family/" + ipv6Table.EntityData.SegmentPath
     ipv6Table.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Table.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Table.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13454,6 +13989,7 @@ func (ipv6Table *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFami
 type ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamily_Ipv6Table_TpaAllow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local port value. The type is interface{} with
     // range: 1..65535.
@@ -13490,6 +14026,7 @@ func (tpaAllow *ControlPlane_ManagementPlaneProtection_Tpa_Vrfs_Vrf_AddressFamil
     tpaAllow.EntityData.BundleName = "cisco_ios_xr"
     tpaAllow.EntityData.ParentYangName = "ipv6-table"
     tpaAllow.EntityData.SegmentPath = "tpa-allow" + types.AddKeyToken(tpaAllow.LocalPort, "local-port") + types.AddKeyToken(tpaAllow.Protocol, "protocol")
+    tpaAllow.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/vrfs/vrf/address-family/ipv6-table/" + tpaAllow.EntityData.SegmentPath
     tpaAllow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tpaAllow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tpaAllow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -62,6 +62,7 @@ func (utdOperData *UtdOperData) GetEntityData() *types.CommonEntityData {
     utdOperData.EntityData.BundleName = "cisco_ios_xe"
     utdOperData.EntityData.ParentYangName = "Cisco-IOS-XE-utd-oper"
     utdOperData.EntityData.SegmentPath = "Cisco-IOS-XE-utd-oper:utd-oper-data"
+    utdOperData.EntityData.AbsolutePath = utdOperData.EntityData.SegmentPath
     utdOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     utdOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utdOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -115,6 +116,7 @@ func (utdEngineStatus *UtdOperData_UtdEngineStatus) GetEntityData() *types.Commo
     utdEngineStatus.EntityData.BundleName = "cisco_ios_xe"
     utdEngineStatus.EntityData.ParentYangName = "utd-oper-data"
     utdEngineStatus.EntityData.SegmentPath = "utd-engine-status"
+    utdEngineStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-utd-oper:utd-oper-data/" + utdEngineStatus.EntityData.SegmentPath
     utdEngineStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     utdEngineStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utdEngineStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -142,6 +144,7 @@ func (utdEngineStatus *UtdOperData_UtdEngineStatus) GetEntityData() *types.Commo
 type UtdOperData_UtdEngineStatus_UtdEngineInstanceStatus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Engine instance ID. The type is interface{} with
     // range: 0..4294967295.
@@ -163,6 +166,7 @@ func (utdEngineInstanceStatus *UtdOperData_UtdEngineStatus_UtdEngineInstanceStat
     utdEngineInstanceStatus.EntityData.BundleName = "cisco_ios_xe"
     utdEngineInstanceStatus.EntityData.ParentYangName = "utd-engine-status"
     utdEngineInstanceStatus.EntityData.SegmentPath = "utd-engine-instance-status" + types.AddKeyToken(utdEngineInstanceStatus.Id, "id")
+    utdEngineInstanceStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-utd-oper:utd-oper-data/utd-engine-status/" + utdEngineInstanceStatus.EntityData.SegmentPath
     utdEngineInstanceStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     utdEngineInstanceStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utdEngineInstanceStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -197,6 +201,7 @@ func (utdIpsUpdateStatus *UtdOperData_UtdIpsUpdateStatus) GetEntityData() *types
     utdIpsUpdateStatus.EntityData.BundleName = "cisco_ios_xe"
     utdIpsUpdateStatus.EntityData.ParentYangName = "utd-oper-data"
     utdIpsUpdateStatus.EntityData.SegmentPath = "utd-ips-update-status"
+    utdIpsUpdateStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-utd-oper:utd-oper-data/" + utdIpsUpdateStatus.EntityData.SegmentPath
     utdIpsUpdateStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     utdIpsUpdateStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utdIpsUpdateStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -240,6 +245,7 @@ func (ipsUpdateStatus *UtdOperData_UtdIpsUpdateStatus_IpsUpdateStatus) GetEntity
     ipsUpdateStatus.EntityData.BundleName = "cisco_ios_xe"
     ipsUpdateStatus.EntityData.ParentYangName = "utd-ips-update-status"
     ipsUpdateStatus.EntityData.SegmentPath = "ips-update-status"
+    ipsUpdateStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-utd-oper:utd-oper-data/utd-ips-update-status/" + ipsUpdateStatus.EntityData.SegmentPath
     ipsUpdateStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipsUpdateStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipsUpdateStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -275,6 +281,7 @@ func (utdUrlfUpdateStatus *UtdOperData_UtdUrlfUpdateStatus) GetEntityData() *typ
     utdUrlfUpdateStatus.EntityData.BundleName = "cisco_ios_xe"
     utdUrlfUpdateStatus.EntityData.ParentYangName = "utd-oper-data"
     utdUrlfUpdateStatus.EntityData.SegmentPath = "utd-urlf-update-status"
+    utdUrlfUpdateStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-utd-oper:utd-oper-data/" + utdUrlfUpdateStatus.EntityData.SegmentPath
     utdUrlfUpdateStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     utdUrlfUpdateStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utdUrlfUpdateStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -318,6 +325,7 @@ func (urlfUpdateStatus *UtdOperData_UtdUrlfUpdateStatus_UrlfUpdateStatus) GetEnt
     urlfUpdateStatus.EntityData.BundleName = "cisco_ios_xe"
     urlfUpdateStatus.EntityData.ParentYangName = "utd-urlf-update-status"
     urlfUpdateStatus.EntityData.SegmentPath = "urlf-update-status"
+    urlfUpdateStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-utd-oper:utd-oper-data/utd-urlf-update-status/" + urlfUpdateStatus.EntityData.SegmentPath
     urlfUpdateStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     urlfUpdateStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     urlfUpdateStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -231,6 +231,7 @@ func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetEntityData() *types.Com
     cISCODATACOLLECTIONMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCODATACOLLECTIONMIB.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
     cISCODATACOLLECTIONMIB.EntityData.SegmentPath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB"
+    cISCODATACOLLECTIONMIB.EntityData.AbsolutePath = cISCODATACOLLECTIONMIB.EntityData.SegmentPath
     cISCODATACOLLECTIONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCODATACOLLECTIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCODATACOLLECTIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -273,6 +274,7 @@ func (cdcVFile *CISCODATACOLLECTIONMIB_CdcVFile) GetEntityData() *types.CommonEn
     cdcVFile.EntityData.BundleName = "cisco_ios_xe"
     cdcVFile.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
     cdcVFile.EntityData.SegmentPath = "cdcVFile"
+    cdcVFile.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/" + cdcVFile.EntityData.SegmentPath
     cdcVFile.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcVFile.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcVFile.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -313,6 +315,7 @@ func (cdcVFileTable *CISCODATACOLLECTIONMIB_CdcVFileTable) GetEntityData() *type
     cdcVFileTable.EntityData.BundleName = "cisco_ios_xe"
     cdcVFileTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
     cdcVFileTable.EntityData.SegmentPath = "cdcVFileTable"
+    cdcVFileTable.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/" + cdcVFileTable.EntityData.SegmentPath
     cdcVFileTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcVFileTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcVFileTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -347,6 +350,7 @@ func (cdcVFileTable *CISCODATACOLLECTIONMIB_CdcVFileTable) GetEntityData() *type
 type CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary integer for uniquely identifying this
     // entry. When creating a row, the application should pick a random number.  
@@ -518,6 +522,7 @@ func (cdcVFileEntry *CISCODATACOLLECTIONMIB_CdcVFileTable_CdcVFileEntry) GetEnti
     cdcVFileEntry.EntityData.BundleName = "cisco_ios_xe"
     cdcVFileEntry.EntityData.ParentYangName = "cdcVFileTable"
     cdcVFileEntry.EntityData.SegmentPath = "cdcVFileEntry" + types.AddKeyToken(cdcVFileEntry.CdcVFileIndex, "cdcVFileIndex")
+    cdcVFileEntry.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileTable/" + cdcVFileEntry.EntityData.SegmentPath
     cdcVFileEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcVFileEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcVFileEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -630,6 +635,7 @@ func (cdcVFileMgmtTable *CISCODATACOLLECTIONMIB_CdcVFileMgmtTable) GetEntityData
     cdcVFileMgmtTable.EntityData.BundleName = "cisco_ios_xe"
     cdcVFileMgmtTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
     cdcVFileMgmtTable.EntityData.SegmentPath = "cdcVFileMgmtTable"
+    cdcVFileMgmtTable.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/" + cdcVFileMgmtTable.EntityData.SegmentPath
     cdcVFileMgmtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcVFileMgmtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcVFileMgmtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -663,6 +669,7 @@ func (cdcVFileMgmtTable *CISCODATACOLLECTIONMIB_CdcVFileMgmtTable) GetEntityData
 type CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -730,6 +737,7 @@ func (cdcVFileMgmtEntry *CISCODATACOLLECTIONMIB_CdcVFileMgmtTable_CdcVFileMgmtEn
     cdcVFileMgmtEntry.EntityData.BundleName = "cisco_ios_xe"
     cdcVFileMgmtEntry.EntityData.ParentYangName = "cdcVFileMgmtTable"
     cdcVFileMgmtEntry.EntityData.SegmentPath = "cdcVFileMgmtEntry" + types.AddKeyToken(cdcVFileMgmtEntry.CdcVFileIndex, "cdcVFileIndex") + types.AddKeyToken(cdcVFileMgmtEntry.CdcVFileMgmtIndex, "cdcVFileMgmtIndex")
+    cdcVFileMgmtEntry.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileMgmtTable/" + cdcVFileMgmtEntry.EntityData.SegmentPath
     cdcVFileMgmtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcVFileMgmtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcVFileMgmtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -790,6 +798,7 @@ func (cdcDGTable *CISCODATACOLLECTIONMIB_CdcDGTable) GetEntityData() *types.Comm
     cdcDGTable.EntityData.BundleName = "cisco_ios_xe"
     cdcDGTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
     cdcDGTable.EntityData.SegmentPath = "cdcDGTable"
+    cdcDGTable.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/" + cdcDGTable.EntityData.SegmentPath
     cdcDGTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcDGTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcDGTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -826,6 +835,7 @@ func (cdcDGTable *CISCODATACOLLECTIONMIB_CdcDGTable) GetEntityData() *types.Comm
 type CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary integer used to uniquely identify
     // this entry. When creating an entry, a management application should pick a
@@ -933,6 +943,7 @@ func (cdcDGEntry *CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry) GetEntityData() 
     cdcDGEntry.EntityData.BundleName = "cisco_ios_xe"
     cdcDGEntry.EntityData.ParentYangName = "cdcDGTable"
     cdcDGEntry.EntityData.SegmentPath = "cdcDGEntry" + types.AddKeyToken(cdcDGEntry.CdcDGIndex, "cdcDGIndex")
+    cdcDGEntry.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGTable/" + cdcDGEntry.EntityData.SegmentPath
     cdcDGEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcDGEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcDGEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -985,6 +996,7 @@ func (cdcDGBaseObjectTable *CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable) GetEnti
     cdcDGBaseObjectTable.EntityData.BundleName = "cisco_ios_xe"
     cdcDGBaseObjectTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
     cdcDGBaseObjectTable.EntityData.SegmentPath = "cdcDGBaseObjectTable"
+    cdcDGBaseObjectTable.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/" + cdcDGBaseObjectTable.EntityData.SegmentPath
     cdcDGBaseObjectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcDGBaseObjectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcDGBaseObjectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1008,6 +1020,7 @@ func (cdcDGBaseObjectTable *CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable) GetEnti
 type CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable_CdcDGBaseObjectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object's value when combined with the value
     // of cdcDGBaseObjectIndex uniquely identifies an entry in this table. An
@@ -1048,6 +1061,7 @@ func (cdcDGBaseObjectEntry *CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable_CdcDGBas
     cdcDGBaseObjectEntry.EntityData.BundleName = "cisco_ios_xe"
     cdcDGBaseObjectEntry.EntityData.ParentYangName = "cdcDGBaseObjectTable"
     cdcDGBaseObjectEntry.EntityData.SegmentPath = "cdcDGBaseObjectEntry" + types.AddKeyToken(cdcDGBaseObjectEntry.CdcDGBaseObjectGrpIndex, "cdcDGBaseObjectGrpIndex") + types.AddKeyToken(cdcDGBaseObjectEntry.CdcDGBaseObjectIndex, "cdcDGBaseObjectIndex")
+    cdcDGBaseObjectEntry.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGBaseObjectTable/" + cdcDGBaseObjectEntry.EntityData.SegmentPath
     cdcDGBaseObjectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcDGBaseObjectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcDGBaseObjectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1088,6 +1102,7 @@ func (cdcDGInstanceTable *CISCODATACOLLECTIONMIB_CdcDGInstanceTable) GetEntityDa
     cdcDGInstanceTable.EntityData.BundleName = "cisco_ios_xe"
     cdcDGInstanceTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
     cdcDGInstanceTable.EntityData.SegmentPath = "cdcDGInstanceTable"
+    cdcDGInstanceTable.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/" + cdcDGInstanceTable.EntityData.SegmentPath
     cdcDGInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcDGInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcDGInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1111,6 +1126,7 @@ func (cdcDGInstanceTable *CISCODATACOLLECTIONMIB_CdcDGInstanceTable) GetEntityDa
 type CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object's value when combined with the value
     // of cdcDGInstanceIndex uniquely identifies an entry in this table. An
@@ -1201,6 +1217,7 @@ func (cdcDGInstanceEntry *CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanc
     cdcDGInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
     cdcDGInstanceEntry.EntityData.ParentYangName = "cdcDGInstanceTable"
     cdcDGInstanceEntry.EntityData.SegmentPath = "cdcDGInstanceEntry" + types.AddKeyToken(cdcDGInstanceEntry.CdcDGInstanceGrpIndex, "cdcDGInstanceGrpIndex") + types.AddKeyToken(cdcDGInstanceEntry.CdcDGInstanceIndex, "cdcDGInstanceIndex")
+    cdcDGInstanceEntry.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGInstanceTable/" + cdcDGInstanceEntry.EntityData.SegmentPath
     cdcDGInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcDGInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcDGInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1261,6 +1278,7 @@ func (cdcFileXferConfTable *CISCODATACOLLECTIONMIB_CdcFileXferConfTable) GetEnti
     cdcFileXferConfTable.EntityData.BundleName = "cisco_ios_xe"
     cdcFileXferConfTable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
     cdcFileXferConfTable.EntityData.SegmentPath = "cdcFileXferConfTable"
+    cdcFileXferConfTable.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/" + cdcFileXferConfTable.EntityData.SegmentPath
     cdcFileXferConfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcFileXferConfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcFileXferConfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1294,6 +1312,7 @@ func (cdcFileXferConfTable *CISCODATACOLLECTIONMIB_CdcFileXferConfTable) GetEnti
 type CISCODATACOLLECTIONMIB_CdcFileXferConfTable_CdcFileXferConfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1346,6 +1365,7 @@ func (cdcFileXferConfEntry *CISCODATACOLLECTIONMIB_CdcFileXferConfTable_CdcFileX
     cdcFileXferConfEntry.EntityData.BundleName = "cisco_ios_xe"
     cdcFileXferConfEntry.EntityData.ParentYangName = "cdcFileXferConfTable"
     cdcFileXferConfEntry.EntityData.SegmentPath = "cdcFileXferConfEntry" + types.AddKeyToken(cdcFileXferConfEntry.CdcVFileIndex, "cdcVFileIndex")
+    cdcFileXferConfEntry.EntityData.AbsolutePath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcFileXferConfTable/" + cdcFileXferConfEntry.EntityData.SegmentPath
     cdcFileXferConfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdcFileXferConfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdcFileXferConfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -45,6 +45,7 @@ func (objectTrackings *ObjectTrackings) GetEntityData() *types.CommonEntityData 
     objectTrackings.EntityData.BundleName = "cisco_ios_xr"
     objectTrackings.EntityData.ParentYangName = "Cisco-IOS-XR-manageability-object-tracking-cfg"
     objectTrackings.EntityData.SegmentPath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings"
+    objectTrackings.EntityData.AbsolutePath = objectTrackings.EntityData.SegmentPath
     objectTrackings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectTrackings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectTrackings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -66,6 +67,7 @@ func (objectTrackings *ObjectTrackings) GetEntityData() *types.CommonEntityData 
 type ObjectTrackings_ObjectTracking struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Track name. The type is string with length: 1..32.
     TrackName interface{}
@@ -121,6 +123,7 @@ func (objectTracking *ObjectTrackings_ObjectTracking) GetEntityData() *types.Com
     objectTracking.EntityData.BundleName = "cisco_ios_xr"
     objectTracking.EntityData.ParentYangName = "object-trackings"
     objectTracking.EntityData.SegmentPath = "object-tracking" + types.AddKeyToken(objectTracking.TrackName, "track-name")
+    objectTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/" + objectTracking.EntityData.SegmentPath
     objectTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -167,6 +170,7 @@ func (action *ObjectTrackings_ObjectTracking_Action) GetEntityData() *types.Comm
     action.EntityData.BundleName = "cisco_ios_xr"
     action.EntityData.ParentYangName = "object-tracking"
     action.EntityData.SegmentPath = "action"
+    action.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/" + action.EntityData.SegmentPath
     action.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -198,6 +202,7 @@ func (actionErrDis *ObjectTrackings_ObjectTracking_Action_ActionErrDis) GetEntit
     actionErrDis.EntityData.BundleName = "cisco_ios_xr"
     actionErrDis.EntityData.ParentYangName = "action"
     actionErrDis.EntityData.SegmentPath = "action-err-dis"
+    actionErrDis.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/action/" + actionErrDis.EntityData.SegmentPath
     actionErrDis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionErrDis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionErrDis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -219,6 +224,7 @@ func (actionErrDis *ObjectTrackings_ObjectTracking_Action_ActionErrDis) GetEntit
 type ObjectTrackings_ObjectTracking_Action_ActionErrDis_ActionErrDi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Track State Type. The type is interface{} with
     // range: 0..1.
@@ -235,6 +241,7 @@ func (actionErrDi *ObjectTrackings_ObjectTracking_Action_ActionErrDis_ActionErrD
     actionErrDi.EntityData.BundleName = "cisco_ios_xr"
     actionErrDi.EntityData.ParentYangName = "action-err-dis"
     actionErrDi.EntityData.SegmentPath = "action-err-di" + types.AddKeyToken(actionErrDi.TrackStateType, "track-state-type") + types.AddKeyToken(actionErrDi.InterfaceName, "interface-name")
+    actionErrDi.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/action/action-err-dis/" + actionErrDi.EntityData.SegmentPath
     actionErrDi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionErrDi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionErrDi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -265,6 +272,7 @@ func (typeBfdRtr *ObjectTrackings_ObjectTracking_TypeBfdRtr) GetEntityData() *ty
     typeBfdRtr.EntityData.BundleName = "cisco_ios_xr"
     typeBfdRtr.EntityData.ParentYangName = "object-tracking"
     typeBfdRtr.EntityData.SegmentPath = "type-bfd-rtr"
+    typeBfdRtr.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/" + typeBfdRtr.EntityData.SegmentPath
     typeBfdRtr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     typeBfdRtr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeBfdRtr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -310,6 +318,7 @@ func (bfdRtr *ObjectTrackings_ObjectTracking_TypeBfdRtr_BfdRtr) GetEntityData() 
     bfdRtr.EntityData.BundleName = "cisco_ios_xr"
     bfdRtr.EntityData.ParentYangName = "type-bfd-rtr"
     bfdRtr.EntityData.SegmentPath = "bfd-rtr"
+    bfdRtr.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-bfd-rtr/" + bfdRtr.EntityData.SegmentPath
     bfdRtr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdRtr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdRtr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -343,6 +352,7 @@ func (typeInterface *ObjectTrackings_ObjectTracking_TypeInterface) GetEntityData
     typeInterface.EntityData.BundleName = "cisco_ios_xr"
     typeInterface.EntityData.ParentYangName = "object-tracking"
     typeInterface.EntityData.SegmentPath = "type-interface"
+    typeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/" + typeInterface.EntityData.SegmentPath
     typeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     typeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -372,6 +382,7 @@ func (typeRtr *ObjectTrackings_ObjectTracking_TypeRtr) GetEntityData() *types.Co
     typeRtr.EntityData.BundleName = "cisco_ios_xr"
     typeRtr.EntityData.ParentYangName = "object-tracking"
     typeRtr.EntityData.SegmentPath = "type-rtr"
+    typeRtr.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/" + typeRtr.EntityData.SegmentPath
     typeRtr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     typeRtr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeRtr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -417,6 +428,7 @@ func (typeList *ObjectTrackings_ObjectTracking_TypeList) GetEntityData() *types.
     typeList.EntityData.BundleName = "cisco_ios_xr"
     typeList.EntityData.ParentYangName = "object-tracking"
     typeList.EntityData.SegmentPath = "type-list"
+    typeList.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/" + typeList.EntityData.SegmentPath
     typeList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     typeList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -451,6 +463,7 @@ func (thresholdWeight *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight) 
     thresholdWeight.EntityData.BundleName = "cisco_ios_xr"
     thresholdWeight.EntityData.ParentYangName = "type-list"
     thresholdWeight.EntityData.SegmentPath = "threshold-weight"
+    thresholdWeight.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/" + thresholdWeight.EntityData.SegmentPath
     thresholdWeight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdWeight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdWeight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -480,6 +493,7 @@ func (thresholdLimits *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_T
     thresholdLimits.EntityData.BundleName = "cisco_ios_xr"
     thresholdLimits.EntityData.ParentYangName = "threshold-weight"
     thresholdLimits.EntityData.SegmentPath = "threshold-limits"
+    thresholdLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-weight/" + thresholdLimits.EntityData.SegmentPath
     thresholdLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -511,6 +525,7 @@ func (thresholdUpValues *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight
     thresholdUpValues.EntityData.BundleName = "cisco_ios_xr"
     thresholdUpValues.EntityData.ParentYangName = "threshold-limits"
     thresholdUpValues.EntityData.SegmentPath = "threshold-up-values"
+    thresholdUpValues.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-weight/threshold-limits/" + thresholdUpValues.EntityData.SegmentPath
     thresholdUpValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdUpValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdUpValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -533,6 +548,7 @@ func (thresholdUpValues *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight
 type ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues_ThresholdUpValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Up value. The type is interface{} with range:
     // 0..4294967295.
@@ -549,6 +565,7 @@ func (thresholdUpValue *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_
     thresholdUpValue.EntityData.BundleName = "cisco_ios_xr"
     thresholdUpValue.EntityData.ParentYangName = "threshold-up-values"
     thresholdUpValue.EntityData.SegmentPath = "threshold-up-value" + types.AddKeyToken(thresholdUpValue.Up, "up")
+    thresholdUpValue.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-weight/threshold-limits/threshold-up-values/" + thresholdUpValue.EntityData.SegmentPath
     thresholdUpValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdUpValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdUpValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -580,6 +597,7 @@ func (thresholdPercentageObject *ObjectTrackings_ObjectTracking_TypeList_Thresho
     thresholdPercentageObject.EntityData.BundleName = "cisco_ios_xr"
     thresholdPercentageObject.EntityData.ParentYangName = "type-list"
     thresholdPercentageObject.EntityData.SegmentPath = "threshold-percentage-object"
+    thresholdPercentageObject.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/" + thresholdPercentageObject.EntityData.SegmentPath
     thresholdPercentageObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdPercentageObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdPercentageObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -601,6 +619,7 @@ func (thresholdPercentageObject *ObjectTrackings_ObjectTracking_TypeList_Thresho
 type ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentageObject_Object struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object name. The type is string with length:
     // 1..32.
@@ -617,6 +636,7 @@ func (object *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentageObject_
     object.EntityData.BundleName = "cisco_ios_xr"
     object.EntityData.ParentYangName = "threshold-percentage-object"
     object.EntityData.SegmentPath = "object" + types.AddKeyToken(object.Object, "object")
+    object.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-percentage-object/" + object.EntityData.SegmentPath
     object.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     object.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     object.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -647,6 +667,7 @@ func (thresholdPercentage *ObjectTrackings_ObjectTracking_TypeList_ThresholdPerc
     thresholdPercentage.EntityData.BundleName = "cisco_ios_xr"
     thresholdPercentage.EntityData.ParentYangName = "type-list"
     thresholdPercentage.EntityData.SegmentPath = "threshold-percentage"
+    thresholdPercentage.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/" + thresholdPercentage.EntityData.SegmentPath
     thresholdPercentage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdPercentage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdPercentage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -676,6 +697,7 @@ func (thresholdLimits *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercenta
     thresholdLimits.EntityData.BundleName = "cisco_ios_xr"
     thresholdLimits.EntityData.ParentYangName = "threshold-percentage"
     thresholdLimits.EntityData.SegmentPath = "threshold-limits"
+    thresholdLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-percentage/" + thresholdLimits.EntityData.SegmentPath
     thresholdLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -707,6 +729,7 @@ func (thresholdUpValues *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercen
     thresholdUpValues.EntityData.BundleName = "cisco_ios_xr"
     thresholdUpValues.EntityData.ParentYangName = "threshold-limits"
     thresholdUpValues.EntityData.SegmentPath = "threshold-up-values"
+    thresholdUpValues.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-percentage/threshold-limits/" + thresholdUpValues.EntityData.SegmentPath
     thresholdUpValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdUpValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdUpValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -729,6 +752,7 @@ func (thresholdUpValues *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercen
 type ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues_ThresholdUpValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Up value. The type is interface{} with range:
     // 0..4294967295.
@@ -745,6 +769,7 @@ func (thresholdUpValue *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercent
     thresholdUpValue.EntityData.BundleName = "cisco_ios_xr"
     thresholdUpValue.EntityData.ParentYangName = "threshold-up-values"
     thresholdUpValue.EntityData.SegmentPath = "threshold-up-value" + types.AddKeyToken(thresholdUpValue.Up, "up")
+    thresholdUpValue.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-percentage/threshold-limits/threshold-up-values/" + thresholdUpValue.EntityData.SegmentPath
     thresholdUpValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdUpValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdUpValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -776,6 +801,7 @@ func (thresholdWeightObject *ObjectTrackings_ObjectTracking_TypeList_ThresholdWe
     thresholdWeightObject.EntityData.BundleName = "cisco_ios_xr"
     thresholdWeightObject.EntityData.ParentYangName = "type-list"
     thresholdWeightObject.EntityData.SegmentPath = "threshold-weight-object"
+    thresholdWeightObject.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/" + thresholdWeightObject.EntityData.SegmentPath
     thresholdWeightObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdWeightObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdWeightObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -797,6 +823,7 @@ func (thresholdWeightObject *ObjectTrackings_ObjectTracking_TypeList_ThresholdWe
 type ObjectTrackings_ObjectTracking_TypeList_ThresholdWeightObject_Object struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object name. The type is string with length:
     // 1..32.
@@ -813,6 +840,7 @@ func (object *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeightObject_Obje
     object.EntityData.BundleName = "cisco_ios_xr"
     object.EntityData.ParentYangName = "threshold-weight-object"
     object.EntityData.SegmentPath = "object" + types.AddKeyToken(object.Object, "object")
+    object.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-weight-object/" + object.EntityData.SegmentPath
     object.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     object.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     object.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -847,6 +875,7 @@ func (typeRoute *ObjectTrackings_ObjectTracking_TypeRoute) GetEntityData() *type
     typeRoute.EntityData.BundleName = "cisco_ios_xr"
     typeRoute.EntityData.ParentYangName = "object-tracking"
     typeRoute.EntityData.SegmentPath = "type-route"
+    typeRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/" + typeRoute.EntityData.SegmentPath
     typeRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     typeRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -884,6 +913,7 @@ func (ipAddress *ObjectTrackings_ObjectTracking_TypeRoute_IpAddress) GetEntityDa
     ipAddress.EntityData.BundleName = "cisco_ios_xr"
     ipAddress.EntityData.ParentYangName = "type-route"
     ipAddress.EntityData.SegmentPath = "ip-address"
+    ipAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-route/" + ipAddress.EntityData.SegmentPath
     ipAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -917,6 +947,7 @@ func (typeBooleanList *ObjectTrackings_ObjectTracking_TypeBooleanList) GetEntity
     typeBooleanList.EntityData.BundleName = "cisco_ios_xr"
     typeBooleanList.EntityData.ParentYangName = "object-tracking"
     typeBooleanList.EntityData.SegmentPath = "type-boolean-list"
+    typeBooleanList.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/" + typeBooleanList.EntityData.SegmentPath
     typeBooleanList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     typeBooleanList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeBooleanList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -948,6 +979,7 @@ func (orObjects *ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects) GetEn
     orObjects.EntityData.BundleName = "cisco_ios_xr"
     orObjects.EntityData.ParentYangName = "type-boolean-list"
     orObjects.EntityData.SegmentPath = "or-objects"
+    orObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-boolean-list/" + orObjects.EntityData.SegmentPath
     orObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     orObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     orObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -969,6 +1001,7 @@ func (orObjects *ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects) GetEn
 type ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects_OrObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object name. The type is string with length:
     // 1..32.
@@ -985,6 +1018,7 @@ func (orObject *ObjectTrackings_ObjectTracking_TypeBooleanList_OrObjects_OrObjec
     orObject.EntityData.BundleName = "cisco_ios_xr"
     orObject.EntityData.ParentYangName = "or-objects"
     orObject.EntityData.SegmentPath = "or-object" + types.AddKeyToken(orObject.Object, "object")
+    orObject.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-boolean-list/or-objects/" + orObject.EntityData.SegmentPath
     orObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     orObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     orObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1016,6 +1050,7 @@ func (andObjects *ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects) Get
     andObjects.EntityData.BundleName = "cisco_ios_xr"
     andObjects.EntityData.ParentYangName = "type-boolean-list"
     andObjects.EntityData.SegmentPath = "and-objects"
+    andObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-boolean-list/" + andObjects.EntityData.SegmentPath
     andObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     andObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     andObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1037,6 +1072,7 @@ func (andObjects *ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects) Get
 type ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects_AndObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object name. The type is string with length:
     // 1..32.
@@ -1053,6 +1089,7 @@ func (andObject *ObjectTrackings_ObjectTracking_TypeBooleanList_AndObjects_AndOb
     andObject.EntityData.BundleName = "cisco_ios_xr"
     andObject.EntityData.ParentYangName = "and-objects"
     andObject.EntityData.SegmentPath = "and-object" + types.AddKeyToken(andObject.ObjectName, "object-name")
+    andObject.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-boolean-list/and-objects/" + andObject.EntityData.SegmentPath
     andObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     andObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     andObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

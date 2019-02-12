@@ -38,6 +38,7 @@ func (sNMPPROXYMIB *SNMPPROXYMIB) GetEntityData() *types.CommonEntityData {
     sNMPPROXYMIB.EntityData.BundleName = "cisco_ios_xe"
     sNMPPROXYMIB.EntityData.ParentYangName = "SNMP-PROXY-MIB"
     sNMPPROXYMIB.EntityData.SegmentPath = "SNMP-PROXY-MIB:SNMP-PROXY-MIB"
+    sNMPPROXYMIB.EntityData.AbsolutePath = sNMPPROXYMIB.EntityData.SegmentPath
     sNMPPROXYMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sNMPPROXYMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sNMPPROXYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -71,6 +72,7 @@ func (snmpProxyTable *SNMPPROXYMIB_SnmpProxyTable) GetEntityData() *types.Common
     snmpProxyTable.EntityData.BundleName = "cisco_ios_xe"
     snmpProxyTable.EntityData.ParentYangName = "SNMP-PROXY-MIB"
     snmpProxyTable.EntityData.SegmentPath = "snmpProxyTable"
+    snmpProxyTable.EntityData.AbsolutePath = "SNMP-PROXY-MIB:SNMP-PROXY-MIB/" + snmpProxyTable.EntityData.SegmentPath
     snmpProxyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpProxyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpProxyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -96,6 +98,7 @@ func (snmpProxyTable *SNMPPROXYMIB_SnmpProxyTable) GetEntityData() *types.Common
 type SNMPPROXYMIB_SnmpProxyTable_SnmpProxyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The locally arbitrary, but unique identifier
     // associated with this snmpProxyEntry. The type is string with length: 1..32.
@@ -156,6 +159,7 @@ func (snmpProxyEntry *SNMPPROXYMIB_SnmpProxyTable_SnmpProxyEntry) GetEntityData(
     snmpProxyEntry.EntityData.BundleName = "cisco_ios_xe"
     snmpProxyEntry.EntityData.ParentYangName = "snmpProxyTable"
     snmpProxyEntry.EntityData.SegmentPath = "snmpProxyEntry" + types.AddKeyToken(snmpProxyEntry.SnmpProxyName, "snmpProxyName")
+    snmpProxyEntry.EntityData.AbsolutePath = "SNMP-PROXY-MIB:SNMP-PROXY-MIB/snmpProxyTable/" + snmpProxyEntry.EntityData.SegmentPath
     snmpProxyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpProxyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpProxyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -102,6 +102,7 @@ func (fibOperData *FibOperData) GetEntityData() *types.CommonEntityData {
     fibOperData.EntityData.BundleName = "cisco_ios_xe"
     fibOperData.EntityData.ParentYangName = "Cisco-IOS-XE-fib-oper"
     fibOperData.EntityData.SegmentPath = "Cisco-IOS-XE-fib-oper:fib-oper-data"
+    fibOperData.EntityData.AbsolutePath = fibOperData.EntityData.SegmentPath
     fibOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fibOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fibOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -123,6 +124,7 @@ func (fibOperData *FibOperData) GetEntityData() *types.CommonEntityData {
 type FibOperData_FibNiEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Instance Name. The type is string.
     InstanceName interface{}
@@ -152,6 +154,7 @@ func (fibNiEntry *FibOperData_FibNiEntry) GetEntityData() *types.CommonEntityDat
     fibNiEntry.EntityData.BundleName = "cisco_ios_xe"
     fibNiEntry.EntityData.ParentYangName = "fib-oper-data"
     fibNiEntry.EntityData.SegmentPath = "fib-ni-entry" + types.AddKeyToken(fibNiEntry.InstanceName, "instance-name")
+    fibNiEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-fib-oper:fib-oper-data/" + fibNiEntry.EntityData.SegmentPath
     fibNiEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fibNiEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fibNiEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -178,6 +181,7 @@ func (fibNiEntry *FibOperData_FibNiEntry) GetEntityData() *types.CommonEntityDat
 type FibOperData_FibNiEntry_FibEntries struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address. The type is one of the following
     // types: string with pattern:
@@ -214,6 +218,7 @@ func (fibEntries *FibOperData_FibNiEntry_FibEntries) GetEntityData() *types.Comm
     fibEntries.EntityData.BundleName = "cisco_ios_xe"
     fibEntries.EntityData.ParentYangName = "fib-ni-entry"
     fibEntries.EntityData.SegmentPath = "fib-entries" + types.AddKeyToken(fibEntries.IpAddr, "ip-addr")
+    fibEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-fib-oper:fib-oper-data/fib-ni-entry/" + fibEntries.EntityData.SegmentPath
     fibEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fibEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fibEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -241,6 +246,7 @@ func (fibEntries *FibOperData_FibNiEntry_FibEntries) GetEntityData() *types.Comm
 type FibOperData_FibNiEntry_FibEntries_FibNexthopEntries struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Nexthop IP Address. The type is one of the
     // following types: string with pattern:
@@ -289,6 +295,7 @@ func (fibNexthopEntries *FibOperData_FibNiEntry_FibEntries_FibNexthopEntries) Ge
     fibNexthopEntries.EntityData.BundleName = "cisco_ios_xe"
     fibNexthopEntries.EntityData.ParentYangName = "fib-entries"
     fibNexthopEntries.EntityData.SegmentPath = "fib-nexthop-entries" + types.AddKeyToken(fibNexthopEntries.NhAddr, "nh-addr")
+    fibNexthopEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-fib-oper:fib-oper-data/fib-ni-entry/fib-entries/" + fibNexthopEntries.EntityData.SegmentPath
     fibNexthopEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fibNexthopEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fibNexthopEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

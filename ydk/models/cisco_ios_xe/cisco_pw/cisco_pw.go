@@ -264,6 +264,7 @@ func (pseudowireConfig *PseudowireConfig) GetEntityData() *types.CommonEntityDat
     pseudowireConfig.EntityData.BundleName = "cisco_ios_xe"
     pseudowireConfig.EntityData.ParentYangName = "cisco-pw"
     pseudowireConfig.EntityData.SegmentPath = "cisco-pw:pseudowire-config"
+    pseudowireConfig.EntityData.AbsolutePath = pseudowireConfig.EntityData.SegmentPath
     pseudowireConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pseudowireConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pseudowireConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -328,6 +329,7 @@ func (global *PseudowireConfig_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "cisco_ios_xe"
     global.EntityData.ParentYangName = "pseudowire-config"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -365,6 +367,7 @@ func (pwTemplates *PseudowireConfig_PwTemplates) GetEntityData() *types.CommonEn
     pwTemplates.EntityData.BundleName = "cisco_ios_xe"
     pwTemplates.EntityData.ParentYangName = "pseudowire-config"
     pwTemplates.EntityData.SegmentPath = "pw-templates"
+    pwTemplates.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/" + pwTemplates.EntityData.SegmentPath
     pwTemplates.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pwTemplates.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pwTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -386,6 +389,7 @@ func (pwTemplates *PseudowireConfig_PwTemplates) GetEntityData() *types.CommonEn
 type PseudowireConfig_PwTemplates_PwTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. PW Template name. The type is string.
     Name interface{}
@@ -448,6 +452,7 @@ func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetEntityData() *type
     pwTemplate.EntityData.BundleName = "cisco_ios_xe"
     pwTemplate.EntityData.ParentYangName = "pw-templates"
     pwTemplate.EntityData.SegmentPath = "pw-template" + types.AddKeyToken(pwTemplate.Name, "name")
+    pwTemplate.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/pw-templates/" + pwTemplate.EntityData.SegmentPath
     pwTemplate.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pwTemplate.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pwTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -502,6 +507,7 @@ func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetEntit
     loadBalance.EntityData.BundleName = "cisco_ios_xe"
     loadBalance.EntityData.ParentYangName = "pw-template"
     loadBalance.EntityData.SegmentPath = "load-balance"
+    loadBalance.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/pw-templates/pw-template/" + loadBalance.EntityData.SegmentPath
     loadBalance.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     loadBalance.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     loadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -542,6 +548,7 @@ func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) 
     flowLabel.EntityData.BundleName = "cisco_ios_xe"
     flowLabel.EntityData.ParentYangName = "load-balance"
     flowLabel.EntityData.SegmentPath = "flow-label"
+    flowLabel.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/pw-templates/pw-template/load-balance/" + flowLabel.EntityData.SegmentPath
     flowLabel.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowLabel.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowLabel.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -600,6 +607,7 @@ func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetE
     preferredPath.EntityData.BundleName = "cisco_ios_xe"
     preferredPath.EntityData.ParentYangName = "pw-template"
     preferredPath.EntityData.SegmentPath = "preferred-path"
+    preferredPath.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/pw-templates/pw-template/" + preferredPath.EntityData.SegmentPath
     preferredPath.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     preferredPath.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     preferredPath.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -636,6 +644,7 @@ func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetEntityD
     sequencing.EntityData.BundleName = "cisco_ios_xe"
     sequencing.EntityData.ParentYangName = "pw-template"
     sequencing.EntityData.SegmentPath = "sequencing"
+    sequencing.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/pw-templates/pw-template/" + sequencing.EntityData.SegmentPath
     sequencing.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sequencing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sequencing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -666,6 +675,7 @@ func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetEntityData() *types
     vccv.EntityData.BundleName = "cisco_ios_xe"
     vccv.EntityData.ParentYangName = "pw-template"
     vccv.EntityData.SegmentPath = "vccv"
+    vccv.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/pw-templates/pw-template/" + vccv.EntityData.SegmentPath
     vccv.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vccv.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vccv.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -706,6 +716,7 @@ func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) 
     switchoverDelay.EntityData.BundleName = "cisco_ios_xe"
     switchoverDelay.EntityData.ParentYangName = "pw-template"
     switchoverDelay.EntityData.SegmentPath = "switchover-delay"
+    switchoverDelay.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/pw-templates/pw-template/" + switchoverDelay.EntityData.SegmentPath
     switchoverDelay.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     switchoverDelay.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     switchoverDelay.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -758,6 +769,7 @@ func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetEntityData() *t
     status.EntityData.BundleName = "cisco_ios_xe"
     status.EntityData.ParentYangName = "pw-template"
     status.EntityData.SegmentPath = "status"
+    status.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/pw-templates/pw-template/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -807,6 +819,7 @@ func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) 
     portProfileSpec.EntityData.BundleName = "cisco_ios_xe"
     portProfileSpec.EntityData.ParentYangName = "pw-template"
     portProfileSpec.EntityData.SegmentPath = "port-profile-spec"
+    portProfileSpec.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/pw-templates/pw-template/" + portProfileSpec.EntityData.SegmentPath
     portProfileSpec.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     portProfileSpec.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     portProfileSpec.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -842,6 +855,7 @@ func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetEntityData() *
     pwStaticOamClasses.EntityData.BundleName = "cisco_ios_xe"
     pwStaticOamClasses.EntityData.ParentYangName = "pseudowire-config"
     pwStaticOamClasses.EntityData.SegmentPath = "pw-static-oam-classes"
+    pwStaticOamClasses.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/" + pwStaticOamClasses.EntityData.SegmentPath
     pwStaticOamClasses.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pwStaticOamClasses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pwStaticOamClasses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -863,6 +877,7 @@ func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetEntityData() *
 type PseudowireConfig_PwStaticOamClasses_PwStaticOamClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OAM class name. The type is string.
     Name interface{}
@@ -889,6 +904,7 @@ func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) Ge
     pwStaticOamClass.EntityData.BundleName = "cisco_ios_xe"
     pwStaticOamClass.EntityData.ParentYangName = "pw-static-oam-classes"
     pwStaticOamClass.EntityData.SegmentPath = "pw-static-oam-class" + types.AddKeyToken(pwStaticOamClass.Name, "name")
+    pwStaticOamClass.EntityData.AbsolutePath = "cisco-pw:pseudowire-config/pw-static-oam-classes/" + pwStaticOamClass.EntityData.SegmentPath
     pwStaticOamClass.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pwStaticOamClass.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pwStaticOamClass.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -928,6 +944,7 @@ func (pseudowireState *PseudowireState) GetEntityData() *types.CommonEntityData 
     pseudowireState.EntityData.BundleName = "cisco_ios_xe"
     pseudowireState.EntityData.ParentYangName = "cisco-pw"
     pseudowireState.EntityData.SegmentPath = "cisco-pw:pseudowire-state"
+    pseudowireState.EntityData.AbsolutePath = pseudowireState.EntityData.SegmentPath
     pseudowireState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pseudowireState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pseudowireState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -954,6 +971,7 @@ func (pseudowireState *PseudowireState) GetEntityData() *types.CommonEntityData 
 type PseudowireState_Pseudowires struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object contains the value of the peer node
     // address of the PW/PE protocol entity. The type is one of the following
@@ -1061,6 +1079,7 @@ func (pseudowires *PseudowireState_Pseudowires) GetEntityData() *types.CommonEnt
     pseudowires.EntityData.BundleName = "cisco_ios_xe"
     pseudowires.EntityData.ParentYangName = "pseudowire-state"
     pseudowires.EntityData.SegmentPath = "pseudowires" + types.AddKeyToken(pseudowires.VcPeerAddress, "vc-peer-address") + types.AddKeyToken(pseudowires.VcId, "vc-id") + types.AddKeyToken(pseudowires.VcOwnerType, "vc-owner-type") + types.AddKeyToken(pseudowires.VcName, "vc-name") + types.AddKeyToken(pseudowires.VcIndex, "vc-index")
+    pseudowires.EntityData.AbsolutePath = "cisco-pw:pseudowire-state/" + pseudowires.EntityData.SegmentPath
     pseudowires.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pseudowires.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1165,6 +1184,7 @@ func (statistics *PseudowireState_Pseudowires_Statistics) GetEntityData() *types
     statistics.EntityData.BundleName = "cisco_ios_xe"
     statistics.EntityData.ParentYangName = "pseudowires"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "cisco-pw:pseudowire-state/pseudowires/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

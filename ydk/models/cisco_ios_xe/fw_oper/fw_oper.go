@@ -39,6 +39,7 @@ func (fwOperData *FwOperData) GetEntityData() *types.CommonEntityData {
     fwOperData.EntityData.BundleName = "cisco_ios_xe"
     fwOperData.EntityData.ParentYangName = "Cisco-IOS-XE-fw-oper"
     fwOperData.EntityData.SegmentPath = "Cisco-IOS-XE-fw-oper:fw-oper-data"
+    fwOperData.EntityData.AbsolutePath = fwOperData.EntityData.SegmentPath
     fwOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fwOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fwOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -391,6 +392,7 @@ func (fwDropStats *FwOperData_FwDropStats) GetEntityData() *types.CommonEntityDa
     fwDropStats.EntityData.BundleName = "cisco_ios_xe"
     fwDropStats.EntityData.ParentYangName = "fw-oper-data"
     fwDropStats.EntityData.SegmentPath = "fw-drop-stats"
+    fwDropStats.EntityData.AbsolutePath = "Cisco-IOS-XE-fw-oper:fw-oper-data/" + fwDropStats.EntityData.SegmentPath
     fwDropStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fwDropStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fwDropStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -486,6 +488,7 @@ func (fwDropStats *FwOperData_FwDropStats) GetEntityData() *types.CommonEntityDa
 type FwOperData_FwZonepairEntries struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the zone pair. The type is string.
     ZonepairName interface{}
@@ -510,6 +513,7 @@ func (fwZonepairEntries *FwOperData_FwZonepairEntries) GetEntityData() *types.Co
     fwZonepairEntries.EntityData.BundleName = "cisco_ios_xe"
     fwZonepairEntries.EntityData.ParentYangName = "fw-oper-data"
     fwZonepairEntries.EntityData.SegmentPath = "fw-zonepair-entries" + types.AddKeyToken(fwZonepairEntries.ZonepairName, "zonepair-name")
+    fwZonepairEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-fw-oper:fw-oper-data/" + fwZonepairEntries.EntityData.SegmentPath
     fwZonepairEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fwZonepairEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fwZonepairEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -535,6 +539,7 @@ func (fwZonepairEntries *FwOperData_FwZonepairEntries) GetEntityData() *types.Co
 type FwOperData_FwZonepairEntries_FwTrafficClassEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the traffic class. The type is string.
     ClassName interface{}
@@ -598,6 +603,7 @@ func (fwTrafficClassEntry *FwOperData_FwZonepairEntries_FwTrafficClassEntry) Get
     fwTrafficClassEntry.EntityData.BundleName = "cisco_ios_xe"
     fwTrafficClassEntry.EntityData.ParentYangName = "fw-zonepair-entries"
     fwTrafficClassEntry.EntityData.SegmentPath = "fw-traffic-class-entry" + types.AddKeyToken(fwTrafficClassEntry.ClassName, "class-name")
+    fwTrafficClassEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-fw-oper:fw-oper-data/fw-zonepair-entries/" + fwTrafficClassEntry.EntityData.SegmentPath
     fwTrafficClassEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fwTrafficClassEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fwTrafficClassEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -636,6 +642,7 @@ func (fwTrafficClassEntry *FwOperData_FwZonepairEntries_FwTrafficClassEntry) Get
 type FwOperData_FwZonepairEntries_FwTrafficClassEntry_FwTcMatchEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Match Name. The type is string.
     MatchName interface{}
@@ -654,6 +661,7 @@ func (fwTcMatchEntry *FwOperData_FwZonepairEntries_FwTrafficClassEntry_FwTcMatch
     fwTcMatchEntry.EntityData.BundleName = "cisco_ios_xe"
     fwTcMatchEntry.EntityData.ParentYangName = "fw-traffic-class-entry"
     fwTcMatchEntry.EntityData.SegmentPath = "fw-tc-match-entry" + types.AddKeyToken(fwTcMatchEntry.MatchName, "match-name") + types.AddKeyToken(fwTcMatchEntry.MatchTypeId, "match-type-id")
+    fwTcMatchEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-fw-oper:fw-oper-data/fw-zonepair-entries/fw-traffic-class-entry/" + fwTcMatchEntry.EntityData.SegmentPath
     fwTcMatchEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fwTcMatchEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fwTcMatchEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -674,6 +682,7 @@ func (fwTcMatchEntry *FwOperData_FwZonepairEntries_FwTrafficClassEntry_FwTcMatch
 type FwOperData_FwZonepairEntries_FwTrafficClassEntry_FwTcProtoEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Protocol ID. The type is interface{} with range:
     // 0..65535.
@@ -697,6 +706,7 @@ func (fwTcProtoEntry *FwOperData_FwZonepairEntries_FwTrafficClassEntry_FwTcProto
     fwTcProtoEntry.EntityData.BundleName = "cisco_ios_xe"
     fwTcProtoEntry.EntityData.ParentYangName = "fw-traffic-class-entry"
     fwTcProtoEntry.EntityData.SegmentPath = "fw-tc-proto-entry" + types.AddKeyToken(fwTcProtoEntry.ProtoId, "proto-id")
+    fwTcProtoEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-fw-oper:fw-oper-data/fw-zonepair-entries/fw-traffic-class-entry/" + fwTcProtoEntry.EntityData.SegmentPath
     fwTcProtoEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fwTcProtoEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fwTcProtoEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

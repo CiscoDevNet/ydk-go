@@ -46,6 +46,7 @@ func (tpa *Tpa) GetEntityData() *types.CommonEntityData {
     tpa.EntityData.BundleName = "cisco_ios_xr"
     tpa.EntityData.ParentYangName = "Cisco-IOS-XR-kim-tpa-cfg"
     tpa.EntityData.SegmentPath = "Cisco-IOS-XR-kim-tpa-cfg:tpa"
+    tpa.EntityData.AbsolutePath = tpa.EntityData.SegmentPath
     tpa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tpa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tpa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -77,6 +78,7 @@ func (vrfNames *Tpa_VrfNames) GetEntityData() *types.CommonEntityData {
     vrfNames.EntityData.BundleName = "cisco_ios_xr"
     vrfNames.EntityData.ParentYangName = "tpa"
     vrfNames.EntityData.SegmentPath = "vrf-names"
+    vrfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/" + vrfNames.EntityData.SegmentPath
     vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -98,6 +100,7 @@ func (vrfNames *Tpa_VrfNames) GetEntityData() *types.CommonEntityData {
 type Tpa_VrfNames_VrfName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with length: 1..32.
     VrfName interface{}
@@ -118,6 +121,7 @@ func (vrfName *Tpa_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
     vrfName.EntityData.BundleName = "cisco_ios_xr"
     vrfName.EntityData.ParentYangName = "vrf-names"
     vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
+    vrfName.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/" + vrfName.EntityData.SegmentPath
     vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -151,6 +155,7 @@ func (eastWestNames *Tpa_VrfNames_VrfName_EastWestNames) GetEntityData() *types.
     eastWestNames.EntityData.BundleName = "cisco_ios_xr"
     eastWestNames.EntityData.ParentYangName = "vrf-name"
     eastWestNames.EntityData.SegmentPath = "east-west-names"
+    eastWestNames.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/" + eastWestNames.EntityData.SegmentPath
     eastWestNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eastWestNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eastWestNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -172,6 +177,7 @@ func (eastWestNames *Tpa_VrfNames_VrfName_EastWestNames) GetEntityData() *types.
 type Tpa_VrfNames_VrfName_EastWestNames_EastWestName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -190,6 +196,7 @@ func (eastWestName *Tpa_VrfNames_VrfName_EastWestNames_EastWestName) GetEntityDa
     eastWestName.EntityData.BundleName = "cisco_ios_xr"
     eastWestName.EntityData.ParentYangName = "east-west-names"
     eastWestName.EntityData.SegmentPath = "east-west-name" + types.AddKeyToken(eastWestName.EastWestName, "east-west-name")
+    eastWestName.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/east-west-names/" + eastWestName.EntityData.SegmentPath
     eastWestName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eastWestName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eastWestName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -224,6 +231,7 @@ func (addressFamily *Tpa_VrfNames_VrfName_AddressFamily) GetEntityData() *types.
     addressFamily.EntityData.BundleName = "cisco_ios_xr"
     addressFamily.EntityData.ParentYangName = "vrf-name"
     addressFamily.EntityData.SegmentPath = "address-family"
+    addressFamily.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/" + addressFamily.EntityData.SegmentPath
     addressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -260,6 +268,7 @@ func (ipv6 *Tpa_VrfNames_VrfName_AddressFamily_Ipv6) GetEntityData() *types.Comm
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "address-family"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/address-family/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -293,6 +302,7 @@ func (interfaceNames *Tpa_VrfNames_VrfName_AddressFamily_Ipv6_InterfaceNames) Ge
     interfaceNames.EntityData.BundleName = "cisco_ios_xr"
     interfaceNames.EntityData.ParentYangName = "ipv6"
     interfaceNames.EntityData.SegmentPath = "interface-names"
+    interfaceNames.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/address-family/ipv6/" + interfaceNames.EntityData.SegmentPath
     interfaceNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -314,6 +324,7 @@ func (interfaceNames *Tpa_VrfNames_VrfName_AddressFamily_Ipv6_InterfaceNames) Ge
 type Tpa_VrfNames_VrfName_AddressFamily_Ipv6_InterfaceNames_InterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -330,6 +341,7 @@ func (interfaceName *Tpa_VrfNames_VrfName_AddressFamily_Ipv6_InterfaceNames_Inte
     interfaceName.EntityData.BundleName = "cisco_ios_xr"
     interfaceName.EntityData.ParentYangName = "interface-names"
     interfaceName.EntityData.SegmentPath = "interface-name" + types.AddKeyToken(interfaceName.InterfaceName, "interface-name")
+    interfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/address-family/ipv6/interface-names/" + interfaceName.EntityData.SegmentPath
     interfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -364,6 +376,7 @@ func (updateSource *Tpa_VrfNames_VrfName_AddressFamily_Ipv6_UpdateSource) GetEnt
     updateSource.EntityData.BundleName = "cisco_ios_xr"
     updateSource.EntityData.ParentYangName = "ipv6"
     updateSource.EntityData.SegmentPath = "update-source"
+    updateSource.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/address-family/ipv6/" + updateSource.EntityData.SegmentPath
     updateSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -400,6 +413,7 @@ func (ipv4 *Tpa_VrfNames_VrfName_AddressFamily_Ipv4) GetEntityData() *types.Comm
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "address-family"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/address-family/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -433,6 +447,7 @@ func (interfaceNames *Tpa_VrfNames_VrfName_AddressFamily_Ipv4_InterfaceNames) Ge
     interfaceNames.EntityData.BundleName = "cisco_ios_xr"
     interfaceNames.EntityData.ParentYangName = "ipv4"
     interfaceNames.EntityData.SegmentPath = "interface-names"
+    interfaceNames.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/address-family/ipv4/" + interfaceNames.EntityData.SegmentPath
     interfaceNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -454,6 +469,7 @@ func (interfaceNames *Tpa_VrfNames_VrfName_AddressFamily_Ipv4_InterfaceNames) Ge
 type Tpa_VrfNames_VrfName_AddressFamily_Ipv4_InterfaceNames_InterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -470,6 +486,7 @@ func (interfaceName *Tpa_VrfNames_VrfName_AddressFamily_Ipv4_InterfaceNames_Inte
     interfaceName.EntityData.BundleName = "cisco_ios_xr"
     interfaceName.EntityData.ParentYangName = "interface-names"
     interfaceName.EntityData.SegmentPath = "interface-name" + types.AddKeyToken(interfaceName.InterfaceName, "interface-name")
+    interfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/address-family/ipv4/interface-names/" + interfaceName.EntityData.SegmentPath
     interfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -504,6 +521,7 @@ func (updateSource *Tpa_VrfNames_VrfName_AddressFamily_Ipv4_UpdateSource) GetEnt
     updateSource.EntityData.BundleName = "cisco_ios_xr"
     updateSource.EntityData.ParentYangName = "ipv4"
     updateSource.EntityData.SegmentPath = "update-source"
+    updateSource.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/vrf-name/address-family/ipv4/" + updateSource.EntityData.SegmentPath
     updateSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -534,6 +552,7 @@ func (logging *Tpa_Logging) GetEntityData() *types.CommonEntityData {
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "tpa"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -568,6 +587,7 @@ func (kim *Tpa_Logging_Kim) GetEntityData() *types.CommonEntityData {
     kim.EntityData.BundleName = "cisco_ios_xr"
     kim.EntityData.ParentYangName = "logging"
     kim.EntityData.SegmentPath = "kim"
+    kim.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/logging/" + kim.EntityData.SegmentPath
     kim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     kim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     kim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -607,6 +627,7 @@ func (statistics *Tpa_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "tpa"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-kim-tpa-cfg:tpa/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

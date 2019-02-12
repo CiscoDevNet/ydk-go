@@ -728,6 +728,7 @@ func (opticsOper *OpticsOper) GetEntityData() *types.CommonEntityData {
     opticsOper.EntityData.BundleName = "cisco_ios_xr"
     opticsOper.EntityData.ParentYangName = "Cisco-IOS-XR-controller-optics-oper"
     opticsOper.EntityData.SegmentPath = "Cisco-IOS-XR-controller-optics-oper:optics-oper"
+    opticsOper.EntityData.AbsolutePath = opticsOper.EntityData.SegmentPath
     opticsOper.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsOper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsOper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -758,6 +759,7 @@ func (opticsPorts *OpticsOper_OpticsPorts) GetEntityData() *types.CommonEntityDa
     opticsPorts.EntityData.BundleName = "cisco_ios_xr"
     opticsPorts.EntityData.ParentYangName = "optics-oper"
     opticsPorts.EntityData.SegmentPath = "optics-ports"
+    opticsPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/" + opticsPorts.EntityData.SegmentPath
     opticsPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -779,6 +781,7 @@ func (opticsPorts *OpticsOper_OpticsPorts) GetEntityData() *types.CommonEntityDa
 type OpticsOper_OpticsPorts_OpticsPort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -809,6 +812,7 @@ func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetEntityData() *types.Comm
     opticsPort.EntityData.BundleName = "cisco_ios_xr"
     opticsPort.EntityData.ParentYangName = "optics-ports"
     opticsPort.EntityData.SegmentPath = "optics-port" + types.AddKeyToken(opticsPort.Name, "name")
+    opticsPort.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/" + opticsPort.EntityData.SegmentPath
     opticsPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -856,6 +860,7 @@ func (opticsDwdmCarrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmC
     opticsDwdmCarrierChannelMap.EntityData.BundleName = "cisco_ios_xr"
     opticsDwdmCarrierChannelMap.EntityData.ParentYangName = "optics-port"
     opticsDwdmCarrierChannelMap.EntityData.SegmentPath = "optics-dwdm-carrier-channel-map"
+    opticsDwdmCarrierChannelMap.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/" + opticsDwdmCarrierChannelMap.EntityData.SegmentPath
     opticsDwdmCarrierChannelMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsDwdmCarrierChannelMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsDwdmCarrierChannelMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -863,6 +868,7 @@ func (opticsDwdmCarrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmC
     opticsDwdmCarrierChannelMap.EntityData.Children = types.NewOrderedMap()
     opticsDwdmCarrierChannelMap.EntityData.Children.Append("dwdm-carrier-map-info", types.YChild{"DwdmCarrierMapInfo", nil})
     for i := range opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo {
+        types.SetYListKey(opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo[i], i)
         opticsDwdmCarrierChannelMap.EntityData.Children.Append(types.GetSegmentPath(opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo[i]), types.YChild{"DwdmCarrierMapInfo", opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo[i]})
     }
     opticsDwdmCarrierChannelMap.EntityData.Leafs = types.NewOrderedMap()
@@ -880,6 +886,7 @@ func (opticsDwdmCarrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmC
 type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ITU channel number. The type is interface{} with range: 0..4294967295.
     ItuChanNum interface{}
@@ -900,7 +907,8 @@ func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierCha
     dwdmCarrierMapInfo.EntityData.YangName = "dwdm-carrier-map-info"
     dwdmCarrierMapInfo.EntityData.BundleName = "cisco_ios_xr"
     dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrier-channel-map"
-    dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info"
+    dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info" + types.AddNoKeyToken(dwdmCarrierMapInfo)
+    dwdmCarrierMapInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-dwdm-carrier-channel-map/" + dwdmCarrierMapInfo.EntityData.SegmentPath
     dwdmCarrierMapInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dwdmCarrierMapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dwdmCarrierMapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -933,6 +941,7 @@ func (otsSpectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo) GetEnt
     otsSpectrumInfo.EntityData.BundleName = "cisco_ios_xr"
     otsSpectrumInfo.EntityData.ParentYangName = "optics-port"
     otsSpectrumInfo.EntityData.SegmentPath = "ots-spectrum-info"
+    otsSpectrumInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/" + otsSpectrumInfo.EntityData.SegmentPath
     otsSpectrumInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otsSpectrumInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otsSpectrumInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -974,6 +983,7 @@ func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumIn
     spectrumInfo.EntityData.BundleName = "cisco_ios_xr"
     spectrumInfo.EntityData.ParentYangName = "ots-spectrum-info"
     spectrumInfo.EntityData.SegmentPath = "spectrum-info"
+    spectrumInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/ots-spectrum-info/" + spectrumInfo.EntityData.SegmentPath
     spectrumInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spectrumInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spectrumInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -981,6 +991,7 @@ func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumIn
     spectrumInfo.EntityData.Children = types.NewOrderedMap()
     spectrumInfo.EntityData.Children.Append("spectrum-slice-power-info", types.YChild{"SpectrumSlicePowerInfo", nil})
     for i := range spectrumInfo.SpectrumSlicePowerInfo {
+        types.SetYListKey(spectrumInfo.SpectrumSlicePowerInfo[i], i)
         spectrumInfo.EntityData.Children.Append(types.GetSegmentPath(spectrumInfo.SpectrumSlicePowerInfo[i]), types.YChild{"SpectrumSlicePowerInfo", spectrumInfo.SpectrumSlicePowerInfo[i]})
     }
     spectrumInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -998,6 +1009,7 @@ func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumIn
 type OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo_SpectrumSlicePowerInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // spectrum slice number. The type is interface{} with range: 0..4294967295.
     SliceNum interface{}
@@ -1032,7 +1044,8 @@ func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_
     spectrumSlicePowerInfo.EntityData.YangName = "spectrum-slice-power-info"
     spectrumSlicePowerInfo.EntityData.BundleName = "cisco_ios_xr"
     spectrumSlicePowerInfo.EntityData.ParentYangName = "spectrum-info"
-    spectrumSlicePowerInfo.EntityData.SegmentPath = "spectrum-slice-power-info"
+    spectrumSlicePowerInfo.EntityData.SegmentPath = "spectrum-slice-power-info" + types.AddNoKeyToken(spectrumSlicePowerInfo)
+    spectrumSlicePowerInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/ots-spectrum-info/spectrum-info/" + spectrumSlicePowerInfo.EntityData.SegmentPath
     spectrumSlicePowerInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spectrumSlicePowerInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spectrumSlicePowerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1080,6 +1093,7 @@ func (opticsDwdmCarrierChannelMapFlexi *OpticsOper_OpticsPorts_OpticsPort_Optics
     opticsDwdmCarrierChannelMapFlexi.EntityData.BundleName = "cisco_ios_xr"
     opticsDwdmCarrierChannelMapFlexi.EntityData.ParentYangName = "optics-port"
     opticsDwdmCarrierChannelMapFlexi.EntityData.SegmentPath = "optics-dwdm-carrier-channel-map-flexi"
+    opticsDwdmCarrierChannelMapFlexi.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/" + opticsDwdmCarrierChannelMapFlexi.EntityData.SegmentPath
     opticsDwdmCarrierChannelMapFlexi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsDwdmCarrierChannelMapFlexi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsDwdmCarrierChannelMapFlexi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1087,6 +1101,7 @@ func (opticsDwdmCarrierChannelMapFlexi *OpticsOper_OpticsPorts_OpticsPort_Optics
     opticsDwdmCarrierChannelMapFlexi.EntityData.Children = types.NewOrderedMap()
     opticsDwdmCarrierChannelMapFlexi.EntityData.Children.Append("dwdm-carrier-map-info", types.YChild{"DwdmCarrierMapInfo", nil})
     for i := range opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo {
+        types.SetYListKey(opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo[i], i)
         opticsDwdmCarrierChannelMapFlexi.EntityData.Children.Append(types.GetSegmentPath(opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo[i]), types.YChild{"DwdmCarrierMapInfo", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo[i]})
     }
     opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs = types.NewOrderedMap()
@@ -1104,6 +1119,7 @@ func (opticsDwdmCarrierChannelMapFlexi *OpticsOper_OpticsPorts_OpticsPort_Optics
 type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ITU channel number. The type is interface{} with range: 0..4294967295.
     ItuChanNum interface{}
@@ -1124,7 +1140,8 @@ func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierCha
     dwdmCarrierMapInfo.EntityData.YangName = "dwdm-carrier-map-info"
     dwdmCarrierMapInfo.EntityData.BundleName = "cisco_ios_xr"
     dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrier-channel-map-flexi"
-    dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info"
+    dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info" + types.AddNoKeyToken(dwdmCarrierMapInfo)
+    dwdmCarrierMapInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-dwdm-carrier-channel-map-flexi/" + dwdmCarrierMapInfo.EntityData.SegmentPath
     dwdmCarrierMapInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dwdmCarrierMapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dwdmCarrierMapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1534,6 +1551,7 @@ func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() 
     opticsInfo.EntityData.BundleName = "cisco_ios_xr"
     opticsInfo.EntityData.ParentYangName = "optics-port"
     opticsInfo.EntityData.SegmentPath = "optics-info"
+    opticsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/" + opticsInfo.EntityData.SegmentPath
     opticsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1549,6 +1567,7 @@ func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() 
     opticsInfo.EntityData.Children.Append("ains-info", types.YChild{"AinsInfo", &opticsInfo.AinsInfo})
     opticsInfo.EntityData.Children.Append("lane-data", types.YChild{"LaneData", nil})
     for i := range opticsInfo.LaneData {
+        types.SetYListKey(opticsInfo.LaneData[i], i)
         opticsInfo.EntityData.Children.Append(types.GetSegmentPath(opticsInfo.LaneData[i]), types.YChild{"LaneData", opticsInfo.LaneData[i]})
     }
     opticsInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -1675,6 +1694,7 @@ func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgI
     networkSrlgInfo.EntityData.BundleName = "cisco_ios_xr"
     networkSrlgInfo.EntityData.ParentYangName = "optics-info"
     networkSrlgInfo.EntityData.SegmentPath = "network-srlg-info"
+    networkSrlgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/" + networkSrlgInfo.EntityData.SegmentPath
     networkSrlgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkSrlgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1682,6 +1702,7 @@ func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgI
     networkSrlgInfo.EntityData.Children = types.NewOrderedMap()
     networkSrlgInfo.EntityData.Children.Append("network-srlg-array", types.YChild{"NetworkSrlgArray", nil})
     for i := range networkSrlgInfo.NetworkSrlgArray {
+        types.SetYListKey(networkSrlgInfo.NetworkSrlgArray[i], i)
         networkSrlgInfo.EntityData.Children.Append(types.GetSegmentPath(networkSrlgInfo.NetworkSrlgArray[i]), types.YChild{"NetworkSrlgArray", networkSrlgInfo.NetworkSrlgArray[i]})
     }
     networkSrlgInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -1696,6 +1717,7 @@ func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgI
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array to maintain set number. The type is interface{} with range:
     // 0..4294967295.
@@ -1710,7 +1732,8 @@ func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlg
     networkSrlgArray.EntityData.YangName = "network-srlg-array"
     networkSrlgArray.EntityData.BundleName = "cisco_ios_xr"
     networkSrlgArray.EntityData.ParentYangName = "network-srlg-info"
-    networkSrlgArray.EntityData.SegmentPath = "network-srlg-array"
+    networkSrlgArray.EntityData.SegmentPath = "network-srlg-array" + types.AddNoKeyToken(networkSrlgArray)
+    networkSrlgArray.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/network-srlg-info/" + networkSrlgArray.EntityData.SegmentPath
     networkSrlgArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkSrlgArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlgArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1882,6 +1905,7 @@ func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmI
     opticsAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
     opticsAlarmInfo.EntityData.ParentYangName = "optics-info"
     opticsAlarmInfo.EntityData.SegmentPath = "optics-alarm-info"
+    opticsAlarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/" + opticsAlarmInfo.EntityData.SegmentPath
     opticsAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1961,6 +1985,7 @@ func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     highRxPower.EntityData.BundleName = "cisco_ios_xr"
     highRxPower.EntityData.ParentYangName = "optics-alarm-info"
     highRxPower.EntityData.SegmentPath = "high-rx-power"
+    highRxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highRxPower.EntityData.SegmentPath
     highRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1994,6 +2019,7 @@ func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_L
     lowRxPower.EntityData.BundleName = "cisco_ios_xr"
     lowRxPower.EntityData.ParentYangName = "optics-alarm-info"
     lowRxPower.EntityData.SegmentPath = "low-rx-power"
+    lowRxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowRxPower.EntityData.SegmentPath
     lowRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2027,6 +2053,7 @@ func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     highTxPower.EntityData.BundleName = "cisco_ios_xr"
     highTxPower.EntityData.ParentYangName = "optics-alarm-info"
     highTxPower.EntityData.SegmentPath = "high-tx-power"
+    highTxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highTxPower.EntityData.SegmentPath
     highTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2060,6 +2087,7 @@ func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_L
     lowTxPower.EntityData.BundleName = "cisco_ios_xr"
     lowTxPower.EntityData.ParentYangName = "optics-alarm-info"
     lowTxPower.EntityData.SegmentPath = "low-tx-power"
+    lowTxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowTxPower.EntityData.SegmentPath
     lowTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2093,6 +2121,7 @@ func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_High
     highLbc.EntityData.BundleName = "cisco_ios_xr"
     highLbc.EntityData.ParentYangName = "optics-alarm-info"
     highLbc.EntityData.SegmentPath = "high-lbc"
+    highLbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highLbc.EntityData.SegmentPath
     highLbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highLbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highLbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2126,6 +2155,7 @@ func (lowTemperature *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmIn
     lowTemperature.EntityData.BundleName = "cisco_ios_xr"
     lowTemperature.EntityData.ParentYangName = "optics-alarm-info"
     lowTemperature.EntityData.SegmentPath = "low-temperature"
+    lowTemperature.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowTemperature.EntityData.SegmentPath
     lowTemperature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTemperature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTemperature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2159,6 +2189,7 @@ func (highTemperature *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmI
     highTemperature.EntityData.BundleName = "cisco_ios_xr"
     highTemperature.EntityData.ParentYangName = "optics-alarm-info"
     highTemperature.EntityData.SegmentPath = "high-temperature"
+    highTemperature.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highTemperature.EntityData.SegmentPath
     highTemperature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTemperature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTemperature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2192,6 +2223,7 @@ func (lowVoltage *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_L
     lowVoltage.EntityData.BundleName = "cisco_ios_xr"
     lowVoltage.EntityData.ParentYangName = "optics-alarm-info"
     lowVoltage.EntityData.SegmentPath = "low-voltage"
+    lowVoltage.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowVoltage.EntityData.SegmentPath
     lowVoltage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowVoltage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowVoltage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2225,6 +2257,7 @@ func (highVoltage *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     highVoltage.EntityData.BundleName = "cisco_ios_xr"
     highVoltage.EntityData.ParentYangName = "optics-alarm-info"
     highVoltage.EntityData.SegmentPath = "high-voltage"
+    highVoltage.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highVoltage.EntityData.SegmentPath
     highVoltage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highVoltage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highVoltage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2258,6 +2291,7 @@ func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highRx1Power.EntityData.BundleName = "cisco_ios_xr"
     highRx1Power.EntityData.ParentYangName = "optics-alarm-info"
     highRx1Power.EntityData.SegmentPath = "high-rx1-power"
+    highRx1Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highRx1Power.EntityData.SegmentPath
     highRx1Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highRx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2291,6 +2325,7 @@ func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highRx2Power.EntityData.BundleName = "cisco_ios_xr"
     highRx2Power.EntityData.ParentYangName = "optics-alarm-info"
     highRx2Power.EntityData.SegmentPath = "high-rx2-power"
+    highRx2Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highRx2Power.EntityData.SegmentPath
     highRx2Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highRx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2324,6 +2359,7 @@ func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highRx3Power.EntityData.BundleName = "cisco_ios_xr"
     highRx3Power.EntityData.ParentYangName = "optics-alarm-info"
     highRx3Power.EntityData.SegmentPath = "high-rx3-power"
+    highRx3Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highRx3Power.EntityData.SegmentPath
     highRx3Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highRx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2357,6 +2393,7 @@ func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highRx4Power.EntityData.BundleName = "cisco_ios_xr"
     highRx4Power.EntityData.ParentYangName = "optics-alarm-info"
     highRx4Power.EntityData.SegmentPath = "high-rx4-power"
+    highRx4Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highRx4Power.EntityData.SegmentPath
     highRx4Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highRx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2390,6 +2427,7 @@ func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowRx1Power.EntityData.BundleName = "cisco_ios_xr"
     lowRx1Power.EntityData.ParentYangName = "optics-alarm-info"
     lowRx1Power.EntityData.SegmentPath = "low-rx1-power"
+    lowRx1Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowRx1Power.EntityData.SegmentPath
     lowRx1Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowRx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2423,6 +2461,7 @@ func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowRx2Power.EntityData.BundleName = "cisco_ios_xr"
     lowRx2Power.EntityData.ParentYangName = "optics-alarm-info"
     lowRx2Power.EntityData.SegmentPath = "low-rx2-power"
+    lowRx2Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowRx2Power.EntityData.SegmentPath
     lowRx2Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowRx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2456,6 +2495,7 @@ func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowRx3Power.EntityData.BundleName = "cisco_ios_xr"
     lowRx3Power.EntityData.ParentYangName = "optics-alarm-info"
     lowRx3Power.EntityData.SegmentPath = "low-rx3-power"
+    lowRx3Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowRx3Power.EntityData.SegmentPath
     lowRx3Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowRx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2489,6 +2529,7 @@ func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowRx4Power.EntityData.BundleName = "cisco_ios_xr"
     lowRx4Power.EntityData.ParentYangName = "optics-alarm-info"
     lowRx4Power.EntityData.SegmentPath = "low-rx4-power"
+    lowRx4Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowRx4Power.EntityData.SegmentPath
     lowRx4Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowRx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2522,6 +2563,7 @@ func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highTx1Power.EntityData.BundleName = "cisco_ios_xr"
     highTx1Power.EntityData.ParentYangName = "optics-alarm-info"
     highTx1Power.EntityData.SegmentPath = "high-tx1-power"
+    highTx1Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highTx1Power.EntityData.SegmentPath
     highTx1Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2555,6 +2597,7 @@ func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highTx2Power.EntityData.BundleName = "cisco_ios_xr"
     highTx2Power.EntityData.ParentYangName = "optics-alarm-info"
     highTx2Power.EntityData.SegmentPath = "high-tx2-power"
+    highTx2Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highTx2Power.EntityData.SegmentPath
     highTx2Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2588,6 +2631,7 @@ func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highTx3Power.EntityData.BundleName = "cisco_ios_xr"
     highTx3Power.EntityData.ParentYangName = "optics-alarm-info"
     highTx3Power.EntityData.SegmentPath = "high-tx3-power"
+    highTx3Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highTx3Power.EntityData.SegmentPath
     highTx3Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2621,6 +2665,7 @@ func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
     highTx4Power.EntityData.BundleName = "cisco_ios_xr"
     highTx4Power.EntityData.ParentYangName = "optics-alarm-info"
     highTx4Power.EntityData.SegmentPath = "high-tx4-power"
+    highTx4Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highTx4Power.EntityData.SegmentPath
     highTx4Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2654,6 +2699,7 @@ func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowTx1Power.EntityData.BundleName = "cisco_ios_xr"
     lowTx1Power.EntityData.ParentYangName = "optics-alarm-info"
     lowTx1Power.EntityData.SegmentPath = "low-tx1-power"
+    lowTx1Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowTx1Power.EntityData.SegmentPath
     lowTx1Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2687,6 +2733,7 @@ func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowTx2Power.EntityData.BundleName = "cisco_ios_xr"
     lowTx2Power.EntityData.ParentYangName = "optics-alarm-info"
     lowTx2Power.EntityData.SegmentPath = "low-tx2-power"
+    lowTx2Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowTx2Power.EntityData.SegmentPath
     lowTx2Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2720,6 +2767,7 @@ func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowTx3Power.EntityData.BundleName = "cisco_ios_xr"
     lowTx3Power.EntityData.ParentYangName = "optics-alarm-info"
     lowTx3Power.EntityData.SegmentPath = "low-tx3-power"
+    lowTx3Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowTx3Power.EntityData.SegmentPath
     lowTx3Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2753,6 +2801,7 @@ func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
     lowTx4Power.EntityData.BundleName = "cisco_ios_xr"
     lowTx4Power.EntityData.ParentYangName = "optics-alarm-info"
     lowTx4Power.EntityData.SegmentPath = "low-tx4-power"
+    lowTx4Power.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowTx4Power.EntityData.SegmentPath
     lowTx4Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2787,6 +2836,7 @@ func (highTx1lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_H
     highTx1lbc.EntityData.BundleName = "cisco_ios_xr"
     highTx1lbc.EntityData.ParentYangName = "optics-alarm-info"
     highTx1lbc.EntityData.SegmentPath = "high-tx1lbc"
+    highTx1lbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highTx1lbc.EntityData.SegmentPath
     highTx1lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTx1lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx1lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2821,6 +2871,7 @@ func (highTx2lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_H
     highTx2lbc.EntityData.BundleName = "cisco_ios_xr"
     highTx2lbc.EntityData.ParentYangName = "optics-alarm-info"
     highTx2lbc.EntityData.SegmentPath = "high-tx2lbc"
+    highTx2lbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highTx2lbc.EntityData.SegmentPath
     highTx2lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTx2lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx2lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2855,6 +2906,7 @@ func (highTx3lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_H
     highTx3lbc.EntityData.BundleName = "cisco_ios_xr"
     highTx3lbc.EntityData.ParentYangName = "optics-alarm-info"
     highTx3lbc.EntityData.SegmentPath = "high-tx3lbc"
+    highTx3lbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highTx3lbc.EntityData.SegmentPath
     highTx3lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTx3lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx3lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2889,6 +2941,7 @@ func (highTx4lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_H
     highTx4lbc.EntityData.BundleName = "cisco_ios_xr"
     highTx4lbc.EntityData.ParentYangName = "optics-alarm-info"
     highTx4lbc.EntityData.SegmentPath = "high-tx4lbc"
+    highTx4lbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + highTx4lbc.EntityData.SegmentPath
     highTx4lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTx4lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTx4lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2923,6 +2976,7 @@ func (lowTx1lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Lo
     lowTx1lbc.EntityData.BundleName = "cisco_ios_xr"
     lowTx1lbc.EntityData.ParentYangName = "optics-alarm-info"
     lowTx1lbc.EntityData.SegmentPath = "low-tx1lbc"
+    lowTx1lbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowTx1lbc.EntityData.SegmentPath
     lowTx1lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTx1lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx1lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2957,6 +3011,7 @@ func (lowTx2lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Lo
     lowTx2lbc.EntityData.BundleName = "cisco_ios_xr"
     lowTx2lbc.EntityData.ParentYangName = "optics-alarm-info"
     lowTx2lbc.EntityData.SegmentPath = "low-tx2lbc"
+    lowTx2lbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowTx2lbc.EntityData.SegmentPath
     lowTx2lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTx2lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx2lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2991,6 +3046,7 @@ func (lowTx3lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Lo
     lowTx3lbc.EntityData.BundleName = "cisco_ios_xr"
     lowTx3lbc.EntityData.ParentYangName = "optics-alarm-info"
     lowTx3lbc.EntityData.SegmentPath = "low-tx3lbc"
+    lowTx3lbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowTx3lbc.EntityData.SegmentPath
     lowTx3lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTx3lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx3lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3025,6 +3081,7 @@ func (lowTx4lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Lo
     lowTx4lbc.EntityData.BundleName = "cisco_ios_xr"
     lowTx4lbc.EntityData.ParentYangName = "optics-alarm-info"
     lowTx4lbc.EntityData.SegmentPath = "low-tx4lbc"
+    lowTx4lbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + lowTx4lbc.EntityData.SegmentPath
     lowTx4lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTx4lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTx4lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3058,6 +3115,7 @@ func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos)
     rxLos.EntityData.BundleName = "cisco_ios_xr"
     rxLos.EntityData.ParentYangName = "optics-alarm-info"
     rxLos.EntityData.SegmentPath = "rx-los"
+    rxLos.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + rxLos.EntityData.SegmentPath
     rxLos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxLos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3091,6 +3149,7 @@ func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos)
     txLos.EntityData.BundleName = "cisco_ios_xr"
     txLos.EntityData.ParentYangName = "optics-alarm-info"
     txLos.EntityData.SegmentPath = "tx-los"
+    txLos.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + txLos.EntityData.SegmentPath
     txLos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txLos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3124,6 +3183,7 @@ func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol)
     rxLol.EntityData.BundleName = "cisco_ios_xr"
     rxLol.EntityData.ParentYangName = "optics-alarm-info"
     rxLol.EntityData.SegmentPath = "rx-lol"
+    rxLol.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + rxLol.EntityData.SegmentPath
     rxLol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxLol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3157,6 +3217,7 @@ func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol)
     txLol.EntityData.BundleName = "cisco_ios_xr"
     txLol.EntityData.ParentYangName = "optics-alarm-info"
     txLol.EntityData.SegmentPath = "tx-lol"
+    txLol.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + txLol.EntityData.SegmentPath
     txLol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txLol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txLol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3190,6 +3251,7 @@ func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFa
     txFault.EntityData.BundleName = "cisco_ios_xr"
     txFault.EntityData.ParentYangName = "optics-alarm-info"
     txFault.EntityData.SegmentPath = "tx-fault"
+    txFault.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + txFault.EntityData.SegmentPath
     txFault.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txFault.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txFault.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3223,6 +3285,7 @@ func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd)
     hidgd.EntityData.BundleName = "cisco_ios_xr"
     hidgd.EntityData.ParentYangName = "optics-alarm-info"
     hidgd.EntityData.SegmentPath = "hidgd"
+    hidgd.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + hidgd.EntityData.SegmentPath
     hidgd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hidgd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hidgd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3256,6 +3319,7 @@ func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd)
     oorcd.EntityData.BundleName = "cisco_ios_xr"
     oorcd.EntityData.ParentYangName = "optics-alarm-info"
     oorcd.EntityData.SegmentPath = "oorcd"
+    oorcd.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + oorcd.EntityData.SegmentPath
     oorcd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oorcd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorcd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3289,6 +3353,7 @@ func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) G
     osnr.EntityData.BundleName = "cisco_ios_xr"
     osnr.EntityData.ParentYangName = "optics-alarm-info"
     osnr.EntityData.SegmentPath = "osnr"
+    osnr.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + osnr.EntityData.SegmentPath
     osnr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     osnr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     osnr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3322,6 +3387,7 @@ func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvloo
     wvlool.EntityData.BundleName = "cisco_ios_xr"
     wvlool.EntityData.ParentYangName = "optics-alarm-info"
     wvlool.EntityData.SegmentPath = "wvlool"
+    wvlool.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + wvlool.EntityData.SegmentPath
     wvlool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wvlool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wvlool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3355,6 +3421,7 @@ func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) Get
     mea.EntityData.BundleName = "cisco_ios_xr"
     mea.EntityData.ParentYangName = "optics-alarm-info"
     mea.EntityData.SegmentPath = "mea"
+    mea.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + mea.EntityData.SegmentPath
     mea.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mea.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mea.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3388,6 +3455,7 @@ func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_I
     impRemoval.EntityData.BundleName = "cisco_ios_xr"
     impRemoval.EntityData.ParentYangName = "optics-alarm-info"
     impRemoval.EntityData.SegmentPath = "imp-removal"
+    impRemoval.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + impRemoval.EntityData.SegmentPath
     impRemoval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     impRemoval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     impRemoval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3421,6 +3489,7 @@ func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc)
     rxLoc.EntityData.BundleName = "cisco_ios_xr"
     rxLoc.EntityData.ParentYangName = "optics-alarm-info"
     rxLoc.EntityData.SegmentPath = "rx-loc"
+    rxLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + rxLoc.EntityData.SegmentPath
     rxLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3454,6 +3523,7 @@ func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInf
     ampGainDegLow.EntityData.BundleName = "cisco_ios_xr"
     ampGainDegLow.EntityData.ParentYangName = "optics-alarm-info"
     ampGainDegLow.EntityData.SegmentPath = "amp-gain-deg-low"
+    ampGainDegLow.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + ampGainDegLow.EntityData.SegmentPath
     ampGainDegLow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ampGainDegLow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ampGainDegLow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3487,6 +3557,7 @@ func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmIn
     ampGainDegHigh.EntityData.BundleName = "cisco_ios_xr"
     ampGainDegHigh.EntityData.ParentYangName = "optics-alarm-info"
     ampGainDegHigh.EntityData.SegmentPath = "amp-gain-deg-high"
+    ampGainDegHigh.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + ampGainDegHigh.EntityData.SegmentPath
     ampGainDegHigh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ampGainDegHigh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ampGainDegHigh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3520,6 +3591,7 @@ func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInf
     txpwrMismatch.EntityData.BundleName = "cisco_ios_xr"
     txpwrMismatch.EntityData.ParentYangName = "optics-alarm-info"
     txpwrMismatch.EntityData.SegmentPath = "txpwr-mismatch"
+    txpwrMismatch.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/optics-alarm-info/" + txpwrMismatch.EntityData.SegmentPath
     txpwrMismatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txpwrMismatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txpwrMismatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3583,6 +3655,7 @@ func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) G
     otsAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
     otsAlarmInfo.EntityData.ParentYangName = "optics-info"
     otsAlarmInfo.EntityData.SegmentPath = "ots-alarm-info"
+    otsAlarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/" + otsAlarmInfo.EntityData.SegmentPath
     otsAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otsAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otsAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3626,6 +3699,7 @@ func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowT
     lowTxPower.EntityData.BundleName = "cisco_ios_xr"
     lowTxPower.EntityData.ParentYangName = "ots-alarm-info"
     lowTxPower.EntityData.SegmentPath = "low-tx-power"
+    lowTxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + lowTxPower.EntityData.SegmentPath
     lowTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3659,6 +3733,7 @@ func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowR
     lowRxPower.EntityData.BundleName = "cisco_ios_xr"
     lowRxPower.EntityData.ParentYangName = "ots-alarm-info"
     lowRxPower.EntityData.SegmentPath = "low-rx-power"
+    lowRxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + lowRxPower.EntityData.SegmentPath
     lowRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3692,6 +3767,7 @@ func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) 
     rxLosP.EntityData.BundleName = "cisco_ios_xr"
     rxLosP.EntityData.ParentYangName = "ots-alarm-info"
     rxLosP.EntityData.SegmentPath = "rx-los-p"
+    rxLosP.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + rxLosP.EntityData.SegmentPath
     rxLosP.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxLosP.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLosP.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3725,6 +3801,7 @@ func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) Ge
     rxLoc.EntityData.BundleName = "cisco_ios_xr"
     rxLoc.EntityData.ParentYangName = "ots-alarm-info"
     rxLoc.EntityData.SegmentPath = "rx-loc"
+    rxLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + rxLoc.EntityData.SegmentPath
     rxLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3758,6 +3835,7 @@ func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_A
     ampGainDegLow.EntityData.BundleName = "cisco_ios_xr"
     ampGainDegLow.EntityData.ParentYangName = "ots-alarm-info"
     ampGainDegLow.EntityData.SegmentPath = "amp-gain-deg-low"
+    ampGainDegLow.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + ampGainDegLow.EntityData.SegmentPath
     ampGainDegLow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ampGainDegLow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ampGainDegLow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3791,6 +3869,7 @@ func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_
     ampGainDegHigh.EntityData.BundleName = "cisco_ios_xr"
     ampGainDegHigh.EntityData.ParentYangName = "ots-alarm-info"
     ampGainDegHigh.EntityData.SegmentPath = "amp-gain-deg-high"
+    ampGainDegHigh.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + ampGainDegHigh.EntityData.SegmentPath
     ampGainDegHigh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ampGainDegHigh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ampGainDegHigh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3824,6 +3903,7 @@ func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_A
     autoLaserShut.EntityData.BundleName = "cisco_ios_xr"
     autoLaserShut.EntityData.ParentYangName = "ots-alarm-info"
     autoLaserShut.EntityData.SegmentPath = "auto-laser-shut"
+    autoLaserShut.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + autoLaserShut.EntityData.SegmentPath
     autoLaserShut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoLaserShut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoLaserShut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3857,6 +3937,7 @@ func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_Au
     autoPowerRed.EntityData.BundleName = "cisco_ios_xr"
     autoPowerRed.EntityData.ParentYangName = "ots-alarm-info"
     autoPowerRed.EntityData.SegmentPath = "auto-power-red"
+    autoPowerRed.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + autoPowerRed.EntityData.SegmentPath
     autoPowerRed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoPowerRed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoPowerRed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3890,6 +3971,7 @@ func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAla
     autoAmpliCtrlDisabled.EntityData.BundleName = "cisco_ios_xr"
     autoAmpliCtrlDisabled.EntityData.ParentYangName = "ots-alarm-info"
     autoAmpliCtrlDisabled.EntityData.SegmentPath = "auto-ampli-ctrl-disabled"
+    autoAmpliCtrlDisabled.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + autoAmpliCtrlDisabled.EntityData.SegmentPath
     autoAmpliCtrlDisabled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoAmpliCtrlDisabled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoAmpliCtrlDisabled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3923,6 +4005,7 @@ func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_
     autoAmpliCtrlConfigMismatch.EntityData.BundleName = "cisco_ios_xr"
     autoAmpliCtrlConfigMismatch.EntityData.ParentYangName = "ots-alarm-info"
     autoAmpliCtrlConfigMismatch.EntityData.SegmentPath = "auto-ampli-ctrl-config-mismatch"
+    autoAmpliCtrlConfigMismatch.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + autoAmpliCtrlConfigMismatch.EntityData.SegmentPath
     autoAmpliCtrlConfigMismatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoAmpliCtrlConfigMismatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoAmpliCtrlConfigMismatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3956,6 +4039,7 @@ func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo
     switchToProtect.EntityData.BundleName = "cisco_ios_xr"
     switchToProtect.EntityData.ParentYangName = "ots-alarm-info"
     switchToProtect.EntityData.SegmentPath = "switch-to-protect"
+    switchToProtect.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + switchToProtect.EntityData.SegmentPath
     switchToProtect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     switchToProtect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     switchToProtect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3989,6 +4073,7 @@ func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlar
     autoAmpliCtrlRunning.EntityData.BundleName = "cisco_ios_xr"
     autoAmpliCtrlRunning.EntityData.ParentYangName = "ots-alarm-info"
     autoAmpliCtrlRunning.EntityData.SegmentPath = "auto-ampli-ctrl-running"
+    autoAmpliCtrlRunning.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/ots-alarm-info/" + autoAmpliCtrlRunning.EntityData.SegmentPath
     autoAmpliCtrlRunning.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoAmpliCtrlRunning.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoAmpliCtrlRunning.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4065,6 +4150,7 @@ func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverI
     transceiverInfo.EntityData.BundleName = "cisco_ios_xr"
     transceiverInfo.EntityData.ParentYangName = "optics-info"
     transceiverInfo.EntityData.SegmentPath = "transceiver-info"
+    transceiverInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/" + transceiverInfo.EntityData.SegmentPath
     transceiverInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transceiverInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transceiverInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4194,6 +4280,7 @@ func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) Get
     extParamVal.EntityData.BundleName = "cisco_ios_xr"
     extParamVal.EntityData.ParentYangName = "optics-info"
     extParamVal.EntityData.SegmentPath = "ext-param-val"
+    extParamVal.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/" + extParamVal.EntityData.SegmentPath
     extParamVal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extParamVal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extParamVal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4497,6 +4584,7 @@ func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtPara
     extParamThresholdVal.EntityData.BundleName = "cisco_ios_xr"
     extParamThresholdVal.EntityData.ParentYangName = "optics-info"
     extParamThresholdVal.EntityData.SegmentPath = "ext-param-threshold-val"
+    extParamThresholdVal.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/" + extParamThresholdVal.EntityData.SegmentPath
     extParamThresholdVal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extParamThresholdVal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extParamThresholdVal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4676,6 +4764,7 @@ func (extendedAlarmAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Exten
     extendedAlarmAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
     extendedAlarmAlarmInfo.EntityData.ParentYangName = "optics-info"
     extendedAlarmAlarmInfo.EntityData.SegmentPath = "extended-alarm-alarm-info"
+    extendedAlarmAlarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/" + extendedAlarmAlarmInfo.EntityData.SegmentPath
     extendedAlarmAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedAlarmAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedAlarmAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4737,6 +4826,7 @@ func (loSnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo
     loSnr.EntityData.BundleName = "cisco_ios_xr"
     loSnr.EntityData.ParentYangName = "extended-alarm-alarm-info"
     loSnr.EntityData.SegmentPath = "lo-snr"
+    loSnr.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + loSnr.EntityData.SegmentPath
     loSnr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loSnr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loSnr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4770,6 +4860,7 @@ func (hiSnr1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiSnr1.EntityData.BundleName = "cisco_ios_xr"
     hiSnr1.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiSnr1.EntityData.SegmentPath = "hi-snr1"
+    hiSnr1.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiSnr1.EntityData.SegmentPath
     hiSnr1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiSnr1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiSnr1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4803,6 +4894,7 @@ func (loSnr1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loSnr1.EntityData.BundleName = "cisco_ios_xr"
     loSnr1.EntityData.ParentYangName = "extended-alarm-alarm-info"
     loSnr1.EntityData.SegmentPath = "lo-snr1"
+    loSnr1.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + loSnr1.EntityData.SegmentPath
     loSnr1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loSnr1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loSnr1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4836,6 +4928,7 @@ func (hiSnr2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiSnr2.EntityData.BundleName = "cisco_ios_xr"
     hiSnr2.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiSnr2.EntityData.SegmentPath = "hi-snr2"
+    hiSnr2.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiSnr2.EntityData.SegmentPath
     hiSnr2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiSnr2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiSnr2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4869,6 +4962,7 @@ func (loIsi1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loIsi1.EntityData.BundleName = "cisco_ios_xr"
     loIsi1.EntityData.ParentYangName = "extended-alarm-alarm-info"
     loIsi1.EntityData.SegmentPath = "lo-isi1"
+    loIsi1.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + loIsi1.EntityData.SegmentPath
     loIsi1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loIsi1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loIsi1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4902,6 +4996,7 @@ func (hiIsi1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiIsi1.EntityData.BundleName = "cisco_ios_xr"
     hiIsi1.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiIsi1.EntityData.SegmentPath = "hi-isi1"
+    hiIsi1.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiIsi1.EntityData.SegmentPath
     hiIsi1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiIsi1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiIsi1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4935,6 +5030,7 @@ func (loIsi2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loIsi2.EntityData.BundleName = "cisco_ios_xr"
     loIsi2.EntityData.ParentYangName = "extended-alarm-alarm-info"
     loIsi2.EntityData.SegmentPath = "lo-isi2"
+    loIsi2.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + loIsi2.EntityData.SegmentPath
     loIsi2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loIsi2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loIsi2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4968,6 +5064,7 @@ func (hiIsi2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiIsi2.EntityData.BundleName = "cisco_ios_xr"
     hiIsi2.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiIsi2.EntityData.SegmentPath = "hi-isi2"
+    hiIsi2.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiIsi2.EntityData.SegmentPath
     hiIsi2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiIsi2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiIsi2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5001,6 +5098,7 @@ func (loPam1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loPam1.EntityData.BundleName = "cisco_ios_xr"
     loPam1.EntityData.ParentYangName = "extended-alarm-alarm-info"
     loPam1.EntityData.SegmentPath = "lo-pam1"
+    loPam1.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + loPam1.EntityData.SegmentPath
     loPam1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loPam1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loPam1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5034,6 +5132,7 @@ func (hiPam1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiPam1.EntityData.BundleName = "cisco_ios_xr"
     hiPam1.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiPam1.EntityData.SegmentPath = "hi-pam1"
+    hiPam1.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiPam1.EntityData.SegmentPath
     hiPam1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiPam1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPam1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5067,6 +5166,7 @@ func (loPam2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loPam2.EntityData.BundleName = "cisco_ios_xr"
     loPam2.EntityData.ParentYangName = "extended-alarm-alarm-info"
     loPam2.EntityData.SegmentPath = "lo-pam2"
+    loPam2.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + loPam2.EntityData.SegmentPath
     loPam2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loPam2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loPam2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5100,6 +5200,7 @@ func (hiPam2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiPam2.EntityData.BundleName = "cisco_ios_xr"
     hiPam2.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiPam2.EntityData.SegmentPath = "hi-pam2"
+    hiPam2.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiPam2.EntityData.SegmentPath
     hiPam2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiPam2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPam2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5133,6 +5234,7 @@ func (loTec1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loTec1.EntityData.BundleName = "cisco_ios_xr"
     loTec1.EntityData.ParentYangName = "extended-alarm-alarm-info"
     loTec1.EntityData.SegmentPath = "lo-tec1"
+    loTec1.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + loTec1.EntityData.SegmentPath
     loTec1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loTec1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loTec1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5166,6 +5268,7 @@ func (hiTec1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiTec1.EntityData.BundleName = "cisco_ios_xr"
     hiTec1.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiTec1.EntityData.SegmentPath = "hi-tec1"
+    hiTec1.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiTec1.EntityData.SegmentPath
     hiTec1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiTec1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiTec1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5199,6 +5302,7 @@ func (loTec2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     loTec2.EntityData.BundleName = "cisco_ios_xr"
     loTec2.EntityData.ParentYangName = "extended-alarm-alarm-info"
     loTec2.EntityData.SegmentPath = "lo-tec2"
+    loTec2.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + loTec2.EntityData.SegmentPath
     loTec2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loTec2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loTec2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5232,6 +5336,7 @@ func (hiTec2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInf
     hiTec2.EntityData.BundleName = "cisco_ios_xr"
     hiTec2.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiTec2.EntityData.SegmentPath = "hi-tec2"
+    hiTec2.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiTec2.EntityData.SegmentPath
     hiTec2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiTec2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiTec2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5265,6 +5370,7 @@ func (loLaserFreq1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAl
     loLaserFreq1.EntityData.BundleName = "cisco_ios_xr"
     loLaserFreq1.EntityData.ParentYangName = "extended-alarm-alarm-info"
     loLaserFreq1.EntityData.SegmentPath = "lo-laser-freq1"
+    loLaserFreq1.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + loLaserFreq1.EntityData.SegmentPath
     loLaserFreq1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loLaserFreq1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loLaserFreq1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5299,6 +5405,7 @@ func (hiLaserFreq1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAl
     hiLaserFreq1.EntityData.BundleName = "cisco_ios_xr"
     hiLaserFreq1.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiLaserFreq1.EntityData.SegmentPath = "hi-laser-freq1"
+    hiLaserFreq1.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiLaserFreq1.EntityData.SegmentPath
     hiLaserFreq1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiLaserFreq1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiLaserFreq1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5332,6 +5439,7 @@ func (loLaserFreq2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAl
     loLaserFreq2.EntityData.BundleName = "cisco_ios_xr"
     loLaserFreq2.EntityData.ParentYangName = "extended-alarm-alarm-info"
     loLaserFreq2.EntityData.SegmentPath = "lo-laser-freq2"
+    loLaserFreq2.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + loLaserFreq2.EntityData.SegmentPath
     loLaserFreq2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loLaserFreq2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loLaserFreq2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5366,6 +5474,7 @@ func (hiLaserFreq2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAl
     hiLaserFreq2.EntityData.BundleName = "cisco_ios_xr"
     hiLaserFreq2.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiLaserFreq2.EntityData.SegmentPath = "hi-laser-freq2"
+    hiLaserFreq2.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiLaserFreq2.EntityData.SegmentPath
     hiLaserFreq2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiLaserFreq2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiLaserFreq2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5399,6 +5508,7 @@ func (hiPreFecberCurAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAl
     hiPreFecberCurAcc.EntityData.BundleName = "cisco_ios_xr"
     hiPreFecberCurAcc.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiPreFecberCurAcc.EntityData.SegmentPath = "hi-pre-fecber-cur-acc"
+    hiPreFecberCurAcc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiPreFecberCurAcc.EntityData.SegmentPath
     hiPreFecberCurAcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiPreFecberCurAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPreFecberCurAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5432,6 +5542,7 @@ func (hiPreFecberMin *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarm
     hiPreFecberMin.EntityData.BundleName = "cisco_ios_xr"
     hiPreFecberMin.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiPreFecberMin.EntityData.SegmentPath = "hi-pre-fecber-min"
+    hiPreFecberMin.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiPreFecberMin.EntityData.SegmentPath
     hiPreFecberMin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiPreFecberMin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPreFecberMin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5465,6 +5576,7 @@ func (hiPreFecberMax *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarm
     hiPreFecberMax.EntityData.BundleName = "cisco_ios_xr"
     hiPreFecberMax.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiPreFecberMax.EntityData.SegmentPath = "hi-pre-fecber-max"
+    hiPreFecberMax.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiPreFecberMax.EntityData.SegmentPath
     hiPreFecberMax.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiPreFecberMax.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPreFecberMax.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5498,6 +5610,7 @@ func (hiPreFecberPriorAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Extended
     hiPreFecberPriorAcc.EntityData.BundleName = "cisco_ios_xr"
     hiPreFecberPriorAcc.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiPreFecberPriorAcc.EntityData.SegmentPath = "hi-pre-fecber-prior-acc"
+    hiPreFecberPriorAcc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiPreFecberPriorAcc.EntityData.SegmentPath
     hiPreFecberPriorAcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiPreFecberPriorAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPreFecberPriorAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5531,6 +5644,7 @@ func (hiPreFecberCur *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarm
     hiPreFecberCur.EntityData.BundleName = "cisco_ios_xr"
     hiPreFecberCur.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiPreFecberCur.EntityData.SegmentPath = "hi-pre-fecber-cur"
+    hiPreFecberCur.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiPreFecberCur.EntityData.SegmentPath
     hiPreFecberCur.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiPreFecberCur.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiPreFecberCur.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5564,6 +5678,7 @@ func (hiUncorrectedBerCurAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Exten
     hiUncorrectedBerCurAcc.EntityData.BundleName = "cisco_ios_xr"
     hiUncorrectedBerCurAcc.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiUncorrectedBerCurAcc.EntityData.SegmentPath = "hi-uncorrected-ber-cur-acc"
+    hiUncorrectedBerCurAcc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiUncorrectedBerCurAcc.EntityData.SegmentPath
     hiUncorrectedBerCurAcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiUncorrectedBerCurAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiUncorrectedBerCurAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5597,6 +5712,7 @@ func (hiUncorrectedBerMin *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Extended
     hiUncorrectedBerMin.EntityData.BundleName = "cisco_ios_xr"
     hiUncorrectedBerMin.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiUncorrectedBerMin.EntityData.SegmentPath = "hi-uncorrected-ber-min"
+    hiUncorrectedBerMin.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiUncorrectedBerMin.EntityData.SegmentPath
     hiUncorrectedBerMin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiUncorrectedBerMin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiUncorrectedBerMin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5630,6 +5746,7 @@ func (hiUncorrectedBerMax *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Extended
     hiUncorrectedBerMax.EntityData.BundleName = "cisco_ios_xr"
     hiUncorrectedBerMax.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiUncorrectedBerMax.EntityData.SegmentPath = "hi-uncorrected-ber-max"
+    hiUncorrectedBerMax.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiUncorrectedBerMax.EntityData.SegmentPath
     hiUncorrectedBerMax.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiUncorrectedBerMax.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiUncorrectedBerMax.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5663,6 +5780,7 @@ func (hiUncorrectedBerPriorAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Ext
     hiUncorrectedBerPriorAcc.EntityData.BundleName = "cisco_ios_xr"
     hiUncorrectedBerPriorAcc.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiUncorrectedBerPriorAcc.EntityData.SegmentPath = "hi-uncorrected-ber-prior-acc"
+    hiUncorrectedBerPriorAcc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiUncorrectedBerPriorAcc.EntityData.SegmentPath
     hiUncorrectedBerPriorAcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiUncorrectedBerPriorAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiUncorrectedBerPriorAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5696,6 +5814,7 @@ func (hiUncorrectedBerCur *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Extended
     hiUncorrectedBerCur.EntityData.BundleName = "cisco_ios_xr"
     hiUncorrectedBerCur.EntityData.ParentYangName = "extended-alarm-alarm-info"
     hiUncorrectedBerCur.EntityData.SegmentPath = "hi-uncorrected-ber-cur"
+    hiUncorrectedBerCur.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/extended-alarm-alarm-info/" + hiUncorrectedBerCur.EntityData.SegmentPath
     hiUncorrectedBerCur.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hiUncorrectedBerCur.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hiUncorrectedBerCur.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5734,6 +5853,7 @@ func (ainsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_AinsInfo) GetEntity
     ainsInfo.EntityData.BundleName = "cisco_ios_xr"
     ainsInfo.EntityData.ParentYangName = "optics-info"
     ainsInfo.EntityData.SegmentPath = "ains-info"
+    ainsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/" + ainsInfo.EntityData.SegmentPath
     ainsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ainsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ainsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5754,6 +5874,7 @@ func (ainsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_AinsInfo) GetEntity
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The index number of the lane. The type is interface{} with range:
     // 0..4294967295.
@@ -5800,7 +5921,8 @@ func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetEntity
     laneData.EntityData.YangName = "lane-data"
     laneData.EntityData.BundleName = "cisco_ios_xr"
     laneData.EntityData.ParentYangName = "optics-info"
-    laneData.EntityData.SegmentPath = "lane-data"
+    laneData.EntityData.SegmentPath = "lane-data" + types.AddNoKeyToken(laneData)
+    laneData.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/" + laneData.EntityData.SegmentPath
     laneData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     laneData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     laneData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5851,6 +5973,7 @@ func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneA
     laneAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
     laneAlarmInfo.EntityData.ParentYangName = "lane-data"
     laneAlarmInfo.EntityData.SegmentPath = "lane-alarm-info"
+    laneAlarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/lane-data/" + laneAlarmInfo.EntityData.SegmentPath
     laneAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     laneAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     laneAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5887,6 +6010,7 @@ func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAla
     highRxPower.EntityData.BundleName = "cisco_ios_xr"
     highRxPower.EntityData.ParentYangName = "lane-alarm-info"
     highRxPower.EntityData.SegmentPath = "high-rx-power"
+    highRxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/lane-data/lane-alarm-info/" + highRxPower.EntityData.SegmentPath
     highRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5920,6 +6044,7 @@ func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlar
     lowRxPower.EntityData.BundleName = "cisco_ios_xr"
     lowRxPower.EntityData.ParentYangName = "lane-alarm-info"
     lowRxPower.EntityData.SegmentPath = "low-rx-power"
+    lowRxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/lane-data/lane-alarm-info/" + lowRxPower.EntityData.SegmentPath
     lowRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5953,6 +6078,7 @@ func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAla
     highTxPower.EntityData.BundleName = "cisco_ios_xr"
     highTxPower.EntityData.ParentYangName = "lane-alarm-info"
     highTxPower.EntityData.SegmentPath = "high-tx-power"
+    highTxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/lane-data/lane-alarm-info/" + highTxPower.EntityData.SegmentPath
     highTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5986,6 +6112,7 @@ func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlar
     lowTxPower.EntityData.BundleName = "cisco_ios_xr"
     lowTxPower.EntityData.ParentYangName = "lane-alarm-info"
     lowTxPower.EntityData.SegmentPath = "low-tx-power"
+    lowTxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/lane-data/lane-alarm-info/" + lowTxPower.EntityData.SegmentPath
     lowTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6019,6 +6146,7 @@ func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmIn
     highLbc.EntityData.BundleName = "cisco_ios_xr"
     highLbc.EntityData.ParentYangName = "lane-alarm-info"
     highLbc.EntityData.SegmentPath = "high-lbc"
+    highLbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info/lane-data/lane-alarm-info/" + highLbc.EntityData.SegmentPath
     highLbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highLbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highLbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6050,6 +6178,7 @@ func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetEntityData(
     opticsLanes.EntityData.BundleName = "cisco_ios_xr"
     opticsLanes.EntityData.ParentYangName = "optics-port"
     opticsLanes.EntityData.SegmentPath = "optics-lanes"
+    opticsLanes.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/" + opticsLanes.EntityData.SegmentPath
     opticsLanes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsLanes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsLanes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6071,6 +6200,7 @@ func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetEntityData(
 type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Lane Index. The type is interface{} with range:
     // 0..4294967295.
@@ -6122,6 +6252,7 @@ func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetE
     opticsLane.EntityData.BundleName = "cisco_ios_xr"
     opticsLane.EntityData.ParentYangName = "optics-lanes"
     opticsLane.EntityData.SegmentPath = "optics-lane" + types.AddKeyToken(opticsLane.Number, "number")
+    opticsLane.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/" + opticsLane.EntityData.SegmentPath
     opticsLane.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsLane.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsLane.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6173,6 +6304,7 @@ func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_La
     laneAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
     laneAlarmInfo.EntityData.ParentYangName = "optics-lane"
     laneAlarmInfo.EntityData.SegmentPath = "lane-alarm-info"
+    laneAlarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/optics-lane/" + laneAlarmInfo.EntityData.SegmentPath
     laneAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     laneAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     laneAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6209,6 +6341,7 @@ func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_Lane
     highRxPower.EntityData.BundleName = "cisco_ios_xr"
     highRxPower.EntityData.ParentYangName = "lane-alarm-info"
     highRxPower.EntityData.SegmentPath = "high-rx-power"
+    highRxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/optics-lane/lane-alarm-info/" + highRxPower.EntityData.SegmentPath
     highRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6242,6 +6375,7 @@ func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneA
     lowRxPower.EntityData.BundleName = "cisco_ios_xr"
     lowRxPower.EntityData.ParentYangName = "lane-alarm-info"
     lowRxPower.EntityData.SegmentPath = "low-rx-power"
+    lowRxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/optics-lane/lane-alarm-info/" + lowRxPower.EntityData.SegmentPath
     lowRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6275,6 +6409,7 @@ func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_Lane
     highTxPower.EntityData.BundleName = "cisco_ios_xr"
     highTxPower.EntityData.ParentYangName = "lane-alarm-info"
     highTxPower.EntityData.SegmentPath = "high-tx-power"
+    highTxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/optics-lane/lane-alarm-info/" + highTxPower.EntityData.SegmentPath
     highTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6308,6 +6443,7 @@ func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneA
     lowTxPower.EntityData.BundleName = "cisco_ios_xr"
     lowTxPower.EntityData.ParentYangName = "lane-alarm-info"
     lowTxPower.EntityData.SegmentPath = "low-tx-power"
+    lowTxPower.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/optics-lane/lane-alarm-info/" + lowTxPower.EntityData.SegmentPath
     lowTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6341,6 +6477,7 @@ func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlar
     highLbc.EntityData.BundleName = "cisco_ios_xr"
     highLbc.EntityData.ParentYangName = "lane-alarm-info"
     highLbc.EntityData.SegmentPath = "high-lbc"
+    highLbc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/optics-lane/lane-alarm-info/" + highLbc.EntityData.SegmentPath
     highLbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     highLbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     highLbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6378,6 +6515,7 @@ func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetEntityDat
     opticsDbInfo.EntityData.BundleName = "cisco_ios_xr"
     opticsDbInfo.EntityData.ParentYangName = "optics-port"
     opticsDbInfo.EntityData.SegmentPath = "optics-db-info"
+    opticsDbInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/" + opticsDbInfo.EntityData.SegmentPath
     opticsDbInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsDbInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsDbInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6410,6 +6548,7 @@ func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrl
     networkSrlgInfo.EntityData.BundleName = "cisco_ios_xr"
     networkSrlgInfo.EntityData.ParentYangName = "optics-db-info"
     networkSrlgInfo.EntityData.SegmentPath = "network-srlg-info"
+    networkSrlgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-db-info/" + networkSrlgInfo.EntityData.SegmentPath
     networkSrlgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkSrlgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6417,6 +6556,7 @@ func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrl
     networkSrlgInfo.EntityData.Children = types.NewOrderedMap()
     networkSrlgInfo.EntityData.Children.Append("network-srlg-array", types.YChild{"NetworkSrlgArray", nil})
     for i := range networkSrlgInfo.NetworkSrlgArray {
+        types.SetYListKey(networkSrlgInfo.NetworkSrlgArray[i], i)
         networkSrlgInfo.EntityData.Children.Append(types.GetSegmentPath(networkSrlgInfo.NetworkSrlgArray[i]), types.YChild{"NetworkSrlgArray", networkSrlgInfo.NetworkSrlgArray[i]})
     }
     networkSrlgInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -6431,6 +6571,7 @@ func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrl
 type OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array to maintain set number. The type is interface{} with range:
     // 0..4294967295.
@@ -6445,7 +6586,8 @@ func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSr
     networkSrlgArray.EntityData.YangName = "network-srlg-array"
     networkSrlgArray.EntityData.BundleName = "cisco_ios_xr"
     networkSrlgArray.EntityData.ParentYangName = "network-srlg-info"
-    networkSrlgArray.EntityData.SegmentPath = "network-srlg-array"
+    networkSrlgArray.EntityData.SegmentPath = "network-srlg-array" + types.AddNoKeyToken(networkSrlgArray)
+    networkSrlgArray.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-db-info/network-srlg-info/" + networkSrlgArray.EntityData.SegmentPath
     networkSrlgArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkSrlgArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlgArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

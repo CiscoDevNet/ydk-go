@@ -165,6 +165,7 @@ func (opticalInterface *OpticalInterface) GetEntityData() *types.CommonEntityDat
     opticalInterface.EntityData.BundleName = "cisco_ios_xr"
     opticalInterface.EntityData.ParentYangName = "Cisco-IOS-XR-terminal-device-oper"
     opticalInterface.EntityData.SegmentPath = "Cisco-IOS-XR-terminal-device-oper:optical-interface"
+    opticalInterface.EntityData.AbsolutePath = opticalInterface.EntityData.SegmentPath
     opticalInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +202,7 @@ func (configStatus *OpticalInterface_ConfigStatus) GetEntityData() *types.Common
     configStatus.EntityData.BundleName = "cisco_ios_xr"
     configStatus.EntityData.ParentYangName = "optical-interface"
     configStatus.EntityData.SegmentPath = "config-status"
+    configStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/" + configStatus.EntityData.SegmentPath
     configStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -231,6 +233,7 @@ func (partialConfig *OpticalInterface_ConfigStatus_PartialConfig) GetEntityData(
     partialConfig.EntityData.BundleName = "cisco_ios_xr"
     partialConfig.EntityData.ParentYangName = "config-status"
     partialConfig.EntityData.SegmentPath = "partial-config"
+    partialConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/config-status/" + partialConfig.EntityData.SegmentPath
     partialConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     partialConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     partialConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -262,6 +265,7 @@ func (sliceTables *OpticalInterface_ConfigStatus_SliceTables) GetEntityData() *t
     sliceTables.EntityData.BundleName = "cisco_ios_xr"
     sliceTables.EntityData.ParentYangName = "config-status"
     sliceTables.EntityData.SegmentPath = "slice-tables"
+    sliceTables.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/config-status/" + sliceTables.EntityData.SegmentPath
     sliceTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -283,6 +287,7 @@ func (sliceTables *OpticalInterface_ConfigStatus_SliceTables) GetEntityData() *t
 type OpticalInterface_ConfigStatus_SliceTables_SliceTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of slice. The type is interface{} with
     // range: 0..4294967295.
@@ -298,6 +303,7 @@ func (sliceTable *OpticalInterface_ConfigStatus_SliceTables_SliceTable) GetEntit
     sliceTable.EntityData.BundleName = "cisco_ios_xr"
     sliceTable.EntityData.ParentYangName = "slice-tables"
     sliceTable.EntityData.SegmentPath = "slice-table" + types.AddKeyToken(sliceTable.Index, "index")
+    sliceTable.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/config-status/slice-tables/" + sliceTable.EntityData.SegmentPath
     sliceTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -349,6 +355,7 @@ func (sliceStatusAttr *OpticalInterface_ConfigStatus_SliceTables_SliceTable_Slic
     sliceStatusAttr.EntityData.BundleName = "cisco_ios_xr"
     sliceStatusAttr.EntityData.ParentYangName = "slice-table"
     sliceStatusAttr.EntityData.SegmentPath = "slice-status-attr"
+    sliceStatusAttr.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/config-status/slice-tables/slice-table/" + sliceStatusAttr.EntityData.SegmentPath
     sliceStatusAttr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceStatusAttr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceStatusAttr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -387,6 +394,7 @@ func (opticalChannelInterfaces *OpticalInterface_OpticalChannelInterfaces) GetEn
     opticalChannelInterfaces.EntityData.BundleName = "cisco_ios_xr"
     opticalChannelInterfaces.EntityData.ParentYangName = "optical-interface"
     opticalChannelInterfaces.EntityData.SegmentPath = "optical-channel-interfaces"
+    opticalChannelInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/" + opticalChannelInterfaces.EntityData.SegmentPath
     opticalChannelInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalChannelInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalChannelInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -409,6 +417,7 @@ func (opticalChannelInterfaces *OpticalInterface_OpticalChannelInterfaces) GetEn
 type OpticalInterface_OpticalChannelInterfaces_OpticalChannelInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the optical-channel. The type is
     // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -424,6 +433,7 @@ func (opticalChannelInterface *OpticalInterface_OpticalChannelInterfaces_Optical
     opticalChannelInterface.EntityData.BundleName = "cisco_ios_xr"
     opticalChannelInterface.EntityData.ParentYangName = "optical-channel-interfaces"
     opticalChannelInterface.EntityData.SegmentPath = "optical-channel-interface" + types.AddKeyToken(opticalChannelInterface.Location, "location")
+    opticalChannelInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-channel-interfaces/" + opticalChannelInterface.EntityData.SegmentPath
     opticalChannelInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalChannelInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalChannelInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -470,6 +480,7 @@ func (opticalChannelInterfaceAttr *OpticalInterface_OpticalChannelInterfaces_Opt
     opticalChannelInterfaceAttr.EntityData.BundleName = "cisco_ios_xr"
     opticalChannelInterfaceAttr.EntityData.ParentYangName = "optical-channel-interface"
     opticalChannelInterfaceAttr.EntityData.SegmentPath = "optical-channel-interface-attr"
+    opticalChannelInterfaceAttr.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-channel-interfaces/optical-channel-interface/" + opticalChannelInterfaceAttr.EntityData.SegmentPath
     opticalChannelInterfaceAttr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalChannelInterfaceAttr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalChannelInterfaceAttr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -508,6 +519,7 @@ func (graph *OpticalInterface_Graph) GetEntityData() *types.CommonEntityData {
     graph.EntityData.BundleName = "cisco_ios_xr"
     graph.EntityData.ParentYangName = "optical-interface"
     graph.EntityData.SegmentPath = "graph"
+    graph.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/" + graph.EntityData.SegmentPath
     graph.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     graph.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     graph.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -539,6 +551,7 @@ func (adjListPath *OpticalInterface_Graph_AdjListPath) GetEntityData() *types.Co
     adjListPath.EntityData.BundleName = "cisco_ios_xr"
     adjListPath.EntityData.ParentYangName = "graph"
     adjListPath.EntityData.SegmentPath = "adj-list-path"
+    adjListPath.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/graph/" + adjListPath.EntityData.SegmentPath
     adjListPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjListPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjListPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -569,6 +582,7 @@ func (graphStructurePath *OpticalInterface_Graph_GraphStructurePath) GetEntityDa
     graphStructurePath.EntityData.BundleName = "cisco_ios_xr"
     graphStructurePath.EntityData.ParentYangName = "graph"
     graphStructurePath.EntityData.SegmentPath = "graph-structure-path"
+    graphStructurePath.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/graph/" + graphStructurePath.EntityData.SegmentPath
     graphStructurePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     graphStructurePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     graphStructurePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -599,6 +613,7 @@ func (operationalModes *OpticalInterface_OperationalModes) GetEntityData() *type
     operationalModes.EntityData.BundleName = "cisco_ios_xr"
     operationalModes.EntityData.ParentYangName = "optical-interface"
     operationalModes.EntityData.SegmentPath = "operational-modes"
+    operationalModes.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/" + operationalModes.EntityData.SegmentPath
     operationalModes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationalModes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationalModes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -620,6 +635,7 @@ func (operationalModes *OpticalInterface_OperationalModes) GetEntityData() *type
 type OpticalInterface_OperationalModes_OperationalMode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Mode-id for supported mode on Device. The type is
     // interface{} with range: 0..4294967295.
@@ -635,6 +651,7 @@ func (operationalMode *OpticalInterface_OperationalModes_OperationalMode) GetEnt
     operationalMode.EntityData.BundleName = "cisco_ios_xr"
     operationalMode.EntityData.ParentYangName = "operational-modes"
     operationalMode.EntityData.SegmentPath = "operational-mode" + types.AddKeyToken(operationalMode.ModeId, "mode-id")
+    operationalMode.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/operational-modes/" + operationalMode.EntityData.SegmentPath
     operationalMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationalMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationalMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -669,6 +686,7 @@ func (operationalModeAttributes *OpticalInterface_OperationalModes_OperationalMo
     operationalModeAttributes.EntityData.BundleName = "cisco_ios_xr"
     operationalModeAttributes.EntityData.ParentYangName = "operational-mode"
     operationalModeAttributes.EntityData.SegmentPath = "operational-mode-attributes"
+    operationalModeAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/operational-modes/operational-mode/" + operationalModeAttributes.EntityData.SegmentPath
     operationalModeAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationalModeAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationalModeAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -700,6 +718,7 @@ func (opticalLogicalInterfaces *OpticalInterface_OpticalLogicalInterfaces) GetEn
     opticalLogicalInterfaces.EntityData.BundleName = "cisco_ios_xr"
     opticalLogicalInterfaces.EntityData.ParentYangName = "optical-interface"
     opticalLogicalInterfaces.EntityData.SegmentPath = "optical-logical-interfaces"
+    opticalLogicalInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/" + opticalLogicalInterfaces.EntityData.SegmentPath
     opticalLogicalInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalLogicalInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalLogicalInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -722,6 +741,7 @@ func (opticalLogicalInterfaces *OpticalInterface_OpticalLogicalInterfaces) GetEn
 type OpticalInterface_OpticalLogicalInterfaces_OpticalLogicalInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the logical-channel. The type is
     // interface{} with range: 0..4294967295.
@@ -740,6 +760,7 @@ func (opticalLogicalInterface *OpticalInterface_OpticalLogicalInterfaces_Optical
     opticalLogicalInterface.EntityData.BundleName = "cisco_ios_xr"
     opticalLogicalInterface.EntityData.ParentYangName = "optical-logical-interfaces"
     opticalLogicalInterface.EntityData.SegmentPath = "optical-logical-interface" + types.AddKeyToken(opticalLogicalInterface.Index, "index")
+    opticalLogicalInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-logical-interfaces/" + opticalLogicalInterface.EntityData.SegmentPath
     opticalLogicalInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalLogicalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalLogicalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -805,6 +826,7 @@ func (opticalLogicalInterfaceAttr *OpticalInterface_OpticalLogicalInterfaces_Opt
     opticalLogicalInterfaceAttr.EntityData.BundleName = "cisco_ios_xr"
     opticalLogicalInterfaceAttr.EntityData.ParentYangName = "optical-logical-interface"
     opticalLogicalInterfaceAttr.EntityData.SegmentPath = "optical-logical-interface-attr"
+    opticalLogicalInterfaceAttr.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-logical-interfaces/optical-logical-interface/" + opticalLogicalInterfaceAttr.EntityData.SegmentPath
     opticalLogicalInterfaceAttr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalLogicalInterfaceAttr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalLogicalInterfaceAttr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -848,6 +870,7 @@ func (opticalLogicalInterfaceLogicalChannelAssignments *OpticalInterface_Optical
     opticalLogicalInterfaceLogicalChannelAssignments.EntityData.BundleName = "cisco_ios_xr"
     opticalLogicalInterfaceLogicalChannelAssignments.EntityData.ParentYangName = "optical-logical-interface"
     opticalLogicalInterfaceLogicalChannelAssignments.EntityData.SegmentPath = "optical-logical-interface-logical-channel-assignments"
+    opticalLogicalInterfaceLogicalChannelAssignments.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-logical-interfaces/optical-logical-interface/" + opticalLogicalInterfaceLogicalChannelAssignments.EntityData.SegmentPath
     opticalLogicalInterfaceLogicalChannelAssignments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalLogicalInterfaceLogicalChannelAssignments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalLogicalInterfaceLogicalChannelAssignments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -870,6 +893,7 @@ func (opticalLogicalInterfaceLogicalChannelAssignments *OpticalInterface_Optical
 type OpticalInterface_OpticalLogicalInterfaces_OpticalLogicalInterface_OpticalLogicalInterfaceLogicalChannelAssignments_OpticalLogicalInterfaceLogicalChannelAssignment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the logical-channel. The type is
     // interface{} with range: 0..4294967295.
@@ -885,6 +909,7 @@ func (opticalLogicalInterfaceLogicalChannelAssignment *OpticalInterface_OpticalL
     opticalLogicalInterfaceLogicalChannelAssignment.EntityData.BundleName = "cisco_ios_xr"
     opticalLogicalInterfaceLogicalChannelAssignment.EntityData.ParentYangName = "optical-logical-interface-logical-channel-assignments"
     opticalLogicalInterfaceLogicalChannelAssignment.EntityData.SegmentPath = "optical-logical-interface-logical-channel-assignment" + types.AddKeyToken(opticalLogicalInterfaceLogicalChannelAssignment.Index, "index")
+    opticalLogicalInterfaceLogicalChannelAssignment.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-logical-interfaces/optical-logical-interface/optical-logical-interface-logical-channel-assignments/" + opticalLogicalInterfaceLogicalChannelAssignment.EntityData.SegmentPath
     opticalLogicalInterfaceLogicalChannelAssignment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalLogicalInterfaceLogicalChannelAssignment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalLogicalInterfaceLogicalChannelAssignment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -934,6 +959,7 @@ func (opticalLogicalInterfaceLogicalChannelAssignmentAttr *OpticalInterface_Opti
     opticalLogicalInterfaceLogicalChannelAssignmentAttr.EntityData.BundleName = "cisco_ios_xr"
     opticalLogicalInterfaceLogicalChannelAssignmentAttr.EntityData.ParentYangName = "optical-logical-interface-logical-channel-assignment"
     opticalLogicalInterfaceLogicalChannelAssignmentAttr.EntityData.SegmentPath = "optical-logical-interface-logical-channel-assignment-attr"
+    opticalLogicalInterfaceLogicalChannelAssignmentAttr.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-logical-interfaces/optical-logical-interface/optical-logical-interface-logical-channel-assignments/optical-logical-interface-logical-channel-assignment/" + opticalLogicalInterfaceLogicalChannelAssignmentAttr.EntityData.SegmentPath
     opticalLogicalInterfaceLogicalChannelAssignmentAttr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalLogicalInterfaceLogicalChannelAssignmentAttr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalLogicalInterfaceLogicalChannelAssignmentAttr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

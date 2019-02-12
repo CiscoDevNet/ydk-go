@@ -43,6 +43,7 @@ func (ssh *Ssh) GetEntityData() *types.CommonEntityData {
     ssh.EntityData.BundleName = "cisco_ios_xr"
     ssh.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-ssh-cfg"
     ssh.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh"
+    ssh.EntityData.AbsolutePath = ssh.EntityData.SegmentPath
     ssh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -98,6 +99,7 @@ func (client *Ssh_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "ssh"
     client.EntityData.SegmentPath = "client"
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -134,6 +136,7 @@ func (clientAlgo *Ssh_Client_ClientAlgo) GetEntityData() *types.CommonEntityData
     clientAlgo.EntityData.BundleName = "cisco_ios_xr"
     clientAlgo.EntityData.ParentYangName = "client"
     clientAlgo.EntityData.SegmentPath = "client-algo"
+    clientAlgo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/" + clientAlgo.EntityData.SegmentPath
     clientAlgo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientAlgo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientAlgo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -163,6 +166,7 @@ func (keyExchanges *Ssh_Client_ClientAlgo_KeyExchanges) GetEntityData() *types.C
     keyExchanges.EntityData.BundleName = "cisco_ios_xr"
     keyExchanges.EntityData.ParentYangName = "client-algo"
     keyExchanges.EntityData.SegmentPath = "key-exchanges"
+    keyExchanges.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/client-algo/" + keyExchanges.EntityData.SegmentPath
     keyExchanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyExchanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyExchanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -192,6 +196,7 @@ func (clientEnable *Ssh_Client_ClientEnable) GetEntityData() *types.CommonEntity
     clientEnable.EntityData.BundleName = "cisco_ios_xr"
     clientEnable.EntityData.ParentYangName = "client"
     clientEnable.EntityData.SegmentPath = "client-enable"
+    clientEnable.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/" + clientEnable.EntityData.SegmentPath
     clientEnable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -224,6 +229,7 @@ func (clientCipher *Ssh_Client_ClientEnable_ClientCipher) GetEntityData() *types
     clientCipher.EntityData.BundleName = "cisco_ios_xr"
     clientCipher.EntityData.ParentYangName = "client-enable"
     clientCipher.EntityData.SegmentPath = "client-cipher"
+    clientCipher.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/client-enable/" + clientCipher.EntityData.SegmentPath
     clientCipher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientCipher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientCipher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -302,6 +308,7 @@ func (server *Ssh_Server) GetEntityData() *types.CommonEntityData {
     server.EntityData.BundleName = "cisco_ios_xr"
     server.EntityData.ParentYangName = "ssh"
     server.EntityData.SegmentPath = "server"
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/" + server.EntityData.SegmentPath
     server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -345,6 +352,7 @@ func (disable *Ssh_Server_Disable) GetEntityData() *types.CommonEntityData {
     disable.EntityData.BundleName = "cisco_ios_xr"
     disable.EntityData.ParentYangName = "server"
     disable.EntityData.SegmentPath = "disable"
+    disable.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/" + disable.EntityData.SegmentPath
     disable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -375,6 +383,7 @@ func (hmac *Ssh_Server_Disable_Hmac) GetEntityData() *types.CommonEntityData {
     hmac.EntityData.BundleName = "cisco_ios_xr"
     hmac.EntityData.ParentYangName = "disable"
     hmac.EntityData.SegmentPath = "hmac"
+    hmac.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/disable/" + hmac.EntityData.SegmentPath
     hmac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hmac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hmac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -404,6 +413,7 @@ func (enable *Ssh_Server_Enable) GetEntityData() *types.CommonEntityData {
     enable.EntityData.BundleName = "cisco_ios_xr"
     enable.EntityData.ParentYangName = "server"
     enable.EntityData.SegmentPath = "enable"
+    enable.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/" + enable.EntityData.SegmentPath
     enable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -436,6 +446,7 @@ func (cipher *Ssh_Server_Enable_Cipher) GetEntityData() *types.CommonEntityData 
     cipher.EntityData.BundleName = "cisco_ios_xr"
     cipher.EntityData.ParentYangName = "enable"
     cipher.EntityData.SegmentPath = "cipher"
+    cipher.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/enable/" + cipher.EntityData.SegmentPath
     cipher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cipher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cipher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -466,6 +477,7 @@ func (vrfTable *Ssh_Server_VrfTable) GetEntityData() *types.CommonEntityData {
     vrfTable.EntityData.BundleName = "cisco_ios_xr"
     vrfTable.EntityData.ParentYangName = "server"
     vrfTable.EntityData.SegmentPath = "vrf-table"
+    vrfTable.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/" + vrfTable.EntityData.SegmentPath
     vrfTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -487,6 +499,7 @@ func (vrfTable *Ssh_Server_VrfTable) GetEntityData() *types.CommonEntityData {
 type Ssh_Server_VrfTable_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enter VRF name. The type is string with length:
     // 1..32.
@@ -508,6 +521,7 @@ func (vrf *Ssh_Server_VrfTable_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrf-table"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/vrf-table/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -540,6 +554,7 @@ func (serverAlgo *Ssh_Server_ServerAlgo) GetEntityData() *types.CommonEntityData
     serverAlgo.EntityData.BundleName = "cisco_ios_xr"
     serverAlgo.EntityData.ParentYangName = "server"
     serverAlgo.EntityData.SegmentPath = "server-algo"
+    serverAlgo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/" + serverAlgo.EntityData.SegmentPath
     serverAlgo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serverAlgo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverAlgo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -569,6 +584,7 @@ func (keyExchanges *Ssh_Server_ServerAlgo_KeyExchanges) GetEntityData() *types.C
     keyExchanges.EntityData.BundleName = "cisco_ios_xr"
     keyExchanges.EntityData.ParentYangName = "server-algo"
     keyExchanges.EntityData.SegmentPath = "key-exchanges"
+    keyExchanges.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/server-algo/" + keyExchanges.EntityData.SegmentPath
     keyExchanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyExchanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyExchanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -599,6 +615,7 @@ func (capability *Ssh_Server_Capability) GetEntityData() *types.CommonEntityData
     capability.EntityData.BundleName = "cisco_ios_xr"
     capability.EntityData.ParentYangName = "server"
     capability.EntityData.SegmentPath = "capability"
+    capability.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/" + capability.EntityData.SegmentPath
     capability.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     capability.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capability.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -628,6 +645,7 @@ func (netconfVrfTable *Ssh_Server_NetconfVrfTable) GetEntityData() *types.Common
     netconfVrfTable.EntityData.BundleName = "cisco_ios_xr"
     netconfVrfTable.EntityData.ParentYangName = "server"
     netconfVrfTable.EntityData.SegmentPath = "netconf-vrf-table"
+    netconfVrfTable.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/" + netconfVrfTable.EntityData.SegmentPath
     netconfVrfTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netconfVrfTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfVrfTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -649,6 +667,7 @@ func (netconfVrfTable *Ssh_Server_NetconfVrfTable) GetEntityData() *types.Common
 type Ssh_Server_NetconfVrfTable_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enter VRF name. The type is string with length:
     // 1..32.
@@ -670,6 +689,7 @@ func (vrf *Ssh_Server_NetconfVrfTable_Vrf) GetEntityData() *types.CommonEntityDa
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "netconf-vrf-table"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/netconf-vrf-table/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

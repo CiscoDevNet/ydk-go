@@ -205,6 +205,7 @@ func (ospfOperData *OspfOperData) GetEntityData() *types.CommonEntityData {
     ospfOperData.EntityData.BundleName = "cisco_ios_xe"
     ospfOperData.EntityData.ParentYangName = "Cisco-IOS-XE-ospf-oper"
     ospfOperData.EntityData.SegmentPath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data"
+    ospfOperData.EntityData.AbsolutePath = ospfOperData.EntityData.SegmentPath
     ospfOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -244,6 +245,7 @@ func (ospfState *OspfOperData_OspfState) GetEntityData() *types.CommonEntityData
     ospfState.EntityData.BundleName = "cisco_ios_xe"
     ospfState.EntityData.ParentYangName = "ospf-oper-data"
     ospfState.EntityData.SegmentPath = "ospf-state"
+    ospfState.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/" + ospfState.EntityData.SegmentPath
     ospfState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -266,6 +268,7 @@ func (ospfState *OspfOperData_OspfState) GetEntityData() *types.CommonEntityData
 type OspfOperData_OspfState_OspfInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address-family of the instance. The type is
     // AddressFamily.
@@ -298,6 +301,7 @@ func (ospfInstance *OspfOperData_OspfState_OspfInstance) GetEntityData() *types.
     ospfInstance.EntityData.BundleName = "cisco_ios_xe"
     ospfInstance.EntityData.ParentYangName = "ospf-state"
     ospfInstance.EntityData.SegmentPath = "ospf-instance" + types.AddKeyToken(ospfInstance.Af, "af") + types.AddKeyToken(ospfInstance.RouterId, "router-id")
+    ospfInstance.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/" + ospfInstance.EntityData.SegmentPath
     ospfInstance.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfInstance.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfInstance.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -330,6 +334,7 @@ func (ospfInstance *OspfOperData_OspfState_OspfInstance) GetEntityData() *types.
 type OspfOperData_OspfState_OspfInstance_OspfArea struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF area ID. The type is interface{} with range:
     // 0..4294967295.
@@ -350,6 +355,7 @@ func (ospfArea *OspfOperData_OspfState_OspfInstance_OspfArea) GetEntityData() *t
     ospfArea.EntityData.BundleName = "cisco_ios_xe"
     ospfArea.EntityData.ParentYangName = "ospf-instance"
     ospfArea.EntityData.SegmentPath = "ospf-area" + types.AddKeyToken(ospfArea.AreaId, "area-id")
+    ospfArea.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/" + ospfArea.EntityData.SegmentPath
     ospfArea.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfArea.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfArea.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -376,6 +382,7 @@ func (ospfArea *OspfOperData_OspfState_OspfInstance_OspfArea) GetEntityData() *t
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string.
     Name interface{}
@@ -486,6 +493,7 @@ func (ospfInterface *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface)
     ospfInterface.EntityData.BundleName = "cisco_ios_xe"
     ospfInterface.EntityData.ParentYangName = "ospf-area"
     ospfInterface.EntityData.SegmentPath = "ospf-interface" + types.AddKeyToken(ospfInterface.Name, "name")
+    ospfInterface.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/" + ospfInterface.EntityData.SegmentPath
     ospfInterface.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfInterface.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfInterface.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -559,6 +567,7 @@ func (multiArea *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Mult
     multiArea.EntityData.BundleName = "cisco_ios_xe"
     multiArea.EntityData.ParentYangName = "ospf-interface"
     multiArea.EntityData.SegmentPath = "multi-area"
+    multiArea.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/" + multiArea.EntityData.SegmentPath
     multiArea.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     multiArea.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     multiArea.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -578,6 +587,7 @@ func (multiArea *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Mult
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_StaticNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is one of the
     // following types: string with pattern:
@@ -600,6 +610,7 @@ func (staticNeighbor *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
     staticNeighbor.EntityData.BundleName = "cisco_ios_xe"
     staticNeighbor.EntityData.ParentYangName = "ospf-interface"
     staticNeighbor.EntityData.SegmentPath = "static-neighbor" + types.AddKeyToken(staticNeighbor.Address, "address")
+    staticNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/" + staticNeighbor.EntityData.SegmentPath
     staticNeighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     staticNeighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     staticNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -638,6 +649,7 @@ func (fastReroute *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Fa
     fastReroute.EntityData.BundleName = "cisco_ios_xe"
     fastReroute.EntityData.ParentYangName = "ospf-interface"
     fastReroute.EntityData.SegmentPath = "fast-reroute"
+    fastReroute.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/" + fastReroute.EntityData.SegmentPath
     fastReroute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fastReroute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -673,6 +685,7 @@ func (ttlSecurity *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Tt
     ttlSecurity.EntityData.BundleName = "cisco_ios_xe"
     ttlSecurity.EntityData.ParentYangName = "ospf-interface"
     ttlSecurity.EntityData.SegmentPath = "ttl-security"
+    ttlSecurity.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/" + ttlSecurity.EntityData.SegmentPath
     ttlSecurity.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ttlSecurity.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ttlSecurity.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -716,6 +729,7 @@ func (authentication *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
     authentication.EntityData.BundleName = "cisco_ios_xe"
     authentication.EntityData.ParentYangName = "ospf-interface"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -770,6 +784,7 @@ func (cryptoAlgorithmVal *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInter
     cryptoAlgorithmVal.EntityData.BundleName = "cisco_ios_xe"
     cryptoAlgorithmVal.EntityData.ParentYangName = "authentication"
     cryptoAlgorithmVal.EntityData.SegmentPath = "crypto-algorithm-val"
+    cryptoAlgorithmVal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/authentication/" + cryptoAlgorithmVal.EntityData.SegmentPath
     cryptoAlgorithmVal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cryptoAlgorithmVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cryptoAlgorithmVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -795,6 +810,7 @@ func (cryptoAlgorithmVal *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInter
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_OspfNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF neighbor ID. The type is one of the following
     // types: string with pattern:
@@ -837,6 +853,7 @@ func (ospfNeighbor *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_O
     ospfNeighbor.EntityData.BundleName = "cisco_ios_xe"
     ospfNeighbor.EntityData.ParentYangName = "ospf-interface"
     ospfNeighbor.EntityData.SegmentPath = "ospf-neighbor" + types.AddKeyToken(ospfNeighbor.NeighborId, "neighbor-id")
+    ospfNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/" + ospfNeighbor.EntityData.SegmentPath
     ospfNeighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfNeighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -876,6 +893,7 @@ func (stats *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_OspfNeig
     stats.EntityData.BundleName = "cisco_ios_xe"
     stats.EntityData.ParentYangName = "ospf-neighbor"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/ospf-neighbor/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -895,6 +913,7 @@ func (stats *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_OspfNeig
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF link scope LSA type. The type is interface{}
     // with range: 0..4294967295.
@@ -915,6 +934,7 @@ func (intfLinkScopeLsas *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterf
     intfLinkScopeLsas.EntityData.BundleName = "cisco_ios_xe"
     intfLinkScopeLsas.EntityData.ParentYangName = "ospf-interface"
     intfLinkScopeLsas.EntityData.SegmentPath = "intf-link-scope-lsas" + types.AddKeyToken(intfLinkScopeLsas.LsaType, "lsa-type")
+    intfLinkScopeLsas.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/" + intfLinkScopeLsas.EntityData.SegmentPath
     intfLinkScopeLsas.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     intfLinkScopeLsas.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     intfLinkScopeLsas.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -941,6 +961,7 @@ func (intfLinkScopeLsas *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterf
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSA ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1022,6 +1043,7 @@ func (linkScopeLsa *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_I
     linkScopeLsa.EntityData.BundleName = "cisco_ios_xe"
     linkScopeLsa.EntityData.ParentYangName = "intf-link-scope-lsas"
     linkScopeLsa.EntityData.SegmentPath = "link-scope-lsa" + types.AddKeyToken(linkScopeLsa.LsaId, "lsa-id") + types.AddKeyToken(linkScopeLsa.AdvRouter, "adv-router")
+    linkScopeLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/" + linkScopeLsa.EntityData.SegmentPath
     linkScopeLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linkScopeLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linkScopeLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1098,6 +1120,7 @@ func (ospfv2Lsa *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Intf
     ospfv2Lsa.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Lsa.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2Lsa.EntityData.SegmentPath = "ospfv2-lsa"
+    ospfv2Lsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + ospfv2Lsa.EntityData.SegmentPath
     ospfv2Lsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Lsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Lsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1158,6 +1181,7 @@ func (header *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLin
     header.EntityData.BundleName = "cisco_ios_xe"
     header.EntityData.ParentYangName = "ospfv2-lsa"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv2-lsa/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1214,6 +1238,7 @@ func (lsaBody *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLi
     lsaBody.EntityData.BundleName = "cisco_ios_xe"
     lsaBody.EntityData.ParentYangName = "ospfv2-lsa"
     lsaBody.EntityData.SegmentPath = "lsa-body"
+    lsaBody.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv2-lsa/" + lsaBody.EntityData.SegmentPath
     lsaBody.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaBody.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaBody.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1255,6 +1280,7 @@ func (network *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLi
     network.EntityData.BundleName = "cisco_ios_xe"
     network.EntityData.ParentYangName = "lsa-body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv2-lsa/lsa-body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1274,6 +1300,7 @@ func (network *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLi
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa_Ospfv2Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1297,6 +1324,7 @@ func (ospfv2Link *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Int
     ospfv2Link.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Link.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2Link.EntityData.SegmentPath = "ospfv2-link" + types.AddKeyToken(ospfv2Link.LinkId, "link-id") + types.AddKeyToken(ospfv2Link.LinkData, "link-data")
+    ospfv2Link.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + ospfv2Link.EntityData.SegmentPath
     ospfv2Link.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Link.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Link.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1321,6 +1349,7 @@ func (ospfv2Link *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Int
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa_Ospfv2Link_Ospfv2Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled link. The type is
     // interface{} with range: 0..4294967295.
@@ -1336,6 +1365,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
     ospfv2Topology.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Topology.EntityData.ParentYangName = "ospfv2-link"
     ospfv2Topology.EntityData.SegmentPath = "ospfv2-topology" + types.AddKeyToken(ospfv2Topology.MtId, "mt-id")
+    ospfv2Topology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv2-link/" + ospfv2Topology.EntityData.SegmentPath
     ospfv2Topology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Topology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Topology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1355,6 +1385,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa_Ospfv2Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled link. The type is
     // interface{} with range: 0..4294967295.
@@ -1370,6 +1401,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
     ospfv2Topology.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Topology.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2Topology.EntityData.SegmentPath = "ospfv2-topology" + types.AddKeyToken(ospfv2Topology.MtId, "mt-id")
+    ospfv2Topology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + ospfv2Topology.EntityData.SegmentPath
     ospfv2Topology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Topology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Topology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1389,6 +1421,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa_Ospfv2External struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled on the link. The type
     // is interface{} with range: 0..4294967295.
@@ -1414,6 +1447,7 @@ func (ospfv2External *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
     ospfv2External.EntityData.BundleName = "cisco_ios_xe"
     ospfv2External.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2External.EntityData.SegmentPath = "ospfv2-external" + types.AddKeyToken(ospfv2External.MtId, "mt-id")
+    ospfv2External.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + ospfv2External.EntityData.SegmentPath
     ospfv2External.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2External.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2External.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1435,6 +1469,7 @@ func (ospfv2External *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa_Ospfv2UnknownTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
@@ -1453,6 +1488,7 @@ func (ospfv2UnknownTlv *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterfa
     ospfv2UnknownTlv.EntityData.BundleName = "cisco_ios_xe"
     ospfv2UnknownTlv.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2UnknownTlv.EntityData.SegmentPath = "ospfv2-unknown-tlv" + types.AddKeyToken(ospfv2UnknownTlv.Type, "type")
+    ospfv2UnknownTlv.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + ospfv2UnknownTlv.EntityData.SegmentPath
     ospfv2UnknownTlv.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2UnknownTlv.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2UnknownTlv.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1487,6 +1523,7 @@ func (ospfv3LsaVal *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_I
     ospfv3LsaVal.EntityData.BundleName = "cisco_ios_xe"
     ospfv3LsaVal.EntityData.ParentYangName = "link-scope-lsa"
     ospfv3LsaVal.EntityData.SegmentPath = "ospfv3-lsa-val"
+    ospfv3LsaVal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + ospfv3LsaVal.EntityData.SegmentPath
     ospfv3LsaVal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3LsaVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3LsaVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1526,6 +1563,7 @@ func (header *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLin
     header.EntityData.BundleName = "cisco_ios_xe"
     header.EntityData.ParentYangName = "ospfv3-lsa-val"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1572,6 +1610,7 @@ func (lsaHeader *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Intf
     lsaHeader.EntityData.BundleName = "cisco_ios_xe"
     lsaHeader.EntityData.ParentYangName = "header"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/header/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1630,6 +1669,7 @@ func (lsaBody *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLi
     lsaBody.EntityData.BundleName = "cisco_ios_xe"
     lsaBody.EntityData.ParentYangName = "ospfv3-lsa-val"
     lsaBody.EntityData.SegmentPath = "lsa-body"
+    lsaBody.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/" + lsaBody.EntityData.SegmentPath
     lsaBody.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaBody.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaBody.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1671,6 +1711,7 @@ func (network *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLi
     network.EntityData.BundleName = "cisco_ios_xe"
     network.EntityData.ParentYangName = "lsa-body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1707,6 +1748,7 @@ func (prefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLin
     prefix.EntityData.BundleName = "cisco_ios_xe"
     prefix.EntityData.ParentYangName = "lsa-body"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1745,6 +1787,7 @@ func (iaRouter *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfL
     iaRouter.EntityData.BundleName = "cisco_ios_xe"
     iaRouter.EntityData.ParentYangName = "lsa-body"
     iaRouter.EntityData.SegmentPath = "ia-router"
+    iaRouter.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + iaRouter.EntityData.SegmentPath
     iaRouter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iaRouter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iaRouter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1802,6 +1845,7 @@ func (lsaExternal *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_In
     lsaExternal.EntityData.BundleName = "cisco_ios_xe"
     lsaExternal.EntityData.ParentYangName = "lsa-body"
     lsaExternal.EntityData.SegmentPath = "lsa-external"
+    lsaExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + lsaExternal.EntityData.SegmentPath
     lsaExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1839,6 +1883,7 @@ func (flags *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLink
     flags.EntityData.BundleName = "cisco_ios_xe"
     flags.EntityData.ParentYangName = "lsa-external"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/lsa-external/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1868,6 +1913,7 @@ func (nssa *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkS
     nssa.EntityData.BundleName = "cisco_ios_xe"
     nssa.EntityData.ParentYangName = "lsa-body"
     nssa.EntityData.SegmentPath = "nssa"
+    nssa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + nssa.EntityData.SegmentPath
     nssa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nssa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1923,6 +1969,7 @@ func (lsaNssaExternal *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterfac
     lsaNssaExternal.EntityData.BundleName = "cisco_ios_xe"
     lsaNssaExternal.EntityData.ParentYangName = "nssa"
     lsaNssaExternal.EntityData.SegmentPath = "lsa-nssa-external"
+    lsaNssaExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/nssa/" + lsaNssaExternal.EntityData.SegmentPath
     lsaNssaExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaNssaExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaNssaExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1960,6 +2007,7 @@ func (flags *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLink
     flags.EntityData.BundleName = "cisco_ios_xe"
     flags.EntityData.ParentYangName = "lsa-nssa-external"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/nssa/lsa-nssa-external/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2002,6 +2050,7 @@ func (linkData *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfL
     linkData.EntityData.BundleName = "cisco_ios_xe"
     linkData.EntityData.ParentYangName = "lsa-body"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2048,6 +2097,7 @@ func (iaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfL
     iaPrefix.EntityData.BundleName = "cisco_ios_xe"
     iaPrefix.EntityData.ParentYangName = "lsa-body"
     iaPrefix.EntityData.SegmentPath = "ia-prefix"
+    iaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + iaPrefix.EntityData.SegmentPath
     iaPrefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iaPrefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2069,6 +2119,7 @@ func (iaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfL
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa_Ospfv3Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface ID. The type is interface{} with range:
     // 0..4294967295.
@@ -2095,6 +2146,7 @@ func (ospfv3Link *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Int
     ospfv3Link.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Link.EntityData.ParentYangName = "link-scope-lsa"
     ospfv3Link.EntityData.SegmentPath = "ospfv3-link" + types.AddKeyToken(ospfv3Link.InterfaceId, "interface-id") + types.AddKeyToken(ospfv3Link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(ospfv3Link.NeighborRouterId, "neighbor-router-id")
+    ospfv3Link.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + ospfv3Link.EntityData.SegmentPath
     ospfv3Link.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Link.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Link.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2117,6 +2169,7 @@ func (ospfv3Link *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Int
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa_Ospfv3PrefixList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -2131,6 +2184,7 @@ func (ospfv3PrefixList *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterfa
     ospfv3PrefixList.EntityData.BundleName = "cisco_ios_xe"
     ospfv3PrefixList.EntityData.ParentYangName = "link-scope-lsa"
     ospfv3PrefixList.EntityData.SegmentPath = "ospfv3-prefix-list" + types.AddKeyToken(ospfv3PrefixList.Prefix, "prefix")
+    ospfv3PrefixList.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + ospfv3PrefixList.EntityData.SegmentPath
     ospfv3PrefixList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3PrefixList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3PrefixList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2150,6 +2204,7 @@ func (ospfv3PrefixList *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterfa
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa_Ospfv3IaPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -2164,6 +2219,7 @@ func (ospfv3IaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
     ospfv3IaPrefix.EntityData.BundleName = "cisco_ios_xe"
     ospfv3IaPrefix.EntityData.ParentYangName = "link-scope-lsa"
     ospfv3IaPrefix.EntityData.SegmentPath = "ospfv3-ia-prefix" + types.AddKeyToken(ospfv3IaPrefix.Prefix, "prefix")
+    ospfv3IaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + ospfv3IaPrefix.EntityData.SegmentPath
     ospfv3IaPrefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3IaPrefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3IaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2183,6 +2239,7 @@ func (ospfv3IaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa_MultiTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. One of the topology enabled on this interface. The
     // type is string.
@@ -2195,6 +2252,7 @@ func (multiTopology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_
     multiTopology.EntityData.BundleName = "cisco_ios_xe"
     multiTopology.EntityData.ParentYangName = "link-scope-lsa"
     multiTopology.EntityData.SegmentPath = "multi-topology" + types.AddKeyToken(multiTopology.Name, "name")
+    multiTopology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + multiTopology.EntityData.SegmentPath
     multiTopology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     multiTopology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     multiTopology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2260,6 +2318,7 @@ func (tlv *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkSc
     tlv.EntityData.BundleName = "cisco_ios_xe"
     tlv.EntityData.ParentYangName = "link-scope-lsa"
     tlv.EntityData.SegmentPath = "tlv"
+    tlv.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + tlv.EntityData.SegmentPath
     tlv.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tlv.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tlv.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2286,6 +2345,7 @@ func (tlv *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkSc
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_LinkScopeLsa_UnknownSubTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
@@ -2304,6 +2364,7 @@ func (unknownSubTlv *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_
     unknownSubTlv.EntityData.BundleName = "cisco_ios_xe"
     unknownSubTlv.EntityData.ParentYangName = "link-scope-lsa"
     unknownSubTlv.EntityData.SegmentPath = "unknown-sub-tlv" + types.AddKeyToken(unknownSubTlv.Type, "type")
+    unknownSubTlv.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/link-scope-lsa/" + unknownSubTlv.EntityData.SegmentPath
     unknownSubTlv.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     unknownSubTlv.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     unknownSubTlv.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2324,6 +2385,7 @@ func (unknownSubTlv *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_AreaScopeLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSA Type. The type is interface{} with range:
     // 0..4294967295.
@@ -2380,6 +2442,7 @@ func (areaScopeLsa *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_I
     areaScopeLsa.EntityData.BundleName = "cisco_ios_xe"
     areaScopeLsa.EntityData.ParentYangName = "intf-link-scope-lsas"
     areaScopeLsa.EntityData.SegmentPath = "area-scope-lsa" + types.AddKeyToken(areaScopeLsa.LsaType, "lsa-type") + types.AddKeyToken(areaScopeLsa.AdvRouter, "adv-router")
+    areaScopeLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/" + areaScopeLsa.EntityData.SegmentPath
     areaScopeLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     areaScopeLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     areaScopeLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2441,6 +2504,7 @@ func (ospfv2Lsa *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Intf
     ospfv2Lsa.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Lsa.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2Lsa.EntityData.SegmentPath = "ospfv2-lsa"
+    ospfv2Lsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/" + ospfv2Lsa.EntityData.SegmentPath
     ospfv2Lsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Lsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Lsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2501,6 +2565,7 @@ func (header *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLin
     header.EntityData.BundleName = "cisco_ios_xe"
     header.EntityData.ParentYangName = "ospfv2-lsa"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv2-lsa/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2557,6 +2622,7 @@ func (lsaBody *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLi
     lsaBody.EntityData.BundleName = "cisco_ios_xe"
     lsaBody.EntityData.ParentYangName = "ospfv2-lsa"
     lsaBody.EntityData.SegmentPath = "lsa-body"
+    lsaBody.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv2-lsa/" + lsaBody.EntityData.SegmentPath
     lsaBody.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaBody.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaBody.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2598,6 +2664,7 @@ func (network *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLi
     network.EntityData.BundleName = "cisco_ios_xe"
     network.EntityData.ParentYangName = "lsa-body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv2-lsa/lsa-body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2617,6 +2684,7 @@ func (network *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLi
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_AreaScopeLsa_Ospfv2Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link ID. The type is interface{} with range:
     // 0..4294967295.
@@ -2640,6 +2708,7 @@ func (ospfv2Link *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Int
     ospfv2Link.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Link.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2Link.EntityData.SegmentPath = "ospfv2-link" + types.AddKeyToken(ospfv2Link.LinkId, "link-id") + types.AddKeyToken(ospfv2Link.LinkData, "link-data")
+    ospfv2Link.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/" + ospfv2Link.EntityData.SegmentPath
     ospfv2Link.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Link.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Link.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2664,6 +2733,7 @@ func (ospfv2Link *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Int
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_AreaScopeLsa_Ospfv2Link_Ospfv2Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled link. The type is
     // interface{} with range: 0..4294967295.
@@ -2679,6 +2749,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
     ospfv2Topology.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Topology.EntityData.ParentYangName = "ospfv2-link"
     ospfv2Topology.EntityData.SegmentPath = "ospfv2-topology" + types.AddKeyToken(ospfv2Topology.MtId, "mt-id")
+    ospfv2Topology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv2-link/" + ospfv2Topology.EntityData.SegmentPath
     ospfv2Topology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Topology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Topology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2698,6 +2769,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_AreaScopeLsa_Ospfv2Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled link. The type is
     // interface{} with range: 0..4294967295.
@@ -2713,6 +2785,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
     ospfv2Topology.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Topology.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2Topology.EntityData.SegmentPath = "ospfv2-topology" + types.AddKeyToken(ospfv2Topology.MtId, "mt-id")
+    ospfv2Topology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/" + ospfv2Topology.EntityData.SegmentPath
     ospfv2Topology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Topology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Topology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2732,6 +2805,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_AreaScopeLsa_Ospfv2External struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled on the link. The type
     // is interface{} with range: 0..4294967295.
@@ -2757,6 +2831,7 @@ func (ospfv2External *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
     ospfv2External.EntityData.BundleName = "cisco_ios_xe"
     ospfv2External.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2External.EntityData.SegmentPath = "ospfv2-external" + types.AddKeyToken(ospfv2External.MtId, "mt-id")
+    ospfv2External.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/" + ospfv2External.EntityData.SegmentPath
     ospfv2External.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2External.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2External.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2792,6 +2867,7 @@ func (ospfv3Lsa *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Intf
     ospfv3Lsa.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Lsa.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3Lsa.EntityData.SegmentPath = "ospfv3-lsa"
+    ospfv3Lsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/" + ospfv3Lsa.EntityData.SegmentPath
     ospfv3Lsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Lsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Lsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2831,6 +2907,7 @@ func (header *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLin
     header.EntityData.BundleName = "cisco_ios_xe"
     header.EntityData.ParentYangName = "ospfv3-lsa"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2877,6 +2954,7 @@ func (lsaHeader *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Intf
     lsaHeader.EntityData.BundleName = "cisco_ios_xe"
     lsaHeader.EntityData.ParentYangName = "header"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/header/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2935,6 +3013,7 @@ func (lsaBody *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLi
     lsaBody.EntityData.BundleName = "cisco_ios_xe"
     lsaBody.EntityData.ParentYangName = "ospfv3-lsa"
     lsaBody.EntityData.SegmentPath = "lsa-body"
+    lsaBody.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/" + lsaBody.EntityData.SegmentPath
     lsaBody.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaBody.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaBody.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2976,6 +3055,7 @@ func (network *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLi
     network.EntityData.BundleName = "cisco_ios_xe"
     network.EntityData.ParentYangName = "lsa-body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3012,6 +3092,7 @@ func (prefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLin
     prefix.EntityData.BundleName = "cisco_ios_xe"
     prefix.EntityData.ParentYangName = "lsa-body"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3050,6 +3131,7 @@ func (iaRouter *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfL
     iaRouter.EntityData.BundleName = "cisco_ios_xe"
     iaRouter.EntityData.ParentYangName = "lsa-body"
     iaRouter.EntityData.SegmentPath = "ia-router"
+    iaRouter.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + iaRouter.EntityData.SegmentPath
     iaRouter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iaRouter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iaRouter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3107,6 +3189,7 @@ func (lsaExternal *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_In
     lsaExternal.EntityData.BundleName = "cisco_ios_xe"
     lsaExternal.EntityData.ParentYangName = "lsa-body"
     lsaExternal.EntityData.SegmentPath = "lsa-external"
+    lsaExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + lsaExternal.EntityData.SegmentPath
     lsaExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3144,6 +3227,7 @@ func (flags *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLink
     flags.EntityData.BundleName = "cisco_ios_xe"
     flags.EntityData.ParentYangName = "lsa-external"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/lsa-external/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3173,6 +3257,7 @@ func (nssa *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkS
     nssa.EntityData.BundleName = "cisco_ios_xe"
     nssa.EntityData.ParentYangName = "lsa-body"
     nssa.EntityData.SegmentPath = "nssa"
+    nssa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + nssa.EntityData.SegmentPath
     nssa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nssa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3228,6 +3313,7 @@ func (lsaNssaExternal *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterfac
     lsaNssaExternal.EntityData.BundleName = "cisco_ios_xe"
     lsaNssaExternal.EntityData.ParentYangName = "nssa"
     lsaNssaExternal.EntityData.SegmentPath = "lsa-nssa-external"
+    lsaNssaExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/nssa/" + lsaNssaExternal.EntityData.SegmentPath
     lsaNssaExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaNssaExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaNssaExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3265,6 +3351,7 @@ func (flags *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLink
     flags.EntityData.BundleName = "cisco_ios_xe"
     flags.EntityData.ParentYangName = "lsa-nssa-external"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/nssa/lsa-nssa-external/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3307,6 +3394,7 @@ func (linkData *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfL
     linkData.EntityData.BundleName = "cisco_ios_xe"
     linkData.EntityData.ParentYangName = "lsa-body"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3353,6 +3441,7 @@ func (iaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfL
     iaPrefix.EntityData.BundleName = "cisco_ios_xe"
     iaPrefix.EntityData.ParentYangName = "lsa-body"
     iaPrefix.EntityData.SegmentPath = "ia-prefix"
+    iaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + iaPrefix.EntityData.SegmentPath
     iaPrefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iaPrefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3374,6 +3463,7 @@ func (iaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfL
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_AreaScopeLsa_Ospfv3Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3400,6 +3490,7 @@ func (ospfv3Link *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Int
     ospfv3Link.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Link.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3Link.EntityData.SegmentPath = "ospfv3-link" + types.AddKeyToken(ospfv3Link.InterfaceId, "interface-id") + types.AddKeyToken(ospfv3Link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(ospfv3Link.NeighborRouterId, "neighbor-router-id")
+    ospfv3Link.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/" + ospfv3Link.EntityData.SegmentPath
     ospfv3Link.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Link.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Link.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3422,6 +3513,7 @@ func (ospfv3Link *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_Int
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_AreaScopeLsa_Ospfv3Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -3436,6 +3528,7 @@ func (ospfv3Prefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_I
     ospfv3Prefix.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Prefix.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3Prefix.EntityData.SegmentPath = "ospfv3-prefix" + types.AddKeyToken(ospfv3Prefix.Prefix, "prefix")
+    ospfv3Prefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/" + ospfv3Prefix.EntityData.SegmentPath
     ospfv3Prefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Prefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3455,6 +3548,7 @@ func (ospfv3Prefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_I
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfLinkScopeLsas_AreaScopeLsa_Ospfv3IaPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -3469,6 +3563,7 @@ func (ospfv3IaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
     ospfv3IaPrefix.EntityData.BundleName = "cisco_ios_xe"
     ospfv3IaPrefix.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3IaPrefix.EntityData.SegmentPath = "ospfv3-ia-prefix" + types.AddKeyToken(ospfv3IaPrefix.Prefix, "prefix")
+    ospfv3IaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/intf-link-scope-lsas/area-scope-lsa/" + ospfv3IaPrefix.EntityData.SegmentPath
     ospfv3IaPrefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3IaPrefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3IaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3488,6 +3583,7 @@ func (ospfv3IaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface
 type OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterface_IntfMultiTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. One of the topology enabled on this interface. The
     // type is string.
@@ -3500,6 +3596,7 @@ func (intfMultiTopology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterf
     intfMultiTopology.EntityData.BundleName = "cisco_ios_xe"
     intfMultiTopology.EntityData.ParentYangName = "ospf-interface"
     intfMultiTopology.EntityData.SegmentPath = "intf-multi-topology" + types.AddKeyToken(intfMultiTopology.Name, "name")
+    intfMultiTopology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/ospf-interface/" + intfMultiTopology.EntityData.SegmentPath
     intfMultiTopology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     intfMultiTopology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     intfMultiTopology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3518,6 +3615,7 @@ func (intfMultiTopology *OspfOperData_OspfState_OspfInstance_OspfArea_OspfInterf
 type OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF link scope LSA type. The type is interface{}
     // with range: 0..4294967295.
@@ -3534,6 +3632,7 @@ func (areaScopeLsa *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa) G
     areaScopeLsa.EntityData.BundleName = "cisco_ios_xe"
     areaScopeLsa.EntityData.ParentYangName = "ospf-area"
     areaScopeLsa.EntityData.SegmentPath = "area-scope-lsa" + types.AddKeyToken(areaScopeLsa.LsaType, "lsa-type")
+    areaScopeLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/" + areaScopeLsa.EntityData.SegmentPath
     areaScopeLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     areaScopeLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     areaScopeLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3556,6 +3655,7 @@ func (areaScopeLsa *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa) G
 type OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScopeLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSA Type. The type is interface{} with range:
     // 0..4294967295.
@@ -3612,6 +3712,7 @@ func (areaScopeLsa *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_Ar
     areaScopeLsa.EntityData.BundleName = "cisco_ios_xe"
     areaScopeLsa.EntityData.ParentYangName = "area-scope-lsa"
     areaScopeLsa.EntityData.SegmentPath = "area-scope-lsa" + types.AddKeyToken(areaScopeLsa.LsaType, "lsa-type") + types.AddKeyToken(areaScopeLsa.AdvRouter, "adv-router")
+    areaScopeLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/" + areaScopeLsa.EntityData.SegmentPath
     areaScopeLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     areaScopeLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     areaScopeLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3673,6 +3774,7 @@ func (ospfv2Lsa *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaS
     ospfv2Lsa.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Lsa.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2Lsa.EntityData.SegmentPath = "ospfv2-lsa"
+    ospfv2Lsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/" + ospfv2Lsa.EntityData.SegmentPath
     ospfv2Lsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Lsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Lsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3733,6 +3835,7 @@ func (header *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScop
     header.EntityData.BundleName = "cisco_ios_xe"
     header.EntityData.ParentYangName = "ospfv2-lsa"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv2-lsa/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3789,6 +3892,7 @@ func (lsaBody *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaSco
     lsaBody.EntityData.BundleName = "cisco_ios_xe"
     lsaBody.EntityData.ParentYangName = "ospfv2-lsa"
     lsaBody.EntityData.SegmentPath = "lsa-body"
+    lsaBody.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv2-lsa/" + lsaBody.EntityData.SegmentPath
     lsaBody.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaBody.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaBody.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3830,6 +3934,7 @@ func (network *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaSco
     network.EntityData.BundleName = "cisco_ios_xe"
     network.EntityData.ParentYangName = "lsa-body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv2-lsa/lsa-body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3849,6 +3954,7 @@ func (network *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaSco
 type OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScopeLsa_Ospfv2Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3872,6 +3978,7 @@ func (ospfv2Link *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_Area
     ospfv2Link.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Link.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2Link.EntityData.SegmentPath = "ospfv2-link" + types.AddKeyToken(ospfv2Link.LinkId, "link-id") + types.AddKeyToken(ospfv2Link.LinkData, "link-data")
+    ospfv2Link.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/" + ospfv2Link.EntityData.SegmentPath
     ospfv2Link.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Link.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Link.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3896,6 +4003,7 @@ func (ospfv2Link *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_Area
 type OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScopeLsa_Ospfv2Link_Ospfv2Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled link. The type is
     // interface{} with range: 0..4294967295.
@@ -3911,6 +4019,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_
     ospfv2Topology.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Topology.EntityData.ParentYangName = "ospfv2-link"
     ospfv2Topology.EntityData.SegmentPath = "ospfv2-topology" + types.AddKeyToken(ospfv2Topology.MtId, "mt-id")
+    ospfv2Topology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv2-link/" + ospfv2Topology.EntityData.SegmentPath
     ospfv2Topology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Topology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Topology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3930,6 +4039,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_
 type OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScopeLsa_Ospfv2Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled link. The type is
     // interface{} with range: 0..4294967295.
@@ -3945,6 +4055,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_
     ospfv2Topology.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Topology.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2Topology.EntityData.SegmentPath = "ospfv2-topology" + types.AddKeyToken(ospfv2Topology.MtId, "mt-id")
+    ospfv2Topology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/" + ospfv2Topology.EntityData.SegmentPath
     ospfv2Topology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Topology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Topology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3964,6 +4075,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_
 type OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScopeLsa_Ospfv2External struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled on the link. The type
     // is interface{} with range: 0..4294967295.
@@ -3989,6 +4101,7 @@ func (ospfv2External *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_
     ospfv2External.EntityData.BundleName = "cisco_ios_xe"
     ospfv2External.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2External.EntityData.SegmentPath = "ospfv2-external" + types.AddKeyToken(ospfv2External.MtId, "mt-id")
+    ospfv2External.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/" + ospfv2External.EntityData.SegmentPath
     ospfv2External.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2External.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2External.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4024,6 +4137,7 @@ func (ospfv3Lsa *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaS
     ospfv3Lsa.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Lsa.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3Lsa.EntityData.SegmentPath = "ospfv3-lsa"
+    ospfv3Lsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/" + ospfv3Lsa.EntityData.SegmentPath
     ospfv3Lsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Lsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Lsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4063,6 +4177,7 @@ func (header *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScop
     header.EntityData.BundleName = "cisco_ios_xe"
     header.EntityData.ParentYangName = "ospfv3-lsa"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4109,6 +4224,7 @@ func (lsaHeader *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaS
     lsaHeader.EntityData.BundleName = "cisco_ios_xe"
     lsaHeader.EntityData.ParentYangName = "header"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/header/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4167,6 +4283,7 @@ func (lsaBody *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaSco
     lsaBody.EntityData.BundleName = "cisco_ios_xe"
     lsaBody.EntityData.ParentYangName = "ospfv3-lsa"
     lsaBody.EntityData.SegmentPath = "lsa-body"
+    lsaBody.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/" + lsaBody.EntityData.SegmentPath
     lsaBody.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaBody.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaBody.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4208,6 +4325,7 @@ func (network *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaSco
     network.EntityData.BundleName = "cisco_ios_xe"
     network.EntityData.ParentYangName = "lsa-body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/lsa-body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4244,6 +4362,7 @@ func (prefix *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScop
     prefix.EntityData.BundleName = "cisco_ios_xe"
     prefix.EntityData.ParentYangName = "lsa-body"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/lsa-body/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4282,6 +4401,7 @@ func (iaRouter *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaSc
     iaRouter.EntityData.BundleName = "cisco_ios_xe"
     iaRouter.EntityData.ParentYangName = "lsa-body"
     iaRouter.EntityData.SegmentPath = "ia-router"
+    iaRouter.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/lsa-body/" + iaRouter.EntityData.SegmentPath
     iaRouter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iaRouter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iaRouter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4339,6 +4459,7 @@ func (lsaExternal *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_Are
     lsaExternal.EntityData.BundleName = "cisco_ios_xe"
     lsaExternal.EntityData.ParentYangName = "lsa-body"
     lsaExternal.EntityData.SegmentPath = "lsa-external"
+    lsaExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/lsa-body/" + lsaExternal.EntityData.SegmentPath
     lsaExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4376,6 +4497,7 @@ func (flags *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScope
     flags.EntityData.BundleName = "cisco_ios_xe"
     flags.EntityData.ParentYangName = "lsa-external"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/lsa-body/lsa-external/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4405,6 +4527,7 @@ func (nssa *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScopeL
     nssa.EntityData.BundleName = "cisco_ios_xe"
     nssa.EntityData.ParentYangName = "lsa-body"
     nssa.EntityData.SegmentPath = "nssa"
+    nssa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/lsa-body/" + nssa.EntityData.SegmentPath
     nssa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nssa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4460,6 +4583,7 @@ func (lsaNssaExternal *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa
     lsaNssaExternal.EntityData.BundleName = "cisco_ios_xe"
     lsaNssaExternal.EntityData.ParentYangName = "nssa"
     lsaNssaExternal.EntityData.SegmentPath = "lsa-nssa-external"
+    lsaNssaExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/lsa-body/nssa/" + lsaNssaExternal.EntityData.SegmentPath
     lsaNssaExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaNssaExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaNssaExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4497,6 +4621,7 @@ func (flags *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScope
     flags.EntityData.BundleName = "cisco_ios_xe"
     flags.EntityData.ParentYangName = "lsa-nssa-external"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/lsa-body/nssa/lsa-nssa-external/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4539,6 +4664,7 @@ func (linkData *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaSc
     linkData.EntityData.BundleName = "cisco_ios_xe"
     linkData.EntityData.ParentYangName = "lsa-body"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/lsa-body/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4585,6 +4711,7 @@ func (iaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaSc
     iaPrefix.EntityData.BundleName = "cisco_ios_xe"
     iaPrefix.EntityData.ParentYangName = "lsa-body"
     iaPrefix.EntityData.SegmentPath = "ia-prefix"
+    iaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/ospfv3-lsa/lsa-body/" + iaPrefix.EntityData.SegmentPath
     iaPrefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iaPrefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4606,6 +4733,7 @@ func (iaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaSc
 type OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScopeLsa_Ospfv3Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface ID. The type is interface{} with range:
     // 0..4294967295.
@@ -4632,6 +4760,7 @@ func (ospfv3Link *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_Area
     ospfv3Link.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Link.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3Link.EntityData.SegmentPath = "ospfv3-link" + types.AddKeyToken(ospfv3Link.InterfaceId, "interface-id") + types.AddKeyToken(ospfv3Link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(ospfv3Link.NeighborRouterId, "neighbor-router-id")
+    ospfv3Link.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/" + ospfv3Link.EntityData.SegmentPath
     ospfv3Link.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Link.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Link.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4654,6 +4783,7 @@ func (ospfv3Link *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_Area
 type OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScopeLsa_Ospfv3Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -4668,6 +4798,7 @@ func (ospfv3Prefix *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_Ar
     ospfv3Prefix.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Prefix.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3Prefix.EntityData.SegmentPath = "ospfv3-prefix" + types.AddKeyToken(ospfv3Prefix.Prefix, "prefix")
+    ospfv3Prefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/" + ospfv3Prefix.EntityData.SegmentPath
     ospfv3Prefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Prefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4687,6 +4818,7 @@ func (ospfv3Prefix *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_Ar
 type OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_AreaScopeLsa_Ospfv3IaPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -4701,6 +4833,7 @@ func (ospfv3IaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_
     ospfv3IaPrefix.EntityData.BundleName = "cisco_ios_xe"
     ospfv3IaPrefix.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3IaPrefix.EntityData.SegmentPath = "ospfv3-ia-prefix" + types.AddKeyToken(ospfv3IaPrefix.Prefix, "prefix")
+    ospfv3IaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/ospf-area/area-scope-lsa/area-scope-lsa/" + ospfv3IaPrefix.EntityData.SegmentPath
     ospfv3IaPrefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3IaPrefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3IaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4720,6 +4853,7 @@ func (ospfv3IaPrefix *OspfOperData_OspfState_OspfInstance_OspfArea_AreaScopeLsa_
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF link scope LSA type. The type is interface{}
     // with range: 0..4294967295.
@@ -4740,6 +4874,7 @@ func (linkScopeLsas *OspfOperData_OspfState_OspfInstance_LinkScopeLsas) GetEntit
     linkScopeLsas.EntityData.BundleName = "cisco_ios_xe"
     linkScopeLsas.EntityData.ParentYangName = "ospf-instance"
     linkScopeLsas.EntityData.SegmentPath = "link-scope-lsas" + types.AddKeyToken(linkScopeLsas.LsaType, "lsa-type")
+    linkScopeLsas.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/" + linkScopeLsas.EntityData.SegmentPath
     linkScopeLsas.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linkScopeLsas.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linkScopeLsas.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4766,6 +4901,7 @@ func (linkScopeLsas *OspfOperData_OspfState_OspfInstance_LinkScopeLsas) GetEntit
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSA ID. The type is interface{} with range:
     // 0..4294967295.
@@ -4847,6 +4983,7 @@ func (linkScopeLsa *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeL
     linkScopeLsa.EntityData.BundleName = "cisco_ios_xe"
     linkScopeLsa.EntityData.ParentYangName = "link-scope-lsas"
     linkScopeLsa.EntityData.SegmentPath = "link-scope-lsa" + types.AddKeyToken(linkScopeLsa.LsaId, "lsa-id") + types.AddKeyToken(linkScopeLsa.AdvRouter, "adv-router")
+    linkScopeLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/" + linkScopeLsa.EntityData.SegmentPath
     linkScopeLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linkScopeLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linkScopeLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4923,6 +5060,7 @@ func (ospfv2Lsa *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_
     ospfv2Lsa.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Lsa.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2Lsa.EntityData.SegmentPath = "ospfv2-lsa"
+    ospfv2Lsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + ospfv2Lsa.EntityData.SegmentPath
     ospfv2Lsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Lsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Lsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4983,6 +5121,7 @@ func (header *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Osp
     header.EntityData.BundleName = "cisco_ios_xe"
     header.EntityData.ParentYangName = "ospfv2-lsa"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv2-lsa/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5039,6 +5178,7 @@ func (lsaBody *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Os
     lsaBody.EntityData.BundleName = "cisco_ios_xe"
     lsaBody.EntityData.ParentYangName = "ospfv2-lsa"
     lsaBody.EntityData.SegmentPath = "lsa-body"
+    lsaBody.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv2-lsa/" + lsaBody.EntityData.SegmentPath
     lsaBody.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaBody.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaBody.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5080,6 +5220,7 @@ func (network *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Os
     network.EntityData.BundleName = "cisco_ios_xe"
     network.EntityData.ParentYangName = "lsa-body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv2-lsa/lsa-body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5099,6 +5240,7 @@ func (network *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Os
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospfv2Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link ID. The type is interface{} with range:
     // 0..4294967295.
@@ -5122,6 +5264,7 @@ func (ospfv2Link *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa
     ospfv2Link.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Link.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2Link.EntityData.SegmentPath = "ospfv2-link" + types.AddKeyToken(ospfv2Link.LinkId, "link-id") + types.AddKeyToken(ospfv2Link.LinkData, "link-data")
+    ospfv2Link.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + ospfv2Link.EntityData.SegmentPath
     ospfv2Link.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Link.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Link.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5146,6 +5289,7 @@ func (ospfv2Link *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospfv2Link_Ospfv2Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled link. The type is
     // interface{} with range: 0..4294967295.
@@ -5161,6 +5305,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScop
     ospfv2Topology.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Topology.EntityData.ParentYangName = "ospfv2-link"
     ospfv2Topology.EntityData.SegmentPath = "ospfv2-topology" + types.AddKeyToken(ospfv2Topology.MtId, "mt-id")
+    ospfv2Topology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv2-link/" + ospfv2Topology.EntityData.SegmentPath
     ospfv2Topology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Topology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Topology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5180,6 +5325,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScop
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospfv2Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled link. The type is
     // interface{} with range: 0..4294967295.
@@ -5195,6 +5341,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScop
     ospfv2Topology.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Topology.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2Topology.EntityData.SegmentPath = "ospfv2-topology" + types.AddKeyToken(ospfv2Topology.MtId, "mt-id")
+    ospfv2Topology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + ospfv2Topology.EntityData.SegmentPath
     ospfv2Topology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Topology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Topology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5214,6 +5361,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScop
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospfv2External struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled on the link. The type
     // is interface{} with range: 0..4294967295.
@@ -5239,6 +5387,7 @@ func (ospfv2External *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScop
     ospfv2External.EntityData.BundleName = "cisco_ios_xe"
     ospfv2External.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2External.EntityData.SegmentPath = "ospfv2-external" + types.AddKeyToken(ospfv2External.MtId, "mt-id")
+    ospfv2External.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + ospfv2External.EntityData.SegmentPath
     ospfv2External.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2External.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2External.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5260,6 +5409,7 @@ func (ospfv2External *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScop
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospfv2UnknownTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
@@ -5278,6 +5428,7 @@ func (ospfv2UnknownTlv *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkSc
     ospfv2UnknownTlv.EntityData.BundleName = "cisco_ios_xe"
     ospfv2UnknownTlv.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2UnknownTlv.EntityData.SegmentPath = "ospfv2-unknown-tlv" + types.AddKeyToken(ospfv2UnknownTlv.Type, "type")
+    ospfv2UnknownTlv.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + ospfv2UnknownTlv.EntityData.SegmentPath
     ospfv2UnknownTlv.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2UnknownTlv.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2UnknownTlv.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5312,6 +5463,7 @@ func (ospfv3LsaVal *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeL
     ospfv3LsaVal.EntityData.BundleName = "cisco_ios_xe"
     ospfv3LsaVal.EntityData.ParentYangName = "link-scope-lsa"
     ospfv3LsaVal.EntityData.SegmentPath = "ospfv3-lsa-val"
+    ospfv3LsaVal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + ospfv3LsaVal.EntityData.SegmentPath
     ospfv3LsaVal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3LsaVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3LsaVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5351,6 +5503,7 @@ func (header *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Osp
     header.EntityData.BundleName = "cisco_ios_xe"
     header.EntityData.ParentYangName = "ospfv3-lsa-val"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5397,6 +5550,7 @@ func (lsaHeader *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xe"
     lsaHeader.EntityData.ParentYangName = "header"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/header/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5455,6 +5609,7 @@ func (lsaBody *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Os
     lsaBody.EntityData.BundleName = "cisco_ios_xe"
     lsaBody.EntityData.ParentYangName = "ospfv3-lsa-val"
     lsaBody.EntityData.SegmentPath = "lsa-body"
+    lsaBody.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/" + lsaBody.EntityData.SegmentPath
     lsaBody.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaBody.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaBody.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5496,6 +5651,7 @@ func (network *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Os
     network.EntityData.BundleName = "cisco_ios_xe"
     network.EntityData.ParentYangName = "lsa-body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5532,6 +5688,7 @@ func (prefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Osp
     prefix.EntityData.BundleName = "cisco_ios_xe"
     prefix.EntityData.ParentYangName = "lsa-body"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5570,6 +5727,7 @@ func (iaRouter *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_O
     iaRouter.EntityData.BundleName = "cisco_ios_xe"
     iaRouter.EntityData.ParentYangName = "lsa-body"
     iaRouter.EntityData.SegmentPath = "ia-router"
+    iaRouter.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + iaRouter.EntityData.SegmentPath
     iaRouter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iaRouter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iaRouter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5627,6 +5785,7 @@ func (lsaExternal *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLs
     lsaExternal.EntityData.BundleName = "cisco_ios_xe"
     lsaExternal.EntityData.ParentYangName = "lsa-body"
     lsaExternal.EntityData.SegmentPath = "lsa-external"
+    lsaExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + lsaExternal.EntityData.SegmentPath
     lsaExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5664,6 +5823,7 @@ func (flags *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospf
     flags.EntityData.BundleName = "cisco_ios_xe"
     flags.EntityData.ParentYangName = "lsa-external"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/lsa-external/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5693,6 +5853,7 @@ func (nssa *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospfv
     nssa.EntityData.BundleName = "cisco_ios_xe"
     nssa.EntityData.ParentYangName = "lsa-body"
     nssa.EntityData.SegmentPath = "nssa"
+    nssa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + nssa.EntityData.SegmentPath
     nssa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nssa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5748,6 +5909,7 @@ func (lsaNssaExternal *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkSco
     lsaNssaExternal.EntityData.BundleName = "cisco_ios_xe"
     lsaNssaExternal.EntityData.ParentYangName = "nssa"
     lsaNssaExternal.EntityData.SegmentPath = "lsa-nssa-external"
+    lsaNssaExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/nssa/" + lsaNssaExternal.EntityData.SegmentPath
     lsaNssaExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaNssaExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaNssaExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5785,6 +5947,7 @@ func (flags *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospf
     flags.EntityData.BundleName = "cisco_ios_xe"
     flags.EntityData.ParentYangName = "lsa-nssa-external"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/nssa/lsa-nssa-external/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5827,6 +5990,7 @@ func (linkData *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_O
     linkData.EntityData.BundleName = "cisco_ios_xe"
     linkData.EntityData.ParentYangName = "lsa-body"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5873,6 +6037,7 @@ func (iaPrefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_O
     iaPrefix.EntityData.BundleName = "cisco_ios_xe"
     iaPrefix.EntityData.ParentYangName = "lsa-body"
     iaPrefix.EntityData.SegmentPath = "ia-prefix"
+    iaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/ospfv3-lsa-val/lsa-body/" + iaPrefix.EntityData.SegmentPath
     iaPrefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iaPrefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5894,6 +6059,7 @@ func (iaPrefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_O
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospfv3Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface ID. The type is interface{} with range:
     // 0..4294967295.
@@ -5920,6 +6086,7 @@ func (ospfv3Link *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa
     ospfv3Link.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Link.EntityData.ParentYangName = "link-scope-lsa"
     ospfv3Link.EntityData.SegmentPath = "ospfv3-link" + types.AddKeyToken(ospfv3Link.InterfaceId, "interface-id") + types.AddKeyToken(ospfv3Link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(ospfv3Link.NeighborRouterId, "neighbor-router-id")
+    ospfv3Link.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + ospfv3Link.EntityData.SegmentPath
     ospfv3Link.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Link.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Link.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5942,6 +6109,7 @@ func (ospfv3Link *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospfv3PrefixList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -5956,6 +6124,7 @@ func (ospfv3PrefixList *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkSc
     ospfv3PrefixList.EntityData.BundleName = "cisco_ios_xe"
     ospfv3PrefixList.EntityData.ParentYangName = "link-scope-lsa"
     ospfv3PrefixList.EntityData.SegmentPath = "ospfv3-prefix-list" + types.AddKeyToken(ospfv3PrefixList.Prefix, "prefix")
+    ospfv3PrefixList.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + ospfv3PrefixList.EntityData.SegmentPath
     ospfv3PrefixList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3PrefixList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3PrefixList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5975,6 +6144,7 @@ func (ospfv3PrefixList *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkSc
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Ospfv3IaPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -5989,6 +6159,7 @@ func (ospfv3IaPrefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScop
     ospfv3IaPrefix.EntityData.BundleName = "cisco_ios_xe"
     ospfv3IaPrefix.EntityData.ParentYangName = "link-scope-lsa"
     ospfv3IaPrefix.EntityData.SegmentPath = "ospfv3-ia-prefix" + types.AddKeyToken(ospfv3IaPrefix.Prefix, "prefix")
+    ospfv3IaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + ospfv3IaPrefix.EntityData.SegmentPath
     ospfv3IaPrefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3IaPrefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3IaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6008,6 +6179,7 @@ func (ospfv3IaPrefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScop
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_MultiTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. One of the topology enabled on this interface. The
     // type is string.
@@ -6020,6 +6192,7 @@ func (multiTopology *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScope
     multiTopology.EntityData.BundleName = "cisco_ios_xe"
     multiTopology.EntityData.ParentYangName = "link-scope-lsa"
     multiTopology.EntityData.SegmentPath = "multi-topology" + types.AddKeyToken(multiTopology.Name, "name")
+    multiTopology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + multiTopology.EntityData.SegmentPath
     multiTopology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     multiTopology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     multiTopology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6085,6 +6258,7 @@ func (tlv *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Tlv) G
     tlv.EntityData.BundleName = "cisco_ios_xe"
     tlv.EntityData.ParentYangName = "link-scope-lsa"
     tlv.EntityData.SegmentPath = "tlv"
+    tlv.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + tlv.EntityData.SegmentPath
     tlv.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tlv.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tlv.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6111,6 +6285,7 @@ func (tlv *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_Tlv) G
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScopeLsa_UnknownSubTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
@@ -6129,6 +6304,7 @@ func (unknownSubTlv *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScope
     unknownSubTlv.EntityData.BundleName = "cisco_ios_xe"
     unknownSubTlv.EntityData.ParentYangName = "link-scope-lsa"
     unknownSubTlv.EntityData.SegmentPath = "unknown-sub-tlv" + types.AddKeyToken(unknownSubTlv.Type, "type")
+    unknownSubTlv.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/link-scope-lsa/" + unknownSubTlv.EntityData.SegmentPath
     unknownSubTlv.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     unknownSubTlv.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     unknownSubTlv.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6149,6 +6325,7 @@ func (unknownSubTlv *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_LinkScope
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSA Type. The type is interface{} with range:
     // 0..4294967295.
@@ -6205,6 +6382,7 @@ func (areaScopeLsa *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeL
     areaScopeLsa.EntityData.BundleName = "cisco_ios_xe"
     areaScopeLsa.EntityData.ParentYangName = "link-scope-lsas"
     areaScopeLsa.EntityData.SegmentPath = "area-scope-lsa" + types.AddKeyToken(areaScopeLsa.LsaType, "lsa-type") + types.AddKeyToken(areaScopeLsa.AdvRouter, "adv-router")
+    areaScopeLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/" + areaScopeLsa.EntityData.SegmentPath
     areaScopeLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     areaScopeLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     areaScopeLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6266,6 +6444,7 @@ func (ospfv2Lsa *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_
     ospfv2Lsa.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Lsa.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2Lsa.EntityData.SegmentPath = "ospfv2-lsa"
+    ospfv2Lsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/" + ospfv2Lsa.EntityData.SegmentPath
     ospfv2Lsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Lsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Lsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6326,6 +6505,7 @@ func (header *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Osp
     header.EntityData.BundleName = "cisco_ios_xe"
     header.EntityData.ParentYangName = "ospfv2-lsa"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv2-lsa/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6382,6 +6562,7 @@ func (lsaBody *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Os
     lsaBody.EntityData.BundleName = "cisco_ios_xe"
     lsaBody.EntityData.ParentYangName = "ospfv2-lsa"
     lsaBody.EntityData.SegmentPath = "lsa-body"
+    lsaBody.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv2-lsa/" + lsaBody.EntityData.SegmentPath
     lsaBody.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaBody.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaBody.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6423,6 +6604,7 @@ func (network *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Os
     network.EntityData.BundleName = "cisco_ios_xe"
     network.EntityData.ParentYangName = "lsa-body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv2-lsa/lsa-body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6442,6 +6624,7 @@ func (network *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Os
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Ospfv2Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link ID. The type is interface{} with range:
     // 0..4294967295.
@@ -6465,6 +6648,7 @@ func (ospfv2Link *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa
     ospfv2Link.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Link.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2Link.EntityData.SegmentPath = "ospfv2-link" + types.AddKeyToken(ospfv2Link.LinkId, "link-id") + types.AddKeyToken(ospfv2Link.LinkData, "link-data")
+    ospfv2Link.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/" + ospfv2Link.EntityData.SegmentPath
     ospfv2Link.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Link.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Link.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6489,6 +6673,7 @@ func (ospfv2Link *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Ospfv2Link_Ospfv2Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled link. The type is
     // interface{} with range: 0..4294967295.
@@ -6504,6 +6689,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScop
     ospfv2Topology.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Topology.EntityData.ParentYangName = "ospfv2-link"
     ospfv2Topology.EntityData.SegmentPath = "ospfv2-topology" + types.AddKeyToken(ospfv2Topology.MtId, "mt-id")
+    ospfv2Topology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv2-link/" + ospfv2Topology.EntityData.SegmentPath
     ospfv2Topology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Topology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Topology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6523,6 +6709,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScop
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Ospfv2Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled link. The type is
     // interface{} with range: 0..4294967295.
@@ -6538,6 +6725,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScop
     ospfv2Topology.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Topology.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2Topology.EntityData.SegmentPath = "ospfv2-topology" + types.AddKeyToken(ospfv2Topology.MtId, "mt-id")
+    ospfv2Topology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/" + ospfv2Topology.EntityData.SegmentPath
     ospfv2Topology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Topology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Topology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6557,6 +6745,7 @@ func (ospfv2Topology *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScop
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Ospfv2External struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MT-ID for topology enabled on the link. The type
     // is interface{} with range: 0..4294967295.
@@ -6582,6 +6771,7 @@ func (ospfv2External *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScop
     ospfv2External.EntityData.BundleName = "cisco_ios_xe"
     ospfv2External.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2External.EntityData.SegmentPath = "ospfv2-external" + types.AddKeyToken(ospfv2External.MtId, "mt-id")
+    ospfv2External.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/" + ospfv2External.EntityData.SegmentPath
     ospfv2External.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2External.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2External.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6617,6 +6807,7 @@ func (ospfv3Lsa *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_
     ospfv3Lsa.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Lsa.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3Lsa.EntityData.SegmentPath = "ospfv3-lsa"
+    ospfv3Lsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/" + ospfv3Lsa.EntityData.SegmentPath
     ospfv3Lsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Lsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Lsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6656,6 +6847,7 @@ func (header *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Osp
     header.EntityData.BundleName = "cisco_ios_xe"
     header.EntityData.ParentYangName = "ospfv3-lsa"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6702,6 +6894,7 @@ func (lsaHeader *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xe"
     lsaHeader.EntityData.ParentYangName = "header"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/header/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6760,6 +6953,7 @@ func (lsaBody *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Os
     lsaBody.EntityData.BundleName = "cisco_ios_xe"
     lsaBody.EntityData.ParentYangName = "ospfv3-lsa"
     lsaBody.EntityData.SegmentPath = "lsa-body"
+    lsaBody.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/" + lsaBody.EntityData.SegmentPath
     lsaBody.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaBody.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaBody.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6801,6 +6995,7 @@ func (network *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Os
     network.EntityData.BundleName = "cisco_ios_xe"
     network.EntityData.ParentYangName = "lsa-body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6837,6 +7032,7 @@ func (prefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Osp
     prefix.EntityData.BundleName = "cisco_ios_xe"
     prefix.EntityData.ParentYangName = "lsa-body"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6875,6 +7071,7 @@ func (iaRouter *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_O
     iaRouter.EntityData.BundleName = "cisco_ios_xe"
     iaRouter.EntityData.ParentYangName = "lsa-body"
     iaRouter.EntityData.SegmentPath = "ia-router"
+    iaRouter.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + iaRouter.EntityData.SegmentPath
     iaRouter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iaRouter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iaRouter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6932,6 +7129,7 @@ func (lsaExternal *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLs
     lsaExternal.EntityData.BundleName = "cisco_ios_xe"
     lsaExternal.EntityData.ParentYangName = "lsa-body"
     lsaExternal.EntityData.SegmentPath = "lsa-external"
+    lsaExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + lsaExternal.EntityData.SegmentPath
     lsaExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6969,6 +7167,7 @@ func (flags *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Ospf
     flags.EntityData.BundleName = "cisco_ios_xe"
     flags.EntityData.ParentYangName = "lsa-external"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/lsa-external/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -6998,6 +7197,7 @@ func (nssa *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Ospfv
     nssa.EntityData.BundleName = "cisco_ios_xe"
     nssa.EntityData.ParentYangName = "lsa-body"
     nssa.EntityData.SegmentPath = "nssa"
+    nssa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + nssa.EntityData.SegmentPath
     nssa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nssa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7053,6 +7253,7 @@ func (lsaNssaExternal *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaSco
     lsaNssaExternal.EntityData.BundleName = "cisco_ios_xe"
     lsaNssaExternal.EntityData.ParentYangName = "nssa"
     lsaNssaExternal.EntityData.SegmentPath = "lsa-nssa-external"
+    lsaNssaExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/nssa/" + lsaNssaExternal.EntityData.SegmentPath
     lsaNssaExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lsaNssaExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lsaNssaExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7090,6 +7291,7 @@ func (flags *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Ospf
     flags.EntityData.BundleName = "cisco_ios_xe"
     flags.EntityData.ParentYangName = "lsa-nssa-external"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/nssa/lsa-nssa-external/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7132,6 +7334,7 @@ func (linkData *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_O
     linkData.EntityData.BundleName = "cisco_ios_xe"
     linkData.EntityData.ParentYangName = "lsa-body"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7178,6 +7381,7 @@ func (iaPrefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_O
     iaPrefix.EntityData.BundleName = "cisco_ios_xe"
     iaPrefix.EntityData.ParentYangName = "lsa-body"
     iaPrefix.EntityData.SegmentPath = "ia-prefix"
+    iaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/ospfv3-lsa/lsa-body/" + iaPrefix.EntityData.SegmentPath
     iaPrefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iaPrefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7199,6 +7403,7 @@ func (iaPrefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_O
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Ospfv3Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface ID. The type is interface{} with range:
     // 0..4294967295.
@@ -7225,6 +7430,7 @@ func (ospfv3Link *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa
     ospfv3Link.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Link.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3Link.EntityData.SegmentPath = "ospfv3-link" + types.AddKeyToken(ospfv3Link.InterfaceId, "interface-id") + types.AddKeyToken(ospfv3Link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(ospfv3Link.NeighborRouterId, "neighbor-router-id")
+    ospfv3Link.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/" + ospfv3Link.EntityData.SegmentPath
     ospfv3Link.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Link.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Link.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7247,6 +7453,7 @@ func (ospfv3Link *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Ospfv3Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -7261,6 +7468,7 @@ func (ospfv3Prefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeL
     ospfv3Prefix.EntityData.BundleName = "cisco_ios_xe"
     ospfv3Prefix.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3Prefix.EntityData.SegmentPath = "ospfv3-prefix" + types.AddKeyToken(ospfv3Prefix.Prefix, "prefix")
+    ospfv3Prefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/" + ospfv3Prefix.EntityData.SegmentPath
     ospfv3Prefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3Prefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7280,6 +7488,7 @@ func (ospfv3Prefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeL
 type OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScopeLsa_Ospfv3IaPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -7294,6 +7503,7 @@ func (ospfv3IaPrefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScop
     ospfv3IaPrefix.EntityData.BundleName = "cisco_ios_xe"
     ospfv3IaPrefix.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3IaPrefix.EntityData.SegmentPath = "ospfv3-ia-prefix" + types.AddKeyToken(ospfv3IaPrefix.Prefix, "prefix")
+    ospfv3IaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/link-scope-lsas/area-scope-lsa/" + ospfv3IaPrefix.EntityData.SegmentPath
     ospfv3IaPrefix.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv3IaPrefix.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv3IaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7313,6 +7523,7 @@ func (ospfv3IaPrefix *OspfOperData_OspfState_OspfInstance_LinkScopeLsas_AreaScop
 type OspfOperData_OspfState_OspfInstance_MultiTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. One of the topology enabled on this interface. The
     // type is string.
@@ -7325,6 +7536,7 @@ func (multiTopology *OspfOperData_OspfState_OspfInstance_MultiTopology) GetEntit
     multiTopology.EntityData.BundleName = "cisco_ios_xe"
     multiTopology.EntityData.ParentYangName = "ospf-instance"
     multiTopology.EntityData.SegmentPath = "multi-topology" + types.AddKeyToken(multiTopology.Name, "name")
+    multiTopology.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state/ospf-instance/" + multiTopology.EntityData.SegmentPath
     multiTopology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     multiTopology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     multiTopology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7343,6 +7555,7 @@ func (multiTopology *OspfOperData_OspfState_OspfInstance_MultiTopology) GetEntit
 type OspfOperData_Ospfv2Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The routing instance identifier assigned to the
     // OSPF instance. The type is interface{} with range: 0..4294967295.
@@ -7371,6 +7584,7 @@ func (ospfv2Instance *OspfOperData_Ospfv2Instance) GetEntityData() *types.Common
     ospfv2Instance.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Instance.EntityData.ParentYangName = "ospf-oper-data"
     ospfv2Instance.EntityData.SegmentPath = "ospfv2-instance" + types.AddKeyToken(ospfv2Instance.InstanceId, "instance-id")
+    ospfv2Instance.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/" + ospfv2Instance.EntityData.SegmentPath
     ospfv2Instance.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Instance.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Instance.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7399,6 +7613,7 @@ func (ospfv2Instance *OspfOperData_Ospfv2Instance) GetEntityData() *types.Common
 type OspfOperData_Ospfv2Instance_Ospfv2Area struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The area identifier. The type is interface{} with
     // range: 0..4294967295.
@@ -7419,6 +7634,7 @@ func (ospfv2Area *OspfOperData_Ospfv2Instance_Ospfv2Area) GetEntityData() *types
     ospfv2Area.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Area.EntityData.ParentYangName = "ospfv2-instance"
     ospfv2Area.EntityData.SegmentPath = "ospfv2-area" + types.AddKeyToken(ospfv2Area.AreaId, "area-id")
+    ospfv2Area.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/" + ospfv2Area.EntityData.SegmentPath
     ospfv2Area.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Area.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Area.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7445,6 +7661,7 @@ func (ospfv2Area *OspfOperData_Ospfv2Instance_Ospfv2Area) GetEntityData() *types
 type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link State Advertisement type. The type is
     // interface{} with range: 0..255.
@@ -7509,6 +7726,7 @@ func (ospfv2LsdbArea *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea) Get
     ospfv2LsdbArea.EntityData.BundleName = "cisco_ios_xe"
     ospfv2LsdbArea.EntityData.ParentYangName = "ospfv2-area"
     ospfv2LsdbArea.EntityData.SegmentPath = "ospfv2-lsdb-area" + types.AddKeyToken(ospfv2LsdbArea.LsaType, "lsa-type") + types.AddKeyToken(ospfv2LsdbArea.LsaId, "lsa-id") + types.AddKeyToken(ospfv2LsdbArea.AdvertisingRouter, "advertising-router")
+    ospfv2LsdbArea.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/" + ospfv2LsdbArea.EntityData.SegmentPath
     ospfv2LsdbArea.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2LsdbArea.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2LsdbArea.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7545,6 +7763,7 @@ func (ospfv2LsdbArea *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea) Get
 type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link Type. The type is interface{} with range:
     // 0..255.
@@ -7569,6 +7788,7 @@ func (ospfv2RouterLsaLinks *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbAre
     ospfv2RouterLsaLinks.EntityData.BundleName = "cisco_ios_xe"
     ospfv2RouterLsaLinks.EntityData.ParentYangName = "ospfv2-lsdb-area"
     ospfv2RouterLsaLinks.EntityData.SegmentPath = "ospfv2-router-lsa-links" + types.AddKeyToken(ospfv2RouterLsaLinks.LinkType, "link-type") + types.AddKeyToken(ospfv2RouterLsaLinks.LinkId, "link-id") + types.AddKeyToken(ospfv2RouterLsaLinks.LinkData, "link-data")
+    ospfv2RouterLsaLinks.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/" + ospfv2RouterLsaLinks.EntityData.SegmentPath
     ospfv2RouterLsaLinks.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2RouterLsaLinks.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2RouterLsaLinks.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7576,6 +7796,7 @@ func (ospfv2RouterLsaLinks *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbAre
     ospfv2RouterLsaLinks.EntityData.Children = types.NewOrderedMap()
     ospfv2RouterLsaLinks.EntityData.Children.Append("link-topo", types.YChild{"LinkTopo", nil})
     for i := range ospfv2RouterLsaLinks.LinkTopo {
+        types.SetYListKey(ospfv2RouterLsaLinks.LinkTopo[i], i)
         ospfv2RouterLsaLinks.EntityData.Children.Append(types.GetSegmentPath(ospfv2RouterLsaLinks.LinkTopo[i]), types.YChild{"LinkTopo", ospfv2RouterLsaLinks.LinkTopo[i]})
     }
     ospfv2RouterLsaLinks.EntityData.Leafs = types.NewOrderedMap()
@@ -7593,6 +7814,7 @@ func (ospfv2RouterLsaLinks *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbAre
 type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks_LinkTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Multi topology identifier. The type is interface{} with range: 0..255.
     MtId interface{}
@@ -7606,7 +7828,8 @@ func (linkTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2Rout
     linkTopo.EntityData.YangName = "link-topo"
     linkTopo.EntityData.BundleName = "cisco_ios_xe"
     linkTopo.EntityData.ParentYangName = "ospfv2-router-lsa-links"
-    linkTopo.EntityData.SegmentPath = "link-topo"
+    linkTopo.EntityData.SegmentPath = "link-topo" + types.AddNoKeyToken(linkTopo)
+    linkTopo.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/ospfv2-router-lsa-links/" + linkTopo.EntityData.SegmentPath
     linkTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linkTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linkTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7638,6 +7861,7 @@ func (unsupportedLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Unsu
     unsupportedLsa.EntityData.BundleName = "cisco_ios_xe"
     unsupportedLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
     unsupportedLsa.EntityData.SegmentPath = "unsupported-lsa"
+    unsupportedLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/" + unsupportedLsa.EntityData.SegmentPath
     unsupportedLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     unsupportedLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     unsupportedLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7671,6 +7895,7 @@ func (routerLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterLsa
     routerLsa.EntityData.BundleName = "cisco_ios_xe"
     routerLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
     routerLsa.EntityData.SegmentPath = "router-lsa"
+    routerLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/" + routerLsa.EntityData.SegmentPath
     routerLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     routerLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     routerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7706,6 +7931,7 @@ func (networkLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkL
     networkLsa.EntityData.BundleName = "cisco_ios_xe"
     networkLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
     networkLsa.EntityData.SegmentPath = "network-lsa"
+    networkLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/" + networkLsa.EntityData.SegmentPath
     networkLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7741,6 +7967,7 @@ func (networkSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_N
     networkSummaryLsa.EntityData.BundleName = "cisco_ios_xe"
     networkSummaryLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
     networkSummaryLsa.EntityData.SegmentPath = "network-summary-lsa"
+    networkSummaryLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/" + networkSummaryLsa.EntityData.SegmentPath
     networkSummaryLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkSummaryLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkSummaryLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7748,6 +7975,7 @@ func (networkSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_N
     networkSummaryLsa.EntityData.Children = types.NewOrderedMap()
     networkSummaryLsa.EntityData.Children.Append("summary-topo", types.YChild{"SummaryTopo", nil})
     for i := range networkSummaryLsa.SummaryTopo {
+        types.SetYListKey(networkSummaryLsa.SummaryTopo[i], i)
         networkSummaryLsa.EntityData.Children.Append(types.GetSegmentPath(networkSummaryLsa.SummaryTopo[i]), types.YChild{"SummaryTopo", networkSummaryLsa.SummaryTopo[i]})
     }
     networkSummaryLsa.EntityData.Leafs = types.NewOrderedMap()
@@ -7763,6 +7991,7 @@ func (networkSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_N
 type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkSummaryLsa_SummaryTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Multi topology identifier. The type is interface{} with range: 0..255.
     MtId interface{}
@@ -7776,7 +8005,8 @@ func (summaryTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Network
     summaryTopo.EntityData.YangName = "summary-topo"
     summaryTopo.EntityData.BundleName = "cisco_ios_xe"
     summaryTopo.EntityData.ParentYangName = "network-summary-lsa"
-    summaryTopo.EntityData.SegmentPath = "summary-topo"
+    summaryTopo.EntityData.SegmentPath = "summary-topo" + types.AddNoKeyToken(summaryTopo)
+    summaryTopo.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/network-summary-lsa/" + summaryTopo.EntityData.SegmentPath
     summaryTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     summaryTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     summaryTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7812,6 +8042,7 @@ func (routerSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ro
     routerSummaryLsa.EntityData.BundleName = "cisco_ios_xe"
     routerSummaryLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
     routerSummaryLsa.EntityData.SegmentPath = "router-summary-lsa"
+    routerSummaryLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/" + routerSummaryLsa.EntityData.SegmentPath
     routerSummaryLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     routerSummaryLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     routerSummaryLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7819,6 +8050,7 @@ func (routerSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ro
     routerSummaryLsa.EntityData.Children = types.NewOrderedMap()
     routerSummaryLsa.EntityData.Children.Append("summary-topo", types.YChild{"SummaryTopo", nil})
     for i := range routerSummaryLsa.SummaryTopo {
+        types.SetYListKey(routerSummaryLsa.SummaryTopo[i], i)
         routerSummaryLsa.EntityData.Children.Append(types.GetSegmentPath(routerSummaryLsa.SummaryTopo[i]), types.YChild{"SummaryTopo", routerSummaryLsa.SummaryTopo[i]})
     }
     routerSummaryLsa.EntityData.Leafs = types.NewOrderedMap()
@@ -7834,6 +8066,7 @@ func (routerSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ro
 type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterSummaryLsa_SummaryTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Multi topology identifier. The type is interface{} with range: 0..255.
     MtId interface{}
@@ -7847,7 +8080,8 @@ func (summaryTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterS
     summaryTopo.EntityData.YangName = "summary-topo"
     summaryTopo.EntityData.BundleName = "cisco_ios_xe"
     summaryTopo.EntityData.ParentYangName = "router-summary-lsa"
-    summaryTopo.EntityData.SegmentPath = "summary-topo"
+    summaryTopo.EntityData.SegmentPath = "summary-topo" + types.AddNoKeyToken(summaryTopo)
+    summaryTopo.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/router-summary-lsa/" + summaryTopo.EntityData.SegmentPath
     summaryTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     summaryTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     summaryTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7883,6 +8117,7 @@ func (externalLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Externa
     externalLsa.EntityData.BundleName = "cisco_ios_xe"
     externalLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
     externalLsa.EntityData.SegmentPath = "external-lsa"
+    externalLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/" + externalLsa.EntityData.SegmentPath
     externalLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     externalLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     externalLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7890,6 +8125,7 @@ func (externalLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Externa
     externalLsa.EntityData.Children = types.NewOrderedMap()
     externalLsa.EntityData.Children.Append("external-topo", types.YChild{"ExternalTopo", nil})
     for i := range externalLsa.ExternalTopo {
+        types.SetYListKey(externalLsa.ExternalTopo[i], i)
         externalLsa.EntityData.Children.Append(types.GetSegmentPath(externalLsa.ExternalTopo[i]), types.YChild{"ExternalTopo", externalLsa.ExternalTopo[i]})
     }
     externalLsa.EntityData.Leafs = types.NewOrderedMap()
@@ -7905,6 +8141,7 @@ func (externalLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Externa
 type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_ExternalLsa_ExternalTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The multi topology identifier. The type is interface{} with range: 0..255.
     MtId interface{}
@@ -7932,7 +8169,8 @@ func (externalTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Extern
     externalTopo.EntityData.YangName = "external-topo"
     externalTopo.EntityData.BundleName = "cisco_ios_xe"
     externalTopo.EntityData.ParentYangName = "external-lsa"
-    externalTopo.EntityData.SegmentPath = "external-topo"
+    externalTopo.EntityData.SegmentPath = "external-topo" + types.AddNoKeyToken(externalTopo)
+    externalTopo.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/external-lsa/" + externalTopo.EntityData.SegmentPath
     externalTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     externalTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     externalTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7971,6 +8209,7 @@ func (nssaLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa) Ge
     nssaLsa.EntityData.BundleName = "cisco_ios_xe"
     nssaLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
     nssaLsa.EntityData.SegmentPath = "nssa-lsa"
+    nssaLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/" + nssaLsa.EntityData.SegmentPath
     nssaLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nssaLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nssaLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -7978,6 +8217,7 @@ func (nssaLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa) Ge
     nssaLsa.EntityData.Children = types.NewOrderedMap()
     nssaLsa.EntityData.Children.Append("external-topo", types.YChild{"ExternalTopo", nil})
     for i := range nssaLsa.ExternalTopo {
+        types.SetYListKey(nssaLsa.ExternalTopo[i], i)
         nssaLsa.EntityData.Children.Append(types.GetSegmentPath(nssaLsa.ExternalTopo[i]), types.YChild{"ExternalTopo", nssaLsa.ExternalTopo[i]})
     }
     nssaLsa.EntityData.Leafs = types.NewOrderedMap()
@@ -7993,6 +8233,7 @@ func (nssaLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa) Ge
 type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa_ExternalTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The multi topology identifier. The type is interface{} with range: 0..255.
     MtId interface{}
@@ -8020,7 +8261,8 @@ func (externalTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLs
     externalTopo.EntityData.YangName = "external-topo"
     externalTopo.EntityData.BundleName = "cisco_ios_xe"
     externalTopo.EntityData.ParentYangName = "nssa-lsa"
-    externalTopo.EntityData.SegmentPath = "external-topo"
+    externalTopo.EntityData.SegmentPath = "external-topo" + types.AddNoKeyToken(externalTopo)
+    externalTopo.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-lsdb-area/nssa-lsa/" + externalTopo.EntityData.SegmentPath
     externalTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     externalTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     externalTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8043,6 +8285,7 @@ func (externalTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLs
 type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface. The type is string.
     Name interface{}
@@ -8133,6 +8376,7 @@ func (ospfv2Interface *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface) G
     ospfv2Interface.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Interface.EntityData.ParentYangName = "ospfv2-area"
     ospfv2Interface.EntityData.SegmentPath = "ospfv2-interface" + types.AddKeyToken(ospfv2Interface.Name, "name")
+    ospfv2Interface.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/" + ospfv2Interface.EntityData.SegmentPath
     ospfv2Interface.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Interface.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Interface.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8190,6 +8434,7 @@ func (ttlSecurityVal *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_Ttl
     ttlSecurityVal.EntityData.BundleName = "cisco_ios_xe"
     ttlSecurityVal.EntityData.ParentYangName = "ospfv2-interface"
     ttlSecurityVal.EntityData.SegmentPath = "ttl-security-val"
+    ttlSecurityVal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-interface/" + ttlSecurityVal.EntityData.SegmentPath
     ttlSecurityVal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ttlSecurityVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ttlSecurityVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8227,6 +8472,7 @@ func (authVal *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal) G
     authVal.EntityData.BundleName = "cisco_ios_xe"
     authVal.EntityData.ParentYangName = "ospfv2-interface"
     authVal.EntityData.SegmentPath = "auth-val"
+    authVal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-interface/" + authVal.EntityData.SegmentPath
     authVal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8264,6 +8510,7 @@ func (authKey *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_Au
     authKey.EntityData.BundleName = "cisco_ios_xe"
     authKey.EntityData.ParentYangName = "auth-val"
     authKey.EntityData.SegmentPath = "auth-key"
+    authKey.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-interface/auth-val/" + authKey.EntityData.SegmentPath
     authKey.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authKey.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authKey.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8295,6 +8542,7 @@ func (keyChain *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_K
     keyChain.EntityData.BundleName = "cisco_ios_xe"
     keyChain.EntityData.ParentYangName = "auth-val"
     keyChain.EntityData.SegmentPath = "key-chain"
+    keyChain.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-interface/auth-val/" + keyChain.EntityData.SegmentPath
     keyChain.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     keyChain.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     keyChain.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8313,6 +8561,7 @@ func (keyChain *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_K
 type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_Ospfv2Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The neighbor identifier. The type is interface{}
     // with range: 0..4294967295.
@@ -8369,6 +8618,7 @@ func (ospfv2Neighbor *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_Osp
     ospfv2Neighbor.EntityData.BundleName = "cisco_ios_xe"
     ospfv2Neighbor.EntityData.ParentYangName = "ospfv2-interface"
     ospfv2Neighbor.EntityData.SegmentPath = "ospfv2-neighbor" + types.AddKeyToken(ospfv2Neighbor.NbrId, "nbr-id")
+    ospfv2Neighbor.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-area/ospfv2-interface/" + ospfv2Neighbor.EntityData.SegmentPath
     ospfv2Neighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2Neighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2Neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8396,6 +8646,7 @@ func (ospfv2Neighbor *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_Osp
 type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link State Advertisement type. The type is
     // interface{} with range: 0..255.
@@ -8460,6 +8711,7 @@ func (ospfv2LsdbExternal *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal) GetEnt
     ospfv2LsdbExternal.EntityData.BundleName = "cisco_ios_xe"
     ospfv2LsdbExternal.EntityData.ParentYangName = "ospfv2-instance"
     ospfv2LsdbExternal.EntityData.SegmentPath = "ospfv2-lsdb-external" + types.AddKeyToken(ospfv2LsdbExternal.LsaType, "lsa-type") + types.AddKeyToken(ospfv2LsdbExternal.LsaId, "lsa-id") + types.AddKeyToken(ospfv2LsdbExternal.AdvertisingRouter, "advertising-router")
+    ospfv2LsdbExternal.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/" + ospfv2LsdbExternal.EntityData.SegmentPath
     ospfv2LsdbExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2LsdbExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2LsdbExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8496,6 +8748,7 @@ func (ospfv2LsdbExternal *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal) GetEnt
 type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link Type. The type is interface{} with range:
     // 0..255.
@@ -8520,6 +8773,7 @@ func (ospfv2RouterLsaLinks *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv
     ospfv2RouterLsaLinks.EntityData.BundleName = "cisco_ios_xe"
     ospfv2RouterLsaLinks.EntityData.ParentYangName = "ospfv2-lsdb-external"
     ospfv2RouterLsaLinks.EntityData.SegmentPath = "ospfv2-router-lsa-links" + types.AddKeyToken(ospfv2RouterLsaLinks.LinkType, "link-type") + types.AddKeyToken(ospfv2RouterLsaLinks.LinkId, "link-id") + types.AddKeyToken(ospfv2RouterLsaLinks.LinkData, "link-data")
+    ospfv2RouterLsaLinks.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/" + ospfv2RouterLsaLinks.EntityData.SegmentPath
     ospfv2RouterLsaLinks.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfv2RouterLsaLinks.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfv2RouterLsaLinks.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8527,6 +8781,7 @@ func (ospfv2RouterLsaLinks *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv
     ospfv2RouterLsaLinks.EntityData.Children = types.NewOrderedMap()
     ospfv2RouterLsaLinks.EntityData.Children.Append("link-topo", types.YChild{"LinkTopo", nil})
     for i := range ospfv2RouterLsaLinks.LinkTopo {
+        types.SetYListKey(ospfv2RouterLsaLinks.LinkTopo[i], i)
         ospfv2RouterLsaLinks.EntityData.Children.Append(types.GetSegmentPath(ospfv2RouterLsaLinks.LinkTopo[i]), types.YChild{"LinkTopo", ospfv2RouterLsaLinks.LinkTopo[i]})
     }
     ospfv2RouterLsaLinks.EntityData.Leafs = types.NewOrderedMap()
@@ -8544,6 +8799,7 @@ func (ospfv2RouterLsaLinks *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv
 type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks_LinkTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Multi topology identifier. The type is interface{} with range: 0..255.
     MtId interface{}
@@ -8557,7 +8813,8 @@ func (linkTopo *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLi
     linkTopo.EntityData.YangName = "link-topo"
     linkTopo.EntityData.BundleName = "cisco_ios_xe"
     linkTopo.EntityData.ParentYangName = "ospfv2-router-lsa-links"
-    linkTopo.EntityData.SegmentPath = "link-topo"
+    linkTopo.EntityData.SegmentPath = "link-topo" + types.AddNoKeyToken(linkTopo)
+    linkTopo.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/ospfv2-router-lsa-links/" + linkTopo.EntityData.SegmentPath
     linkTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linkTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linkTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8589,6 +8846,7 @@ func (unsupportedLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Unsupported
     unsupportedLsa.EntityData.BundleName = "cisco_ios_xe"
     unsupportedLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
     unsupportedLsa.EntityData.SegmentPath = "unsupported-lsa"
+    unsupportedLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/" + unsupportedLsa.EntityData.SegmentPath
     unsupportedLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     unsupportedLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     unsupportedLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8622,6 +8880,7 @@ func (routerLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterLsa) GetEn
     routerLsa.EntityData.BundleName = "cisco_ios_xe"
     routerLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
     routerLsa.EntityData.SegmentPath = "router-lsa"
+    routerLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/" + routerLsa.EntityData.SegmentPath
     routerLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     routerLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     routerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8657,6 +8916,7 @@ func (networkLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkLsa) Get
     networkLsa.EntityData.BundleName = "cisco_ios_xe"
     networkLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
     networkLsa.EntityData.SegmentPath = "network-lsa"
+    networkLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/" + networkLsa.EntityData.SegmentPath
     networkLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8692,6 +8952,7 @@ func (networkSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkS
     networkSummaryLsa.EntityData.BundleName = "cisco_ios_xe"
     networkSummaryLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
     networkSummaryLsa.EntityData.SegmentPath = "network-summary-lsa"
+    networkSummaryLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/" + networkSummaryLsa.EntityData.SegmentPath
     networkSummaryLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkSummaryLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkSummaryLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8699,6 +8960,7 @@ func (networkSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkS
     networkSummaryLsa.EntityData.Children = types.NewOrderedMap()
     networkSummaryLsa.EntityData.Children.Append("summary-topo", types.YChild{"SummaryTopo", nil})
     for i := range networkSummaryLsa.SummaryTopo {
+        types.SetYListKey(networkSummaryLsa.SummaryTopo[i], i)
         networkSummaryLsa.EntityData.Children.Append(types.GetSegmentPath(networkSummaryLsa.SummaryTopo[i]), types.YChild{"SummaryTopo", networkSummaryLsa.SummaryTopo[i]})
     }
     networkSummaryLsa.EntityData.Leafs = types.NewOrderedMap()
@@ -8714,6 +8976,7 @@ func (networkSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkS
 type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummaryLsa_SummaryTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Multi topology identifier. The type is interface{} with range: 0..255.
     MtId interface{}
@@ -8727,7 +8990,8 @@ func (summaryTopo *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummary
     summaryTopo.EntityData.YangName = "summary-topo"
     summaryTopo.EntityData.BundleName = "cisco_ios_xe"
     summaryTopo.EntityData.ParentYangName = "network-summary-lsa"
-    summaryTopo.EntityData.SegmentPath = "summary-topo"
+    summaryTopo.EntityData.SegmentPath = "summary-topo" + types.AddNoKeyToken(summaryTopo)
+    summaryTopo.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/network-summary-lsa/" + summaryTopo.EntityData.SegmentPath
     summaryTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     summaryTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     summaryTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8763,6 +9027,7 @@ func (routerSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSum
     routerSummaryLsa.EntityData.BundleName = "cisco_ios_xe"
     routerSummaryLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
     routerSummaryLsa.EntityData.SegmentPath = "router-summary-lsa"
+    routerSummaryLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/" + routerSummaryLsa.EntityData.SegmentPath
     routerSummaryLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     routerSummaryLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     routerSummaryLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8770,6 +9035,7 @@ func (routerSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSum
     routerSummaryLsa.EntityData.Children = types.NewOrderedMap()
     routerSummaryLsa.EntityData.Children.Append("summary-topo", types.YChild{"SummaryTopo", nil})
     for i := range routerSummaryLsa.SummaryTopo {
+        types.SetYListKey(routerSummaryLsa.SummaryTopo[i], i)
         routerSummaryLsa.EntityData.Children.Append(types.GetSegmentPath(routerSummaryLsa.SummaryTopo[i]), types.YChild{"SummaryTopo", routerSummaryLsa.SummaryTopo[i]})
     }
     routerSummaryLsa.EntityData.Leafs = types.NewOrderedMap()
@@ -8785,6 +9051,7 @@ func (routerSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSum
 type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryLsa_SummaryTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Multi topology identifier. The type is interface{} with range: 0..255.
     MtId interface{}
@@ -8798,7 +9065,8 @@ func (summaryTopo *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryL
     summaryTopo.EntityData.YangName = "summary-topo"
     summaryTopo.EntityData.BundleName = "cisco_ios_xe"
     summaryTopo.EntityData.ParentYangName = "router-summary-lsa"
-    summaryTopo.EntityData.SegmentPath = "summary-topo"
+    summaryTopo.EntityData.SegmentPath = "summary-topo" + types.AddNoKeyToken(summaryTopo)
+    summaryTopo.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/router-summary-lsa/" + summaryTopo.EntityData.SegmentPath
     summaryTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     summaryTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     summaryTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8834,6 +9102,7 @@ func (externalLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa) G
     externalLsa.EntityData.BundleName = "cisco_ios_xe"
     externalLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
     externalLsa.EntityData.SegmentPath = "external-lsa"
+    externalLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/" + externalLsa.EntityData.SegmentPath
     externalLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     externalLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     externalLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8841,6 +9110,7 @@ func (externalLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa) G
     externalLsa.EntityData.Children = types.NewOrderedMap()
     externalLsa.EntityData.Children.Append("external-topo", types.YChild{"ExternalTopo", nil})
     for i := range externalLsa.ExternalTopo {
+        types.SetYListKey(externalLsa.ExternalTopo[i], i)
         externalLsa.EntityData.Children.Append(types.GetSegmentPath(externalLsa.ExternalTopo[i]), types.YChild{"ExternalTopo", externalLsa.ExternalTopo[i]})
     }
     externalLsa.EntityData.Leafs = types.NewOrderedMap()
@@ -8856,6 +9126,7 @@ func (externalLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa) G
 type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa_ExternalTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The multi topology identifier. The type is interface{} with range: 0..255.
     MtId interface{}
@@ -8883,7 +9154,8 @@ func (externalTopo *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa_E
     externalTopo.EntityData.YangName = "external-topo"
     externalTopo.EntityData.BundleName = "cisco_ios_xe"
     externalTopo.EntityData.ParentYangName = "external-lsa"
-    externalTopo.EntityData.SegmentPath = "external-topo"
+    externalTopo.EntityData.SegmentPath = "external-topo" + types.AddNoKeyToken(externalTopo)
+    externalTopo.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/external-lsa/" + externalTopo.EntityData.SegmentPath
     externalTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     externalTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     externalTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8922,6 +9194,7 @@ func (nssaLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa) GetEntity
     nssaLsa.EntityData.BundleName = "cisco_ios_xe"
     nssaLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
     nssaLsa.EntityData.SegmentPath = "nssa-lsa"
+    nssaLsa.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/" + nssaLsa.EntityData.SegmentPath
     nssaLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nssaLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nssaLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -8929,6 +9202,7 @@ func (nssaLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa) GetEntity
     nssaLsa.EntityData.Children = types.NewOrderedMap()
     nssaLsa.EntityData.Children.Append("external-topo", types.YChild{"ExternalTopo", nil})
     for i := range nssaLsa.ExternalTopo {
+        types.SetYListKey(nssaLsa.ExternalTopo[i], i)
         nssaLsa.EntityData.Children.Append(types.GetSegmentPath(nssaLsa.ExternalTopo[i]), types.YChild{"ExternalTopo", nssaLsa.ExternalTopo[i]})
     }
     nssaLsa.EntityData.Leafs = types.NewOrderedMap()
@@ -8944,6 +9218,7 @@ func (nssaLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa) GetEntity
 type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa_ExternalTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The multi topology identifier. The type is interface{} with range: 0..255.
     MtId interface{}
@@ -8971,7 +9246,8 @@ func (externalTopo *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa_Exter
     externalTopo.EntityData.YangName = "external-topo"
     externalTopo.EntityData.BundleName = "cisco_ios_xe"
     externalTopo.EntityData.ParentYangName = "nssa-lsa"
-    externalTopo.EntityData.SegmentPath = "external-topo"
+    externalTopo.EntityData.SegmentPath = "external-topo" + types.AddNoKeyToken(externalTopo)
+    externalTopo.EntityData.AbsolutePath = "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospfv2-instance/ospfv2-lsdb-external/nssa-lsa/" + externalTopo.EntityData.SegmentPath
     externalTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     externalTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     externalTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

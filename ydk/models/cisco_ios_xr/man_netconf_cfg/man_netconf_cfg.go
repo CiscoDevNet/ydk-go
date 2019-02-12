@@ -40,6 +40,7 @@ func (netconfYang *NetconfYang) GetEntityData() *types.CommonEntityData {
     netconfYang.EntityData.BundleName = "cisco_ios_xr"
     netconfYang.EntityData.ParentYangName = "Cisco-IOS-XR-man-netconf-cfg"
     netconfYang.EntityData.SegmentPath = "Cisco-IOS-XR-man-netconf-cfg:netconf-yang"
+    netconfYang.EntityData.AbsolutePath = netconfYang.EntityData.SegmentPath
     netconfYang.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netconfYang.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconfYang.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -79,6 +80,7 @@ func (agent *NetconfYang_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.BundleName = "cisco_ios_xr"
     agent.EntityData.ParentYangName = "netconf-yang"
     agent.EntityData.SegmentPath = "agent"
+    agent.EntityData.AbsolutePath = "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/" + agent.EntityData.SegmentPath
     agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -111,6 +113,7 @@ func (models *NetconfYang_Agent_Models) GetEntityData() *types.CommonEntityData 
     models.EntityData.BundleName = "cisco_ios_xr"
     models.EntityData.ParentYangName = "agent"
     models.EntityData.SegmentPath = "models"
+    models.EntityData.AbsolutePath = "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/" + models.EntityData.SegmentPath
     models.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     models.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     models.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -140,6 +143,7 @@ func (openconfig *NetconfYang_Agent_Models_Openconfig) GetEntityData() *types.Co
     openconfig.EntityData.BundleName = "cisco_ios_xr"
     openconfig.EntityData.ParentYangName = "models"
     openconfig.EntityData.SegmentPath = "openconfig"
+    openconfig.EntityData.AbsolutePath = "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/models/" + openconfig.EntityData.SegmentPath
     openconfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     openconfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     openconfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -169,6 +173,7 @@ func (ssh *NetconfYang_Agent_Ssh) GetEntityData() *types.CommonEntityData {
     ssh.EntityData.BundleName = "cisco_ios_xr"
     ssh.EntityData.ParentYangName = "agent"
     ssh.EntityData.SegmentPath = "ssh"
+    ssh.EntityData.AbsolutePath = "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/" + ssh.EntityData.SegmentPath
     ssh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -207,6 +212,7 @@ func (session *NetconfYang_Agent_Session) GetEntityData() *types.CommonEntityDat
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "agent"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

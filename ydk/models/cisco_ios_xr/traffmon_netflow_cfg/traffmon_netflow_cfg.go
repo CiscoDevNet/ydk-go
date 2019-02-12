@@ -75,6 +75,7 @@ func (netFlow *NetFlow) GetEntityData() *types.CommonEntityData {
     netFlow.EntityData.BundleName = "cisco_ios_xr"
     netFlow.EntityData.ParentYangName = "Cisco-IOS-XR-traffmon-netflow-cfg"
     netFlow.EntityData.SegmentPath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow"
+    netFlow.EntityData.AbsolutePath = netFlow.EntityData.SegmentPath
     netFlow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -108,6 +109,7 @@ func (flowExporterMaps *NetFlow_FlowExporterMaps) GetEntityData() *types.CommonE
     flowExporterMaps.EntityData.BundleName = "cisco_ios_xr"
     flowExporterMaps.EntityData.ParentYangName = "net-flow"
     flowExporterMaps.EntityData.SegmentPath = "flow-exporter-maps"
+    flowExporterMaps.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/" + flowExporterMaps.EntityData.SegmentPath
     flowExporterMaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowExporterMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowExporterMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -129,6 +131,7 @@ func (flowExporterMaps *NetFlow_FlowExporterMaps) GetEntityData() *types.CommonE
 type NetFlow_FlowExporterMaps_FlowExporterMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Exporter map name. The type is string with length:
     // 1..32.
@@ -162,6 +165,7 @@ func (flowExporterMap *NetFlow_FlowExporterMaps_FlowExporterMap) GetEntityData()
     flowExporterMap.EntityData.BundleName = "cisco_ios_xr"
     flowExporterMap.EntityData.ParentYangName = "flow-exporter-maps"
     flowExporterMap.EntityData.SegmentPath = "flow-exporter-map" + types.AddKeyToken(flowExporterMap.ExporterMapName, "exporter-map-name")
+    flowExporterMap.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-exporter-maps/" + flowExporterMap.EntityData.SegmentPath
     flowExporterMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowExporterMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowExporterMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -198,6 +202,7 @@ func (udp *NetFlow_FlowExporterMaps_FlowExporterMap_Udp) GetEntityData() *types.
     udp.EntityData.BundleName = "cisco_ios_xr"
     udp.EntityData.ParentYangName = "flow-exporter-map"
     udp.EntityData.SegmentPath = "udp"
+    udp.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-exporter-maps/flow-exporter-map/" + udp.EntityData.SegmentPath
     udp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -234,6 +239,7 @@ func (destination *NetFlow_FlowExporterMaps_FlowExporterMap_Destination) GetEnti
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "flow-exporter-map"
     destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-exporter-maps/flow-exporter-map/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -280,6 +286,7 @@ func (version *NetFlow_FlowExporterMaps_FlowExporterMap_Version) GetEntityData()
     version.EntityData.BundleName = "cisco_ios_xr"
     version.EntityData.ParentYangName = "flow-exporter-map"
     version.EntityData.SegmentPath = "version"
+    version.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-exporter-maps/flow-exporter-map/" + version.EntityData.SegmentPath
     version.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     version.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -322,6 +329,7 @@ func (options *NetFlow_FlowExporterMaps_FlowExporterMap_Version_Options) GetEnti
     options.EntityData.BundleName = "cisco_ios_xr"
     options.EntityData.ParentYangName = "version"
     options.EntityData.SegmentPath = "options"
+    options.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-exporter-maps/flow-exporter-map/version/" + options.EntityData.SegmentPath
     options.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -354,6 +362,7 @@ func (flowSamplerMaps *NetFlow_FlowSamplerMaps) GetEntityData() *types.CommonEnt
     flowSamplerMaps.EntityData.BundleName = "cisco_ios_xr"
     flowSamplerMaps.EntityData.ParentYangName = "net-flow"
     flowSamplerMaps.EntityData.SegmentPath = "flow-sampler-maps"
+    flowSamplerMaps.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/" + flowSamplerMaps.EntityData.SegmentPath
     flowSamplerMaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSamplerMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSamplerMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -375,6 +384,7 @@ func (flowSamplerMaps *NetFlow_FlowSamplerMaps) GetEntityData() *types.CommonEnt
 type NetFlow_FlowSamplerMaps_FlowSamplerMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sampler map name. The type is string with length:
     // 1..32.
@@ -390,6 +400,7 @@ func (flowSamplerMap *NetFlow_FlowSamplerMaps_FlowSamplerMap) GetEntityData() *t
     flowSamplerMap.EntityData.BundleName = "cisco_ios_xr"
     flowSamplerMap.EntityData.ParentYangName = "flow-sampler-maps"
     flowSamplerMap.EntityData.SegmentPath = "flow-sampler-map" + types.AddKeyToken(flowSamplerMap.SamplerMapName, "sampler-map-name")
+    flowSamplerMap.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-sampler-maps/" + flowSamplerMap.EntityData.SegmentPath
     flowSamplerMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSamplerMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSamplerMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -421,6 +432,7 @@ func (samplingModes *NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes) GetEn
     samplingModes.EntityData.BundleName = "cisco_ios_xr"
     samplingModes.EntityData.ParentYangName = "flow-sampler-map"
     samplingModes.EntityData.SegmentPath = "sampling-modes"
+    samplingModes.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-sampler-maps/flow-sampler-map/" + samplingModes.EntityData.SegmentPath
     samplingModes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samplingModes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samplingModes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -442,6 +454,7 @@ func (samplingModes *NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes) GetEn
 type NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes_SamplingMode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sampling mode. The type is NfSamplingMode.
     Mode interface{}
@@ -461,6 +474,7 @@ func (samplingMode *NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes_Samplin
     samplingMode.EntityData.BundleName = "cisco_ios_xr"
     samplingMode.EntityData.ParentYangName = "sampling-modes"
     samplingMode.EntityData.SegmentPath = "sampling-mode" + types.AddKeyToken(samplingMode.Mode, "mode")
+    samplingMode.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-sampler-maps/flow-sampler-map/sampling-modes/" + samplingMode.EntityData.SegmentPath
     samplingMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samplingMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samplingMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -493,6 +507,7 @@ func (flowMonitorMapTable *NetFlow_FlowMonitorMapTable) GetEntityData() *types.C
     flowMonitorMapTable.EntityData.BundleName = "cisco_ios_xr"
     flowMonitorMapTable.EntityData.ParentYangName = "net-flow"
     flowMonitorMapTable.EntityData.SegmentPath = "flow-monitor-map-table"
+    flowMonitorMapTable.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/" + flowMonitorMapTable.EntityData.SegmentPath
     flowMonitorMapTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowMonitorMapTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowMonitorMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -514,6 +529,7 @@ func (flowMonitorMapTable *NetFlow_FlowMonitorMapTable) GetEntityData() *types.C
 type NetFlow_FlowMonitorMapTable_FlowMonitorMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Monitor map name. The type is string with length:
     // 1..32.
@@ -559,6 +575,7 @@ func (flowMonitorMap *NetFlow_FlowMonitorMapTable_FlowMonitorMap) GetEntityData(
     flowMonitorMap.EntityData.BundleName = "cisco_ios_xr"
     flowMonitorMap.EntityData.ParentYangName = "flow-monitor-map-table"
     flowMonitorMap.EntityData.SegmentPath = "flow-monitor-map" + types.AddKeyToken(flowMonitorMap.MonitorMapName, "monitor-map-name")
+    flowMonitorMap.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-table/" + flowMonitorMap.EntityData.SegmentPath
     flowMonitorMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowMonitorMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowMonitorMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -609,6 +626,7 @@ func (option *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Option) GetEntityData()
     option.EntityData.BundleName = "cisco_ios_xr"
     option.EntityData.ParentYangName = "flow-monitor-map"
     option.EntityData.SegmentPath = "option"
+    option.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-table/flow-monitor-map/" + option.EntityData.SegmentPath
     option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -643,6 +661,7 @@ func (exporters *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters) GetEntity
     exporters.EntityData.BundleName = "cisco_ios_xr"
     exporters.EntityData.ParentYangName = "flow-monitor-map"
     exporters.EntityData.SegmentPath = "exporters"
+    exporters.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-table/flow-monitor-map/" + exporters.EntityData.SegmentPath
     exporters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exporters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exporters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -665,6 +684,7 @@ func (exporters *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters) GetEntity
 type NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters_Exporter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Exporter name. The type is string with length:
     // 1..32.
@@ -677,6 +697,7 @@ func (exporter *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Exporters_Exporter) G
     exporter.EntityData.BundleName = "cisco_ios_xr"
     exporter.EntityData.ParentYangName = "exporters"
     exporter.EntityData.SegmentPath = "exporter" + types.AddKeyToken(exporter.ExporterName, "exporter-name")
+    exporter.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-table/flow-monitor-map/exporters/" + exporter.EntityData.SegmentPath
     exporter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exporter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exporter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -714,6 +735,7 @@ func (record *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Record) GetEntityData()
     record.EntityData.BundleName = "cisco_ios_xr"
     record.EntityData.ParentYangName = "flow-monitor-map"
     record.EntityData.SegmentPath = "record"
+    record.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-table/flow-monitor-map/" + record.EntityData.SegmentPath
     record.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     record.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     record.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -745,6 +767,7 @@ func (flowMonitorMapPerformanceTable *NetFlow_FlowMonitorMapPerformanceTable) Ge
     flowMonitorMapPerformanceTable.EntityData.BundleName = "cisco_ios_xr"
     flowMonitorMapPerformanceTable.EntityData.ParentYangName = "net-flow"
     flowMonitorMapPerformanceTable.EntityData.SegmentPath = "flow-monitor-map-performance-table"
+    flowMonitorMapPerformanceTable.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/" + flowMonitorMapPerformanceTable.EntityData.SegmentPath
     flowMonitorMapPerformanceTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowMonitorMapPerformanceTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowMonitorMapPerformanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -766,6 +789,7 @@ func (flowMonitorMapPerformanceTable *NetFlow_FlowMonitorMapPerformanceTable) Ge
 type NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Monitor map name. The type is string with length:
     // 1..32.
@@ -811,6 +835,7 @@ func (flowMonitorMap *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap) Get
     flowMonitorMap.EntityData.BundleName = "cisco_ios_xr"
     flowMonitorMap.EntityData.ParentYangName = "flow-monitor-map-performance-table"
     flowMonitorMap.EntityData.SegmentPath = "flow-monitor-map" + types.AddKeyToken(flowMonitorMap.MonitorMapName, "monitor-map-name")
+    flowMonitorMap.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-performance-table/" + flowMonitorMap.EntityData.SegmentPath
     flowMonitorMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowMonitorMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowMonitorMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -861,6 +886,7 @@ func (option *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Option) GetE
     option.EntityData.BundleName = "cisco_ios_xr"
     option.EntityData.ParentYangName = "flow-monitor-map"
     option.EntityData.SegmentPath = "option"
+    option.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-performance-table/flow-monitor-map/" + option.EntityData.SegmentPath
     option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -895,6 +921,7 @@ func (exporters *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters
     exporters.EntityData.BundleName = "cisco_ios_xr"
     exporters.EntityData.ParentYangName = "flow-monitor-map"
     exporters.EntityData.SegmentPath = "exporters"
+    exporters.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-performance-table/flow-monitor-map/" + exporters.EntityData.SegmentPath
     exporters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exporters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exporters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -917,6 +944,7 @@ func (exporters *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters
 type NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters_Exporter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Exporter name. The type is string with length:
     // 1..32.
@@ -929,6 +957,7 @@ func (exporter *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Exporters_
     exporter.EntityData.BundleName = "cisco_ios_xr"
     exporter.EntityData.ParentYangName = "exporters"
     exporter.EntityData.SegmentPath = "exporter" + types.AddKeyToken(exporter.ExporterName, "exporter-name")
+    exporter.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-performance-table/flow-monitor-map/exporters/" + exporter.EntityData.SegmentPath
     exporter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exporter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exporter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -966,6 +995,7 @@ func (record *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Record) GetE
     record.EntityData.BundleName = "cisco_ios_xr"
     record.EntityData.ParentYangName = "flow-monitor-map"
     record.EntityData.SegmentPath = "record"
+    record.EntityData.AbsolutePath = "Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/flow-monitor-map-performance-table/flow-monitor-map/" + record.EntityData.SegmentPath
     record.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     record.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     record.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

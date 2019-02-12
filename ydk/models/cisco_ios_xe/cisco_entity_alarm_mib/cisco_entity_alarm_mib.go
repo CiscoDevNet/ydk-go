@@ -78,6 +78,7 @@ func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetEntityData() *types.CommonEnt
     cISCOENTITYALARMMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOENTITYALARMMIB.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
     cISCOENTITYALARMMIB.EntityData.SegmentPath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB"
+    cISCOENTITYALARMMIB.EntityData.AbsolutePath = cISCOENTITYALARMMIB.EntityData.SegmentPath
     cISCOENTITYALARMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOENTITYALARMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOENTITYALARMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -138,6 +139,7 @@ func (ceAlarmMonitoring *CISCOENTITYALARMMIB_CeAlarmMonitoring) GetEntityData() 
     ceAlarmMonitoring.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmMonitoring.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
     ceAlarmMonitoring.EntityData.SegmentPath = "ceAlarmMonitoring"
+    ceAlarmMonitoring.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/" + ceAlarmMonitoring.EntityData.SegmentPath
     ceAlarmMonitoring.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmMonitoring.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmMonitoring.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -181,6 +183,7 @@ func (ceAlarmHistory *CISCOENTITYALARMMIB_CeAlarmHistory) GetEntityData() *types
     ceAlarmHistory.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmHistory.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
     ceAlarmHistory.EntityData.SegmentPath = "ceAlarmHistory"
+    ceAlarmHistory.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/" + ceAlarmHistory.EntityData.SegmentPath
     ceAlarmHistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmHistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmHistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -239,6 +242,7 @@ func (ceAlarmFiltering *CISCOENTITYALARMMIB_CeAlarmFiltering) GetEntityData() *t
     ceAlarmFiltering.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmFiltering.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
     ceAlarmFiltering.EntityData.SegmentPath = "ceAlarmFiltering"
+    ceAlarmFiltering.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/" + ceAlarmFiltering.EntityData.SegmentPath
     ceAlarmFiltering.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmFiltering.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -273,6 +277,7 @@ func (ceAlarmDescrMapTable *CISCOENTITYALARMMIB_CeAlarmDescrMapTable) GetEntityD
     ceAlarmDescrMapTable.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmDescrMapTable.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
     ceAlarmDescrMapTable.EntityData.SegmentPath = "ceAlarmDescrMapTable"
+    ceAlarmDescrMapTable.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/" + ceAlarmDescrMapTable.EntityData.SegmentPath
     ceAlarmDescrMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmDescrMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmDescrMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -294,6 +299,7 @@ func (ceAlarmDescrMapTable *CISCOENTITYALARMMIB_CeAlarmDescrMapTable) GetEntityD
 type CISCOENTITYALARMMIB_CeAlarmDescrMapTable_CeAlarmDescrMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object uniquely identifies an alarm
     // description. The type is interface{} with range: 0..4294967295.
@@ -313,6 +319,7 @@ func (ceAlarmDescrMapEntry *CISCOENTITYALARMMIB_CeAlarmDescrMapTable_CeAlarmDesc
     ceAlarmDescrMapEntry.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmDescrMapEntry.EntityData.ParentYangName = "ceAlarmDescrMapTable"
     ceAlarmDescrMapEntry.EntityData.SegmentPath = "ceAlarmDescrMapEntry" + types.AddKeyToken(ceAlarmDescrMapEntry.CeAlarmDescrIndex, "ceAlarmDescrIndex")
+    ceAlarmDescrMapEntry.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmDescrMapTable/" + ceAlarmDescrMapEntry.EntityData.SegmentPath
     ceAlarmDescrMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmDescrMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmDescrMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -348,6 +355,7 @@ func (ceAlarmDescrTable *CISCOENTITYALARMMIB_CeAlarmDescrTable) GetEntityData() 
     ceAlarmDescrTable.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmDescrTable.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
     ceAlarmDescrTable.EntityData.SegmentPath = "ceAlarmDescrTable"
+    ceAlarmDescrTable.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/" + ceAlarmDescrTable.EntityData.SegmentPath
     ceAlarmDescrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmDescrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmDescrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -369,6 +377,7 @@ func (ceAlarmDescrTable *CISCOENTITYALARMMIB_CeAlarmDescrTable) GetEntityData() 
 type CISCOENTITYALARMMIB_CeAlarmDescrTable_CeAlarmDescrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -409,6 +418,7 @@ func (ceAlarmDescrEntry *CISCOENTITYALARMMIB_CeAlarmDescrTable_CeAlarmDescrEntry
     ceAlarmDescrEntry.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmDescrEntry.EntityData.ParentYangName = "ceAlarmDescrTable"
     ceAlarmDescrEntry.EntityData.SegmentPath = "ceAlarmDescrEntry" + types.AddKeyToken(ceAlarmDescrEntry.CeAlarmDescrIndex, "ceAlarmDescrIndex") + types.AddKeyToken(ceAlarmDescrEntry.CeAlarmDescrAlarmType, "ceAlarmDescrAlarmType")
+    ceAlarmDescrEntry.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmDescrTable/" + ceAlarmDescrEntry.EntityData.SegmentPath
     ceAlarmDescrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmDescrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmDescrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -447,6 +457,7 @@ func (ceAlarmTable *CISCOENTITYALARMMIB_CeAlarmTable) GetEntityData() *types.Com
     ceAlarmTable.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmTable.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
     ceAlarmTable.EntityData.SegmentPath = "ceAlarmTable"
+    ceAlarmTable.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/" + ceAlarmTable.EntityData.SegmentPath
     ceAlarmTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -470,6 +481,7 @@ func (ceAlarmTable *CISCOENTITYALARMMIB_CeAlarmTable) GetEntityData() *types.Com
 type CISCOENTITYALARMMIB_CeAlarmTable_CeAlarmEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -512,6 +524,7 @@ func (ceAlarmEntry *CISCOENTITYALARMMIB_CeAlarmTable_CeAlarmEntry) GetEntityData
     ceAlarmEntry.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmEntry.EntityData.ParentYangName = "ceAlarmTable"
     ceAlarmEntry.EntityData.SegmentPath = "ceAlarmEntry" + types.AddKeyToken(ceAlarmEntry.EntPhysicalIndex, "entPhysicalIndex")
+    ceAlarmEntry.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmTable/" + ceAlarmEntry.EntityData.SegmentPath
     ceAlarmEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -546,6 +559,7 @@ func (ceAlarmHistTable *CISCOENTITYALARMMIB_CeAlarmHistTable) GetEntityData() *t
     ceAlarmHistTable.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmHistTable.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
     ceAlarmHistTable.EntityData.SegmentPath = "ceAlarmHistTable"
+    ceAlarmHistTable.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/" + ceAlarmHistTable.EntityData.SegmentPath
     ceAlarmHistTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmHistTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmHistTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -568,6 +582,7 @@ func (ceAlarmHistTable *CISCOENTITYALARMMIB_CeAlarmHistTable) GetEntityData() *t
 type CISCOENTITYALARMMIB_CeAlarmHistTable_CeAlarmHistEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer value uniquely identifying the entry in
     // the table. The value of this object starts at '1' and monotonically
@@ -604,6 +619,7 @@ func (ceAlarmHistEntry *CISCOENTITYALARMMIB_CeAlarmHistTable_CeAlarmHistEntry) G
     ceAlarmHistEntry.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmHistEntry.EntityData.ParentYangName = "ceAlarmHistTable"
     ceAlarmHistEntry.EntityData.SegmentPath = "ceAlarmHistEntry" + types.AddKeyToken(ceAlarmHistEntry.CeAlarmHistIndex, "ceAlarmHistIndex")
+    ceAlarmHistEntry.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmHistTable/" + ceAlarmHistEntry.EntityData.SegmentPath
     ceAlarmHistEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmHistEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmHistEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -661,6 +677,7 @@ func (ceAlarmFilterProfileTable *CISCOENTITYALARMMIB_CeAlarmFilterProfileTable) 
     ceAlarmFilterProfileTable.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmFilterProfileTable.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
     ceAlarmFilterProfileTable.EntityData.SegmentPath = "ceAlarmFilterProfileTable"
+    ceAlarmFilterProfileTable.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/" + ceAlarmFilterProfileTable.EntityData.SegmentPath
     ceAlarmFilterProfileTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmFilterProfileTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmFilterProfileTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -703,6 +720,7 @@ func (ceAlarmFilterProfileTable *CISCOENTITYALARMMIB_CeAlarmFilterProfileTable) 
 type CISCOENTITYALARMMIB_CeAlarmFilterProfileTable_CeAlarmFilterProfileEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object uniquely identifies the alarm filter
     // profile. The type is interface{} with range: 0..4294967295.
@@ -754,6 +772,7 @@ func (ceAlarmFilterProfileEntry *CISCOENTITYALARMMIB_CeAlarmFilterProfileTable_C
     ceAlarmFilterProfileEntry.EntityData.BundleName = "cisco_ios_xe"
     ceAlarmFilterProfileEntry.EntityData.ParentYangName = "ceAlarmFilterProfileTable"
     ceAlarmFilterProfileEntry.EntityData.SegmentPath = "ceAlarmFilterProfileEntry" + types.AddKeyToken(ceAlarmFilterProfileEntry.CeAlarmFilterIndex, "ceAlarmFilterIndex")
+    ceAlarmFilterProfileEntry.EntityData.AbsolutePath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmFilterProfileTable/" + ceAlarmFilterProfileEntry.EntityData.SegmentPath
     ceAlarmFilterProfileEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceAlarmFilterProfileEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceAlarmFilterProfileEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

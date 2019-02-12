@@ -55,6 +55,7 @@ func (patchPanel *PatchPanel) GetEntityData() *types.CommonEntityData {
     patchPanel.EntityData.BundleName = "cisco_ios_xr"
     patchPanel.EntityData.ParentYangName = "Cisco-IOS-XR-patch-panel-cfg"
     patchPanel.EntityData.SegmentPath = "Cisco-IOS-XR-patch-panel-cfg:patch-panel"
+    patchPanel.EntityData.AbsolutePath = patchPanel.EntityData.SegmentPath
     patchPanel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     patchPanel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     patchPanel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

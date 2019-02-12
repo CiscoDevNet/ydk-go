@@ -40,6 +40,7 @@ func (ipDomain *IpDomain) GetEntityData() *types.CommonEntityData {
     ipDomain.EntityData.BundleName = "cisco_ios_xr"
     ipDomain.EntityData.ParentYangName = "Cisco-IOS-XR-ip-domain-cfg"
     ipDomain.EntityData.SegmentPath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain"
+    ipDomain.EntityData.AbsolutePath = ipDomain.EntityData.SegmentPath
     ipDomain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDomain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDomain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (vrfs *IpDomain_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "ip-domain"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (vrfs *IpDomain_Vrfs) GetEntityData() *types.CommonEntityData {
 type IpDomain_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the VRF instance. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -127,6 +130,7 @@ func (vrf *IpDomain_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -165,6 +169,7 @@ func (ipv6Hosts *IpDomain_Vrfs_Vrf_Ipv6Hosts) GetEntityData() *types.CommonEntit
     ipv6Hosts.EntityData.BundleName = "cisco_ios_xr"
     ipv6Hosts.EntityData.ParentYangName = "vrf"
     ipv6Hosts.EntityData.SegmentPath = "ipv6-hosts"
+    ipv6Hosts.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/vrf/" + ipv6Hosts.EntityData.SegmentPath
     ipv6Hosts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -186,6 +191,7 @@ func (ipv6Hosts *IpDomain_Vrfs_Vrf_Ipv6Hosts) GetEntityData() *types.CommonEntit
 type IpDomain_Vrfs_Vrf_Ipv6Hosts_Ipv6Host struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A hostname. The type is string.
     HostName interface{}
@@ -201,6 +207,7 @@ func (ipv6Host *IpDomain_Vrfs_Vrf_Ipv6Hosts_Ipv6Host) GetEntityData() *types.Com
     ipv6Host.EntityData.BundleName = "cisco_ios_xr"
     ipv6Host.EntityData.ParentYangName = "ipv6-hosts"
     ipv6Host.EntityData.SegmentPath = "ipv6-host" + types.AddKeyToken(ipv6Host.HostName, "host-name")
+    ipv6Host.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/vrf/ipv6-hosts/" + ipv6Host.EntityData.SegmentPath
     ipv6Host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -231,6 +238,7 @@ func (servers *IpDomain_Vrfs_Vrf_Servers) GetEntityData() *types.CommonEntityDat
     servers.EntityData.BundleName = "cisco_ios_xr"
     servers.EntityData.ParentYangName = "vrf"
     servers.EntityData.SegmentPath = "servers"
+    servers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/vrf/" + servers.EntityData.SegmentPath
     servers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     servers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     servers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -252,6 +260,7 @@ func (servers *IpDomain_Vrfs_Vrf_Servers) GetEntityData() *types.CommonEntityDat
 type IpDomain_Vrfs_Vrf_Servers_Server struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This is used to sort the servers in the order of
     // precedence. The type is interface{} with range: 0..4294967295.
@@ -271,6 +280,7 @@ func (server *IpDomain_Vrfs_Vrf_Servers_Server) GetEntityData() *types.CommonEnt
     server.EntityData.BundleName = "cisco_ios_xr"
     server.EntityData.ParentYangName = "servers"
     server.EntityData.SegmentPath = "server" + types.AddKeyToken(server.Order, "order") + types.AddKeyToken(server.ServerAddress, "server-address")
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/vrf/servers/" + server.EntityData.SegmentPath
     server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -303,6 +313,7 @@ func (lists *IpDomain_Vrfs_Vrf_Lists) GetEntityData() *types.CommonEntityData {
     lists.EntityData.BundleName = "cisco_ios_xr"
     lists.EntityData.ParentYangName = "vrf"
     lists.EntityData.SegmentPath = "lists"
+    lists.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/vrf/" + lists.EntityData.SegmentPath
     lists.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lists.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lists.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -325,6 +336,7 @@ func (lists *IpDomain_Vrfs_Vrf_Lists) GetEntityData() *types.CommonEntityData {
 type IpDomain_Vrfs_Vrf_Lists_List struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This is used to sort the names in the order of
     // precedence. The type is interface{} with range: 0..4294967295.
@@ -341,6 +353,7 @@ func (list *IpDomain_Vrfs_Vrf_Lists_List) GetEntityData() *types.CommonEntityDat
     list.EntityData.BundleName = "cisco_ios_xr"
     list.EntityData.ParentYangName = "lists"
     list.EntityData.SegmentPath = "list" + types.AddKeyToken(list.Order, "order") + types.AddKeyToken(list.ListName, "list-name")
+    list.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/vrf/lists/" + list.EntityData.SegmentPath
     list.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     list.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     list.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -372,6 +385,7 @@ func (ipv4Hosts *IpDomain_Vrfs_Vrf_Ipv4Hosts) GetEntityData() *types.CommonEntit
     ipv4Hosts.EntityData.BundleName = "cisco_ios_xr"
     ipv4Hosts.EntityData.ParentYangName = "vrf"
     ipv4Hosts.EntityData.SegmentPath = "ipv4-hosts"
+    ipv4Hosts.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/vrf/" + ipv4Hosts.EntityData.SegmentPath
     ipv4Hosts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -393,6 +407,7 @@ func (ipv4Hosts *IpDomain_Vrfs_Vrf_Ipv4Hosts) GetEntityData() *types.CommonEntit
 type IpDomain_Vrfs_Vrf_Ipv4Hosts_Ipv4Host struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A hostname. The type is string.
     HostName interface{}
@@ -408,6 +423,7 @@ func (ipv4Host *IpDomain_Vrfs_Vrf_Ipv4Hosts_Ipv4Host) GetEntityData() *types.Com
     ipv4Host.EntityData.BundleName = "cisco_ios_xr"
     ipv4Host.EntityData.ParentYangName = "ipv4-hosts"
     ipv4Host.EntityData.SegmentPath = "ipv4-host" + types.AddKeyToken(ipv4Host.HostName, "host-name")
+    ipv4Host.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/vrf/ipv4-hosts/" + ipv4Host.EntityData.SegmentPath
     ipv4Host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
