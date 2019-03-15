@@ -143,12 +143,12 @@ type NvoInstances_NvoInstance_VirtualNetwork struct {
     // Use control protocol BGP to discover  peers. The type is interface{}.
     Bgp interface{}
 
-    // Enable ARP request suppression for this VNI. The type is interface{}.
-    SuppressArp interface{}
-
     // How to peform endpoint discovery. The type is EndHostDiscovery. The default
     // value is flood-and-learn.
     EndHostDiscovery interface{}
+
+    // Enable ARP request suppression for this VNI. The type is interface{}.
+    SuppressArp interface{}
 
     // VRF Name. The type is string. Refers to
     // ietf_routing.Routing_RoutingInstance_Name
@@ -183,8 +183,8 @@ func (virtualNetwork *NvoInstances_NvoInstance_VirtualNetwork) GetEntityData() *
     virtualNetwork.EntityData.Leafs.Append("vni-start", types.YLeaf{"VniStart", virtualNetwork.VniStart})
     virtualNetwork.EntityData.Leafs.Append("vni-end", types.YLeaf{"VniEnd", virtualNetwork.VniEnd})
     virtualNetwork.EntityData.Leafs.Append("bgp", types.YLeaf{"Bgp", virtualNetwork.Bgp})
-    virtualNetwork.EntityData.Leafs.Append("suppress-arp", types.YLeaf{"SuppressArp", virtualNetwork.SuppressArp})
     virtualNetwork.EntityData.Leafs.Append("end-host-discovery", types.YLeaf{"EndHostDiscovery", virtualNetwork.EndHostDiscovery})
+    virtualNetwork.EntityData.Leafs.Append("suppress-arp", types.YLeaf{"SuppressArp", virtualNetwork.SuppressArp})
     virtualNetwork.EntityData.Leafs.Append("routing-instance", types.YLeaf{"RoutingInstance", virtualNetwork.RoutingInstance})
 
     virtualNetwork.EntityData.YListKeys = []string {"VniStart", "VniEnd"}

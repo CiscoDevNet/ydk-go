@@ -119,7 +119,7 @@ type ShowFpd_Locations_Location struct {
     LocationName interface{}
 
     // Display fpds on given locations.
-    Details ShowFpd_Locations_Location_Details
+    Fpds ShowFpd_Locations_Location_Fpds
 }
 
 func (location *ShowFpd_Locations_Location) GetEntityData() *types.CommonEntityData {
@@ -134,7 +134,7 @@ func (location *ShowFpd_Locations_Location) GetEntityData() *types.CommonEntityD
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     location.EntityData.Children = types.NewOrderedMap()
-    location.EntityData.Children.Append("details", types.YChild{"Details", &location.Details})
+    location.EntityData.Children.Append("fpds", types.YChild{"Fpds", &location.Fpds})
     location.EntityData.Leafs = types.NewOrderedMap()
     location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
 
@@ -143,43 +143,43 @@ func (location *ShowFpd_Locations_Location) GetEntityData() *types.CommonEntityD
     return &(location.EntityData)
 }
 
-// ShowFpd_Locations_Location_Details
+// ShowFpd_Locations_Location_Fpds
 // Display fpds on given locations
-type ShowFpd_Locations_Location_Details struct {
+type ShowFpd_Locations_Location_Fpds struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Display fpds detail. The type is slice of
-    // ShowFpd_Locations_Location_Details_Detail.
-    Detail []*ShowFpd_Locations_Location_Details_Detail
+    // ShowFpd_Locations_Location_Fpds_Fpd.
+    Fpd []*ShowFpd_Locations_Location_Fpds_Fpd
 }
 
-func (details *ShowFpd_Locations_Location_Details) GetEntityData() *types.CommonEntityData {
-    details.EntityData.YFilter = details.YFilter
-    details.EntityData.YangName = "details"
-    details.EntityData.BundleName = "cisco_ios_xr"
-    details.EntityData.ParentYangName = "location"
-    details.EntityData.SegmentPath = "details"
-    details.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/location/" + details.EntityData.SegmentPath
-    details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (fpds *ShowFpd_Locations_Location_Fpds) GetEntityData() *types.CommonEntityData {
+    fpds.EntityData.YFilter = fpds.YFilter
+    fpds.EntityData.YangName = "fpds"
+    fpds.EntityData.BundleName = "cisco_ios_xr"
+    fpds.EntityData.ParentYangName = "location"
+    fpds.EntityData.SegmentPath = "fpds"
+    fpds.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/location/" + fpds.EntityData.SegmentPath
+    fpds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    details.EntityData.Children = types.NewOrderedMap()
-    details.EntityData.Children.Append("detail", types.YChild{"Detail", nil})
-    for i := range details.Detail {
-        details.EntityData.Children.Append(types.GetSegmentPath(details.Detail[i]), types.YChild{"Detail", details.Detail[i]})
+    fpds.EntityData.Children = types.NewOrderedMap()
+    fpds.EntityData.Children.Append("fpd", types.YChild{"Fpd", nil})
+    for i := range fpds.Fpd {
+        fpds.EntityData.Children.Append(types.GetSegmentPath(fpds.Fpd[i]), types.YChild{"Fpd", fpds.Fpd[i]})
     }
-    details.EntityData.Leafs = types.NewOrderedMap()
+    fpds.EntityData.Leafs = types.NewOrderedMap()
 
-    details.EntityData.YListKeys = []string {}
+    fpds.EntityData.YListKeys = []string {}
 
-    return &(details.EntityData)
+    return &(fpds.EntityData)
 }
 
-// ShowFpd_Locations_Location_Details_Detail
+// ShowFpd_Locations_Location_Fpds_Fpd
 // Display fpds detail
-type ShowFpd_Locations_Location_Details_Detail struct {
+type ShowFpd_Locations_Location_Fpds_Fpd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -191,39 +191,39 @@ type ShowFpd_Locations_Location_Details_Detail struct {
     UpgradeStatus interface{}
 
     // fpd list with all detailes. The type is slice of
-    // ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile.
-    FpdInfoDetaile []*ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile
+    // ShowFpd_Locations_Location_Fpds_Fpd_FpdInfoDetaile.
+    FpdInfoDetaile []*ShowFpd_Locations_Location_Fpds_Fpd_FpdInfoDetaile
 }
 
-func (detail *ShowFpd_Locations_Location_Details_Detail) GetEntityData() *types.CommonEntityData {
-    detail.EntityData.YFilter = detail.YFilter
-    detail.EntityData.YangName = "detail"
-    detail.EntityData.BundleName = "cisco_ios_xr"
-    detail.EntityData.ParentYangName = "details"
-    detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.FpdName, "fpd-name")
-    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/location/details/" + detail.EntityData.SegmentPath
-    detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (fpd *ShowFpd_Locations_Location_Fpds_Fpd) GetEntityData() *types.CommonEntityData {
+    fpd.EntityData.YFilter = fpd.YFilter
+    fpd.EntityData.YangName = "fpd"
+    fpd.EntityData.BundleName = "cisco_ios_xr"
+    fpd.EntityData.ParentYangName = "fpds"
+    fpd.EntityData.SegmentPath = "fpd" + types.AddKeyToken(fpd.FpdName, "fpd-name")
+    fpd.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/location/fpds/" + fpd.EntityData.SegmentPath
+    fpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    detail.EntityData.Children = types.NewOrderedMap()
-    detail.EntityData.Children.Append("fpd-info-detaile", types.YChild{"FpdInfoDetaile", nil})
-    for i := range detail.FpdInfoDetaile {
-        types.SetYListKey(detail.FpdInfoDetaile[i], i)
-        detail.EntityData.Children.Append(types.GetSegmentPath(detail.FpdInfoDetaile[i]), types.YChild{"FpdInfoDetaile", detail.FpdInfoDetaile[i]})
+    fpd.EntityData.Children = types.NewOrderedMap()
+    fpd.EntityData.Children.Append("fpd-info-detaile", types.YChild{"FpdInfoDetaile", nil})
+    for i := range fpd.FpdInfoDetaile {
+        types.SetYListKey(fpd.FpdInfoDetaile[i], i)
+        fpd.EntityData.Children.Append(types.GetSegmentPath(fpd.FpdInfoDetaile[i]), types.YChild{"FpdInfoDetaile", fpd.FpdInfoDetaile[i]})
     }
-    detail.EntityData.Leafs = types.NewOrderedMap()
-    detail.EntityData.Leafs.Append("fpd-name", types.YLeaf{"FpdName", detail.FpdName})
-    detail.EntityData.Leafs.Append("upgrade-status", types.YLeaf{"UpgradeStatus", detail.UpgradeStatus})
+    fpd.EntityData.Leafs = types.NewOrderedMap()
+    fpd.EntityData.Leafs.Append("fpd-name", types.YLeaf{"FpdName", fpd.FpdName})
+    fpd.EntityData.Leafs.Append("upgrade-status", types.YLeaf{"UpgradeStatus", fpd.UpgradeStatus})
 
-    detail.EntityData.YListKeys = []string {"FpdName"}
+    fpd.EntityData.YListKeys = []string {"FpdName"}
 
-    return &(detail.EntityData)
+    return &(fpd.EntityData)
 }
 
-// ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile
+// ShowFpd_Locations_Location_Fpds_Fpd_FpdInfoDetaile
 //  fpd list with all detailes
-type ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile struct {
+type ShowFpd_Locations_Location_Fpds_Fpd_FpdInfoDetaile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -253,13 +253,13 @@ type ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile struct {
     ProgramdVersion interface{}
 }
 
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile) GetEntityData() *types.CommonEntityData {
+func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpds_Fpd_FpdInfoDetaile) GetEntityData() *types.CommonEntityData {
     fpdInfoDetaile.EntityData.YFilter = fpdInfoDetaile.YFilter
     fpdInfoDetaile.EntityData.YangName = "fpd-info-detaile"
     fpdInfoDetaile.EntityData.BundleName = "cisco_ios_xr"
-    fpdInfoDetaile.EntityData.ParentYangName = "detail"
+    fpdInfoDetaile.EntityData.ParentYangName = "fpd"
     fpdInfoDetaile.EntityData.SegmentPath = "fpd-info-detaile" + types.AddNoKeyToken(fpdInfoDetaile)
-    fpdInfoDetaile.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/location/details/detail/" + fpdInfoDetaile.EntityData.SegmentPath
+    fpdInfoDetaile.EntityData.AbsolutePath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd/locations/location/fpds/fpd/" + fpdInfoDetaile.EntityData.SegmentPath
     fpdInfoDetaile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdInfoDetaile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdInfoDetaile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

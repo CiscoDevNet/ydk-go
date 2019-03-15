@@ -38,6 +38,10 @@ type Lldp struct {
     // interface{} with range: 0..65535.
     Holdtime interface{}
 
+    // Enable or disable Priority to advertise Mgmt-interface Addr First. The type
+    // is bool. The default value is false.
+    EnablePriorityAddr interface{}
+
     // Enable or disable LLDP Show LLDP Neighbor Extended Width. The type is bool.
     // The default value is false.
     ExtendedShowWidth interface{}
@@ -81,6 +85,7 @@ func (lldp *Lldp) GetEntityData() *types.CommonEntityData {
     lldp.EntityData.Children.Append("tlv-select", types.YChild{"TlvSelect", &lldp.TlvSelect})
     lldp.EntityData.Leafs = types.NewOrderedMap()
     lldp.EntityData.Leafs.Append("holdtime", types.YLeaf{"Holdtime", lldp.Holdtime})
+    lldp.EntityData.Leafs.Append("enable-priority-addr", types.YLeaf{"EnablePriorityAddr", lldp.EnablePriorityAddr})
     lldp.EntityData.Leafs.Append("extended-show-width", types.YLeaf{"ExtendedShowWidth", lldp.ExtendedShowWidth})
     lldp.EntityData.Leafs.Append("enable-subintf", types.YLeaf{"EnableSubintf", lldp.EnableSubintf})
     lldp.EntityData.Leafs.Append("enable-mgmtintf", types.YLeaf{"EnableMgmtintf", lldp.EnableMgmtintf})

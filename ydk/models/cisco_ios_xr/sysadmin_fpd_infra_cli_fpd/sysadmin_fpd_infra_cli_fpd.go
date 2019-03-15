@@ -1,4 +1,10 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // FPD CLI support for both oper and config
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
+// All rights reserved.
 package sysadmin_fpd_infra_cli_fpd
 
 import (

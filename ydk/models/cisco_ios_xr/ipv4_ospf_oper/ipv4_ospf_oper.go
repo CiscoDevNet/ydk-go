@@ -11551,7 +11551,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_Neighbors_Neighbor str
 
     // Neighbor IP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NeighborAddressXr interface{}
+    NeighborIpAddress interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -11598,7 +11598,7 @@ func (neighbor *Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_Neighbors_N
     neighbor.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighbor.InterfaceName})
     neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
     neighbor.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighbor.NeighborId})
-    neighbor.EntityData.Leafs.Append("neighbor-address-xr", types.YLeaf{"NeighborAddressXr", neighbor.NeighborAddressXr})
+    neighbor.EntityData.Leafs.Append("neighbor-ip-address", types.YLeaf{"NeighborIpAddress", neighbor.NeighborIpAddress})
     neighbor.EntityData.Leafs.Append("neighbor-interface-name", types.YLeaf{"NeighborInterfaceName", neighbor.NeighborInterfaceName})
     neighbor.EntityData.Leafs.Append("neighbor-dr-priority", types.YLeaf{"NeighborDrPriority", neighbor.NeighborDrPriority})
     neighbor.EntityData.Leafs.Append("neighbor-state", types.YLeaf{"NeighborState", neighbor.NeighborState})
@@ -12227,7 +12227,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_NeighborDetails_Neighb
 
     // Neighbor IP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NeighborAddressXr interface{}
+    NeighborIpAddress interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -12272,7 +12272,7 @@ func (neighborSummary *Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_Neig
     neighborSummary.EntityData.Children.Append("neighbor-bfd-information", types.YChild{"NeighborBfdInformation", &neighborSummary.NeighborBfdInformation})
     neighborSummary.EntityData.Leafs = types.NewOrderedMap()
     neighborSummary.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighborSummary.NeighborId})
-    neighborSummary.EntityData.Leafs.Append("neighbor-address-xr", types.YLeaf{"NeighborAddressXr", neighborSummary.NeighborAddressXr})
+    neighborSummary.EntityData.Leafs.Append("neighbor-ip-address", types.YLeaf{"NeighborIpAddress", neighborSummary.NeighborIpAddress})
     neighborSummary.EntityData.Leafs.Append("neighbor-interface-name", types.YLeaf{"NeighborInterfaceName", neighborSummary.NeighborInterfaceName})
     neighborSummary.EntityData.Leafs.Append("neighbor-dr-priority", types.YLeaf{"NeighborDrPriority", neighborSummary.NeighborDrPriority})
     neighborSummary.EntityData.Leafs.Append("neighbor-state", types.YLeaf{"NeighborState", neighborSummary.NeighborState})
@@ -22222,26 +22222,26 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessInformation_ProcessAreas_ProcessArea
     // If true, All routers in Area have SR Strict-SPF SIDs. The type is bool.
     SrStrictSpfsidsAvailable interface{}
 
-    // If true, Segment routing Uloop avoidance         is currently active in
-    // this area. The type is bool.
+    // If true, Segment routing Uloop avoidance is currently active in this area.
+    // The type is bool.
     SrMicroloopAvoidanceActive interface{}
 
-    // Event for which SR uloop is triggered            Link Up/Link Down. The
-    // type is SrUloopEvent.
+    // Event for which SR uloop is triggered Link Up/Link Down. The type is
+    // SrUloopEvent.
     SrMicroloopAvoidanceEventType interface{}
 
-    // Link State ID of the near end                    of the topology change.
-    // The type is string with pattern:
+    // Link State ID of the near end of the topology change. The type is string
+    // with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SrMicroloopAvoidanceNearEndId interface{}
 
-    // Link State ID of the far end                     of the topology change.
-    // The type is string with pattern:
+    // Link State ID of the far end of the topology change. The type is string
+    // with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SrMicroloopAvoidanceFarEndId interface{}
 
-    // Link State ID of the pseudo node,                if the change is on a
-    // broadcast link. The type is string with pattern:
+    // Link State ID of the pseudo node, if the change is on a broadcast link. The
+    // type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SrMicroloopAvoidancePseudonodeId interface{}
 
@@ -22637,7 +22637,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessInformation_ProcessSummary struct {
     // State of graceful shutdown. The type is GsState.
     GracefulShutdownState interface{}
 
-    // If true, prefix limit for table has been  reached. The type is bool.
+    // If true, prefix limit for table has been reached. The type is bool.
     TablePrefixLimitReached interface{}
 
     // Non self-generated LSA count. The type is interface{} with range:
@@ -22704,15 +22704,15 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessInformation_ProcessSummary struct {
     // Microloop avoidance type configured. The type is UloopAvoidance.
     MicroloopAvoidanceType interface{}
 
-    // Microloop delay time after which actual          post convergence paths are
-    // given to RIB (s). The type is interface{} with range: 0..4294967295.
+    // Microloop delay time after which actual post convergence paths are given to
+    // RIB (s). The type is interface{} with range: 0..4294967295.
     MicroloopAvoidanceDelay interface{}
 
     // If true, Uloop is active. The type is bool.
     MicroloopAvoidanceActive interface{}
 
-    // Remaining time for uloop delay timer             to expire (s). The type is
-    // interface{} with range: 0..4294967295.
+    // Remaining time for uloop delay timer to expire (s). The type is interface{}
+    // with range: 0..4294967295.
     MicroloopAvoidanceDelayExpiry interface{}
 
     // True if connected to LSD. The type is bool.
@@ -23575,7 +23575,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Neighbors_Neighbor struct {
 
     // Neighbor IP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NeighborAddressXr interface{}
+    NeighborIpAddress interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -23622,7 +23622,7 @@ func (neighbor *Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Neighbors_Neighbor) G
     neighbor.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighbor.InterfaceName})
     neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
     neighbor.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighbor.NeighborId})
-    neighbor.EntityData.Leafs.Append("neighbor-address-xr", types.YLeaf{"NeighborAddressXr", neighbor.NeighborAddressXr})
+    neighbor.EntityData.Leafs.Append("neighbor-ip-address", types.YLeaf{"NeighborIpAddress", neighbor.NeighborIpAddress})
     neighbor.EntityData.Leafs.Append("neighbor-interface-name", types.YLeaf{"NeighborInterfaceName", neighbor.NeighborInterfaceName})
     neighbor.EntityData.Leafs.Append("neighbor-dr-priority", types.YLeaf{"NeighborDrPriority", neighbor.NeighborDrPriority})
     neighbor.EntityData.Leafs.Append("neighbor-state", types.YLeaf{"NeighborState", neighbor.NeighborState})
@@ -24618,7 +24618,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetails_NeighborDetail_N
 
     // Neighbor IP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NeighborAddressXr interface{}
+    NeighborIpAddress interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -24663,7 +24663,7 @@ func (neighborSummary *Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetail
     neighborSummary.EntityData.Children.Append("neighbor-bfd-information", types.YChild{"NeighborBfdInformation", &neighborSummary.NeighborBfdInformation})
     neighborSummary.EntityData.Leafs = types.NewOrderedMap()
     neighborSummary.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighborSummary.NeighborId})
-    neighborSummary.EntityData.Leafs.Append("neighbor-address-xr", types.YLeaf{"NeighborAddressXr", neighborSummary.NeighborAddressXr})
+    neighborSummary.EntityData.Leafs.Append("neighbor-ip-address", types.YLeaf{"NeighborIpAddress", neighborSummary.NeighborIpAddress})
     neighborSummary.EntityData.Leafs.Append("neighbor-interface-name", types.YLeaf{"NeighborInterfaceName", neighborSummary.NeighborInterfaceName})
     neighborSummary.EntityData.Leafs.Append("neighbor-dr-priority", types.YLeaf{"NeighborDrPriority", neighborSummary.NeighborDrPriority})
     neighborSummary.EntityData.Leafs.Append("neighbor-state", types.YLeaf{"NeighborState", neighborSummary.NeighborState})
@@ -41807,7 +41807,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_Neighbors_Neighbor s
 
     // Neighbor IP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NeighborAddressXr interface{}
+    NeighborIpAddress interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -41854,7 +41854,7 @@ func (neighbor *Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_Neighbors
     neighbor.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighbor.InterfaceName})
     neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
     neighbor.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighbor.NeighborId})
-    neighbor.EntityData.Leafs.Append("neighbor-address-xr", types.YLeaf{"NeighborAddressXr", neighbor.NeighborAddressXr})
+    neighbor.EntityData.Leafs.Append("neighbor-ip-address", types.YLeaf{"NeighborIpAddress", neighbor.NeighborIpAddress})
     neighbor.EntityData.Leafs.Append("neighbor-interface-name", types.YLeaf{"NeighborInterfaceName", neighbor.NeighborInterfaceName})
     neighbor.EntityData.Leafs.Append("neighbor-dr-priority", types.YLeaf{"NeighborDrPriority", neighbor.NeighborDrPriority})
     neighbor.EntityData.Leafs.Append("neighbor-state", types.YLeaf{"NeighborState", neighbor.NeighborState})
@@ -42483,7 +42483,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_NeighborDetails_Neig
 
     // Neighbor IP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NeighborAddressXr interface{}
+    NeighborIpAddress interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -42528,7 +42528,7 @@ func (neighborSummary *Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_Ne
     neighborSummary.EntityData.Children.Append("neighbor-bfd-information", types.YChild{"NeighborBfdInformation", &neighborSummary.NeighborBfdInformation})
     neighborSummary.EntityData.Leafs = types.NewOrderedMap()
     neighborSummary.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighborSummary.NeighborId})
-    neighborSummary.EntityData.Leafs.Append("neighbor-address-xr", types.YLeaf{"NeighborAddressXr", neighborSummary.NeighborAddressXr})
+    neighborSummary.EntityData.Leafs.Append("neighbor-ip-address", types.YLeaf{"NeighborIpAddress", neighborSummary.NeighborIpAddress})
     neighborSummary.EntityData.Leafs.Append("neighbor-interface-name", types.YLeaf{"NeighborInterfaceName", neighborSummary.NeighborInterfaceName})
     neighborSummary.EntityData.Leafs.Append("neighbor-dr-priority", types.YLeaf{"NeighborDrPriority", neighborSummary.NeighborDrPriority})
     neighborSummary.EntityData.Leafs.Append("neighbor-state", types.YLeaf{"NeighborState", neighborSummary.NeighborState})
@@ -52478,26 +52478,26 @@ type Ospf_Processes_Process_DefaultVrf_ProcessInformation_ProcessAreas_ProcessAr
     // If true, All routers in Area have SR Strict-SPF SIDs. The type is bool.
     SrStrictSpfsidsAvailable interface{}
 
-    // If true, Segment routing Uloop avoidance         is currently active in
-    // this area. The type is bool.
+    // If true, Segment routing Uloop avoidance is currently active in this area.
+    // The type is bool.
     SrMicroloopAvoidanceActive interface{}
 
-    // Event for which SR uloop is triggered            Link Up/Link Down. The
-    // type is SrUloopEvent.
+    // Event for which SR uloop is triggered Link Up/Link Down. The type is
+    // SrUloopEvent.
     SrMicroloopAvoidanceEventType interface{}
 
-    // Link State ID of the near end                    of the topology change.
-    // The type is string with pattern:
+    // Link State ID of the near end of the topology change. The type is string
+    // with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SrMicroloopAvoidanceNearEndId interface{}
 
-    // Link State ID of the far end                     of the topology change.
-    // The type is string with pattern:
+    // Link State ID of the far end of the topology change. The type is string
+    // with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SrMicroloopAvoidanceFarEndId interface{}
 
-    // Link State ID of the pseudo node,                if the change is on a
-    // broadcast link. The type is string with pattern:
+    // Link State ID of the pseudo node, if the change is on a broadcast link. The
+    // type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SrMicroloopAvoidancePseudonodeId interface{}
 
@@ -52893,7 +52893,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessInformation_ProcessSummary struct 
     // State of graceful shutdown. The type is GsState.
     GracefulShutdownState interface{}
 
-    // If true, prefix limit for table has been  reached. The type is bool.
+    // If true, prefix limit for table has been reached. The type is bool.
     TablePrefixLimitReached interface{}
 
     // Non self-generated LSA count. The type is interface{} with range:
@@ -52960,15 +52960,15 @@ type Ospf_Processes_Process_DefaultVrf_ProcessInformation_ProcessSummary struct 
     // Microloop avoidance type configured. The type is UloopAvoidance.
     MicroloopAvoidanceType interface{}
 
-    // Microloop delay time after which actual          post convergence paths are
-    // given to RIB (s). The type is interface{} with range: 0..4294967295.
+    // Microloop delay time after which actual post convergence paths are given to
+    // RIB (s). The type is interface{} with range: 0..4294967295.
     MicroloopAvoidanceDelay interface{}
 
     // If true, Uloop is active. The type is bool.
     MicroloopAvoidanceActive interface{}
 
-    // Remaining time for uloop delay timer             to expire (s). The type is
-    // interface{} with range: 0..4294967295.
+    // Remaining time for uloop delay timer to expire (s). The type is interface{}
+    // with range: 0..4294967295.
     MicroloopAvoidanceDelayExpiry interface{}
 
     // True if connected to LSD. The type is bool.
@@ -53831,7 +53831,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_Neighbors_Neighbor struct {
 
     // Neighbor IP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NeighborAddressXr interface{}
+    NeighborIpAddress interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -53878,7 +53878,7 @@ func (neighbor *Ospf_Processes_Process_DefaultVrf_Areas_Area_Neighbors_Neighbor)
     neighbor.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighbor.InterfaceName})
     neighbor.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", neighbor.NeighborAddress})
     neighbor.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighbor.NeighborId})
-    neighbor.EntityData.Leafs.Append("neighbor-address-xr", types.YLeaf{"NeighborAddressXr", neighbor.NeighborAddressXr})
+    neighbor.EntityData.Leafs.Append("neighbor-ip-address", types.YLeaf{"NeighborIpAddress", neighbor.NeighborIpAddress})
     neighbor.EntityData.Leafs.Append("neighbor-interface-name", types.YLeaf{"NeighborInterfaceName", neighbor.NeighborInterfaceName})
     neighbor.EntityData.Leafs.Append("neighbor-dr-priority", types.YLeaf{"NeighborDrPriority", neighbor.NeighborDrPriority})
     neighbor.EntityData.Leafs.Append("neighbor-state", types.YLeaf{"NeighborState", neighbor.NeighborState})
@@ -54874,7 +54874,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_NeighborDetails_NeighborDetail
 
     // Neighbor IP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NeighborAddressXr interface{}
+    NeighborIpAddress interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -54919,7 +54919,7 @@ func (neighborSummary *Ospf_Processes_Process_DefaultVrf_Areas_Area_NeighborDeta
     neighborSummary.EntityData.Children.Append("neighbor-bfd-information", types.YChild{"NeighborBfdInformation", &neighborSummary.NeighborBfdInformation})
     neighborSummary.EntityData.Leafs = types.NewOrderedMap()
     neighborSummary.EntityData.Leafs.Append("neighbor-id", types.YLeaf{"NeighborId", neighborSummary.NeighborId})
-    neighborSummary.EntityData.Leafs.Append("neighbor-address-xr", types.YLeaf{"NeighborAddressXr", neighborSummary.NeighborAddressXr})
+    neighborSummary.EntityData.Leafs.Append("neighbor-ip-address", types.YLeaf{"NeighborIpAddress", neighborSummary.NeighborIpAddress})
     neighborSummary.EntityData.Leafs.Append("neighbor-interface-name", types.YLeaf{"NeighborInterfaceName", neighborSummary.NeighborInterfaceName})
     neighborSummary.EntityData.Leafs.Append("neighbor-dr-priority", types.YLeaf{"NeighborDrPriority", neighborSummary.NeighborDrPriority})
     neighborSummary.EntityData.Leafs.Append("neighbor-state", types.YLeaf{"NeighborState", neighborSummary.NeighborState})

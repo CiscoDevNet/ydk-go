@@ -35,7 +35,7 @@ type Ptp struct {
     YFilter yfilter.YFilter
 
     // Clock class to be used while acquiring phase-lock to a parent clock. Note
-    // that this is deprecated and should not be  used. The type is interface{}
+    // that this is deprecated and should not be used. The type is interface{}
     // with range: 0..255.
     UncalibratedClockClass interface{}
 
@@ -1533,6 +1533,9 @@ type Ptp_Logging struct {
 
     // PTP best master clock logging configuration.
     BestMasterClock Ptp_Logging_BestMasterClock
+
+    // PTP PD Servo logging configuration.
+    Servo Ptp_Logging_Servo
 }
 
 func (logging *Ptp_Logging) GetEntityData() *types.CommonEntityData {
@@ -1548,6 +1551,7 @@ func (logging *Ptp_Logging) GetEntityData() *types.CommonEntityData {
 
     logging.EntityData.Children = types.NewOrderedMap()
     logging.EntityData.Children.Append("best-master-clock", types.YChild{"BestMasterClock", &logging.BestMasterClock})
+    logging.EntityData.Children.Append("Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo", types.YChild{"Servo", &logging.Servo})
     logging.EntityData.Leafs = types.NewOrderedMap()
 
     logging.EntityData.YListKeys = []string {}
@@ -1583,6 +1587,36 @@ func (bestMasterClock *Ptp_Logging_BestMasterClock) GetEntityData() *types.Commo
     bestMasterClock.EntityData.YListKeys = []string {}
 
     return &(bestMasterClock.EntityData)
+}
+
+// Ptp_Logging_Servo
+// PTP PD Servo logging configuration
+type Ptp_Logging_Servo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable servo events logging. The type is interface{}.
+    Events interface{}
+}
+
+func (servo *Ptp_Logging_Servo) GetEntityData() *types.CommonEntityData {
+    servo.EntityData.YFilter = servo.YFilter
+    servo.EntityData.YangName = "servo"
+    servo.EntityData.BundleName = "cisco_ios_xr"
+    servo.EntityData.ParentYangName = "logging"
+    servo.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo"
+    servo.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-cfg:ptp/logging/" + servo.EntityData.SegmentPath
+    servo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servo.EntityData.Children = types.NewOrderedMap()
+    servo.EntityData.Leafs = types.NewOrderedMap()
+    servo.EntityData.Leafs.Append("events", types.YLeaf{"Events", servo.Events})
+
+    servo.EntityData.YListKeys = []string {}
+
+    return &(servo.EntityData)
 }
 
 // Ptp_UncalibratedClockClass2

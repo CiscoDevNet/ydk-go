@@ -27,6 +27,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-dot1x-cfg:eap", reflect.TypeOf(Eap{}))
 }
 
+// Dot1xServerDeadAction represents Dot1x server dead action
+type Dot1xServerDeadAction string
+
+const (
+    // server dead action auth-fail
+    Dot1xServerDeadAction_auth_fail Dot1xServerDeadAction = "auth-fail"
+
+    // server dead action auth-retry
+    Dot1xServerDeadAction_auth_retry Dot1xServerDeadAction = "auth-retry"
+)
+
 // Dot1x
 // Global Dot1x Configuration
 type Dot1x struct {
@@ -144,6 +155,10 @@ type Dot1x_Dot1xProfile_Authenticator struct {
     // EAP Profile for Local EAP Server. The type is string with length: 1..63.
     EapProfile interface{}
 
+    // dot1x authenticator action on AAA server unreachability. The type is
+    // Dot1xServerDeadAction.
+    ServerDead interface{}
+
     // Timers for Authenticator.
     Timers Dot1x_Dot1xProfile_Authenticator_Timers
 }
@@ -163,6 +178,7 @@ func (authenticator *Dot1x_Dot1xProfile_Authenticator) GetEntityData() *types.Co
     authenticator.EntityData.Children.Append("timers", types.YChild{"Timers", &authenticator.Timers})
     authenticator.EntityData.Leafs = types.NewOrderedMap()
     authenticator.EntityData.Leafs.Append("eap-profile", types.YLeaf{"EapProfile", authenticator.EapProfile})
+    authenticator.EntityData.Leafs.Append("server-dead", types.YLeaf{"ServerDead", authenticator.ServerDead})
 
     authenticator.EntityData.YListKeys = []string {}
 

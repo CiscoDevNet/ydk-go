@@ -5,7 +5,7 @@
 // for the following management objects:
 //   inventory: Inventory information
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package invmgr_oper
 
@@ -439,8 +439,8 @@ type Inventory_Entities_Entity_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -1593,19 +1593,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvBasicBag
 
@@ -1652,10 +1639,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -1743,8 +1726,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -3151,19 +3134,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvBasicBag
 
@@ -3210,10 +3180,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -3301,8 +3267,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -4709,19 +4675,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvBasicBag
 
@@ -4768,10 +4721,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -4859,8 +4808,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -6267,19 +6216,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvBasicBag
 
@@ -6326,10 +6262,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -6417,8 +6349,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -7825,19 +7757,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvBasicBag
 
@@ -7884,10 +7803,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -7975,8 +7890,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -9383,19 +9298,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvBasicBag
 
@@ -9442,10 +9344,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -9533,8 +9431,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -10941,19 +10839,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvBasicBag
 
@@ -11000,10 +10885,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -11091,8 +10972,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -12499,19 +12380,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvBasicBag
 
@@ -12558,10 +12426,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -12649,8 +12513,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -14057,19 +13921,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribute
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvBasicBag
 
@@ -14116,10 +13967,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -14207,8 +14054,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribute
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -15615,19 +15462,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicBag
 
@@ -15674,10 +15508,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -15765,8 +15595,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicB
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -17173,19 +17003,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag
 
@@ -17232,10 +17049,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes) GetEnt
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -17323,8 +17136,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -18731,19 +18544,6 @@ type Inventory_Racks_Rack_Entity_Slot_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Attributes_InvBasicBag
 
@@ -18790,10 +18590,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Attributes) GetEntityData() *
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -18881,8 +18677,8 @@ type Inventory_Racks_Rack_Entity_Slot_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -21171,19 +20967,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvBasicBag
 
@@ -21230,10 +21013,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -21321,8 +21100,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -22729,19 +22508,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvBasicBag
 
@@ -22788,10 +22554,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -22879,8 +22641,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -24287,19 +24049,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvBasicBag
 
@@ -24346,10 +24095,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -24437,8 +24182,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -25845,19 +25590,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvBasicBag
 
@@ -25904,10 +25636,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -25995,8 +25723,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -27403,19 +27131,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvBasicBag
 
@@ -27462,10 +27177,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -27553,8 +27264,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -28961,19 +28672,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvBasicBag
 
@@ -29020,10 +28718,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -29111,8 +28805,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -30519,19 +30213,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvBasicBag
 
@@ -30578,10 +30259,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -30669,8 +30346,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -32077,19 +31754,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvBasicBag
 
@@ -32136,10 +31800,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -32227,8 +31887,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -33635,19 +33295,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attri
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvBasicBag
 
@@ -33694,10 +33341,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -33785,8 +33428,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attri
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -35193,19 +34836,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes struc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicBag
 
@@ -35252,10 +34882,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -35343,8 +34969,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBa
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -36751,19 +36377,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag
 
@@ -36810,10 +36423,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes) Ge
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -36901,8 +36510,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag stru
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -38309,19 +37918,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvBasicBag
 
@@ -38368,10 +37964,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Attributes) GetEntityData
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -38459,8 +38051,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -40749,19 +40341,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvBasicBag
 
@@ -40808,10 +40387,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -40899,8 +40474,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -42307,19 +41882,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvBasicBag
 
@@ -42366,10 +41928,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -42457,8 +42015,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -43865,19 +43423,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvBasicBag
 
@@ -43924,10 +43469,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -44015,8 +43556,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -45423,19 +44964,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvBasicBag
 
@@ -45482,10 +45010,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -45573,8 +45097,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -46981,19 +46505,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvBasicBag
 
@@ -47040,10 +46551,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -47131,8 +46638,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -48539,19 +48046,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvBasicBag
 
@@ -48598,10 +48092,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -48689,8 +48179,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -50097,19 +49587,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvBasicBag
 
@@ -50156,10 +49633,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -50247,8 +49720,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -51655,19 +51128,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvBasicBag
 
@@ -51714,10 +51174,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -51805,8 +51261,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -53213,19 +52669,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribut
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvBasicBag
 
@@ -53272,10 +52715,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -53363,8 +52802,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribut
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -54771,19 +54210,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicBag
 
@@ -54830,10 +54256,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -54921,8 +54343,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasic
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -56329,19 +55751,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag
 
@@ -56388,10 +55797,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes) GetEn
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -56479,8 +55884,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag struct 
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -57887,19 +57292,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Attributes_InvBasicBag
 
@@ -57946,10 +57338,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Attributes) GetEntityData() 
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -58037,8 +57425,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -59445,19 +58833,6 @@ type Inventory_Racks_Rack_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
-
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Attributes_InvBasicBag
 
@@ -59504,10 +58879,6 @@ func (attributes *Inventory_Racks_Rack_Attributes) GetEntityData() *types.Common
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -59595,8 +58966,8 @@ type Inventory_Racks_Rack_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.

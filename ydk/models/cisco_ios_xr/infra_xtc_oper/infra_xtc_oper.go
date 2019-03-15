@@ -493,6 +493,12 @@ type PceLspData_TunnelInfos_TunnelInfo_BriefLspInformation struct {
     // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
     Msd interface{}
 
+    // Absolute Margin. The type is interface{} with range: 0..4294967295.
+    AbsoluteMargin interface{}
+
+    // Relative Margin. The type is interface{} with range: 0..4294967295.
+    RelativeMargin interface{}
+
     // Source address.
     SourceAddress PceLspData_TunnelInfos_TunnelInfo_BriefLspInformation_SourceAddress
 
@@ -522,6 +528,8 @@ func (briefLspInformation *PceLspData_TunnelInfos_TunnelInfo_BriefLspInformation
     briefLspInformation.EntityData.Leafs.Append("operational-state", types.YLeaf{"OperationalState", briefLspInformation.OperationalState})
     briefLspInformation.EntityData.Leafs.Append("administrative-state", types.YLeaf{"AdministrativeState", briefLspInformation.AdministrativeState})
     briefLspInformation.EntityData.Leafs.Append("msd", types.YLeaf{"Msd", briefLspInformation.Msd})
+    briefLspInformation.EntityData.Leafs.Append("absolute-margin", types.YLeaf{"AbsoluteMargin", briefLspInformation.AbsoluteMargin})
+    briefLspInformation.EntityData.Leafs.Append("relative-margin", types.YLeaf{"RelativeMargin", briefLspInformation.RelativeMargin})
 
     briefLspInformation.EntityData.YListKeys = []string {}
 
@@ -1171,6 +1179,12 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLsp
     // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
     Msd interface{}
 
+    // Absolute Margin. The type is interface{} with range: 0..4294967295.
+    AbsoluteMargin interface{}
+
+    // Relative Margin. The type is interface{} with range: 0..4294967295.
+    RelativeMargin interface{}
+
     // Source address.
     SourceAddress PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLspInformation_SourceAddress
 
@@ -1200,6 +1214,8 @@ func (briefLspInformation *PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailL
     briefLspInformation.EntityData.Leafs.Append("operational-state", types.YLeaf{"OperationalState", briefLspInformation.OperationalState})
     briefLspInformation.EntityData.Leafs.Append("administrative-state", types.YLeaf{"AdministrativeState", briefLspInformation.AdministrativeState})
     briefLspInformation.EntityData.Leafs.Append("msd", types.YLeaf{"Msd", briefLspInformation.Msd})
+    briefLspInformation.EntityData.Leafs.Append("absolute-margin", types.YLeaf{"AbsoluteMargin", briefLspInformation.AbsoluteMargin})
+    briefLspInformation.EntityData.Leafs.Append("relative-margin", types.YLeaf{"RelativeMargin", briefLspInformation.RelativeMargin})
 
     briefLspInformation.EntityData.YListKeys = []string {}
 
@@ -6490,6 +6506,9 @@ type Pce struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // CSPF for SR MPLS path info.
+    CspfSrMpls Pce_CspfSrMpls
+
     // PCE Verification events in XTC.
     VerificationEvents Pce_VerificationEvents
 
@@ -6536,6 +6555,7 @@ func (pce *Pce) GetEntityData() *types.CommonEntityData {
     pce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     pce.EntityData.Children = types.NewOrderedMap()
+    pce.EntityData.Children.Append("cspf-sr-mpls", types.YChild{"CspfSrMpls", &pce.CspfSrMpls})
     pce.EntityData.Children.Append("verification-events", types.YChild{"VerificationEvents", &pce.VerificationEvents})
     pce.EntityData.Children.Append("association-infos", types.YChild{"AssociationInfos", &pce.AssociationInfos})
     pce.EntityData.Children.Append("cspf", types.YChild{"Cspf", &pce.Cspf})
@@ -6552,6 +6572,456 @@ func (pce *Pce) GetEntityData() *types.CommonEntityData {
     pce.EntityData.YListKeys = []string {}
 
     return &(pce.EntityData)
+}
+
+// Pce_CspfSrMpls
+// CSPF for SR MPLS path info
+type Pce_CspfSrMpls struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This table models the path calculation capabilities in XTC.A GET operation
+    // for the complete table will return no entries.
+    CspfSrMplsPaths Pce_CspfSrMpls_CspfSrMplsPaths
+}
+
+func (cspfSrMpls *Pce_CspfSrMpls) GetEntityData() *types.CommonEntityData {
+    cspfSrMpls.EntityData.YFilter = cspfSrMpls.YFilter
+    cspfSrMpls.EntityData.YangName = "cspf-sr-mpls"
+    cspfSrMpls.EntityData.BundleName = "cisco_ios_xr"
+    cspfSrMpls.EntityData.ParentYangName = "pce"
+    cspfSrMpls.EntityData.SegmentPath = "cspf-sr-mpls"
+    cspfSrMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/" + cspfSrMpls.EntityData.SegmentPath
+    cspfSrMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cspfSrMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cspfSrMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cspfSrMpls.EntityData.Children = types.NewOrderedMap()
+    cspfSrMpls.EntityData.Children.Append("cspf-sr-mpls-paths", types.YChild{"CspfSrMplsPaths", &cspfSrMpls.CspfSrMplsPaths})
+    cspfSrMpls.EntityData.Leafs = types.NewOrderedMap()
+
+    cspfSrMpls.EntityData.YListKeys = []string {}
+
+    return &(cspfSrMpls.EntityData)
+}
+
+// Pce_CspfSrMpls_CspfSrMplsPaths
+// This table models the path calculation
+// capabilities in XTC.A GET operation for the
+// complete table will return no entries.
+type Pce_CspfSrMpls_CspfSrMplsPaths struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A GET operation on this class returns the path . The type is slice of
+    // Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath.
+    CspfSrMplsPath []*Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath
+}
+
+func (cspfSrMplsPaths *Pce_CspfSrMpls_CspfSrMplsPaths) GetEntityData() *types.CommonEntityData {
+    cspfSrMplsPaths.EntityData.YFilter = cspfSrMplsPaths.YFilter
+    cspfSrMplsPaths.EntityData.YangName = "cspf-sr-mpls-paths"
+    cspfSrMplsPaths.EntityData.BundleName = "cisco_ios_xr"
+    cspfSrMplsPaths.EntityData.ParentYangName = "cspf-sr-mpls"
+    cspfSrMplsPaths.EntityData.SegmentPath = "cspf-sr-mpls-paths"
+    cspfSrMplsPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/" + cspfSrMplsPaths.EntityData.SegmentPath
+    cspfSrMplsPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cspfSrMplsPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cspfSrMplsPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cspfSrMplsPaths.EntityData.Children = types.NewOrderedMap()
+    cspfSrMplsPaths.EntityData.Children.Append("cspf-sr-mpls-path", types.YChild{"CspfSrMplsPath", nil})
+    for i := range cspfSrMplsPaths.CspfSrMplsPath {
+        types.SetYListKey(cspfSrMplsPaths.CspfSrMplsPath[i], i)
+        cspfSrMplsPaths.EntityData.Children.Append(types.GetSegmentPath(cspfSrMplsPaths.CspfSrMplsPath[i]), types.YChild{"CspfSrMplsPath", cspfSrMplsPaths.CspfSrMplsPath[i]})
+    }
+    cspfSrMplsPaths.EntityData.Leafs = types.NewOrderedMap()
+
+    cspfSrMplsPaths.EntityData.YListKeys = []string {}
+
+    return &(cspfSrMplsPaths.EntityData)
+}
+
+// Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath
+// A GET operation on this class returns the path
+// .
+type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Address Family. The type is interface{} with range: 0..4294967295.
+    Af interface{}
+
+    // Source of path 1. The type is one of the following types: string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Source1 interface{}
+
+    // Destination of path 1. The type is one of the following types: string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Destination1 interface{}
+
+    // Metric type. The type is interface{} with range: 0..4294967295.
+    MetricType interface{}
+
+    // Source of path 2. The type is one of the following types: string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Source2 interface{}
+
+    // Destination of path 2. The type is one of the following types: string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Destination2 interface{}
+
+    // Disjointness level. The type is interface{} with range: 0..4294967295.
+    DisjointLevel interface{}
+
+    // Strict disjointness required. The type is interface{} with range:
+    // 0..4294967295.
+    DisjointStrict interface{}
+
+    // Whether path 1 or 2 should be shortest. The type is interface{} with range:
+    // 0..4294967295.
+    ShortestPath interface{}
+
+    // MSD for path 1. The type is interface{} with range: 0..4294967295.
+    Msd1 interface{}
+
+    // MSD for path 2. The type is interface{} with range: 0..4294967295.
+    Msd2 interface{}
+
+    // Relative Margin. The type is interface{} with range: 0..4294967295.
+    RelativeMargin interface{}
+
+    // Absolute Margin. The type is interface{} with range: 0..4294967295.
+    AbsoluteMargin interface{}
+
+    // Affinity include-all constraint. The type is interface{} with range:
+    // 0..4294967295.
+    AffinityIncludeAll interface{}
+
+    // Affinity include-any constraint. The type is interface{} with range:
+    // 0..4294967295.
+    AffinityIncludeAny interface{}
+
+    // Affinity exclude-any constraint. The type is interface{} with range:
+    // 0..4294967295.
+    AffinityExcludeAny interface{}
+
+    // Result of the computation. The type is PceCspfRc.
+    CspfResult interface{}
+
+    // Iterations performed of the Suurballe-Tarjan algorithm. The type is
+    // interface{} with range: 0..4294967295.
+    IterationsDone interface{}
+
+    // Output SR MPLS paths. The type is slice of
+    // Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath.
+    OutputPath []*Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath
+}
+
+func (cspfSrMplsPath *Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath) GetEntityData() *types.CommonEntityData {
+    cspfSrMplsPath.EntityData.YFilter = cspfSrMplsPath.YFilter
+    cspfSrMplsPath.EntityData.YangName = "cspf-sr-mpls-path"
+    cspfSrMplsPath.EntityData.BundleName = "cisco_ios_xr"
+    cspfSrMplsPath.EntityData.ParentYangName = "cspf-sr-mpls-paths"
+    cspfSrMplsPath.EntityData.SegmentPath = "cspf-sr-mpls-path" + types.AddNoKeyToken(cspfSrMplsPath)
+    cspfSrMplsPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/" + cspfSrMplsPath.EntityData.SegmentPath
+    cspfSrMplsPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cspfSrMplsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cspfSrMplsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cspfSrMplsPath.EntityData.Children = types.NewOrderedMap()
+    cspfSrMplsPath.EntityData.Children.Append("output-path", types.YChild{"OutputPath", nil})
+    for i := range cspfSrMplsPath.OutputPath {
+        types.SetYListKey(cspfSrMplsPath.OutputPath[i], i)
+        cspfSrMplsPath.EntityData.Children.Append(types.GetSegmentPath(cspfSrMplsPath.OutputPath[i]), types.YChild{"OutputPath", cspfSrMplsPath.OutputPath[i]})
+    }
+    cspfSrMplsPath.EntityData.Leafs = types.NewOrderedMap()
+    cspfSrMplsPath.EntityData.Leafs.Append("af", types.YLeaf{"Af", cspfSrMplsPath.Af})
+    cspfSrMplsPath.EntityData.Leafs.Append("source1", types.YLeaf{"Source1", cspfSrMplsPath.Source1})
+    cspfSrMplsPath.EntityData.Leafs.Append("destination1", types.YLeaf{"Destination1", cspfSrMplsPath.Destination1})
+    cspfSrMplsPath.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", cspfSrMplsPath.MetricType})
+    cspfSrMplsPath.EntityData.Leafs.Append("source2", types.YLeaf{"Source2", cspfSrMplsPath.Source2})
+    cspfSrMplsPath.EntityData.Leafs.Append("destination2", types.YLeaf{"Destination2", cspfSrMplsPath.Destination2})
+    cspfSrMplsPath.EntityData.Leafs.Append("disjoint-level", types.YLeaf{"DisjointLevel", cspfSrMplsPath.DisjointLevel})
+    cspfSrMplsPath.EntityData.Leafs.Append("disjoint-strict", types.YLeaf{"DisjointStrict", cspfSrMplsPath.DisjointStrict})
+    cspfSrMplsPath.EntityData.Leafs.Append("shortest-path", types.YLeaf{"ShortestPath", cspfSrMplsPath.ShortestPath})
+    cspfSrMplsPath.EntityData.Leafs.Append("msd1", types.YLeaf{"Msd1", cspfSrMplsPath.Msd1})
+    cspfSrMplsPath.EntityData.Leafs.Append("msd2", types.YLeaf{"Msd2", cspfSrMplsPath.Msd2})
+    cspfSrMplsPath.EntityData.Leafs.Append("relative-margin", types.YLeaf{"RelativeMargin", cspfSrMplsPath.RelativeMargin})
+    cspfSrMplsPath.EntityData.Leafs.Append("absolute-margin", types.YLeaf{"AbsoluteMargin", cspfSrMplsPath.AbsoluteMargin})
+    cspfSrMplsPath.EntityData.Leafs.Append("affinity-include-all", types.YLeaf{"AffinityIncludeAll", cspfSrMplsPath.AffinityIncludeAll})
+    cspfSrMplsPath.EntityData.Leafs.Append("affinity-include-any", types.YLeaf{"AffinityIncludeAny", cspfSrMplsPath.AffinityIncludeAny})
+    cspfSrMplsPath.EntityData.Leafs.Append("affinity-exclude-any", types.YLeaf{"AffinityExcludeAny", cspfSrMplsPath.AffinityExcludeAny})
+    cspfSrMplsPath.EntityData.Leafs.Append("cspf-result", types.YLeaf{"CspfResult", cspfSrMplsPath.CspfResult})
+    cspfSrMplsPath.EntityData.Leafs.Append("iterations-done", types.YLeaf{"IterationsDone", cspfSrMplsPath.IterationsDone})
+
+    cspfSrMplsPath.EntityData.YListKeys = []string {}
+
+    return &(cspfSrMplsPath.EntityData)
+}
+
+// Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath
+// Output SR MPLS paths
+type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Cost. The type is interface{} with range: 0..18446744073709551615.
+    Cost interface{}
+
+    // Source of path.
+    Source Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Source
+
+    // Destination of path.
+    Destination Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Destination
+
+    // SR hops. The type is slice of
+    // Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops.
+    Hops []*Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops
+}
+
+func (outputPath *Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath) GetEntityData() *types.CommonEntityData {
+    outputPath.EntityData.YFilter = outputPath.YFilter
+    outputPath.EntityData.YangName = "output-path"
+    outputPath.EntityData.BundleName = "cisco_ios_xr"
+    outputPath.EntityData.ParentYangName = "cspf-sr-mpls-path"
+    outputPath.EntityData.SegmentPath = "output-path" + types.AddNoKeyToken(outputPath)
+    outputPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/" + outputPath.EntityData.SegmentPath
+    outputPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outputPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outputPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    outputPath.EntityData.Children = types.NewOrderedMap()
+    outputPath.EntityData.Children.Append("source", types.YChild{"Source", &outputPath.Source})
+    outputPath.EntityData.Children.Append("destination", types.YChild{"Destination", &outputPath.Destination})
+    outputPath.EntityData.Children.Append("hops", types.YChild{"Hops", nil})
+    for i := range outputPath.Hops {
+        types.SetYListKey(outputPath.Hops[i], i)
+        outputPath.EntityData.Children.Append(types.GetSegmentPath(outputPath.Hops[i]), types.YChild{"Hops", outputPath.Hops[i]})
+    }
+    outputPath.EntityData.Leafs = types.NewOrderedMap()
+    outputPath.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", outputPath.Cost})
+
+    outputPath.EntityData.YListKeys = []string {}
+
+    return &(outputPath.EntityData)
+}
+
+// Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Source
+// Source of path
+type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Source struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AFName. The type is PceAfId.
+    AfName interface{}
+
+    // IPv4 address type. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4 interface{}
+
+    // IPv6 address type. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6 interface{}
+}
+
+func (source *Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Source) GetEntityData() *types.CommonEntityData {
+    source.EntityData.YFilter = source.YFilter
+    source.EntityData.YangName = "source"
+    source.EntityData.BundleName = "cisco_ios_xr"
+    source.EntityData.ParentYangName = "output-path"
+    source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/output-path/" + source.EntityData.SegmentPath
+    source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    source.EntityData.Children = types.NewOrderedMap()
+    source.EntityData.Leafs = types.NewOrderedMap()
+    source.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", source.AfName})
+    source.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", source.Ipv4})
+    source.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", source.Ipv6})
+
+    source.EntityData.YListKeys = []string {}
+
+    return &(source.EntityData)
+}
+
+// Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Destination
+// Destination of path
+type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Destination struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AFName. The type is PceAfId.
+    AfName interface{}
+
+    // IPv4 address type. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4 interface{}
+
+    // IPv6 address type. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6 interface{}
+}
+
+func (destination *Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "output-path"
+    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/output-path/" + destination.EntityData.SegmentPath
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", destination.AfName})
+    destination.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", destination.Ipv4})
+    destination.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", destination.Ipv6})
+
+    destination.EntityData.YListKeys = []string {}
+
+    return &(destination.EntityData)
+}
+
+// Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops
+// SR hops
+type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // SID type. The type is PceSrSid.
+    SidType interface{}
+
+    // Label. The type is interface{} with range: 0..4294967295.
+    MplsLabel interface{}
+
+    // Local Address.
+    LocalAddr Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops_LocalAddr
+
+    // Remote Address.
+    RemoteAddr Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops_RemoteAddr
+}
+
+func (hops *Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops) GetEntityData() *types.CommonEntityData {
+    hops.EntityData.YFilter = hops.YFilter
+    hops.EntityData.YangName = "hops"
+    hops.EntityData.BundleName = "cisco_ios_xr"
+    hops.EntityData.ParentYangName = "output-path"
+    hops.EntityData.SegmentPath = "hops" + types.AddNoKeyToken(hops)
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/output-path/" + hops.EntityData.SegmentPath
+    hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hops.EntityData.Children = types.NewOrderedMap()
+    hops.EntityData.Children.Append("local-addr", types.YChild{"LocalAddr", &hops.LocalAddr})
+    hops.EntityData.Children.Append("remote-addr", types.YChild{"RemoteAddr", &hops.RemoteAddr})
+    hops.EntityData.Leafs = types.NewOrderedMap()
+    hops.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", hops.SidType})
+    hops.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", hops.MplsLabel})
+
+    hops.EntityData.YListKeys = []string {}
+
+    return &(hops.EntityData)
+}
+
+// Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops_LocalAddr
+// Local Address
+type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops_LocalAddr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AFName. The type is PceAfId.
+    AfName interface{}
+
+    // IPv4 address type. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4 interface{}
+
+    // IPv6 address type. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6 interface{}
+}
+
+func (localAddr *Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops_LocalAddr) GetEntityData() *types.CommonEntityData {
+    localAddr.EntityData.YFilter = localAddr.YFilter
+    localAddr.EntityData.YangName = "local-addr"
+    localAddr.EntityData.BundleName = "cisco_ios_xr"
+    localAddr.EntityData.ParentYangName = "hops"
+    localAddr.EntityData.SegmentPath = "local-addr"
+    localAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/output-path/hops/" + localAddr.EntityData.SegmentPath
+    localAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localAddr.EntityData.Children = types.NewOrderedMap()
+    localAddr.EntityData.Leafs = types.NewOrderedMap()
+    localAddr.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", localAddr.AfName})
+    localAddr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", localAddr.Ipv4})
+    localAddr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", localAddr.Ipv6})
+
+    localAddr.EntityData.YListKeys = []string {}
+
+    return &(localAddr.EntityData)
+}
+
+// Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops_RemoteAddr
+// Remote Address
+type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops_RemoteAddr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AFName. The type is PceAfId.
+    AfName interface{}
+
+    // IPv4 address type. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4 interface{}
+
+    // IPv6 address type. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6 interface{}
+}
+
+func (remoteAddr *Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops_RemoteAddr) GetEntityData() *types.CommonEntityData {
+    remoteAddr.EntityData.YFilter = remoteAddr.YFilter
+    remoteAddr.EntityData.YangName = "remote-addr"
+    remoteAddr.EntityData.BundleName = "cisco_ios_xr"
+    remoteAddr.EntityData.ParentYangName = "hops"
+    remoteAddr.EntityData.SegmentPath = "remote-addr"
+    remoteAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf-sr-mpls/cspf-sr-mpls-paths/cspf-sr-mpls-path/output-path/hops/" + remoteAddr.EntityData.SegmentPath
+    remoteAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteAddr.EntityData.Children = types.NewOrderedMap()
+    remoteAddr.EntityData.Leafs = types.NewOrderedMap()
+    remoteAddr.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", remoteAddr.AfName})
+    remoteAddr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", remoteAddr.Ipv4})
+    remoteAddr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", remoteAddr.Ipv6})
+
+    remoteAddr.EntityData.YListKeys = []string {}
+
+    return &(remoteAddr.EntityData)
 }
 
 // Pce_VerificationEvents
@@ -7521,6 +7991,12 @@ type Pce_TunnelInfos_TunnelInfo_BriefLspInformation struct {
     // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
     Msd interface{}
 
+    // Absolute Margin. The type is interface{} with range: 0..4294967295.
+    AbsoluteMargin interface{}
+
+    // Relative Margin. The type is interface{} with range: 0..4294967295.
+    RelativeMargin interface{}
+
     // Source address.
     SourceAddress Pce_TunnelInfos_TunnelInfo_BriefLspInformation_SourceAddress
 
@@ -7550,6 +8026,8 @@ func (briefLspInformation *Pce_TunnelInfos_TunnelInfo_BriefLspInformation) GetEn
     briefLspInformation.EntityData.Leafs.Append("operational-state", types.YLeaf{"OperationalState", briefLspInformation.OperationalState})
     briefLspInformation.EntityData.Leafs.Append("administrative-state", types.YLeaf{"AdministrativeState", briefLspInformation.AdministrativeState})
     briefLspInformation.EntityData.Leafs.Append("msd", types.YLeaf{"Msd", briefLspInformation.Msd})
+    briefLspInformation.EntityData.Leafs.Append("absolute-margin", types.YLeaf{"AbsoluteMargin", briefLspInformation.AbsoluteMargin})
+    briefLspInformation.EntityData.Leafs.Append("relative-margin", types.YLeaf{"RelativeMargin", briefLspInformation.RelativeMargin})
 
     briefLspInformation.EntityData.YListKeys = []string {}
 
@@ -12269,6 +12747,12 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLspInforma
     // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
     Msd interface{}
 
+    // Absolute Margin. The type is interface{} with range: 0..4294967295.
+    AbsoluteMargin interface{}
+
+    // Relative Margin. The type is interface{} with range: 0..4294967295.
+    RelativeMargin interface{}
+
     // Source address.
     SourceAddress Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLspInformation_SourceAddress
 
@@ -12298,6 +12782,8 @@ func (briefLspInformation *Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInfor
     briefLspInformation.EntityData.Leafs.Append("operational-state", types.YLeaf{"OperationalState", briefLspInformation.OperationalState})
     briefLspInformation.EntityData.Leafs.Append("administrative-state", types.YLeaf{"AdministrativeState", briefLspInformation.AdministrativeState})
     briefLspInformation.EntityData.Leafs.Append("msd", types.YLeaf{"Msd", briefLspInformation.Msd})
+    briefLspInformation.EntityData.Leafs.Append("absolute-margin", types.YLeaf{"AbsoluteMargin", briefLspInformation.AbsoluteMargin})
+    briefLspInformation.EntityData.Leafs.Append("relative-margin", types.YLeaf{"RelativeMargin", briefLspInformation.RelativeMargin})
 
     briefLspInformation.EntityData.YListKeys = []string {}
 

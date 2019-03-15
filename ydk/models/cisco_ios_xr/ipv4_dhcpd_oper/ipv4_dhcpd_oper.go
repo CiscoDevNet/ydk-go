@@ -1306,6 +1306,9 @@ type Ipv4Dhcpd_Nodes_Node_Proxy struct {
     // DHCP proxy statistics.
     Statistics Ipv4Dhcpd_Nodes_Node_Proxy_Statistics
 
+    // DHCP proxy disconnect history.
+    DisconnectHistories Ipv4Dhcpd_Nodes_Node_Proxy_DisconnectHistories
+
     // DHCP proxy bindings.
     Binding Ipv4Dhcpd_Nodes_Node_Proxy_Binding
 }
@@ -1326,6 +1329,7 @@ func (proxy *Ipv4Dhcpd_Nodes_Node_Proxy) GetEntityData() *types.CommonEntityData
     proxy.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &proxy.Vrfs})
     proxy.EntityData.Children.Append("profiles", types.YChild{"Profiles", &proxy.Profiles})
     proxy.EntityData.Children.Append("statistics", types.YChild{"Statistics", &proxy.Statistics})
+    proxy.EntityData.Children.Append("disconnect-histories", types.YChild{"DisconnectHistories", &proxy.DisconnectHistories})
     proxy.EntityData.Children.Append("binding", types.YChild{"Binding", &proxy.Binding})
     proxy.EntityData.Leafs = types.NewOrderedMap()
 
@@ -2470,6 +2474,94 @@ func (statistics *Ipv4Dhcpd_Nodes_Node_Proxy_Statistics_Ipv4DhcpdProxyStat_Stati
     return &(statistics.EntityData)
 }
 
+// Ipv4Dhcpd_Nodes_Node_Proxy_DisconnectHistories
+// DHCP proxy disconnect history
+type Ipv4Dhcpd_Nodes_Node_Proxy_DisconnectHistories struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Single DHCP proxy disconnect history. The type is slice of
+    // Ipv4Dhcpd_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory.
+    DisconnectHistory []*Ipv4Dhcpd_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory
+}
+
+func (disconnectHistories *Ipv4Dhcpd_Nodes_Node_Proxy_DisconnectHistories) GetEntityData() *types.CommonEntityData {
+    disconnectHistories.EntityData.YFilter = disconnectHistories.YFilter
+    disconnectHistories.EntityData.YangName = "disconnect-histories"
+    disconnectHistories.EntityData.BundleName = "cisco_ios_xr"
+    disconnectHistories.EntityData.ParentYangName = "proxy"
+    disconnectHistories.EntityData.SegmentPath = "disconnect-histories"
+    disconnectHistories.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/nodes/node/proxy/" + disconnectHistories.EntityData.SegmentPath
+    disconnectHistories.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnectHistories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnectHistories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnectHistories.EntityData.Children = types.NewOrderedMap()
+    disconnectHistories.EntityData.Children.Append("disconnect-history", types.YChild{"DisconnectHistory", nil})
+    for i := range disconnectHistories.DisconnectHistory {
+        disconnectHistories.EntityData.Children.Append(types.GetSegmentPath(disconnectHistories.DisconnectHistory[i]), types.YChild{"DisconnectHistory", disconnectHistories.DisconnectHistory[i]})
+    }
+    disconnectHistories.EntityData.Leafs = types.NewOrderedMap()
+
+    disconnectHistories.EntityData.YListKeys = []string {}
+
+    return &(disconnectHistories.EntityData)
+}
+
+// Ipv4Dhcpd_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory
+// Single DHCP proxy disconnect history
+type Ipv4Dhcpd_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Index. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Index interface{}
+
+    // session start time epoch. The type is interface{} with range:
+    // 0..18446744073709551615.
+    SessionStartTimeEpoch interface{}
+
+    // session end time epoch. The type is interface{} with range:
+    // 0..18446744073709551615.
+    SessionEndTimeEpoch interface{}
+
+    // DiscReason. The type is string with length: 0..256.
+    DiscReason interface{}
+
+    // sub label. The type is interface{} with range: 0..4294967295.
+    SubLabel interface{}
+
+    // MACAddress. The type is string with length: 0..17.
+    MacAddress interface{}
+}
+
+func (disconnectHistory *Ipv4Dhcpd_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory) GetEntityData() *types.CommonEntityData {
+    disconnectHistory.EntityData.YFilter = disconnectHistory.YFilter
+    disconnectHistory.EntityData.YangName = "disconnect-history"
+    disconnectHistory.EntityData.BundleName = "cisco_ios_xr"
+    disconnectHistory.EntityData.ParentYangName = "disconnect-histories"
+    disconnectHistory.EntityData.SegmentPath = "disconnect-history" + types.AddKeyToken(disconnectHistory.Index, "index")
+    disconnectHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/nodes/node/proxy/disconnect-histories/" + disconnectHistory.EntityData.SegmentPath
+    disconnectHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnectHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnectHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnectHistory.EntityData.Children = types.NewOrderedMap()
+    disconnectHistory.EntityData.Leafs = types.NewOrderedMap()
+    disconnectHistory.EntityData.Leafs.Append("index", types.YLeaf{"Index", disconnectHistory.Index})
+    disconnectHistory.EntityData.Leafs.Append("session-start-time-epoch", types.YLeaf{"SessionStartTimeEpoch", disconnectHistory.SessionStartTimeEpoch})
+    disconnectHistory.EntityData.Leafs.Append("session-end-time-epoch", types.YLeaf{"SessionEndTimeEpoch", disconnectHistory.SessionEndTimeEpoch})
+    disconnectHistory.EntityData.Leafs.Append("disc-reason", types.YLeaf{"DiscReason", disconnectHistory.DiscReason})
+    disconnectHistory.EntityData.Leafs.Append("sub-label", types.YLeaf{"SubLabel", disconnectHistory.SubLabel})
+    disconnectHistory.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", disconnectHistory.MacAddress})
+
+    disconnectHistory.EntityData.YListKeys = []string {"Index"}
+
+    return &(disconnectHistory.EntityData)
+}
+
 // Ipv4Dhcpd_Nodes_Node_Proxy_Binding
 // DHCP proxy bindings
 type Ipv4Dhcpd_Nodes_Node_Proxy_Binding struct {
@@ -2652,9 +2744,9 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Binding_Clients_Client struct {
     // DHCP saved options. The type is string with length: 0..2051.
     ParamResponse interface{}
 
-    // session start time. The type is interface{} with range:
+    // session start time epoch. The type is interface{} with range:
     // 0..18446744073709551615.
-    SessionStartTime interface{}
+    SessionStartTimeEpoch interface{}
 
     // DHCPV4 SRG state. The type is interface{} with range: 0..4294967295.
     SrgState interface{}
@@ -2708,7 +2800,7 @@ func (client *Ipv4Dhcpd_Nodes_Node_Proxy_Binding_Clients_Client) GetEntityData()
     client.EntityData.Leafs.Append("is-mbl-subscriber", types.YLeaf{"IsMblSubscriber", client.IsMblSubscriber})
     client.EntityData.Leafs.Append("param-request", types.YLeaf{"ParamRequest", client.ParamRequest})
     client.EntityData.Leafs.Append("param-response", types.YLeaf{"ParamResponse", client.ParamResponse})
-    client.EntityData.Leafs.Append("session-start-time", types.YLeaf{"SessionStartTime", client.SessionStartTime})
+    client.EntityData.Leafs.Append("session-start-time-epoch", types.YLeaf{"SessionStartTimeEpoch", client.SessionStartTimeEpoch})
     client.EntityData.Leafs.Append("srg-state", types.YLeaf{"SrgState", client.SrgState})
     client.EntityData.Leafs.Append("event-history", types.YLeaf{"EventHistory", client.EventHistory})
 
@@ -4267,6 +4359,9 @@ type Ipv4Dhcpd_Nodes_Node_Server struct {
     // DHCP server bindings.
     Binding Ipv4Dhcpd_Nodes_Node_Server_Binding
 
+    // DHCP server disconnect history.
+    DisconnectHistories Ipv4Dhcpd_Nodes_Node_Server_DisconnectHistories
+
     // DHCP proxy stats info.
     StatisticsInfo Ipv4Dhcpd_Nodes_Node_Server_StatisticsInfo
 
@@ -4289,6 +4384,7 @@ func (server *Ipv4Dhcpd_Nodes_Node_Server) GetEntityData() *types.CommonEntityDa
     server.EntityData.Children.Append("profiles", types.YChild{"Profiles", &server.Profiles})
     server.EntityData.Children.Append("statistics", types.YChild{"Statistics", &server.Statistics})
     server.EntityData.Children.Append("binding", types.YChild{"Binding", &server.Binding})
+    server.EntityData.Children.Append("disconnect-histories", types.YChild{"DisconnectHistories", &server.DisconnectHistories})
     server.EntityData.Children.Append("statistics-info", types.YChild{"StatisticsInfo", &server.StatisticsInfo})
     server.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &server.Vrfs})
     server.EntityData.Leafs = types.NewOrderedMap()
@@ -4886,9 +4982,9 @@ type Ipv4Dhcpd_Nodes_Node_Server_Binding_Clients_Client struct {
     // DHCP saved options. The type is string with length: 0..2051.
     ParamResponse interface{}
 
-    // session start time. The type is interface{} with range:
+    // session start time epoch. The type is interface{} with range:
     // 0..18446744073709551615.
-    SessionStartTime interface{}
+    SessionStartTimeEpoch interface{}
 
     // DHCPV4 SRG state. The type is interface{} with range: 0..4294967295.
     SrgState interface{}
@@ -4942,13 +5038,101 @@ func (client *Ipv4Dhcpd_Nodes_Node_Server_Binding_Clients_Client) GetEntityData(
     client.EntityData.Leafs.Append("is-mbl-subscriber", types.YLeaf{"IsMblSubscriber", client.IsMblSubscriber})
     client.EntityData.Leafs.Append("param-request", types.YLeaf{"ParamRequest", client.ParamRequest})
     client.EntityData.Leafs.Append("param-response", types.YLeaf{"ParamResponse", client.ParamResponse})
-    client.EntityData.Leafs.Append("session-start-time", types.YLeaf{"SessionStartTime", client.SessionStartTime})
+    client.EntityData.Leafs.Append("session-start-time-epoch", types.YLeaf{"SessionStartTimeEpoch", client.SessionStartTimeEpoch})
     client.EntityData.Leafs.Append("srg-state", types.YLeaf{"SrgState", client.SrgState})
     client.EntityData.Leafs.Append("event-history", types.YLeaf{"EventHistory", client.EventHistory})
 
     client.EntityData.YListKeys = []string {"ClientId"}
 
     return &(client.EntityData)
+}
+
+// Ipv4Dhcpd_Nodes_Node_Server_DisconnectHistories
+// DHCP server disconnect history
+type Ipv4Dhcpd_Nodes_Node_Server_DisconnectHistories struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Single DHCP server disconnect history. The type is slice of
+    // Ipv4Dhcpd_Nodes_Node_Server_DisconnectHistories_DisconnectHistory.
+    DisconnectHistory []*Ipv4Dhcpd_Nodes_Node_Server_DisconnectHistories_DisconnectHistory
+}
+
+func (disconnectHistories *Ipv4Dhcpd_Nodes_Node_Server_DisconnectHistories) GetEntityData() *types.CommonEntityData {
+    disconnectHistories.EntityData.YFilter = disconnectHistories.YFilter
+    disconnectHistories.EntityData.YangName = "disconnect-histories"
+    disconnectHistories.EntityData.BundleName = "cisco_ios_xr"
+    disconnectHistories.EntityData.ParentYangName = "server"
+    disconnectHistories.EntityData.SegmentPath = "disconnect-histories"
+    disconnectHistories.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/nodes/node/server/" + disconnectHistories.EntityData.SegmentPath
+    disconnectHistories.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnectHistories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnectHistories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnectHistories.EntityData.Children = types.NewOrderedMap()
+    disconnectHistories.EntityData.Children.Append("disconnect-history", types.YChild{"DisconnectHistory", nil})
+    for i := range disconnectHistories.DisconnectHistory {
+        disconnectHistories.EntityData.Children.Append(types.GetSegmentPath(disconnectHistories.DisconnectHistory[i]), types.YChild{"DisconnectHistory", disconnectHistories.DisconnectHistory[i]})
+    }
+    disconnectHistories.EntityData.Leafs = types.NewOrderedMap()
+
+    disconnectHistories.EntityData.YListKeys = []string {}
+
+    return &(disconnectHistories.EntityData)
+}
+
+// Ipv4Dhcpd_Nodes_Node_Server_DisconnectHistories_DisconnectHistory
+// Single DHCP server disconnect history
+type Ipv4Dhcpd_Nodes_Node_Server_DisconnectHistories_DisconnectHistory struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Index. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Index interface{}
+
+    // session start time epoch. The type is interface{} with range:
+    // 0..18446744073709551615.
+    SessionStartTimeEpoch interface{}
+
+    // session end time epoch. The type is interface{} with range:
+    // 0..18446744073709551615.
+    SessionEndTimeEpoch interface{}
+
+    // DiscReason. The type is string with length: 0..256.
+    DiscReason interface{}
+
+    // sub label. The type is interface{} with range: 0..4294967295.
+    SubLabel interface{}
+
+    // MACAddress. The type is string with length: 0..17.
+    MacAddress interface{}
+}
+
+func (disconnectHistory *Ipv4Dhcpd_Nodes_Node_Server_DisconnectHistories_DisconnectHistory) GetEntityData() *types.CommonEntityData {
+    disconnectHistory.EntityData.YFilter = disconnectHistory.YFilter
+    disconnectHistory.EntityData.YangName = "disconnect-history"
+    disconnectHistory.EntityData.BundleName = "cisco_ios_xr"
+    disconnectHistory.EntityData.ParentYangName = "disconnect-histories"
+    disconnectHistory.EntityData.SegmentPath = "disconnect-history" + types.AddKeyToken(disconnectHistory.Index, "index")
+    disconnectHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/nodes/node/server/disconnect-histories/" + disconnectHistory.EntityData.SegmentPath
+    disconnectHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnectHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnectHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnectHistory.EntityData.Children = types.NewOrderedMap()
+    disconnectHistory.EntityData.Leafs = types.NewOrderedMap()
+    disconnectHistory.EntityData.Leafs.Append("index", types.YLeaf{"Index", disconnectHistory.Index})
+    disconnectHistory.EntityData.Leafs.Append("session-start-time-epoch", types.YLeaf{"SessionStartTimeEpoch", disconnectHistory.SessionStartTimeEpoch})
+    disconnectHistory.EntityData.Leafs.Append("session-end-time-epoch", types.YLeaf{"SessionEndTimeEpoch", disconnectHistory.SessionEndTimeEpoch})
+    disconnectHistory.EntityData.Leafs.Append("disc-reason", types.YLeaf{"DiscReason", disconnectHistory.DiscReason})
+    disconnectHistory.EntityData.Leafs.Append("sub-label", types.YLeaf{"SubLabel", disconnectHistory.SubLabel})
+    disconnectHistory.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", disconnectHistory.MacAddress})
+
+    disconnectHistory.EntityData.YListKeys = []string {"Index"}
+
+    return &(disconnectHistory.EntityData)
 }
 
 // Ipv4Dhcpd_Nodes_Node_Server_StatisticsInfo

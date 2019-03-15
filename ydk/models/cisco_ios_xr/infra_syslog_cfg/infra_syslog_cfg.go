@@ -932,7 +932,7 @@ type Syslog_BufferedLogging struct {
     LoggingLevel interface{}
 
     // Logging buffered size. The type is interface{} with range:
-    // 4096..4294967295. The default value is 2097152.
+    // 2097152..125000000. The default value is 2097152.
     BufferSize interface{}
 
     // Set buffered logging discriminators.

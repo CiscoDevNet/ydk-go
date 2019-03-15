@@ -847,7 +847,7 @@ type SpanMonitorSession_Nodes_Node struct {
     // Table of source interfaces configured as attached to a session.
     Attachments SpanMonitorSession_Nodes_Node_Attachments
 
-    // Table of sessions set up in the hardware.  When all sessions are operating
+    // Table of sessions set up in the hardware. When all sessions are operating
     // correctly the entries in this table should match those entries in
     // GlobalSessionTable that have a destination configured.
     HardwareSessions SpanMonitorSession_Nodes_Node_HardwareSessions
@@ -1189,7 +1189,7 @@ func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_De
 }
 
 // SpanMonitorSession_Nodes_Node_HardwareSessions
-// Table of sessions set up in the hardware. 
+// Table of sessions set up in the hardware.
 // When all sessions are operating correctly the
 // entries in this table should match those
 // entries in GlobalSessionTable that have a

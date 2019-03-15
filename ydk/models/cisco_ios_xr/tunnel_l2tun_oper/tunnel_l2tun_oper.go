@@ -5188,7 +5188,7 @@ type L2tpv2_Statistics struct {
     // 0..4294967295.
     ReceivedPackets interface{}
 
-    // Average processing time for received packets  (in micro seconds). The type
+    // Average processing time for received packets (in micro seconds). The type
     // is interface{} with range: 0..4294967295. Units are microsecond.
     AveragePacketProcessingTime interface{}
 

@@ -253,11 +253,26 @@ type InterfaceConfigurations_InterfaceConfiguration struct {
     // Frequency Synchronization interface configuration.
     FrequencySynchronization InterfaceConfigurations_InterfaceConfiguration_FrequencySynchronization
 
+    // nV Satellite Access Link Configuration.
+    NvSatelliteAccess InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess
+
+    // nV Satellite Fabric Link Configuration.
+    NvSatelliteFabricLink InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink
+
+    // Complex Network connection to one or more Satellites.
+    NvSatelliteFabricNetwork InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork
+
     // NVE operational data.
     Nve InterfaceConfigurations_InterfaceConfiguration_Nve
 
     // Configure pm parameters.
     PerformanceManagement InterfaceConfigurations_InterfaceConfiguration_PerformanceManagement
+
+    // Precision Time Protocol interface configuration.
+    Ptp InterfaceConfigurations_InterfaceConfiguration_Ptp
+
+    // EthernetControl.
+    EthernetControl InterfaceConfigurations_InterfaceConfiguration_EthernetControl
 
     // Interface PBR configuration.
     Pbr InterfaceConfigurations_InterfaceConfiguration_Pbr
@@ -270,9 +285,6 @@ type InterfaceConfigurations_InterfaceConfiguration struct {
 
     // Configure Extended loopback (diagnostics).
     Loopbacks InterfaceConfigurations_InterfaceConfiguration_Loopbacks
-
-    // Precision Time Protocol interface configuration.
-    Ptp InterfaceConfigurations_InterfaceConfiguration_Ptp
 
     // Subscribers on interface.
     Subscriber InterfaceConfigurations_InterfaceConfiguration_Subscriber
@@ -304,15 +316,6 @@ type InterfaceConfigurations_InterfaceConfiguration struct {
     // Interface specific CDP configuration.
     Cdp InterfaceConfigurations_InterfaceConfiguration_Cdp
 
-    // nV Satellite Access Link Configuration.
-    NvSatelliteAccess InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess
-
-    // nV Satellite Fabric Link Configuration.
-    NvSatelliteFabricLink InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink
-
-    // Complex Network connection to one or more Satellites.
-    NvSatelliteFabricNetwork InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork
-
     // DWDM port controller configuration.
     Dwdm InterfaceConfigurations_InterfaceConfiguration_Dwdm
 
@@ -324,6 +327,9 @@ type InterfaceConfigurations_InterfaceConfiguration struct {
 
     // Disable LLDP TX or RX.
     Lldp InterfaceConfigurations_InterfaceConfiguration_Lldp
+
+    // ATM Configuration.
+    Atm InterfaceConfigurations_InterfaceConfiguration_Atm
 
     // Interface Specific Dot1x Configuration.
     Dot1xInterface InterfaceConfigurations_InterfaceConfiguration_Dot1xInterface
@@ -442,13 +448,17 @@ func (interfaceConfiguration *InterfaceConfigurations_InterfaceConfiguration) Ge
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-drivers-media-eth-cfg:ethernet", types.YChild{"Ethernet", &interfaceConfiguration.Ethernet})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-sessions", types.YChild{"SpanMonitorSessions", &interfaceConfiguration.SpanMonitorSessions})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-freqsync-cfg:frequency-synchronization", types.YChild{"FrequencySynchronization", &interfaceConfiguration.FrequencySynchronization})
+    interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access", types.YChild{"NvSatelliteAccess", &interfaceConfiguration.NvSatelliteAccess})
+    interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link", types.YChild{"NvSatelliteFabricLink", &interfaceConfiguration.NvSatelliteFabricLink})
+    interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network", types.YChild{"NvSatelliteFabricNetwork", &interfaceConfiguration.NvSatelliteFabricNetwork})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-tunnel-nve-cfg:nve", types.YChild{"Nve", &interfaceConfiguration.Nve})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-pmengine-cfg:performance-management", types.YChild{"PerformanceManagement", &interfaceConfiguration.PerformanceManagement})
+    interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-ptp-cfg:ptp", types.YChild{"Ptp", &interfaceConfiguration.Ptp})
+    interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-asr9k-lc-ethctrl-cfg:ethernet-control", types.YChild{"EthernetControl", &interfaceConfiguration.EthernetControl})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-pbr-cfg:pbr", types.YChild{"Pbr", &interfaceConfiguration.Pbr})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip", types.YChild{"TunnelIp", &interfaceConfiguration.TunnelIp})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-controller-optics-cfg:optics", types.YChild{"Optics", &interfaceConfiguration.Optics})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-drivers-icpe-ethernet-cfg:loopbacks", types.YChild{"Loopbacks", &interfaceConfiguration.Loopbacks})
-    interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-ptp-cfg:ptp", types.YChild{"Ptp", &interfaceConfiguration.Ptp})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-subscriber-ipsub-cfg:subscriber", types.YChild{"Subscriber", &interfaceConfiguration.Subscriber})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-l2-eth-infra-cfg:vlan-sub-configuration", types.YChild{"VlanSubConfiguration", &interfaceConfiguration.VlanSubConfiguration})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-service", types.YChild{"EthernetService", &interfaceConfiguration.EthernetService})
@@ -459,13 +469,11 @@ func (interfaceConfiguration *InterfaceConfigurations_InterfaceConfiguration) Ge
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-l2-eth-infra-cfg:vlan-trunk-configuration", types.YChild{"VlanTrunkConfiguration", &interfaceConfiguration.VlanTrunkConfiguration})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-session", types.YChild{"SsrpSession", &interfaceConfiguration.SsrpSession})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-cdp-cfg:cdp", types.YChild{"Cdp", &interfaceConfiguration.Cdp})
-    interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access", types.YChild{"NvSatelliteAccess", &interfaceConfiguration.NvSatelliteAccess})
-    interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link", types.YChild{"NvSatelliteFabricLink", &interfaceConfiguration.NvSatelliteFabricLink})
-    interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network", types.YChild{"NvSatelliteFabricNetwork", &interfaceConfiguration.NvSatelliteFabricNetwork})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-dwdm-ui-cfg:dwdm", types.YChild{"Dwdm", &interfaceConfiguration.Dwdm})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-qos-ma-cfg:qos", types.YChild{"Qos", &interfaceConfiguration.Qos})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-ppp-ma-cfg:ppp", types.YChild{"CiscoIOSXRPppMaCfgPpp", &interfaceConfiguration.CiscoIOSXRPppMaCfgPpp})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-ethernet-lldp-cfg:lldp", types.YChild{"Lldp", &interfaceConfiguration.Lldp})
+    interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-atm-vcm-cfg:atm", types.YChild{"Atm", &interfaceConfiguration.Atm})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-dot1x-if-cfg:dot1x-interface", types.YChild{"Dot1xInterface", &interfaceConfiguration.Dot1xInterface})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-ipv4-io-cfg:ipv4-network", types.YChild{"Ipv4Network", &interfaceConfiguration.Ipv4Network})
     interfaceConfiguration.EntityData.Children.Append("Cisco-IOS-XR-ipv4-io-cfg:ipv4-network-forwarding", types.YChild{"Ipv4NetworkForwarding", &interfaceConfiguration.Ipv4NetworkForwarding})
@@ -1032,6 +1040,9 @@ type InterfaceConfigurations_InterfaceConfiguration_L2Transport struct {
 
     // Connection Attachment Circuit configuration.
     Cac InterfaceConfigurations_InterfaceConfiguration_L2Transport_Cac
+
+    // ATM L2transport Port Mode Parameters Configuration.
+    AtmPortModeParameters InterfaceConfigurations_InterfaceConfiguration_L2Transport_AtmPortModeParameters
 }
 
 func (l2Transport *InterfaceConfigurations_InterfaceConfiguration_L2Transport) GetEntityData() *types.CommonEntityData {
@@ -1051,6 +1062,7 @@ func (l2Transport *InterfaceConfigurations_InterfaceConfiguration_L2Transport) G
     l2Transport.EntityData.Children.Append("Cisco-IOS-XR-l2-eth-infra-cfg:l2-ethernet-features", types.YChild{"L2EthernetFeatures", &l2Transport.L2EthernetFeatures})
     l2Transport.EntityData.Children.Append("Cisco-IOS-XR-qos-ma-cfg:pac", types.YChild{"Pac", &l2Transport.Pac})
     l2Transport.EntityData.Children.Append("Cisco-IOS-XR-qos-ma-cfg:cac", types.YChild{"Cac", &l2Transport.Cac})
+    l2Transport.EntityData.Children.Append("Cisco-IOS-XR-atm-vcm-cfg:atm-port-mode-parameters", types.YChild{"AtmPortModeParameters", &l2Transport.AtmPortModeParameters})
     l2Transport.EntityData.Leafs = types.NewOrderedMap()
     l2Transport.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", l2Transport.Enabled})
     l2Transport.EntityData.Leafs.Append("propagate-remote-status", types.YLeaf{"PropagateRemoteStatus", l2Transport.PropagateRemoteStatus})
@@ -2623,6 +2635,76 @@ func (subscriberParent *InterfaceConfigurations_InterfaceConfiguration_L2Transpo
     return &(subscriberParent.EntityData)
 }
 
+// InterfaceConfigurations_InterfaceConfiguration_L2Transport_AtmPortModeParameters
+// ATM L2transport Port Mode Parameters
+// Configuration
+type InterfaceConfigurations_InterfaceConfiguration_L2Transport_AtmPortModeParameters struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure cell-packing parameters.  All parameters are mandatory.
+    CellPacking InterfaceConfigurations_InterfaceConfiguration_L2Transport_AtmPortModeParameters_CellPacking
+}
+
+func (atmPortModeParameters *InterfaceConfigurations_InterfaceConfiguration_L2Transport_AtmPortModeParameters) GetEntityData() *types.CommonEntityData {
+    atmPortModeParameters.EntityData.YFilter = atmPortModeParameters.YFilter
+    atmPortModeParameters.EntityData.YangName = "atm-port-mode-parameters"
+    atmPortModeParameters.EntityData.BundleName = "cisco_ios_xr"
+    atmPortModeParameters.EntityData.ParentYangName = "l2-transport"
+    atmPortModeParameters.EntityData.SegmentPath = "Cisco-IOS-XR-atm-vcm-cfg:atm-port-mode-parameters"
+    atmPortModeParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-l2vpn-cfg:l2-transport/" + atmPortModeParameters.EntityData.SegmentPath
+    atmPortModeParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    atmPortModeParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    atmPortModeParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    atmPortModeParameters.EntityData.Children = types.NewOrderedMap()
+    atmPortModeParameters.EntityData.Children.Append("cell-packing", types.YChild{"CellPacking", &atmPortModeParameters.CellPacking})
+    atmPortModeParameters.EntityData.Leafs = types.NewOrderedMap()
+
+    atmPortModeParameters.EntityData.YListKeys = []string {}
+
+    return &(atmPortModeParameters.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_L2Transport_AtmPortModeParameters_CellPacking
+// Configure cell-packing parameters.  All
+// parameters are mandatory.
+// This type is a presence type.
+type InterfaceConfigurations_InterfaceConfiguration_L2Transport_AtmPortModeParameters_CellPacking struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Maximum number of cells to be packed in a packet. The type is interface{}
+    // with range: 2..255. This attribute is mandatory.
+    MaximumCellsPacked interface{}
+
+    // Which cell packing timer to use. The type is interface{} with range: 1..3.
+    // This attribute is mandatory.
+    CellPackingTimerId interface{}
+}
+
+func (cellPacking *InterfaceConfigurations_InterfaceConfiguration_L2Transport_AtmPortModeParameters_CellPacking) GetEntityData() *types.CommonEntityData {
+    cellPacking.EntityData.YFilter = cellPacking.YFilter
+    cellPacking.EntityData.YangName = "cell-packing"
+    cellPacking.EntityData.BundleName = "cisco_ios_xr"
+    cellPacking.EntityData.ParentYangName = "atm-port-mode-parameters"
+    cellPacking.EntityData.SegmentPath = "cell-packing"
+    cellPacking.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-l2vpn-cfg:l2-transport/Cisco-IOS-XR-atm-vcm-cfg:atm-port-mode-parameters/" + cellPacking.EntityData.SegmentPath
+    cellPacking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cellPacking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cellPacking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cellPacking.EntityData.Children = types.NewOrderedMap()
+    cellPacking.EntityData.Leafs = types.NewOrderedMap()
+    cellPacking.EntityData.Leafs.Append("maximum-cells-packed", types.YLeaf{"MaximumCellsPacked", cellPacking.MaximumCellsPacked})
+    cellPacking.EntityData.Leafs.Append("cell-packing-timer-id", types.YLeaf{"CellPackingTimerId", cellPacking.CellPackingTimerId})
+
+    cellPacking.EntityData.YListKeys = []string {}
+
+    return &(cellPacking.EntityData)
+}
+
 // InterfaceConfigurations_InterfaceConfiguration_CiscoIOSXRPppMaLcpCfgPpp
 // Interface PPP configuration data
 type InterfaceConfigurations_InterfaceConfiguration_CiscoIOSXRPppMaLcpCfgPpp struct {
@@ -3801,6 +3883,1040 @@ func (outputQualityLevel *InterfaceConfigurations_InterfaceConfiguration_Frequen
     outputQualityLevel.EntityData.YListKeys = []string {}
 
     return &(outputQualityLevel.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess
+// nV Satellite Access Link Configuration
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Interface QOS configuration.
+    Qos InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos
+}
+
+func (nvSatelliteAccess *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess) GetEntityData() *types.CommonEntityData {
+    nvSatelliteAccess.EntityData.YFilter = nvSatelliteAccess.YFilter
+    nvSatelliteAccess.EntityData.YangName = "nv-satellite-access"
+    nvSatelliteAccess.EntityData.BundleName = "cisco_ios_xr"
+    nvSatelliteAccess.EntityData.ParentYangName = "interface-configuration"
+    nvSatelliteAccess.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access"
+    nvSatelliteAccess.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + nvSatelliteAccess.EntityData.SegmentPath
+    nvSatelliteAccess.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nvSatelliteAccess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nvSatelliteAccess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nvSatelliteAccess.EntityData.Children = types.NewOrderedMap()
+    nvSatelliteAccess.EntityData.Children.Append("Cisco-IOS-XR-qos-ma-sat-cfg:qos", types.YChild{"Qos", &nvSatelliteAccess.Qos})
+    nvSatelliteAccess.EntityData.Leafs = types.NewOrderedMap()
+
+    nvSatelliteAccess.EntityData.YListKeys = []string {}
+
+    return &(nvSatelliteAccess.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos
+// Interface QOS configuration
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Egress service policy.
+    Output InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Output
+
+    // Ingress service policy.
+    Input InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Input
+}
+
+func (qos *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos) GetEntityData() *types.CommonEntityData {
+    qos.EntityData.YFilter = qos.YFilter
+    qos.EntityData.YangName = "qos"
+    qos.EntityData.BundleName = "cisco_ios_xr"
+    qos.EntityData.ParentYangName = "nv-satellite-access"
+    qos.EntityData.SegmentPath = "Cisco-IOS-XR-qos-ma-sat-cfg:qos"
+    qos.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access/" + qos.EntityData.SegmentPath
+    qos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    qos.EntityData.Children = types.NewOrderedMap()
+    qos.EntityData.Children.Append("output", types.YChild{"Output", &qos.Output})
+    qos.EntityData.Children.Append("input", types.YChild{"Input", &qos.Input})
+    qos.EntityData.Leafs = types.NewOrderedMap()
+
+    qos.EntityData.YListKeys = []string {}
+
+    return &(qos.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Output
+// Egress service policy
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Service policy details. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Output_ServicePolicy.
+    ServicePolicy []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Output_ServicePolicy
+}
+
+func (output *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "qos"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access/Cisco-IOS-XR-qos-ma-sat-cfg:qos/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", nil})
+    for i := range output.ServicePolicy {
+        output.EntityData.Children.Append(types.GetSegmentPath(output.ServicePolicy[i]), types.YChild{"ServicePolicy", output.ServicePolicy[i]})
+    }
+    output.EntityData.Leafs = types.NewOrderedMap()
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Output_ServicePolicy
+// Service policy details
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Output_ServicePolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Name of policy-map. The type is string with
+    // length: 0..64.
+    ServicePolicyName interface{}
+}
+
+func (servicePolicy *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Output_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "output"
+    servicePolicy.EntityData.SegmentPath = "service-policy" + types.AddKeyToken(servicePolicy.ServicePolicyName, "service-policy-name")
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access/Cisco-IOS-XR-qos-ma-sat-cfg:qos/output/" + servicePolicy.EntityData.SegmentPath
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servicePolicy.EntityData.Children = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("service-policy-name", types.YLeaf{"ServicePolicyName", servicePolicy.ServicePolicyName})
+
+    servicePolicy.EntityData.YListKeys = []string {"ServicePolicyName"}
+
+    return &(servicePolicy.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Input
+// Ingress service policy
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Input struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Service policy details. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Input_ServicePolicy.
+    ServicePolicy []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Input_ServicePolicy
+}
+
+func (input *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "qos"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access/Cisco-IOS-XR-qos-ma-sat-cfg:qos/" + input.EntityData.SegmentPath
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", nil})
+    for i := range input.ServicePolicy {
+        input.EntityData.Children.Append(types.GetSegmentPath(input.ServicePolicy[i]), types.YChild{"ServicePolicy", input.ServicePolicy[i]})
+    }
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
+    return &(input.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Input_ServicePolicy
+// Service policy details
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Input_ServicePolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Name of policy-map. The type is string with
+    // length: 0..64.
+    ServicePolicyName interface{}
+}
+
+func (servicePolicy *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess_Qos_Input_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "input"
+    servicePolicy.EntityData.SegmentPath = "service-policy" + types.AddKeyToken(servicePolicy.ServicePolicyName, "service-policy-name")
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access/Cisco-IOS-XR-qos-ma-sat-cfg:qos/input/" + servicePolicy.EntityData.SegmentPath
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servicePolicy.EntityData.Children = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("service-policy-name", types.YLeaf{"ServicePolicyName", servicePolicy.ServicePolicyName})
+
+    servicePolicy.EntityData.YListKeys = []string {"ServicePolicyName"}
+
+    return &(servicePolicy.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink
+// nV Satellite Fabric Link Configuration
+// This type is a presence type.
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Hub & Spoke connection to a single Satellite. The type is interface{} with
+    // range: 100..65534. This attribute is mandatory.
+    Satellite interface{}
+
+    // Mininum number of active links required. The type is interface{} with
+    // range: 1..64.
+    MinimumRequiredLinks interface{}
+
+    // Redundancy submode.
+    Redundancy InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Redundancy
+
+    // Remote Ports table.
+    RemotePorts InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts
+
+    // Interface QOS configuration.
+    Qos InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos
+
+    // Ethernet Satellite configuration.
+    EthernetFeatures InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures
+
+    // Frequency Synchronization satellite configuration.
+    FrequencySynchronization InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_FrequencySynchronization
+}
+
+func (nvSatelliteFabricLink *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink) GetEntityData() *types.CommonEntityData {
+    nvSatelliteFabricLink.EntityData.YFilter = nvSatelliteFabricLink.YFilter
+    nvSatelliteFabricLink.EntityData.YangName = "nv-satellite-fabric-link"
+    nvSatelliteFabricLink.EntityData.BundleName = "cisco_ios_xr"
+    nvSatelliteFabricLink.EntityData.ParentYangName = "interface-configuration"
+    nvSatelliteFabricLink.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link"
+    nvSatelliteFabricLink.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + nvSatelliteFabricLink.EntityData.SegmentPath
+    nvSatelliteFabricLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nvSatelliteFabricLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nvSatelliteFabricLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nvSatelliteFabricLink.EntityData.Children = types.NewOrderedMap()
+    nvSatelliteFabricLink.EntityData.Children.Append("redundancy", types.YChild{"Redundancy", &nvSatelliteFabricLink.Redundancy})
+    nvSatelliteFabricLink.EntityData.Children.Append("remote-ports", types.YChild{"RemotePorts", &nvSatelliteFabricLink.RemotePorts})
+    nvSatelliteFabricLink.EntityData.Children.Append("Cisco-IOS-XR-qos-ma-sat-cfg:qos", types.YChild{"Qos", &nvSatelliteFabricLink.Qos})
+    nvSatelliteFabricLink.EntityData.Children.Append("Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features", types.YChild{"EthernetFeatures", &nvSatelliteFabricLink.EthernetFeatures})
+    nvSatelliteFabricLink.EntityData.Children.Append("Cisco-IOS-XR-freqsync-sat-cfg:frequency-synchronization", types.YChild{"FrequencySynchronization", &nvSatelliteFabricLink.FrequencySynchronization})
+    nvSatelliteFabricLink.EntityData.Leafs = types.NewOrderedMap()
+    nvSatelliteFabricLink.EntityData.Leafs.Append("satellite", types.YLeaf{"Satellite", nvSatelliteFabricLink.Satellite})
+    nvSatelliteFabricLink.EntityData.Leafs.Append("minimum-required-links", types.YLeaf{"MinimumRequiredLinks", nvSatelliteFabricLink.MinimumRequiredLinks})
+
+    nvSatelliteFabricLink.EntityData.YListKeys = []string {}
+
+    return &(nvSatelliteFabricLink.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Redundancy
+// Redundancy submode
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Redundancy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Links the satellite fabric to the given ICCP group. The type is interface{}
+    // with range: 0..4294967295.
+    IccpGroup interface{}
+
+    // Mininum number of active links preferred. The type is interface{} with
+    // range: 1..64.
+    MinimumPreferredLinks interface{}
+}
+
+func (redundancy *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Redundancy) GetEntityData() *types.CommonEntityData {
+    redundancy.EntityData.YFilter = redundancy.YFilter
+    redundancy.EntityData.YangName = "redundancy"
+    redundancy.EntityData.BundleName = "cisco_ios_xr"
+    redundancy.EntityData.ParentYangName = "nv-satellite-fabric-link"
+    redundancy.EntityData.SegmentPath = "redundancy"
+    redundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/" + redundancy.EntityData.SegmentPath
+    redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    redundancy.EntityData.Children = types.NewOrderedMap()
+    redundancy.EntityData.Leafs = types.NewOrderedMap()
+    redundancy.EntityData.Leafs.Append("iccp-group", types.YLeaf{"IccpGroup", redundancy.IccpGroup})
+    redundancy.EntityData.Leafs.Append("minimum-preferred-links", types.YLeaf{"MinimumPreferredLinks", redundancy.MinimumPreferredLinks})
+
+    redundancy.EntityData.YListKeys = []string {}
+
+    return &(redundancy.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts
+// Remote Ports table
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Ports. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts_RemotePort.
+    RemotePort []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts_RemotePort
+}
+
+func (remotePorts *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts) GetEntityData() *types.CommonEntityData {
+    remotePorts.EntityData.YFilter = remotePorts.YFilter
+    remotePorts.EntityData.YangName = "remote-ports"
+    remotePorts.EntityData.BundleName = "cisco_ios_xr"
+    remotePorts.EntityData.ParentYangName = "nv-satellite-fabric-link"
+    remotePorts.EntityData.SegmentPath = "remote-ports"
+    remotePorts.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/" + remotePorts.EntityData.SegmentPath
+    remotePorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePorts.EntityData.Children = types.NewOrderedMap()
+    remotePorts.EntityData.Children.Append("remote-port", types.YChild{"RemotePort", nil})
+    for i := range remotePorts.RemotePort {
+        remotePorts.EntityData.Children.Append(types.GetSegmentPath(remotePorts.RemotePort[i]), types.YChild{"RemotePort", remotePorts.RemotePort[i]})
+    }
+    remotePorts.EntityData.Leafs = types.NewOrderedMap()
+
+    remotePorts.EntityData.YListKeys = []string {}
+
+    return &(remotePorts.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts_RemotePort
+// Remote Ports
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts_RemotePort struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Port type. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    PortType interface{}
+
+    // This attribute is a key. Slot. The type is interface{} with range: 0..8.
+    Slot interface{}
+
+    // This attribute is a key. Sub slot. The type is interface{} with range:
+    // 0..8.
+    SubSlot interface{}
+
+    // Port range. The type is string. This attribute is mandatory.
+    PortRange interface{}
+}
+
+func (remotePort *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts_RemotePort) GetEntityData() *types.CommonEntityData {
+    remotePort.EntityData.YFilter = remotePort.YFilter
+    remotePort.EntityData.YangName = "remote-port"
+    remotePort.EntityData.BundleName = "cisco_ios_xr"
+    remotePort.EntityData.ParentYangName = "remote-ports"
+    remotePort.EntityData.SegmentPath = "remote-port" + types.AddKeyToken(remotePort.PortType, "port-type") + types.AddKeyToken(remotePort.Slot, "slot") + types.AddKeyToken(remotePort.SubSlot, "sub-slot")
+    remotePort.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/remote-ports/" + remotePort.EntityData.SegmentPath
+    remotePort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePort.EntityData.Children = types.NewOrderedMap()
+    remotePort.EntityData.Leafs = types.NewOrderedMap()
+    remotePort.EntityData.Leafs.Append("port-type", types.YLeaf{"PortType", remotePort.PortType})
+    remotePort.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", remotePort.Slot})
+    remotePort.EntityData.Leafs.Append("sub-slot", types.YLeaf{"SubSlot", remotePort.SubSlot})
+    remotePort.EntityData.Leafs.Append("port-range", types.YLeaf{"PortRange", remotePort.PortRange})
+
+    remotePort.EntityData.YListKeys = []string {"PortType", "Slot", "SubSlot"}
+
+    return &(remotePort.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos
+// Interface QOS configuration
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Egress service policy.
+    Output InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Output
+
+    // Ingress service policy.
+    Input InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Input
+}
+
+func (qos *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos) GetEntityData() *types.CommonEntityData {
+    qos.EntityData.YFilter = qos.YFilter
+    qos.EntityData.YangName = "qos"
+    qos.EntityData.BundleName = "cisco_ios_xr"
+    qos.EntityData.ParentYangName = "nv-satellite-fabric-link"
+    qos.EntityData.SegmentPath = "Cisco-IOS-XR-qos-ma-sat-cfg:qos"
+    qos.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/" + qos.EntityData.SegmentPath
+    qos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    qos.EntityData.Children = types.NewOrderedMap()
+    qos.EntityData.Children.Append("output", types.YChild{"Output", &qos.Output})
+    qos.EntityData.Children.Append("input", types.YChild{"Input", &qos.Input})
+    qos.EntityData.Leafs = types.NewOrderedMap()
+
+    qos.EntityData.YListKeys = []string {}
+
+    return &(qos.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Output
+// Egress service policy
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Service policy details. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Output_ServicePolicy.
+    ServicePolicy []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Output_ServicePolicy
+}
+
+func (output *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "qos"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/Cisco-IOS-XR-qos-ma-sat-cfg:qos/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", nil})
+    for i := range output.ServicePolicy {
+        output.EntityData.Children.Append(types.GetSegmentPath(output.ServicePolicy[i]), types.YChild{"ServicePolicy", output.ServicePolicy[i]})
+    }
+    output.EntityData.Leafs = types.NewOrderedMap()
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Output_ServicePolicy
+// Service policy details
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Output_ServicePolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Name of policy-map. The type is string with
+    // length: 0..64.
+    ServicePolicyName interface{}
+}
+
+func (servicePolicy *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Output_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "output"
+    servicePolicy.EntityData.SegmentPath = "service-policy" + types.AddKeyToken(servicePolicy.ServicePolicyName, "service-policy-name")
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/Cisco-IOS-XR-qos-ma-sat-cfg:qos/output/" + servicePolicy.EntityData.SegmentPath
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servicePolicy.EntityData.Children = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("service-policy-name", types.YLeaf{"ServicePolicyName", servicePolicy.ServicePolicyName})
+
+    servicePolicy.EntityData.YListKeys = []string {"ServicePolicyName"}
+
+    return &(servicePolicy.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Input
+// Ingress service policy
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Input struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Service policy details. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Input_ServicePolicy.
+    ServicePolicy []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Input_ServicePolicy
+}
+
+func (input *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "qos"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/Cisco-IOS-XR-qos-ma-sat-cfg:qos/" + input.EntityData.SegmentPath
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", nil})
+    for i := range input.ServicePolicy {
+        input.EntityData.Children.Append(types.GetSegmentPath(input.ServicePolicy[i]), types.YChild{"ServicePolicy", input.ServicePolicy[i]})
+    }
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
+    return &(input.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Input_ServicePolicy
+// Service policy details
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Input_ServicePolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Name of policy-map. The type is string with
+    // length: 0..64.
+    ServicePolicyName interface{}
+}
+
+func (servicePolicy *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Qos_Input_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "input"
+    servicePolicy.EntityData.SegmentPath = "service-policy" + types.AddKeyToken(servicePolicy.ServicePolicyName, "service-policy-name")
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/Cisco-IOS-XR-qos-ma-sat-cfg:qos/input/" + servicePolicy.EntityData.SegmentPath
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servicePolicy.EntityData.Children = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("service-policy-name", types.YLeaf{"ServicePolicyName", servicePolicy.ServicePolicyName})
+
+    servicePolicy.EntityData.YListKeys = []string {"ServicePolicyName"}
+
+    return &(servicePolicy.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures
+// Ethernet Satellite configuration
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // CFM Satellite configuration.
+    Cfm InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures_Cfm
+}
+
+func (ethernetFeatures *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures) GetEntityData() *types.CommonEntityData {
+    ethernetFeatures.EntityData.YFilter = ethernetFeatures.YFilter
+    ethernetFeatures.EntityData.YangName = "ethernet-features"
+    ethernetFeatures.EntityData.BundleName = "cisco_ios_xr"
+    ethernetFeatures.EntityData.ParentYangName = "nv-satellite-fabric-link"
+    ethernetFeatures.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features"
+    ethernetFeatures.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/" + ethernetFeatures.EntityData.SegmentPath
+    ethernetFeatures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ethernetFeatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ethernetFeatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ethernetFeatures.EntityData.Children = types.NewOrderedMap()
+    ethernetFeatures.EntityData.Children.Append("cfm", types.YChild{"Cfm", &ethernetFeatures.Cfm})
+    ethernetFeatures.EntityData.Leafs = types.NewOrderedMap()
+
+    ethernetFeatures.EntityData.YListKeys = []string {}
+
+    return &(ethernetFeatures.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures_Cfm
+// CFM Satellite configuration
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures_Cfm struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Continuity-Check Interval. The type is CfmCcmInterval.
+    ContinuityCheckInterval interface{}
+
+    // Maintenance Domain Level. The type is interface{} with range: 0..7.
+    Level interface{}
+
+    // Enable CFM on Satellite. The type is interface{}.
+    Enable interface{}
+}
+
+func (cfm *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures_Cfm) GetEntityData() *types.CommonEntityData {
+    cfm.EntityData.YFilter = cfm.YFilter
+    cfm.EntityData.YangName = "cfm"
+    cfm.EntityData.BundleName = "cisco_ios_xr"
+    cfm.EntityData.ParentYangName = "ethernet-features"
+    cfm.EntityData.SegmentPath = "cfm"
+    cfm.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features/" + cfm.EntityData.SegmentPath
+    cfm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cfm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cfm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cfm.EntityData.Children = types.NewOrderedMap()
+    cfm.EntityData.Leafs = types.NewOrderedMap()
+    cfm.EntityData.Leafs.Append("continuity-check-interval", types.YLeaf{"ContinuityCheckInterval", cfm.ContinuityCheckInterval})
+    cfm.EntityData.Leafs.Append("level", types.YLeaf{"Level", cfm.Level})
+    cfm.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", cfm.Enable})
+
+    cfm.EntityData.YListKeys = []string {}
+
+    return &(cfm.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_FrequencySynchronization
+// Frequency Synchronization satellite
+// configuration
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_FrequencySynchronization struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable Frequency Synchronization. The type is interface{}.
+    Enable interface{}
+}
+
+func (frequencySynchronization *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_FrequencySynchronization) GetEntityData() *types.CommonEntityData {
+    frequencySynchronization.EntityData.YFilter = frequencySynchronization.YFilter
+    frequencySynchronization.EntityData.YangName = "frequency-synchronization"
+    frequencySynchronization.EntityData.BundleName = "cisco_ios_xr"
+    frequencySynchronization.EntityData.ParentYangName = "nv-satellite-fabric-link"
+    frequencySynchronization.EntityData.SegmentPath = "Cisco-IOS-XR-freqsync-sat-cfg:frequency-synchronization"
+    frequencySynchronization.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/" + frequencySynchronization.EntityData.SegmentPath
+    frequencySynchronization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frequencySynchronization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frequencySynchronization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    frequencySynchronization.EntityData.Children = types.NewOrderedMap()
+    frequencySynchronization.EntityData.Leafs = types.NewOrderedMap()
+    frequencySynchronization.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", frequencySynchronization.Enable})
+
+    frequencySynchronization.EntityData.YListKeys = []string {}
+
+    return &(frequencySynchronization.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork
+// Complex Network connection to one or more
+// Satellites
+// This type is a presence type.
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Enable. The type is interface{}. This attribute is mandatory.
+    Enable interface{}
+
+    // Connected Satellite table.
+    Satellites InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites
+
+    // Redundancy submode.
+    Redundancy InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Redundancy
+}
+
+func (nvSatelliteFabricNetwork *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork) GetEntityData() *types.CommonEntityData {
+    nvSatelliteFabricNetwork.EntityData.YFilter = nvSatelliteFabricNetwork.YFilter
+    nvSatelliteFabricNetwork.EntityData.YangName = "nv-satellite-fabric-network"
+    nvSatelliteFabricNetwork.EntityData.BundleName = "cisco_ios_xr"
+    nvSatelliteFabricNetwork.EntityData.ParentYangName = "interface-configuration"
+    nvSatelliteFabricNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network"
+    nvSatelliteFabricNetwork.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + nvSatelliteFabricNetwork.EntityData.SegmentPath
+    nvSatelliteFabricNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nvSatelliteFabricNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nvSatelliteFabricNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nvSatelliteFabricNetwork.EntityData.Children = types.NewOrderedMap()
+    nvSatelliteFabricNetwork.EntityData.Children.Append("satellites", types.YChild{"Satellites", &nvSatelliteFabricNetwork.Satellites})
+    nvSatelliteFabricNetwork.EntityData.Children.Append("redundancy", types.YChild{"Redundancy", &nvSatelliteFabricNetwork.Redundancy})
+    nvSatelliteFabricNetwork.EntityData.Leafs = types.NewOrderedMap()
+    nvSatelliteFabricNetwork.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", nvSatelliteFabricNetwork.Enable})
+
+    nvSatelliteFabricNetwork.EntityData.YListKeys = []string {}
+
+    return &(nvSatelliteFabricNetwork.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites
+// Connected Satellite table
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Connected Satellite. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite.
+    Satellite []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite
+
+    // Interface QOS configuration.
+    Qos InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos
+}
+
+func (satellites *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites) GetEntityData() *types.CommonEntityData {
+    satellites.EntityData.YFilter = satellites.YFilter
+    satellites.EntityData.YangName = "satellites"
+    satellites.EntityData.BundleName = "cisco_ios_xr"
+    satellites.EntityData.ParentYangName = "nv-satellite-fabric-network"
+    satellites.EntityData.SegmentPath = "satellites"
+    satellites.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/" + satellites.EntityData.SegmentPath
+    satellites.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    satellites.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    satellites.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    satellites.EntityData.Children = types.NewOrderedMap()
+    satellites.EntityData.Children.Append("satellite", types.YChild{"Satellite", nil})
+    for i := range satellites.Satellite {
+        satellites.EntityData.Children.Append(types.GetSegmentPath(satellites.Satellite[i]), types.YChild{"Satellite", satellites.Satellite[i]})
+    }
+    satellites.EntityData.Children.Append("Cisco-IOS-XR-qos-ma-sat-cfg:qos", types.YChild{"Qos", &satellites.Qos})
+    satellites.EntityData.Leafs = types.NewOrderedMap()
+
+    satellites.EntityData.YListKeys = []string {}
+
+    return &(satellites.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite
+// Connected Satellite
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Satellite ID. The type is interface{} with range:
+    // 100..65534.
+    SatelliteId interface{}
+
+    // Enable. The type is interface{}. This attribute is mandatory.
+    Enable interface{}
+
+    // Remote Ports table.
+    RemotePorts InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts
+}
+
+func (satellite *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite) GetEntityData() *types.CommonEntityData {
+    satellite.EntityData.YFilter = satellite.YFilter
+    satellite.EntityData.YangName = "satellite"
+    satellite.EntityData.BundleName = "cisco_ios_xr"
+    satellite.EntityData.ParentYangName = "satellites"
+    satellite.EntityData.SegmentPath = "satellite" + types.AddKeyToken(satellite.SatelliteId, "satellite-id")
+    satellite.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/" + satellite.EntityData.SegmentPath
+    satellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    satellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    satellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    satellite.EntityData.Children = types.NewOrderedMap()
+    satellite.EntityData.Children.Append("remote-ports", types.YChild{"RemotePorts", &satellite.RemotePorts})
+    satellite.EntityData.Leafs = types.NewOrderedMap()
+    satellite.EntityData.Leafs.Append("satellite-id", types.YLeaf{"SatelliteId", satellite.SatelliteId})
+    satellite.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", satellite.Enable})
+
+    satellite.EntityData.YListKeys = []string {"SatelliteId"}
+
+    return &(satellite.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts
+// Remote Ports table
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Ports. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts_RemotePort.
+    RemotePort []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts_RemotePort
+}
+
+func (remotePorts *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts) GetEntityData() *types.CommonEntityData {
+    remotePorts.EntityData.YFilter = remotePorts.YFilter
+    remotePorts.EntityData.YangName = "remote-ports"
+    remotePorts.EntityData.BundleName = "cisco_ios_xr"
+    remotePorts.EntityData.ParentYangName = "satellite"
+    remotePorts.EntityData.SegmentPath = "remote-ports"
+    remotePorts.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/satellite/" + remotePorts.EntityData.SegmentPath
+    remotePorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePorts.EntityData.Children = types.NewOrderedMap()
+    remotePorts.EntityData.Children.Append("remote-port", types.YChild{"RemotePort", nil})
+    for i := range remotePorts.RemotePort {
+        remotePorts.EntityData.Children.Append(types.GetSegmentPath(remotePorts.RemotePort[i]), types.YChild{"RemotePort", remotePorts.RemotePort[i]})
+    }
+    remotePorts.EntityData.Leafs = types.NewOrderedMap()
+
+    remotePorts.EntityData.YListKeys = []string {}
+
+    return &(remotePorts.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts_RemotePort
+// Remote Ports
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts_RemotePort struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Port type. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    PortType interface{}
+
+    // This attribute is a key. Slot. The type is interface{} with range: 0..8.
+    Slot interface{}
+
+    // This attribute is a key. Sub slot. The type is interface{} with range:
+    // 0..8.
+    SubSlot interface{}
+
+    // Port range. The type is string. This attribute is mandatory.
+    PortRange interface{}
+}
+
+func (remotePort *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts_RemotePort) GetEntityData() *types.CommonEntityData {
+    remotePort.EntityData.YFilter = remotePort.YFilter
+    remotePort.EntityData.YangName = "remote-port"
+    remotePort.EntityData.BundleName = "cisco_ios_xr"
+    remotePort.EntityData.ParentYangName = "remote-ports"
+    remotePort.EntityData.SegmentPath = "remote-port" + types.AddKeyToken(remotePort.PortType, "port-type") + types.AddKeyToken(remotePort.Slot, "slot") + types.AddKeyToken(remotePort.SubSlot, "sub-slot")
+    remotePort.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/satellite/remote-ports/" + remotePort.EntityData.SegmentPath
+    remotePort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePort.EntityData.Children = types.NewOrderedMap()
+    remotePort.EntityData.Leafs = types.NewOrderedMap()
+    remotePort.EntityData.Leafs.Append("port-type", types.YLeaf{"PortType", remotePort.PortType})
+    remotePort.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", remotePort.Slot})
+    remotePort.EntityData.Leafs.Append("sub-slot", types.YLeaf{"SubSlot", remotePort.SubSlot})
+    remotePort.EntityData.Leafs.Append("port-range", types.YLeaf{"PortRange", remotePort.PortRange})
+
+    remotePort.EntityData.YListKeys = []string {"PortType", "Slot", "SubSlot"}
+
+    return &(remotePort.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos
+// Interface QOS configuration
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Egress service policy.
+    Output InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Output
+
+    // Ingress service policy.
+    Input InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Input
+}
+
+func (qos *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos) GetEntityData() *types.CommonEntityData {
+    qos.EntityData.YFilter = qos.YFilter
+    qos.EntityData.YangName = "qos"
+    qos.EntityData.BundleName = "cisco_ios_xr"
+    qos.EntityData.ParentYangName = "satellites"
+    qos.EntityData.SegmentPath = "Cisco-IOS-XR-qos-ma-sat-cfg:qos"
+    qos.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/" + qos.EntityData.SegmentPath
+    qos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    qos.EntityData.Children = types.NewOrderedMap()
+    qos.EntityData.Children.Append("output", types.YChild{"Output", &qos.Output})
+    qos.EntityData.Children.Append("input", types.YChild{"Input", &qos.Input})
+    qos.EntityData.Leafs = types.NewOrderedMap()
+
+    qos.EntityData.YListKeys = []string {}
+
+    return &(qos.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Output
+// Egress service policy
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Service policy details. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Output_ServicePolicy.
+    ServicePolicy []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Output_ServicePolicy
+}
+
+func (output *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "qos"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/Cisco-IOS-XR-qos-ma-sat-cfg:qos/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", nil})
+    for i := range output.ServicePolicy {
+        output.EntityData.Children.Append(types.GetSegmentPath(output.ServicePolicy[i]), types.YChild{"ServicePolicy", output.ServicePolicy[i]})
+    }
+    output.EntityData.Leafs = types.NewOrderedMap()
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Output_ServicePolicy
+// Service policy details
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Output_ServicePolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Name of policy-map. The type is string with
+    // length: 0..64.
+    ServicePolicyName interface{}
+}
+
+func (servicePolicy *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Output_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "output"
+    servicePolicy.EntityData.SegmentPath = "service-policy" + types.AddKeyToken(servicePolicy.ServicePolicyName, "service-policy-name")
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/Cisco-IOS-XR-qos-ma-sat-cfg:qos/output/" + servicePolicy.EntityData.SegmentPath
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servicePolicy.EntityData.Children = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("service-policy-name", types.YLeaf{"ServicePolicyName", servicePolicy.ServicePolicyName})
+
+    servicePolicy.EntityData.YListKeys = []string {"ServicePolicyName"}
+
+    return &(servicePolicy.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Input
+// Ingress service policy
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Input struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Service policy details. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Input_ServicePolicy.
+    ServicePolicy []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Input_ServicePolicy
+}
+
+func (input *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "qos"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/Cisco-IOS-XR-qos-ma-sat-cfg:qos/" + input.EntityData.SegmentPath
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", nil})
+    for i := range input.ServicePolicy {
+        input.EntityData.Children.Append(types.GetSegmentPath(input.ServicePolicy[i]), types.YChild{"ServicePolicy", input.ServicePolicy[i]})
+    }
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
+    return &(input.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Input_ServicePolicy
+// Service policy details
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Input_ServicePolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Name of policy-map. The type is string with
+    // length: 0..64.
+    ServicePolicyName interface{}
+}
+
+func (servicePolicy *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Qos_Input_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "input"
+    servicePolicy.EntityData.SegmentPath = "service-policy" + types.AddKeyToken(servicePolicy.ServicePolicyName, "service-policy-name")
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/Cisco-IOS-XR-qos-ma-sat-cfg:qos/input/" + servicePolicy.EntityData.SegmentPath
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servicePolicy.EntityData.Children = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("service-policy-name", types.YLeaf{"ServicePolicyName", servicePolicy.ServicePolicyName})
+
+    servicePolicy.EntityData.YListKeys = []string {"ServicePolicyName"}
+
+    return &(servicePolicy.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Redundancy
+// Redundancy submode
+type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Redundancy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Links the satellite fabric to the given ICCP group. The type is interface{}
+    // with range: 0..4294967295.
+    IccpGroup interface{}
+
+    // Mininum number of active links preferred. The type is interface{} with
+    // range: 1..64.
+    MinimumPreferredLinks interface{}
+}
+
+func (redundancy *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Redundancy) GetEntityData() *types.CommonEntityData {
+    redundancy.EntityData.YFilter = redundancy.YFilter
+    redundancy.EntityData.YangName = "redundancy"
+    redundancy.EntityData.BundleName = "cisco_ios_xr"
+    redundancy.EntityData.ParentYangName = "nv-satellite-fabric-network"
+    redundancy.EntityData.SegmentPath = "redundancy"
+    redundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/" + redundancy.EntityData.SegmentPath
+    redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    redundancy.EntityData.Children = types.NewOrderedMap()
+    redundancy.EntityData.Leafs = types.NewOrderedMap()
+    redundancy.EntityData.Leafs.Append("iccp-group", types.YLeaf{"IccpGroup", redundancy.IccpGroup})
+    redundancy.EntityData.Leafs.Append("minimum-preferred-links", types.YLeaf{"MinimumPreferredLinks", redundancy.MinimumPreferredLinks})
+
+    redundancy.EntityData.YListKeys = []string {}
+
+    return &(redundancy.EntityData)
 }
 
 // InterfaceConfigurations_InterfaceConfiguration_Nve
@@ -12264,1021 +13380,6 @@ func (minute15otnReport *InterfaceConfigurations_InterfaceConfiguration_Performa
     return &(minute15otnReport.EntityData)
 }
 
-// InterfaceConfigurations_InterfaceConfiguration_Pbr
-// Interface PBR configuration
-type InterfaceConfigurations_InterfaceConfiguration_Pbr struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Class for subscriber ingress policy. The type is string.
-    ServicePolicyIn interface{}
-
-    // PBR service policy configuration.
-    ServicePolicy InterfaceConfigurations_InterfaceConfiguration_Pbr_ServicePolicy
-}
-
-func (pbr *InterfaceConfigurations_InterfaceConfiguration_Pbr) GetEntityData() *types.CommonEntityData {
-    pbr.EntityData.YFilter = pbr.YFilter
-    pbr.EntityData.YangName = "pbr"
-    pbr.EntityData.BundleName = "cisco_ios_xr"
-    pbr.EntityData.ParentYangName = "interface-configuration"
-    pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-cfg:pbr"
-    pbr.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + pbr.EntityData.SegmentPath
-    pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pbr.EntityData.Children = types.NewOrderedMap()
-    pbr.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", &pbr.ServicePolicy})
-    pbr.EntityData.Leafs = types.NewOrderedMap()
-    pbr.EntityData.Leafs.Append("service-policy-in", types.YLeaf{"ServicePolicyIn", pbr.ServicePolicyIn})
-
-    pbr.EntityData.YListKeys = []string {}
-
-    return &(pbr.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Pbr_ServicePolicy
-// PBR service policy configuration
-type InterfaceConfigurations_InterfaceConfiguration_Pbr_ServicePolicy struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Ingress service policy. The type is string.
-    Input interface{}
-}
-
-func (servicePolicy *InterfaceConfigurations_InterfaceConfiguration_Pbr_ServicePolicy) GetEntityData() *types.CommonEntityData {
-    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
-    servicePolicy.EntityData.YangName = "service-policy"
-    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
-    servicePolicy.EntityData.ParentYangName = "pbr"
-    servicePolicy.EntityData.SegmentPath = "service-policy"
-    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-pbr-cfg:pbr/" + servicePolicy.EntityData.SegmentPath
-    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    servicePolicy.EntityData.Children = types.NewOrderedMap()
-    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
-    servicePolicy.EntityData.Leafs.Append("input", types.YLeaf{"Input", servicePolicy.Input})
-
-    servicePolicy.EntityData.YListKeys = []string {}
-
-    return &(servicePolicy.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_TunnelIp
-// IP over GRE encapsulation
-type InterfaceConfigurations_InterfaceConfiguration_TunnelIp struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable flag bit to allow packets with GRE key. The type is interface{}.
-    AllowKey interface{}
-
-    // Configure the time-to-live for packets sent over this tunnel. The type is
-    // interface{} with range: 1..255.
-    Ttl interface{}
-
-    // Tunnel vrf label name. The type is string with length: 1..32.
-    TunnelVrf interface{}
-
-    // Configure Type of Service bits for this tunnel. The type is interface{}
-    // with range: 0..255.
-    Tos interface{}
-
-    // Disable DF bit (i.e. allow fragmentation). The type is interface{} with
-    // range: 0..4294967295.
-    Disable interface{}
-
-    // Tunnel encapsulation method.
-    Mode InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Mode
-
-    // Configure source of tunnel.
-    Source InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Source
-
-    // Configure the key value for packets sent over this tunnel.
-    Key InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Key
-
-    // Enable keepalive packets on this tunnel.
-    Keepalive InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Keepalive
-
-    // Configure BFD for tunnel.
-    Bfd InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd
-
-    // Configure destination of tunnel.
-    Destination InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Destination
-}
-
-func (tunnelIp *InterfaceConfigurations_InterfaceConfiguration_TunnelIp) GetEntityData() *types.CommonEntityData {
-    tunnelIp.EntityData.YFilter = tunnelIp.YFilter
-    tunnelIp.EntityData.YangName = "tunnel-ip"
-    tunnelIp.EntityData.BundleName = "cisco_ios_xr"
-    tunnelIp.EntityData.ParentYangName = "interface-configuration"
-    tunnelIp.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip"
-    tunnelIp.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + tunnelIp.EntityData.SegmentPath
-    tunnelIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tunnelIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tunnelIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tunnelIp.EntityData.Children = types.NewOrderedMap()
-    tunnelIp.EntityData.Children.Append("mode", types.YChild{"Mode", &tunnelIp.Mode})
-    tunnelIp.EntityData.Children.Append("source", types.YChild{"Source", &tunnelIp.Source})
-    tunnelIp.EntityData.Children.Append("key", types.YChild{"Key", &tunnelIp.Key})
-    tunnelIp.EntityData.Children.Append("keepalive", types.YChild{"Keepalive", &tunnelIp.Keepalive})
-    tunnelIp.EntityData.Children.Append("bfd", types.YChild{"Bfd", &tunnelIp.Bfd})
-    tunnelIp.EntityData.Children.Append("destination", types.YChild{"Destination", &tunnelIp.Destination})
-    tunnelIp.EntityData.Leafs = types.NewOrderedMap()
-    tunnelIp.EntityData.Leafs.Append("allow-key", types.YLeaf{"AllowKey", tunnelIp.AllowKey})
-    tunnelIp.EntityData.Leafs.Append("ttl", types.YLeaf{"Ttl", tunnelIp.Ttl})
-    tunnelIp.EntityData.Leafs.Append("tunnel-vrf", types.YLeaf{"TunnelVrf", tunnelIp.TunnelVrf})
-    tunnelIp.EntityData.Leafs.Append("tos", types.YLeaf{"Tos", tunnelIp.Tos})
-    tunnelIp.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", tunnelIp.Disable})
-
-    tunnelIp.EntityData.YListKeys = []string {}
-
-    return &(tunnelIp.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Mode
-// Tunnel encapsulation method
-type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Mode struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // GRE IPV4 - 1, GRE IPV6 - 2, MGRE IPV4 - 3, MGRE IPV6 -4. IPV4 - 5, IPV6 -
-    // 6. The type is interface{} with range: 0..4294967295.
-    Value interface{}
-
-    // Tunnel Mode Direction. The type is TunnelModeDirection.
-    ModeDirection interface{}
-}
-
-func (mode *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Mode) GetEntityData() *types.CommonEntityData {
-    mode.EntityData.YFilter = mode.YFilter
-    mode.EntityData.YangName = "mode"
-    mode.EntityData.BundleName = "cisco_ios_xr"
-    mode.EntityData.ParentYangName = "tunnel-ip"
-    mode.EntityData.SegmentPath = "mode"
-    mode.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + mode.EntityData.SegmentPath
-    mode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    mode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    mode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    mode.EntityData.Children = types.NewOrderedMap()
-    mode.EntityData.Leafs = types.NewOrderedMap()
-    mode.EntityData.Leafs.Append("value", types.YLeaf{"Value", mode.Value})
-    mode.EntityData.Leafs.Append("mode-direction", types.YLeaf{"ModeDirection", mode.ModeDirection})
-
-    mode.EntityData.YListKeys = []string {}
-
-    return &(mode.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Source
-// Configure source of tunnel
-type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Source struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // 1 for Interface Name, 2 for IPv4 Address, 3 for IPv6 Address. The type is
-    // interface{} with range: 0..4294967295.
-    Type interface{}
-
-    // IPV4 address of the tunnel source. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    Address interface{}
-
-    // Name of tunnel source interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
-    InterfaceName interface{}
-
-    // IPV6 address of the tunnel source. The type is string.
-    Ipv6Address interface{}
-}
-
-func (source *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Source) GetEntityData() *types.CommonEntityData {
-    source.EntityData.YFilter = source.YFilter
-    source.EntityData.YangName = "source"
-    source.EntityData.BundleName = "cisco_ios_xr"
-    source.EntityData.ParentYangName = "tunnel-ip"
-    source.EntityData.SegmentPath = "source"
-    source.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + source.EntityData.SegmentPath
-    source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    source.EntityData.Children = types.NewOrderedMap()
-    source.EntityData.Leafs = types.NewOrderedMap()
-    source.EntityData.Leafs.Append("type", types.YLeaf{"Type", source.Type})
-    source.EntityData.Leafs.Append("address", types.YLeaf{"Address", source.Address})
-    source.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", source.InterfaceName})
-    source.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", source.Ipv6Address})
-
-    source.EntityData.YListKeys = []string {}
-
-    return &(source.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Key
-// Configure the key value for packets sent over
-// this tunnel
-type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Key struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Always set to true. The type is interface{}.
-    Entropy interface{}
-
-    // Enter the KEY value. The type is interface{} with range: 0..4294967295.
-    Value interface{}
-}
-
-func (key *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Key) GetEntityData() *types.CommonEntityData {
-    key.EntityData.YFilter = key.YFilter
-    key.EntityData.YangName = "key"
-    key.EntityData.BundleName = "cisco_ios_xr"
-    key.EntityData.ParentYangName = "tunnel-ip"
-    key.EntityData.SegmentPath = "key"
-    key.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + key.EntityData.SegmentPath
-    key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    key.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    key.EntityData.Children = types.NewOrderedMap()
-    key.EntityData.Leafs = types.NewOrderedMap()
-    key.EntityData.Leafs.Append("entropy", types.YLeaf{"Entropy", key.Entropy})
-    key.EntityData.Leafs.Append("value", types.YLeaf{"Value", key.Value})
-
-    key.EntityData.YListKeys = []string {}
-
-    return &(key.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Keepalive
-// Enable keepalive packets on this tunnel
-type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Keepalive struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Keepalive period in seconds (default 10 seconds). The type is interface{}
-    // with range: 1..32767.
-    KeepAlivePeriod interface{}
-
-    // Number of retries (default 3). The type is interface{} with range: 1..255.
-    KeepAliveRetries interface{}
-}
-
-func (keepalive *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Keepalive) GetEntityData() *types.CommonEntityData {
-    keepalive.EntityData.YFilter = keepalive.YFilter
-    keepalive.EntityData.YangName = "keepalive"
-    keepalive.EntityData.BundleName = "cisco_ios_xr"
-    keepalive.EntityData.ParentYangName = "tunnel-ip"
-    keepalive.EntityData.SegmentPath = "keepalive"
-    keepalive.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + keepalive.EntityData.SegmentPath
-    keepalive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    keepalive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    keepalive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    keepalive.EntityData.Children = types.NewOrderedMap()
-    keepalive.EntityData.Leafs = types.NewOrderedMap()
-    keepalive.EntityData.Leafs.Append("keep-alive-period", types.YLeaf{"KeepAlivePeriod", keepalive.KeepAlivePeriod})
-    keepalive.EntityData.Leafs.Append("keep-alive-retries", types.YLeaf{"KeepAliveRetries", keepalive.KeepAliveRetries})
-
-    keepalive.EntityData.YListKeys = []string {}
-
-    return &(keepalive.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd
-// Configure BFD for tunnel
-type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configure minimum interval for BFD. The type is interface{} with range:
-    // 150..30000.
-    MinimumInterval interface{}
-
-    // Keepalive period in seconds. The type is interface{} with range: 1..32767.
-    KeepalivePeriod interface{}
-
-    // Configure Number of retries for BFD Keepalive. The type is interface{} with
-    // range: 1..255.
-    Retry interface{}
-
-    // Configure BFD multiplier. The type is interface{} with range: 3..50.
-    Multiplier interface{}
-
-    // Configure BFD destination for tunnel.
-    Destination InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd_Destination
-}
-
-func (bfd *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd) GetEntityData() *types.CommonEntityData {
-    bfd.EntityData.YFilter = bfd.YFilter
-    bfd.EntityData.YangName = "bfd"
-    bfd.EntityData.BundleName = "cisco_ios_xr"
-    bfd.EntityData.ParentYangName = "tunnel-ip"
-    bfd.EntityData.SegmentPath = "bfd"
-    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + bfd.EntityData.SegmentPath
-    bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bfd.EntityData.Children = types.NewOrderedMap()
-    bfd.EntityData.Children.Append("destination", types.YChild{"Destination", &bfd.Destination})
-    bfd.EntityData.Leafs = types.NewOrderedMap()
-    bfd.EntityData.Leafs.Append("minimum-interval", types.YLeaf{"MinimumInterval", bfd.MinimumInterval})
-    bfd.EntityData.Leafs.Append("keepalive-period", types.YLeaf{"KeepalivePeriod", bfd.KeepalivePeriod})
-    bfd.EntityData.Leafs.Append("retry", types.YLeaf{"Retry", bfd.Retry})
-    bfd.EntityData.Leafs.Append("multiplier", types.YLeaf{"Multiplier", bfd.Multiplier})
-
-    bfd.EntityData.YListKeys = []string {}
-
-    return &(bfd.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd_Destination
-// Configure BFD destination for tunnel
-type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd_Destination struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // 1 for IPv4 Address, 2 for IPv6 Address. The type is interface{} with range:
-    // 0..4294967295.
-    Type interface{}
-
-    // IPV4 address of the BFD destination. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    Address interface{}
-
-    // IPV6 address of the BFD destination. The type is string.
-    Ipv6Address interface{}
-}
-
-func (destination *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd_Destination) GetEntityData() *types.CommonEntityData {
-    destination.EntityData.YFilter = destination.YFilter
-    destination.EntityData.YangName = "destination"
-    destination.EntityData.BundleName = "cisco_ios_xr"
-    destination.EntityData.ParentYangName = "bfd"
-    destination.EntityData.SegmentPath = "destination"
-    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/bfd/" + destination.EntityData.SegmentPath
-    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    destination.EntityData.Children = types.NewOrderedMap()
-    destination.EntityData.Leafs = types.NewOrderedMap()
-    destination.EntityData.Leafs.Append("type", types.YLeaf{"Type", destination.Type})
-    destination.EntityData.Leafs.Append("address", types.YLeaf{"Address", destination.Address})
-    destination.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", destination.Ipv6Address})
-
-    destination.EntityData.YListKeys = []string {}
-
-    return &(destination.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Destination
-// Configure destination of tunnel
-type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Destination struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // 1 for IPv4 Address, 2 for IPv6 Address. The type is interface{} with range:
-    // 0..4294967295.
-    Type interface{}
-
-    // IPV4 address of the tunnel destination. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    Address interface{}
-
-    // IPV6 address of the tunnel destination. The type is string.
-    Ipv6Address interface{}
-
-    // IPv4 prefix length of the tunnel destination. The type is string with
-    // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    AddressMask interface{}
-
-    // Prefix-list to validate destination's resolving prefix. The type is string
-    // with length: 1..64.
-    PrefixListName interface{}
-}
-
-func (destination *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Destination) GetEntityData() *types.CommonEntityData {
-    destination.EntityData.YFilter = destination.YFilter
-    destination.EntityData.YangName = "destination"
-    destination.EntityData.BundleName = "cisco_ios_xr"
-    destination.EntityData.ParentYangName = "tunnel-ip"
-    destination.EntityData.SegmentPath = "destination"
-    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + destination.EntityData.SegmentPath
-    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    destination.EntityData.Children = types.NewOrderedMap()
-    destination.EntityData.Leafs = types.NewOrderedMap()
-    destination.EntityData.Leafs.Append("type", types.YLeaf{"Type", destination.Type})
-    destination.EntityData.Leafs.Append("address", types.YLeaf{"Address", destination.Address})
-    destination.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", destination.Ipv6Address})
-    destination.EntityData.Leafs.Append("address-mask", types.YLeaf{"AddressMask", destination.AddressMask})
-    destination.EntityData.Leafs.Append("prefix-list-name", types.YLeaf{"PrefixListName", destination.PrefixListName})
-
-    destination.EntityData.YListKeys = []string {}
-
-    return &(destination.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Optics
-// Optics controller configuration
-type InterfaceConfigurations_InterfaceConfiguration_Optics struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Select power level (in units of 0.1dBm). The type is interface{} with
-    // range: -190..20.
-    OpticsTransmitPower interface{}
-
-    // Configure max delta among all measured channel powers . The type is
-    // interface{} with range: -500..300.
-    OpticsOtsChannelPowerMaxDelta interface{}
-
-    // Configure optics loopback mode . The type is OpticsLoopback. The default
-    // value is none.
-    OpticsLoopback interface{}
-
-    // Configure Optical safety remote interlock (OSRI). The type is bool.
-    OpticsOtsOsri interface{}
-
-    // Select Amplifier Gain Degrade High Threshold(in units of 0.1dBm). The type
-    // is interface{} with range: 0..500.
-    OpticsOtsAmplifierGainDegradeHighThreshold interface{}
-
-    // Select RX Voa Attenuation Setpoint(in units of 0.1dBm). The type is
-    // interface{} with range: 0..200.
-    OpticsOtsRxVoaAttenuation interface{}
-
-    // Configure optics fec . The type is OpticsFec. The default value is
-    // fec-none.
-    OpticsFec interface{}
-
-    // Select DGD high threshold(in units of 0.1ps). The type is interface{} with
-    // range: 0..18000.
-    OpticsDgdHighThreshold interface{}
-
-    // Select Amplifier Channel Power(in units of 0 .1dBm). The type is
-    // interface{} with range: -500..300.
-    OpticsOtsAmplifierChannelPower interface{}
-
-    // Configure amplifier working mode. The type is OpticsOtsAmpliControlMode.
-    OpticsOtsAmplifierControlMode interface{}
-
-    // Select Amplifier Gain value(in units of 0.1dBm). The type is interface{}
-    // with range: 0..500.
-    OpticsOtsAmplifierGain interface{}
-
-    // Normal or extended Ampli Gain Range. The type is OpticsOtsAmpliGainRange.
-    OpticsOtsAmplifierGainRange interface{}
-
-    // Configure safety Control Mode. The type is OpticsOtsSafetyControlMode.
-    OpticsOtsSafetyControlMode interface{}
-
-    // Select min chromatic dispersion (in units of ps/nm). The type is
-    // interface{} with range: -280000..280000.
-    OpticsCdMin interface{}
-
-    // Select TX Voa Attenuation Setpoint(in units of 0.1dBm). The type is
-    // interface{} with range: 0..200.
-    OpticsOtsTxVoaAttenuation interface{}
-
-    // Select Amplifier Tilt value(in units of 0.1dB). The type is interface{}
-    // with range: -50..50.
-    OpticsOtsAmplifierTilt interface{}
-
-    // Configure optics transmit laser shutdown . The type is bool.
-    OpticsTransmitShutdown interface{}
-
-    // BaudRate(Max Length 10). The type is string with length: 1..20.
-    OpticsBaudRate interface{}
-
-    // Select Performance Monitoring as Enable or Disable. The type is bool. The
-    // default value is true.
-    OpticsPerformanceMonitoring interface{}
-
-    // Select max chromatic dispersion (in units of ps/nm). The type is
-    // interface{} with range: -280000..280000.
-    OpticsCdMax interface{}
-
-    // BitsPerSymbol(Max Length 9). The type is string with length: 1..20.
-    OpticsBitsPerSymbol interface{}
-
-    // Select power level (in units of percentage). The type is interface{} with
-    // range: 0..100.
-    OpticsLbcHighThreshold interface{}
-
-    // Select chromatic dispersion high threshold(in units of ps/nm). The type is
-    // interface{} with range: -280000..280000.
-    OpticsCdHighThreshold interface{}
-
-    // Select OSNR low threshold(in units of 0.01db). The type is interface{} with
-    // range: 0..4000.
-    OpticsOsnrLowThreshold interface{}
-
-    // Select Amplifier Gain Degrade Low Threshold(in units of 0.1dBm). The type
-    // is interface{} with range: 0..500.
-    OpticsOtsAmplifierGainDegradeLowThreshold interface{}
-
-    // Select chromatic dispersion low threshold(in units of ps/nm). The type is
-    // interface{} with range: -280000..280000.
-    OpticsCdLowThreshold interface{}
-
-    // breakout mode configuration. The type is string with pattern:
-    // (4x10)|(4x25).
-    Breakout interface{}
-
-    // Configure Rx threshold.
-    RxThresholds InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds
-
-    // Configure Network srlgs.
-    OpticsNetworkSrlgs InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs
-
-    // Configure optics DWDM Carrier.
-    OpticsDwdmCarrier InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsDwdmCarrier
-
-    // Optics lanes.
-    OpticsLanes InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes
-
-    // Configure Tx threshold.
-    TxThresholds InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds
-}
-
-func (optics *InterfaceConfigurations_InterfaceConfiguration_Optics) GetEntityData() *types.CommonEntityData {
-    optics.EntityData.YFilter = optics.YFilter
-    optics.EntityData.YangName = "optics"
-    optics.EntityData.BundleName = "cisco_ios_xr"
-    optics.EntityData.ParentYangName = "interface-configuration"
-    optics.EntityData.SegmentPath = "Cisco-IOS-XR-controller-optics-cfg:optics"
-    optics.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + optics.EntityData.SegmentPath
-    optics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    optics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    optics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    optics.EntityData.Children = types.NewOrderedMap()
-    optics.EntityData.Children.Append("rx-thresholds", types.YChild{"RxThresholds", &optics.RxThresholds})
-    optics.EntityData.Children.Append("optics-network-srlgs", types.YChild{"OpticsNetworkSrlgs", &optics.OpticsNetworkSrlgs})
-    optics.EntityData.Children.Append("optics-dwdm-carrier", types.YChild{"OpticsDwdmCarrier", &optics.OpticsDwdmCarrier})
-    optics.EntityData.Children.Append("optics-lanes", types.YChild{"OpticsLanes", &optics.OpticsLanes})
-    optics.EntityData.Children.Append("tx-thresholds", types.YChild{"TxThresholds", &optics.TxThresholds})
-    optics.EntityData.Leafs = types.NewOrderedMap()
-    optics.EntityData.Leafs.Append("optics-transmit-power", types.YLeaf{"OpticsTransmitPower", optics.OpticsTransmitPower})
-    optics.EntityData.Leafs.Append("optics-ots-channel-power-max-delta", types.YLeaf{"OpticsOtsChannelPowerMaxDelta", optics.OpticsOtsChannelPowerMaxDelta})
-    optics.EntityData.Leafs.Append("optics-loopback", types.YLeaf{"OpticsLoopback", optics.OpticsLoopback})
-    optics.EntityData.Leafs.Append("optics-ots-osri", types.YLeaf{"OpticsOtsOsri", optics.OpticsOtsOsri})
-    optics.EntityData.Leafs.Append("optics-ots-amplifier-gain-degrade-high-threshold", types.YLeaf{"OpticsOtsAmplifierGainDegradeHighThreshold", optics.OpticsOtsAmplifierGainDegradeHighThreshold})
-    optics.EntityData.Leafs.Append("optics-ots-rx-voa-attenuation", types.YLeaf{"OpticsOtsRxVoaAttenuation", optics.OpticsOtsRxVoaAttenuation})
-    optics.EntityData.Leafs.Append("optics-fec", types.YLeaf{"OpticsFec", optics.OpticsFec})
-    optics.EntityData.Leafs.Append("optics-dgd-high-threshold", types.YLeaf{"OpticsDgdHighThreshold", optics.OpticsDgdHighThreshold})
-    optics.EntityData.Leafs.Append("optics-ots-amplifier-channel-power", types.YLeaf{"OpticsOtsAmplifierChannelPower", optics.OpticsOtsAmplifierChannelPower})
-    optics.EntityData.Leafs.Append("optics-ots-amplifier-control-mode", types.YLeaf{"OpticsOtsAmplifierControlMode", optics.OpticsOtsAmplifierControlMode})
-    optics.EntityData.Leafs.Append("optics-ots-amplifier-gain", types.YLeaf{"OpticsOtsAmplifierGain", optics.OpticsOtsAmplifierGain})
-    optics.EntityData.Leafs.Append("optics-ots-amplifier-gain-range", types.YLeaf{"OpticsOtsAmplifierGainRange", optics.OpticsOtsAmplifierGainRange})
-    optics.EntityData.Leafs.Append("optics-ots-safety-control-mode", types.YLeaf{"OpticsOtsSafetyControlMode", optics.OpticsOtsSafetyControlMode})
-    optics.EntityData.Leafs.Append("optics-cd-min", types.YLeaf{"OpticsCdMin", optics.OpticsCdMin})
-    optics.EntityData.Leafs.Append("optics-ots-tx-voa-attenuation", types.YLeaf{"OpticsOtsTxVoaAttenuation", optics.OpticsOtsTxVoaAttenuation})
-    optics.EntityData.Leafs.Append("optics-ots-amplifier-tilt", types.YLeaf{"OpticsOtsAmplifierTilt", optics.OpticsOtsAmplifierTilt})
-    optics.EntityData.Leafs.Append("optics-transmit-shutdown", types.YLeaf{"OpticsTransmitShutdown", optics.OpticsTransmitShutdown})
-    optics.EntityData.Leafs.Append("optics-baud-rate", types.YLeaf{"OpticsBaudRate", optics.OpticsBaudRate})
-    optics.EntityData.Leafs.Append("optics-performance-monitoring", types.YLeaf{"OpticsPerformanceMonitoring", optics.OpticsPerformanceMonitoring})
-    optics.EntityData.Leafs.Append("optics-cd-max", types.YLeaf{"OpticsCdMax", optics.OpticsCdMax})
-    optics.EntityData.Leafs.Append("optics-bits-per-symbol", types.YLeaf{"OpticsBitsPerSymbol", optics.OpticsBitsPerSymbol})
-    optics.EntityData.Leafs.Append("optics-lbc-high-threshold", types.YLeaf{"OpticsLbcHighThreshold", optics.OpticsLbcHighThreshold})
-    optics.EntityData.Leafs.Append("optics-cd-high-threshold", types.YLeaf{"OpticsCdHighThreshold", optics.OpticsCdHighThreshold})
-    optics.EntityData.Leafs.Append("optics-osnr-low-threshold", types.YLeaf{"OpticsOsnrLowThreshold", optics.OpticsOsnrLowThreshold})
-    optics.EntityData.Leafs.Append("optics-ots-amplifier-gain-degrade-low-threshold", types.YLeaf{"OpticsOtsAmplifierGainDegradeLowThreshold", optics.OpticsOtsAmplifierGainDegradeLowThreshold})
-    optics.EntityData.Leafs.Append("optics-cd-low-threshold", types.YLeaf{"OpticsCdLowThreshold", optics.OpticsCdLowThreshold})
-    optics.EntityData.Leafs.Append("breakout", types.YLeaf{"Breakout", optics.Breakout})
-
-    optics.EntityData.YListKeys = []string {}
-
-    return &(optics.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds
-// Configure Rx threshold
-type InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Optics RX Low or high threshold configuration. The type is slice of
-    // InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds_RxThreshold.
-    RxThreshold []*InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds_RxThreshold
-}
-
-func (rxThresholds *InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds) GetEntityData() *types.CommonEntityData {
-    rxThresholds.EntityData.YFilter = rxThresholds.YFilter
-    rxThresholds.EntityData.YangName = "rx-thresholds"
-    rxThresholds.EntityData.BundleName = "cisco_ios_xr"
-    rxThresholds.EntityData.ParentYangName = "optics"
-    rxThresholds.EntityData.SegmentPath = "rx-thresholds"
-    rxThresholds.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/" + rxThresholds.EntityData.SegmentPath
-    rxThresholds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rxThresholds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rxThresholds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    rxThresholds.EntityData.Children = types.NewOrderedMap()
-    rxThresholds.EntityData.Children.Append("rx-threshold", types.YChild{"RxThreshold", nil})
-    for i := range rxThresholds.RxThreshold {
-        rxThresholds.EntityData.Children.Append(types.GetSegmentPath(rxThresholds.RxThreshold[i]), types.YChild{"RxThreshold", rxThresholds.RxThreshold[i]})
-    }
-    rxThresholds.EntityData.Leafs = types.NewOrderedMap()
-
-    rxThresholds.EntityData.YListKeys = []string {}
-
-    return &(rxThresholds.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds_RxThreshold
-// Optics RX Low or high threshold configuration
-type InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds_RxThreshold struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Low or high rx threshold. The type is Threshold.
-    RxThresholdType interface{}
-
-    // Select power level (in units of 0.1dBm). The type is interface{} with
-    // range: -400..300. This attribute is mandatory.
-    RxThreshold interface{}
-}
-
-func (rxThreshold *InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds_RxThreshold) GetEntityData() *types.CommonEntityData {
-    rxThreshold.EntityData.YFilter = rxThreshold.YFilter
-    rxThreshold.EntityData.YangName = "rx-threshold"
-    rxThreshold.EntityData.BundleName = "cisco_ios_xr"
-    rxThreshold.EntityData.ParentYangName = "rx-thresholds"
-    rxThreshold.EntityData.SegmentPath = "rx-threshold" + types.AddKeyToken(rxThreshold.RxThresholdType, "rx-threshold-type")
-    rxThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/rx-thresholds/" + rxThreshold.EntityData.SegmentPath
-    rxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    rxThreshold.EntityData.Children = types.NewOrderedMap()
-    rxThreshold.EntityData.Leafs = types.NewOrderedMap()
-    rxThreshold.EntityData.Leafs.Append("rx-threshold-type", types.YLeaf{"RxThresholdType", rxThreshold.RxThresholdType})
-    rxThreshold.EntityData.Leafs.Append("rx-threshold", types.YLeaf{"RxThreshold", rxThreshold.RxThreshold})
-
-    rxThreshold.EntityData.YListKeys = []string {"RxThresholdType"}
-
-    return &(rxThreshold.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs
-// Configure Network srlgs
-type InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configure network srlg sets. The type is slice of
-    // InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs_OpticsNetworkSrlg.
-    OpticsNetworkSrlg []*InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs_OpticsNetworkSrlg
-}
-
-func (opticsNetworkSrlgs *InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs) GetEntityData() *types.CommonEntityData {
-    opticsNetworkSrlgs.EntityData.YFilter = opticsNetworkSrlgs.YFilter
-    opticsNetworkSrlgs.EntityData.YangName = "optics-network-srlgs"
-    opticsNetworkSrlgs.EntityData.BundleName = "cisco_ios_xr"
-    opticsNetworkSrlgs.EntityData.ParentYangName = "optics"
-    opticsNetworkSrlgs.EntityData.SegmentPath = "optics-network-srlgs"
-    opticsNetworkSrlgs.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/" + opticsNetworkSrlgs.EntityData.SegmentPath
-    opticsNetworkSrlgs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    opticsNetworkSrlgs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    opticsNetworkSrlgs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    opticsNetworkSrlgs.EntityData.Children = types.NewOrderedMap()
-    opticsNetworkSrlgs.EntityData.Children.Append("optics-network-srlg", types.YChild{"OpticsNetworkSrlg", nil})
-    for i := range opticsNetworkSrlgs.OpticsNetworkSrlg {
-        opticsNetworkSrlgs.EntityData.Children.Append(types.GetSegmentPath(opticsNetworkSrlgs.OpticsNetworkSrlg[i]), types.YChild{"OpticsNetworkSrlg", opticsNetworkSrlgs.OpticsNetworkSrlg[i]})
-    }
-    opticsNetworkSrlgs.EntityData.Leafs = types.NewOrderedMap()
-
-    opticsNetworkSrlgs.EntityData.YListKeys = []string {}
-
-    return &(opticsNetworkSrlgs.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs_OpticsNetworkSrlg
-// Configure network srlg sets
-type InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs_OpticsNetworkSrlg struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Set index. The type is interface{} with range:
-    // 1..17.
-    SetId interface{}
-
-    // none. The type is interface{} with range: 0..4294967294.
-    Srlg1 interface{}
-
-    // none. The type is interface{} with range: 0..4294967294.
-    Srlg2 interface{}
-
-    // none. The type is interface{} with range: 0..4294967294.
-    Srlg3 interface{}
-
-    // none. The type is interface{} with range: 0..4294967294.
-    Srlg4 interface{}
-
-    // none. The type is interface{} with range: 0..4294967294.
-    Srlg5 interface{}
-
-    // none. The type is interface{} with range: 0..4294967294.
-    Srlg6 interface{}
-}
-
-func (opticsNetworkSrlg *InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs_OpticsNetworkSrlg) GetEntityData() *types.CommonEntityData {
-    opticsNetworkSrlg.EntityData.YFilter = opticsNetworkSrlg.YFilter
-    opticsNetworkSrlg.EntityData.YangName = "optics-network-srlg"
-    opticsNetworkSrlg.EntityData.BundleName = "cisco_ios_xr"
-    opticsNetworkSrlg.EntityData.ParentYangName = "optics-network-srlgs"
-    opticsNetworkSrlg.EntityData.SegmentPath = "optics-network-srlg" + types.AddKeyToken(opticsNetworkSrlg.SetId, "set-id")
-    opticsNetworkSrlg.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/optics-network-srlgs/" + opticsNetworkSrlg.EntityData.SegmentPath
-    opticsNetworkSrlg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    opticsNetworkSrlg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    opticsNetworkSrlg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    opticsNetworkSrlg.EntityData.Children = types.NewOrderedMap()
-    opticsNetworkSrlg.EntityData.Leafs = types.NewOrderedMap()
-    opticsNetworkSrlg.EntityData.Leafs.Append("set-id", types.YLeaf{"SetId", opticsNetworkSrlg.SetId})
-    opticsNetworkSrlg.EntityData.Leafs.Append("srlg1", types.YLeaf{"Srlg1", opticsNetworkSrlg.Srlg1})
-    opticsNetworkSrlg.EntityData.Leafs.Append("srlg2", types.YLeaf{"Srlg2", opticsNetworkSrlg.Srlg2})
-    opticsNetworkSrlg.EntityData.Leafs.Append("srlg3", types.YLeaf{"Srlg3", opticsNetworkSrlg.Srlg3})
-    opticsNetworkSrlg.EntityData.Leafs.Append("srlg4", types.YLeaf{"Srlg4", opticsNetworkSrlg.Srlg4})
-    opticsNetworkSrlg.EntityData.Leafs.Append("srlg5", types.YLeaf{"Srlg5", opticsNetworkSrlg.Srlg5})
-    opticsNetworkSrlg.EntityData.Leafs.Append("srlg6", types.YLeaf{"Srlg6", opticsNetworkSrlg.Srlg6})
-
-    opticsNetworkSrlg.EntityData.YListKeys = []string {"SetId"}
-
-    return &(opticsNetworkSrlg.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsDwdmCarrier
-// Configure optics DWDM Carrier
-// This type is a presence type.
-type InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsDwdmCarrier struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // DWDM Channel Grid Type. The type is OpticsDwdmCarrierGrid. This attribute
-    // is mandatory.
-    GridType interface{}
-
-    // DWDM Channel Parameter Type ITU-Channel or Frequency or Wavelength. The
-    // type is OpticsDwdmCarrierParam. This attribute is mandatory.
-    ParamType interface{}
-
-    // Type ITU-Channel Range 1-100, Frequency Range 19115-19610, Wavelength Range
-    // 1528773-1568362, 100MHz Frequency Range 1911500-1961000. The type is
-    // interface{} with range: 1..1961000. This attribute is mandatory.
-    ParamValue interface{}
-}
-
-func (opticsDwdmCarrier *InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsDwdmCarrier) GetEntityData() *types.CommonEntityData {
-    opticsDwdmCarrier.EntityData.YFilter = opticsDwdmCarrier.YFilter
-    opticsDwdmCarrier.EntityData.YangName = "optics-dwdm-carrier"
-    opticsDwdmCarrier.EntityData.BundleName = "cisco_ios_xr"
-    opticsDwdmCarrier.EntityData.ParentYangName = "optics"
-    opticsDwdmCarrier.EntityData.SegmentPath = "optics-dwdm-carrier"
-    opticsDwdmCarrier.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/" + opticsDwdmCarrier.EntityData.SegmentPath
-    opticsDwdmCarrier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    opticsDwdmCarrier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    opticsDwdmCarrier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    opticsDwdmCarrier.EntityData.Children = types.NewOrderedMap()
-    opticsDwdmCarrier.EntityData.Leafs = types.NewOrderedMap()
-    opticsDwdmCarrier.EntityData.Leafs.Append("grid-type", types.YLeaf{"GridType", opticsDwdmCarrier.GridType})
-    opticsDwdmCarrier.EntityData.Leafs.Append("param-type", types.YLeaf{"ParamType", opticsDwdmCarrier.ParamType})
-    opticsDwdmCarrier.EntityData.Leafs.Append("param-value", types.YLeaf{"ParamValue", opticsDwdmCarrier.ParamValue})
-
-    opticsDwdmCarrier.EntityData.YListKeys = []string {}
-
-    return &(opticsDwdmCarrier.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes
-// Optics lanes
-type InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Lane. The type is slice of
-    // InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes_OpticsLane.
-    OpticsLane []*InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes_OpticsLane
-}
-
-func (opticsLanes *InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes) GetEntityData() *types.CommonEntityData {
-    opticsLanes.EntityData.YFilter = opticsLanes.YFilter
-    opticsLanes.EntityData.YangName = "optics-lanes"
-    opticsLanes.EntityData.BundleName = "cisco_ios_xr"
-    opticsLanes.EntityData.ParentYangName = "optics"
-    opticsLanes.EntityData.SegmentPath = "optics-lanes"
-    opticsLanes.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/" + opticsLanes.EntityData.SegmentPath
-    opticsLanes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    opticsLanes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    opticsLanes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    opticsLanes.EntityData.Children = types.NewOrderedMap()
-    opticsLanes.EntityData.Children.Append("optics-lane", types.YChild{"OpticsLane", nil})
-    for i := range opticsLanes.OpticsLane {
-        opticsLanes.EntityData.Children.Append(types.GetSegmentPath(opticsLanes.OpticsLane[i]), types.YChild{"OpticsLane", opticsLanes.OpticsLane[i]})
-    }
-    opticsLanes.EntityData.Leafs = types.NewOrderedMap()
-
-    opticsLanes.EntityData.YListKeys = []string {}
-
-    return &(opticsLanes.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes_OpticsLane
-// Lane
-type InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes_OpticsLane struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Lane Number. The type is interface{} with range:
-    // 0..4294967295.
-    Index interface{}
-
-    // Configure description for this Lane. The type is string with length:
-    // 1..255.
-    Description interface{}
-}
-
-func (opticsLane *InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes_OpticsLane) GetEntityData() *types.CommonEntityData {
-    opticsLane.EntityData.YFilter = opticsLane.YFilter
-    opticsLane.EntityData.YangName = "optics-lane"
-    opticsLane.EntityData.BundleName = "cisco_ios_xr"
-    opticsLane.EntityData.ParentYangName = "optics-lanes"
-    opticsLane.EntityData.SegmentPath = "optics-lane" + types.AddKeyToken(opticsLane.Index, "index")
-    opticsLane.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/optics-lanes/" + opticsLane.EntityData.SegmentPath
-    opticsLane.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    opticsLane.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    opticsLane.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    opticsLane.EntityData.Children = types.NewOrderedMap()
-    opticsLane.EntityData.Leafs = types.NewOrderedMap()
-    opticsLane.EntityData.Leafs.Append("index", types.YLeaf{"Index", opticsLane.Index})
-    opticsLane.EntityData.Leafs.Append("description", types.YLeaf{"Description", opticsLane.Description})
-
-    opticsLane.EntityData.YListKeys = []string {"Index"}
-
-    return &(opticsLane.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds
-// Configure Tx threshold
-type InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Optics TX Low or high threshold configuration. The type is slice of
-    // InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds_TxThreshold.
-    TxThreshold []*InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds_TxThreshold
-}
-
-func (txThresholds *InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds) GetEntityData() *types.CommonEntityData {
-    txThresholds.EntityData.YFilter = txThresholds.YFilter
-    txThresholds.EntityData.YangName = "tx-thresholds"
-    txThresholds.EntityData.BundleName = "cisco_ios_xr"
-    txThresholds.EntityData.ParentYangName = "optics"
-    txThresholds.EntityData.SegmentPath = "tx-thresholds"
-    txThresholds.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/" + txThresholds.EntityData.SegmentPath
-    txThresholds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    txThresholds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    txThresholds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    txThresholds.EntityData.Children = types.NewOrderedMap()
-    txThresholds.EntityData.Children.Append("tx-threshold", types.YChild{"TxThreshold", nil})
-    for i := range txThresholds.TxThreshold {
-        txThresholds.EntityData.Children.Append(types.GetSegmentPath(txThresholds.TxThreshold[i]), types.YChild{"TxThreshold", txThresholds.TxThreshold[i]})
-    }
-    txThresholds.EntityData.Leafs = types.NewOrderedMap()
-
-    txThresholds.EntityData.YListKeys = []string {}
-
-    return &(txThresholds.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds_TxThreshold
-// Optics TX Low or high threshold configuration
-type InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds_TxThreshold struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Low or high tx threshold. The type is Threshold.
-    TxThresholdType interface{}
-
-    // Select power level (in units of 0.1dBm). The type is interface{} with
-    // range: -400..300. This attribute is mandatory.
-    TxThreshold interface{}
-}
-
-func (txThreshold *InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds_TxThreshold) GetEntityData() *types.CommonEntityData {
-    txThreshold.EntityData.YFilter = txThreshold.YFilter
-    txThreshold.EntityData.YangName = "tx-threshold"
-    txThreshold.EntityData.BundleName = "cisco_ios_xr"
-    txThreshold.EntityData.ParentYangName = "tx-thresholds"
-    txThreshold.EntityData.SegmentPath = "tx-threshold" + types.AddKeyToken(txThreshold.TxThresholdType, "tx-threshold-type")
-    txThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/tx-thresholds/" + txThreshold.EntityData.SegmentPath
-    txThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    txThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    txThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    txThreshold.EntityData.Children = types.NewOrderedMap()
-    txThreshold.EntityData.Leafs = types.NewOrderedMap()
-    txThreshold.EntityData.Leafs.Append("tx-threshold-type", types.YLeaf{"TxThresholdType", txThreshold.TxThresholdType})
-    txThreshold.EntityData.Leafs.Append("tx-threshold", types.YLeaf{"TxThreshold", txThreshold.TxThreshold})
-
-    txThreshold.EntityData.YListKeys = []string {"TxThresholdType"}
-
-    return &(txThreshold.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Loopbacks
-// Configure Extended loopback (diagnostics)
-type InterfaceConfigurations_InterfaceConfiguration_Loopbacks struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configure extended loopback mode. The type is slice of
-    // InterfaceConfigurations_InterfaceConfiguration_Loopbacks_Loopback.
-    Loopback []*InterfaceConfigurations_InterfaceConfiguration_Loopbacks_Loopback
-}
-
-func (loopbacks *InterfaceConfigurations_InterfaceConfiguration_Loopbacks) GetEntityData() *types.CommonEntityData {
-    loopbacks.EntityData.YFilter = loopbacks.YFilter
-    loopbacks.EntityData.YangName = "loopbacks"
-    loopbacks.EntityData.BundleName = "cisco_ios_xr"
-    loopbacks.EntityData.ParentYangName = "interface-configuration"
-    loopbacks.EntityData.SegmentPath = "Cisco-IOS-XR-drivers-icpe-ethernet-cfg:loopbacks"
-    loopbacks.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + loopbacks.EntityData.SegmentPath
-    loopbacks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    loopbacks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    loopbacks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    loopbacks.EntityData.Children = types.NewOrderedMap()
-    loopbacks.EntityData.Children.Append("loopback", types.YChild{"Loopback", nil})
-    for i := range loopbacks.Loopback {
-        loopbacks.EntityData.Children.Append(types.GetSegmentPath(loopbacks.Loopback[i]), types.YChild{"Loopback", loopbacks.Loopback[i]})
-    }
-    loopbacks.EntityData.Leafs = types.NewOrderedMap()
-
-    loopbacks.EntityData.YListKeys = []string {}
-
-    return &(loopbacks.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_Loopbacks_Loopback
-// Configure extended loopback mode
-type InterfaceConfigurations_InterfaceConfiguration_Loopbacks_Loopback struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Level. The type is interface{} with range: 1..3.
-    Level interface{}
-
-    // Loopback. The type is ExtendedEthernetLoopback. This attribute is
-    // mandatory.
-    Loopback interface{}
-}
-
-func (loopback *InterfaceConfigurations_InterfaceConfiguration_Loopbacks_Loopback) GetEntityData() *types.CommonEntityData {
-    loopback.EntityData.YFilter = loopback.YFilter
-    loopback.EntityData.YangName = "loopback"
-    loopback.EntityData.BundleName = "cisco_ios_xr"
-    loopback.EntityData.ParentYangName = "loopbacks"
-    loopback.EntityData.SegmentPath = "loopback" + types.AddKeyToken(loopback.Level, "level")
-    loopback.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-drivers-icpe-ethernet-cfg:loopbacks/" + loopback.EntityData.SegmentPath
-    loopback.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    loopback.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    loopback.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    loopback.EntityData.Children = types.NewOrderedMap()
-    loopback.EntityData.Leafs = types.NewOrderedMap()
-    loopback.EntityData.Leafs.Append("level", types.YLeaf{"Level", loopback.Level})
-    loopback.EntityData.Leafs.Append("loopback", types.YLeaf{"Loopback", loopback.Loopback})
-
-    loopback.EntityData.YListKeys = []string {"Level"}
-
-    return &(loopback.EntityData)
-}
-
 // InterfaceConfigurations_InterfaceConfiguration_Ptp
 // Precision Time Protocol interface configuration
 type InterfaceConfigurations_InterfaceConfiguration_Ptp struct {
@@ -14373,6 +14474,1123 @@ func (delayRequestMinimumInterval *InterfaceConfigurations_InterfaceConfiguratio
     delayRequestMinimumInterval.EntityData.YListKeys = []string {}
 
     return &(delayRequestMinimumInterval.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_EthernetControl
+// EthernetControl
+type InterfaceConfigurations_InterfaceConfiguration_EthernetControl struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the transport mode on an interface. The type is EtherCtrlTransportMode.
+    TransportMode interface{}
+
+    // Enable small frame padding on an interface. The type is interface{}.
+    SmallFramePadding interface{}
+
+    // Transceiver.
+    Transceiver InterfaceConfigurations_InterfaceConfiguration_EthernetControl_Transceiver
+}
+
+func (ethernetControl *InterfaceConfigurations_InterfaceConfiguration_EthernetControl) GetEntityData() *types.CommonEntityData {
+    ethernetControl.EntityData.YFilter = ethernetControl.YFilter
+    ethernetControl.EntityData.YangName = "ethernet-control"
+    ethernetControl.EntityData.BundleName = "cisco_ios_xr"
+    ethernetControl.EntityData.ParentYangName = "interface-configuration"
+    ethernetControl.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-lc-ethctrl-cfg:ethernet-control"
+    ethernetControl.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + ethernetControl.EntityData.SegmentPath
+    ethernetControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ethernetControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ethernetControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ethernetControl.EntityData.Children = types.NewOrderedMap()
+    ethernetControl.EntityData.Children.Append("transceiver", types.YChild{"Transceiver", &ethernetControl.Transceiver})
+    ethernetControl.EntityData.Leafs = types.NewOrderedMap()
+    ethernetControl.EntityData.Leafs.Append("transport-mode", types.YLeaf{"TransportMode", ethernetControl.TransportMode})
+    ethernetControl.EntityData.Leafs.Append("small-frame-padding", types.YLeaf{"SmallFramePadding", ethernetControl.SmallFramePadding})
+
+    ethernetControl.EntityData.YListKeys = []string {}
+
+    return &(ethernetControl.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_EthernetControl_Transceiver
+// Transceiver
+type InterfaceConfigurations_InterfaceConfiguration_EthernetControl_Transceiver struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Permit.
+    Permit InterfaceConfigurations_InterfaceConfiguration_EthernetControl_Transceiver_Permit
+}
+
+func (transceiver *InterfaceConfigurations_InterfaceConfiguration_EthernetControl_Transceiver) GetEntityData() *types.CommonEntityData {
+    transceiver.EntityData.YFilter = transceiver.YFilter
+    transceiver.EntityData.YangName = "transceiver"
+    transceiver.EntityData.BundleName = "cisco_ios_xr"
+    transceiver.EntityData.ParentYangName = "ethernet-control"
+    transceiver.EntityData.SegmentPath = "transceiver"
+    transceiver.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-asr9k-lc-ethctrl-cfg:ethernet-control/" + transceiver.EntityData.SegmentPath
+    transceiver.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transceiver.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transceiver.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    transceiver.EntityData.Children = types.NewOrderedMap()
+    transceiver.EntityData.Children.Append("permit", types.YChild{"Permit", &transceiver.Permit})
+    transceiver.EntityData.Leafs = types.NewOrderedMap()
+
+    transceiver.EntityData.YListKeys = []string {}
+
+    return &(transceiver.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_EthernetControl_Transceiver_Permit
+// Permit
+type InterfaceConfigurations_InterfaceConfiguration_EthernetControl_Transceiver_Permit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Permit pluggable type all. The type is PermitPluggable.
+    Type interface{}
+
+    // Permit pluggable PID (Product ID) all. The type is PermitPluggablePid.
+    Pid interface{}
+}
+
+func (permit *InterfaceConfigurations_InterfaceConfiguration_EthernetControl_Transceiver_Permit) GetEntityData() *types.CommonEntityData {
+    permit.EntityData.YFilter = permit.YFilter
+    permit.EntityData.YangName = "permit"
+    permit.EntityData.BundleName = "cisco_ios_xr"
+    permit.EntityData.ParentYangName = "transceiver"
+    permit.EntityData.SegmentPath = "permit"
+    permit.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-asr9k-lc-ethctrl-cfg:ethernet-control/transceiver/" + permit.EntityData.SegmentPath
+    permit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    permit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    permit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    permit.EntityData.Children = types.NewOrderedMap()
+    permit.EntityData.Leafs = types.NewOrderedMap()
+    permit.EntityData.Leafs.Append("type", types.YLeaf{"Type", permit.Type})
+    permit.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", permit.Pid})
+
+    permit.EntityData.YListKeys = []string {}
+
+    return &(permit.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Pbr
+// Interface PBR configuration
+type InterfaceConfigurations_InterfaceConfiguration_Pbr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Class for subscriber ingress policy. The type is string.
+    ServicePolicyIn interface{}
+
+    // PBR service policy configuration.
+    ServicePolicy InterfaceConfigurations_InterfaceConfiguration_Pbr_ServicePolicy
+}
+
+func (pbr *InterfaceConfigurations_InterfaceConfiguration_Pbr) GetEntityData() *types.CommonEntityData {
+    pbr.EntityData.YFilter = pbr.YFilter
+    pbr.EntityData.YangName = "pbr"
+    pbr.EntityData.BundleName = "cisco_ios_xr"
+    pbr.EntityData.ParentYangName = "interface-configuration"
+    pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-cfg:pbr"
+    pbr.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + pbr.EntityData.SegmentPath
+    pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbr.EntityData.Children = types.NewOrderedMap()
+    pbr.EntityData.Children.Append("service-policy", types.YChild{"ServicePolicy", &pbr.ServicePolicy})
+    pbr.EntityData.Leafs = types.NewOrderedMap()
+    pbr.EntityData.Leafs.Append("service-policy-in", types.YLeaf{"ServicePolicyIn", pbr.ServicePolicyIn})
+
+    pbr.EntityData.YListKeys = []string {}
+
+    return &(pbr.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Pbr_ServicePolicy
+// PBR service policy configuration
+type InterfaceConfigurations_InterfaceConfiguration_Pbr_ServicePolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Ingress service policy. The type is string.
+    Input interface{}
+}
+
+func (servicePolicy *InterfaceConfigurations_InterfaceConfiguration_Pbr_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "pbr"
+    servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-pbr-cfg:pbr/" + servicePolicy.EntityData.SegmentPath
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servicePolicy.EntityData.Children = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("input", types.YLeaf{"Input", servicePolicy.Input})
+
+    servicePolicy.EntityData.YListKeys = []string {}
+
+    return &(servicePolicy.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_TunnelIp
+// IP over GRE encapsulation
+type InterfaceConfigurations_InterfaceConfiguration_TunnelIp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable flag bit to allow packets with GRE key. The type is interface{}.
+    AllowKey interface{}
+
+    // Configure the time-to-live for packets sent over this tunnel. The type is
+    // interface{} with range: 1..255.
+    Ttl interface{}
+
+    // Tunnel vrf label name. The type is string with length: 1..32.
+    TunnelVrf interface{}
+
+    // Configure Type of Service bits for this tunnel. The type is interface{}
+    // with range: 0..255.
+    Tos interface{}
+
+    // Disable DF bit (i.e. allow fragmentation). The type is interface{} with
+    // range: 0..4294967295.
+    Disable interface{}
+
+    // Tunnel encapsulation method.
+    Mode InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Mode
+
+    // Configure source of tunnel.
+    Source InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Source
+
+    // Configure the key value for packets sent over this tunnel.
+    Key InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Key
+
+    // Enable keepalive packets on this tunnel.
+    Keepalive InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Keepalive
+
+    // Configure BFD for tunnel.
+    Bfd InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd
+
+    // Configure destination of tunnel.
+    Destination InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Destination
+}
+
+func (tunnelIp *InterfaceConfigurations_InterfaceConfiguration_TunnelIp) GetEntityData() *types.CommonEntityData {
+    tunnelIp.EntityData.YFilter = tunnelIp.YFilter
+    tunnelIp.EntityData.YangName = "tunnel-ip"
+    tunnelIp.EntityData.BundleName = "cisco_ios_xr"
+    tunnelIp.EntityData.ParentYangName = "interface-configuration"
+    tunnelIp.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip"
+    tunnelIp.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + tunnelIp.EntityData.SegmentPath
+    tunnelIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnelIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnelIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tunnelIp.EntityData.Children = types.NewOrderedMap()
+    tunnelIp.EntityData.Children.Append("mode", types.YChild{"Mode", &tunnelIp.Mode})
+    tunnelIp.EntityData.Children.Append("source", types.YChild{"Source", &tunnelIp.Source})
+    tunnelIp.EntityData.Children.Append("key", types.YChild{"Key", &tunnelIp.Key})
+    tunnelIp.EntityData.Children.Append("keepalive", types.YChild{"Keepalive", &tunnelIp.Keepalive})
+    tunnelIp.EntityData.Children.Append("bfd", types.YChild{"Bfd", &tunnelIp.Bfd})
+    tunnelIp.EntityData.Children.Append("destination", types.YChild{"Destination", &tunnelIp.Destination})
+    tunnelIp.EntityData.Leafs = types.NewOrderedMap()
+    tunnelIp.EntityData.Leafs.Append("allow-key", types.YLeaf{"AllowKey", tunnelIp.AllowKey})
+    tunnelIp.EntityData.Leafs.Append("ttl", types.YLeaf{"Ttl", tunnelIp.Ttl})
+    tunnelIp.EntityData.Leafs.Append("tunnel-vrf", types.YLeaf{"TunnelVrf", tunnelIp.TunnelVrf})
+    tunnelIp.EntityData.Leafs.Append("tos", types.YLeaf{"Tos", tunnelIp.Tos})
+    tunnelIp.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", tunnelIp.Disable})
+
+    tunnelIp.EntityData.YListKeys = []string {}
+
+    return &(tunnelIp.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Mode
+// Tunnel encapsulation method
+type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Mode struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // GRE IPV4 - 1, GRE IPV6 - 2, MGRE IPV4 - 3, MGRE IPV6 -4. IPV4 - 5, IPV6 -
+    // 6. The type is interface{} with range: 0..4294967295.
+    Value interface{}
+
+    // Tunnel Mode Direction. The type is TunnelModeDirection.
+    ModeDirection interface{}
+}
+
+func (mode *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Mode) GetEntityData() *types.CommonEntityData {
+    mode.EntityData.YFilter = mode.YFilter
+    mode.EntityData.YangName = "mode"
+    mode.EntityData.BundleName = "cisco_ios_xr"
+    mode.EntityData.ParentYangName = "tunnel-ip"
+    mode.EntityData.SegmentPath = "mode"
+    mode.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + mode.EntityData.SegmentPath
+    mode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mode.EntityData.Children = types.NewOrderedMap()
+    mode.EntityData.Leafs = types.NewOrderedMap()
+    mode.EntityData.Leafs.Append("value", types.YLeaf{"Value", mode.Value})
+    mode.EntityData.Leafs.Append("mode-direction", types.YLeaf{"ModeDirection", mode.ModeDirection})
+
+    mode.EntityData.YListKeys = []string {}
+
+    return &(mode.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Source
+// Configure source of tunnel
+type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Source struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // 1 for Interface Name, 2 for IPv4 Address, 3 for IPv6 Address. The type is
+    // interface{} with range: 0..4294967295.
+    Type interface{}
+
+    // IPV4 address of the tunnel source. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Name of tunnel source interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+
+    // IPV6 address of the tunnel source. The type is string.
+    Ipv6Address interface{}
+}
+
+func (source *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Source) GetEntityData() *types.CommonEntityData {
+    source.EntityData.YFilter = source.YFilter
+    source.EntityData.YangName = "source"
+    source.EntityData.BundleName = "cisco_ios_xr"
+    source.EntityData.ParentYangName = "tunnel-ip"
+    source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + source.EntityData.SegmentPath
+    source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    source.EntityData.Children = types.NewOrderedMap()
+    source.EntityData.Leafs = types.NewOrderedMap()
+    source.EntityData.Leafs.Append("type", types.YLeaf{"Type", source.Type})
+    source.EntityData.Leafs.Append("address", types.YLeaf{"Address", source.Address})
+    source.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", source.InterfaceName})
+    source.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", source.Ipv6Address})
+
+    source.EntityData.YListKeys = []string {}
+
+    return &(source.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Key
+// Configure the key value for packets sent over
+// this tunnel
+type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Key struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Always set to true. The type is interface{}.
+    Entropy interface{}
+
+    // Enter the KEY value. The type is interface{} with range: 0..4294967295.
+    Value interface{}
+}
+
+func (key *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Key) GetEntityData() *types.CommonEntityData {
+    key.EntityData.YFilter = key.YFilter
+    key.EntityData.YangName = "key"
+    key.EntityData.BundleName = "cisco_ios_xr"
+    key.EntityData.ParentYangName = "tunnel-ip"
+    key.EntityData.SegmentPath = "key"
+    key.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + key.EntityData.SegmentPath
+    key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    key.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    key.EntityData.Children = types.NewOrderedMap()
+    key.EntityData.Leafs = types.NewOrderedMap()
+    key.EntityData.Leafs.Append("entropy", types.YLeaf{"Entropy", key.Entropy})
+    key.EntityData.Leafs.Append("value", types.YLeaf{"Value", key.Value})
+
+    key.EntityData.YListKeys = []string {}
+
+    return &(key.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Keepalive
+// Enable keepalive packets on this tunnel
+type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Keepalive struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Keepalive period in seconds (default 10 seconds). The type is interface{}
+    // with range: 1..32767.
+    KeepAlivePeriod interface{}
+
+    // Number of retries (default 3). The type is interface{} with range: 1..255.
+    KeepAliveRetries interface{}
+}
+
+func (keepalive *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Keepalive) GetEntityData() *types.CommonEntityData {
+    keepalive.EntityData.YFilter = keepalive.YFilter
+    keepalive.EntityData.YangName = "keepalive"
+    keepalive.EntityData.BundleName = "cisco_ios_xr"
+    keepalive.EntityData.ParentYangName = "tunnel-ip"
+    keepalive.EntityData.SegmentPath = "keepalive"
+    keepalive.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + keepalive.EntityData.SegmentPath
+    keepalive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keepalive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keepalive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keepalive.EntityData.Children = types.NewOrderedMap()
+    keepalive.EntityData.Leafs = types.NewOrderedMap()
+    keepalive.EntityData.Leafs.Append("keep-alive-period", types.YLeaf{"KeepAlivePeriod", keepalive.KeepAlivePeriod})
+    keepalive.EntityData.Leafs.Append("keep-alive-retries", types.YLeaf{"KeepAliveRetries", keepalive.KeepAliveRetries})
+
+    keepalive.EntityData.YListKeys = []string {}
+
+    return &(keepalive.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd
+// Configure BFD for tunnel
+type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure minimum interval for BFD. The type is interface{} with range:
+    // 150..30000.
+    MinimumInterval interface{}
+
+    // Keepalive period in seconds. The type is interface{} with range: 1..32767.
+    KeepalivePeriod interface{}
+
+    // Configure Number of retries for BFD Keepalive. The type is interface{} with
+    // range: 1..255.
+    Retry interface{}
+
+    // Configure BFD multiplier. The type is interface{} with range: 3..50.
+    Multiplier interface{}
+
+    // Configure BFD destination for tunnel.
+    Destination InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd_Destination
+}
+
+func (bfd *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd) GetEntityData() *types.CommonEntityData {
+    bfd.EntityData.YFilter = bfd.YFilter
+    bfd.EntityData.YangName = "bfd"
+    bfd.EntityData.BundleName = "cisco_ios_xr"
+    bfd.EntityData.ParentYangName = "tunnel-ip"
+    bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + bfd.EntityData.SegmentPath
+    bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Children.Append("destination", types.YChild{"Destination", &bfd.Destination})
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("minimum-interval", types.YLeaf{"MinimumInterval", bfd.MinimumInterval})
+    bfd.EntityData.Leafs.Append("keepalive-period", types.YLeaf{"KeepalivePeriod", bfd.KeepalivePeriod})
+    bfd.EntityData.Leafs.Append("retry", types.YLeaf{"Retry", bfd.Retry})
+    bfd.EntityData.Leafs.Append("multiplier", types.YLeaf{"Multiplier", bfd.Multiplier})
+
+    bfd.EntityData.YListKeys = []string {}
+
+    return &(bfd.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd_Destination
+// Configure BFD destination for tunnel
+type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd_Destination struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // 1 for IPv4 Address, 2 for IPv6 Address. The type is interface{} with range:
+    // 0..4294967295.
+    Type interface{}
+
+    // IPV4 address of the BFD destination. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // IPV6 address of the BFD destination. The type is string.
+    Ipv6Address interface{}
+}
+
+func (destination *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Bfd_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "bfd"
+    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/bfd/" + destination.EntityData.SegmentPath
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("type", types.YLeaf{"Type", destination.Type})
+    destination.EntityData.Leafs.Append("address", types.YLeaf{"Address", destination.Address})
+    destination.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", destination.Ipv6Address})
+
+    destination.EntityData.YListKeys = []string {}
+
+    return &(destination.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Destination
+// Configure destination of tunnel
+type InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Destination struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // 1 for IPv4 Address, 2 for IPv6 Address. The type is interface{} with range:
+    // 0..4294967295.
+    Type interface{}
+
+    // IPV4 address of the tunnel destination. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // IPV6 address of the tunnel destination. The type is string.
+    Ipv6Address interface{}
+
+    // IPv4 prefix length of the tunnel destination. The type is string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    AddressMask interface{}
+
+    // Prefix-list to validate destination's resolving prefix. The type is string
+    // with length: 1..64.
+    PrefixListName interface{}
+}
+
+func (destination *InterfaceConfigurations_InterfaceConfiguration_TunnelIp_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "tunnel-ip"
+    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-tunnel-gre-cfg:tunnel-ip/" + destination.EntityData.SegmentPath
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("type", types.YLeaf{"Type", destination.Type})
+    destination.EntityData.Leafs.Append("address", types.YLeaf{"Address", destination.Address})
+    destination.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", destination.Ipv6Address})
+    destination.EntityData.Leafs.Append("address-mask", types.YLeaf{"AddressMask", destination.AddressMask})
+    destination.EntityData.Leafs.Append("prefix-list-name", types.YLeaf{"PrefixListName", destination.PrefixListName})
+
+    destination.EntityData.YListKeys = []string {}
+
+    return &(destination.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Optics
+// Optics controller configuration
+type InterfaceConfigurations_InterfaceConfiguration_Optics struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Select power level (in units of 0.1dBm). The type is interface{} with
+    // range: -190..20.
+    OpticsTransmitPower interface{}
+
+    // Configure max delta among all measured channel powers . The type is
+    // interface{} with range: -500..300.
+    OpticsOtsChannelPowerMaxDelta interface{}
+
+    // Configure optics loopback mode . The type is OpticsLoopback. The default
+    // value is none.
+    OpticsLoopback interface{}
+
+    // Configure Optical safety remote interlock (OSRI). The type is bool.
+    OpticsOtsOsri interface{}
+
+    // Select Amplifier Gain Degrade High Threshold(in units of 0.1dBm). The type
+    // is interface{} with range: 0..500.
+    OpticsOtsAmplifierGainDegradeHighThreshold interface{}
+
+    // Select RX Voa Attenuation Setpoint(in units of 0.1dBm). The type is
+    // interface{} with range: 0..200.
+    OpticsOtsRxVoaAttenuation interface{}
+
+    // Configure optics fec . The type is OpticsFec. The default value is
+    // fec-none.
+    OpticsFec interface{}
+
+    // Select DGD high threshold(in units of 0.1ps). The type is interface{} with
+    // range: 0..18000.
+    OpticsDgdHighThreshold interface{}
+
+    // Select Amplifier Channel Power(in units of 0 .1dBm). The type is
+    // interface{} with range: -500..300.
+    OpticsOtsAmplifierChannelPower interface{}
+
+    // Configure amplifier working mode. The type is OpticsOtsAmpliControlMode.
+    OpticsOtsAmplifierControlMode interface{}
+
+    // Select Amplifier Gain value(in units of 0.1dBm). The type is interface{}
+    // with range: 0..500.
+    OpticsOtsAmplifierGain interface{}
+
+    // Normal or extended Ampli Gain Range. The type is OpticsOtsAmpliGainRange.
+    OpticsOtsAmplifierGainRange interface{}
+
+    // Configure safety Control Mode. The type is OpticsOtsSafetyControlMode.
+    OpticsOtsSafetyControlMode interface{}
+
+    // Select min chromatic dispersion (in units of ps/nm). The type is
+    // interface{} with range: -280000..280000.
+    OpticsCdMin interface{}
+
+    // Select TX Voa Attenuation Setpoint(in units of 0.1dBm). The type is
+    // interface{} with range: 0..200.
+    OpticsOtsTxVoaAttenuation interface{}
+
+    // Select Amplifier Tilt value(in units of 0.1dB). The type is interface{}
+    // with range: -50..50.
+    OpticsOtsAmplifierTilt interface{}
+
+    // Configure optics transmit laser shutdown . The type is bool.
+    OpticsTransmitShutdown interface{}
+
+    // BaudRate(Max Length 10). The type is string with length: 1..20.
+    OpticsBaudRate interface{}
+
+    // Select Performance Monitoring as Enable or Disable. The type is bool. The
+    // default value is true.
+    OpticsPerformanceMonitoring interface{}
+
+    // Select max chromatic dispersion (in units of ps/nm). The type is
+    // interface{} with range: -280000..280000.
+    OpticsCdMax interface{}
+
+    // BitsPerSymbol(Max Length 9). The type is string with length: 1..20.
+    OpticsBitsPerSymbol interface{}
+
+    // Select power level (in units of percentage). The type is interface{} with
+    // range: 0..100.
+    OpticsLbcHighThreshold interface{}
+
+    // Select chromatic dispersion high threshold(in units of ps/nm). The type is
+    // interface{} with range: -280000..280000.
+    OpticsCdHighThreshold interface{}
+
+    // Select OSNR low threshold(in units of 0.01db). The type is interface{} with
+    // range: 0..4000.
+    OpticsOsnrLowThreshold interface{}
+
+    // Select Amplifier Gain Degrade Low Threshold(in units of 0.1dBm). The type
+    // is interface{} with range: 0..500.
+    OpticsOtsAmplifierGainDegradeLowThreshold interface{}
+
+    // Select chromatic dispersion low threshold(in units of ps/nm). The type is
+    // interface{} with range: -280000..280000.
+    OpticsCdLowThreshold interface{}
+
+    // breakout mode configuration. The type is string with pattern:
+    // (4x10)|(4x25).
+    Breakout interface{}
+
+    // Configure Rx threshold.
+    RxThresholds InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds
+
+    // Configure Network srlgs.
+    OpticsNetworkSrlgs InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs
+
+    // Configure optics DWDM Carrier.
+    OpticsDwdmCarrier InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsDwdmCarrier
+
+    // Optics lanes.
+    OpticsLanes InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes
+
+    // Configure Tx threshold.
+    TxThresholds InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds
+}
+
+func (optics *InterfaceConfigurations_InterfaceConfiguration_Optics) GetEntityData() *types.CommonEntityData {
+    optics.EntityData.YFilter = optics.YFilter
+    optics.EntityData.YangName = "optics"
+    optics.EntityData.BundleName = "cisco_ios_xr"
+    optics.EntityData.ParentYangName = "interface-configuration"
+    optics.EntityData.SegmentPath = "Cisco-IOS-XR-controller-optics-cfg:optics"
+    optics.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + optics.EntityData.SegmentPath
+    optics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    optics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    optics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    optics.EntityData.Children = types.NewOrderedMap()
+    optics.EntityData.Children.Append("rx-thresholds", types.YChild{"RxThresholds", &optics.RxThresholds})
+    optics.EntityData.Children.Append("optics-network-srlgs", types.YChild{"OpticsNetworkSrlgs", &optics.OpticsNetworkSrlgs})
+    optics.EntityData.Children.Append("optics-dwdm-carrier", types.YChild{"OpticsDwdmCarrier", &optics.OpticsDwdmCarrier})
+    optics.EntityData.Children.Append("optics-lanes", types.YChild{"OpticsLanes", &optics.OpticsLanes})
+    optics.EntityData.Children.Append("tx-thresholds", types.YChild{"TxThresholds", &optics.TxThresholds})
+    optics.EntityData.Leafs = types.NewOrderedMap()
+    optics.EntityData.Leafs.Append("optics-transmit-power", types.YLeaf{"OpticsTransmitPower", optics.OpticsTransmitPower})
+    optics.EntityData.Leafs.Append("optics-ots-channel-power-max-delta", types.YLeaf{"OpticsOtsChannelPowerMaxDelta", optics.OpticsOtsChannelPowerMaxDelta})
+    optics.EntityData.Leafs.Append("optics-loopback", types.YLeaf{"OpticsLoopback", optics.OpticsLoopback})
+    optics.EntityData.Leafs.Append("optics-ots-osri", types.YLeaf{"OpticsOtsOsri", optics.OpticsOtsOsri})
+    optics.EntityData.Leafs.Append("optics-ots-amplifier-gain-degrade-high-threshold", types.YLeaf{"OpticsOtsAmplifierGainDegradeHighThreshold", optics.OpticsOtsAmplifierGainDegradeHighThreshold})
+    optics.EntityData.Leafs.Append("optics-ots-rx-voa-attenuation", types.YLeaf{"OpticsOtsRxVoaAttenuation", optics.OpticsOtsRxVoaAttenuation})
+    optics.EntityData.Leafs.Append("optics-fec", types.YLeaf{"OpticsFec", optics.OpticsFec})
+    optics.EntityData.Leafs.Append("optics-dgd-high-threshold", types.YLeaf{"OpticsDgdHighThreshold", optics.OpticsDgdHighThreshold})
+    optics.EntityData.Leafs.Append("optics-ots-amplifier-channel-power", types.YLeaf{"OpticsOtsAmplifierChannelPower", optics.OpticsOtsAmplifierChannelPower})
+    optics.EntityData.Leafs.Append("optics-ots-amplifier-control-mode", types.YLeaf{"OpticsOtsAmplifierControlMode", optics.OpticsOtsAmplifierControlMode})
+    optics.EntityData.Leafs.Append("optics-ots-amplifier-gain", types.YLeaf{"OpticsOtsAmplifierGain", optics.OpticsOtsAmplifierGain})
+    optics.EntityData.Leafs.Append("optics-ots-amplifier-gain-range", types.YLeaf{"OpticsOtsAmplifierGainRange", optics.OpticsOtsAmplifierGainRange})
+    optics.EntityData.Leafs.Append("optics-ots-safety-control-mode", types.YLeaf{"OpticsOtsSafetyControlMode", optics.OpticsOtsSafetyControlMode})
+    optics.EntityData.Leafs.Append("optics-cd-min", types.YLeaf{"OpticsCdMin", optics.OpticsCdMin})
+    optics.EntityData.Leafs.Append("optics-ots-tx-voa-attenuation", types.YLeaf{"OpticsOtsTxVoaAttenuation", optics.OpticsOtsTxVoaAttenuation})
+    optics.EntityData.Leafs.Append("optics-ots-amplifier-tilt", types.YLeaf{"OpticsOtsAmplifierTilt", optics.OpticsOtsAmplifierTilt})
+    optics.EntityData.Leafs.Append("optics-transmit-shutdown", types.YLeaf{"OpticsTransmitShutdown", optics.OpticsTransmitShutdown})
+    optics.EntityData.Leafs.Append("optics-baud-rate", types.YLeaf{"OpticsBaudRate", optics.OpticsBaudRate})
+    optics.EntityData.Leafs.Append("optics-performance-monitoring", types.YLeaf{"OpticsPerformanceMonitoring", optics.OpticsPerformanceMonitoring})
+    optics.EntityData.Leafs.Append("optics-cd-max", types.YLeaf{"OpticsCdMax", optics.OpticsCdMax})
+    optics.EntityData.Leafs.Append("optics-bits-per-symbol", types.YLeaf{"OpticsBitsPerSymbol", optics.OpticsBitsPerSymbol})
+    optics.EntityData.Leafs.Append("optics-lbc-high-threshold", types.YLeaf{"OpticsLbcHighThreshold", optics.OpticsLbcHighThreshold})
+    optics.EntityData.Leafs.Append("optics-cd-high-threshold", types.YLeaf{"OpticsCdHighThreshold", optics.OpticsCdHighThreshold})
+    optics.EntityData.Leafs.Append("optics-osnr-low-threshold", types.YLeaf{"OpticsOsnrLowThreshold", optics.OpticsOsnrLowThreshold})
+    optics.EntityData.Leafs.Append("optics-ots-amplifier-gain-degrade-low-threshold", types.YLeaf{"OpticsOtsAmplifierGainDegradeLowThreshold", optics.OpticsOtsAmplifierGainDegradeLowThreshold})
+    optics.EntityData.Leafs.Append("optics-cd-low-threshold", types.YLeaf{"OpticsCdLowThreshold", optics.OpticsCdLowThreshold})
+    optics.EntityData.Leafs.Append("breakout", types.YLeaf{"Breakout", optics.Breakout})
+
+    optics.EntityData.YListKeys = []string {}
+
+    return &(optics.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds
+// Configure Rx threshold
+type InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Optics RX Low or high threshold configuration. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds_RxThreshold.
+    RxThreshold []*InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds_RxThreshold
+}
+
+func (rxThresholds *InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds) GetEntityData() *types.CommonEntityData {
+    rxThresholds.EntityData.YFilter = rxThresholds.YFilter
+    rxThresholds.EntityData.YangName = "rx-thresholds"
+    rxThresholds.EntityData.BundleName = "cisco_ios_xr"
+    rxThresholds.EntityData.ParentYangName = "optics"
+    rxThresholds.EntityData.SegmentPath = "rx-thresholds"
+    rxThresholds.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/" + rxThresholds.EntityData.SegmentPath
+    rxThresholds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxThresholds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxThresholds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rxThresholds.EntityData.Children = types.NewOrderedMap()
+    rxThresholds.EntityData.Children.Append("rx-threshold", types.YChild{"RxThreshold", nil})
+    for i := range rxThresholds.RxThreshold {
+        rxThresholds.EntityData.Children.Append(types.GetSegmentPath(rxThresholds.RxThreshold[i]), types.YChild{"RxThreshold", rxThresholds.RxThreshold[i]})
+    }
+    rxThresholds.EntityData.Leafs = types.NewOrderedMap()
+
+    rxThresholds.EntityData.YListKeys = []string {}
+
+    return &(rxThresholds.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds_RxThreshold
+// Optics RX Low or high threshold configuration
+type InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds_RxThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Low or high rx threshold. The type is Threshold.
+    RxThresholdType interface{}
+
+    // Select power level (in units of 0.1dBm). The type is interface{} with
+    // range: -400..300. This attribute is mandatory.
+    RxThreshold interface{}
+}
+
+func (rxThreshold *InterfaceConfigurations_InterfaceConfiguration_Optics_RxThresholds_RxThreshold) GetEntityData() *types.CommonEntityData {
+    rxThreshold.EntityData.YFilter = rxThreshold.YFilter
+    rxThreshold.EntityData.YangName = "rx-threshold"
+    rxThreshold.EntityData.BundleName = "cisco_ios_xr"
+    rxThreshold.EntityData.ParentYangName = "rx-thresholds"
+    rxThreshold.EntityData.SegmentPath = "rx-threshold" + types.AddKeyToken(rxThreshold.RxThresholdType, "rx-threshold-type")
+    rxThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/rx-thresholds/" + rxThreshold.EntityData.SegmentPath
+    rxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rxThreshold.EntityData.Children = types.NewOrderedMap()
+    rxThreshold.EntityData.Leafs = types.NewOrderedMap()
+    rxThreshold.EntityData.Leafs.Append("rx-threshold-type", types.YLeaf{"RxThresholdType", rxThreshold.RxThresholdType})
+    rxThreshold.EntityData.Leafs.Append("rx-threshold", types.YLeaf{"RxThreshold", rxThreshold.RxThreshold})
+
+    rxThreshold.EntityData.YListKeys = []string {"RxThresholdType"}
+
+    return &(rxThreshold.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs
+// Configure Network srlgs
+type InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure network srlg sets. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs_OpticsNetworkSrlg.
+    OpticsNetworkSrlg []*InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs_OpticsNetworkSrlg
+}
+
+func (opticsNetworkSrlgs *InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs) GetEntityData() *types.CommonEntityData {
+    opticsNetworkSrlgs.EntityData.YFilter = opticsNetworkSrlgs.YFilter
+    opticsNetworkSrlgs.EntityData.YangName = "optics-network-srlgs"
+    opticsNetworkSrlgs.EntityData.BundleName = "cisco_ios_xr"
+    opticsNetworkSrlgs.EntityData.ParentYangName = "optics"
+    opticsNetworkSrlgs.EntityData.SegmentPath = "optics-network-srlgs"
+    opticsNetworkSrlgs.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/" + opticsNetworkSrlgs.EntityData.SegmentPath
+    opticsNetworkSrlgs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsNetworkSrlgs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsNetworkSrlgs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    opticsNetworkSrlgs.EntityData.Children = types.NewOrderedMap()
+    opticsNetworkSrlgs.EntityData.Children.Append("optics-network-srlg", types.YChild{"OpticsNetworkSrlg", nil})
+    for i := range opticsNetworkSrlgs.OpticsNetworkSrlg {
+        opticsNetworkSrlgs.EntityData.Children.Append(types.GetSegmentPath(opticsNetworkSrlgs.OpticsNetworkSrlg[i]), types.YChild{"OpticsNetworkSrlg", opticsNetworkSrlgs.OpticsNetworkSrlg[i]})
+    }
+    opticsNetworkSrlgs.EntityData.Leafs = types.NewOrderedMap()
+
+    opticsNetworkSrlgs.EntityData.YListKeys = []string {}
+
+    return &(opticsNetworkSrlgs.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs_OpticsNetworkSrlg
+// Configure network srlg sets
+type InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs_OpticsNetworkSrlg struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Set index. The type is interface{} with range:
+    // 1..17.
+    SetId interface{}
+
+    // none. The type is interface{} with range: 0..4294967294.
+    Srlg1 interface{}
+
+    // none. The type is interface{} with range: 0..4294967294.
+    Srlg2 interface{}
+
+    // none. The type is interface{} with range: 0..4294967294.
+    Srlg3 interface{}
+
+    // none. The type is interface{} with range: 0..4294967294.
+    Srlg4 interface{}
+
+    // none. The type is interface{} with range: 0..4294967294.
+    Srlg5 interface{}
+
+    // none. The type is interface{} with range: 0..4294967294.
+    Srlg6 interface{}
+}
+
+func (opticsNetworkSrlg *InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsNetworkSrlgs_OpticsNetworkSrlg) GetEntityData() *types.CommonEntityData {
+    opticsNetworkSrlg.EntityData.YFilter = opticsNetworkSrlg.YFilter
+    opticsNetworkSrlg.EntityData.YangName = "optics-network-srlg"
+    opticsNetworkSrlg.EntityData.BundleName = "cisco_ios_xr"
+    opticsNetworkSrlg.EntityData.ParentYangName = "optics-network-srlgs"
+    opticsNetworkSrlg.EntityData.SegmentPath = "optics-network-srlg" + types.AddKeyToken(opticsNetworkSrlg.SetId, "set-id")
+    opticsNetworkSrlg.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/optics-network-srlgs/" + opticsNetworkSrlg.EntityData.SegmentPath
+    opticsNetworkSrlg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsNetworkSrlg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsNetworkSrlg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    opticsNetworkSrlg.EntityData.Children = types.NewOrderedMap()
+    opticsNetworkSrlg.EntityData.Leafs = types.NewOrderedMap()
+    opticsNetworkSrlg.EntityData.Leafs.Append("set-id", types.YLeaf{"SetId", opticsNetworkSrlg.SetId})
+    opticsNetworkSrlg.EntityData.Leafs.Append("srlg1", types.YLeaf{"Srlg1", opticsNetworkSrlg.Srlg1})
+    opticsNetworkSrlg.EntityData.Leafs.Append("srlg2", types.YLeaf{"Srlg2", opticsNetworkSrlg.Srlg2})
+    opticsNetworkSrlg.EntityData.Leafs.Append("srlg3", types.YLeaf{"Srlg3", opticsNetworkSrlg.Srlg3})
+    opticsNetworkSrlg.EntityData.Leafs.Append("srlg4", types.YLeaf{"Srlg4", opticsNetworkSrlg.Srlg4})
+    opticsNetworkSrlg.EntityData.Leafs.Append("srlg5", types.YLeaf{"Srlg5", opticsNetworkSrlg.Srlg5})
+    opticsNetworkSrlg.EntityData.Leafs.Append("srlg6", types.YLeaf{"Srlg6", opticsNetworkSrlg.Srlg6})
+
+    opticsNetworkSrlg.EntityData.YListKeys = []string {"SetId"}
+
+    return &(opticsNetworkSrlg.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsDwdmCarrier
+// Configure optics DWDM Carrier
+// This type is a presence type.
+type InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsDwdmCarrier struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // DWDM Channel Grid Type. The type is OpticsDwdmCarrierGrid. This attribute
+    // is mandatory.
+    GridType interface{}
+
+    // DWDM Channel Parameter Type ITU-Channel or Frequency or Wavelength. The
+    // type is OpticsDwdmCarrierParam. This attribute is mandatory.
+    ParamType interface{}
+
+    // Type ITU-Channel Range 1-100, Frequency Range 19115-19610, Wavelength Range
+    // 1528773-1568362, 100MHz Frequency Range 1911500-1961000. The type is
+    // interface{} with range: 1..1961000. This attribute is mandatory.
+    ParamValue interface{}
+}
+
+func (opticsDwdmCarrier *InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsDwdmCarrier) GetEntityData() *types.CommonEntityData {
+    opticsDwdmCarrier.EntityData.YFilter = opticsDwdmCarrier.YFilter
+    opticsDwdmCarrier.EntityData.YangName = "optics-dwdm-carrier"
+    opticsDwdmCarrier.EntityData.BundleName = "cisco_ios_xr"
+    opticsDwdmCarrier.EntityData.ParentYangName = "optics"
+    opticsDwdmCarrier.EntityData.SegmentPath = "optics-dwdm-carrier"
+    opticsDwdmCarrier.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/" + opticsDwdmCarrier.EntityData.SegmentPath
+    opticsDwdmCarrier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsDwdmCarrier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsDwdmCarrier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    opticsDwdmCarrier.EntityData.Children = types.NewOrderedMap()
+    opticsDwdmCarrier.EntityData.Leafs = types.NewOrderedMap()
+    opticsDwdmCarrier.EntityData.Leafs.Append("grid-type", types.YLeaf{"GridType", opticsDwdmCarrier.GridType})
+    opticsDwdmCarrier.EntityData.Leafs.Append("param-type", types.YLeaf{"ParamType", opticsDwdmCarrier.ParamType})
+    opticsDwdmCarrier.EntityData.Leafs.Append("param-value", types.YLeaf{"ParamValue", opticsDwdmCarrier.ParamValue})
+
+    opticsDwdmCarrier.EntityData.YListKeys = []string {}
+
+    return &(opticsDwdmCarrier.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes
+// Optics lanes
+type InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Lane. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes_OpticsLane.
+    OpticsLane []*InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes_OpticsLane
+}
+
+func (opticsLanes *InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes) GetEntityData() *types.CommonEntityData {
+    opticsLanes.EntityData.YFilter = opticsLanes.YFilter
+    opticsLanes.EntityData.YangName = "optics-lanes"
+    opticsLanes.EntityData.BundleName = "cisco_ios_xr"
+    opticsLanes.EntityData.ParentYangName = "optics"
+    opticsLanes.EntityData.SegmentPath = "optics-lanes"
+    opticsLanes.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/" + opticsLanes.EntityData.SegmentPath
+    opticsLanes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsLanes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsLanes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    opticsLanes.EntityData.Children = types.NewOrderedMap()
+    opticsLanes.EntityData.Children.Append("optics-lane", types.YChild{"OpticsLane", nil})
+    for i := range opticsLanes.OpticsLane {
+        opticsLanes.EntityData.Children.Append(types.GetSegmentPath(opticsLanes.OpticsLane[i]), types.YChild{"OpticsLane", opticsLanes.OpticsLane[i]})
+    }
+    opticsLanes.EntityData.Leafs = types.NewOrderedMap()
+
+    opticsLanes.EntityData.YListKeys = []string {}
+
+    return &(opticsLanes.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes_OpticsLane
+// Lane
+type InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes_OpticsLane struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Lane Number. The type is interface{} with range:
+    // 0..4294967295.
+    Index interface{}
+
+    // Configure description for this Lane. The type is string with length:
+    // 1..255.
+    Description interface{}
+}
+
+func (opticsLane *InterfaceConfigurations_InterfaceConfiguration_Optics_OpticsLanes_OpticsLane) GetEntityData() *types.CommonEntityData {
+    opticsLane.EntityData.YFilter = opticsLane.YFilter
+    opticsLane.EntityData.YangName = "optics-lane"
+    opticsLane.EntityData.BundleName = "cisco_ios_xr"
+    opticsLane.EntityData.ParentYangName = "optics-lanes"
+    opticsLane.EntityData.SegmentPath = "optics-lane" + types.AddKeyToken(opticsLane.Index, "index")
+    opticsLane.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/optics-lanes/" + opticsLane.EntityData.SegmentPath
+    opticsLane.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsLane.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsLane.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    opticsLane.EntityData.Children = types.NewOrderedMap()
+    opticsLane.EntityData.Leafs = types.NewOrderedMap()
+    opticsLane.EntityData.Leafs.Append("index", types.YLeaf{"Index", opticsLane.Index})
+    opticsLane.EntityData.Leafs.Append("description", types.YLeaf{"Description", opticsLane.Description})
+
+    opticsLane.EntityData.YListKeys = []string {"Index"}
+
+    return &(opticsLane.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds
+// Configure Tx threshold
+type InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Optics TX Low or high threshold configuration. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds_TxThreshold.
+    TxThreshold []*InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds_TxThreshold
+}
+
+func (txThresholds *InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds) GetEntityData() *types.CommonEntityData {
+    txThresholds.EntityData.YFilter = txThresholds.YFilter
+    txThresholds.EntityData.YangName = "tx-thresholds"
+    txThresholds.EntityData.BundleName = "cisco_ios_xr"
+    txThresholds.EntityData.ParentYangName = "optics"
+    txThresholds.EntityData.SegmentPath = "tx-thresholds"
+    txThresholds.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/" + txThresholds.EntityData.SegmentPath
+    txThresholds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txThresholds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txThresholds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    txThresholds.EntityData.Children = types.NewOrderedMap()
+    txThresholds.EntityData.Children.Append("tx-threshold", types.YChild{"TxThreshold", nil})
+    for i := range txThresholds.TxThreshold {
+        txThresholds.EntityData.Children.Append(types.GetSegmentPath(txThresholds.TxThreshold[i]), types.YChild{"TxThreshold", txThresholds.TxThreshold[i]})
+    }
+    txThresholds.EntityData.Leafs = types.NewOrderedMap()
+
+    txThresholds.EntityData.YListKeys = []string {}
+
+    return &(txThresholds.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds_TxThreshold
+// Optics TX Low or high threshold configuration
+type InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds_TxThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Low or high tx threshold. The type is Threshold.
+    TxThresholdType interface{}
+
+    // Select power level (in units of 0.1dBm). The type is interface{} with
+    // range: -400..300. This attribute is mandatory.
+    TxThreshold interface{}
+}
+
+func (txThreshold *InterfaceConfigurations_InterfaceConfiguration_Optics_TxThresholds_TxThreshold) GetEntityData() *types.CommonEntityData {
+    txThreshold.EntityData.YFilter = txThreshold.YFilter
+    txThreshold.EntityData.YangName = "tx-threshold"
+    txThreshold.EntityData.BundleName = "cisco_ios_xr"
+    txThreshold.EntityData.ParentYangName = "tx-thresholds"
+    txThreshold.EntityData.SegmentPath = "tx-threshold" + types.AddKeyToken(txThreshold.TxThresholdType, "tx-threshold-type")
+    txThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-controller-optics-cfg:optics/tx-thresholds/" + txThreshold.EntityData.SegmentPath
+    txThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    txThreshold.EntityData.Children = types.NewOrderedMap()
+    txThreshold.EntityData.Leafs = types.NewOrderedMap()
+    txThreshold.EntityData.Leafs.Append("tx-threshold-type", types.YLeaf{"TxThresholdType", txThreshold.TxThresholdType})
+    txThreshold.EntityData.Leafs.Append("tx-threshold", types.YLeaf{"TxThreshold", txThreshold.TxThreshold})
+
+    txThreshold.EntityData.YListKeys = []string {"TxThresholdType"}
+
+    return &(txThreshold.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Loopbacks
+// Configure Extended loopback (diagnostics)
+type InterfaceConfigurations_InterfaceConfiguration_Loopbacks struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure extended loopback mode. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_Loopbacks_Loopback.
+    Loopback []*InterfaceConfigurations_InterfaceConfiguration_Loopbacks_Loopback
+}
+
+func (loopbacks *InterfaceConfigurations_InterfaceConfiguration_Loopbacks) GetEntityData() *types.CommonEntityData {
+    loopbacks.EntityData.YFilter = loopbacks.YFilter
+    loopbacks.EntityData.YangName = "loopbacks"
+    loopbacks.EntityData.BundleName = "cisco_ios_xr"
+    loopbacks.EntityData.ParentYangName = "interface-configuration"
+    loopbacks.EntityData.SegmentPath = "Cisco-IOS-XR-drivers-icpe-ethernet-cfg:loopbacks"
+    loopbacks.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + loopbacks.EntityData.SegmentPath
+    loopbacks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loopbacks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loopbacks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loopbacks.EntityData.Children = types.NewOrderedMap()
+    loopbacks.EntityData.Children.Append("loopback", types.YChild{"Loopback", nil})
+    for i := range loopbacks.Loopback {
+        loopbacks.EntityData.Children.Append(types.GetSegmentPath(loopbacks.Loopback[i]), types.YChild{"Loopback", loopbacks.Loopback[i]})
+    }
+    loopbacks.EntityData.Leafs = types.NewOrderedMap()
+
+    loopbacks.EntityData.YListKeys = []string {}
+
+    return &(loopbacks.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Loopbacks_Loopback
+// Configure extended loopback mode
+type InterfaceConfigurations_InterfaceConfiguration_Loopbacks_Loopback struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Level. The type is interface{} with range: 1..3.
+    Level interface{}
+
+    // Loopback. The type is ExtendedEthernetLoopback. This attribute is
+    // mandatory.
+    Loopback interface{}
+}
+
+func (loopback *InterfaceConfigurations_InterfaceConfiguration_Loopbacks_Loopback) GetEntityData() *types.CommonEntityData {
+    loopback.EntityData.YFilter = loopback.YFilter
+    loopback.EntityData.YangName = "loopback"
+    loopback.EntityData.BundleName = "cisco_ios_xr"
+    loopback.EntityData.ParentYangName = "loopbacks"
+    loopback.EntityData.SegmentPath = "loopback" + types.AddKeyToken(loopback.Level, "level")
+    loopback.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-drivers-icpe-ethernet-cfg:loopbacks/" + loopback.EntityData.SegmentPath
+    loopback.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loopback.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loopback.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loopback.EntityData.Children = types.NewOrderedMap()
+    loopback.EntityData.Leafs = types.NewOrderedMap()
+    loopback.EntityData.Leafs.Append("level", types.YLeaf{"Level", loopback.Level})
+    loopback.EntityData.Leafs.Append("loopback", types.YLeaf{"Loopback", loopback.Loopback})
+
+    loopback.EntityData.YListKeys = []string {"Level"}
+
+    return &(loopback.EntityData)
 }
 
 // InterfaceConfigurations_InterfaceConfiguration_Subscriber
@@ -16967,495 +18185,6 @@ func (cdp *InterfaceConfigurations_InterfaceConfiguration_Cdp) GetEntityData() *
     return &(cdp.EntityData)
 }
 
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess
-// nV Satellite Access Link Configuration
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nvSatelliteAccess *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteAccess) GetEntityData() *types.CommonEntityData {
-    nvSatelliteAccess.EntityData.YFilter = nvSatelliteAccess.YFilter
-    nvSatelliteAccess.EntityData.YangName = "nv-satellite-access"
-    nvSatelliteAccess.EntityData.BundleName = "cisco_ios_xr"
-    nvSatelliteAccess.EntityData.ParentYangName = "interface-configuration"
-    nvSatelliteAccess.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-access"
-    nvSatelliteAccess.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + nvSatelliteAccess.EntityData.SegmentPath
-    nvSatelliteAccess.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nvSatelliteAccess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nvSatelliteAccess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nvSatelliteAccess.EntityData.Children = types.NewOrderedMap()
-    nvSatelliteAccess.EntityData.Leafs = types.NewOrderedMap()
-
-    nvSatelliteAccess.EntityData.YListKeys = []string {}
-
-    return &(nvSatelliteAccess.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink
-// nV Satellite Fabric Link Configuration
-// This type is a presence type.
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Hub & Spoke connection to a single Satellite. The type is interface{} with
-    // range: 100..65534. This attribute is mandatory.
-    Satellite interface{}
-
-    // Mininum number of active links required. The type is interface{} with
-    // range: 1..64.
-    MinimumRequiredLinks interface{}
-
-    // Redundancy submode.
-    Redundancy InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Redundancy
-
-    // Remote Ports table.
-    RemotePorts InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts
-
-    // Ethernet Satellite configuration.
-    EthernetFeatures InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures
-}
-
-func (nvSatelliteFabricLink *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink) GetEntityData() *types.CommonEntityData {
-    nvSatelliteFabricLink.EntityData.YFilter = nvSatelliteFabricLink.YFilter
-    nvSatelliteFabricLink.EntityData.YangName = "nv-satellite-fabric-link"
-    nvSatelliteFabricLink.EntityData.BundleName = "cisco_ios_xr"
-    nvSatelliteFabricLink.EntityData.ParentYangName = "interface-configuration"
-    nvSatelliteFabricLink.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link"
-    nvSatelliteFabricLink.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + nvSatelliteFabricLink.EntityData.SegmentPath
-    nvSatelliteFabricLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nvSatelliteFabricLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nvSatelliteFabricLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nvSatelliteFabricLink.EntityData.Children = types.NewOrderedMap()
-    nvSatelliteFabricLink.EntityData.Children.Append("redundancy", types.YChild{"Redundancy", &nvSatelliteFabricLink.Redundancy})
-    nvSatelliteFabricLink.EntityData.Children.Append("remote-ports", types.YChild{"RemotePorts", &nvSatelliteFabricLink.RemotePorts})
-    nvSatelliteFabricLink.EntityData.Children.Append("Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features", types.YChild{"EthernetFeatures", &nvSatelliteFabricLink.EthernetFeatures})
-    nvSatelliteFabricLink.EntityData.Leafs = types.NewOrderedMap()
-    nvSatelliteFabricLink.EntityData.Leafs.Append("satellite", types.YLeaf{"Satellite", nvSatelliteFabricLink.Satellite})
-    nvSatelliteFabricLink.EntityData.Leafs.Append("minimum-required-links", types.YLeaf{"MinimumRequiredLinks", nvSatelliteFabricLink.MinimumRequiredLinks})
-
-    nvSatelliteFabricLink.EntityData.YListKeys = []string {}
-
-    return &(nvSatelliteFabricLink.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Redundancy
-// Redundancy submode
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Redundancy struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Links the satellite fabric to the given ICCP group. The type is interface{}
-    // with range: 0..4294967295.
-    IccpGroup interface{}
-
-    // Mininum number of active links preferred. The type is interface{} with
-    // range: 1..64.
-    MinimumPreferredLinks interface{}
-}
-
-func (redundancy *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_Redundancy) GetEntityData() *types.CommonEntityData {
-    redundancy.EntityData.YFilter = redundancy.YFilter
-    redundancy.EntityData.YangName = "redundancy"
-    redundancy.EntityData.BundleName = "cisco_ios_xr"
-    redundancy.EntityData.ParentYangName = "nv-satellite-fabric-link"
-    redundancy.EntityData.SegmentPath = "redundancy"
-    redundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/" + redundancy.EntityData.SegmentPath
-    redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    redundancy.EntityData.Children = types.NewOrderedMap()
-    redundancy.EntityData.Leafs = types.NewOrderedMap()
-    redundancy.EntityData.Leafs.Append("iccp-group", types.YLeaf{"IccpGroup", redundancy.IccpGroup})
-    redundancy.EntityData.Leafs.Append("minimum-preferred-links", types.YLeaf{"MinimumPreferredLinks", redundancy.MinimumPreferredLinks})
-
-    redundancy.EntityData.YListKeys = []string {}
-
-    return &(redundancy.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts
-// Remote Ports table
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Remote Ports. The type is slice of
-    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts_RemotePort.
-    RemotePort []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts_RemotePort
-}
-
-func (remotePorts *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts) GetEntityData() *types.CommonEntityData {
-    remotePorts.EntityData.YFilter = remotePorts.YFilter
-    remotePorts.EntityData.YangName = "remote-ports"
-    remotePorts.EntityData.BundleName = "cisco_ios_xr"
-    remotePorts.EntityData.ParentYangName = "nv-satellite-fabric-link"
-    remotePorts.EntityData.SegmentPath = "remote-ports"
-    remotePorts.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/" + remotePorts.EntityData.SegmentPath
-    remotePorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    remotePorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    remotePorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    remotePorts.EntityData.Children = types.NewOrderedMap()
-    remotePorts.EntityData.Children.Append("remote-port", types.YChild{"RemotePort", nil})
-    for i := range remotePorts.RemotePort {
-        remotePorts.EntityData.Children.Append(types.GetSegmentPath(remotePorts.RemotePort[i]), types.YChild{"RemotePort", remotePorts.RemotePort[i]})
-    }
-    remotePorts.EntityData.Leafs = types.NewOrderedMap()
-
-    remotePorts.EntityData.YListKeys = []string {}
-
-    return &(remotePorts.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts_RemotePort
-// Remote Ports
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts_RemotePort struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Port type. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    PortType interface{}
-
-    // This attribute is a key. Slot. The type is interface{} with range: 0..8.
-    Slot interface{}
-
-    // This attribute is a key. Sub slot. The type is interface{} with range:
-    // 0..8.
-    SubSlot interface{}
-
-    // Port range. The type is string. This attribute is mandatory.
-    PortRange interface{}
-}
-
-func (remotePort *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_RemotePorts_RemotePort) GetEntityData() *types.CommonEntityData {
-    remotePort.EntityData.YFilter = remotePort.YFilter
-    remotePort.EntityData.YangName = "remote-port"
-    remotePort.EntityData.BundleName = "cisco_ios_xr"
-    remotePort.EntityData.ParentYangName = "remote-ports"
-    remotePort.EntityData.SegmentPath = "remote-port" + types.AddKeyToken(remotePort.PortType, "port-type") + types.AddKeyToken(remotePort.Slot, "slot") + types.AddKeyToken(remotePort.SubSlot, "sub-slot")
-    remotePort.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/remote-ports/" + remotePort.EntityData.SegmentPath
-    remotePort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    remotePort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    remotePort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    remotePort.EntityData.Children = types.NewOrderedMap()
-    remotePort.EntityData.Leafs = types.NewOrderedMap()
-    remotePort.EntityData.Leafs.Append("port-type", types.YLeaf{"PortType", remotePort.PortType})
-    remotePort.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", remotePort.Slot})
-    remotePort.EntityData.Leafs.Append("sub-slot", types.YLeaf{"SubSlot", remotePort.SubSlot})
-    remotePort.EntityData.Leafs.Append("port-range", types.YLeaf{"PortRange", remotePort.PortRange})
-
-    remotePort.EntityData.YListKeys = []string {"PortType", "Slot", "SubSlot"}
-
-    return &(remotePort.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures
-// Ethernet Satellite configuration
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // CFM Satellite configuration.
-    Cfm InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures_Cfm
-}
-
-func (ethernetFeatures *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures) GetEntityData() *types.CommonEntityData {
-    ethernetFeatures.EntityData.YFilter = ethernetFeatures.YFilter
-    ethernetFeatures.EntityData.YangName = "ethernet-features"
-    ethernetFeatures.EntityData.BundleName = "cisco_ios_xr"
-    ethernetFeatures.EntityData.ParentYangName = "nv-satellite-fabric-link"
-    ethernetFeatures.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features"
-    ethernetFeatures.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/" + ethernetFeatures.EntityData.SegmentPath
-    ethernetFeatures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ethernetFeatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ethernetFeatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ethernetFeatures.EntityData.Children = types.NewOrderedMap()
-    ethernetFeatures.EntityData.Children.Append("cfm", types.YChild{"Cfm", &ethernetFeatures.Cfm})
-    ethernetFeatures.EntityData.Leafs = types.NewOrderedMap()
-
-    ethernetFeatures.EntityData.YListKeys = []string {}
-
-    return &(ethernetFeatures.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures_Cfm
-// CFM Satellite configuration
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures_Cfm struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Continuity-Check Interval. The type is CfmCcmInterval.
-    ContinuityCheckInterval interface{}
-
-    // Maintenance Domain Level. The type is interface{} with range: 0..7.
-    Level interface{}
-
-    // Enable CFM on Satellite. The type is interface{}.
-    Enable interface{}
-}
-
-func (cfm *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricLink_EthernetFeatures_Cfm) GetEntityData() *types.CommonEntityData {
-    cfm.EntityData.YFilter = cfm.YFilter
-    cfm.EntityData.YangName = "cfm"
-    cfm.EntityData.BundleName = "cisco_ios_xr"
-    cfm.EntityData.ParentYangName = "ethernet-features"
-    cfm.EntityData.SegmentPath = "cfm"
-    cfm.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-link/Cisco-IOS-XR-ethernet-cfm-sat-cfg:ethernet-features/" + cfm.EntityData.SegmentPath
-    cfm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    cfm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    cfm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    cfm.EntityData.Children = types.NewOrderedMap()
-    cfm.EntityData.Leafs = types.NewOrderedMap()
-    cfm.EntityData.Leafs.Append("continuity-check-interval", types.YLeaf{"ContinuityCheckInterval", cfm.ContinuityCheckInterval})
-    cfm.EntityData.Leafs.Append("level", types.YLeaf{"Level", cfm.Level})
-    cfm.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", cfm.Enable})
-
-    cfm.EntityData.YListKeys = []string {}
-
-    return &(cfm.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork
-// Complex Network connection to one or more
-// Satellites
-// This type is a presence type.
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Enable. The type is interface{}. This attribute is mandatory.
-    Enable interface{}
-
-    // Connected Satellite table.
-    Satellites InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites
-
-    // Redundancy submode.
-    Redundancy InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Redundancy
-}
-
-func (nvSatelliteFabricNetwork *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork) GetEntityData() *types.CommonEntityData {
-    nvSatelliteFabricNetwork.EntityData.YFilter = nvSatelliteFabricNetwork.YFilter
-    nvSatelliteFabricNetwork.EntityData.YangName = "nv-satellite-fabric-network"
-    nvSatelliteFabricNetwork.EntityData.BundleName = "cisco_ios_xr"
-    nvSatelliteFabricNetwork.EntityData.ParentYangName = "interface-configuration"
-    nvSatelliteFabricNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network"
-    nvSatelliteFabricNetwork.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + nvSatelliteFabricNetwork.EntityData.SegmentPath
-    nvSatelliteFabricNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nvSatelliteFabricNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nvSatelliteFabricNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nvSatelliteFabricNetwork.EntityData.Children = types.NewOrderedMap()
-    nvSatelliteFabricNetwork.EntityData.Children.Append("satellites", types.YChild{"Satellites", &nvSatelliteFabricNetwork.Satellites})
-    nvSatelliteFabricNetwork.EntityData.Children.Append("redundancy", types.YChild{"Redundancy", &nvSatelliteFabricNetwork.Redundancy})
-    nvSatelliteFabricNetwork.EntityData.Leafs = types.NewOrderedMap()
-    nvSatelliteFabricNetwork.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", nvSatelliteFabricNetwork.Enable})
-
-    nvSatelliteFabricNetwork.EntityData.YListKeys = []string {}
-
-    return &(nvSatelliteFabricNetwork.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites
-// Connected Satellite table
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Connected Satellite. The type is slice of
-    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite.
-    Satellite []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite
-}
-
-func (satellites *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites) GetEntityData() *types.CommonEntityData {
-    satellites.EntityData.YFilter = satellites.YFilter
-    satellites.EntityData.YangName = "satellites"
-    satellites.EntityData.BundleName = "cisco_ios_xr"
-    satellites.EntityData.ParentYangName = "nv-satellite-fabric-network"
-    satellites.EntityData.SegmentPath = "satellites"
-    satellites.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/" + satellites.EntityData.SegmentPath
-    satellites.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    satellites.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    satellites.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    satellites.EntityData.Children = types.NewOrderedMap()
-    satellites.EntityData.Children.Append("satellite", types.YChild{"Satellite", nil})
-    for i := range satellites.Satellite {
-        satellites.EntityData.Children.Append(types.GetSegmentPath(satellites.Satellite[i]), types.YChild{"Satellite", satellites.Satellite[i]})
-    }
-    satellites.EntityData.Leafs = types.NewOrderedMap()
-
-    satellites.EntityData.YListKeys = []string {}
-
-    return &(satellites.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite
-// Connected Satellite
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Satellite ID. The type is interface{} with range:
-    // 100..65534.
-    SatelliteId interface{}
-
-    // Enable. The type is interface{}. This attribute is mandatory.
-    Enable interface{}
-
-    // Remote Ports table.
-    RemotePorts InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts
-}
-
-func (satellite *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite) GetEntityData() *types.CommonEntityData {
-    satellite.EntityData.YFilter = satellite.YFilter
-    satellite.EntityData.YangName = "satellite"
-    satellite.EntityData.BundleName = "cisco_ios_xr"
-    satellite.EntityData.ParentYangName = "satellites"
-    satellite.EntityData.SegmentPath = "satellite" + types.AddKeyToken(satellite.SatelliteId, "satellite-id")
-    satellite.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/" + satellite.EntityData.SegmentPath
-    satellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    satellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    satellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    satellite.EntityData.Children = types.NewOrderedMap()
-    satellite.EntityData.Children.Append("remote-ports", types.YChild{"RemotePorts", &satellite.RemotePorts})
-    satellite.EntityData.Leafs = types.NewOrderedMap()
-    satellite.EntityData.Leafs.Append("satellite-id", types.YLeaf{"SatelliteId", satellite.SatelliteId})
-    satellite.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", satellite.Enable})
-
-    satellite.EntityData.YListKeys = []string {"SatelliteId"}
-
-    return &(satellite.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts
-// Remote Ports table
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Remote Ports. The type is slice of
-    // InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts_RemotePort.
-    RemotePort []*InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts_RemotePort
-}
-
-func (remotePorts *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts) GetEntityData() *types.CommonEntityData {
-    remotePorts.EntityData.YFilter = remotePorts.YFilter
-    remotePorts.EntityData.YangName = "remote-ports"
-    remotePorts.EntityData.BundleName = "cisco_ios_xr"
-    remotePorts.EntityData.ParentYangName = "satellite"
-    remotePorts.EntityData.SegmentPath = "remote-ports"
-    remotePorts.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/satellite/" + remotePorts.EntityData.SegmentPath
-    remotePorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    remotePorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    remotePorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    remotePorts.EntityData.Children = types.NewOrderedMap()
-    remotePorts.EntityData.Children.Append("remote-port", types.YChild{"RemotePort", nil})
-    for i := range remotePorts.RemotePort {
-        remotePorts.EntityData.Children.Append(types.GetSegmentPath(remotePorts.RemotePort[i]), types.YChild{"RemotePort", remotePorts.RemotePort[i]})
-    }
-    remotePorts.EntityData.Leafs = types.NewOrderedMap()
-
-    remotePorts.EntityData.YListKeys = []string {}
-
-    return &(remotePorts.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts_RemotePort
-// Remote Ports
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts_RemotePort struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Port type. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    PortType interface{}
-
-    // This attribute is a key. Slot. The type is interface{} with range: 0..8.
-    Slot interface{}
-
-    // This attribute is a key. Sub slot. The type is interface{} with range:
-    // 0..8.
-    SubSlot interface{}
-
-    // Port range. The type is string. This attribute is mandatory.
-    PortRange interface{}
-}
-
-func (remotePort *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Satellites_Satellite_RemotePorts_RemotePort) GetEntityData() *types.CommonEntityData {
-    remotePort.EntityData.YFilter = remotePort.YFilter
-    remotePort.EntityData.YangName = "remote-port"
-    remotePort.EntityData.BundleName = "cisco_ios_xr"
-    remotePort.EntityData.ParentYangName = "remote-ports"
-    remotePort.EntityData.SegmentPath = "remote-port" + types.AddKeyToken(remotePort.PortType, "port-type") + types.AddKeyToken(remotePort.Slot, "slot") + types.AddKeyToken(remotePort.SubSlot, "sub-slot")
-    remotePort.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/satellites/satellite/remote-ports/" + remotePort.EntityData.SegmentPath
-    remotePort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    remotePort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    remotePort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    remotePort.EntityData.Children = types.NewOrderedMap()
-    remotePort.EntityData.Leafs = types.NewOrderedMap()
-    remotePort.EntityData.Leafs.Append("port-type", types.YLeaf{"PortType", remotePort.PortType})
-    remotePort.EntityData.Leafs.Append("slot", types.YLeaf{"Slot", remotePort.Slot})
-    remotePort.EntityData.Leafs.Append("sub-slot", types.YLeaf{"SubSlot", remotePort.SubSlot})
-    remotePort.EntityData.Leafs.Append("port-range", types.YLeaf{"PortRange", remotePort.PortRange})
-
-    remotePort.EntityData.YListKeys = []string {"PortType", "Slot", "SubSlot"}
-
-    return &(remotePort.EntityData)
-}
-
-// InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Redundancy
-// Redundancy submode
-type InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Redundancy struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Links the satellite fabric to the given ICCP group. The type is interface{}
-    // with range: 0..4294967295.
-    IccpGroup interface{}
-
-    // Mininum number of active links preferred. The type is interface{} with
-    // range: 1..64.
-    MinimumPreferredLinks interface{}
-}
-
-func (redundancy *InterfaceConfigurations_InterfaceConfiguration_NvSatelliteFabricNetwork_Redundancy) GetEntityData() *types.CommonEntityData {
-    redundancy.EntityData.YFilter = redundancy.YFilter
-    redundancy.EntityData.YangName = "redundancy"
-    redundancy.EntityData.BundleName = "cisco_ios_xr"
-    redundancy.EntityData.ParentYangName = "nv-satellite-fabric-network"
-    redundancy.EntityData.SegmentPath = "redundancy"
-    redundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-fabric-network/" + redundancy.EntityData.SegmentPath
-    redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    redundancy.EntityData.Children = types.NewOrderedMap()
-    redundancy.EntityData.Leafs = types.NewOrderedMap()
-    redundancy.EntityData.Leafs.Append("iccp-group", types.YLeaf{"IccpGroup", redundancy.IccpGroup})
-    redundancy.EntityData.Leafs.Append("minimum-preferred-links", types.YLeaf{"MinimumPreferredLinks", redundancy.MinimumPreferredLinks})
-
-    redundancy.EntityData.YListKeys = []string {}
-
-    return &(redundancy.EntityData)
-}
-
 // InterfaceConfigurations_InterfaceConfiguration_Dwdm
 // DWDM port controller configuration
 type InterfaceConfigurations_InterfaceConfiguration_Dwdm struct {
@@ -19267,6 +19996,614 @@ func (receive *InterfaceConfigurations_InterfaceConfiguration_Lldp_Receive) GetE
     return &(receive.EntityData)
 }
 
+// InterfaceConfigurations_InterfaceConfiguration_Atm
+// ATM Configuration
+type InterfaceConfigurations_InterfaceConfiguration_Atm struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Support 12-bits VPI cell format. The type is AtmVpiBitsMode.
+    MaxVpiBits interface{}
+
+    // Name of the VC class. The type is string with length: 1..30.
+    VcClass interface{}
+
+    // PVP Configuration.
+    Pvps InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps
+
+    // PVC Configuration.
+    Pvcs InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs
+
+    // Configure maximum cell-packing timers.  All parameters are mandatory.
+    MaximumCellPackingTimers InterfaceConfigurations_InterfaceConfiguration_Atm_MaximumCellPackingTimers
+
+    // VP tunnel configuration.
+    VpTunnels InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels
+}
+
+func (atm *InterfaceConfigurations_InterfaceConfiguration_Atm) GetEntityData() *types.CommonEntityData {
+    atm.EntityData.YFilter = atm.YFilter
+    atm.EntityData.YangName = "atm"
+    atm.EntityData.BundleName = "cisco_ios_xr"
+    atm.EntityData.ParentYangName = "interface-configuration"
+    atm.EntityData.SegmentPath = "Cisco-IOS-XR-atm-vcm-cfg:atm"
+    atm.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/" + atm.EntityData.SegmentPath
+    atm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    atm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    atm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    atm.EntityData.Children = types.NewOrderedMap()
+    atm.EntityData.Children.Append("pvps", types.YChild{"Pvps", &atm.Pvps})
+    atm.EntityData.Children.Append("pvcs", types.YChild{"Pvcs", &atm.Pvcs})
+    atm.EntityData.Children.Append("maximum-cell-packing-timers", types.YChild{"MaximumCellPackingTimers", &atm.MaximumCellPackingTimers})
+    atm.EntityData.Children.Append("vp-tunnels", types.YChild{"VpTunnels", &atm.VpTunnels})
+    atm.EntityData.Leafs = types.NewOrderedMap()
+    atm.EntityData.Leafs.Append("max-vpi-bits", types.YLeaf{"MaxVpiBits", atm.MaxVpiBits})
+    atm.EntityData.Leafs.Append("vc-class", types.YLeaf{"VcClass", atm.VcClass})
+
+    atm.EntityData.YListKeys = []string {}
+
+    return &(atm.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps
+// PVP Configuration
+type InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration of particular PVP. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp.
+    Pvp []*InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp
+}
+
+func (pvps *InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps) GetEntityData() *types.CommonEntityData {
+    pvps.EntityData.YFilter = pvps.YFilter
+    pvps.EntityData.YangName = "pvps"
+    pvps.EntityData.BundleName = "cisco_ios_xr"
+    pvps.EntityData.ParentYangName = "atm"
+    pvps.EntityData.SegmentPath = "pvps"
+    pvps.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/" + pvps.EntityData.SegmentPath
+    pvps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pvps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pvps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pvps.EntityData.Children = types.NewOrderedMap()
+    pvps.EntityData.Children.Append("pvp", types.YChild{"Pvp", nil})
+    for i := range pvps.Pvp {
+        pvps.EntityData.Children.Append(types.GetSegmentPath(pvps.Pvp[i]), types.YChild{"Pvp", pvps.Pvp[i]})
+    }
+    pvps.EntityData.Leafs = types.NewOrderedMap()
+
+    pvps.EntityData.YListKeys = []string {}
+
+    return &(pvps.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp
+// Configuration of particular PVP
+type InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VPI value. The type is interface{} with range:
+    // 0..4095.
+    Vpi interface{}
+
+    // Create the PVP. The type is interface{}.
+    Enable interface{}
+
+    // Configure the PVP test mode. The type is AtmPvpTestMode.
+    TestMode interface{}
+
+    // Enable L2VPN PVP OAM segment endpoint. The type is interface{}.
+    OamSegmentEndpoint interface{}
+
+    // Configure traffic shaping parameters.
+    Shape InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp_Shape
+
+    // Configure cell-packing parameters.  All parameters are mandatory.
+    CellPacking InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp_CellPacking
+}
+
+func (pvp *InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp) GetEntityData() *types.CommonEntityData {
+    pvp.EntityData.YFilter = pvp.YFilter
+    pvp.EntityData.YangName = "pvp"
+    pvp.EntityData.BundleName = "cisco_ios_xr"
+    pvp.EntityData.ParentYangName = "pvps"
+    pvp.EntityData.SegmentPath = "pvp" + types.AddKeyToken(pvp.Vpi, "vpi")
+    pvp.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/pvps/" + pvp.EntityData.SegmentPath
+    pvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pvp.EntityData.Children = types.NewOrderedMap()
+    pvp.EntityData.Children.Append("shape", types.YChild{"Shape", &pvp.Shape})
+    pvp.EntityData.Children.Append("cell-packing", types.YChild{"CellPacking", &pvp.CellPacking})
+    pvp.EntityData.Leafs = types.NewOrderedMap()
+    pvp.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", pvp.Vpi})
+    pvp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pvp.Enable})
+    pvp.EntityData.Leafs.Append("test-mode", types.YLeaf{"TestMode", pvp.TestMode})
+    pvp.EntityData.Leafs.Append("oam-segment-endpoint", types.YLeaf{"OamSegmentEndpoint", pvp.OamSegmentEndpoint})
+
+    pvp.EntityData.YListKeys = []string {"Vpi"}
+
+    return &(pvp.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp_Shape
+// Configure traffic shaping parameters
+type InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp_Shape struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Traffic shaping type. The type is AtmPvcShaping.
+    Type interface{}
+
+    // Peak cell rate (kbps). The type is interface{} with range: 8..622080.
+    PeakCellRate interface{}
+
+    // Sustained cell rate (kbps). The type is interface{} with range: 8..622080.
+    SustainedCellRate interface{}
+
+    // Burst size in cells. The type is interface{} with range: 1..8192.
+    BurstSize interface{}
+}
+
+func (shape *InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp_Shape) GetEntityData() *types.CommonEntityData {
+    shape.EntityData.YFilter = shape.YFilter
+    shape.EntityData.YangName = "shape"
+    shape.EntityData.BundleName = "cisco_ios_xr"
+    shape.EntityData.ParentYangName = "pvp"
+    shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/pvps/pvp/" + shape.EntityData.SegmentPath
+    shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("type", types.YLeaf{"Type", shape.Type})
+    shape.EntityData.Leafs.Append("peak-cell-rate", types.YLeaf{"PeakCellRate", shape.PeakCellRate})
+    shape.EntityData.Leafs.Append("sustained-cell-rate", types.YLeaf{"SustainedCellRate", shape.SustainedCellRate})
+    shape.EntityData.Leafs.Append("burst-size", types.YLeaf{"BurstSize", shape.BurstSize})
+
+    shape.EntityData.YListKeys = []string {}
+
+    return &(shape.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp_CellPacking
+// Configure cell-packing parameters.  All
+// parameters are mandatory.
+// This type is a presence type.
+type InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp_CellPacking struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Maximum number of cells to be packed in a packet. The type is interface{}
+    // with range: 2..255. This attribute is mandatory.
+    MaximumCellsPacked interface{}
+
+    // Which cell packing timer to use. The type is interface{} with range: 1..3.
+    // This attribute is mandatory.
+    CellPackingTimerId interface{}
+}
+
+func (cellPacking *InterfaceConfigurations_InterfaceConfiguration_Atm_Pvps_Pvp_CellPacking) GetEntityData() *types.CommonEntityData {
+    cellPacking.EntityData.YFilter = cellPacking.YFilter
+    cellPacking.EntityData.YangName = "cell-packing"
+    cellPacking.EntityData.BundleName = "cisco_ios_xr"
+    cellPacking.EntityData.ParentYangName = "pvp"
+    cellPacking.EntityData.SegmentPath = "cell-packing"
+    cellPacking.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/pvps/pvp/" + cellPacking.EntityData.SegmentPath
+    cellPacking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cellPacking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cellPacking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cellPacking.EntityData.Children = types.NewOrderedMap()
+    cellPacking.EntityData.Leafs = types.NewOrderedMap()
+    cellPacking.EntityData.Leafs.Append("maximum-cells-packed", types.YLeaf{"MaximumCellsPacked", cellPacking.MaximumCellsPacked})
+    cellPacking.EntityData.Leafs.Append("cell-packing-timer-id", types.YLeaf{"CellPackingTimerId", cellPacking.CellPackingTimerId})
+
+    cellPacking.EntityData.YListKeys = []string {}
+
+    return &(cellPacking.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs
+// PVC Configuration
+type InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration particular PVC. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc.
+    Pvc []*InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc
+}
+
+func (pvcs *InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs) GetEntityData() *types.CommonEntityData {
+    pvcs.EntityData.YFilter = pvcs.YFilter
+    pvcs.EntityData.YangName = "pvcs"
+    pvcs.EntityData.BundleName = "cisco_ios_xr"
+    pvcs.EntityData.ParentYangName = "atm"
+    pvcs.EntityData.SegmentPath = "pvcs"
+    pvcs.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/" + pvcs.EntityData.SegmentPath
+    pvcs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pvcs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pvcs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pvcs.EntityData.Children = types.NewOrderedMap()
+    pvcs.EntityData.Children.Append("pvc", types.YChild{"Pvc", nil})
+    for i := range pvcs.Pvc {
+        pvcs.EntityData.Children.Append(types.GetSegmentPath(pvcs.Pvc[i]), types.YChild{"Pvc", pvcs.Pvc[i]})
+    }
+    pvcs.EntityData.Leafs = types.NewOrderedMap()
+
+    pvcs.EntityData.YListKeys = []string {}
+
+    return &(pvcs.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc
+// Configuration particular PVC
+type InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VPI value. The type is interface{} with range:
+    // 0..4095.
+    Vpi interface{}
+
+    // This attribute is a key. VCI value. The type is interface{} with range:
+    // 1..65535.
+    Vci interface{}
+
+    // This attribute is a key. PVC type. The type is AtmPvcData.
+    PvCtype interface{}
+
+    // Name of the VC class. The type is string with length: 1..30.
+    VcClass interface{}
+
+    // Configure encapsulation. The type is AtmPvcEncapsulation.
+    Encapsulation interface{}
+
+    // Create the PVC. The type is interface{}.
+    Enable interface{}
+
+    // Configure the PVC test mode. The type is AtmPvcTestMode.
+    TestMode interface{}
+
+    // Enable L2VPN PVC OAM segment endpoint. The type is interface{}.
+    OamSegmentEndpoint interface{}
+
+    // Configure traffic shaping parameters.
+    Shape InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_Shape
+
+    // L2VPN OAM emulation.
+    OamEmulation InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_OamEmulation
+
+    // Configure cell-packing parameters.  All parameters are mandatory.
+    CellPacking InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_CellPacking
+}
+
+func (pvc *InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc) GetEntityData() *types.CommonEntityData {
+    pvc.EntityData.YFilter = pvc.YFilter
+    pvc.EntityData.YangName = "pvc"
+    pvc.EntityData.BundleName = "cisco_ios_xr"
+    pvc.EntityData.ParentYangName = "pvcs"
+    pvc.EntityData.SegmentPath = "pvc" + types.AddKeyToken(pvc.Vpi, "vpi") + types.AddKeyToken(pvc.Vci, "vci") + types.AddKeyToken(pvc.PvCtype, "pv-ctype")
+    pvc.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/pvcs/" + pvc.EntityData.SegmentPath
+    pvc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pvc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pvc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pvc.EntityData.Children = types.NewOrderedMap()
+    pvc.EntityData.Children.Append("shape", types.YChild{"Shape", &pvc.Shape})
+    pvc.EntityData.Children.Append("oam-emulation", types.YChild{"OamEmulation", &pvc.OamEmulation})
+    pvc.EntityData.Children.Append("cell-packing", types.YChild{"CellPacking", &pvc.CellPacking})
+    pvc.EntityData.Leafs = types.NewOrderedMap()
+    pvc.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", pvc.Vpi})
+    pvc.EntityData.Leafs.Append("vci", types.YLeaf{"Vci", pvc.Vci})
+    pvc.EntityData.Leafs.Append("pv-ctype", types.YLeaf{"PvCtype", pvc.PvCtype})
+    pvc.EntityData.Leafs.Append("vc-class", types.YLeaf{"VcClass", pvc.VcClass})
+    pvc.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", pvc.Encapsulation})
+    pvc.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pvc.Enable})
+    pvc.EntityData.Leafs.Append("test-mode", types.YLeaf{"TestMode", pvc.TestMode})
+    pvc.EntityData.Leafs.Append("oam-segment-endpoint", types.YLeaf{"OamSegmentEndpoint", pvc.OamSegmentEndpoint})
+
+    pvc.EntityData.YListKeys = []string {"Vpi", "Vci", "PvCtype"}
+
+    return &(pvc.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_Shape
+// Configure traffic shaping parameters
+type InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_Shape struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Traffic shaping type. The type is AtmPvcShaping.
+    Type interface{}
+
+    // Peak cell rate (kbps). The type is interface{} with range: 8..622080.
+    PeakCellRate interface{}
+
+    // Sustained cell rate (kbps). The type is interface{} with range: 8..622080.
+    SustainedCellRate interface{}
+
+    // Burst size in cells. The type is interface{} with range: 1..8192.
+    BurstSize interface{}
+}
+
+func (shape *InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_Shape) GetEntityData() *types.CommonEntityData {
+    shape.EntityData.YFilter = shape.YFilter
+    shape.EntityData.YangName = "shape"
+    shape.EntityData.BundleName = "cisco_ios_xr"
+    shape.EntityData.ParentYangName = "pvc"
+    shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/pvcs/pvc/" + shape.EntityData.SegmentPath
+    shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("type", types.YLeaf{"Type", shape.Type})
+    shape.EntityData.Leafs.Append("peak-cell-rate", types.YLeaf{"PeakCellRate", shape.PeakCellRate})
+    shape.EntityData.Leafs.Append("sustained-cell-rate", types.YLeaf{"SustainedCellRate", shape.SustainedCellRate})
+    shape.EntityData.Leafs.Append("burst-size", types.YLeaf{"BurstSize", shape.BurstSize})
+
+    shape.EntityData.YListKeys = []string {}
+
+    return &(shape.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_OamEmulation
+// L2VPN OAM emulation
+type InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_OamEmulation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable OAM emulation. The type is interface{}.
+    Enable interface{}
+
+    // AIS cell transmit rate (1 per x seconds). The type is interface{} with
+    // range: 0..60.
+    AisTransmitRate interface{}
+}
+
+func (oamEmulation *InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_OamEmulation) GetEntityData() *types.CommonEntityData {
+    oamEmulation.EntityData.YFilter = oamEmulation.YFilter
+    oamEmulation.EntityData.YangName = "oam-emulation"
+    oamEmulation.EntityData.BundleName = "cisco_ios_xr"
+    oamEmulation.EntityData.ParentYangName = "pvc"
+    oamEmulation.EntityData.SegmentPath = "oam-emulation"
+    oamEmulation.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/pvcs/pvc/" + oamEmulation.EntityData.SegmentPath
+    oamEmulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    oamEmulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    oamEmulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    oamEmulation.EntityData.Children = types.NewOrderedMap()
+    oamEmulation.EntityData.Leafs = types.NewOrderedMap()
+    oamEmulation.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", oamEmulation.Enable})
+    oamEmulation.EntityData.Leafs.Append("ais-transmit-rate", types.YLeaf{"AisTransmitRate", oamEmulation.AisTransmitRate})
+
+    oamEmulation.EntityData.YListKeys = []string {}
+
+    return &(oamEmulation.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_CellPacking
+// Configure cell-packing parameters.  All
+// parameters are mandatory.
+// This type is a presence type.
+type InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_CellPacking struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Maximum number of cells to be packed in a packet. The type is interface{}
+    // with range: 2..255. This attribute is mandatory.
+    MaximumCellsPacked interface{}
+
+    // Which cell packing timer to use. The type is interface{} with range: 1..3.
+    // This attribute is mandatory.
+    CellPackingTimerId interface{}
+}
+
+func (cellPacking *InterfaceConfigurations_InterfaceConfiguration_Atm_Pvcs_Pvc_CellPacking) GetEntityData() *types.CommonEntityData {
+    cellPacking.EntityData.YFilter = cellPacking.YFilter
+    cellPacking.EntityData.YangName = "cell-packing"
+    cellPacking.EntityData.BundleName = "cisco_ios_xr"
+    cellPacking.EntityData.ParentYangName = "pvc"
+    cellPacking.EntityData.SegmentPath = "cell-packing"
+    cellPacking.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/pvcs/pvc/" + cellPacking.EntityData.SegmentPath
+    cellPacking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cellPacking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cellPacking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cellPacking.EntityData.Children = types.NewOrderedMap()
+    cellPacking.EntityData.Leafs = types.NewOrderedMap()
+    cellPacking.EntityData.Leafs.Append("maximum-cells-packed", types.YLeaf{"MaximumCellsPacked", cellPacking.MaximumCellsPacked})
+    cellPacking.EntityData.Leafs.Append("cell-packing-timer-id", types.YLeaf{"CellPackingTimerId", cellPacking.CellPackingTimerId})
+
+    cellPacking.EntityData.YListKeys = []string {}
+
+    return &(cellPacking.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_MaximumCellPackingTimers
+// Configure maximum cell-packing timers.  All
+// parameters are mandatory.
+// This type is a presence type.
+type InterfaceConfigurations_InterfaceConfiguration_Atm_MaximumCellPackingTimers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Cell-packing timer1 (micro seconds). The type is interface{} with range:
+    // 50..4095. This attribute is mandatory.
+    CellPackingTimer1 interface{}
+
+    // Cell-packing timer2 (micro seconds). The type is interface{} with range:
+    // 50..4095. This attribute is mandatory.
+    CellPackingTimer2 interface{}
+
+    // Cell-packing timer3 (micro seconds). The type is interface{} with range:
+    // 50..4095. This attribute is mandatory.
+    CellPackingTimer3 interface{}
+}
+
+func (maximumCellPackingTimers *InterfaceConfigurations_InterfaceConfiguration_Atm_MaximumCellPackingTimers) GetEntityData() *types.CommonEntityData {
+    maximumCellPackingTimers.EntityData.YFilter = maximumCellPackingTimers.YFilter
+    maximumCellPackingTimers.EntityData.YangName = "maximum-cell-packing-timers"
+    maximumCellPackingTimers.EntityData.BundleName = "cisco_ios_xr"
+    maximumCellPackingTimers.EntityData.ParentYangName = "atm"
+    maximumCellPackingTimers.EntityData.SegmentPath = "maximum-cell-packing-timers"
+    maximumCellPackingTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/" + maximumCellPackingTimers.EntityData.SegmentPath
+    maximumCellPackingTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    maximumCellPackingTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    maximumCellPackingTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    maximumCellPackingTimers.EntityData.Children = types.NewOrderedMap()
+    maximumCellPackingTimers.EntityData.Leafs = types.NewOrderedMap()
+    maximumCellPackingTimers.EntityData.Leafs.Append("cell-packing-timer1", types.YLeaf{"CellPackingTimer1", maximumCellPackingTimers.CellPackingTimer1})
+    maximumCellPackingTimers.EntityData.Leafs.Append("cell-packing-timer2", types.YLeaf{"CellPackingTimer2", maximumCellPackingTimers.CellPackingTimer2})
+    maximumCellPackingTimers.EntityData.Leafs.Append("cell-packing-timer3", types.YLeaf{"CellPackingTimer3", maximumCellPackingTimers.CellPackingTimer3})
+
+    maximumCellPackingTimers.EntityData.YListKeys = []string {}
+
+    return &(maximumCellPackingTimers.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels
+// VP tunnel configuration
+type InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure a VP tunnel on this interface. The type is slice of
+    // InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels_VpTunnel.
+    VpTunnel []*InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels_VpTunnel
+}
+
+func (vpTunnels *InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels) GetEntityData() *types.CommonEntityData {
+    vpTunnels.EntityData.YFilter = vpTunnels.YFilter
+    vpTunnels.EntityData.YangName = "vp-tunnels"
+    vpTunnels.EntityData.BundleName = "cisco_ios_xr"
+    vpTunnels.EntityData.ParentYangName = "atm"
+    vpTunnels.EntityData.SegmentPath = "vp-tunnels"
+    vpTunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/" + vpTunnels.EntityData.SegmentPath
+    vpTunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vpTunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vpTunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vpTunnels.EntityData.Children = types.NewOrderedMap()
+    vpTunnels.EntityData.Children.Append("vp-tunnel", types.YChild{"VpTunnel", nil})
+    for i := range vpTunnels.VpTunnel {
+        vpTunnels.EntityData.Children.Append(types.GetSegmentPath(vpTunnels.VpTunnel[i]), types.YChild{"VpTunnel", vpTunnels.VpTunnel[i]})
+    }
+    vpTunnels.EntityData.Leafs = types.NewOrderedMap()
+
+    vpTunnels.EntityData.YListKeys = []string {}
+
+    return &(vpTunnels.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels_VpTunnel
+// Configure a VP tunnel on this interface
+type InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels_VpTunnel struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VPI value. The type is interface{} with range:
+    // 0..4095.
+    Vpi interface{}
+
+    // Enable Hierarchical Shaping configuration. The type is interface{}.
+    EnableHierarchicalShaping interface{}
+
+    // Create the VP Tunnel. The type is interface{}.
+    Enable interface{}
+
+    // Disable F4 OAM configuration. The type is interface{}.
+    DisableF4oam interface{}
+
+    // Configure Traffic shaping parameters.
+    Shape InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels_VpTunnel_Shape
+}
+
+func (vpTunnel *InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels_VpTunnel) GetEntityData() *types.CommonEntityData {
+    vpTunnel.EntityData.YFilter = vpTunnel.YFilter
+    vpTunnel.EntityData.YangName = "vp-tunnel"
+    vpTunnel.EntityData.BundleName = "cisco_ios_xr"
+    vpTunnel.EntityData.ParentYangName = "vp-tunnels"
+    vpTunnel.EntityData.SegmentPath = "vp-tunnel" + types.AddKeyToken(vpTunnel.Vpi, "vpi")
+    vpTunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/vp-tunnels/" + vpTunnel.EntityData.SegmentPath
+    vpTunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vpTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vpTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vpTunnel.EntityData.Children = types.NewOrderedMap()
+    vpTunnel.EntityData.Children.Append("shape", types.YChild{"Shape", &vpTunnel.Shape})
+    vpTunnel.EntityData.Leafs = types.NewOrderedMap()
+    vpTunnel.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", vpTunnel.Vpi})
+    vpTunnel.EntityData.Leafs.Append("enable-hierarchical-shaping", types.YLeaf{"EnableHierarchicalShaping", vpTunnel.EnableHierarchicalShaping})
+    vpTunnel.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vpTunnel.Enable})
+    vpTunnel.EntityData.Leafs.Append("disable-f4oam", types.YLeaf{"DisableF4oam", vpTunnel.DisableF4oam})
+
+    vpTunnel.EntityData.YListKeys = []string {"Vpi"}
+
+    return &(vpTunnel.EntityData)
+}
+
+// InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels_VpTunnel_Shape
+// Configure Traffic shaping parameters
+type InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels_VpTunnel_Shape struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Traffic shaping type. The type is AtmVpShaping.
+    Type interface{}
+
+    // Peak cell rate (kbps). The type is interface{} with range: 8..622080.
+    PeakCellRate interface{}
+
+    // Sustained cell rate (kbps). The type is interface{} with range: 8..622080.
+    SustainedCellRate interface{}
+
+    // Burst size in cells. The type is interface{} with range: 1..8192.
+    BurstSize interface{}
+}
+
+func (shape *InterfaceConfigurations_InterfaceConfiguration_Atm_VpTunnels_VpTunnel_Shape) GetEntityData() *types.CommonEntityData {
+    shape.EntityData.YFilter = shape.YFilter
+    shape.EntityData.YangName = "shape"
+    shape.EntityData.BundleName = "cisco_ios_xr"
+    shape.EntityData.ParentYangName = "vp-tunnel"
+    shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-cfg:interface-configurations/interface-configuration/Cisco-IOS-XR-atm-vcm-cfg:atm/vp-tunnels/vp-tunnel/" + shape.EntityData.SegmentPath
+    shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    shape.EntityData.Children = types.NewOrderedMap()
+    shape.EntityData.Leafs = types.NewOrderedMap()
+    shape.EntityData.Leafs.Append("type", types.YLeaf{"Type", shape.Type})
+    shape.EntityData.Leafs.Append("peak-cell-rate", types.YLeaf{"PeakCellRate", shape.PeakCellRate})
+    shape.EntityData.Leafs.Append("sustained-cell-rate", types.YLeaf{"SustainedCellRate", shape.SustainedCellRate})
+    shape.EntityData.Leafs.Append("burst-size", types.YLeaf{"BurstSize", shape.BurstSize})
+
+    shape.EntityData.YListKeys = []string {}
+
+    return &(shape.EntityData)
+}
+
 // InterfaceConfigurations_InterfaceConfiguration_Dot1xInterface
 // Interface Specific Dot1x Configuration
 type InterfaceConfigurations_InterfaceConfiguration_Dot1xInterface struct {
@@ -20094,7 +21431,7 @@ type InterfaceConfigurations_InterfaceConfiguration_Ipv6PacketFilter_Inbound str
     CommonAclName interface{}
 
     // Reserved for backward compatibility. IPv6 Packet Filter Name to be applied
-    // to Inbound  NOTE: This parameter is mandatory if 'CommonACLName' is not
+    // to Inbound NOTE: This parameter is mandatory if 'CommonACLName' is not
     // specified. The type is string with length: 1..64.
     Name interface{}
 
@@ -20153,7 +21490,7 @@ type InterfaceConfigurations_InterfaceConfiguration_Ipv6PacketFilter_Outbound st
     DoNotUse interface{}
 
     // Reserved for backward compatibility. IPv6 Packet Filter Name to be applied
-    // to Outbound  packets. The type is string with length: 1..64.
+    // to Outbound packets. The type is string with length: 1..64.
     Name interface{}
 
     // True if packets hitting the ACL should be counted in hardware per

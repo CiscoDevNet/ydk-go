@@ -83,7 +83,7 @@ type HwModuleProfileConfig_Profile struct {
     Netflow HwModuleProfileConfig_Profile_Netflow
 
     // Configure Flowspec profile.
-    Flowspecs HwModuleProfileConfig_Profile_Flowspecs
+    FlowspecTable HwModuleProfileConfig_Profile_FlowspecTable
 
     // Configure Segment Routing profile.
     SegmentRoutings HwModuleProfileConfig_Profile_SegmentRoutings
@@ -96,6 +96,9 @@ type HwModuleProfileConfig_Profile struct {
 
     // Configure acl profile.
     ProfileAcl HwModuleProfileConfig_Profile_ProfileAcl
+
+    // Configure IPV6 NULL label autopush for SR policy.
+    SrPolicies HwModuleProfileConfig_Profile_SrPolicies
 
     // Configure Bundle profile.
     BundleScale HwModuleProfileConfig_Profile_BundleScale
@@ -121,11 +124,12 @@ func (profile *HwModuleProfileConfig_Profile) GetEntityData() *types.CommonEntit
     profile.EntityData.Children = types.NewOrderedMap()
     profile.EntityData.Children.Append("tcam-table", types.YChild{"TcamTable", &profile.TcamTable})
     profile.EntityData.Children.Append("netflow", types.YChild{"Netflow", &profile.Netflow})
-    profile.EntityData.Children.Append("flowspecs", types.YChild{"Flowspecs", &profile.Flowspecs})
+    profile.EntityData.Children.Append("flowspec-table", types.YChild{"FlowspecTable", &profile.FlowspecTable})
     profile.EntityData.Children.Append("segment-routings", types.YChild{"SegmentRoutings", &profile.SegmentRoutings})
     profile.EntityData.Children.Append("load-balance", types.YChild{"LoadBalance", &profile.LoadBalance})
     profile.EntityData.Children.Append("stats", types.YChild{"Stats", &profile.Stats})
     profile.EntityData.Children.Append("profile-acl", types.YChild{"ProfileAcl", &profile.ProfileAcl})
+    profile.EntityData.Children.Append("sr-policies", types.YChild{"SrPolicies", &profile.SrPolicies})
     profile.EntityData.Children.Append("bundle-scale", types.YChild{"BundleScale", &profile.BundleScale})
     profile.EntityData.Children.Append("profile-tcam", types.YChild{"ProfileTcam", &profile.ProfileTcam})
     profile.EntityData.Children.Append("qos", types.YChild{"Qos", &profile.Qos})
@@ -648,24 +652,54 @@ func (locationAll *HwModuleProfileConfig_Profile_Netflow_LocationAll) GetEntityD
     return &(locationAll.EntityData)
 }
 
-// HwModuleProfileConfig_Profile_Flowspecs
+// HwModuleProfileConfig_Profile_FlowspecTable
 // Configure Flowspec profile.
-type HwModuleProfileConfig_Profile_Flowspecs struct {
+type HwModuleProfileConfig_Profile_FlowspecTable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure v6 enable on Flowspec profile.
+    Flowspecs HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs
+}
+
+func (flowspecTable *HwModuleProfileConfig_Profile_FlowspecTable) GetEntityData() *types.CommonEntityData {
+    flowspecTable.EntityData.YFilter = flowspecTable.YFilter
+    flowspecTable.EntityData.YangName = "flowspec-table"
+    flowspecTable.EntityData.BundleName = "cisco_ios_xr"
+    flowspecTable.EntityData.ParentYangName = "profile"
+    flowspecTable.EntityData.SegmentPath = "flowspec-table"
+    flowspecTable.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + flowspecTable.EntityData.SegmentPath
+    flowspecTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flowspecTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flowspecTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    flowspecTable.EntityData.Children = types.NewOrderedMap()
+    flowspecTable.EntityData.Children.Append("flowspecs", types.YChild{"Flowspecs", &flowspecTable.Flowspecs})
+    flowspecTable.EntityData.Leafs = types.NewOrderedMap()
+
+    flowspecTable.EntityData.YListKeys = []string {}
+
+    return &(flowspecTable.EntityData)
+}
+
+// HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs
+// Configure v6 enable on Flowspec profile.
+type HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // none. The type is slice of
-    // HwModuleProfileConfig_Profile_Flowspecs_Flowspec.
-    Flowspec []*HwModuleProfileConfig_Profile_Flowspecs_Flowspec
+    // HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs_Flowspec.
+    Flowspec []*HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs_Flowspec
 }
 
-func (flowspecs *HwModuleProfileConfig_Profile_Flowspecs) GetEntityData() *types.CommonEntityData {
+func (flowspecs *HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs) GetEntityData() *types.CommonEntityData {
     flowspecs.EntityData.YFilter = flowspecs.YFilter
     flowspecs.EntityData.YangName = "flowspecs"
     flowspecs.EntityData.BundleName = "cisco_ios_xr"
-    flowspecs.EntityData.ParentYangName = "profile"
+    flowspecs.EntityData.ParentYangName = "flowspec-table"
     flowspecs.EntityData.SegmentPath = "flowspecs"
-    flowspecs.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + flowspecs.EntityData.SegmentPath
+    flowspecs.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/flowspec-table/" + flowspecs.EntityData.SegmentPath
     flowspecs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowspecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowspecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -682,49 +716,44 @@ func (flowspecs *HwModuleProfileConfig_Profile_Flowspecs) GetEntityData() *types
     return &(flowspecs.EntityData)
 }
 
-// HwModuleProfileConfig_Profile_Flowspecs_Flowspec
+// HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs_Flowspec
 // none
-type HwModuleProfileConfig_Profile_Flowspecs_Flowspec struct {
+type HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs_Flowspec struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
-
-    // This attribute is a key. none. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    V6Enable interface{}
 
     // This attribute is a key. Location of FLOWSPEC config. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     LocationString interface{}
 
-    // This attribute is a key. Location ID hex to Decimal 0xffff for all. The
-    // type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Location ID hex to Decimal 65535. The type is
+    // interface{} with range: 0..4294967295.
     LocationId interface{}
 
-    // If Enabled set value to 65535. The type is interface{} with range:
+    // If Enabled set value to 1. The type is interface{} with range:
     // 0..4294967295. This attribute is mandatory.
     EnableVal interface{}
 }
 
-func (flowspec *HwModuleProfileConfig_Profile_Flowspecs_Flowspec) GetEntityData() *types.CommonEntityData {
+func (flowspec *HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs_Flowspec) GetEntityData() *types.CommonEntityData {
     flowspec.EntityData.YFilter = flowspec.YFilter
     flowspec.EntityData.YangName = "flowspec"
     flowspec.EntityData.BundleName = "cisco_ios_xr"
     flowspec.EntityData.ParentYangName = "flowspecs"
-    flowspec.EntityData.SegmentPath = "flowspec" + types.AddKeyToken(flowspec.V6Enable, "v6-enable") + types.AddKeyToken(flowspec.LocationString, "location-string") + types.AddKeyToken(flowspec.LocationId, "location-id")
-    flowspec.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/flowspecs/" + flowspec.EntityData.SegmentPath
+    flowspec.EntityData.SegmentPath = "flowspec" + types.AddKeyToken(flowspec.LocationString, "location-string") + types.AddKeyToken(flowspec.LocationId, "location-id")
+    flowspec.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/flowspec-table/flowspecs/" + flowspec.EntityData.SegmentPath
     flowspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     flowspec.EntityData.Children = types.NewOrderedMap()
     flowspec.EntityData.Leafs = types.NewOrderedMap()
-    flowspec.EntityData.Leafs.Append("v6-enable", types.YLeaf{"V6Enable", flowspec.V6Enable})
     flowspec.EntityData.Leafs.Append("location-string", types.YLeaf{"LocationString", flowspec.LocationString})
     flowspec.EntityData.Leafs.Append("location-id", types.YLeaf{"LocationId", flowspec.LocationId})
     flowspec.EntityData.Leafs.Append("enable-val", types.YLeaf{"EnableVal", flowspec.EnableVal})
 
-    flowspec.EntityData.YListKeys = []string {"V6Enable", "LocationString", "LocationId"}
+    flowspec.EntityData.YListKeys = []string {"LocationString", "LocationId"}
 
     return &(flowspec.EntityData)
 }
@@ -868,7 +897,8 @@ type HwModuleProfileConfig_Profile_Stats_StatsProfileModes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Configure stats for qos-enhanced and acl-permit. The type is slice of
+    // Configure stats for qos-enhanced, acl-permit and ingress-sr. The type is
+    // slice of
     // HwModuleProfileConfig_Profile_Stats_StatsProfileModes_StatsProfileMode.
     StatsProfileMode []*HwModuleProfileConfig_Profile_Stats_StatsProfileModes_StatsProfileMode
 }
@@ -897,8 +927,8 @@ func (statsProfileModes *HwModuleProfileConfig_Profile_Stats_StatsProfileModes) 
 }
 
 // HwModuleProfileConfig_Profile_Stats_StatsProfileModes_StatsProfileMode
-// Configure stats for qos-enhanced and
-// acl-permit
+// Configure stats for qos-enhanced, acl-permit
+// and ingress-sr
 type HwModuleProfileConfig_Profile_Stats_StatsProfileModes_StatsProfileMode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -962,6 +992,78 @@ func (profileAcl *HwModuleProfileConfig_Profile_ProfileAcl) GetEntityData() *typ
     profileAcl.EntityData.YListKeys = []string {}
 
     return &(profileAcl.EntityData)
+}
+
+// HwModuleProfileConfig_Profile_SrPolicies
+// Configure IPV6 NULL label autopush for SR
+// policy.
+type HwModuleProfileConfig_Profile_SrPolicies struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // none. The type is slice of
+    // HwModuleProfileConfig_Profile_SrPolicies_SrPolicy.
+    SrPolicy []*HwModuleProfileConfig_Profile_SrPolicies_SrPolicy
+}
+
+func (srPolicies *HwModuleProfileConfig_Profile_SrPolicies) GetEntityData() *types.CommonEntityData {
+    srPolicies.EntityData.YFilter = srPolicies.YFilter
+    srPolicies.EntityData.YangName = "sr-policies"
+    srPolicies.EntityData.BundleName = "cisco_ios_xr"
+    srPolicies.EntityData.ParentYangName = "profile"
+    srPolicies.EntityData.SegmentPath = "sr-policies"
+    srPolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + srPolicies.EntityData.SegmentPath
+    srPolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srPolicies.EntityData.Children = types.NewOrderedMap()
+    srPolicies.EntityData.Children.Append("sr-policy", types.YChild{"SrPolicy", nil})
+    for i := range srPolicies.SrPolicy {
+        srPolicies.EntityData.Children.Append(types.GetSegmentPath(srPolicies.SrPolicy[i]), types.YChild{"SrPolicy", srPolicies.SrPolicy[i]})
+    }
+    srPolicies.EntityData.Leafs = types.NewOrderedMap()
+
+    srPolicies.EntityData.YListKeys = []string {}
+
+    return &(srPolicies.EntityData)
+}
+
+// HwModuleProfileConfig_Profile_SrPolicies_SrPolicy
+// none
+type HwModuleProfileConfig_Profile_SrPolicies_SrPolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. none. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    NullLabelAutopush interface{}
+
+    // If Enabled set value to 1. The type is interface{} with range:
+    // 0..4294967295. This attribute is mandatory.
+    EnableVal interface{}
+}
+
+func (srPolicy *HwModuleProfileConfig_Profile_SrPolicies_SrPolicy) GetEntityData() *types.CommonEntityData {
+    srPolicy.EntityData.YFilter = srPolicy.YFilter
+    srPolicy.EntityData.YangName = "sr-policy"
+    srPolicy.EntityData.BundleName = "cisco_ios_xr"
+    srPolicy.EntityData.ParentYangName = "sr-policies"
+    srPolicy.EntityData.SegmentPath = "sr-policy" + types.AddKeyToken(srPolicy.NullLabelAutopush, "null-label-autopush")
+    srPolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/sr-policies/" + srPolicy.EntityData.SegmentPath
+    srPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srPolicy.EntityData.Children = types.NewOrderedMap()
+    srPolicy.EntityData.Leafs = types.NewOrderedMap()
+    srPolicy.EntityData.Leafs.Append("null-label-autopush", types.YLeaf{"NullLabelAutopush", srPolicy.NullLabelAutopush})
+    srPolicy.EntityData.Leafs.Append("enable-val", types.YLeaf{"EnableVal", srPolicy.EnableVal})
+
+    srPolicy.EntityData.YListKeys = []string {"NullLabelAutopush"}
+
+    return &(srPolicy.EntityData)
 }
 
 // HwModuleProfileConfig_Profile_BundleScale

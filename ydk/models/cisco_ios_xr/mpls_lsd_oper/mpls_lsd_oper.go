@@ -344,6 +344,9 @@ const (
     // Traffic Collector
     MgmtLsdApp_mgmt_lsd_app_type_dmtc MgmtLsdApp = "mgmt-lsd-app-type-dmtc"
 
+    // COFO Sync Lib
+    MgmtLsdApp_mgmt_lsd_app_type_cofo_sync_lib MgmtLsdApp = "mgmt-lsd-app-type-cofo-sync-lib"
+
     // Any
     MgmtLsdApp_mgmt_lsd_app_type_any MgmtLsdApp = "mgmt-lsd-app-type-any"
 )
@@ -559,9 +562,9 @@ type MplsLsdNodes_MplsLsdNode_Clients_Client struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Client Instance name in the form of    
-    // 'Application-<client_name>' or      'BCDL_Agent-<index:parent_index>'. The
-    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // This attribute is a key. Client Instance name in the form of
+    // 'Application-<client_name>' or 'BCDL_Agent-<index:parent_index>'. The type
+    // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ClientName interface{}
 
     // Client Index Value. The type is interface{} with range: 0..4294967295.
@@ -27251,9 +27254,9 @@ type MplsLsd_Clients_Client struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Client Instance name in the form of    
-    // 'Application-<client_name>' or      'BCDL_Agent-<index:parent_index>'. The
-    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // This attribute is a key. Client Instance name in the form of
+    // 'Application-<client_name>' or 'BCDL_Agent-<index:parent_index>'. The type
+    // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ClientName interface{}
 
     // Client Index Value. The type is interface{} with range: 0..4294967295.

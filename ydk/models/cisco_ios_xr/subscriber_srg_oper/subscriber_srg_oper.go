@@ -361,6 +361,9 @@ type SubscriberRedundancyManager_Summary struct {
     // Switch Over Hold Time. The type is interface{} with range: 0..4294967295.
     HoldTimer interface{}
 
+    // Sync Time. The type is interface{} with range: 0..4294967295.
+    SyncTime interface{}
+
     // Source Interface Name. The type is string.
     SourceInterfaceName interface{}
 
@@ -420,6 +423,7 @@ func (summary *SubscriberRedundancyManager_Summary) GetEntityData() *types.Commo
     summary.EntityData.Leafs.Append("preferred-role", types.YLeaf{"PreferredRole", summary.PreferredRole})
     summary.EntityData.Leafs.Append("slave-mode", types.YLeaf{"SlaveMode", summary.SlaveMode})
     summary.EntityData.Leafs.Append("hold-timer", types.YLeaf{"HoldTimer", summary.HoldTimer})
+    summary.EntityData.Leafs.Append("sync-time", types.YLeaf{"SyncTime", summary.SyncTime})
     summary.EntityData.Leafs.Append("source-interface-name", types.YLeaf{"SourceInterfaceName", summary.SourceInterfaceName})
     summary.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", summary.VrfName})
     summary.EntityData.Leafs.Append("source-interface-ipv4-address", types.YLeaf{"SourceInterfaceIpv4Address", summary.SourceInterfaceIpv4Address})
@@ -1348,14 +1352,17 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     // Peer Status. The type is SrgPeerStatus.
     PeerStatus interface{}
 
-    // Last Negotiation time of Peer. The type is string.
-    PeerLastNegotiationTime interface{}
+    // Last Negotiation time of Peer in epoch seconds. The type is interface{}
+    // with range: 0..18446744073709551615. Units are second.
+    PeerLastNegotiationTimeEpoch interface{}
 
-    // Last UP time of Peer. The type is string.
-    PeerLastUpTime interface{}
+    // Last UP time of Peer in epoch seconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    PeerLastUpTimeEpoch interface{}
 
-    // Last Down time of Peer. The type is string.
-    PeerLastDownTime interface{}
+    // Last Down time of Peer in epoch seconds. The type is interface{} with
+    // range: 0..18446744073709551615. Units are second.
+    PeerLastDownTimeEpoch interface{}
 
     // Peer Preferred Init Role. The type is SrgShowRole.
     PeerInitRole interface{}
@@ -1369,8 +1376,9 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     // Peer Object Tracking Status. The type is bool.
     PeerObjectTrackingStatus interface{}
 
-    // Last Switchover time. The type is string.
-    LastSwitchoverTime interface{}
+    // Last Switchover time in epoch seconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    LastSwitchoverTimeEpoch interface{}
 
     // Switchover Count. The type is interface{} with range: 0..4294967295.
     SwitchoverCount interface{}
@@ -1455,14 +1463,14 @@ func (groupId *SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityD
     groupId.EntityData.Leafs.Append("peer-ipv4-address", types.YLeaf{"PeerIpv4Address", groupId.PeerIpv4Address})
     groupId.EntityData.Leafs.Append("peer-ipv6-address", types.YLeaf{"PeerIpv6Address", groupId.PeerIpv6Address})
     groupId.EntityData.Leafs.Append("peer-status", types.YLeaf{"PeerStatus", groupId.PeerStatus})
-    groupId.EntityData.Leafs.Append("peer-last-negotiation-time", types.YLeaf{"PeerLastNegotiationTime", groupId.PeerLastNegotiationTime})
-    groupId.EntityData.Leafs.Append("peer-last-up-time", types.YLeaf{"PeerLastUpTime", groupId.PeerLastUpTime})
-    groupId.EntityData.Leafs.Append("peer-last-down-time", types.YLeaf{"PeerLastDownTime", groupId.PeerLastDownTime})
+    groupId.EntityData.Leafs.Append("peer-last-negotiation-time-epoch", types.YLeaf{"PeerLastNegotiationTimeEpoch", groupId.PeerLastNegotiationTimeEpoch})
+    groupId.EntityData.Leafs.Append("peer-last-up-time-epoch", types.YLeaf{"PeerLastUpTimeEpoch", groupId.PeerLastUpTimeEpoch})
+    groupId.EntityData.Leafs.Append("peer-last-down-time-epoch", types.YLeaf{"PeerLastDownTimeEpoch", groupId.PeerLastDownTimeEpoch})
     groupId.EntityData.Leafs.Append("peer-init-role", types.YLeaf{"PeerInitRole", groupId.PeerInitRole})
     groupId.EntityData.Leafs.Append("peer-negotiating-role", types.YLeaf{"PeerNegotiatingRole", groupId.PeerNegotiatingRole})
     groupId.EntityData.Leafs.Append("peer-current-role", types.YLeaf{"PeerCurrentRole", groupId.PeerCurrentRole})
     groupId.EntityData.Leafs.Append("peer-object-tracking-status", types.YLeaf{"PeerObjectTrackingStatus", groupId.PeerObjectTrackingStatus})
-    groupId.EntityData.Leafs.Append("last-switchover-time", types.YLeaf{"LastSwitchoverTime", groupId.LastSwitchoverTime})
+    groupId.EntityData.Leafs.Append("last-switchover-time-epoch", types.YLeaf{"LastSwitchoverTimeEpoch", groupId.LastSwitchoverTimeEpoch})
     groupId.EntityData.Leafs.Append("switchover-count", types.YLeaf{"SwitchoverCount", groupId.SwitchoverCount})
     groupId.EntityData.Leafs.Append("last-switchover-reason", types.YLeaf{"LastSwitchoverReason", groupId.LastSwitchoverReason})
     groupId.EntityData.Leafs.Append("switchover-hold-time", types.YLeaf{"SwitchoverHoldTime", groupId.SwitchoverHoldTime})

@@ -1,7 +1,7 @@
 // This module contains a collection of YANG definitions
 // for Cisco IOS-XR ping action package configuration.
 // 
-// Copyright (c) 2016 by Cisco Systems, Inc.
+// Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ping_act
 
@@ -95,9 +95,11 @@ func (input *Ping_Input) GetEntityData() *types.CommonEntityData {
 }
 
 // Ping_Input_Destination
+// This type is a presence type.
 type Ping_Input_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Ping destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -269,9 +271,11 @@ func (ipv4 *Ping_Input_Ipv4) GetEntityData() *types.CommonEntityData {
 }
 
 // Ping_Input_Ipv6
+// This type is a presence type.
 type Ping_Input_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Ping destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -662,9 +666,11 @@ func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_Broadca
 }
 
 // Ping_Output_PingResponse_Ipv6
+// This type is a presence type.
 type Ping_Output_PingResponse_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Ping destination address or hostname. The type is string. This attribute is
     // mandatory.

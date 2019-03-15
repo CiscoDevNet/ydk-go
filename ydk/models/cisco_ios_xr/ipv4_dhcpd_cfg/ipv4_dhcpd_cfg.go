@@ -241,8 +241,14 @@ const (
     // Not a Format String
     Ipv4dhcpdFmt_no_format Ipv4dhcpdFmt = "no-format"
 
-    // Format String
-    Ipv4dhcpdFmt_format Ipv4dhcpdFmt = "format"
+    // Hex Format String
+    Ipv4dhcpdFmt_hex Ipv4dhcpdFmt = "hex"
+
+    // Ascii Format String
+    Ipv4dhcpdFmt_ascii Ipv4dhcpdFmt = "ascii"
+
+    // Extended Format String
+    Ipv4dhcpdFmt_extended Ipv4dhcpdFmt = "extended"
 )
 
 // Ipv4dhcpdRelayInfoOptionvpnMode represents Ipv4dhcpd relay info optionvpn mode
@@ -1272,6 +1278,9 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server struct {
     // default routers.
     DefaultRouters Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DefaultRouters
 
+    // Delete binding on receiving discover.
+    DeleteBindingOnDiscover Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DeleteBindingOnDiscover
+
     // NetBIOS name servers.
     NetBiosNameServers Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_NetBiosNameServers
 
@@ -1323,6 +1332,7 @@ func (server *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server) GetEntityData() *typ
     server.EntityData.Children.Append("requested-ip-address", types.YChild{"RequestedIpAddress", &server.RequestedIpAddress})
     server.EntityData.Children.Append("aaa-server", types.YChild{"AaaServer", &server.AaaServer})
     server.EntityData.Children.Append("default-routers", types.YChild{"DefaultRouters", &server.DefaultRouters})
+    server.EntityData.Children.Append("delete-binding-on-discover", types.YChild{"DeleteBindingOnDiscover", &server.DeleteBindingOnDiscover})
     server.EntityData.Children.Append("net-bios-name-servers", types.YChild{"NetBiosNameServers", &server.NetBiosNameServers})
     server.EntityData.Children.Append("match", types.YChild{"Match", &server.Match})
     server.EntityData.Children.Append("broadcast-flag", types.YChild{"BroadcastFlag", &server.BroadcastFlag})
@@ -1534,6 +1544,36 @@ func (defaultRouters *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DefaultRouter
     defaultRouters.EntityData.YListKeys = []string {}
 
     return &(defaultRouters.EntityData)
+}
+
+// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DeleteBindingOnDiscover
+// Delete binding on receiving discover
+type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DeleteBindingOnDiscover struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Disable delete binding on discover. The type is interface{}.
+    Disable interface{}
+}
+
+func (deleteBindingOnDiscover *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DeleteBindingOnDiscover) GetEntityData() *types.CommonEntityData {
+    deleteBindingOnDiscover.EntityData.YFilter = deleteBindingOnDiscover.YFilter
+    deleteBindingOnDiscover.EntityData.YangName = "delete-binding-on-discover"
+    deleteBindingOnDiscover.EntityData.BundleName = "cisco_ios_xr"
+    deleteBindingOnDiscover.EntityData.ParentYangName = "server"
+    deleteBindingOnDiscover.EntityData.SegmentPath = "delete-binding-on-discover"
+    deleteBindingOnDiscover.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + deleteBindingOnDiscover.EntityData.SegmentPath
+    deleteBindingOnDiscover.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    deleteBindingOnDiscover.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    deleteBindingOnDiscover.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    deleteBindingOnDiscover.EntityData.Children = types.NewOrderedMap()
+    deleteBindingOnDiscover.EntityData.Leafs = types.NewOrderedMap()
+    deleteBindingOnDiscover.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", deleteBindingOnDiscover.Disable})
+
+    deleteBindingOnDiscover.EntityData.YListKeys = []string {}
+
+    return &(deleteBindingOnDiscover.EntityData)
 }
 
 // Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_NetBiosNameServers

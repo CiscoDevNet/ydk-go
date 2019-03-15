@@ -2476,6 +2476,16 @@ type Ptp_Nodes_Node_PacketCounters_DropReasons struct {
     // 0..4294967295.
     MinClockClass interface{}
 
+    // Illegal clock class (255) in announce messages. The type is interface{}
+    // with range: 0..4294967295.
+    BadClockClass interface{}
+
+    // Steps removed too high. The type is interface{} with range: 0..4294967295.
+    StepsRemoved interface{}
+
+    // Reserved Clock ID. The type is interface{} with range: 0..4294967295.
+    ReservedClockId interface{}
+
     // Packet not compatible with G.8265.1 profile. The type is interface{} with
     // range: 0..4294967295.
     G82651Incompatible interface{}
@@ -2528,6 +2538,9 @@ func (dropReasons *Ptp_Nodes_Node_PacketCounters_DropReasons) GetEntityData() *t
     dropReasons.EntityData.Leafs.Append("no-offload-session", types.YLeaf{"NoOffloadSession", dropReasons.NoOffloadSession})
     dropReasons.EntityData.Leafs.Append("not-supported", types.YLeaf{"NotSupported", dropReasons.NotSupported})
     dropReasons.EntityData.Leafs.Append("min-clock-class", types.YLeaf{"MinClockClass", dropReasons.MinClockClass})
+    dropReasons.EntityData.Leafs.Append("bad-clock-class", types.YLeaf{"BadClockClass", dropReasons.BadClockClass})
+    dropReasons.EntityData.Leafs.Append("steps-removed", types.YLeaf{"StepsRemoved", dropReasons.StepsRemoved})
+    dropReasons.EntityData.Leafs.Append("reserved-clock-id", types.YLeaf{"ReservedClockId", dropReasons.ReservedClockId})
     dropReasons.EntityData.Leafs.Append("g8265-1-incompatible", types.YLeaf{"G82651Incompatible", dropReasons.G82651Incompatible})
     dropReasons.EntityData.Leafs.Append("g8275-1-incompatible", types.YLeaf{"G82751Incompatible", dropReasons.G82751Incompatible})
     dropReasons.EntityData.Leafs.Append("g8275-2-incompatible", types.YLeaf{"G82752Incompatible", dropReasons.G82752Incompatible})

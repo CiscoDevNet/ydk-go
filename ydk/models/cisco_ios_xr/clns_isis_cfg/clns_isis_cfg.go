@@ -1562,6 +1562,9 @@ type Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting struct {
     // Enable per bundle member adjacency SID. The type is interface{}.
     BundleMemberAdjSid interface{}
 
+    // Only install SR labeled paths. The type is interface{}.
+    LabeledOnly interface{}
+
     // Prefer segment routing labels over LDP labels. The type is
     // IsisLabelPreference.
     Mpls interface{}
@@ -1588,6 +1591,7 @@ func (segmentRouting *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting) GetE
     segmentRouting.EntityData.Children.Append("prefix-sid-map", types.YChild{"PrefixSidMap", &segmentRouting.PrefixSidMap})
     segmentRouting.EntityData.Leafs = types.NewOrderedMap()
     segmentRouting.EntityData.Leafs.Append("bundle-member-adj-sid", types.YLeaf{"BundleMemberAdjSid", segmentRouting.BundleMemberAdjSid})
+    segmentRouting.EntityData.Leafs.Append("labeled-only", types.YLeaf{"LabeledOnly", segmentRouting.LabeledOnly})
     segmentRouting.EntityData.Leafs.Append("mpls", types.YLeaf{"Mpls", segmentRouting.Mpls})
     segmentRouting.EntityData.Leafs.Append("srv6", types.YLeaf{"Srv6", segmentRouting.Srv6})
 
@@ -1946,9 +1950,6 @@ type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit
     // IsisInternalLevel.
     Level interface{}
 
-    // Data container.
-    PriorityLimitData Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
-
     // keys: frr-type. The type is slice of
     // Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType.
     FrrType []*Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType
@@ -1966,7 +1967,6 @@ func (priorityLimit *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimi
     priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     priorityLimit.EntityData.Children = types.NewOrderedMap()
-    priorityLimit.EntityData.Children.Append("priority-limit-data", types.YChild{"PriorityLimitData", &priorityLimit.PriorityLimitData})
     priorityLimit.EntityData.Children.Append("frr-type", types.YChild{"FrrType", nil})
     for i := range priorityLimit.FrrType {
         priorityLimit.EntityData.Children.Append(types.GetSegmentPath(priorityLimit.FrrType[i]), types.YChild{"FrrType", priorityLimit.FrrType[i]})
@@ -1977,37 +1977,6 @@ func (priorityLimit *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimi
     priorityLimit.EntityData.YListKeys = []string {"Level"}
 
     return &(priorityLimit.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
-// Data container.
-type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Compute for all prefixes upto the specified priority. The type is
-    // IsisPrefixPriority. This attribute is mandatory.
-    Priority interface{}
-}
-
-func (priorityLimitData *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData) GetEntityData() *types.CommonEntityData {
-    priorityLimitData.EntityData.YFilter = priorityLimitData.YFilter
-    priorityLimitData.EntityData.YangName = "priority-limit-data"
-    priorityLimitData.EntityData.BundleName = "cisco_ios_xr"
-    priorityLimitData.EntityData.ParentYangName = "priority-limit"
-    priorityLimitData.EntityData.SegmentPath = "priority-limit-data"
-    priorityLimitData.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/priority-limits/priority-limit/" + priorityLimitData.EntityData.SegmentPath
-    priorityLimitData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    priorityLimitData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    priorityLimitData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    priorityLimitData.EntityData.Children = types.NewOrderedMap()
-    priorityLimitData.EntityData.Leafs = types.NewOrderedMap()
-    priorityLimitData.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", priorityLimitData.Priority})
-
-    priorityLimitData.EntityData.YListKeys = []string {}
-
-    return &(priorityLimitData.EntityData)
 }
 
 // Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType
@@ -4280,6 +4249,9 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting struct {
     // Enable per bundle member adjacency SID. The type is interface{}.
     BundleMemberAdjSid interface{}
 
+    // Only install SR labeled paths. The type is interface{}.
+    LabeledOnly interface{}
+
     // Prefer segment routing labels over LDP labels. The type is
     // IsisLabelPreference.
     Mpls interface{}
@@ -4306,6 +4278,7 @@ func (segmentRouting *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting
     segmentRouting.EntityData.Children.Append("prefix-sid-map", types.YChild{"PrefixSidMap", &segmentRouting.PrefixSidMap})
     segmentRouting.EntityData.Leafs = types.NewOrderedMap()
     segmentRouting.EntityData.Leafs.Append("bundle-member-adj-sid", types.YLeaf{"BundleMemberAdjSid", segmentRouting.BundleMemberAdjSid})
+    segmentRouting.EntityData.Leafs.Append("labeled-only", types.YLeaf{"LabeledOnly", segmentRouting.LabeledOnly})
     segmentRouting.EntityData.Leafs.Append("mpls", types.YLeaf{"Mpls", segmentRouting.Mpls})
     segmentRouting.EntityData.Leafs.Append("srv6", types.YLeaf{"Srv6", segmentRouting.Srv6})
 
@@ -4664,9 +4637,6 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_Priorit
     // IsisInternalLevel.
     Level interface{}
 
-    // Data container.
-    PriorityLimitData Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
-
     // keys: frr-type. The type is slice of
     // Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType.
     FrrType []*Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType
@@ -4684,7 +4654,6 @@ func (priorityLimit *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_Priori
     priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     priorityLimit.EntityData.Children = types.NewOrderedMap()
-    priorityLimit.EntityData.Children.Append("priority-limit-data", types.YChild{"PriorityLimitData", &priorityLimit.PriorityLimitData})
     priorityLimit.EntityData.Children.Append("frr-type", types.YChild{"FrrType", nil})
     for i := range priorityLimit.FrrType {
         priorityLimit.EntityData.Children.Append(types.GetSegmentPath(priorityLimit.FrrType[i]), types.YChild{"FrrType", priorityLimit.FrrType[i]})
@@ -4695,37 +4664,6 @@ func (priorityLimit *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_Priori
     priorityLimit.EntityData.YListKeys = []string {"Level"}
 
     return &(priorityLimit.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
-// Data container.
-type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Compute for all prefixes upto the specified priority. The type is
-    // IsisPrefixPriority. This attribute is mandatory.
-    Priority interface{}
-}
-
-func (priorityLimitData *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData) GetEntityData() *types.CommonEntityData {
-    priorityLimitData.EntityData.YFilter = priorityLimitData.YFilter
-    priorityLimitData.EntityData.YangName = "priority-limit-data"
-    priorityLimitData.EntityData.BundleName = "cisco_ios_xr"
-    priorityLimitData.EntityData.ParentYangName = "priority-limit"
-    priorityLimitData.EntityData.SegmentPath = "priority-limit-data"
-    priorityLimitData.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/priority-limits/priority-limit/" + priorityLimitData.EntityData.SegmentPath
-    priorityLimitData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    priorityLimitData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    priorityLimitData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    priorityLimitData.EntityData.Children = types.NewOrderedMap()
-    priorityLimitData.EntityData.Leafs = types.NewOrderedMap()
-    priorityLimitData.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", priorityLimitData.Priority})
-
-    priorityLimitData.EntityData.YListKeys = []string {}
-
-    return &(priorityLimitData.EntityData)
 }
 
 // Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType
@@ -6971,6 +6909,9 @@ type Isis_Instances_Instance_FlexAlgos_FlexAlgo struct {
     // Set the Flex-Algo priority. The type is interface{} with range: 0..255.
     Priority interface{}
 
+    // If TRUE, Flex-Algo definition is advertised. The type is bool.
+    AdvertiseDefinition interface{}
+
     // Set the exclude-any affinity.
     AffinityExcludeAnies Isis_Instances_Instance_FlexAlgos_FlexAlgo_AffinityExcludeAnies
 }
@@ -6993,6 +6934,7 @@ func (flexAlgo *Isis_Instances_Instance_FlexAlgos_FlexAlgo) GetEntityData() *typ
     flexAlgo.EntityData.Leafs.Append("running", types.YLeaf{"Running", flexAlgo.Running})
     flexAlgo.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", flexAlgo.MetricType})
     flexAlgo.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", flexAlgo.Priority})
+    flexAlgo.EntityData.Leafs.Append("advertise-definition", types.YLeaf{"AdvertiseDefinition", flexAlgo.AdvertiseDefinition})
 
     flexAlgo.EntityData.YListKeys = []string {"FlexAlgo"}
 

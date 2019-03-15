@@ -1,3 +1,6 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin operational.
 // 
@@ -5,6 +8,9 @@
 // sysadmin ship process.
 // 
 // Copyright(c) 2010-2016 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_ship
 

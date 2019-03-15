@@ -566,21 +566,22 @@ func (globalBlock *Sr_GlobalBlock) GetEntityData() *types.CommonEntityData {
 
 // Sr_TrafficEngineering
 // Traffic Engineering configuration data
-// This type is a presence type.
 type Sr_TrafficEngineering struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Use TE-latency algorithm. The type is interface{}.
     TeLatency interface{}
 
     // Maximum SID Depth Configuration. The type is interface{} with range:
-    // 1..255. This attribute is mandatory.
+    // 1..255.
     MaximumSidDepth interface{}
 
     // True only. The type is interface{}.
     Enable interface{}
+
+    // SR-TE out-of-resources handling configuration.
+    OutOfResources Sr_TrafficEngineering_OutOfResources
 
     // On-demand color configuration.
     OnDemandColors Sr_TrafficEngineering_OnDemandColors
@@ -590,6 +591,9 @@ type Sr_TrafficEngineering struct {
 
     // Logging configuration.
     Logging Sr_TrafficEngineering_Logging
+
+    // SR-TE timers configuration.
+    Timers Sr_TrafficEngineering_Timers
 
     // Binding sid rules.
     BindingSidRules Sr_TrafficEngineering_BindingSidRules
@@ -619,9 +623,11 @@ func (trafficEngineering *Sr_TrafficEngineering) GetEntityData() *types.CommonEn
     trafficEngineering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     trafficEngineering.EntityData.Children = types.NewOrderedMap()
+    trafficEngineering.EntityData.Children.Append("out-of-resources", types.YChild{"OutOfResources", &trafficEngineering.OutOfResources})
     trafficEngineering.EntityData.Children.Append("on-demand-colors", types.YChild{"OnDemandColors", &trafficEngineering.OnDemandColors})
     trafficEngineering.EntityData.Children.Append("segments", types.YChild{"Segments", &trafficEngineering.Segments})
     trafficEngineering.EntityData.Children.Append("logging", types.YChild{"Logging", &trafficEngineering.Logging})
+    trafficEngineering.EntityData.Children.Append("timers", types.YChild{"Timers", &trafficEngineering.Timers})
     trafficEngineering.EntityData.Children.Append("binding-sid-rules", types.YChild{"BindingSidRules", &trafficEngineering.BindingSidRules})
     trafficEngineering.EntityData.Children.Append("policies", types.YChild{"Policies", &trafficEngineering.Policies})
     trafficEngineering.EntityData.Children.Append("srte-interfaces", types.YChild{"SrteInterfaces", &trafficEngineering.SrteInterfaces})
@@ -635,6 +641,37 @@ func (trafficEngineering *Sr_TrafficEngineering) GetEntityData() *types.CommonEn
     trafficEngineering.EntityData.YListKeys = []string {}
 
     return &(trafficEngineering.EntityData)
+}
+
+// Sr_TrafficEngineering_OutOfResources
+// SR-TE out-of-resources handling configuration
+type Sr_TrafficEngineering_OutOfResources struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of LSPs (0 for no limit; default is 0). The type is interface{} with
+    // range: 0..4294967295. The default value is 0.
+    MaximumLsPs interface{}
+}
+
+func (outOfResources *Sr_TrafficEngineering_OutOfResources) GetEntityData() *types.CommonEntityData {
+    outOfResources.EntityData.YFilter = outOfResources.YFilter
+    outOfResources.EntityData.YangName = "out-of-resources"
+    outOfResources.EntityData.BundleName = "cisco_ios_xr"
+    outOfResources.EntityData.ParentYangName = "traffic-engineering"
+    outOfResources.EntityData.SegmentPath = "out-of-resources"
+    outOfResources.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/" + outOfResources.EntityData.SegmentPath
+    outOfResources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outOfResources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outOfResources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    outOfResources.EntityData.Children = types.NewOrderedMap()
+    outOfResources.EntityData.Leafs = types.NewOrderedMap()
+    outOfResources.EntityData.Leafs.Append("maximum-ls-ps", types.YLeaf{"MaximumLsPs", outOfResources.MaximumLsPs})
+
+    outOfResources.EntityData.YListKeys = []string {}
+
+    return &(outOfResources.EntityData)
 }
 
 // Sr_TrafficEngineering_OnDemandColors
@@ -686,6 +723,10 @@ type Sr_TrafficEngineering_OnDemandColors_OnDemandColor struct {
     // interface{} with range: 1..4294967295.
     Bandwidth interface{}
 
+    // Maximum SID Depth Configuration. The type is interface{} with range:
+    // 1..255.
+    MaximumSidDepth interface{}
+
     // True only. The type is interface{}.
     Enable interface{}
 
@@ -709,6 +750,7 @@ func (onDemandColor *Sr_TrafficEngineering_OnDemandColors_OnDemandColor) GetEnti
     onDemandColor.EntityData.Leafs = types.NewOrderedMap()
     onDemandColor.EntityData.Leafs.Append("color", types.YLeaf{"Color", onDemandColor.Color})
     onDemandColor.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", onDemandColor.Bandwidth})
+    onDemandColor.EntityData.Leafs.Append("maximum-sid-depth", types.YLeaf{"MaximumSidDepth", onDemandColor.MaximumSidDepth})
     onDemandColor.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", onDemandColor.Enable})
 
     onDemandColor.EntityData.YListKeys = []string {"Color"}
@@ -718,14 +760,11 @@ func (onDemandColor *Sr_TrafficEngineering_OnDemandColors_OnDemandColor) GetEnti
 
 // Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls
 // Dynamic MPLS path properties
-// This type is a presence type.
 type Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
-    // Prefix-SID algorithm. The type is interface{} with range: 128..255. This
-    // attribute is mandatory.
+    // Prefix-SID algorithm. The type is interface{} with range: 128..255.
     OnDemandColorDynMplsFlexAlgorithm interface{}
 
     // Dynamic MPLS path properties submode Enable. The type is interface{}.
@@ -739,6 +778,9 @@ type Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls str
 
     // Disjoint path.
     DisjointPath Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_DisjointPath
+
+    // SR path computation and verification affinity rules.
+    AffinityRules Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules
 }
 
 func (onDemandColorDynMpls *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls) GetEntityData() *types.CommonEntityData {
@@ -756,6 +798,7 @@ func (onDemandColorDynMpls *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_O
     onDemandColorDynMpls.EntityData.Children.Append("on-demand-color-dyn-mpls-metric", types.YChild{"OnDemandColorDynMplsMetric", &onDemandColorDynMpls.OnDemandColorDynMplsMetric})
     onDemandColorDynMpls.EntityData.Children.Append("on-demand-color-dyn-mpls-pce", types.YChild{"OnDemandColorDynMplsPce", &onDemandColorDynMpls.OnDemandColorDynMplsPce})
     onDemandColorDynMpls.EntityData.Children.Append("disjoint-path", types.YChild{"DisjointPath", &onDemandColorDynMpls.DisjointPath})
+    onDemandColorDynMpls.EntityData.Children.Append("affinity-rules", types.YChild{"AffinityRules", &onDemandColorDynMpls.AffinityRules})
     onDemandColorDynMpls.EntityData.Leafs = types.NewOrderedMap()
     onDemandColorDynMpls.EntityData.Leafs.Append("on-demand-color-dyn-mpls-flex-algorithm", types.YLeaf{"OnDemandColorDynMplsFlexAlgorithm", onDemandColorDynMpls.OnDemandColorDynMplsFlexAlgorithm})
     onDemandColorDynMpls.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", onDemandColorDynMpls.Enable})
@@ -767,17 +810,18 @@ func (onDemandColorDynMpls *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_O
 
 // Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_OnDemandColorDynMplsMetric
 // Metric type
-// This type is a presence type.
 type Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_OnDemandColorDynMplsMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
-    // Metric Type. The type is XtcMetric. This attribute is mandatory.
+    // Metric Type. The type is XtcMetric.
     MetricType interface{}
 
     // Metric submode Enable. The type is interface{}.
     Enable interface{}
+
+    // Metric Margin.
+    MetricMargin Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_OnDemandColorDynMplsMetric_MetricMargin
 }
 
 func (onDemandColorDynMplsMetric *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_OnDemandColorDynMplsMetric) GetEntityData() *types.CommonEntityData {
@@ -792,6 +836,7 @@ func (onDemandColorDynMplsMetric *Sr_TrafficEngineering_OnDemandColors_OnDemandC
     onDemandColorDynMplsMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     onDemandColorDynMplsMetric.EntityData.Children = types.NewOrderedMap()
+    onDemandColorDynMplsMetric.EntityData.Children.Append("metric-margin", types.YChild{"MetricMargin", &onDemandColorDynMplsMetric.MetricMargin})
     onDemandColorDynMplsMetric.EntityData.Leafs = types.NewOrderedMap()
     onDemandColorDynMplsMetric.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", onDemandColorDynMplsMetric.MetricType})
     onDemandColorDynMplsMetric.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", onDemandColorDynMplsMetric.Enable})
@@ -799,6 +844,44 @@ func (onDemandColorDynMplsMetric *Sr_TrafficEngineering_OnDemandColors_OnDemandC
     onDemandColorDynMplsMetric.EntityData.YListKeys = []string {}
 
     return &(onDemandColorDynMplsMetric.EntityData)
+}
+
+// Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_OnDemandColorDynMplsMetric_MetricMargin
+// Metric Margin
+type Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_OnDemandColorDynMplsMetric_MetricMargin struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Metric margin type. The type is XtcMetricValue.
+    ValueType interface{}
+
+    // Absolute metric value. The type is interface{} with range: 0..2147483647.
+    AbsoluteValue interface{}
+
+    // Relative metric value. The type is interface{} with range: 0..2147483647.
+    RelativeValue interface{}
+}
+
+func (metricMargin *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_OnDemandColorDynMplsMetric_MetricMargin) GetEntityData() *types.CommonEntityData {
+    metricMargin.EntityData.YFilter = metricMargin.YFilter
+    metricMargin.EntityData.YangName = "metric-margin"
+    metricMargin.EntityData.BundleName = "cisco_ios_xr"
+    metricMargin.EntityData.ParentYangName = "on-demand-color-dyn-mpls-metric"
+    metricMargin.EntityData.SegmentPath = "metric-margin"
+    metricMargin.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/on-demand-colors/on-demand-color/on-demand-color-dyn-mpls/on-demand-color-dyn-mpls-metric/" + metricMargin.EntityData.SegmentPath
+    metricMargin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    metricMargin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    metricMargin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    metricMargin.EntityData.Children = types.NewOrderedMap()
+    metricMargin.EntityData.Leafs = types.NewOrderedMap()
+    metricMargin.EntityData.Leafs.Append("value-type", types.YLeaf{"ValueType", metricMargin.ValueType})
+    metricMargin.EntityData.Leafs.Append("absolute-value", types.YLeaf{"AbsoluteValue", metricMargin.AbsoluteValue})
+    metricMargin.EntityData.Leafs.Append("relative-value", types.YLeaf{"RelativeValue", metricMargin.RelativeValue})
+
+    metricMargin.EntityData.YListKeys = []string {}
+
+    return &(metricMargin.EntityData)
 }
 
 // Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_OnDemandColorDynMplsPce
@@ -871,6 +954,113 @@ func (disjointPath *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandC
     disjointPath.EntityData.YListKeys = []string {}
 
     return &(disjointPath.EntityData)
+}
+
+// Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules
+// SR path computation and verification affinity
+// rules
+type Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SR path computation and verification affinity rule. The type is slice of
+    // Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules_AffinityRule.
+    AffinityRule []*Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules_AffinityRule
+}
+
+func (affinityRules *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules) GetEntityData() *types.CommonEntityData {
+    affinityRules.EntityData.YFilter = affinityRules.YFilter
+    affinityRules.EntityData.YangName = "affinity-rules"
+    affinityRules.EntityData.BundleName = "cisco_ios_xr"
+    affinityRules.EntityData.ParentYangName = "on-demand-color-dyn-mpls"
+    affinityRules.EntityData.SegmentPath = "affinity-rules"
+    affinityRules.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/on-demand-colors/on-demand-color/on-demand-color-dyn-mpls/" + affinityRules.EntityData.SegmentPath
+    affinityRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityRules.EntityData.Children = types.NewOrderedMap()
+    affinityRules.EntityData.Children.Append("affinity-rule", types.YChild{"AffinityRule", nil})
+    for i := range affinityRules.AffinityRule {
+        affinityRules.EntityData.Children.Append(types.GetSegmentPath(affinityRules.AffinityRule[i]), types.YChild{"AffinityRule", affinityRules.AffinityRule[i]})
+    }
+    affinityRules.EntityData.Leafs = types.NewOrderedMap()
+
+    affinityRules.EntityData.YListKeys = []string {}
+
+    return &(affinityRules.EntityData)
+}
+
+// Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules_AffinityRule
+// SR path computation and verification affinity
+// rule
+type Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules_AffinityRule struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Affinity rule type. The type is XtcAffinityRule.
+    Rule interface{}
+
+    // Affinity rule name. The type is slice of
+    // Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules_AffinityRule_AffinityName.
+    AffinityName []*Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules_AffinityRule_AffinityName
+}
+
+func (affinityRule *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules_AffinityRule) GetEntityData() *types.CommonEntityData {
+    affinityRule.EntityData.YFilter = affinityRule.YFilter
+    affinityRule.EntityData.YangName = "affinity-rule"
+    affinityRule.EntityData.BundleName = "cisco_ios_xr"
+    affinityRule.EntityData.ParentYangName = "affinity-rules"
+    affinityRule.EntityData.SegmentPath = "affinity-rule" + types.AddKeyToken(affinityRule.Rule, "rule")
+    affinityRule.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/on-demand-colors/on-demand-color/on-demand-color-dyn-mpls/affinity-rules/" + affinityRule.EntityData.SegmentPath
+    affinityRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityRule.EntityData.Children = types.NewOrderedMap()
+    affinityRule.EntityData.Children.Append("affinity-name", types.YChild{"AffinityName", nil})
+    for i := range affinityRule.AffinityName {
+        affinityRule.EntityData.Children.Append(types.GetSegmentPath(affinityRule.AffinityName[i]), types.YChild{"AffinityName", affinityRule.AffinityName[i]})
+    }
+    affinityRule.EntityData.Leafs = types.NewOrderedMap()
+    affinityRule.EntityData.Leafs.Append("rule", types.YLeaf{"Rule", affinityRule.Rule})
+
+    affinityRule.EntityData.YListKeys = []string {"Rule"}
+
+    return &(affinityRule.EntityData)
+}
+
+// Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules_AffinityRule_AffinityName
+// Affinity rule name
+type Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules_AffinityRule_AffinityName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Affinity name. The type is string with length:
+    // 1..32.
+    AffinityName interface{}
+}
+
+func (affinityName *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls_AffinityRules_AffinityRule_AffinityName) GetEntityData() *types.CommonEntityData {
+    affinityName.EntityData.YFilter = affinityName.YFilter
+    affinityName.EntityData.YangName = "affinity-name"
+    affinityName.EntityData.BundleName = "cisco_ios_xr"
+    affinityName.EntityData.ParentYangName = "affinity-rule"
+    affinityName.EntityData.SegmentPath = "affinity-name" + types.AddKeyToken(affinityName.AffinityName, "affinity-name")
+    affinityName.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/on-demand-colors/on-demand-color/on-demand-color-dyn-mpls/affinity-rules/affinity-rule/" + affinityName.EntityData.SegmentPath
+    affinityName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityName.EntityData.Children = types.NewOrderedMap()
+    affinityName.EntityData.Leafs = types.NewOrderedMap()
+    affinityName.EntityData.Leafs.Append("affinity-name", types.YLeaf{"AffinityName", affinityName.AffinityName})
+
+    affinityName.EntityData.YListKeys = []string {"AffinityName"}
+
+    return &(affinityName.EntityData)
 }
 
 // Sr_TrafficEngineering_Segments
@@ -1060,6 +1250,47 @@ func (logging *Sr_TrafficEngineering_Logging) GetEntityData() *types.CommonEntit
     return &(logging.EntityData)
 }
 
+// Sr_TrafficEngineering_Timers
+// SR-TE timers configuration
+type Sr_TrafficEngineering_Timers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Delay before cleaning up previous path. The type is interface{} with range:
+    // 0..300. The default value is 10.
+    CleanupDelay interface{}
+
+    // Delay before switching to a reoptimized path. The type is interface{} with
+    // range: 0..300. The default value is 10.
+    InstallDelay interface{}
+
+    // How often to perform periodic reoptimization of policies. The type is
+    // interface{} with range: 0..86400. The default value is 600.
+    PeriodicReoptimization interface{}
+}
+
+func (timers *Sr_TrafficEngineering_Timers) GetEntityData() *types.CommonEntityData {
+    timers.EntityData.YFilter = timers.YFilter
+    timers.EntityData.YangName = "timers"
+    timers.EntityData.BundleName = "cisco_ios_xr"
+    timers.EntityData.ParentYangName = "traffic-engineering"
+    timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/" + timers.EntityData.SegmentPath
+    timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    timers.EntityData.Children = types.NewOrderedMap()
+    timers.EntityData.Leafs = types.NewOrderedMap()
+    timers.EntityData.Leafs.Append("cleanup-delay", types.YLeaf{"CleanupDelay", timers.CleanupDelay})
+    timers.EntityData.Leafs.Append("install-delay", types.YLeaf{"InstallDelay", timers.InstallDelay})
+    timers.EntityData.Leafs.Append("periodic-reoptimization", types.YLeaf{"PeriodicReoptimization", timers.PeriodicReoptimization})
+
+    timers.EntityData.YListKeys = []string {}
+
+    return &(timers.EntityData)
+}
+
 // Sr_TrafficEngineering_BindingSidRules
 // Binding sid rules
 type Sr_TrafficEngineering_BindingSidRules struct {
@@ -1068,6 +1299,9 @@ type Sr_TrafficEngineering_BindingSidRules struct {
 
     // Binding sid explicit options.
     Explicit Sr_TrafficEngineering_BindingSidRules_Explicit
+
+    // Dynamic binding SID options.
+    DynamicBindingSidRules Sr_TrafficEngineering_BindingSidRules_DynamicBindingSidRules
 }
 
 func (bindingSidRules *Sr_TrafficEngineering_BindingSidRules) GetEntityData() *types.CommonEntityData {
@@ -1083,6 +1317,7 @@ func (bindingSidRules *Sr_TrafficEngineering_BindingSidRules) GetEntityData() *t
 
     bindingSidRules.EntityData.Children = types.NewOrderedMap()
     bindingSidRules.EntityData.Children.Append("explicit", types.YChild{"Explicit", &bindingSidRules.Explicit})
+    bindingSidRules.EntityData.Children.Append("dynamic-binding-sid-rules", types.YChild{"DynamicBindingSidRules", &bindingSidRules.DynamicBindingSidRules})
     bindingSidRules.EntityData.Leafs = types.NewOrderedMap()
 
     bindingSidRules.EntityData.YListKeys = []string {}
@@ -1121,6 +1356,39 @@ func (explicit *Sr_TrafficEngineering_BindingSidRules_Explicit) GetEntityData() 
     explicit.EntityData.YListKeys = []string {}
 
     return &(explicit.EntityData)
+}
+
+// Sr_TrafficEngineering_BindingSidRules_DynamicBindingSidRules
+// Dynamic binding SID options
+// This type is a presence type.
+type Sr_TrafficEngineering_BindingSidRules_DynamicBindingSidRules struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Binding SID dynamic rule. The type is XtcBindingSidDynamicRule. This
+    // attribute is mandatory.
+    DynamicBindingSidRule interface{}
+}
+
+func (dynamicBindingSidRules *Sr_TrafficEngineering_BindingSidRules_DynamicBindingSidRules) GetEntityData() *types.CommonEntityData {
+    dynamicBindingSidRules.EntityData.YFilter = dynamicBindingSidRules.YFilter
+    dynamicBindingSidRules.EntityData.YangName = "dynamic-binding-sid-rules"
+    dynamicBindingSidRules.EntityData.BundleName = "cisco_ios_xr"
+    dynamicBindingSidRules.EntityData.ParentYangName = "binding-sid-rules"
+    dynamicBindingSidRules.EntityData.SegmentPath = "dynamic-binding-sid-rules"
+    dynamicBindingSidRules.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/binding-sid-rules/" + dynamicBindingSidRules.EntityData.SegmentPath
+    dynamicBindingSidRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dynamicBindingSidRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dynamicBindingSidRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dynamicBindingSidRules.EntityData.Children = types.NewOrderedMap()
+    dynamicBindingSidRules.EntityData.Leafs = types.NewOrderedMap()
+    dynamicBindingSidRules.EntityData.Leafs.Append("dynamic-binding-sid-rule", types.YLeaf{"DynamicBindingSidRule", dynamicBindingSidRules.DynamicBindingSidRule})
+
+    dynamicBindingSidRules.EntityData.YListKeys = []string {}
+
+    return &(dynamicBindingSidRules.EntityData)
 }
 
 // Sr_TrafficEngineering_Policies
@@ -1420,6 +1688,10 @@ type Sr_TrafficEngineering_Policies_Policy_AutoRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Force autoroute policy to be safe for carrying SR labelled traffic. The
+    // type is interface{}.
+    ForceSrInclude interface{}
+
     // True only. The type is interface{}.
     Enable interface{}
 
@@ -1445,6 +1717,7 @@ func (autoRoute *Sr_TrafficEngineering_Policies_Policy_AutoRoute) GetEntityData(
     autoRoute.EntityData.Children.Append("auto-route-metric", types.YChild{"AutoRouteMetric", &autoRoute.AutoRouteMetric})
     autoRoute.EntityData.Children.Append("include-prefixes", types.YChild{"IncludePrefixes", &autoRoute.IncludePrefixes})
     autoRoute.EntityData.Leafs = types.NewOrderedMap()
+    autoRoute.EntityData.Leafs.Append("force-sr-include", types.YLeaf{"ForceSrInclude", autoRoute.ForceSrInclude})
     autoRoute.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoRoute.Enable})
 
     autoRoute.EntityData.YListKeys = []string {}
@@ -1688,9 +1961,6 @@ type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // True only. The type is interface{}.
-    Enable interface{}
-
     // Disjoint path.
     DisjointPath Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_DisjointPath
 
@@ -1717,7 +1987,6 @@ func (constraints *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferen
     constraints.EntityData.Children.Append("segment-rules", types.YChild{"SegmentRules", &constraints.SegmentRules})
     constraints.EntityData.Children.Append("affinity-rules", types.YChild{"AffinityRules", &constraints.AffinityRules})
     constraints.EntityData.Leafs = types.NewOrderedMap()
-    constraints.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", constraints.Enable})
 
     constraints.EntityData.YListKeys = []string {}
 
@@ -1801,8 +2070,8 @@ func (segmentRules *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Prefere
 }
 
 // Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules
-// SR path computation and verification
-// affinity rules
+// SR path computation and verification affinity
+// rules
 type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1836,19 +2105,19 @@ func (affinityRules *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Prefer
 }
 
 // Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules_AffinityRule
-// SR path computation and verification
-// affinity rule
+// SR path computation and verification affinity
+// rule
 type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules_AffinityRule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Path-option preference. The type is
-    // XtcAffinityRule.
+    // This attribute is a key. Affinity rule type. The type is XtcAffinityRule.
     Rule interface{}
 
-    // This attribute is a key. The color. The type is string with length: 1..59.
-    Color interface{}
+    // Affinity rule name. The type is slice of
+    // Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules_AffinityRule_AffinityName.
+    AffinityName []*Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules_AffinityRule_AffinityName
 }
 
 func (affinityRule *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules_AffinityRule) GetEntityData() *types.CommonEntityData {
@@ -1856,20 +2125,55 @@ func (affinityRule *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Prefere
     affinityRule.EntityData.YangName = "affinity-rule"
     affinityRule.EntityData.BundleName = "cisco_ios_xr"
     affinityRule.EntityData.ParentYangName = "affinity-rules"
-    affinityRule.EntityData.SegmentPath = "affinity-rule" + types.AddKeyToken(affinityRule.Rule, "rule") + types.AddKeyToken(affinityRule.Color, "color")
+    affinityRule.EntityData.SegmentPath = "affinity-rule" + types.AddKeyToken(affinityRule.Rule, "rule")
     affinityRule.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/constraints/affinity-rules/" + affinityRule.EntityData.SegmentPath
     affinityRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     affinityRule.EntityData.Children = types.NewOrderedMap()
+    affinityRule.EntityData.Children.Append("affinity-name", types.YChild{"AffinityName", nil})
+    for i := range affinityRule.AffinityName {
+        affinityRule.EntityData.Children.Append(types.GetSegmentPath(affinityRule.AffinityName[i]), types.YChild{"AffinityName", affinityRule.AffinityName[i]})
+    }
     affinityRule.EntityData.Leafs = types.NewOrderedMap()
     affinityRule.EntityData.Leafs.Append("rule", types.YLeaf{"Rule", affinityRule.Rule})
-    affinityRule.EntityData.Leafs.Append("color", types.YLeaf{"Color", affinityRule.Color})
 
-    affinityRule.EntityData.YListKeys = []string {"Rule", "Color"}
+    affinityRule.EntityData.YListKeys = []string {"Rule"}
 
     return &(affinityRule.EntityData)
+}
+
+// Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules_AffinityRule_AffinityName
+// Affinity rule name
+type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules_AffinityRule_AffinityName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Affinity name. The type is string with length:
+    // 1..32.
+    AffinityName interface{}
+}
+
+func (affinityName *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules_AffinityRule_AffinityName) GetEntityData() *types.CommonEntityData {
+    affinityName.EntityData.YFilter = affinityName.YFilter
+    affinityName.EntityData.YangName = "affinity-name"
+    affinityName.EntityData.BundleName = "cisco_ios_xr"
+    affinityName.EntityData.ParentYangName = "affinity-rule"
+    affinityName.EntityData.SegmentPath = "affinity-name" + types.AddKeyToken(affinityName.AffinityName, "affinity-name")
+    affinityName.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/constraints/affinity-rules/affinity-rule/" + affinityName.EntityData.SegmentPath
+    affinityName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityName.EntityData.Children = types.NewOrderedMap()
+    affinityName.EntityData.Leafs = types.NewOrderedMap()
+    affinityName.EntityData.Leafs.Append("affinity-name", types.YLeaf{"AffinityName", affinityName.AffinityName})
+
+    affinityName.EntityData.YListKeys = []string {"AffinityName"}
+
+    return &(affinityName.EntityData)
 }
 
 // Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos
@@ -1967,24 +2271,21 @@ func (pathInfo *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences
 // Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric
 // Metric configuration, valid only for
 // dynamic path-options
-// This type is a presence type.
 type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
-    // Maximum number of SIDs. The type is interface{} with range: 0..255. This
-    // attribute is mandatory.
+    // Maximum number of SIDs. The type is interface{} with range: 1..255.
     SidLimit interface{}
 
-    // Metric type. The type is XtcMetric. This attribute is mandatory.
+    // Metric type. The type is XtcMetric.
     MetricType interface{}
 
     // True only. The type is interface{}.
     Enable interface{}
 
-    // Metric type.
-    Margin Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric_Margin
+    // Metric Margin.
+    MetricMargin Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric_MetricMargin
 }
 
 func (metric *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric) GetEntityData() *types.CommonEntityData {
@@ -1999,7 +2300,7 @@ func (metric *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_P
     metric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     metric.EntityData.Children = types.NewOrderedMap()
-    metric.EntityData.Children.Append("margin", types.YChild{"Margin", &metric.Margin})
+    metric.EntityData.Children.Append("metric-margin", types.YChild{"MetricMargin", &metric.MetricMargin})
     metric.EntityData.Leafs = types.NewOrderedMap()
     metric.EntityData.Leafs.Append("sid-limit", types.YLeaf{"SidLimit", metric.SidLimit})
     metric.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", metric.MetricType})
@@ -2010,42 +2311,42 @@ func (metric *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_P
     return &(metric.EntityData)
 }
 
-// Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric_Margin
-// Metric type
-type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric_Margin struct {
+// Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric_MetricMargin
+// Metric Margin
+type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric_MetricMargin struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Metric value type. The type is XtcMetricValue.
+    // Metric margin type. The type is XtcMetricValue.
     ValueType interface{}
 
     // Absolute metric value. The type is interface{} with range: 0..2147483647.
     AbsoluteValue interface{}
 
-    // Relative metric value. The type is interface{} with range: 0..100.
+    // Relative metric value. The type is interface{} with range: 0..2147483647.
     RelativeValue interface{}
 }
 
-func (margin *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric_Margin) GetEntityData() *types.CommonEntityData {
-    margin.EntityData.YFilter = margin.YFilter
-    margin.EntityData.YangName = "margin"
-    margin.EntityData.BundleName = "cisco_ios_xr"
-    margin.EntityData.ParentYangName = "metric"
-    margin.EntityData.SegmentPath = "margin"
-    margin.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/path-infos/path-info/metric/" + margin.EntityData.SegmentPath
-    margin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    margin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    margin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (metricMargin *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric_MetricMargin) GetEntityData() *types.CommonEntityData {
+    metricMargin.EntityData.YFilter = metricMargin.YFilter
+    metricMargin.EntityData.YangName = "metric-margin"
+    metricMargin.EntityData.BundleName = "cisco_ios_xr"
+    metricMargin.EntityData.ParentYangName = "metric"
+    metricMargin.EntityData.SegmentPath = "metric-margin"
+    metricMargin.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/path-infos/path-info/metric/" + metricMargin.EntityData.SegmentPath
+    metricMargin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    metricMargin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    metricMargin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    margin.EntityData.Children = types.NewOrderedMap()
-    margin.EntityData.Leafs = types.NewOrderedMap()
-    margin.EntityData.Leafs.Append("value-type", types.YLeaf{"ValueType", margin.ValueType})
-    margin.EntityData.Leafs.Append("absolute-value", types.YLeaf{"AbsoluteValue", margin.AbsoluteValue})
-    margin.EntityData.Leafs.Append("relative-value", types.YLeaf{"RelativeValue", margin.RelativeValue})
+    metricMargin.EntityData.Children = types.NewOrderedMap()
+    metricMargin.EntityData.Leafs = types.NewOrderedMap()
+    metricMargin.EntityData.Leafs.Append("value-type", types.YLeaf{"ValueType", metricMargin.ValueType})
+    metricMargin.EntityData.Leafs.Append("absolute-value", types.YLeaf{"AbsoluteValue", metricMargin.AbsoluteValue})
+    metricMargin.EntityData.Leafs.Append("relative-value", types.YLeaf{"RelativeValue", metricMargin.RelativeValue})
 
-    margin.EntityData.YListKeys = []string {}
+    metricMargin.EntityData.YListKeys = []string {}
 
-    return &(margin.EntityData)
+    return &(metricMargin.EntityData)
 }
 
 // Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Pcep
@@ -2198,9 +2499,9 @@ type Sr_TrafficEngineering_SrteInterfaces_SrteInterface_InterfaceAffinities_Inte
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Interface affinity colors. The type is string with
+    // This attribute is a key. Interface affinity names. The type is string with
     // length: 1..32.
-    Color interface{}
+    AffinityName interface{}
 }
 
 func (interfaceAffinity *Sr_TrafficEngineering_SrteInterfaces_SrteInterface_InterfaceAffinities_InterfaceAffinity) GetEntityData() *types.CommonEntityData {
@@ -2208,7 +2509,7 @@ func (interfaceAffinity *Sr_TrafficEngineering_SrteInterfaces_SrteInterface_Inte
     interfaceAffinity.EntityData.YangName = "interface-affinity"
     interfaceAffinity.EntityData.BundleName = "cisco_ios_xr"
     interfaceAffinity.EntityData.ParentYangName = "interface-affinities"
-    interfaceAffinity.EntityData.SegmentPath = "interface-affinity" + types.AddKeyToken(interfaceAffinity.Color, "color")
+    interfaceAffinity.EntityData.SegmentPath = "interface-affinity" + types.AddKeyToken(interfaceAffinity.AffinityName, "affinity-name")
     interfaceAffinity.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/srte-interfaces/srte-interface/interface-affinities/" + interfaceAffinity.EntityData.SegmentPath
     interfaceAffinity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAffinity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -2216,9 +2517,9 @@ func (interfaceAffinity *Sr_TrafficEngineering_SrteInterfaces_SrteInterface_Inte
 
     interfaceAffinity.EntityData.Children = types.NewOrderedMap()
     interfaceAffinity.EntityData.Leafs = types.NewOrderedMap()
-    interfaceAffinity.EntityData.Leafs.Append("color", types.YLeaf{"Color", interfaceAffinity.Color})
+    interfaceAffinity.EntityData.Leafs.Append("affinity-name", types.YLeaf{"AffinityName", interfaceAffinity.AffinityName})
 
-    interfaceAffinity.EntityData.YListKeys = []string {"Color"}
+    interfaceAffinity.EntityData.YListKeys = []string {"AffinityName"}
 
     return &(interfaceAffinity.EntityData)
 }
@@ -2255,10 +2556,6 @@ type Sr_TrafficEngineering_Pcc struct {
     // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
-
-    // Override the platform Maximum SID Depth value with a user configured
-    // explicit value. The type is interface{} with range: 1..32.
-    MaxSidDepth interface{}
 
     // PCC Enable. The type is interface{}.
     Enable interface{}
@@ -2299,7 +2596,6 @@ func (pcc *Sr_TrafficEngineering_Pcc) GetEntityData() *types.CommonEntityData {
     pcc.EntityData.Leafs.Append("keepalive-timer-interval", types.YLeaf{"KeepaliveTimerInterval", pcc.KeepaliveTimerInterval})
     pcc.EntityData.Leafs.Append("initiated-state-interval", types.YLeaf{"InitiatedStateInterval", pcc.InitiatedStateInterval})
     pcc.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", pcc.SourceAddress})
-    pcc.EntityData.Leafs.Append("max-sid-depth", types.YLeaf{"MaxSidDepth", pcc.MaxSidDepth})
     pcc.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pcc.Enable})
     pcc.EntityData.Leafs.Append("initiated-orphan-interval", types.YLeaf{"InitiatedOrphanInterval", pcc.InitiatedOrphanInterval})
     pcc.EntityData.Leafs.Append("delegation-timeout", types.YLeaf{"DelegationTimeout", pcc.DelegationTimeout})
@@ -2510,7 +2806,7 @@ type Sr_TrafficEngineering_AffinityMaps_AffinityMap struct {
 
     // This attribute is a key. Affinity-map bit-position. The type is string with
     // length: 1..32.
-    Color interface{}
+    AffinityName interface{}
 
     // Affinity-map bit-position. The type is interface{} with range: 0..31. This
     // attribute is mandatory.
@@ -2522,7 +2818,7 @@ func (affinityMap *Sr_TrafficEngineering_AffinityMaps_AffinityMap) GetEntityData
     affinityMap.EntityData.YangName = "affinity-map"
     affinityMap.EntityData.BundleName = "cisco_ios_xr"
     affinityMap.EntityData.ParentYangName = "affinity-maps"
-    affinityMap.EntityData.SegmentPath = "affinity-map" + types.AddKeyToken(affinityMap.Color, "color")
+    affinityMap.EntityData.SegmentPath = "affinity-map" + types.AddKeyToken(affinityMap.AffinityName, "affinity-name")
     affinityMap.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/affinity-maps/" + affinityMap.EntityData.SegmentPath
     affinityMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -2530,10 +2826,10 @@ func (affinityMap *Sr_TrafficEngineering_AffinityMaps_AffinityMap) GetEntityData
 
     affinityMap.EntityData.Children = types.NewOrderedMap()
     affinityMap.EntityData.Leafs = types.NewOrderedMap()
-    affinityMap.EntityData.Leafs.Append("color", types.YLeaf{"Color", affinityMap.Color})
+    affinityMap.EntityData.Leafs.Append("affinity-name", types.YLeaf{"AffinityName", affinityMap.AffinityName})
     affinityMap.EntityData.Leafs.Append("bit-position", types.YLeaf{"BitPosition", affinityMap.BitPosition})
 
-    affinityMap.EntityData.YListKeys = []string {"Color"}
+    affinityMap.EntityData.YListKeys = []string {"AffinityName"}
 
     return &(affinityMap.EntityData)
 }

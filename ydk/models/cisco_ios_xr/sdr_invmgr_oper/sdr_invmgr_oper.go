@@ -240,6 +240,10 @@ type SdrInventory_Racks_Rack_Slot_Card_Attributes struct {
     // Node Name String. The type is string.
     NodeNameString interface{}
 
+    // Card Valid. The type is interface{} with range: 0..4294967295. The default
+    // value is 0.
+    CardValid interface{}
+
     // Pi Slot Number. The type is interface{} with range: 0..4294967295. The
     // default value is 0.
     PiSlotNumber interface{}
@@ -282,6 +286,7 @@ func (attributes *SdrInventory_Racks_Rack_Slot_Card_Attributes) GetEntityData() 
     attributes.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", attributes.CardType})
     attributes.EntityData.Leafs.Append("card-type-string", types.YLeaf{"CardTypeString", attributes.CardTypeString})
     attributes.EntityData.Leafs.Append("node-name-string", types.YLeaf{"NodeNameString", attributes.NodeNameString})
+    attributes.EntityData.Leafs.Append("card-valid", types.YLeaf{"CardValid", attributes.CardValid})
     attributes.EntityData.Leafs.Append("pi-slot-number", types.YLeaf{"PiSlotNumber", attributes.PiSlotNumber})
     attributes.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", attributes.Shutdown})
     attributes.EntityData.Leafs.Append("ctype", types.YLeaf{"Ctype", attributes.Ctype})

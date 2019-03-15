@@ -1,3 +1,6 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG definitions
 // for Cisco IOS-XR syadmin TOD configuration and cli.
 // 
@@ -6,6 +9,9 @@
 // Time of the Day(TOD) Cli and configuration data
 // 
 // Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_time_of_day_timezone
 

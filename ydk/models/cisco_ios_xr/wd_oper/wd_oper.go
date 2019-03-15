@@ -454,7 +454,7 @@ type Watchdog_Nodes_Node_OverloadState_CurrentThrottle struct {
     // 0..4294967295. Units are second.
     ThrottleDuration interface{}
 
-    // Current throttle start time in format  :day-of-week month date-of-month
+    // Current throttle start time in format :day-of-week month date-of-month
     // HH:MM:SS year eg: Thu Feb 1 18:32:14 2011. The type is string with length:
     // 0..25.
     StartTime interface{}

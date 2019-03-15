@@ -321,16 +321,16 @@ type HardwareModule_Node_Slot_Otdrs_Otdr_ModeExpert struct {
     // interface{} with range: 0..100.
     FiberResolution interface{}
 
-    // Capture Length in Km, supported values [0 ,150]. The type is interface{}
-    // with range: 0..150.
+    // Capture Length in Km, supported values [1 ,150]. The type is interface{}
+    // with range: 1..150.
     CaptureLength interface{}
 
     // Pulse Width in nanoseconds, supported values [8,100000]. The type is
     // interface{} with range: 8..100000. Units are nanosecond.
     PulseWidth interface{}
 
-    // Measure time in seconds, supported values [0,360]. The type is interface{}
-    // with range: 0..360. Units are second.
+    // Measure time in seconds, supported values [1,360]. The type is interface{}
+    // with range: 1..360. Units are second.
     MeasureTime interface{}
 
     // Otdr Loss Sensitivity, supported values [4 ,50] in units of 0.1dB. The type
@@ -341,8 +341,8 @@ type HardwareModule_Node_Slot_Otdrs_Otdr_ModeExpert struct {
     // with range: 0..150.
     CaptureOffset interface{}
 
-    // Span Length in Km, supported values [0,150]. The type is interface{} with
-    // range: 0..150.
+    // Span Length in Km, supported values [1,150]. The type is interface{} with
+    // range: 1..150.
     SpanLength interface{}
 
     // Otdr Reflection Sensitivity, supported values [-400,-140] in units of

@@ -395,6 +395,9 @@ type Dhcpv6_Nodes_Node_Proxy struct {
     // IPv6 DHCP proxy profile.
     Profiles Dhcpv6_Nodes_Node_Proxy_Profiles
 
+    // DHCPv6 proxy disconnect history.
+    DisconnectHistories Dhcpv6_Nodes_Node_Proxy_DisconnectHistories
+
     // DHCPV6 proxy interface.
     Interfaces Dhcpv6_Nodes_Node_Proxy_Interfaces
 
@@ -419,6 +422,7 @@ func (proxy *Dhcpv6_Nodes_Node_Proxy) GetEntityData() *types.CommonEntityData {
     proxy.EntityData.Children = types.NewOrderedMap()
     proxy.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &proxy.Vrfs})
     proxy.EntityData.Children.Append("profiles", types.YChild{"Profiles", &proxy.Profiles})
+    proxy.EntityData.Children.Append("disconnect-histories", types.YChild{"DisconnectHistories", &proxy.DisconnectHistories})
     proxy.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &proxy.Interfaces})
     proxy.EntityData.Children.Append("statistics", types.YChild{"Statistics", &proxy.Statistics})
     proxy.EntityData.Children.Append("binding", types.YChild{"Binding", &proxy.Binding})
@@ -1801,6 +1805,106 @@ func (ipv6Dhcpv6dProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profi
     return &(ipv6Dhcpv6dProxyInterfaceReference.EntityData)
 }
 
+// Dhcpv6_Nodes_Node_Proxy_DisconnectHistories
+// DHCPv6 proxy disconnect history
+type Dhcpv6_Nodes_Node_Proxy_DisconnectHistories struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Single DHCPv6 proxy disconnect history. The type is slice of
+    // Dhcpv6_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory.
+    DisconnectHistory []*Dhcpv6_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory
+}
+
+func (disconnectHistories *Dhcpv6_Nodes_Node_Proxy_DisconnectHistories) GetEntityData() *types.CommonEntityData {
+    disconnectHistories.EntityData.YFilter = disconnectHistories.YFilter
+    disconnectHistories.EntityData.YangName = "disconnect-histories"
+    disconnectHistories.EntityData.BundleName = "cisco_ios_xr"
+    disconnectHistories.EntityData.ParentYangName = "proxy"
+    disconnectHistories.EntityData.SegmentPath = "disconnect-histories"
+    disconnectHistories.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/proxy/" + disconnectHistories.EntityData.SegmentPath
+    disconnectHistories.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnectHistories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnectHistories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnectHistories.EntityData.Children = types.NewOrderedMap()
+    disconnectHistories.EntityData.Children.Append("disconnect-history", types.YChild{"DisconnectHistory", nil})
+    for i := range disconnectHistories.DisconnectHistory {
+        disconnectHistories.EntityData.Children.Append(types.GetSegmentPath(disconnectHistories.DisconnectHistory[i]), types.YChild{"DisconnectHistory", disconnectHistories.DisconnectHistory[i]})
+    }
+    disconnectHistories.EntityData.Leafs = types.NewOrderedMap()
+
+    disconnectHistories.EntityData.YListKeys = []string {}
+
+    return &(disconnectHistories.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory
+// Single DHCPv6 proxy disconnect history
+type Dhcpv6_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Index. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Index interface{}
+
+    // session start time epoch. The type is interface{} with range:
+    // 0..18446744073709551615.
+    SessionStartTimeEpoch interface{}
+
+    // session end time epoch. The type is interface{} with range:
+    // 0..18446744073709551615.
+    SessionEndTimeEpoch interface{}
+
+    // DiscReason. The type is string with length: 0..256.
+    DiscReason interface{}
+
+    // sub label. The type is interface{} with range: 0..4294967295.
+    SubLabel interface{}
+
+    // Client DUID. The type is string with length: 0..131.
+    Duid interface{}
+
+    // IAType. The type is string with length: 0..6.
+    IaType interface{}
+
+    // ia id. The type is interface{} with range: 0..4294967295.
+    IaId interface{}
+
+    // MACAddress. The type is string with length: 0..17.
+    MacAddress interface{}
+}
+
+func (disconnectHistory *Dhcpv6_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory) GetEntityData() *types.CommonEntityData {
+    disconnectHistory.EntityData.YFilter = disconnectHistory.YFilter
+    disconnectHistory.EntityData.YangName = "disconnect-history"
+    disconnectHistory.EntityData.BundleName = "cisco_ios_xr"
+    disconnectHistory.EntityData.ParentYangName = "disconnect-histories"
+    disconnectHistory.EntityData.SegmentPath = "disconnect-history" + types.AddKeyToken(disconnectHistory.Index, "index")
+    disconnectHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/proxy/disconnect-histories/" + disconnectHistory.EntityData.SegmentPath
+    disconnectHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnectHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnectHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnectHistory.EntityData.Children = types.NewOrderedMap()
+    disconnectHistory.EntityData.Leafs = types.NewOrderedMap()
+    disconnectHistory.EntityData.Leafs.Append("index", types.YLeaf{"Index", disconnectHistory.Index})
+    disconnectHistory.EntityData.Leafs.Append("session-start-time-epoch", types.YLeaf{"SessionStartTimeEpoch", disconnectHistory.SessionStartTimeEpoch})
+    disconnectHistory.EntityData.Leafs.Append("session-end-time-epoch", types.YLeaf{"SessionEndTimeEpoch", disconnectHistory.SessionEndTimeEpoch})
+    disconnectHistory.EntityData.Leafs.Append("disc-reason", types.YLeaf{"DiscReason", disconnectHistory.DiscReason})
+    disconnectHistory.EntityData.Leafs.Append("sub-label", types.YLeaf{"SubLabel", disconnectHistory.SubLabel})
+    disconnectHistory.EntityData.Leafs.Append("duid", types.YLeaf{"Duid", disconnectHistory.Duid})
+    disconnectHistory.EntityData.Leafs.Append("ia-type", types.YLeaf{"IaType", disconnectHistory.IaType})
+    disconnectHistory.EntityData.Leafs.Append("ia-id", types.YLeaf{"IaId", disconnectHistory.IaId})
+    disconnectHistory.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", disconnectHistory.MacAddress})
+
+    disconnectHistory.EntityData.YListKeys = []string {"Index"}
+
+    return &(disconnectHistory.EntityData)
+}
+
 // Dhcpv6_Nodes_Node_Proxy_Interfaces
 // DHCPV6 proxy interface
 type Dhcpv6_Nodes_Node_Proxy_Interfaces struct {
@@ -2880,6 +2984,9 @@ type Dhcpv6_Nodes_Node_Server struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // DHCPv6 server disconnect history.
+    DisconnectHistories Dhcpv6_Nodes_Node_Server_DisconnectHistories
+
     // DHCPV6 server bindings.
     Binding Dhcpv6_Nodes_Node_Server_Binding
 
@@ -2911,6 +3018,7 @@ func (server *Dhcpv6_Nodes_Node_Server) GetEntityData() *types.CommonEntityData 
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Children.Append("disconnect-histories", types.YChild{"DisconnectHistories", &server.DisconnectHistories})
     server.EntityData.Children.Append("binding", types.YChild{"Binding", &server.Binding})
     server.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &server.Vrfs})
     server.EntityData.Children.Append("profiles", types.YChild{"Profiles", &server.Profiles})
@@ -2922,6 +3030,106 @@ func (server *Dhcpv6_Nodes_Node_Server) GetEntityData() *types.CommonEntityData 
     server.EntityData.YListKeys = []string {}
 
     return &(server.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Server_DisconnectHistories
+// DHCPv6 server disconnect history
+type Dhcpv6_Nodes_Node_Server_DisconnectHistories struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Single DHCPv6 server disconnect history. The type is slice of
+    // Dhcpv6_Nodes_Node_Server_DisconnectHistories_DisconnectHistory.
+    DisconnectHistory []*Dhcpv6_Nodes_Node_Server_DisconnectHistories_DisconnectHistory
+}
+
+func (disconnectHistories *Dhcpv6_Nodes_Node_Server_DisconnectHistories) GetEntityData() *types.CommonEntityData {
+    disconnectHistories.EntityData.YFilter = disconnectHistories.YFilter
+    disconnectHistories.EntityData.YangName = "disconnect-histories"
+    disconnectHistories.EntityData.BundleName = "cisco_ios_xr"
+    disconnectHistories.EntityData.ParentYangName = "server"
+    disconnectHistories.EntityData.SegmentPath = "disconnect-histories"
+    disconnectHistories.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/server/" + disconnectHistories.EntityData.SegmentPath
+    disconnectHistories.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnectHistories.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnectHistories.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnectHistories.EntityData.Children = types.NewOrderedMap()
+    disconnectHistories.EntityData.Children.Append("disconnect-history", types.YChild{"DisconnectHistory", nil})
+    for i := range disconnectHistories.DisconnectHistory {
+        disconnectHistories.EntityData.Children.Append(types.GetSegmentPath(disconnectHistories.DisconnectHistory[i]), types.YChild{"DisconnectHistory", disconnectHistories.DisconnectHistory[i]})
+    }
+    disconnectHistories.EntityData.Leafs = types.NewOrderedMap()
+
+    disconnectHistories.EntityData.YListKeys = []string {}
+
+    return &(disconnectHistories.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Server_DisconnectHistories_DisconnectHistory
+// Single DHCPv6 server disconnect history
+type Dhcpv6_Nodes_Node_Server_DisconnectHistories_DisconnectHistory struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Index. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Index interface{}
+
+    // session start time epoch. The type is interface{} with range:
+    // 0..18446744073709551615.
+    SessionStartTimeEpoch interface{}
+
+    // session end time epoch. The type is interface{} with range:
+    // 0..18446744073709551615.
+    SessionEndTimeEpoch interface{}
+
+    // DiscReason. The type is string with length: 0..256.
+    DiscReason interface{}
+
+    // sub label. The type is interface{} with range: 0..4294967295.
+    SubLabel interface{}
+
+    // Client DUID. The type is string with length: 0..131.
+    Duid interface{}
+
+    // IAType. The type is string with length: 0..6.
+    IaType interface{}
+
+    // ia id. The type is interface{} with range: 0..4294967295.
+    IaId interface{}
+
+    // MACAddress. The type is string with length: 0..17.
+    MacAddress interface{}
+}
+
+func (disconnectHistory *Dhcpv6_Nodes_Node_Server_DisconnectHistories_DisconnectHistory) GetEntityData() *types.CommonEntityData {
+    disconnectHistory.EntityData.YFilter = disconnectHistory.YFilter
+    disconnectHistory.EntityData.YangName = "disconnect-history"
+    disconnectHistory.EntityData.BundleName = "cisco_ios_xr"
+    disconnectHistory.EntityData.ParentYangName = "disconnect-histories"
+    disconnectHistory.EntityData.SegmentPath = "disconnect-history" + types.AddKeyToken(disconnectHistory.Index, "index")
+    disconnectHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/server/disconnect-histories/" + disconnectHistory.EntityData.SegmentPath
+    disconnectHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnectHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnectHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnectHistory.EntityData.Children = types.NewOrderedMap()
+    disconnectHistory.EntityData.Leafs = types.NewOrderedMap()
+    disconnectHistory.EntityData.Leafs.Append("index", types.YLeaf{"Index", disconnectHistory.Index})
+    disconnectHistory.EntityData.Leafs.Append("session-start-time-epoch", types.YLeaf{"SessionStartTimeEpoch", disconnectHistory.SessionStartTimeEpoch})
+    disconnectHistory.EntityData.Leafs.Append("session-end-time-epoch", types.YLeaf{"SessionEndTimeEpoch", disconnectHistory.SessionEndTimeEpoch})
+    disconnectHistory.EntityData.Leafs.Append("disc-reason", types.YLeaf{"DiscReason", disconnectHistory.DiscReason})
+    disconnectHistory.EntityData.Leafs.Append("sub-label", types.YLeaf{"SubLabel", disconnectHistory.SubLabel})
+    disconnectHistory.EntityData.Leafs.Append("duid", types.YLeaf{"Duid", disconnectHistory.Duid})
+    disconnectHistory.EntityData.Leafs.Append("ia-type", types.YLeaf{"IaType", disconnectHistory.IaType})
+    disconnectHistory.EntityData.Leafs.Append("ia-id", types.YLeaf{"IaId", disconnectHistory.IaId})
+    disconnectHistory.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", disconnectHistory.MacAddress})
+
+    disconnectHistory.EntityData.YListKeys = []string {"Index"}
+
+    return &(disconnectHistory.EntityData)
 }
 
 // Dhcpv6_Nodes_Node_Server_Binding

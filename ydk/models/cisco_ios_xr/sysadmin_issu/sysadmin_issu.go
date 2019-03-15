@@ -123,6 +123,12 @@ const (
 
     // An internal error occured while attempting to start the operation
     OpStartResult_start_error_internal OpStartResult = "start-error-internal"
+
+    // A previous install operation has not been committed
+    OpStartResult_prepare_error_previous_operation_not_committed OpStartResult = "prepare-error-previous-operation-not-committed"
+
+    // An install operation is already in progress
+    OpStartResult_prepare_error_already_in_progress OpStartResult = "prepare-error-already-in-progress"
 )
 
 // Issu

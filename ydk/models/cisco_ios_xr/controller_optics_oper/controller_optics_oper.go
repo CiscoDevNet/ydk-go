@@ -178,6 +178,9 @@ const (
     // 100GBASE PL
     EthernetPmd_optics_eth_100gbase_pl EthernetPmd = "optics-eth-100gbase-pl"
 
+    // 100GBASE SRBD
+    EthernetPmd_optics_eth_100gbase_srbd EthernetPmd = "optics-eth-100gbase-srbd"
+
     // Eth Undefined
     EthernetPmd_optics_eth_undefined EthernetPmd = "optics-eth-undefined"
 )
@@ -607,6 +610,9 @@ const (
 
     // OneGig CSFP optics
     OpticsPhy_one_gig_csfp OpticsPhy = "one-gig-csfp"
+
+    // Short reach Bi-Directional
+    OpticsPhy_short_reach_bd OpticsPhy = "short-reach-bd"
 )
 
 // OpticsTas represents Optics tas

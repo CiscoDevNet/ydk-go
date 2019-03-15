@@ -1410,15 +1410,16 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     HalfLife interface{}
 
     // Value to start reusing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     ReuseThreshold interface{}
 
     // Value to start suppressing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     SuppressThreshold interface{}
 
     // Maximum duration to suppress a stable route (seconds). The type is
-    // interface{} with range: 1..255. Units are second.
+    // interface{} with range: 1..255. This attribute is mandatory. Units are
+    // second.
     SuppressTime interface{}
 
     // Route policy to specify criteria for dampening. This cannot be specified if
@@ -2533,7 +2534,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -2722,11 +2723,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     NeighborAfLongLivedGracefulRestartCapable interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -2796,7 +2797,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -4769,7 +4770,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -4959,11 +4960,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     NeighborAfLongLivedGracefulRestartCapable interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -5033,7 +5034,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -7121,7 +7122,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor 
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -7313,11 +7314,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -7391,7 +7392,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -9310,7 +9311,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -9503,11 +9504,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -9581,7 +9582,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -11527,7 +11528,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -11725,11 +11726,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -11803,7 +11804,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -13790,11 +13791,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -13862,7 +13863,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -14977,7 +14978,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -16032,7 +16033,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global struct {
     // interface{} with range: 5..3600. Units are second. The default value is 60.
     GlobalScanTime interface{}
 
-    // Prefix validation time (in seconds). Range  : 5 - 60. Specify 0 to disable
+    // Prefix validation time (in seconds). Range : 5 - 60. Specify 0 to disable
     // the timer. The type is interface{} with range: 0..60. Units are second.
     RpkiOriginAsValidationTime interface{}
 
@@ -17639,7 +17640,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Vrf
     // Configure policy for installation of routes to RIB. The type is string.
     TablePolicy interface{}
 
-    // Enable sourcing of import route-targets  from import-policy. The type is
+    // Enable sourcing of import route-targets from import-policy. The type is
     // interface{}.
     SourceRtImportPolicy interface{}
 
@@ -18313,15 +18314,16 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Dam
     HalfLife interface{}
 
     // Value to start reusing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     ReuseThreshold interface{}
 
     // Value to start suppressing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     SuppressThreshold interface{}
 
     // Maximum duration to suppress a stable route (seconds). The type is
-    // interface{} with range: 1..255. Units are second.
+    // interface{} with range: 1..255. This attribute is mandatory. Units are
+    // second.
     SuppressTime interface{}
 
     // Route policy to specify criteria for dampening. This cannot be specified if
@@ -19106,14 +19108,14 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes_RpkiS
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    Addrress interface{}
+    Address interface{}
 
     // This attribute is a key. Minimum Prefix Length. The type is interface{}
-    // with range: 0..4294967295.
+    // with range: 0..128.
     Minimum interface{}
 
     // This attribute is a key. Maximum Prefix Length. The type is interface{}
-    // with range: 0..4294967295.
+    // with range: 1..128.
     Maximum interface{}
 
     // This attribute is a key. AS Number. The type is interface{} with range:
@@ -19126,7 +19128,7 @@ func (rpkiStaticRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Rpki
     rpkiStaticRoute.EntityData.YangName = "rpki-static-route"
     rpkiStaticRoute.EntityData.BundleName = "cisco_ios_xr"
     rpkiStaticRoute.EntityData.ParentYangName = "rpki-static-routes"
-    rpkiStaticRoute.EntityData.SegmentPath = "rpki-static-route" + types.AddKeyToken(rpkiStaticRoute.Addrress, "addrress") + types.AddKeyToken(rpkiStaticRoute.Minimum, "minimum") + types.AddKeyToken(rpkiStaticRoute.Maximum, "maximum") + types.AddKeyToken(rpkiStaticRoute.As, "as")
+    rpkiStaticRoute.EntityData.SegmentPath = "rpki-static-route" + types.AddKeyToken(rpkiStaticRoute.Address, "address") + types.AddKeyToken(rpkiStaticRoute.Minimum, "minimum") + types.AddKeyToken(rpkiStaticRoute.Maximum, "maximum") + types.AddKeyToken(rpkiStaticRoute.As, "as")
     rpkiStaticRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/rpki-static-routes/" + rpkiStaticRoute.EntityData.SegmentPath
     rpkiStaticRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpkiStaticRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -19134,12 +19136,12 @@ func (rpkiStaticRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Rpki
 
     rpkiStaticRoute.EntityData.Children = types.NewOrderedMap()
     rpkiStaticRoute.EntityData.Leafs = types.NewOrderedMap()
-    rpkiStaticRoute.EntityData.Leafs.Append("addrress", types.YLeaf{"Addrress", rpkiStaticRoute.Addrress})
+    rpkiStaticRoute.EntityData.Leafs.Append("address", types.YLeaf{"Address", rpkiStaticRoute.Address})
     rpkiStaticRoute.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", rpkiStaticRoute.Minimum})
     rpkiStaticRoute.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", rpkiStaticRoute.Maximum})
     rpkiStaticRoute.EntityData.Leafs.Append("as", types.YLeaf{"As", rpkiStaticRoute.As})
 
-    rpkiStaticRoute.EntityData.YListKeys = []string {"Addrress", "Minimum", "Maximum", "As"}
+    rpkiStaticRoute.EntityData.YListKeys = []string {"Address", "Minimum", "Maximum", "As"}
 
     return &(rpkiStaticRoute.EntityData)
 }

@@ -109,6 +109,9 @@ type SubscriberAccounting_Nodes_Node struct {
 
     // Subscriber accounting flow feature data.
     SubscriberAccountingFlowFeatures SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures
+
+    // Subscriber accounting SRG feature data.
+    SubscriberAccountingSrgFeatures SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures
 }
 
 func (node *SubscriberAccounting_Nodes_Node) GetEntityData() *types.CommonEntityData {
@@ -126,6 +129,7 @@ func (node *SubscriberAccounting_Nodes_Node) GetEntityData() *types.CommonEntity
     node.EntityData.Children.Append("subscriber-accounting-session-features", types.YChild{"SubscriberAccountingSessionFeatures", &node.SubscriberAccountingSessionFeatures})
     node.EntityData.Children.Append("subscriber-accounting-summary", types.YChild{"SubscriberAccountingSummary", &node.SubscriberAccountingSummary})
     node.EntityData.Children.Append("subscriber-accounting-flow-features", types.YChild{"SubscriberAccountingFlowFeatures", &node.SubscriberAccountingFlowFeatures})
+    node.EntityData.Children.Append("subscriber-accounting-srg-features", types.YChild{"SubscriberAccountingSrgFeatures", &node.SubscriberAccountingSrgFeatures})
     node.EntityData.Leafs = types.NewOrderedMap()
     node.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", node.NodeId})
 
@@ -1135,5 +1139,133 @@ func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowF
     flowFeatureData.EntityData.YListKeys = []string {}
 
     return &(flowFeatureData.EntityData)
+}
+
+// SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures
+// Subscriber accounting SRG feature data
+type SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Display accounting SRG features by unique access interface-name. The type
+    // is slice of
+    // SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures_SubscriberAccountingSrgFeature.
+    SubscriberAccountingSrgFeature []*SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures_SubscriberAccountingSrgFeature
+}
+
+func (subscriberAccountingSrgFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures) GetEntityData() *types.CommonEntityData {
+    subscriberAccountingSrgFeatures.EntityData.YFilter = subscriberAccountingSrgFeatures.YFilter
+    subscriberAccountingSrgFeatures.EntityData.YangName = "subscriber-accounting-srg-features"
+    subscriberAccountingSrgFeatures.EntityData.BundleName = "cisco_ios_xr"
+    subscriberAccountingSrgFeatures.EntityData.ParentYangName = "node"
+    subscriberAccountingSrgFeatures.EntityData.SegmentPath = "subscriber-accounting-srg-features"
+    subscriberAccountingSrgFeatures.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/" + subscriberAccountingSrgFeatures.EntityData.SegmentPath
+    subscriberAccountingSrgFeatures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberAccountingSrgFeatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberAccountingSrgFeatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    subscriberAccountingSrgFeatures.EntityData.Children = types.NewOrderedMap()
+    subscriberAccountingSrgFeatures.EntityData.Children.Append("subscriber-accounting-srg-feature", types.YChild{"SubscriberAccountingSrgFeature", nil})
+    for i := range subscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature {
+        subscriberAccountingSrgFeatures.EntityData.Children.Append(types.GetSegmentPath(subscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature[i]), types.YChild{"SubscriberAccountingSrgFeature", subscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature[i]})
+    }
+    subscriberAccountingSrgFeatures.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriberAccountingSrgFeatures.EntityData.YListKeys = []string {}
+
+    return &(subscriberAccountingSrgFeatures.EntityData)
+}
+
+// SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures_SubscriberAccountingSrgFeature
+// Display accounting SRG features by unique
+// access interface-name
+type SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures_SubscriberAccountingSrgFeature struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Interface name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+
+    // Accounting's SRG Statistics Info Bag.
+    SrgStatusCounters SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures_SubscriberAccountingSrgFeature_SrgStatusCounters
+}
+
+func (subscriberAccountingSrgFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures_SubscriberAccountingSrgFeature) GetEntityData() *types.CommonEntityData {
+    subscriberAccountingSrgFeature.EntityData.YFilter = subscriberAccountingSrgFeature.YFilter
+    subscriberAccountingSrgFeature.EntityData.YangName = "subscriber-accounting-srg-feature"
+    subscriberAccountingSrgFeature.EntityData.BundleName = "cisco_ios_xr"
+    subscriberAccountingSrgFeature.EntityData.ParentYangName = "subscriber-accounting-srg-features"
+    subscriberAccountingSrgFeature.EntityData.SegmentPath = "subscriber-accounting-srg-feature" + types.AddKeyToken(subscriberAccountingSrgFeature.InterfaceName, "interface-name")
+    subscriberAccountingSrgFeature.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-srg-features/" + subscriberAccountingSrgFeature.EntityData.SegmentPath
+    subscriberAccountingSrgFeature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberAccountingSrgFeature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberAccountingSrgFeature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    subscriberAccountingSrgFeature.EntityData.Children = types.NewOrderedMap()
+    subscriberAccountingSrgFeature.EntityData.Children.Append("srg-status-counters", types.YChild{"SrgStatusCounters", &subscriberAccountingSrgFeature.SrgStatusCounters})
+    subscriberAccountingSrgFeature.EntityData.Leafs = types.NewOrderedMap()
+    subscriberAccountingSrgFeature.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", subscriberAccountingSrgFeature.InterfaceName})
+
+    subscriberAccountingSrgFeature.EntityData.YListKeys = []string {"InterfaceName"}
+
+    return &(subscriberAccountingSrgFeature.EntityData)
+}
+
+// SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures_SubscriberAccountingSrgFeature_SrgStatusCounters
+// Accounting's SRG Statistics Info Bag
+type SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures_SubscriberAccountingSrgFeature_SrgStatusCounters struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Interface name. The type is string.
+    InterfaceName interface{}
+
+    // Access Interface handle. The type is interface{} with range: 0..4294967295.
+    AccessInterfaceHandle interface{}
+
+    // Accounting Feature Mode. The type is interface{} with range: 0..4294967295.
+    AccountingMode interface{}
+
+    // SRG Role for given access interface. The type is interface{} with range:
+    // 0..4294967295.
+    SrgNodeRole interface{}
+
+    // True/False,if SRG Master Node Sync is still pending. The type is bool.
+    SrgMasterEomsPendingFlag interface{}
+
+    // True/False,SRG Node Diameter Notification flag. The type is bool.
+    SrgDiameterUpFlag interface{}
+
+    // SRG Role Notification time in DDD MMM DD HH:MM :SS YYYY format eg: Tue Apr
+    // 11 21:30:47 2011. The type is string.
+    SrgRoleUpdTime interface{}
+}
+
+func (srgStatusCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures_SubscriberAccountingSrgFeature_SrgStatusCounters) GetEntityData() *types.CommonEntityData {
+    srgStatusCounters.EntityData.YFilter = srgStatusCounters.YFilter
+    srgStatusCounters.EntityData.YangName = "srg-status-counters"
+    srgStatusCounters.EntityData.BundleName = "cisco_ios_xr"
+    srgStatusCounters.EntityData.ParentYangName = "subscriber-accounting-srg-feature"
+    srgStatusCounters.EntityData.SegmentPath = "srg-status-counters"
+    srgStatusCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting/nodes/node/subscriber-accounting-srg-features/subscriber-accounting-srg-feature/" + srgStatusCounters.EntityData.SegmentPath
+    srgStatusCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srgStatusCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srgStatusCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srgStatusCounters.EntityData.Children = types.NewOrderedMap()
+    srgStatusCounters.EntityData.Leafs = types.NewOrderedMap()
+    srgStatusCounters.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", srgStatusCounters.InterfaceName})
+    srgStatusCounters.EntityData.Leafs.Append("access-interface-handle", types.YLeaf{"AccessInterfaceHandle", srgStatusCounters.AccessInterfaceHandle})
+    srgStatusCounters.EntityData.Leafs.Append("accounting-mode", types.YLeaf{"AccountingMode", srgStatusCounters.AccountingMode})
+    srgStatusCounters.EntityData.Leafs.Append("srg-node-role", types.YLeaf{"SrgNodeRole", srgStatusCounters.SrgNodeRole})
+    srgStatusCounters.EntityData.Leafs.Append("srg-master-eoms-pending-flag", types.YLeaf{"SrgMasterEomsPendingFlag", srgStatusCounters.SrgMasterEomsPendingFlag})
+    srgStatusCounters.EntityData.Leafs.Append("srg-diameter-up-flag", types.YLeaf{"SrgDiameterUpFlag", srgStatusCounters.SrgDiameterUpFlag})
+    srgStatusCounters.EntityData.Leafs.Append("srg-role-upd-time", types.YLeaf{"SrgRoleUpdTime", srgStatusCounters.SrgRoleUpdTime})
+
+    srgStatusCounters.EntityData.YListKeys = []string {}
+
+    return &(srgStatusCounters.EntityData)
 }
 

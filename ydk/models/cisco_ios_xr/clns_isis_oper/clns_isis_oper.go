@@ -594,112 +594,6 @@ const (
     IsisIfTopoAdvPrefixDisabledReason_isis_intf_topo_adv_prefix_disabled_internal_error IsisIfTopoAdvPrefixDisabledReason = "isis-intf-topo-adv-prefix-disabled-internal-error"
 )
 
-// IsisLspTrigger represents Isis lsp trigger
-type IsisLspTrigger string
-
-const (
-    // Any configuration change
-    IsisLspTrigger_isis_lsp_trig_config IsisLspTrigger = "isis-lsp-trig-config"
-
-    // New adjacency came up
-    IsisLspTrigger_isis_lsp_trig_newadj IsisLspTrigger = "isis-lsp-trig-newadj"
-
-    // Adjacency went down
-    IsisLspTrigger_isis_lsp_trig_deladj IsisLspTrigger = "isis-lsp-trig-deladj"
-
-    // DIS changed, or pseudonode changed
-    IsisLspTrigger_isis_lsp_trig_dr_change IsisLspTrigger = "isis-lsp-trig-dr-change"
-
-    // Active area set changed
-    IsisLspTrigger_isis_lsp_trig_area_set IsisLspTrigger = "isis-lsp-trig-area-set"
-
-    // Attached bit changed state
-    IsisLspTrigger_isis_lsp_trig_attach IsisLspTrigger = "isis-lsp-trig-attach"
-
-    // LSPDB overload bit changed state
-    IsisLspTrigger_isis_lsp_trig_hippity IsisLspTrigger = "isis-lsp-trig-hippity"
-
-    // LSP regeneration
-    IsisLspTrigger_isis_lsp_trig_regen IsisLspTrigger = "isis-lsp-trig-regen"
-
-    // Directly connected IP prefix up
-    IsisLspTrigger_isis_lsp_trig_ip_if_up IsisLspTrigger = "isis-lsp-trig-ip-if-up"
-
-    // Directly connected IP prefix down
-    IsisLspTrigger_isis_lsp_trig_ip_if_down IsisLspTrigger = "isis-lsp-trig-ip-if-down"
-
-    // Interarea IP route appeared or gone
-    IsisLspTrigger_isis_lsp_trig_ip_inter_area IsisLspTrigger = "isis-lsp-trig-ip-inter-area"
-
-    // Redistributed IP route appeared or gone
-    IsisLspTrigger_isis_lsp_trig_ip_external IsisLspTrigger = "isis-lsp-trig-ip-external"
-
-    // Full IP redistribution
-    IsisLspTrigger_isis_lsp_trig_ip_external_full IsisLspTrigger = "isis-lsp-trig-ip-external-full"
-
-    // Default information originate changed
-    IsisLspTrigger_isis_lsp_trig_ip_def_orig IsisLspTrigger = "isis-lsp-trig-ip-def-orig"
-
-    // IP interface address changed
-    IsisLspTrigger_isis_lsp_trig_ip_addr_chg IsisLspTrigger = "isis-lsp-trig-ip-addr-chg"
-
-    // TE bandwidth resource information
-    IsisLspTrigger_isis_lsp_trig_te_info IsisLspTrigger = "isis-lsp-trig-te-info"
-
-    // TE PCE information
-    IsisLspTrigger_isis_lsp_trig_te_pce_info IsisLspTrigger = "isis-lsp-trig-te-pce-info"
-
-    // TE forwarding adjacency information
-    IsisLspTrigger_isis_lsp_trig_te_fa_info IsisLspTrigger = "isis-lsp-trig-te-fa-info"
-
-    // NSR FO is done
-    IsisLspTrigger_isis_lsp_trig_nsr_fo IsisLspTrigger = "isis-lsp-trig-nsr-fo"
-
-    // Pseudo-node generation canceled
-    IsisLspTrigger_isis_lsp_trig_pn_cancel IsisLspTrigger = "isis-lsp-trig-pn-cancel"
-
-    // Link-group offset metric change
-    IsisLspTrigger_isis_lsp_trig_lkgp IsisLspTrigger = "isis-lsp-trig-lkgp"
-
-    // Proactive Protection metric change
-    IsisLspTrigger_isis_lsp_trig_pp IsisLspTrigger = "isis-lsp-trig-pp"
-
-    // Any configuration change that requires all LSPs
-    // to be updated
-    IsisLspTrigger_isis_lsp_trig_config_force_send IsisLspTrigger = "isis-lsp-trig-config-force-send"
-
-    // Any configuration change that requires the LBD
-    // database re-init.
-    IsisLspTrigger_isis_lsp_trig_config_force_init IsisLspTrigger = "isis-lsp-trig-config-force-init"
-
-    // Adjacency SID added
-    IsisLspTrigger_isis_lsp_trig_adj_sid_add IsisLspTrigger = "isis-lsp-trig-adj-sid-add"
-
-    // Adjacency SID deleted
-    IsisLspTrigger_isis_lsp_trig_adj_sid_delete IsisLspTrigger = "isis-lsp-trig-adj-sid-delete"
-
-    // Adjacency SIDs added and/or deleted
-    IsisLspTrigger_isis_lsp_trig_adj_sid_change IsisLspTrigger = "isis-lsp-trig-adj-sid-change"
-
-    // Maximum SID depth change
-    IsisLspTrigger_isis_lsp_trig_msd IsisLspTrigger = "isis-lsp-trig-msd"
-
-    // Adjacency SID wait timer expired
-    IsisLspTrigger_isis_lsp_trig_adj_sid_wait_timer IsisLspTrigger = "isis-lsp-trig-adj-sid-wait-timer"
-
-    // Direct LSP generation
-    IsisLspTrigger_isis_lsp_trig_direct_gen IsisLspTrigger = "isis-lsp-trig-direct-gen"
-
-    // Flex-Algo Enable/Disable
-    IsisLspTrigger_isis_lsp_trig_flex_algo_enable_disable IsisLspTrigger = "isis-lsp-trig-flex-algo-enable-disable"
-
-    // Link delay/loss changed
-    IsisLspTrigger_isis_lsp_trig_pm_delay_loss IsisLspTrigger = "isis-lsp-trig-pm-delay-loss"
-
-    // Link bandwidth utilization changed
-    IsisLspTrigger_isis_lsp_trig_pm_bw_util IsisLspTrigger = "isis-lsp-trig-pm-bw-util"
-)
-
 // IsisAdjState represents Isis adj state
 type IsisAdjState string
 
@@ -868,6 +762,20 @@ const (
     IsisIfAdjFormDisabledReason_isis_intf_adj_form_disabled_internal_error IsisIfAdjFormDisabledReason = "isis-intf-adj-form-disabled-internal-error"
 )
 
+// IsisEdmLabelTypeEnum represents isislabeltype
+type IsisEdmLabelTypeEnum string
+
+const (
+    // isis edm label alloc prefix sid
+    IsisEdmLabelTypeEnum_isis_edm_label_alloc_prefix_sid IsisEdmLabelTypeEnum = "isis-edm-label-alloc-prefix-sid"
+
+    // isis edm label alloc local sid
+    IsisEdmLabelTypeEnum_isis_edm_label_alloc_local_sid IsisEdmLabelTypeEnum = "isis-edm-label-alloc-local-sid"
+
+    // isis edm label alloc max
+    IsisEdmLabelTypeEnum_isis_edm_label_alloc_max IsisEdmLabelTypeEnum = "isis-edm-label-alloc-max"
+)
+
 // OpenconfigIsisLspIsisMetricFlagsEnum represents Openconfig isis lsp isis metric flags enum
 type OpenconfigIsisLspIsisMetricFlagsEnum string
 
@@ -957,21 +865,6 @@ const (
     // unset indicates that the interface is
     // unnumbered.
     OpenconfigIsisLspStateFlagsEnum_numbered OpenconfigIsisLspStateFlagsEnum = "numbered"
-)
-
-// IsisIfAfPrefixUnknownReason represents Isis if af prefix unknown reason
-type IsisIfAfPrefixUnknownReason string
-
-const (
-    // isis intf af prefix unknown adv suppressed
-    IsisIfAfPrefixUnknownReason_isis_intf_af_prefix_unknown_adv_suppressed IsisIfAfPrefixUnknownReason = "isis-intf-af-prefix-unknown-adv-suppressed"
-
-    // isis intf af prefix unknown global addr reg
-    // error
-    IsisIfAfPrefixUnknownReason_isis_intf_af_prefix_unknown_global_addr_reg_error IsisIfAfPrefixUnknownReason = "isis-intf-af-prefix-unknown-global-addr-reg-error"
-
-    // isis intf af prefix unknown internal error
-    IsisIfAfPrefixUnknownReason_isis_intf_af_prefix_unknown_internal_error IsisIfAfPrefixUnknownReason = "isis-intf-af-prefix-unknown-internal-error"
 )
 
 // OpenconfigIsisTypesMetricStyleEnum represents Openconfig isis types metric style enum
@@ -1365,6 +1258,21 @@ const (
     OpenconfigIsisTypesLevelTypeEnum_level12 OpenconfigIsisTypesLevelTypeEnum = "level12"
 )
 
+// IsisIfAfPrefixUnknownReason represents Isis if af prefix unknown reason
+type IsisIfAfPrefixUnknownReason string
+
+const (
+    // isis intf af prefix unknown adv suppressed
+    IsisIfAfPrefixUnknownReason_isis_intf_af_prefix_unknown_adv_suppressed IsisIfAfPrefixUnknownReason = "isis-intf-af-prefix-unknown-adv-suppressed"
+
+    // isis intf af prefix unknown global addr reg
+    // error
+    IsisIfAfPrefixUnknownReason_isis_intf_af_prefix_unknown_global_addr_reg_error IsisIfAfPrefixUnknownReason = "isis-intf-af-prefix-unknown-global-addr-reg-error"
+
+    // isis intf af prefix unknown internal error
+    IsisIfAfPrefixUnknownReason_isis_intf_af_prefix_unknown_internal_error IsisIfAfPrefixUnknownReason = "isis-intf-af-prefix-unknown-internal-error"
+)
+
 // IsisSpfClass represents Types of route calculation
 type IsisSpfClass string
 
@@ -1546,6 +1454,112 @@ const (
 
     // Reachable
     IsisReachable_isis_reachable IsisReachable = "isis-reachable"
+)
+
+// IsisLspTrigger represents Isis lsp trigger
+type IsisLspTrigger string
+
+const (
+    // Any configuration change
+    IsisLspTrigger_isis_lsp_trig_config IsisLspTrigger = "isis-lsp-trig-config"
+
+    // New adjacency came up
+    IsisLspTrigger_isis_lsp_trig_newadj IsisLspTrigger = "isis-lsp-trig-newadj"
+
+    // Adjacency went down
+    IsisLspTrigger_isis_lsp_trig_deladj IsisLspTrigger = "isis-lsp-trig-deladj"
+
+    // DIS changed, or pseudonode changed
+    IsisLspTrigger_isis_lsp_trig_dr_change IsisLspTrigger = "isis-lsp-trig-dr-change"
+
+    // Active area set changed
+    IsisLspTrigger_isis_lsp_trig_area_set IsisLspTrigger = "isis-lsp-trig-area-set"
+
+    // Attached bit changed state
+    IsisLspTrigger_isis_lsp_trig_attach IsisLspTrigger = "isis-lsp-trig-attach"
+
+    // LSPDB overload bit changed state
+    IsisLspTrigger_isis_lsp_trig_hippity IsisLspTrigger = "isis-lsp-trig-hippity"
+
+    // LSP regeneration
+    IsisLspTrigger_isis_lsp_trig_regen IsisLspTrigger = "isis-lsp-trig-regen"
+
+    // Directly connected IP prefix up
+    IsisLspTrigger_isis_lsp_trig_ip_if_up IsisLspTrigger = "isis-lsp-trig-ip-if-up"
+
+    // Directly connected IP prefix down
+    IsisLspTrigger_isis_lsp_trig_ip_if_down IsisLspTrigger = "isis-lsp-trig-ip-if-down"
+
+    // Interarea IP route appeared or gone
+    IsisLspTrigger_isis_lsp_trig_ip_inter_area IsisLspTrigger = "isis-lsp-trig-ip-inter-area"
+
+    // Redistributed IP route appeared or gone
+    IsisLspTrigger_isis_lsp_trig_ip_external IsisLspTrigger = "isis-lsp-trig-ip-external"
+
+    // Full IP redistribution
+    IsisLspTrigger_isis_lsp_trig_ip_external_full IsisLspTrigger = "isis-lsp-trig-ip-external-full"
+
+    // Default information originate changed
+    IsisLspTrigger_isis_lsp_trig_ip_def_orig IsisLspTrigger = "isis-lsp-trig-ip-def-orig"
+
+    // IP interface address changed
+    IsisLspTrigger_isis_lsp_trig_ip_addr_chg IsisLspTrigger = "isis-lsp-trig-ip-addr-chg"
+
+    // TE bandwidth resource information
+    IsisLspTrigger_isis_lsp_trig_te_info IsisLspTrigger = "isis-lsp-trig-te-info"
+
+    // TE PCE information
+    IsisLspTrigger_isis_lsp_trig_te_pce_info IsisLspTrigger = "isis-lsp-trig-te-pce-info"
+
+    // TE forwarding adjacency information
+    IsisLspTrigger_isis_lsp_trig_te_fa_info IsisLspTrigger = "isis-lsp-trig-te-fa-info"
+
+    // NSR FO is done
+    IsisLspTrigger_isis_lsp_trig_nsr_fo IsisLspTrigger = "isis-lsp-trig-nsr-fo"
+
+    // Pseudo-node generation canceled
+    IsisLspTrigger_isis_lsp_trig_pn_cancel IsisLspTrigger = "isis-lsp-trig-pn-cancel"
+
+    // Link-group offset metric change
+    IsisLspTrigger_isis_lsp_trig_lkgp IsisLspTrigger = "isis-lsp-trig-lkgp"
+
+    // Proactive Protection metric change
+    IsisLspTrigger_isis_lsp_trig_pp IsisLspTrigger = "isis-lsp-trig-pp"
+
+    // Any configuration change that requires all LSPs
+    // to be updated
+    IsisLspTrigger_isis_lsp_trig_config_force_send IsisLspTrigger = "isis-lsp-trig-config-force-send"
+
+    // Any configuration change that requires the LBD
+    // database re-init.
+    IsisLspTrigger_isis_lsp_trig_config_force_init IsisLspTrigger = "isis-lsp-trig-config-force-init"
+
+    // Adjacency SID added
+    IsisLspTrigger_isis_lsp_trig_adj_sid_add IsisLspTrigger = "isis-lsp-trig-adj-sid-add"
+
+    // Adjacency SID deleted
+    IsisLspTrigger_isis_lsp_trig_adj_sid_delete IsisLspTrigger = "isis-lsp-trig-adj-sid-delete"
+
+    // Adjacency SIDs added and/or deleted
+    IsisLspTrigger_isis_lsp_trig_adj_sid_change IsisLspTrigger = "isis-lsp-trig-adj-sid-change"
+
+    // Maximum SID depth change
+    IsisLspTrigger_isis_lsp_trig_msd IsisLspTrigger = "isis-lsp-trig-msd"
+
+    // Adjacency SID wait timer expired
+    IsisLspTrigger_isis_lsp_trig_adj_sid_wait_timer IsisLspTrigger = "isis-lsp-trig-adj-sid-wait-timer"
+
+    // Direct LSP generation
+    IsisLspTrigger_isis_lsp_trig_direct_gen IsisLspTrigger = "isis-lsp-trig-direct-gen"
+
+    // Flex-Algo Enable/Disable
+    IsisLspTrigger_isis_lsp_trig_flex_algo_enable_disable IsisLspTrigger = "isis-lsp-trig-flex-algo-enable-disable"
+
+    // Link delay/loss changed
+    IsisLspTrigger_isis_lsp_trig_pm_delay_loss IsisLspTrigger = "isis-lsp-trig-pm-delay-loss"
+
+    // Link bandwidth utilization changed
+    IsisLspTrigger_isis_lsp_trig_pm_bw_util IsisLspTrigger = "isis-lsp-trig-pm-bw-util"
 )
 
 // IsisUloopAvoidance represents Isis uloop avoidance
@@ -6483,7 +6497,7 @@ const (
     // metric.  This is the
     // well-known shortest path
     // algorithm as computed by the
-    // IS-IS Decision process. 
+    // IS-IS Decision process.
     // Consistent with the deployed
     // practice for link- state
     // protocols, algorithm 0
@@ -15284,6 +15298,9 @@ type Isis_Instances_Instance struct {
     // Checkpointed interface table.
     CheckpointInterfaces Isis_Instances_Instance_CheckpointInterfaces
 
+    // SR Label table.
+    SrLabels Isis_Instances_Instance_SrLabels
+
     // Interface statistics table.
     InterfaceStatistics Isis_Instances_Instance_InterfaceStatistics
 
@@ -15330,6 +15347,7 @@ func (instance *Isis_Instances_Instance) GetEntityData() *types.CommonEntityData
     instance.EntityData.Children.Append("srms", types.YChild{"Srms", &instance.Srms})
     instance.EntityData.Children.Append("error-log", types.YChild{"ErrorLog", &instance.ErrorLog})
     instance.EntityData.Children.Append("checkpoint-interfaces", types.YChild{"CheckpointInterfaces", &instance.CheckpointInterfaces})
+    instance.EntityData.Children.Append("sr-labels", types.YChild{"SrLabels", &instance.SrLabels})
     instance.EntityData.Children.Append("interface-statistics", types.YChild{"InterfaceStatistics", &instance.InterfaceStatistics})
     instance.EntityData.Children.Append("protocol", types.YChild{"Protocol", &instance.Protocol})
     instance.EntityData.Children.Append("neighbor-summaries", types.YChild{"NeighborSummaries", &instance.NeighborSummaries})
@@ -21956,6 +21974,10 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Relative importance of the prefix. The type is IsisPrefixPriority.
     Priority interface{}
 
+    // Prefix local label for SR-MPLS. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+
     // Primary paths to prefix.
     Primary Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary
 
@@ -21984,6 +22006,7 @@ func (nativeDetails *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTa
     }
     nativeDetails.EntityData.Leafs = types.NewOrderedMap()
     nativeDetails.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", nativeDetails.Priority})
+    nativeDetails.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nativeDetails.LocalLabel})
 
     nativeDetails.EntityData.YListKeys = []string {}
 
@@ -22143,6 +22166,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_Paths_FrrBackup
 
@@ -22189,6 +22215,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -22288,6 +22315,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -22345,6 +22375,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -22577,6 +22608,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup
 }
@@ -22605,6 +22639,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTabl
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -22704,6 +22739,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -22761,6 +22799,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -22894,6 +22933,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup
 
@@ -22940,6 +22982,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTa
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -23039,6 +23082,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -23096,6 +23142,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -23327,6 +23374,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup
 
@@ -23373,6 +23423,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -23472,6 +23523,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -23529,6 +23583,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -23760,6 +23815,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup
 
@@ -23806,6 +23864,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTab
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -23905,6 +23964,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -23962,6 +24024,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -24596,6 +24659,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_Paths_FrrBackup
 
@@ -24642,6 +24708,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -24741,6 +24808,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -24798,6 +24868,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -25030,6 +25101,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup
 }
@@ -25058,6 +25132,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTabl
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -25157,6 +25232,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -25214,6 +25292,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -25347,6 +25426,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup
 
@@ -25393,6 +25475,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTa
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -25492,6 +25575,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -25549,6 +25635,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -25780,6 +25867,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup
 
@@ -25826,6 +25916,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -25925,6 +26016,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -25982,6 +26076,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -26213,6 +26308,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup
 
@@ -26259,6 +26357,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTab
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -26358,6 +26457,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables_Ipv6FlexRouteTable_Ipv6FlexRoute_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -26415,6 +26517,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -30563,6 +30666,9 @@ type Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ip
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv4LinkTopologies_Ipv4LinkTopology_ReachabilityStatus_ReachableDetails_Paths_FrrBackup
 
@@ -30609,6 +30715,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_TopologyLevels_Topology
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -30708,6 +30815,9 @@ type Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ip
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv4LinkTopologies_Ipv4LinkTopology_ReachabilityStatus_ReachableDetails_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv4LinkTopologies_Ipv4LinkTopology_ReachabilityStatus_ReachableDetails_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -30765,6 +30875,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_TopologyLevels_Topo
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -30996,6 +31107,9 @@ type Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ip
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv4LinkTopologies_Ipv4LinkTopology_ReachabilityStatus_ReachableDetails_MulticastPath_FrrBackup
 
@@ -31042,6 +31156,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_TopologyLevels_
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -31141,6 +31256,9 @@ type Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ip
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv4LinkTopologies_Ipv4LinkTopology_ReachabilityStatus_ReachableDetails_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv4LinkTopologies_Ipv4LinkTopology_ReachabilityStatus_ReachableDetails_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -31198,6 +31316,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_TopologyLevels_Topo
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -31859,6 +31978,9 @@ type Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ip
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv6LinkTopologies_Ipv6LinkTopology_ReachabilityStatus_ReachableDetails_Paths_FrrBackup
 
@@ -31905,6 +32027,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_TopologyLevels_Topology
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -32004,6 +32127,9 @@ type Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ip
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv6LinkTopologies_Ipv6LinkTopology_ReachabilityStatus_ReachableDetails_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv6LinkTopologies_Ipv6LinkTopology_ReachabilityStatus_ReachableDetails_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -32061,6 +32187,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_TopologyLevels_Topo
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -32292,6 +32419,9 @@ type Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ip
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv6LinkTopologies_Ipv6LinkTopology_ReachabilityStatus_ReachableDetails_MulticastPath_FrrBackup
 
@@ -32338,6 +32468,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_TopologyLevels_
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -32437,6 +32568,9 @@ type Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ip
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv6LinkTopologies_Ipv6LinkTopology_ReachabilityStatus_ReachableDetails_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_TopologyLevels_TopologyLevel_Ipv6LinkTopologies_Ipv6LinkTopology_ReachabilityStatus_ReachableDetails_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -32494,6 +32628,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_TopologyLevels_Topo
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -33195,6 +33330,10 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Relative importance of the prefix. The type is IsisPrefixPriority.
     Priority interface{}
 
+    // Prefix local label for SR-MPLS. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+
     // Primary paths to prefix.
     Primary Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary
 
@@ -33223,6 +33362,7 @@ func (nativeDetails *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6
     }
     nativeDetails.EntityData.Leafs = types.NewOrderedMap()
     nativeDetails.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", nativeDetails.Priority})
+    nativeDetails.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nativeDetails.LocalLabel})
 
     nativeDetails.EntityData.YListKeys = []string {}
 
@@ -33382,6 +33522,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_Paths_FrrBackup
 
@@ -33428,6 +33571,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_Na
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -33527,6 +33671,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -33584,6 +33731,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -33816,6 +33964,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup
 }
@@ -33844,6 +33995,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Ro
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -33943,6 +34095,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -34000,6 +34155,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -34133,6 +34289,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup
 
@@ -34179,6 +34338,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -34278,6 +34438,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -34335,6 +34498,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -34566,6 +34730,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup
 
@@ -34612,6 +34779,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -34711,6 +34879,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -34768,6 +34939,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -34999,6 +35171,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup
 
@@ -35045,6 +35220,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6R
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -35144,6 +35320,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -35201,6 +35380,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -35835,6 +36015,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_Paths_FrrBackup
 
@@ -35881,6 +36064,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_Na
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -35980,6 +36164,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -36037,6 +36224,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -36269,6 +36457,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup
 }
@@ -36297,6 +36488,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Ro
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -36396,6 +36588,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -36453,6 +36648,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -36586,6 +36782,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup
 
@@ -36632,6 +36831,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -36731,6 +36931,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -36788,6 +36991,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -37019,6 +37223,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup
 
@@ -37065,6 +37272,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -37164,6 +37372,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -37221,6 +37432,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -37452,6 +37664,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup
 
@@ -37498,6 +37713,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6R
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -37597,6 +37813,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Route_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -37654,6 +37873,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6Routes_Ipv6Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -38768,6 +38988,10 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Relative importance of the prefix. The type is IsisPrefixPriority.
     Priority interface{}
 
+    // Prefix local label for SR-MPLS. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+
     // Primary paths to prefix.
     Primary Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary
 
@@ -38796,6 +39020,7 @@ func (nativeDetails *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_
     }
     nativeDetails.EntityData.Leafs = types.NewOrderedMap()
     nativeDetails.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", nativeDetails.Priority})
+    nativeDetails.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nativeDetails.LocalLabel})
 
     nativeDetails.EntityData.YListKeys = []string {}
 
@@ -38955,6 +39180,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_Paths_FrrBackup
 
@@ -39001,6 +39229,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrB
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -39100,6 +39329,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -39157,6 +39389,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -39389,6 +39622,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup
 }
@@ -39417,6 +39653,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ip
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -39516,6 +39753,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -39573,6 +39813,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -39706,6 +39947,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup
 
@@ -39752,6 +39996,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -39851,6 +40096,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -39908,6 +40156,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -40139,6 +40388,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup
 
@@ -40185,6 +40437,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6f
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -40284,6 +40537,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -40341,6 +40597,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -40572,6 +40829,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup
 
@@ -40618,6 +40878,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_I
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -40717,6 +40978,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -40774,6 +41038,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -41408,6 +41673,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_Paths_FrrBackup
 
@@ -41454,6 +41722,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrB
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -41553,6 +41822,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -41610,6 +41882,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -41842,6 +42115,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup
 }
@@ -41870,6 +42146,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ip
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -41969,6 +42246,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -42026,6 +42306,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -42159,6 +42440,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup
 
@@ -42205,6 +42489,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -42304,6 +42589,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -42361,6 +42649,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -42592,6 +42881,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup
 
@@ -42638,6 +42930,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6f
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -42737,6 +43030,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -42794,6 +43090,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -43025,6 +43322,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup
 
@@ -43071,6 +43371,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_I
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -43170,6 +43471,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6frrBackup_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -43227,6 +43531,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv6frrBackups_Ipv6
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -44341,6 +44646,10 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Relative importance of the prefix. The type is IsisPrefixPriority.
     Priority interface{}
 
+    // Prefix local label for SR-MPLS. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+
     // Primary paths to prefix.
     Primary Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary
 
@@ -44369,6 +44678,7 @@ func (nativeDetails *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_
     }
     nativeDetails.EntityData.Leafs = types.NewOrderedMap()
     nativeDetails.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", nativeDetails.Priority})
+    nativeDetails.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nativeDetails.LocalLabel})
 
     nativeDetails.EntityData.YListKeys = []string {}
 
@@ -44528,6 +44838,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_Paths_FrrBackup
 
@@ -44574,6 +44887,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrB
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -44673,6 +44987,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -44730,6 +45047,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -44962,6 +45280,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup
 }
@@ -44990,6 +45311,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ip
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -45089,6 +45411,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -45146,6 +45471,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -45279,6 +45605,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup
 
@@ -45325,6 +45654,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -45424,6 +45754,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -45481,6 +45814,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -45712,6 +46046,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup
 
@@ -45758,6 +46095,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4f
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -45857,6 +46195,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -45914,6 +46255,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -46145,6 +46487,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup
 
@@ -46191,6 +46536,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_I
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -46290,6 +46636,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -46347,6 +46696,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -46981,6 +47331,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_Paths_FrrBackup
 
@@ -47027,6 +47380,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrB
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -47126,6 +47480,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -47183,6 +47540,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -47415,6 +47773,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup
 }
@@ -47443,6 +47804,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ip
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -47542,6 +47904,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -47599,6 +47964,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -47732,6 +48098,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup
 
@@ -47778,6 +48147,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -47877,6 +48247,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -47934,6 +48307,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -48165,6 +48539,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup
 
@@ -48211,6 +48588,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4f
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -48310,6 +48688,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -48367,6 +48748,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -48598,6 +48980,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup
 
@@ -48644,6 +49029,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_I
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -48743,6 +49129,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_Na
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4frrBackup_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -48800,6 +49189,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4frrBackups_Ipv4
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -49954,6 +50344,10 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Relative importance of the prefix. The type is IsisPrefixPriority.
     Priority interface{}
 
+    // Prefix local label for SR-MPLS. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+
     // Primary paths to prefix.
     Primary Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary
 
@@ -49982,6 +50376,7 @@ func (nativeDetails *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTa
     }
     nativeDetails.EntityData.Leafs = types.NewOrderedMap()
     nativeDetails.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", nativeDetails.Priority})
+    nativeDetails.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nativeDetails.LocalLabel})
 
     nativeDetails.EntityData.YListKeys = []string {}
 
@@ -50141,6 +50536,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_Paths_FrrBackup
 
@@ -50187,6 +50585,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -50286,6 +50685,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -50343,6 +50745,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -50575,6 +50978,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup
 }
@@ -50603,6 +51009,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTabl
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -50702,6 +51109,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -50759,6 +51169,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -50892,6 +51303,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup
 
@@ -50938,6 +51352,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTa
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -51037,6 +51452,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -51094,6 +51512,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -51325,6 +51744,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup
 
@@ -51371,6 +51793,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -51470,6 +51893,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -51527,6 +51953,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -51758,6 +52185,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup
 
@@ -51804,6 +52234,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTab
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -51903,6 +52334,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -51960,6 +52394,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -52594,6 +53029,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_Paths_FrrBackup
 
@@ -52640,6 +53078,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -52739,6 +53178,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -52796,6 +53238,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -53028,6 +53471,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup
 }
@@ -53056,6 +53502,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTabl
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -53155,6 +53602,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -53212,6 +53662,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -53345,6 +53796,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup
 
@@ -53391,6 +53845,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTa
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -53490,6 +53945,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -53547,6 +54005,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -53778,6 +54237,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup
 
@@ -53824,6 +54286,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -53923,6 +54386,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -53980,6 +54446,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -54211,6 +54678,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup
 
@@ -54257,6 +54727,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTab
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -54356,6 +54827,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRou
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables_Ipv4FlexRouteTable_Ipv4FlexRoute_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -54413,6 +54887,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4FlexRouteTables
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -55527,6 +56002,10 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Relative importance of the prefix. The type is IsisPrefixPriority.
     Priority interface{}
 
+    // Prefix local label for SR-MPLS. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+
     // Primary paths to prefix.
     Primary Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary
 
@@ -55555,6 +56034,7 @@ func (nativeDetails *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4
     }
     nativeDetails.EntityData.Leafs = types.NewOrderedMap()
     nativeDetails.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", nativeDetails.Priority})
+    nativeDetails.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nativeDetails.LocalLabel})
 
     nativeDetails.EntityData.YListKeys = []string {}
 
@@ -55714,6 +56194,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_Paths_FrrBackup
 
@@ -55760,6 +56243,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_Na
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -55859,6 +56343,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -55916,6 +56403,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -56148,6 +56636,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup
 }
@@ -56176,6 +56667,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Ro
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -56275,6 +56767,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -56332,6 +56827,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -56465,6 +56961,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup
 
@@ -56511,6 +57010,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -56610,6 +57110,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -56667,6 +57170,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -56898,6 +57402,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup
 
@@ -56944,6 +57451,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -57043,6 +57551,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -57100,6 +57611,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -57331,6 +57843,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup
 
@@ -57377,6 +57892,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4R
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -57476,6 +57992,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Primary_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -57533,6 +58052,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -58167,6 +58687,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_Paths_FrrBackup
 
@@ -58213,6 +58736,7 @@ func (paths *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_Na
     paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
     paths.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", paths.IsTeTunnelInterface})
     paths.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", paths.IsSrExcludeTunnelInterface})
+    paths.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", paths.OutgoingLabel})
 
     paths.EntityData.YListKeys = []string {}
 
@@ -58312,6 +58836,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_Paths_FrrBackup_SegmentRoutingSidValueEntry
@@ -58369,6 +58896,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -58601,6 +59129,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup
 }
@@ -58629,6 +59160,7 @@ func (ucmpNextHop *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Ro
     ucmpNextHop.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", ucmpNextHop.Weight})
     ucmpNextHop.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", ucmpNextHop.IsTeTunnelInterface})
     ucmpNextHop.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", ucmpNextHop.IsSrExcludeTunnelInterface})
+    ucmpNextHop.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", ucmpNextHop.OutgoingLabel})
 
     ucmpNextHop.EntityData.YListKeys = []string {}
 
@@ -58728,6 +59260,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_UcmpNextHop_FrrBackup_SegmentRoutingSidValueEntry
@@ -58785,6 +59320,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -58918,6 +59454,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup
 
@@ -58964,6 +59503,7 @@ func (multicastPath *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4
     multicastPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", multicastPath.Weight})
     multicastPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", multicastPath.IsTeTunnelInterface})
     multicastPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", multicastPath.IsSrExcludeTunnelInterface})
+    multicastPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", multicastPath.OutgoingLabel})
 
     multicastPath.EntityData.YListKeys = []string {}
 
@@ -59063,6 +59603,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_MulticastPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -59120,6 +59663,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -59351,6 +59895,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup
 
@@ -59397,6 +59944,7 @@ func (srtePath *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route
     srtePath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", srtePath.Weight})
     srtePath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", srtePath.IsTeTunnelInterface})
     srtePath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", srtePath.IsSrExcludeTunnelInterface})
+    srtePath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", srtePath.OutgoingLabel})
 
     srtePath.EntityData.YListKeys = []string {}
 
@@ -59496,6 +60044,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_SrtePath_FrrBackup_SegmentRoutingSidValueEntry
@@ -59553,6 +60104,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -59784,6 +60336,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // Is path via an SR-exclude TE tunnel. The type is bool.
     IsSrExcludeTunnelInterface interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // FRR backup for this path.
     FrrBackup Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup
 
@@ -59830,6 +60385,7 @@ func (explicitPath *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4R
     explicitPath.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", explicitPath.Weight})
     explicitPath.EntityData.Leafs.Append("is-te-tunnel-interface", types.YLeaf{"IsTeTunnelInterface", explicitPath.IsTeTunnelInterface})
     explicitPath.EntityData.Leafs.Append("is-sr-exclude-tunnel-interface", types.YLeaf{"IsSrExcludeTunnelInterface", explicitPath.IsSrExcludeTunnelInterface})
+    explicitPath.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", explicitPath.OutgoingLabel})
 
     explicitPath.EntityData.YListKeys = []string {}
 
@@ -59929,6 +60485,9 @@ type Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStat
     // 0..4294967295.
     Weight interface{}
 
+    // SR-MPLS label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
     // Segment routing sid values for TI-LFA/rLFA. The type is slice of
     // Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry.
     SegmentRoutingSidValueEntry []*Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Route_NativeStatus_NativeDetails_Backup_ExplicitPath_FrrBackup_SegmentRoutingSidValueEntry
@@ -59986,6 +60545,7 @@ func (frrBackup *Isis_Instances_Instance_Topologies_Topology_Ipv4Routes_Ipv4Rout
     frrBackup.EntityData.Leafs.Append("is-strict-spflfa", types.YLeaf{"IsStrictSpflfa", frrBackup.IsStrictSpflfa})
     frrBackup.EntityData.Leafs.Append("is-tunnel-requested", types.YLeaf{"IsTunnelRequested", frrBackup.IsTunnelRequested})
     frrBackup.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", frrBackup.Weight})
+    frrBackup.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", frrBackup.OutgoingLabel})
 
     frrBackup.EntityData.YListKeys = []string {}
 
@@ -63412,6 +63972,10 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceStatusAndData_Enabled
     // range: 0..255.
     MaxSrteLabelSupported interface{}
 
+    // MPLS maximum number of sr auto-tunnel labels supported. The type is
+    // interface{} with range: 0..255.
+    MaxSratLabelSupported interface{}
+
     // MPLS LDP sync enabled status for L1. The type is bool.
     Level1ldpSyncEnabled interface{}
 
@@ -63498,6 +64062,7 @@ func (enabled *Isis_Instances_Instance_Interfaces_Interface_InterfaceStatusAndDa
     enabled.EntityData.Leafs.Append("max-label-supported", types.YLeaf{"MaxLabelSupported", enabled.MaxLabelSupported})
     enabled.EntityData.Leafs.Append("max-bkp-label-supported", types.YLeaf{"MaxBkpLabelSupported", enabled.MaxBkpLabelSupported})
     enabled.EntityData.Leafs.Append("max-srte-label-supported", types.YLeaf{"MaxSrteLabelSupported", enabled.MaxSrteLabelSupported})
+    enabled.EntityData.Leafs.Append("max-srat-label-supported", types.YLeaf{"MaxSratLabelSupported", enabled.MaxSratLabelSupported})
     enabled.EntityData.Leafs.Append("level1ldp-sync-enabled", types.YLeaf{"Level1ldpSyncEnabled", enabled.Level1ldpSyncEnabled})
     enabled.EntityData.Leafs.Append("level2ldp-sync-enabled", types.YLeaf{"Level2ldpSyncEnabled", enabled.Level2ldpSyncEnabled})
     enabled.EntityData.Leafs.Append("ldp-sync-status", types.YLeaf{"LdpSyncStatus", enabled.LdpSyncStatus})
@@ -65696,6 +66261,216 @@ func (checkpointInterface *Isis_Instances_Instance_CheckpointInterfaces_Checkpoi
     checkpointInterface.EntityData.YListKeys = []string {"InterfaceName"}
 
     return &(checkpointInterface.EntityData)
+}
+
+// Isis_Instances_Instance_SrLabels
+// SR Label table
+type Isis_Instances_Instance_SrLabels struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SrLabel table entry. The type is slice of
+    // Isis_Instances_Instance_SrLabels_SrLabel.
+    SrLabel []*Isis_Instances_Instance_SrLabels_SrLabel
+}
+
+func (srLabels *Isis_Instances_Instance_SrLabels) GetEntityData() *types.CommonEntityData {
+    srLabels.EntityData.YFilter = srLabels.YFilter
+    srLabels.EntityData.YangName = "sr-labels"
+    srLabels.EntityData.BundleName = "cisco_ios_xr"
+    srLabels.EntityData.ParentYangName = "instance"
+    srLabels.EntityData.SegmentPath = "sr-labels"
+    srLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/" + srLabels.EntityData.SegmentPath
+    srLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srLabels.EntityData.Children = types.NewOrderedMap()
+    srLabels.EntityData.Children.Append("sr-label", types.YChild{"SrLabel", nil})
+    for i := range srLabels.SrLabel {
+        srLabels.EntityData.Children.Append(types.GetSegmentPath(srLabels.SrLabel[i]), types.YChild{"SrLabel", srLabels.SrLabel[i]})
+    }
+    srLabels.EntityData.Leafs = types.NewOrderedMap()
+
+    srLabels.EntityData.YListKeys = []string {}
+
+    return &(srLabels.EntityData)
+}
+
+// Isis_Instances_Instance_SrLabels_SrLabel
+// SrLabel table entry
+type Isis_Instances_Instance_SrLabels_SrLabel struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. SR Label. The type is interface{} with range:
+    // 0..4294967295.
+    Label interface{}
+
+    // label type. The type is IsisEdmLabelTypeEnum.
+    LabelType interface{}
+
+    // label flags. The type is interface{} with range: 0..255.
+    LabelFlags interface{}
+
+    // label refcount. The type is interface{} with range: 0..255.
+    LabelRefcount interface{}
+
+    // label value. The type is interface{} with range: 0..4294967295.
+    LabelValue interface{}
+
+    // label interface. The type is string.
+    LabelInterface interface{}
+
+    // label ifh. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    LabelIfh interface{}
+
+    // label table id. The type is interface{} with range: 0..4294967295.
+    LabelTableId interface{}
+
+    // label af id. The type is IsisAfId.
+    LabelAfId interface{}
+
+    // label prefix.
+    LabelPrefix Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix
+}
+
+func (srLabel *Isis_Instances_Instance_SrLabels_SrLabel) GetEntityData() *types.CommonEntityData {
+    srLabel.EntityData.YFilter = srLabel.YFilter
+    srLabel.EntityData.YangName = "sr-label"
+    srLabel.EntityData.BundleName = "cisco_ios_xr"
+    srLabel.EntityData.ParentYangName = "sr-labels"
+    srLabel.EntityData.SegmentPath = "sr-label" + types.AddKeyToken(srLabel.Label, "label")
+    srLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/sr-labels/" + srLabel.EntityData.SegmentPath
+    srLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srLabel.EntityData.Children = types.NewOrderedMap()
+    srLabel.EntityData.Children.Append("label-prefix", types.YChild{"LabelPrefix", &srLabel.LabelPrefix})
+    srLabel.EntityData.Leafs = types.NewOrderedMap()
+    srLabel.EntityData.Leafs.Append("label", types.YLeaf{"Label", srLabel.Label})
+    srLabel.EntityData.Leafs.Append("label-type", types.YLeaf{"LabelType", srLabel.LabelType})
+    srLabel.EntityData.Leafs.Append("label-flags", types.YLeaf{"LabelFlags", srLabel.LabelFlags})
+    srLabel.EntityData.Leafs.Append("label-refcount", types.YLeaf{"LabelRefcount", srLabel.LabelRefcount})
+    srLabel.EntityData.Leafs.Append("label-value", types.YLeaf{"LabelValue", srLabel.LabelValue})
+    srLabel.EntityData.Leafs.Append("label-interface", types.YLeaf{"LabelInterface", srLabel.LabelInterface})
+    srLabel.EntityData.Leafs.Append("label-ifh", types.YLeaf{"LabelIfh", srLabel.LabelIfh})
+    srLabel.EntityData.Leafs.Append("label-table-id", types.YLeaf{"LabelTableId", srLabel.LabelTableId})
+    srLabel.EntityData.Leafs.Append("label-af-id", types.YLeaf{"LabelAfId", srLabel.LabelAfId})
+
+    srLabel.EntityData.YListKeys = []string {"Label"}
+
+    return &(srLabel.EntityData)
+}
+
+// Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix
+// label prefix
+type Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AFName. The type is IsisAfId.
+    AfName interface{}
+
+    // ipv4.
+    Ipv4 Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix_Ipv4
+
+    // ipv6.
+    Ipv6 Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix_Ipv6
+}
+
+func (labelPrefix *Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix) GetEntityData() *types.CommonEntityData {
+    labelPrefix.EntityData.YFilter = labelPrefix.YFilter
+    labelPrefix.EntityData.YangName = "label-prefix"
+    labelPrefix.EntityData.BundleName = "cisco_ios_xr"
+    labelPrefix.EntityData.ParentYangName = "sr-label"
+    labelPrefix.EntityData.SegmentPath = "label-prefix"
+    labelPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/sr-labels/sr-label/" + labelPrefix.EntityData.SegmentPath
+    labelPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelPrefix.EntityData.Children = types.NewOrderedMap()
+    labelPrefix.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &labelPrefix.Ipv4})
+    labelPrefix.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &labelPrefix.Ipv6})
+    labelPrefix.EntityData.Leafs = types.NewOrderedMap()
+    labelPrefix.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", labelPrefix.AfName})
+
+    labelPrefix.EntityData.YListKeys = []string {}
+
+    return &(labelPrefix.EntityData)
+}
+
+// Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix_Ipv4
+// ipv4
+type Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix_Ipv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // prefix length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+}
+
+func (ipv4 *Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "cisco_ios_xr"
+    ipv4.EntityData.ParentYangName = "label-prefix"
+    ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/sr-labels/sr-label/label-prefix/" + ipv4.EntityData.SegmentPath
+    ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4.Prefix})
+    ipv4.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4.PrefixLength})
+
+    ipv4.EntityData.YListKeys = []string {}
+
+    return &(ipv4.EntityData)
+}
+
+// Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix_Ipv6
+// ipv6
+type Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix_Ipv6 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // prefix length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+}
+
+func (ipv6 *Isis_Instances_Instance_SrLabels_SrLabel_LabelPrefix_Ipv6) GetEntityData() *types.CommonEntityData {
+    ipv6.EntityData.YFilter = ipv6.YFilter
+    ipv6.EntityData.YangName = "ipv6"
+    ipv6.EntityData.BundleName = "cisco_ios_xr"
+    ipv6.EntityData.ParentYangName = "label-prefix"
+    ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/sr-labels/sr-label/label-prefix/" + ipv6.EntityData.SegmentPath
+    ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6.Prefix})
+    ipv6.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv6.PrefixLength})
+
+    ipv6.EntityData.YListKeys = []string {}
+
+    return &(ipv6.EntityData)
 }
 
 // Isis_Instances_Instance_InterfaceStatistics

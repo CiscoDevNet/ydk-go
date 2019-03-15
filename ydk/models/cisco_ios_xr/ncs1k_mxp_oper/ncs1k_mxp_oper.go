@@ -168,8 +168,8 @@ type HwModule_SliceIds_SliceId struct {
     // TrunkRate. The type is TrunkDataRate.
     TrunkRate interface{}
 
-    // HardwareStatus. The type is HwModuleSliceStatus.
-    HardwareStatus interface{}
+    // Status. The type is HwModuleSliceStatus.
+    Status interface{}
 
     // DpFpgaFwType. The type is string with length: 0..10.
     DpFpgaFwType interface{}
@@ -212,7 +212,7 @@ func (sliceId *HwModule_SliceIds_SliceId) GetEntityData() *types.CommonEntityDat
     sliceId.EntityData.Leafs.Append("slice-id", types.YLeaf{"SliceId", sliceId.SliceId})
     sliceId.EntityData.Leafs.Append("client-rate", types.YLeaf{"ClientRate", sliceId.ClientRate})
     sliceId.EntityData.Leafs.Append("trunk-rate", types.YLeaf{"TrunkRate", sliceId.TrunkRate})
-    sliceId.EntityData.Leafs.Append("hardware-status", types.YLeaf{"HardwareStatus", sliceId.HardwareStatus})
+    sliceId.EntityData.Leafs.Append("status", types.YLeaf{"Status", sliceId.Status})
     sliceId.EntityData.Leafs.Append("dp-fpga-fw-type", types.YLeaf{"DpFpgaFwType", sliceId.DpFpgaFwType})
     sliceId.EntityData.Leafs.Append("dp-fpga-fw-ver", types.YLeaf{"DpFpgaFwVer", sliceId.DpFpgaFwVer})
     sliceId.EntityData.Leafs.Append("need-upg", types.YLeaf{"NeedUpg", sliceId.NeedUpg})
@@ -357,8 +357,8 @@ type HwModule_SliceAll_SliceInfo struct {
     // TrunkRate. The type is TrunkDataRate.
     TrunkRate interface{}
 
-    // HardwareStatus. The type is HwModuleSliceStatus.
-    HardwareStatus interface{}
+    // Status. The type is HwModuleSliceStatus.
+    Status interface{}
 
     // DpFpgaFwType. The type is string with length: 0..10.
     DpFpgaFwType interface{}
@@ -400,7 +400,7 @@ func (sliceInfo *HwModule_SliceAll_SliceInfo) GetEntityData() *types.CommonEntit
     sliceInfo.EntityData.Leafs.Append("slice-id", types.YLeaf{"SliceId", sliceInfo.SliceId})
     sliceInfo.EntityData.Leafs.Append("client-rate", types.YLeaf{"ClientRate", sliceInfo.ClientRate})
     sliceInfo.EntityData.Leafs.Append("trunk-rate", types.YLeaf{"TrunkRate", sliceInfo.TrunkRate})
-    sliceInfo.EntityData.Leafs.Append("hardware-status", types.YLeaf{"HardwareStatus", sliceInfo.HardwareStatus})
+    sliceInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", sliceInfo.Status})
     sliceInfo.EntityData.Leafs.Append("dp-fpga-fw-type", types.YLeaf{"DpFpgaFwType", sliceInfo.DpFpgaFwType})
     sliceInfo.EntityData.Leafs.Append("dp-fpga-fw-ver", types.YLeaf{"DpFpgaFwVer", sliceInfo.DpFpgaFwVer})
     sliceInfo.EntityData.Leafs.Append("need-upg", types.YLeaf{"NeedUpg", sliceInfo.NeedUpg})

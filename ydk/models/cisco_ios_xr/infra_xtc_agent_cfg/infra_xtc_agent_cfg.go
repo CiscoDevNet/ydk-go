@@ -40,6 +40,14 @@ const (
     XtcPathHop_srv6 XtcPathHop = "srv6"
 )
 
+// XtcBindingSidDynamicRule represents Xtc binding sid dynamic rule
+type XtcBindingSidDynamicRule string
+
+const (
+    // Disable dynamic binding SID allocation
+    XtcBindingSidDynamicRule_disable XtcBindingSidDynamicRule = "disable"
+)
+
 // XtcAffinityRule represents Xtc affinity rule
 type XtcAffinityRule string
 
@@ -160,6 +168,9 @@ const (
 
     // TE metric type
     XtcMetric_te XtcMetric = "te"
+
+    // Hopcount metric type
+    XtcMetric_hopcount XtcMetric = "hopcount"
 
     // Latency metric type
     XtcMetric_latency XtcMetric = "latency"

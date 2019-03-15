@@ -870,6 +870,9 @@ type SoftwareInstall_Version struct {
     // duration since when system is up. The type is string.
     SystemUptime interface{}
 
+    // this tag is deprecated. The type is string.
+    ImgInfo interface{}
+
     // package. The type is slice of SoftwareInstall_Version_Package.
     Package []*SoftwareInstall_Version_Package
 }
@@ -897,6 +900,7 @@ func (version *SoftwareInstall_Version) GetEntityData() *types.CommonEntityData 
     version.EntityData.Leafs.Append("copyright-info", types.YLeaf{"CopyrightInfo", version.CopyrightInfo})
     version.EntityData.Leafs.Append("hardware-info", types.YLeaf{"HardwareInfo", version.HardwareInfo})
     version.EntityData.Leafs.Append("system-uptime", types.YLeaf{"SystemUptime", version.SystemUptime})
+    version.EntityData.Leafs.Append("img-info", types.YLeaf{"ImgInfo", version.ImgInfo})
 
     version.EntityData.YListKeys = []string {}
 

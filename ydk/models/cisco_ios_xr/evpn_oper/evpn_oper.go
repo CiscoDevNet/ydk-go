@@ -2431,6 +2431,12 @@ type Evpn_Nodes_Node_EviDetail_Elements_Element struct {
     // EVI is connected to multicast source. The type is bool.
     MulticastSourceConnected interface{}
 
+    // BGP implicit import is disabled. The type is bool.
+    BgpImplicitImportDisabled interface{}
+
+    // L3 VRF name from BVI. The type is string.
+    VrfName interface{}
+
     // EVPN Instance summary information.
     EvpnInstance Evpn_Nodes_Node_EviDetail_Elements_Element_EvpnInstance
 
@@ -2486,6 +2492,8 @@ func (element *Evpn_Nodes_Node_EviDetail_Elements_Element) GetEntityData() *type
     element.EntityData.Leafs.Append("reoriginate-disabled", types.YLeaf{"ReoriginateDisabled", element.ReoriginateDisabled})
     element.EntityData.Leafs.Append("stitching", types.YLeaf{"Stitching", element.Stitching})
     element.EntityData.Leafs.Append("multicast-source-connected", types.YLeaf{"MulticastSourceConnected", element.MulticastSourceConnected})
+    element.EntityData.Leafs.Append("bgp-implicit-import-disabled", types.YLeaf{"BgpImplicitImportDisabled", element.BgpImplicitImportDisabled})
+    element.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", element.VrfName})
 
     element.EntityData.YListKeys = []string {}
 
@@ -7720,6 +7728,12 @@ type Evpn_Active_EviDetail_Elements_Element struct {
     // EVI is connected to multicast source. The type is bool.
     MulticastSourceConnected interface{}
 
+    // BGP implicit import is disabled. The type is bool.
+    BgpImplicitImportDisabled interface{}
+
+    // L3 VRF name from BVI. The type is string.
+    VrfName interface{}
+
     // EVPN Instance summary information.
     EvpnInstance Evpn_Active_EviDetail_Elements_Element_EvpnInstance
 
@@ -7775,6 +7789,8 @@ func (element *Evpn_Active_EviDetail_Elements_Element) GetEntityData() *types.Co
     element.EntityData.Leafs.Append("reoriginate-disabled", types.YLeaf{"ReoriginateDisabled", element.ReoriginateDisabled})
     element.EntityData.Leafs.Append("stitching", types.YLeaf{"Stitching", element.Stitching})
     element.EntityData.Leafs.Append("multicast-source-connected", types.YLeaf{"MulticastSourceConnected", element.MulticastSourceConnected})
+    element.EntityData.Leafs.Append("bgp-implicit-import-disabled", types.YLeaf{"BgpImplicitImportDisabled", element.BgpImplicitImportDisabled})
+    element.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", element.VrfName})
 
     element.EntityData.YListKeys = []string {}
 
@@ -13009,6 +13025,12 @@ type Evpn_Standby_EviDetail_Elements_Element struct {
     // EVI is connected to multicast source. The type is bool.
     MulticastSourceConnected interface{}
 
+    // BGP implicit import is disabled. The type is bool.
+    BgpImplicitImportDisabled interface{}
+
+    // L3 VRF name from BVI. The type is string.
+    VrfName interface{}
+
     // EVPN Instance summary information.
     EvpnInstance Evpn_Standby_EviDetail_Elements_Element_EvpnInstance
 
@@ -13064,6 +13086,8 @@ func (element *Evpn_Standby_EviDetail_Elements_Element) GetEntityData() *types.C
     element.EntityData.Leafs.Append("reoriginate-disabled", types.YLeaf{"ReoriginateDisabled", element.ReoriginateDisabled})
     element.EntityData.Leafs.Append("stitching", types.YLeaf{"Stitching", element.Stitching})
     element.EntityData.Leafs.Append("multicast-source-connected", types.YLeaf{"MulticastSourceConnected", element.MulticastSourceConnected})
+    element.EntityData.Leafs.Append("bgp-implicit-import-disabled", types.YLeaf{"BgpImplicitImportDisabled", element.BgpImplicitImportDisabled})
+    element.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", element.VrfName})
 
     element.EntityData.YListKeys = []string {}
 

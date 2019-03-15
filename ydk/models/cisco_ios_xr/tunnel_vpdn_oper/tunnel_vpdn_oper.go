@@ -114,112 +114,6 @@ const (
     VpdnFailcode_call_prarmeters VpdnFailcode = "call-prarmeters"
 )
 
-// VpdnNasPort represents NAS port types
-type VpdnNasPort string
-
-const (
-    // None
-    VpdnNasPort_none VpdnNasPort = "none"
-
-    // Primary
-    VpdnNasPort_primary VpdnNasPort = "primary"
-
-    // BRI
-    VpdnNasPort_bri VpdnNasPort = "bri"
-
-    // Serial
-    VpdnNasPort_serial VpdnNasPort = "serial"
-
-    // Asynchronous
-    VpdnNasPort_asynchronous VpdnNasPort = "asynchronous"
-
-    // VTY
-    VpdnNasPort_vty VpdnNasPort = "vty"
-
-    // Asynchronous transfer mode
-    VpdnNasPort_atm VpdnNasPort = "atm"
-
-    // Ethernet
-    VpdnNasPort_ethernet VpdnNasPort = "ethernet"
-
-    // PPP over ATM
-    VpdnNasPort_ppp_atm VpdnNasPort = "ppp-atm"
-
-    // PPPoE over ATM
-    VpdnNasPort_pppoe_over_atm VpdnNasPort = "pppoe-over-atm"
-
-    // PPPoE over Ethernet
-    VpdnNasPort_pppoe_over_ethernet VpdnNasPort = "pppoe-over-ethernet"
-
-    // PPPoE over VLAN
-    VpdnNasPort_pppoe_over_vlan VpdnNasPort = "pppoe-over-vlan"
-
-    // PPPoE over Q-in-Q
-    VpdnNasPort_pppoe_over_q_in_q VpdnNasPort = "pppoe-over-q-in-q"
-
-    //  V120
-    VpdnNasPort_v120 VpdnNasPort = "v120"
-
-    // V110
-    VpdnNasPort_v110 VpdnNasPort = "v110"
-
-    // PIAFS
-    VpdnNasPort_piafs VpdnNasPort = "piafs"
-
-    // X.75
-    VpdnNasPort_x75 VpdnNasPort = "x75"
-
-    // IPSec
-    VpdnNasPort_ip_sec VpdnNasPort = "ip-sec"
-
-    // Other
-    VpdnNasPort_other VpdnNasPort = "other"
-
-    // Virtual PPPoE over Ethernet
-    VpdnNasPort_virtual_pppoe_over_ethernet VpdnNasPort = "virtual-pppoe-over-ethernet"
-
-    //  Virtual PPPoE over VLAN
-    VpdnNasPort_virtual_pppoe_over_vlan VpdnNasPort = "virtual-pppoe-over-vlan"
-
-    // Virtual PPPoE over Q-in-Q
-    VpdnNasPort_virtual_pppoe_over_q_in_q VpdnNasPort = "virtual-pppoe-over-q-in-q"
-
-    // IPoE over Ethernet
-    VpdnNasPort_ipo_e_over_ethernet VpdnNasPort = "ipo-e-over-ethernet"
-
-    // IPoE over VLAN
-    VpdnNasPort_ipo_e_over_vlan VpdnNasPort = "ipo-e-over-vlan"
-
-    // IPoE over Q-in-Q
-    VpdnNasPort_ipo_e_over_q_in_q VpdnNasPort = "ipo-e-over-q-in-q"
-
-    // Virtual IPoE over ethernet
-    VpdnNasPort_virtual_i_po_e_over_ethernet VpdnNasPort = "virtual-i-po-e-over-ethernet"
-
-    // Virtual IPoE over VLAN
-    VpdnNasPort_virtual_i_po_e_over_vlan VpdnNasPort = "virtual-i-po-e-over-vlan"
-
-    // Virtual IPoE over Q-in-Q
-    VpdnNasPort_virtual_i_po_e_over_q_in_q VpdnNasPort = "virtual-i-po-e-over-q-in-q"
-
-    // Unknown
-    VpdnNasPort_unknown VpdnNasPort = "unknown"
-)
-
-// TosMode represents TOS modes
-type TosMode string
-
-const (
-    // default
-    TosMode_default_ TosMode = "default"
-
-    // set
-    TosMode_set TosMode = "set"
-
-    // reflect
-    TosMode_reflect TosMode = "reflect"
-)
-
 // LsgStatus represents LSG Status
 type LsgStatus string
 
@@ -238,6 +132,20 @@ const (
 
     // Member is being tested for new session
     LsgStatus_testing LsgStatus = "testing"
+)
+
+// TosMode represents TOS modes
+type TosMode string
+
+const (
+    // default
+    TosMode_default_ TosMode = "default"
+
+    // set
+    TosMode_set TosMode = "set"
+
+    // reflect
+    TosMode_reflect TosMode = "reflect"
 )
 
 // Vpdn
@@ -520,7 +428,10 @@ type Vpdn_Sessions_Session_Subscriber struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // NAS port type. The type is VpdnNasPort.
+    // NAS port ID Val. The type is string.
+    NasPortIdVal interface{}
+
+    // NAS port type. The type is string.
     NasPortType interface{}
 
     // Physical channel ID. The type is interface{} with range: 0..4294967295.
@@ -533,9 +444,6 @@ type Vpdn_Sessions_Session_Subscriber struct {
     // Transmit connect speed in nanoseconds. The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     TransmitConnectSpeed interface{}
-
-    // NAS port ID. The type is slice of interface{} with range: 0..255.
-    NasPort []interface{}
 }
 
 func (subscriber *Vpdn_Sessions_Session_Subscriber) GetEntityData() *types.CommonEntityData {
@@ -551,11 +459,11 @@ func (subscriber *Vpdn_Sessions_Session_Subscriber) GetEntityData() *types.Commo
 
     subscriber.EntityData.Children = types.NewOrderedMap()
     subscriber.EntityData.Leafs = types.NewOrderedMap()
+    subscriber.EntityData.Leafs.Append("nas-port-id-val", types.YLeaf{"NasPortIdVal", subscriber.NasPortIdVal})
     subscriber.EntityData.Leafs.Append("nas-port-type", types.YLeaf{"NasPortType", subscriber.NasPortType})
     subscriber.EntityData.Leafs.Append("physical-channel-id", types.YLeaf{"PhysicalChannelId", subscriber.PhysicalChannelId})
     subscriber.EntityData.Leafs.Append("receive-connect-speed", types.YLeaf{"ReceiveConnectSpeed", subscriber.ReceiveConnectSpeed})
     subscriber.EntityData.Leafs.Append("transmit-connect-speed", types.YLeaf{"TransmitConnectSpeed", subscriber.TransmitConnectSpeed})
-    subscriber.EntityData.Leafs.Append("nas-port", types.YLeaf{"NasPort", subscriber.NasPort})
 
     subscriber.EntityData.YListKeys = []string {}
 

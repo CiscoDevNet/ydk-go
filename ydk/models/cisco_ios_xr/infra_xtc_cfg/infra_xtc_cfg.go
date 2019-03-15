@@ -116,6 +116,12 @@ const (
 
     // TE metric type
     PceMetric_te PceMetric = "te"
+
+    // Hopcount metric type
+    PceMetric_hopcount PceMetric = "hopcount"
+
+    // Latency metric type
+    PceMetric_latency PceMetric = "latency"
 )
 
 // PceDisjointPath represents Pce disjoint path
@@ -656,14 +662,11 @@ func (backoff *Pce_Backoff) GetEntityData() *types.CommonEntityData {
 
 // Pce_Rest
 // REST configuration
-// This type is a presence type.
 type Pce_Rest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
-    // REST authentication type. The type is PcerestAuthentication. This attribute
-    // is mandatory.
+    // REST authentication type. The type is PcerestAuthentication.
     RestAuthentication interface{}
 
     // True only. The type is interface{}.
@@ -740,7 +743,7 @@ type Pce_Rest_RestUsers_RestUser struct {
     Name interface{}
 
     // REST user password configuration. The type is string with pattern:
-    // (!.+)|([^!].+). This attribute is mandatory.
+    // (!.+)|([^!].+).
     RestUserPassword interface{}
 
     // True only. The type is interface{}.
@@ -1682,7 +1685,7 @@ type Pce_Timers struct {
     YPresence bool
 
     // Topology reoptimization timer configuration. The type is interface{} with
-    // range: 10..3600. Units are second. The default value is 60.
+    // range: 600..86400. Units are second. The default value is 1800.
     ReoptimizationTimer interface{}
 
     // Keepalive interval in seconds, zero to disable. The type is interface{}
@@ -1959,8 +1962,7 @@ type Pce_DisjointPath_Groups_Group_GroupLspRecords_GroupLspRecord struct {
     // Identifying name for LSP. The type is string.
     LspName interface{}
 
-    // Set LSP to follow shortest-path. The type is interface{} with range:
-    // 0..4294967295.
+    // Set to 1 to follow shortest-path. The type is interface{} with range: 0..1.
     DisjPath interface{}
 }
 

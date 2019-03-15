@@ -1102,6 +1102,12 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_LocalAddress 
     // Preffered lifetime of a Prefix. The type is interface{} with range:
     // 0..4294967295.
     PrefLifetime interface{}
+
+    // Prefix length. The type is interface{} with range: 0..4294967295.
+    PrefixLength interface{}
+
+    // Address flags. The type is interface{} with range: 0..4294967295.
+    Flags interface{}
 }
 
 func (localAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_LocalAddress) GetEntityData() *types.CommonEntityData {
@@ -1120,6 +1126,8 @@ func (localAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfac
     localAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", localAddress.Ipv6Address})
     localAddress.EntityData.Leafs.Append("valid-lifetime", types.YLeaf{"ValidLifetime", localAddress.ValidLifetime})
     localAddress.EntityData.Leafs.Append("pref-lifetime", types.YLeaf{"PrefLifetime", localAddress.PrefLifetime})
+    localAddress.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", localAddress.PrefixLength})
+    localAddress.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", localAddress.Flags})
 
     localAddress.EntityData.YListKeys = []string {}
 
@@ -1144,6 +1152,12 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_GlobalAddress
     // Preffered lifetime of a Prefix. The type is interface{} with range:
     // 0..4294967295.
     PrefLifetime interface{}
+
+    // Prefix length. The type is interface{} with range: 0..4294967295.
+    PrefixLength interface{}
+
+    // Address flags. The type is interface{} with range: 0..4294967295.
+    Flags interface{}
 }
 
 func (globalAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_GlobalAddress) GetEntityData() *types.CommonEntityData {
@@ -1162,6 +1176,8 @@ func (globalAddress *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfa
     globalAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", globalAddress.Ipv6Address})
     globalAddress.EntityData.Leafs.Append("valid-lifetime", types.YLeaf{"ValidLifetime", globalAddress.ValidLifetime})
     globalAddress.EntityData.Leafs.Append("pref-lifetime", types.YLeaf{"PrefLifetime", globalAddress.PrefLifetime})
+    globalAddress.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", globalAddress.PrefixLength})
+    globalAddress.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", globalAddress.Flags})
 
     globalAddress.EntityData.YListKeys = []string {}
 
@@ -1482,6 +1498,12 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_LocalAddress 
     // Preffered lifetime of a Prefix. The type is interface{} with range:
     // 0..4294967295.
     PrefLifetime interface{}
+
+    // Prefix length. The type is interface{} with range: 0..4294967295.
+    PrefixLength interface{}
+
+    // Address flags. The type is interface{} with range: 0..4294967295.
+    Flags interface{}
 }
 
 func (localAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_LocalAddress) GetEntityData() *types.CommonEntityData {
@@ -1500,6 +1522,8 @@ func (localAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRoute
     localAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", localAddress.Ipv6Address})
     localAddress.EntityData.Leafs.Append("valid-lifetime", types.YLeaf{"ValidLifetime", localAddress.ValidLifetime})
     localAddress.EntityData.Leafs.Append("pref-lifetime", types.YLeaf{"PrefLifetime", localAddress.PrefLifetime})
+    localAddress.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", localAddress.PrefixLength})
+    localAddress.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", localAddress.Flags})
 
     localAddress.EntityData.YListKeys = []string {}
 
@@ -1524,6 +1548,12 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_VrGlobalAddre
     // Preffered lifetime of a Prefix. The type is interface{} with range:
     // 0..4294967295.
     PrefLifetime interface{}
+
+    // Prefix length. The type is interface{} with range: 0..4294967295.
+    PrefixLength interface{}
+
+    // Address flags. The type is interface{} with range: 0..4294967295.
+    Flags interface{}
 }
 
 func (vrGlobalAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_VrGlobalAddress) GetEntityData() *types.CommonEntityData {
@@ -1542,6 +1572,8 @@ func (vrGlobalAddress *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRo
     vrGlobalAddress.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", vrGlobalAddress.Ipv6Address})
     vrGlobalAddress.EntityData.Leafs.Append("valid-lifetime", types.YLeaf{"ValidLifetime", vrGlobalAddress.ValidLifetime})
     vrGlobalAddress.EntityData.Leafs.Append("pref-lifetime", types.YLeaf{"PrefLifetime", vrGlobalAddress.PrefLifetime})
+    vrGlobalAddress.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", vrGlobalAddress.PrefixLength})
+    vrGlobalAddress.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", vrGlobalAddress.Flags})
 
     vrGlobalAddress.EntityData.YListKeys = []string {}
 

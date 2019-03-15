@@ -1,4 +1,10 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module defines the TACACS+ data model.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
+// All rights reserved.
 package sysadmin_tacacs_tacacs_server
 
 import (

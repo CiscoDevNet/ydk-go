@@ -88,6 +88,10 @@ type SubscriberRedundancy struct {
     // Units are minute.
     HoldTimer interface{}
 
+    // Set sync time (in Minutes). The type is interface{} with range: 1..255.
+    // Units are minute.
+    SyncTimer interface{}
+
     // Disable. The type is interface{}.
     RedundancyDisable interface{}
 
@@ -119,6 +123,7 @@ func (subscriberRedundancy *SubscriberRedundancy) GetEntityData() *types.CommonE
     subscriberRedundancy.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", subscriberRedundancy.SourceInterface})
     subscriberRedundancy.EntityData.Leafs.Append("slave-mode", types.YLeaf{"SlaveMode", subscriberRedundancy.SlaveMode})
     subscriberRedundancy.EntityData.Leafs.Append("hold-timer", types.YLeaf{"HoldTimer", subscriberRedundancy.HoldTimer})
+    subscriberRedundancy.EntityData.Leafs.Append("sync-timer", types.YLeaf{"SyncTimer", subscriberRedundancy.SyncTimer})
     subscriberRedundancy.EntityData.Leafs.Append("redundancy-disable", types.YLeaf{"RedundancyDisable", subscriberRedundancy.RedundancyDisable})
 
     subscriberRedundancy.EntityData.YListKeys = []string {}

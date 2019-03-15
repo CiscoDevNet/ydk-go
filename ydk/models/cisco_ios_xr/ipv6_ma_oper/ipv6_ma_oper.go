@@ -408,6 +408,9 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief_LinkLocalAddress
     // Route-tag of the Address. The type is interface{} with range:
     // 0..4294967295.
     RouteTag interface{}
+
+    // Bitmap for ARM flags. The type is interface{} with range: 0..4294967295.
+    ArmFlags interface{}
 }
 
 func (linkLocalAddress *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief_LinkLocalAddress) GetEntityData() *types.CommonEntityData {
@@ -428,6 +431,7 @@ func (linkLocalAddress *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Bri
     linkLocalAddress.EntityData.Leafs.Append("address-state", types.YLeaf{"AddressState", linkLocalAddress.AddressState})
     linkLocalAddress.EntityData.Leafs.Append("is-anycast", types.YLeaf{"IsAnycast", linkLocalAddress.IsAnycast})
     linkLocalAddress.EntityData.Leafs.Append("route-tag", types.YLeaf{"RouteTag", linkLocalAddress.RouteTag})
+    linkLocalAddress.EntityData.Leafs.Append("arm-flags", types.YLeaf{"ArmFlags", linkLocalAddress.ArmFlags})
 
     linkLocalAddress.EntityData.YListKeys = []string {}
 
@@ -458,6 +462,9 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief_Address struct {
     // Route-tag of the Address. The type is interface{} with range:
     // 0..4294967295.
     RouteTag interface{}
+
+    // Bitmap for ARM flags. The type is interface{} with range: 0..4294967295.
+    ArmFlags interface{}
 }
 
 func (address *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief_Address) GetEntityData() *types.CommonEntityData {
@@ -478,6 +485,7 @@ func (address *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief_Addres
     address.EntityData.Leafs.Append("address-state", types.YLeaf{"AddressState", address.AddressState})
     address.EntityData.Leafs.Append("is-anycast", types.YLeaf{"IsAnycast", address.IsAnycast})
     address.EntityData.Leafs.Append("route-tag", types.YLeaf{"RouteTag", address.RouteTag})
+    address.EntityData.Leafs.Append("arm-flags", types.YLeaf{"ArmFlags", address.ArmFlags})
 
     address.EntityData.YListKeys = []string {}
 
@@ -558,6 +566,18 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail st
 
     // Is BGP Flow Tag Destination is enable. The type is bool.
     FlowTagDst interface{}
+
+    // Interface Configured Flags. The type is interface{} with range:
+    // 0..4294967295.
+    Ipv6ConfigFlag interface{}
+
+    // Interface Operational Flags. The type is interface{} with range:
+    // 0..4294967295.
+    Ipv6OperFlag interface{}
+
+    // idb pointer value. The type is interface{} with range:
+    // 0..18446744073709551615.
+    IdbPointer interface{}
 
     // Link Local Address.
     LinkLocalAddress Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_LinkLocalAddress
@@ -650,6 +670,9 @@ func (globalDetail *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_
     globalDetail.EntityData.Leafs.Append("mlacp-active", types.YLeaf{"MlacpActive", globalDetail.MlacpActive})
     globalDetail.EntityData.Leafs.Append("flow-tag-src", types.YLeaf{"FlowTagSrc", globalDetail.FlowTagSrc})
     globalDetail.EntityData.Leafs.Append("flow-tag-dst", types.YLeaf{"FlowTagDst", globalDetail.FlowTagDst})
+    globalDetail.EntityData.Leafs.Append("ipv6-config-flag", types.YLeaf{"Ipv6ConfigFlag", globalDetail.Ipv6ConfigFlag})
+    globalDetail.EntityData.Leafs.Append("ipv6-oper-flag", types.YLeaf{"Ipv6OperFlag", globalDetail.Ipv6OperFlag})
+    globalDetail.EntityData.Leafs.Append("idb-pointer", types.YLeaf{"IdbPointer", globalDetail.IdbPointer})
 
     globalDetail.EntityData.YListKeys = []string {"InterfaceName"}
 
@@ -679,6 +702,9 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Li
     // Route-tag of the Address. The type is interface{} with range:
     // 0..4294967295.
     RouteTag interface{}
+
+    // Bitmap for ARM flags. The type is interface{} with range: 0..4294967295.
+    ArmFlags interface{}
 }
 
 func (linkLocalAddress *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_LinkLocalAddress) GetEntityData() *types.CommonEntityData {
@@ -699,6 +725,7 @@ func (linkLocalAddress *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDeta
     linkLocalAddress.EntityData.Leafs.Append("address-state", types.YLeaf{"AddressState", linkLocalAddress.AddressState})
     linkLocalAddress.EntityData.Leafs.Append("is-anycast", types.YLeaf{"IsAnycast", linkLocalAddress.IsAnycast})
     linkLocalAddress.EntityData.Leafs.Append("route-tag", types.YLeaf{"RouteTag", linkLocalAddress.RouteTag})
+    linkLocalAddress.EntityData.Leafs.Append("arm-flags", types.YLeaf{"ArmFlags", linkLocalAddress.ArmFlags})
 
     linkLocalAddress.EntityData.YListKeys = []string {}
 
@@ -1233,6 +1260,9 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Ad
     // Route-tag of the Address. The type is interface{} with range:
     // 0..4294967295.
     RouteTag interface{}
+
+    // Bitmap for ARM flags. The type is interface{} with range: 0..4294967295.
+    ArmFlags interface{}
 }
 
 func (address *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Address) GetEntityData() *types.CommonEntityData {
@@ -1253,6 +1283,7 @@ func (address *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_Globa
     address.EntityData.Leafs.Append("address-state", types.YLeaf{"AddressState", address.AddressState})
     address.EntityData.Leafs.Append("is-anycast", types.YLeaf{"IsAnycast", address.IsAnycast})
     address.EntityData.Leafs.Append("route-tag", types.YLeaf{"RouteTag", address.RouteTag})
+    address.EntityData.Leafs.Append("arm-flags", types.YLeaf{"ArmFlags", address.ArmFlags})
 
     address.EntityData.YListKeys = []string {}
 
@@ -1404,6 +1435,9 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalBriefs_GlobalBrief_Link
     // Route-tag of the Address. The type is interface{} with range:
     // 0..4294967295.
     RouteTag interface{}
+
+    // Bitmap for ARM flags. The type is interface{} with range: 0..4294967295.
+    ArmFlags interface{}
 }
 
 func (linkLocalAddress *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalBriefs_GlobalBrief_LinkLocalAddress) GetEntityData() *types.CommonEntityData {
@@ -1424,6 +1458,7 @@ func (linkLocalAddress *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalBrie
     linkLocalAddress.EntityData.Leafs.Append("address-state", types.YLeaf{"AddressState", linkLocalAddress.AddressState})
     linkLocalAddress.EntityData.Leafs.Append("is-anycast", types.YLeaf{"IsAnycast", linkLocalAddress.IsAnycast})
     linkLocalAddress.EntityData.Leafs.Append("route-tag", types.YLeaf{"RouteTag", linkLocalAddress.RouteTag})
+    linkLocalAddress.EntityData.Leafs.Append("arm-flags", types.YLeaf{"ArmFlags", linkLocalAddress.ArmFlags})
 
     linkLocalAddress.EntityData.YListKeys = []string {}
 
@@ -1454,6 +1489,9 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalBriefs_GlobalBrief_Addr
     // Route-tag of the Address. The type is interface{} with range:
     // 0..4294967295.
     RouteTag interface{}
+
+    // Bitmap for ARM flags. The type is interface{} with range: 0..4294967295.
+    ArmFlags interface{}
 }
 
 func (address *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalBriefs_GlobalBrief_Address) GetEntityData() *types.CommonEntityData {
@@ -1474,6 +1512,7 @@ func (address *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalBriefs_Global
     address.EntityData.Leafs.Append("address-state", types.YLeaf{"AddressState", address.AddressState})
     address.EntityData.Leafs.Append("is-anycast", types.YLeaf{"IsAnycast", address.IsAnycast})
     address.EntityData.Leafs.Append("route-tag", types.YLeaf{"RouteTag", address.RouteTag})
+    address.EntityData.Leafs.Append("arm-flags", types.YLeaf{"ArmFlags", address.ArmFlags})
 
     address.EntityData.YListKeys = []string {}
 
@@ -1553,6 +1592,18 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
 
     // Is BGP Flow Tag Destination is enable. The type is bool.
     FlowTagDst interface{}
+
+    // Interface Configured Flags. The type is interface{} with range:
+    // 0..4294967295.
+    Ipv6ConfigFlag interface{}
+
+    // Interface Operational Flags. The type is interface{} with range:
+    // 0..4294967295.
+    Ipv6OperFlag interface{}
+
+    // idb pointer value. The type is interface{} with range:
+    // 0..18446744073709551615.
+    IdbPointer interface{}
 
     // Link Local Address.
     LinkLocalAddress Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_LinkLocalAddress
@@ -1645,6 +1696,9 @@ func (detail *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetE
     detail.EntityData.Leafs.Append("mlacp-active", types.YLeaf{"MlacpActive", detail.MlacpActive})
     detail.EntityData.Leafs.Append("flow-tag-src", types.YLeaf{"FlowTagSrc", detail.FlowTagSrc})
     detail.EntityData.Leafs.Append("flow-tag-dst", types.YLeaf{"FlowTagDst", detail.FlowTagDst})
+    detail.EntityData.Leafs.Append("ipv6-config-flag", types.YLeaf{"Ipv6ConfigFlag", detail.Ipv6ConfigFlag})
+    detail.EntityData.Leafs.Append("ipv6-oper-flag", types.YLeaf{"Ipv6OperFlag", detail.Ipv6OperFlag})
+    detail.EntityData.Leafs.Append("idb-pointer", types.YLeaf{"IdbPointer", detail.IdbPointer})
 
     detail.EntityData.YListKeys = []string {"InterfaceName"}
 
@@ -1674,6 +1728,9 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_LinkLocalAddre
     // Route-tag of the Address. The type is interface{} with range:
     // 0..4294967295.
     RouteTag interface{}
+
+    // Bitmap for ARM flags. The type is interface{} with range: 0..4294967295.
+    ArmFlags interface{}
 }
 
 func (linkLocalAddress *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_LinkLocalAddress) GetEntityData() *types.CommonEntityData {
@@ -1694,6 +1751,7 @@ func (linkLocalAddress *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_De
     linkLocalAddress.EntityData.Leafs.Append("address-state", types.YLeaf{"AddressState", linkLocalAddress.AddressState})
     linkLocalAddress.EntityData.Leafs.Append("is-anycast", types.YLeaf{"IsAnycast", linkLocalAddress.IsAnycast})
     linkLocalAddress.EntityData.Leafs.Append("route-tag", types.YLeaf{"RouteTag", linkLocalAddress.RouteTag})
+    linkLocalAddress.EntityData.Leafs.Append("arm-flags", types.YLeaf{"ArmFlags", linkLocalAddress.ArmFlags})
 
     linkLocalAddress.EntityData.YListKeys = []string {}
 
@@ -2228,6 +2286,9 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Address struct
     // Route-tag of the Address. The type is interface{} with range:
     // 0..4294967295.
     RouteTag interface{}
+
+    // Bitmap for ARM flags. The type is interface{} with range: 0..4294967295.
+    ArmFlags interface{}
 }
 
 func (address *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Address) GetEntityData() *types.CommonEntityData {
@@ -2248,6 +2309,7 @@ func (address *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Addr
     address.EntityData.Leafs.Append("address-state", types.YLeaf{"AddressState", address.AddressState})
     address.EntityData.Leafs.Append("is-anycast", types.YLeaf{"IsAnycast", address.IsAnycast})
     address.EntityData.Leafs.Append("route-tag", types.YLeaf{"RouteTag", address.RouteTag})
+    address.EntityData.Leafs.Append("arm-flags", types.YLeaf{"ArmFlags", address.ArmFlags})
 
     address.EntityData.YListKeys = []string {}
 

@@ -270,6 +270,13 @@ type Dhcpv6_Profiles_Profile_Relay struct {
     YFilter yfilter.YFilter
     YPresence bool
 
+    // IPv6 address to be filled in link-address. The type is one of the following
+    // types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    LinkAddress interface{}
+
     // Relay profile Source Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     SrcIntfName interface{}
@@ -306,6 +313,7 @@ func (relay *Dhcpv6_Profiles_Profile_Relay) GetEntityData() *types.CommonEntityD
     relay.EntityData.Children.Append("helper-addresses", types.YChild{"HelperAddresses", &relay.HelperAddresses})
     relay.EntityData.Children.Append("option", types.YChild{"Option", &relay.Option})
     relay.EntityData.Leafs = types.NewOrderedMap()
+    relay.EntityData.Leafs.Append("link-address", types.YLeaf{"LinkAddress", relay.LinkAddress})
     relay.EntityData.Leafs.Append("src-intf-name", types.YLeaf{"SrcIntfName", relay.SrcIntfName})
     relay.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", relay.Enable})
     relay.EntityData.Leafs.Append("iana-route-add", types.YLeaf{"IanaRouteAdd", relay.IanaRouteAdd})

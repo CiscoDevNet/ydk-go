@@ -1,6 +1,6 @@
 // This module contains a collection of YANG definitions
 // for Cisco IOS-XR ASR9k policy manager configuration.
-//  
+// 
 // Copyright (c) 2013, 2015-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_policymgr_cfg
@@ -369,11 +369,11 @@ type PolicyManager_ClassMaps_ClassMap_Match struct {
     // slice of string with pattern: (\d+)|(\d+\-\d+).
     Ipv4PacketLength []interface{}
 
-    // Match IPv6 packet length.  Should be value 0..65535 or range. The type is
+    // Match IPv6 packet length. Should be value 0..65535 or range. The type is
     // slice of string with pattern: (\d+)|(\d+\-\d+).
     Ipv6PacketLength []interface{}
 
-    // Match packet length.  Should be value 0..65535 or range. The type is slice
+    // Match packet length. Should be value 0..65535 or range. The type is slice
     // of string with pattern: (\d+)|(\d+\-\d+).
     PacketLength []interface{}
 
@@ -400,38 +400,38 @@ type PolicyManager_ClassMaps_ClassMap_Match struct {
     // ((153[6-9]|15[4-9][0-9]|1[6-9][0-9][0-9]|[2-9][0-9][0-9][0-9])|([1-5][0-9][0-9][0-9][0-9]|6[0-4][0-9][0-9][0-9])|(65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5]))|((arp)|(ipv4)|(ipv6)).
     Ethertype []interface{}
 
-    // Match destination port.  Should be value 0..65535 or range. The type is
+    // Match destination port. Should be value 0..65535 or range. The type is
     // slice of string with pattern: (\d+)|(\d+\-\d+).
     DestinationPort []interface{}
 
     // Match fragment type for a packet. The type is slice of string with pattern:
-    // (first-fragment)|(is-fragment)|(last-fragment).
+    // (dont-fragment)|(first-fragment)|(is-fragment)|(last-fragment).
     FragmentType []interface{}
 
-    // Match frame-relay DLCI value.  Should be value 16..1007 or range. The type
+    // Match frame-relay DLCI value. Should be value 16..1007 or range. The type
     // is slice of string with pattern: (\d+)|(\d+\-\d+).
     FrameRelayDlci []interface{}
 
     // Set FrameRelay DE bit. The type is interface{} with range: 0..1.
     FrDe interface{}
 
-    // Match IPv4 ICMP code.  Should be value 0..255 or range. The type is slice
-    // of string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv4 ICMP code. Should be value 0..255 or range. The type is slice of
+    // string with pattern: (\d+)|(\d+\-\d+).
     Icmpv4Code []interface{}
 
-    // Match IPv4 ICMP type.  Should be value 0..255 or range. The type is slice
-    // of string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv4 ICMP type. Should be value 0..255 or range. The type is slice of
+    // string with pattern: (\d+)|(\d+\-\d+).
     Icmpv4Type []interface{}
 
-    // Match IPv6 ICMP code.  Should be value 0..255 or range. The type is slice
-    // of string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv6 ICMP code. Should be value 0..255 or range. The type is slice of
+    // string with pattern: (\d+)|(\d+\-\d+).
     Icmpv6Code []interface{}
 
-    // Match IPv6 ICMP type.  Should be value 0..255 or range. The type is slice
-    // of string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv6 ICMP type. Should be value 0..255 or range. The type is slice of
+    // string with pattern: (\d+)|(\d+\-\d+).
     Icmpv6Type []interface{}
 
-    // Match source port.  Should be value 0..65535 or range. The type is slice of
+    // Match source port. Should be value 0..65535 or range. The type is slice of
     // string with pattern: (\d+)|(\d+\-\d+).
     SourcePort []interface{}
 
@@ -1099,11 +1099,11 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot struct {
     // slice of string with pattern: (\d+)|(\d+\-\d+).
     Ipv4PacketLength []interface{}
 
-    // Match IPv6 packet length.  Should be value 0..65535 or range. The type is
+    // Match IPv6 packet length. Should be value 0..65535 or range. The type is
     // slice of string with pattern: (\d+)|(\d+\-\d+).
     Ipv6PacketLength []interface{}
 
-    // Match packet length.  Should be value 0..65535 or range. The type is slice
+    // Match packet length. Should be value 0..65535 or range. The type is slice
     // of string with pattern: (\d+)|(\d+\-\d+).
     PacketLength []interface{}
 
@@ -1130,38 +1130,38 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot struct {
     // ((153[6-9]|15[4-9][0-9]|1[6-9][0-9][0-9]|[2-9][0-9][0-9][0-9])|([1-5][0-9][0-9][0-9][0-9]|6[0-4][0-9][0-9][0-9])|(65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5]))|((arp)|(ipv4)|(ipv6)).
     Ethertype []interface{}
 
-    // Match destination port.  Should be value 0..65535 or range. The type is
+    // Match destination port. Should be value 0..65535 or range. The type is
     // slice of string with pattern: (\d+)|(\d+\-\d+).
     DestinationPort []interface{}
 
     // Match fragment type for a packet. The type is slice of string with pattern:
-    // (first-fragment)|(is-fragment)|(last-fragment).
+    // (dont-fragment)|(first-fragment)|(is-fragment)|(last-fragment).
     FragmentType []interface{}
 
-    // Match frame-relay DLCI value.  Should be value 16..1007 or range. The type
+    // Match frame-relay DLCI value. Should be value 16..1007 or range. The type
     // is slice of string with pattern: (\d+)|(\d+\-\d+).
     FrameRelayDlci []interface{}
 
     // Set FrameRelay DE bit. The type is interface{} with range: 0..1.
     FrDe interface{}
 
-    // Match IPv4 ICMP code.  Should be value 0..255 or range. The type is slice
-    // of string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv4 ICMP code. Should be value 0..255 or range. The type is slice of
+    // string with pattern: (\d+)|(\d+\-\d+).
     Icmpv4Code []interface{}
 
-    // Match IPv4 ICMP type.  Should be value 0..255 or range. The type is slice
-    // of string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv4 ICMP type. Should be value 0..255 or range. The type is slice of
+    // string with pattern: (\d+)|(\d+\-\d+).
     Icmpv4Type []interface{}
 
-    // Match IPv6 ICMP code.  Should be value 0..255 or range. The type is slice
-    // of string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv6 ICMP code. Should be value 0..255 or range. The type is slice of
+    // string with pattern: (\d+)|(\d+\-\d+).
     Icmpv6Code []interface{}
 
-    // Match IPv6 ICMP type.  Should be value 0..255 or range. The type is slice
-    // of string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv6 ICMP type. Should be value 0..255 or range. The type is slice of
+    // string with pattern: (\d+)|(\d+\-\d+).
     Icmpv6Type []interface{}
 
-    // Match source port.  Should be value 0..65535 or range. The type is slice of
+    // Match source port. Should be value 0..65535 or range. The type is slice of
     // string with pattern: (\d+)|(\d+\-\d+).
     SourcePort []interface{}
 
@@ -1911,7 +1911,7 @@ type PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule struct {
     // Deactivate dynamic templates.
     DeactivateDynamicTemplate PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_DeactivateDynamicTemplate
 
-    // Set a timer to execute a rule on its  expiry.
+    // Set a timer to execute a rule on its expiry.
     SetTimer PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_SetTimer
 
     // Disable timer before it expires.
@@ -2095,7 +2095,7 @@ func (deactivateDynamicTemplate *PolicyManager_PolicyMaps_PolicyMap_Event_Class_
 }
 
 // PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_SetTimer
-// Set a timer to execute a rule on its 
+// Set a timer to execute a rule on its
 // expiry
 // This type is a presence type.
 type PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_SetTimer struct {
@@ -2197,7 +2197,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule struct {
     // Policy action DECAP GRE. The type is interface{}.
     DecapGre interface{}
 
-    // Policy action service fragment.  Service fragment name. The type is string.
+    // Policy action service fragment. Service fragment name. The type is string.
     ServiceFragment interface{}
 
     // Policy action fragment. Fragment name. The type is string.
@@ -2770,7 +2770,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set struct {
     TrafficClass interface{}
 
     // Sets the discard class on IPv4 or MPLS packets. The discard-class can be
-    // used only in service policies  that are attached in the ingress policy. The
+    // used only in service policies that are attached in the ingress policy. The
     // type is interface{} with range: 0..7.
     DiscardClass interface{}
 
@@ -2782,8 +2782,8 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set struct {
 
     // Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This
     // command should be used by a router if a user wants to mark a packet that is
-    // being sent to a switch.  Switches can leverage Layer 2 header information, 
-    // including a CoS value marking. Packets entering an  interface cannot be set
+    // being sent to a switch. Switches can leverage Layer 2 header information,
+    // including a CoS value marking. Packets entering an interface cannot be set
     // with a CoS value. The type is interface{} with range: 0..7.
     Cos interface{}
 
@@ -2804,12 +2804,12 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set struct {
     // interface{} with range: 0..7.
     MplsExperimentalTopMost interface{}
 
-    // Sets the experimental value of the MPLS packet  imposition labels.
-    // Imposition can be used only in service policies that  are attached in the
+    // Sets the experimental value of the MPLS packet imposition labels.
+    // Imposition can be used only in service policies that are attached in the
     // ingress policy. The type is interface{} with range: 0..7.
     MplsExperimentalImposition interface{}
 
-    // Sets the spatial reuse protocol priority value of an  outgoing packet. The
+    // Sets the spatial reuse protocol priority value of an outgoing packet. The
     // type is interface{} with range: 0..7.
     SrpPriority interface{}
 
@@ -2886,10 +2886,10 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police struct {
     // Peak burst configuration.
     PeakBurst PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_PeakBurst
 
-    // Configures the action to take on packets that conform  to the rate limit.
+    // Configures the action to take on packets that conform to the rate limit.
     ConformAction PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction
 
-    // Configures the action to take on packets that exceed  the rate limit.
+    // Configures the action to take on packets that exceed the rate limit.
     ExceedAction PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction
 
     // Configures the action to take on packets that violate the rate limit.
@@ -3063,7 +3063,7 @@ func (peakBurst *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_PeakBur
 }
 
 // PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction
-// Configures the action to take on packets that conform 
+// Configures the action to take on packets that conform
 // to the rate limit.
 type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction struct {
     EntityData types.CommonEntityData
@@ -3122,7 +3122,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction_Set s
     TrafficClass interface{}
 
     // Sets the discard class on IPv4 or MPLS packets. The discard-class can be
-    // used only in service policies  that are attached in the ingress policy. The
+    // used only in service policies that are attached in the ingress policy. The
     // type is interface{} with range: 0..7.
     DiscardClass interface{}
 
@@ -3134,8 +3134,8 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction_Set s
 
     // Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This
     // command should be used by a router if a user wants to mark a packet that is
-    // being sent to a switch.  Switches can leverage Layer 2 header information, 
-    // including a CoS value marking. Packets entering an  interface cannot be set
+    // being sent to a switch. Switches can leverage Layer 2 header information,
+    // including a CoS value marking. Packets entering an interface cannot be set
     // with a CoS value. The type is interface{} with range: 0..7.
     Cos interface{}
 
@@ -3156,12 +3156,12 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction_Set s
     // interface{} with range: 0..7.
     MplsExperimentalTopMost interface{}
 
-    // Sets the experimental value of the MPLS packet  imposition labels.
-    // Imposition can be used only in service policies that  are attached in the
+    // Sets the experimental value of the MPLS packet imposition labels.
+    // Imposition can be used only in service policies that are attached in the
     // ingress policy. The type is interface{} with range: 0..7.
     MplsExperimentalImposition interface{}
 
-    // Sets the spatial reuse protocol priority value of an  outgoing packet. The
+    // Sets the spatial reuse protocol priority value of an outgoing packet. The
     // type is interface{} with range: 0..7.
     SrpPriority interface{}
 
@@ -3221,7 +3221,7 @@ func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction
 }
 
 // PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction
-// Configures the action to take on packets that exceed 
+// Configures the action to take on packets that exceed
 // the rate limit.
 type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction struct {
     EntityData types.CommonEntityData
@@ -3280,7 +3280,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_Set st
     TrafficClass interface{}
 
     // Sets the discard class on IPv4 or MPLS packets. The discard-class can be
-    // used only in service policies  that are attached in the ingress policy. The
+    // used only in service policies that are attached in the ingress policy. The
     // type is interface{} with range: 0..7.
     DiscardClass interface{}
 
@@ -3292,8 +3292,8 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_Set st
 
     // Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This
     // command should be used by a router if a user wants to mark a packet that is
-    // being sent to a switch.  Switches can leverage Layer 2 header information, 
-    // including a CoS value marking. Packets entering an  interface cannot be set
+    // being sent to a switch. Switches can leverage Layer 2 header information,
+    // including a CoS value marking. Packets entering an interface cannot be set
     // with a CoS value. The type is interface{} with range: 0..7.
     Cos interface{}
 
@@ -3314,12 +3314,12 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_Set st
     // interface{} with range: 0..7.
     MplsExperimentalTopMost interface{}
 
-    // Sets the experimental value of the MPLS packet  imposition labels.
-    // Imposition can be used only in service policies that  are attached in the
+    // Sets the experimental value of the MPLS packet imposition labels.
+    // Imposition can be used only in service policies that are attached in the
     // ingress policy. The type is interface{} with range: 0..7.
     MplsExperimentalImposition interface{}
 
-    // Sets the spatial reuse protocol priority value of an  outgoing packet. The
+    // Sets the spatial reuse protocol priority value of an outgoing packet. The
     // type is interface{} with range: 0..7.
     SrpPriority interface{}
 
@@ -3438,7 +3438,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction_Set s
     TrafficClass interface{}
 
     // Sets the discard class on IPv4 or MPLS packets. The discard-class can be
-    // used only in service policies  that are attached in the ingress policy. The
+    // used only in service policies that are attached in the ingress policy. The
     // type is interface{} with range: 0..7.
     DiscardClass interface{}
 
@@ -3450,8 +3450,8 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction_Set s
 
     // Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This
     // command should be used by a router if a user wants to mark a packet that is
-    // being sent to a switch.  Switches can leverage Layer 2 header information, 
-    // including a CoS value marking. Packets entering an  interface cannot be set
+    // being sent to a switch. Switches can leverage Layer 2 header information,
+    // including a CoS value marking. Packets entering an interface cannot be set
     // with a CoS value. The type is interface{} with range: 0..7.
     Cos interface{}
 
@@ -3472,12 +3472,12 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction_Set s
     // interface{} with range: 0..7.
     MplsExperimentalTopMost interface{}
 
-    // Sets the experimental value of the MPLS packet  imposition labels.
-    // Imposition can be used only in service policies that  are attached in the
+    // Sets the experimental value of the MPLS packet imposition labels.
+    // Imposition can be used only in service policies that are attached in the
     // ingress policy. The type is interface{} with range: 0..7.
     MplsExperimentalImposition interface{}
 
-    // Sets the spatial reuse protocol priority value of an  outgoing packet. The
+    // Sets the spatial reuse protocol priority value of an outgoing packet. The
     // type is interface{} with range: 0..7.
     SrpPriority interface{}
 
@@ -3578,7 +3578,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_CacLocal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The interval after which a flow is removed,  if there is no activity. If
+    // The interval after which a flow is removed, if there is no activity. If
     // timeout is 0 this flow does not expire. The type is one of the following
     // types: int with range: 10..2550, or string with pattern: (None)|(none).
     FlowIdleTimeout interface{}
@@ -3979,7 +3979,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_React_Alarm_Type struct {
     // Discrete alarm type. The type is interface{}.
     Discrete interface{}
 
-    // Number of flows to reach before  triggering alarm. The type is interface{}
+    // Number of flows to reach before triggering alarm. The type is interface{}
     // with range: 0..65535. Units are number of flows.
     GroupCount interface{}
 
@@ -4346,8 +4346,8 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward struct {
     // Use system default routing table. The type is interface{}.
     Default interface{}
 
-    // Use specific next-hop. Here we present 5 different combination  for the pbf
-    // next-hop.  1. vrf with v6 address  2. vrf with v4 address  3. vrf   4. v4
+    // Use specific next-hop. Here we present 5 different combination for the pbf
+    // next-hop.  1. vrf with v6 address  2. vrf with v4 address  3. vrf  4. v4
     // address  5. v6 address.
     NextHop PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward_NextHop
 }
@@ -4375,11 +4375,11 @@ func (pbrForward *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward) G
 
 // PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward_NextHop
 // Use specific next-hop.
-// Here we present 5 different combination 
+// Here we present 5 different combination
 // for the pbf next-hop.
 //  1. vrf with v6 address
 //  2. vrf with v4 address
-//  3. vrf 
+//  3. vrf
 //  4. v4 address
 //  5. v6 address
 type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward_NextHop struct {

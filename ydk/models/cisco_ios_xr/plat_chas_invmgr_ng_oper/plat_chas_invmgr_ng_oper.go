@@ -1957,8 +1957,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2180,8 +2180,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2473,8 +2473,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2696,8 +2696,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2989,8 +2989,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3212,8 +3212,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3505,8 +3505,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3728,8 +3728,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3951,8 +3951,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Attribu
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -4396,8 +4396,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponen
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -4619,8 +4619,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponen
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -4912,8 +4912,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Se
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -5135,8 +5135,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -5658,8 +5658,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -5881,8 +5881,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -6174,8 +6174,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -6397,8 +6397,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -6690,8 +6690,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Senso
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -6913,8 +6913,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Attri
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -7280,8 +7280,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -7503,8 +7503,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -7796,8 +7796,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_Attribute
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -8019,8 +8019,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attributes_BasicInfo str
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -8242,8 +8242,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Attributes_BasicInfo struct {
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -8465,8 +8465,8 @@ type PlatformInventory_Racks_Rack_Attributes_BasicInfo struct {
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.

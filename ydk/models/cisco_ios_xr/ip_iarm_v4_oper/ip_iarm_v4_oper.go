@@ -227,7 +227,7 @@ type Ipv4arm_Addresses_Vrfs_Vrf_Networks_Network struct {
     PrefixLength interface{}
 
     // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
-    Handle interface{}
+    Interface interface{}
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -259,7 +259,7 @@ func (network *Ipv4arm_Addresses_Vrfs_Vrf_Networks_Network) GetEntityData() *typ
     network.EntityData.Leafs = types.NewOrderedMap()
     network.EntityData.Leafs.Append("address", types.YLeaf{"Address", network.Address})
     network.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", network.PrefixLength})
-    network.EntityData.Leafs.Append("handle", types.YLeaf{"Handle", network.Handle})
+    network.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", network.Interface})
     network.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", network.InterfaceName})
     network.EntityData.Leafs.Append("referenced-interface", types.YLeaf{"ReferencedInterface", network.ReferencedInterface})
     network.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", network.VrfName})

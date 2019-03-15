@@ -433,9 +433,6 @@ type CallHome_Profiles_Profile struct {
     // [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
-    // Create a profile. The type is interface{}.
-    Create interface{}
-
     // none. The type is string.
     MessageFormat interface{}
 
@@ -480,7 +477,6 @@ func (profile *CallHome_Profiles_Profile) GetEntityData() *types.CommonEntityDat
     profile.EntityData.Children.Append("subscribe-alert-group", types.YChild{"SubscribeAlertGroup", &profile.SubscribeAlertGroup})
     profile.EntityData.Leafs = types.NewOrderedMap()
     profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
-    profile.EntityData.Leafs.Append("create", types.YLeaf{"Create", profile.Create})
     profile.EntityData.Leafs.Append("message-format", types.YLeaf{"MessageFormat", profile.MessageFormat})
     profile.EntityData.Leafs.Append("anonymous", types.YLeaf{"Anonymous", profile.Anonymous})
     profile.EntityData.Leafs.Append("message-size-limit", types.YLeaf{"MessageSizeLimit", profile.MessageSizeLimit})
