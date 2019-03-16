@@ -27,127 +27,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-iedge4710-oper:iedge-license-manager", reflect.TypeOf(IedgeLicenseManager{}))
 }
 
-// AaaTunnelProto represents Tunnel protocol types
-type AaaTunnelProto string
-
-const (
-    // None
-    AaaTunnelProto_none AaaTunnelProto = "none"
-
-    // Point-to-point tunneling protocol
-    AaaTunnelProto_pptp AaaTunnelProto = "pptp"
-
-    // Layer 2 forwarding
-    AaaTunnelProto_l2f AaaTunnelProto = "l2f"
-
-    // Layer 2 tunneling protocol
-    AaaTunnelProto_l2tp AaaTunnelProto = "l2tp"
-
-    // Ascend tunnel management protocol
-    AaaTunnelProto_atmp AaaTunnelProto = "atmp"
-
-    // VLAN trunk protocol
-    AaaTunnelProto_vtp AaaTunnelProto = "vtp"
-
-    // Authentication header
-    AaaTunnelProto_ah AaaTunnelProto = "ah"
-
-    // IP over IP
-    AaaTunnelProto_ip_over_ip AaaTunnelProto = "ip-over-ip"
-
-    // Minimum IP over IP
-    AaaTunnelProto_minimum_ip_over_ip AaaTunnelProto = "minimum-ip-over-ip"
-
-    // Encapsulating security payload
-    AaaTunnelProto_esp AaaTunnelProto = "esp"
-
-    // Generic routing encapsulation
-    AaaTunnelProto_gre AaaTunnelProto = "gre"
-
-    // Bay dial virtual services
-    AaaTunnelProto_bay_dvs AaaTunnelProto = "bay-dvs"
-
-    // IP in IP
-    AaaTunnelProto_ip_in_ip AaaTunnelProto = "ip-in-ip"
-
-    // VLAN
-    AaaTunnelProto_vlan AaaTunnelProto = "vlan"
-)
-
-// AaaTerminateCause represents AAA terminate cause types
-type AaaTerminateCause string
-
-const (
-    // None
-    AaaTerminateCause_none AaaTerminateCause = "none"
-
-    // User request
-    AaaTerminateCause_user_request AaaTerminateCause = "user-request"
-
-    // Lost carrier
-    AaaTerminateCause_lost_carrier AaaTerminateCause = "lost-carrier"
-
-    // Lost service
-    AaaTerminateCause_lost_service AaaTerminateCause = "lost-service"
-
-    // Idle timeout
-    AaaTerminateCause_idle_timeout AaaTerminateCause = "idle-timeout"
-
-    // Session timeout
-    AaaTerminateCause_session_timeout AaaTerminateCause = "session-timeout"
-
-    // Admin reset
-    AaaTerminateCause_admin_reset AaaTerminateCause = "admin-reset"
-
-    // Admin reboot
-    AaaTerminateCause_admin_reboot AaaTerminateCause = "admin-reboot"
-
-    // Port error
-    AaaTerminateCause_port_error AaaTerminateCause = "port-error"
-
-    // NAS error
-    AaaTerminateCause_nas_error AaaTerminateCause = "nas-error"
-
-    // NAS request
-    AaaTerminateCause_nas_request AaaTerminateCause = "nas-request"
-
-    // NAS reboot
-    AaaTerminateCause_nas_reboot AaaTerminateCause = "nas-reboot"
-
-    // Port unneeded
-    AaaTerminateCause_port_unneeded AaaTerminateCause = "port-unneeded"
-
-    // Port preempted
-    AaaTerminateCause_port_preempted AaaTerminateCause = "port-preempted"
-
-    // Port suspended
-    AaaTerminateCause_port_suspended AaaTerminateCause = "port-suspended"
-
-    // Service unavailable
-    AaaTerminateCause_service_unavailable AaaTerminateCause = "service-unavailable"
-
-    // Callback
-    AaaTerminateCause_callback AaaTerminateCause = "callback"
-
-    // User error
-    AaaTerminateCause_user_error AaaTerminateCause = "user-error"
-
-    // Host request
-    AaaTerminateCause_host_request AaaTerminateCause = "host-request"
-
-    // Supplicant restart
-    AaaTerminateCause_supplicant_restart AaaTerminateCause = "supplicant-restart"
-
-    // Reauthorization failure
-    AaaTerminateCause_reauthorization_failure AaaTerminateCause = "reauthorization-failure"
-
-    // Port reinitialized
-    AaaTerminateCause_port_reinitialized AaaTerminateCause = "port-reinitialized"
-
-    // Admin disabled
-    AaaTerminateCause_admin_disabled AaaTerminateCause = "admin-disabled"
-)
-
 // SubscriberAuthorStateFilterFlag represents Subscriber author state filter flag
 type SubscriberAuthorStateFilterFlag string
 
@@ -185,23 +64,6 @@ const (
     IedgeOperSessionState_end IedgeOperSessionState = "end"
 )
 
-// IedgeOperSessionAfState represents Subscriber session address family state
-type IedgeOperSessionAfState string
-
-const (
-    // Not started
-    IedgeOperSessionAfState_not_started IedgeOperSessionAfState = "not-started"
-
-    // Down
-    IedgeOperSessionAfState_down IedgeOperSessionAfState = "down"
-
-    // Up Pending
-    IedgeOperSessionAfState_up_pending IedgeOperSessionAfState = "up-pending"
-
-    // Up
-    IedgeOperSessionAfState_up IedgeOperSessionAfState = "up"
-)
-
 // SubscriberStateFilterFlag represents Subscriber state filter flag
 type SubscriberStateFilterFlag string
 
@@ -228,146 +90,56 @@ const (
     SubscriberStateFilterFlag_end SubscriberStateFilterFlag = "end"
 )
 
-// AaaAuthService represents AAA authorization service types
-type AaaAuthService string
+// IedgePppSub represents PPPoE sub types
+type IedgePppSub string
 
 const (
-    // None
-    AaaAuthService_none AaaAuthService = "none"
+    // PPP termination and aggregation
+    IedgePppSub_pta IedgePppSub = "pta"
 
-    // Login
-    AaaAuthService_login AaaAuthService = "login"
-
-    // Framed
-    AaaAuthService_framed AaaAuthService = "framed"
-
-    // Callback login
-    AaaAuthService_callback_login AaaAuthService = "callback-login"
-
-    // Callback framed
-    AaaAuthService_callback_framed AaaAuthService = "callback-framed"
-
-    // Outbound
-    AaaAuthService_outbound AaaAuthService = "outbound"
-
-    // Administrator
-    AaaAuthService_administrator AaaAuthService = "administrator"
-
-    // Prompt
-    AaaAuthService_prompt AaaAuthService = "prompt"
-
-    // Authentication only
-    AaaAuthService_authentication_only AaaAuthService = "authentication-only"
-
-    // Callback NAS prompt
-    AaaAuthService_callback_nas_prompt AaaAuthService = "callback-nas-prompt"
-
-    // Call check
-    AaaAuthService_call_check AaaAuthService = "call-check"
-
-    // Callback administrator
-    AaaAuthService_callback_administrator AaaAuthService = "callback-administrator"
-
-    // Voice
-    AaaAuthService_voice AaaAuthService = "voice"
-
-    // Fax
-    AaaAuthService_fax AaaAuthService = "fax"
-
-    // Modem relay
-    AaaAuthService_modem_relay AaaAuthService = "modem-relay"
-
-    // EAP over UDP
-    AaaAuthService_eap_over_udp AaaAuthService = "eap-over-udp"
+    // L2TP access controller
+    IedgePppSub_lac IedgePppSub = "lac"
 )
 
-// AaaInterface represents AAA interface types
-type AaaInterface string
+// IedgeOperServiceStatus represents Subscriber service status
+type IedgeOperServiceStatus string
 
 const (
-    // None
-    AaaInterface_none AaaInterface = "none"
+    // Unknown
+    IedgeOperServiceStatus_unknown IedgeOperServiceStatus = "unknown"
 
-    // Primary rate
-    AaaInterface_primary_rate AaaInterface = "primary-rate"
+    // Error
+    IedgeOperServiceStatus_error_ IedgeOperServiceStatus = "error"
 
-    // Basic rate
-    AaaInterface_basic_rate AaaInterface = "basic-rate"
+    // New
+    IedgeOperServiceStatus_new_ IedgeOperServiceStatus = "new"
 
-    // Serial
-    AaaInterface_serial AaaInterface = "serial"
+    // Loading
+    IedgeOperServiceStatus_loading IedgeOperServiceStatus = "loading"
 
-    // Asynchronous
-    AaaInterface_asynchronous AaaInterface = "asynchronous"
+    // Request Association
+    IedgeOperServiceStatus_req_association IedgeOperServiceStatus = "req-association"
 
-    // VTY
-    AaaInterface_vty AaaInterface = "vty"
+    // Associated
+    IedgeOperServiceStatus_associated IedgeOperServiceStatus = "associated"
 
-    // ATM
-    AaaInterface_atm AaaInterface = "atm"
+    // Request PD Association
+    IedgeOperServiceStatus_req_pd_association IedgeOperServiceStatus = "req-pd-association"
 
-    // Ethernet
-    AaaInterface_ethernet AaaInterface = "ethernet"
+    // Applied
+    IedgeOperServiceStatus_applied IedgeOperServiceStatus = "applied"
 
-    // PPP over ATM
-    AaaInterface_ppp_over_atm AaaInterface = "ppp-over-atm"
+    // Request Unassociation
+    IedgeOperServiceStatus_req_unassociation IedgeOperServiceStatus = "req-unassociation"
 
-    // PPPoE over ATM
-    AaaInterface_pppoe_over_atm AaaInterface = "pppoe-over-atm"
+    // Request PD Unassociation
+    IedgeOperServiceStatus_req_pd_unassociation IedgeOperServiceStatus = "req-pd-unassociation"
 
-    // PPPoE over ethernet
-    AaaInterface_pppoe_over_ethernet AaaInterface = "pppoe-over-ethernet"
+    // Unapplied
+    IedgeOperServiceStatus_unapplied IedgeOperServiceStatus = "unapplied"
 
-    // PPP over VLAN
-    AaaInterface_ppp_over_vlan AaaInterface = "ppp-over-vlan"
-
-    // PPP over Q in Q
-    AaaInterface_ppp_over_qinq AaaInterface = "ppp-over-qinq"
-
-    // V120
-    AaaInterface_v120 AaaInterface = "v120"
-
-    // V110
-    AaaInterface_v110 AaaInterface = "v110"
-
-    // PHS internet access forum standard
-    AaaInterface_piafs AaaInterface = "piafs"
-
-    // X75
-    AaaInterface_x75 AaaInterface = "x75"
-
-    // IP sec
-    AaaInterface_ip_sec AaaInterface = "ip-sec"
-
-    // Other
-    AaaInterface_other AaaInterface = "other"
-
-    // Virtual PPPoE over ethernet
-    AaaInterface_virtual_pppoe_over_ethernet AaaInterface = "virtual-pppoe-over-ethernet"
-
-    // Virtual PPPoE over VLAN
-    AaaInterface_virtual_pppoe_over_vlan AaaInterface = "virtual-pppoe-over-vlan"
-
-    // Virtual PPPoE over Q in Q
-    AaaInterface_virtual_pppoe_over_qinq AaaInterface = "virtual-pppoe-over-qinq"
-
-    // IPoE over ethernet
-    AaaInterface_ipo_e_over_ethernet AaaInterface = "ipo-e-over-ethernet"
-
-    // IPoE over VLAN
-    AaaInterface_ipo_e_over_vlan AaaInterface = "ipo-e-over-vlan"
-
-    // IPoE over Q in Q
-    AaaInterface_ipo_e_over_qinq AaaInterface = "ipo-e-over-qinq"
-
-    // Virtual IPoE over ethernet
-    AaaInterface_virtual_i_po_e_over_ethernet AaaInterface = "virtual-i-po-e-over-ethernet"
-
-    // Virtual IPoE over VLAN
-    AaaInterface_virtual_i_po_e_over_vlan AaaInterface = "virtual-i-po-e-over-vlan"
-
-    // Virtual IPoE over Q in Q
-    AaaInterface_virtual_i_po_e_over_qinq AaaInterface = "virtual-i-po-e-over-qinq"
+    // Max
+    IedgeOperServiceStatus_max IedgeOperServiceStatus = "max"
 )
 
 // SubscriberAuthenStateFilterFlag represents Subscriber authen state filter flag
@@ -379,6 +151,38 @@ const (
 
     // Authenticated
     SubscriberAuthenStateFilterFlag_authenticated SubscriberAuthenStateFilterFlag = "authenticated"
+)
+
+// IedgeOperService represents Service types
+type IedgeOperService string
+
+const (
+    // Unknown Service
+    IedgeOperService_unknown IedgeOperService = "unknown"
+
+    // Profile
+    IedgeOperService_profile IedgeOperService = "profile"
+
+    // Template
+    IedgeOperService_template IedgeOperService = "template"
+
+    // GRP Template
+    IedgeOperService_grp_template IedgeOperService = "grp-template"
+
+    // PPP Template
+    IedgeOperService_ppp_template IedgeOperService = "ppp-template"
+
+    // ETH Template
+    IedgeOperService_eth_template IedgeOperService = "eth-template"
+
+    // IPSub Template
+    IedgeOperService_ip_sub_template IedgeOperService = "ip-sub-template"
+
+    // Multi Template
+    IedgeOperService_multi_template IedgeOperService = "multi-template"
+
+    // MAX Template
+    IedgeOperService_max_templae IedgeOperService = "max-templae"
 )
 
 // IedgeOperSession represents Subscriber session types
@@ -401,41 +205,21 @@ const (
     IedgeOperSession_ip_packet_dhcp_trigger IedgeOperSession = "ip-packet-dhcp-trigger"
 )
 
-// AaaTunnelMedium represents Tunnel medium types
-type AaaTunnelMedium string
+// SubscriberSrgOperFilterFlag represents Subscriber srg oper filter flag
+type SubscriberSrgOperFilterFlag string
 
 const (
-    // None
-    AaaTunnelMedium_none AaaTunnelMedium = "none"
+    // SRG Role None
+    SubscriberSrgOperFilterFlag_srg_none SubscriberSrgOperFilterFlag = "srg-none"
 
-    // IPv4
-    AaaTunnelMedium_ipv4 AaaTunnelMedium = "ipv4"
+    // SRG Role Master
+    SubscriberSrgOperFilterFlag_srg_master SubscriberSrgOperFilterFlag = "srg-master"
 
-    // IPv6
-    AaaTunnelMedium_ipv6 AaaTunnelMedium = "ipv6"
+    // SRG Role Slave
+    SubscriberSrgOperFilterFlag_srg_slave SubscriberSrgOperFilterFlag = "srg-slave"
 
-    // NSAP
-    AaaTunnelMedium_nsap AaaTunnelMedium = "nsap"
-
-    // HDLC
-    AaaTunnelMedium_hdlc AaaTunnelMedium = "hdlc"
-
-    // BBN
-    AaaTunnelMedium_bbn AaaTunnelMedium = "bbn"
-
-    // ALL 802
-    AaaTunnelMedium_all802 AaaTunnelMedium = "all802"
-)
-
-// IedgePppSub represents PPPoE sub types
-type IedgePppSub string
-
-const (
-    // PPP termination and aggregation
-    IedgePppSub_pta IedgePppSub = "pta"
-
-    // L2TP access controller
-    IedgePppSub_lac IedgePppSub = "lac"
+    // SRG Role Master Slave
+    SubscriberSrgOperFilterFlag_srg_both SubscriberSrgOperFilterFlag = "srg-both"
 )
 
 // SubscriberAddressFamilyFilterFlag represents Subscriber address family filter flag
@@ -614,6 +398,9 @@ type Subscriber_Manager_Nodes_Node_Statistics struct {
     // Aggregate summary of statistics.
     AggregateSummary Subscriber_Manager_Nodes_Node_Statistics_AggregateSummary
 
+    // Disconnect Unique Summary statistics.
+    DisconnUnique Subscriber_Manager_Nodes_Node_Statistics_DisconnUnique
+
     // Geo Redundancy statistics.
     Srg Subscriber_Manager_Nodes_Node_Statistics_Srg
 }
@@ -632,6 +419,7 @@ func (statistics *Subscriber_Manager_Nodes_Node_Statistics) GetEntityData() *typ
     statistics.EntityData.Children = types.NewOrderedMap()
     statistics.EntityData.Children.Append("aaa", types.YChild{"Aaa", &statistics.Aaa})
     statistics.EntityData.Children.Append("aggregate-summary", types.YChild{"AggregateSummary", &statistics.AggregateSummary})
+    statistics.EntityData.Children.Append("disconn-unique", types.YChild{"DisconnUnique", &statistics.DisconnUnique})
     statistics.EntityData.Children.Append("srg", types.YChild{"Srg", &statistics.Srg})
     statistics.EntityData.Leafs = types.NewOrderedMap()
 
@@ -1150,10 +938,6 @@ type Subscriber_Manager_Nodes_Node_Statistics_Aaa_Authentication struct {
     // 0..18446744073709551615.
     ErroredRequests interface{}
 
-    // Incomplete requests - missing attributes. The type is interface{} with
-    // range: 0..18446744073709551615.
-    IncompleteRequests interface{}
-
     // Requests terminated by disconnect. The type is interface{} with range:
     // 0..18446744073709551615.
     TerminatedRequests interface{}
@@ -1178,7 +962,6 @@ func (authentication *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Authenticatio
     authentication.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authentication.RejectedRequests})
     authentication.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authentication.UnreachableRequests})
     authentication.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authentication.ErroredRequests})
-    authentication.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authentication.IncompleteRequests})
     authentication.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authentication.TerminatedRequests})
 
     authentication.EntityData.YListKeys = []string {}
@@ -1262,10 +1045,6 @@ type Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAuthentication struct
     // 0..18446744073709551615.
     ErroredRequests interface{}
 
-    // Incomplete requests - missing attributes. The type is interface{} with
-    // range: 0..18446744073709551615.
-    IncompleteRequests interface{}
-
     // Requests terminated by disconnect. The type is interface{} with range:
     // 0..18446744073709551615.
     TerminatedRequests interface{}
@@ -1290,7 +1069,6 @@ func (aggregateAuthentication *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggr
     aggregateAuthentication.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", aggregateAuthentication.RejectedRequests})
     aggregateAuthentication.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", aggregateAuthentication.UnreachableRequests})
     aggregateAuthentication.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", aggregateAuthentication.ErroredRequests})
-    aggregateAuthentication.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", aggregateAuthentication.IncompleteRequests})
     aggregateAuthentication.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", aggregateAuthentication.TerminatedRequests})
 
     aggregateAuthentication.EntityData.YListKeys = []string {}
@@ -1781,10 +1559,6 @@ type Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsAll_Authenticat
     // 0..18446744073709551615.
     ErroredRequests interface{}
 
-    // Incomplete requests - missing attributes. The type is interface{} with
-    // range: 0..18446744073709551615.
-    IncompleteRequests interface{}
-
     // Requests terminated by disconnect. The type is interface{} with range:
     // 0..18446744073709551615.
     TerminatedRequests interface{}
@@ -1809,7 +1583,6 @@ func (authenticationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Acc
     authenticationStatistics.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authenticationStatistics.RejectedRequests})
     authenticationStatistics.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authenticationStatistics.UnreachableRequests})
     authenticationStatistics.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authenticationStatistics.ErroredRequests})
-    authenticationStatistics.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authenticationStatistics.IncompleteRequests})
     authenticationStatistics.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authenticationStatistics.TerminatedRequests})
 
     authenticationStatistics.EntityData.YListKeys = []string {}
@@ -1847,10 +1620,6 @@ type Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsAll_Authorizati
     // 0..18446744073709551615.
     ErroredRequests interface{}
 
-    // Incomplete requests - missing attributes. The type is interface{} with
-    // range: 0..18446744073709551615.
-    IncompleteRequests interface{}
-
     // Requests terminated by disconnect. The type is interface{} with range:
     // 0..18446744073709551615.
     TerminatedRequests interface{}
@@ -1875,7 +1644,6 @@ func (authorizationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Acco
     authorizationStatistics.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authorizationStatistics.RejectedRequests})
     authorizationStatistics.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authorizationStatistics.UnreachableRequests})
     authorizationStatistics.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authorizationStatistics.ErroredRequests})
-    authorizationStatistics.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authorizationStatistics.IncompleteRequests})
     authorizationStatistics.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authorizationStatistics.TerminatedRequests})
 
     authorizationStatistics.EntityData.YListKeys = []string {}
@@ -2831,10 +2599,6 @@ type Subscriber_Manager_Nodes_Node_Statistics_Aaa_Authorization struct {
     // 0..18446744073709551615.
     ErroredRequests interface{}
 
-    // Incomplete requests - missing attributes. The type is interface{} with
-    // range: 0..18446744073709551615.
-    IncompleteRequests interface{}
-
     // Requests terminated by disconnect. The type is interface{} with range:
     // 0..18446744073709551615.
     TerminatedRequests interface{}
@@ -2859,7 +2623,6 @@ func (authorization *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Authorization)
     authorization.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authorization.RejectedRequests})
     authorization.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authorization.UnreachableRequests})
     authorization.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authorization.ErroredRequests})
-    authorization.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authorization.IncompleteRequests})
     authorization.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authorization.TerminatedRequests})
 
     authorization.EntityData.YListKeys = []string {}
@@ -2897,10 +2660,6 @@ type Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAuthorization struct 
     // 0..18446744073709551615.
     ErroredRequests interface{}
 
-    // Incomplete requests - missing attributes. The type is interface{} with
-    // range: 0..18446744073709551615.
-    IncompleteRequests interface{}
-
     // Requests terminated by disconnect. The type is interface{} with range:
     // 0..18446744073709551615.
     TerminatedRequests interface{}
@@ -2925,7 +2684,6 @@ func (aggregateAuthorization *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggre
     aggregateAuthorization.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", aggregateAuthorization.RejectedRequests})
     aggregateAuthorization.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", aggregateAuthorization.UnreachableRequests})
     aggregateAuthorization.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", aggregateAuthorization.ErroredRequests})
-    aggregateAuthorization.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", aggregateAuthorization.IncompleteRequests})
     aggregateAuthorization.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", aggregateAuthorization.TerminatedRequests})
 
     aggregateAuthorization.EntityData.YListKeys = []string {}
@@ -3416,10 +3174,6 @@ type Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccountingStatsAll_Au
     // 0..18446744073709551615.
     ErroredRequests interface{}
 
-    // Incomplete requests - missing attributes. The type is interface{} with
-    // range: 0..18446744073709551615.
-    IncompleteRequests interface{}
-
     // Requests terminated by disconnect. The type is interface{} with range:
     // 0..18446744073709551615.
     TerminatedRequests interface{}
@@ -3444,7 +3198,6 @@ func (authenticationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Agg
     authenticationStatistics.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authenticationStatistics.RejectedRequests})
     authenticationStatistics.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authenticationStatistics.UnreachableRequests})
     authenticationStatistics.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authenticationStatistics.ErroredRequests})
-    authenticationStatistics.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authenticationStatistics.IncompleteRequests})
     authenticationStatistics.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authenticationStatistics.TerminatedRequests})
 
     authenticationStatistics.EntityData.YListKeys = []string {}
@@ -3482,10 +3235,6 @@ type Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccountingStatsAll_Au
     // 0..18446744073709551615.
     ErroredRequests interface{}
 
-    // Incomplete requests - missing attributes. The type is interface{} with
-    // range: 0..18446744073709551615.
-    IncompleteRequests interface{}
-
     // Requests terminated by disconnect. The type is interface{} with range:
     // 0..18446744073709551615.
     TerminatedRequests interface{}
@@ -3510,7 +3259,6 @@ func (authorizationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggr
     authorizationStatistics.EntityData.Leafs.Append("rejected-requests", types.YLeaf{"RejectedRequests", authorizationStatistics.RejectedRequests})
     authorizationStatistics.EntityData.Leafs.Append("unreachable-requests", types.YLeaf{"UnreachableRequests", authorizationStatistics.UnreachableRequests})
     authorizationStatistics.EntityData.Leafs.Append("errored-requests", types.YLeaf{"ErroredRequests", authorizationStatistics.ErroredRequests})
-    authorizationStatistics.EntityData.Leafs.Append("incomplete-requests", types.YLeaf{"IncompleteRequests", authorizationStatistics.IncompleteRequests})
     authorizationStatistics.EntityData.Leafs.Append("terminated-requests", types.YLeaf{"TerminatedRequests", authorizationStatistics.TerminatedRequests})
 
     authorizationStatistics.EntityData.YListKeys = []string {}
@@ -5010,6 +4758,85 @@ func (aggregateSummary *Subscriber_Manager_Nodes_Node_Statistics_AggregateSummar
     return &(aggregateSummary.EntityData)
 }
 
+// Subscriber_Manager_Nodes_Node_Statistics_DisconnUnique
+// Disconnect Unique Summary statistics
+type Subscriber_Manager_Nodes_Node_Statistics_DisconnUnique struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of disconnect history items. The type is slice of
+    // Subscriber_Manager_Nodes_Node_Statistics_DisconnUnique_HistoryData.
+    HistoryData []*Subscriber_Manager_Nodes_Node_Statistics_DisconnUnique_HistoryData
+}
+
+func (disconnUnique *Subscriber_Manager_Nodes_Node_Statistics_DisconnUnique) GetEntityData() *types.CommonEntityData {
+    disconnUnique.EntityData.YFilter = disconnUnique.YFilter
+    disconnUnique.EntityData.YangName = "disconn-unique"
+    disconnUnique.EntityData.BundleName = "cisco_ios_xr"
+    disconnUnique.EntityData.ParentYangName = "statistics"
+    disconnUnique.EntityData.SegmentPath = "disconn-unique"
+    disconnUnique.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/" + disconnUnique.EntityData.SegmentPath
+    disconnUnique.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnUnique.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnUnique.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnUnique.EntityData.Children = types.NewOrderedMap()
+    disconnUnique.EntityData.Children.Append("history-data", types.YChild{"HistoryData", nil})
+    for i := range disconnUnique.HistoryData {
+        types.SetYListKey(disconnUnique.HistoryData[i], i)
+        disconnUnique.EntityData.Children.Append(types.GetSegmentPath(disconnUnique.HistoryData[i]), types.YChild{"HistoryData", disconnUnique.HistoryData[i]})
+    }
+    disconnUnique.EntityData.Leafs = types.NewOrderedMap()
+
+    disconnUnique.EntityData.YListKeys = []string {}
+
+    return &(disconnUnique.EntityData)
+}
+
+// Subscriber_Manager_Nodes_Node_Statistics_DisconnUnique_HistoryData
+// List of disconnect history items
+type Subscriber_Manager_Nodes_Node_Statistics_DisconnUnique_HistoryData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Disconnect reason. The type is string.
+    DiscReason interface{}
+
+    // Number of sessions that disconnected this way. The type is interface{} with
+    // range: 0..4294967295.
+    SessionCount interface{}
+
+    // Latest activity. The type is interface{} with range: 0..4294967295.
+    LatestActivity interface{}
+
+    // Interface name. The type is string.
+    IfName interface{}
+}
+
+func (historyData *Subscriber_Manager_Nodes_Node_Statistics_DisconnUnique_HistoryData) GetEntityData() *types.CommonEntityData {
+    historyData.EntityData.YFilter = historyData.YFilter
+    historyData.EntityData.YangName = "history-data"
+    historyData.EntityData.BundleName = "cisco_ios_xr"
+    historyData.EntityData.ParentYangName = "disconn-unique"
+    historyData.EntityData.SegmentPath = "history-data" + types.AddNoKeyToken(historyData)
+    historyData.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/disconn-unique/" + historyData.EntityData.SegmentPath
+    historyData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    historyData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    historyData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    historyData.EntityData.Children = types.NewOrderedMap()
+    historyData.EntityData.Leafs = types.NewOrderedMap()
+    historyData.EntityData.Leafs.Append("disc-reason", types.YLeaf{"DiscReason", historyData.DiscReason})
+    historyData.EntityData.Leafs.Append("session-count", types.YLeaf{"SessionCount", historyData.SessionCount})
+    historyData.EntityData.Leafs.Append("latest-activity", types.YLeaf{"LatestActivity", historyData.LatestActivity})
+    historyData.EntityData.Leafs.Append("if-name", types.YLeaf{"IfName", historyData.IfName})
+
+    historyData.EntityData.YListKeys = []string {}
+
+    return &(historyData.EntityData)
+}
+
 // Subscriber_Manager_Nodes_Node_Statistics_Srg
 // Geo Redundancy statistics
 type Subscriber_Manager_Nodes_Node_Statistics_Srg struct {
@@ -5363,6 +5190,9 @@ type Subscriber_Session_Nodes_Node struct {
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
+    // List of subscriber session supported srg roles.
+    SrgRoles Subscriber_Session_Nodes_Node_SrgRoles
+
     // Summary information filtered by authorization state.
     AuthorSummaries Subscriber_Session_Nodes_Node_AuthorSummaries
 
@@ -5415,6 +5245,7 @@ func (node *Subscriber_Session_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("srg-roles", types.YChild{"SrgRoles", &node.SrgRoles})
     node.EntityData.Children.Append("author-summaries", types.YChild{"AuthorSummaries", &node.AuthorSummaries})
     node.EntityData.Children.Append("summary", types.YChild{"Summary", &node.Summary})
     node.EntityData.Children.Append("mac-summaries", types.YChild{"MacSummaries", &node.MacSummaries})
@@ -5434,6 +5265,6371 @@ func (node *Subscriber_Session_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.YListKeys = []string {"NodeName"}
 
     return &(node.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles
+// List of subscriber session supported srg
+// roles
+type Subscriber_Session_Nodes_Node_SrgRoles struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Subscriber session operational data based on srg role. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole.
+    SrgRole []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole
+}
+
+func (srgRoles *Subscriber_Session_Nodes_Node_SrgRoles) GetEntityData() *types.CommonEntityData {
+    srgRoles.EntityData.YFilter = srgRoles.YFilter
+    srgRoles.EntityData.YangName = "srg-roles"
+    srgRoles.EntityData.BundleName = "cisco_ios_xr"
+    srgRoles.EntityData.ParentYangName = "node"
+    srgRoles.EntityData.SegmentPath = "srg-roles"
+    srgRoles.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + srgRoles.EntityData.SegmentPath
+    srgRoles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srgRoles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srgRoles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srgRoles.EntityData.Children = types.NewOrderedMap()
+    srgRoles.EntityData.Children.Append("srg-role", types.YChild{"SrgRole", nil})
+    for i := range srgRoles.SrgRole {
+        srgRoles.EntityData.Children.Append(types.GetSegmentPath(srgRoles.SrgRole[i]), types.YChild{"SrgRole", srgRoles.SrgRole[i]})
+    }
+    srgRoles.EntityData.Leafs = types.NewOrderedMap()
+
+    srgRoles.EntityData.YListKeys = []string {}
+
+    return &(srgRoles.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole
+// Subscriber session operational data based on
+// srg role
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Subscriber srg role. The type is
+    // SubscriberSrgOperFilterFlag.
+    Srg interface{}
+
+    // Summary information filtered by authorization state.
+    AuthorSummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries
+
+    // Summary information filtered by username.
+    UsernameSummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries
+
+    // Summary information filtered by MAC address.
+    MacSummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries
+
+    // Summary information filtered by interface.
+    InterfaceSummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries
+
+    // Summary information filtered by session state.
+    StateSummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries
+
+    // Summary information filtered by authentication state.
+    AuthenticationSummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries
+
+    // IP subscriber sessions.
+    SubscriberSessions Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions
+
+    // Summary information filtered by IPv4 address and VRF.
+    Ipv4AddressVrfSummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries
+
+    // Subscriber session summary information.
+    SrgSummary Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary
+
+    // Summary information filtered by access interface.
+    AccessInterfaceSummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries
+
+    // Summary information filtered by address family.
+    AddressFamilySummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries
+
+    // Summary information filtered by subscriber IPv4 address.
+    Ipv4AddressSummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries
+
+    // Summary information filtered by VRF.
+    VrfSummaries Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries
+}
+
+func (srgRole *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole) GetEntityData() *types.CommonEntityData {
+    srgRole.EntityData.YFilter = srgRole.YFilter
+    srgRole.EntityData.YangName = "srg-role"
+    srgRole.EntityData.BundleName = "cisco_ios_xr"
+    srgRole.EntityData.ParentYangName = "srg-roles"
+    srgRole.EntityData.SegmentPath = "srg-role" + types.AddKeyToken(srgRole.Srg, "srg")
+    srgRole.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/" + srgRole.EntityData.SegmentPath
+    srgRole.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srgRole.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srgRole.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srgRole.EntityData.Children = types.NewOrderedMap()
+    srgRole.EntityData.Children.Append("author-summaries", types.YChild{"AuthorSummaries", &srgRole.AuthorSummaries})
+    srgRole.EntityData.Children.Append("username-summaries", types.YChild{"UsernameSummaries", &srgRole.UsernameSummaries})
+    srgRole.EntityData.Children.Append("mac-summaries", types.YChild{"MacSummaries", &srgRole.MacSummaries})
+    srgRole.EntityData.Children.Append("interface-summaries", types.YChild{"InterfaceSummaries", &srgRole.InterfaceSummaries})
+    srgRole.EntityData.Children.Append("state-summaries", types.YChild{"StateSummaries", &srgRole.StateSummaries})
+    srgRole.EntityData.Children.Append("authentication-summaries", types.YChild{"AuthenticationSummaries", &srgRole.AuthenticationSummaries})
+    srgRole.EntityData.Children.Append("subscriber-sessions", types.YChild{"SubscriberSessions", &srgRole.SubscriberSessions})
+    srgRole.EntityData.Children.Append("ipv4-address-vrf-summaries", types.YChild{"Ipv4AddressVrfSummaries", &srgRole.Ipv4AddressVrfSummaries})
+    srgRole.EntityData.Children.Append("srg-summary", types.YChild{"SrgSummary", &srgRole.SrgSummary})
+    srgRole.EntityData.Children.Append("access-interface-summaries", types.YChild{"AccessInterfaceSummaries", &srgRole.AccessInterfaceSummaries})
+    srgRole.EntityData.Children.Append("address-family-summaries", types.YChild{"AddressFamilySummaries", &srgRole.AddressFamilySummaries})
+    srgRole.EntityData.Children.Append("ipv4-address-summaries", types.YChild{"Ipv4AddressSummaries", &srgRole.Ipv4AddressSummaries})
+    srgRole.EntityData.Children.Append("vrf-summaries", types.YChild{"VrfSummaries", &srgRole.VrfSummaries})
+    srgRole.EntityData.Leafs = types.NewOrderedMap()
+    srgRole.EntityData.Leafs.Append("srg", types.YLeaf{"Srg", srgRole.Srg})
+
+    srgRole.EntityData.YListKeys = []string {"Srg"}
+
+    return &(srgRole.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries
+// Summary information filtered by
+// authorization state
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // authorization summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary.
+    AuthorSummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary
+}
+
+func (authorSummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries) GetEntityData() *types.CommonEntityData {
+    authorSummaries.EntityData.YFilter = authorSummaries.YFilter
+    authorSummaries.EntityData.YangName = "author-summaries"
+    authorSummaries.EntityData.BundleName = "cisco_ios_xr"
+    authorSummaries.EntityData.ParentYangName = "srg-role"
+    authorSummaries.EntityData.SegmentPath = "author-summaries"
+    authorSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + authorSummaries.EntityData.SegmentPath
+    authorSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authorSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authorSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    authorSummaries.EntityData.Children = types.NewOrderedMap()
+    authorSummaries.EntityData.Children.Append("author-summary", types.YChild{"AuthorSummary", nil})
+    for i := range authorSummaries.AuthorSummary {
+        authorSummaries.EntityData.Children.Append(types.GetSegmentPath(authorSummaries.AuthorSummary[i]), types.YChild{"AuthorSummary", authorSummaries.AuthorSummary[i]})
+    }
+    authorSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    authorSummaries.EntityData.YListKeys = []string {}
+
+    return &(authorSummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary
+// authorization summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Authorization state. The type is
+    // SubscriberAuthorStateFilterFlag.
+    AuthorState interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr
+}
+
+func (authorSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary) GetEntityData() *types.CommonEntityData {
+    authorSummary.EntityData.YFilter = authorSummary.YFilter
+    authorSummary.EntityData.YangName = "author-summary"
+    authorSummary.EntityData.BundleName = "cisco_ios_xr"
+    authorSummary.EntityData.ParentYangName = "author-summaries"
+    authorSummary.EntityData.SegmentPath = "author-summary" + types.AddKeyToken(authorSummary.AuthorState, "author-state")
+    authorSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/author-summaries/" + authorSummary.EntityData.SegmentPath
+    authorSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authorSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authorSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    authorSummary.EntityData.Children = types.NewOrderedMap()
+    authorSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &authorSummary.StateXr})
+    authorSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &authorSummary.AddressFamilyXr})
+    authorSummary.EntityData.Leafs = types.NewOrderedMap()
+    authorSummary.EntityData.Leafs.Append("author-state", types.YLeaf{"AuthorState", authorSummary.AuthorState})
+
+    authorSummary.EntityData.YListKeys = []string {"AuthorState"}
+
+    return &(authorSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "author-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/author-summaries/author-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/author-summaries/author-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/author-summaries/author-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/author-summaries/author-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "author-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/author-summaries/author-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/author-summaries/author-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/author-summaries/author-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthorSummaries_AuthorSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/author-summaries/author-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries
+// Summary information filtered by username
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Username summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary.
+    UsernameSummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary
+}
+
+func (usernameSummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries) GetEntityData() *types.CommonEntityData {
+    usernameSummaries.EntityData.YFilter = usernameSummaries.YFilter
+    usernameSummaries.EntityData.YangName = "username-summaries"
+    usernameSummaries.EntityData.BundleName = "cisco_ios_xr"
+    usernameSummaries.EntityData.ParentYangName = "srg-role"
+    usernameSummaries.EntityData.SegmentPath = "username-summaries"
+    usernameSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + usernameSummaries.EntityData.SegmentPath
+    usernameSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    usernameSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    usernameSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    usernameSummaries.EntityData.Children = types.NewOrderedMap()
+    usernameSummaries.EntityData.Children.Append("username-summary", types.YChild{"UsernameSummary", nil})
+    for i := range usernameSummaries.UsernameSummary {
+        usernameSummaries.EntityData.Children.Append(types.GetSegmentPath(usernameSummaries.UsernameSummary[i]), types.YChild{"UsernameSummary", usernameSummaries.UsernameSummary[i]})
+    }
+    usernameSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    usernameSummaries.EntityData.YListKeys = []string {}
+
+    return &(usernameSummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary
+// Username summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Subscriber username. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Username interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr
+}
+
+func (usernameSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary) GetEntityData() *types.CommonEntityData {
+    usernameSummary.EntityData.YFilter = usernameSummary.YFilter
+    usernameSummary.EntityData.YangName = "username-summary"
+    usernameSummary.EntityData.BundleName = "cisco_ios_xr"
+    usernameSummary.EntityData.ParentYangName = "username-summaries"
+    usernameSummary.EntityData.SegmentPath = "username-summary" + types.AddKeyToken(usernameSummary.Username, "username")
+    usernameSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/username-summaries/" + usernameSummary.EntityData.SegmentPath
+    usernameSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    usernameSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    usernameSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    usernameSummary.EntityData.Children = types.NewOrderedMap()
+    usernameSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &usernameSummary.StateXr})
+    usernameSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &usernameSummary.AddressFamilyXr})
+    usernameSummary.EntityData.Leafs = types.NewOrderedMap()
+    usernameSummary.EntityData.Leafs.Append("username", types.YLeaf{"Username", usernameSummary.Username})
+
+    usernameSummary.EntityData.YListKeys = []string {"Username"}
+
+    return &(usernameSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "username-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/username-summaries/username-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/username-summaries/username-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/username-summaries/username-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/username-summaries/username-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "username-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/username-summaries/username-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/username-summaries/username-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/username-summaries/username-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/username-summaries/username-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries
+// Summary information filtered by MAC address
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC address summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary.
+    MacSummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary
+}
+
+func (macSummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries) GetEntityData() *types.CommonEntityData {
+    macSummaries.EntityData.YFilter = macSummaries.YFilter
+    macSummaries.EntityData.YangName = "mac-summaries"
+    macSummaries.EntityData.BundleName = "cisco_ios_xr"
+    macSummaries.EntityData.ParentYangName = "srg-role"
+    macSummaries.EntityData.SegmentPath = "mac-summaries"
+    macSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + macSummaries.EntityData.SegmentPath
+    macSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    macSummaries.EntityData.Children = types.NewOrderedMap()
+    macSummaries.EntityData.Children.Append("mac-summary", types.YChild{"MacSummary", nil})
+    for i := range macSummaries.MacSummary {
+        macSummaries.EntityData.Children.Append(types.GetSegmentPath(macSummaries.MacSummary[i]), types.YChild{"MacSummary", macSummaries.MacSummary[i]})
+    }
+    macSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    macSummaries.EntityData.YListKeys = []string {}
+
+    return &(macSummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary
+// MAC address summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Subscriber MAC address. The type is string with
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    MacAddress interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr
+}
+
+func (macSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary) GetEntityData() *types.CommonEntityData {
+    macSummary.EntityData.YFilter = macSummary.YFilter
+    macSummary.EntityData.YangName = "mac-summary"
+    macSummary.EntityData.BundleName = "cisco_ios_xr"
+    macSummary.EntityData.ParentYangName = "mac-summaries"
+    macSummary.EntityData.SegmentPath = "mac-summary" + types.AddKeyToken(macSummary.MacAddress, "mac-address")
+    macSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/mac-summaries/" + macSummary.EntityData.SegmentPath
+    macSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    macSummary.EntityData.Children = types.NewOrderedMap()
+    macSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &macSummary.StateXr})
+    macSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &macSummary.AddressFamilyXr})
+    macSummary.EntityData.Leafs = types.NewOrderedMap()
+    macSummary.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", macSummary.MacAddress})
+
+    macSummary.EntityData.YListKeys = []string {"MacAddress"}
+
+    return &(macSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "mac-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/mac-summaries/mac-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/mac-summaries/mac-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/mac-summaries/mac-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/mac-summaries/mac-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "mac-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/mac-summaries/mac-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/mac-summaries/mac-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/mac-summaries/mac-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/mac-summaries/mac-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries
+// Summary information filtered by interface
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Interface summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary.
+    InterfaceSummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary
+}
+
+func (interfaceSummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries) GetEntityData() *types.CommonEntityData {
+    interfaceSummaries.EntityData.YFilter = interfaceSummaries.YFilter
+    interfaceSummaries.EntityData.YangName = "interface-summaries"
+    interfaceSummaries.EntityData.BundleName = "cisco_ios_xr"
+    interfaceSummaries.EntityData.ParentYangName = "srg-role"
+    interfaceSummaries.EntityData.SegmentPath = "interface-summaries"
+    interfaceSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + interfaceSummaries.EntityData.SegmentPath
+    interfaceSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceSummaries.EntityData.Children = types.NewOrderedMap()
+    interfaceSummaries.EntityData.Children.Append("interface-summary", types.YChild{"InterfaceSummary", nil})
+    for i := range interfaceSummaries.InterfaceSummary {
+        interfaceSummaries.EntityData.Children.Append(types.GetSegmentPath(interfaceSummaries.InterfaceSummary[i]), types.YChild{"InterfaceSummary", interfaceSummaries.InterfaceSummary[i]})
+    }
+    interfaceSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaceSummaries.EntityData.YListKeys = []string {}
+
+    return &(interfaceSummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary
+// Interface summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Interface name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr
+}
+
+func (interfaceSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary) GetEntityData() *types.CommonEntityData {
+    interfaceSummary.EntityData.YFilter = interfaceSummary.YFilter
+    interfaceSummary.EntityData.YangName = "interface-summary"
+    interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
+    interfaceSummary.EntityData.ParentYangName = "interface-summaries"
+    interfaceSummary.EntityData.SegmentPath = "interface-summary" + types.AddKeyToken(interfaceSummary.InterfaceName, "interface-name")
+    interfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/interface-summaries/" + interfaceSummary.EntityData.SegmentPath
+    interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceSummary.EntityData.Children = types.NewOrderedMap()
+    interfaceSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &interfaceSummary.StateXr})
+    interfaceSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &interfaceSummary.AddressFamilyXr})
+    interfaceSummary.EntityData.Leafs = types.NewOrderedMap()
+    interfaceSummary.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceSummary.InterfaceName})
+
+    interfaceSummary.EntityData.YListKeys = []string {"InterfaceName"}
+
+    return &(interfaceSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "interface-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/interface-summaries/interface-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/interface-summaries/interface-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/interface-summaries/interface-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/interface-summaries/interface-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "interface-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/interface-summaries/interface-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/interface-summaries/interface-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/interface-summaries/interface-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_InterfaceSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/interface-summaries/interface-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries
+// Summary information filtered by session
+// state
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // State summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary.
+    StateSummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary
+}
+
+func (stateSummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries) GetEntityData() *types.CommonEntityData {
+    stateSummaries.EntityData.YFilter = stateSummaries.YFilter
+    stateSummaries.EntityData.YangName = "state-summaries"
+    stateSummaries.EntityData.BundleName = "cisco_ios_xr"
+    stateSummaries.EntityData.ParentYangName = "srg-role"
+    stateSummaries.EntityData.SegmentPath = "state-summaries"
+    stateSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + stateSummaries.EntityData.SegmentPath
+    stateSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateSummaries.EntityData.Children = types.NewOrderedMap()
+    stateSummaries.EntityData.Children.Append("state-summary", types.YChild{"StateSummary", nil})
+    for i := range stateSummaries.StateSummary {
+        stateSummaries.EntityData.Children.Append(types.GetSegmentPath(stateSummaries.StateSummary[i]), types.YChild{"StateSummary", stateSummaries.StateSummary[i]})
+    }
+    stateSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    stateSummaries.EntityData.YListKeys = []string {}
+
+    return &(stateSummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Subscriber state. The type is
+    // SubscriberStateFilterFlag.
+    State interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr
+}
+
+func (stateSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary) GetEntityData() *types.CommonEntityData {
+    stateSummary.EntityData.YFilter = stateSummary.YFilter
+    stateSummary.EntityData.YangName = "state-summary"
+    stateSummary.EntityData.BundleName = "cisco_ios_xr"
+    stateSummary.EntityData.ParentYangName = "state-summaries"
+    stateSummary.EntityData.SegmentPath = "state-summary" + types.AddKeyToken(stateSummary.State, "state")
+    stateSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/state-summaries/" + stateSummary.EntityData.SegmentPath
+    stateSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateSummary.EntityData.Children = types.NewOrderedMap()
+    stateSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &stateSummary.StateXr})
+    stateSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &stateSummary.AddressFamilyXr})
+    stateSummary.EntityData.Leafs = types.NewOrderedMap()
+    stateSummary.EntityData.Leafs.Append("state", types.YLeaf{"State", stateSummary.State})
+
+    stateSummary.EntityData.YListKeys = []string {"State"}
+
+    return &(stateSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "state-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/state-summaries/state-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/state-summaries/state-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/state-summaries/state-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/state-summaries/state-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "state-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/state-summaries/state-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/state-summaries/state-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/state-summaries/state-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_StateSummaries_StateSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/state-summaries/state-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries
+// Summary information filtered by
+// authentication state
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // authentication summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary.
+    AuthenticationSummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary
+}
+
+func (authenticationSummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries) GetEntityData() *types.CommonEntityData {
+    authenticationSummaries.EntityData.YFilter = authenticationSummaries.YFilter
+    authenticationSummaries.EntityData.YangName = "authentication-summaries"
+    authenticationSummaries.EntityData.BundleName = "cisco_ios_xr"
+    authenticationSummaries.EntityData.ParentYangName = "srg-role"
+    authenticationSummaries.EntityData.SegmentPath = "authentication-summaries"
+    authenticationSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + authenticationSummaries.EntityData.SegmentPath
+    authenticationSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authenticationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authenticationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    authenticationSummaries.EntityData.Children = types.NewOrderedMap()
+    authenticationSummaries.EntityData.Children.Append("authentication-summary", types.YChild{"AuthenticationSummary", nil})
+    for i := range authenticationSummaries.AuthenticationSummary {
+        authenticationSummaries.EntityData.Children.Append(types.GetSegmentPath(authenticationSummaries.AuthenticationSummary[i]), types.YChild{"AuthenticationSummary", authenticationSummaries.AuthenticationSummary[i]})
+    }
+    authenticationSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    authenticationSummaries.EntityData.YListKeys = []string {}
+
+    return &(authenticationSummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary
+// authentication summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Authentication state. The type is
+    // SubscriberAuthenStateFilterFlag.
+    AuthenticationState interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr
+}
+
+func (authenticationSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary) GetEntityData() *types.CommonEntityData {
+    authenticationSummary.EntityData.YFilter = authenticationSummary.YFilter
+    authenticationSummary.EntityData.YangName = "authentication-summary"
+    authenticationSummary.EntityData.BundleName = "cisco_ios_xr"
+    authenticationSummary.EntityData.ParentYangName = "authentication-summaries"
+    authenticationSummary.EntityData.SegmentPath = "authentication-summary" + types.AddKeyToken(authenticationSummary.AuthenticationState, "authentication-state")
+    authenticationSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/authentication-summaries/" + authenticationSummary.EntityData.SegmentPath
+    authenticationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authenticationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authenticationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    authenticationSummary.EntityData.Children = types.NewOrderedMap()
+    authenticationSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &authenticationSummary.StateXr})
+    authenticationSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &authenticationSummary.AddressFamilyXr})
+    authenticationSummary.EntityData.Leafs = types.NewOrderedMap()
+    authenticationSummary.EntityData.Leafs.Append("authentication-state", types.YLeaf{"AuthenticationState", authenticationSummary.AuthenticationState})
+
+    authenticationSummary.EntityData.YListKeys = []string {"AuthenticationState"}
+
+    return &(authenticationSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "authentication-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/authentication-summaries/authentication-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/authentication-summaries/authentication-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/authentication-summaries/authentication-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/authentication-summaries/authentication-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "authentication-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/authentication-summaries/authentication-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/authentication-summaries/authentication-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/authentication-summaries/authentication-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AuthenticationSummaries_AuthenticationSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/authentication-summaries/authentication-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions
+// IP subscriber sessions
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Subscriber session information. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession.
+    SubscriberSession []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession
+}
+
+func (subscriberSessions *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions) GetEntityData() *types.CommonEntityData {
+    subscriberSessions.EntityData.YFilter = subscriberSessions.YFilter
+    subscriberSessions.EntityData.YangName = "subscriber-sessions"
+    subscriberSessions.EntityData.BundleName = "cisco_ios_xr"
+    subscriberSessions.EntityData.ParentYangName = "srg-role"
+    subscriberSessions.EntityData.SegmentPath = "subscriber-sessions"
+    subscriberSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + subscriberSessions.EntityData.SegmentPath
+    subscriberSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    subscriberSessions.EntityData.Children = types.NewOrderedMap()
+    subscriberSessions.EntityData.Children.Append("subscriber-session", types.YChild{"SubscriberSession", nil})
+    for i := range subscriberSessions.SubscriberSession {
+        subscriberSessions.EntityData.Children.Append(types.GetSegmentPath(subscriberSessions.SubscriberSession[i]), types.YChild{"SubscriberSession", subscriberSessions.SubscriberSession[i]})
+    }
+    subscriberSessions.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriberSessions.EntityData.YListKeys = []string {}
+
+    return &(subscriberSessions.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession
+// Subscriber session information
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Session ID. The type is string with pattern:
+    // [0-9a-fA-F]{1,8}.
+    SessionId interface{}
+
+    // Subscriber session type. The type is IedgeOperSession.
+    SessionType interface{}
+
+    // PPPoE sub type. The type is IedgePppSub.
+    PppoeSubType interface{}
+
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+
+    // VRF name. The type is string.
+    VrfName interface{}
+
+    // Circuit ID. The type is string.
+    CircuitId interface{}
+
+    // Remote ID. The type is string.
+    RemoteId interface{}
+
+    // PPPoE LNS address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    LnsAddress interface{}
+
+    // PPPoE LAC address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    LacAddress interface{}
+
+    // PPPoE LAC tunnel client authentication ID. The type is string.
+    TunnelClientAuthenticationId interface{}
+
+    // PPPoE LAC tunnel server authentication ID. The type is string.
+    TunnelServerAuthenticationId interface{}
+
+    // Session ip address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    SessionIpAddress interface{}
+
+    // Session IPv6 address. The type is string.
+    SessionIpv6Address interface{}
+
+    // Session IPv6 prefix. The type is string.
+    SessionIpv6Prefix interface{}
+
+    // Session delegated IPv6 prefix. The type is string.
+    DelegatedIpv6Prefix interface{}
+
+    // IPv6 Interface ID. The type is string with pattern:
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    Ipv6InterfaceId interface{}
+
+    // MAC address. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    MacAddress interface{}
+
+    // Accounting session ID. The type is string.
+    AccountSessionId interface{}
+
+    // NAS port. The type is string.
+    NasPort interface{}
+
+    // Username. The type is string.
+    Username interface{}
+
+    // Client Username. The type is string.
+    Clientname interface{}
+
+    // Formatted Username. The type is string.
+    Formattedname interface{}
+
+    // If true, session is authentic. The type is bool.
+    IsSessionAuthentic interface{}
+
+    // If true, session is authorized. The type is bool.
+    IsSessionAuthor interface{}
+
+    // Session state. The type is IedgeOperSessionState.
+    SessionState interface{}
+
+    // Session creation time in epoch seconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    SessionCreationTimeEpoch interface{}
+
+    // Time when idle state change occurred in DDD MMM DD HH:MM:SS YYYY format eg:
+    // Tue Apr 11 21:30:47 2011. The type is string.
+    IdleStateChangeTime interface{}
+
+    // Total session idle time (in seconds). The type is interface{} with range:
+    // 0..4294967295. Units are second.
+    TotalSessionIdleTime interface{}
+
+    // Access interface name associated with the session. The type is string with
+    // pattern: [a-zA-Z0-9._/-]+.
+    AccessInterfaceName interface{}
+
+    // Accounting information.
+    Accounting Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_Accounting
+
+    // Subscriber control policy applied to this session. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SubPolicyData.
+    SubPolicyData []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SubPolicyData
+
+    // List of subscriber services associated to this session. The type is slice
+    // of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SessionServiceInfo.
+    SessionServiceInfo []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SessionServiceInfo
+
+    // Subscriber change of authorization information. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SessionChangeOfAuthorization.
+    SessionChangeOfAuthorization []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SessionChangeOfAuthorization
+}
+
+func (subscriberSession *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession) GetEntityData() *types.CommonEntityData {
+    subscriberSession.EntityData.YFilter = subscriberSession.YFilter
+    subscriberSession.EntityData.YangName = "subscriber-session"
+    subscriberSession.EntityData.BundleName = "cisco_ios_xr"
+    subscriberSession.EntityData.ParentYangName = "subscriber-sessions"
+    subscriberSession.EntityData.SegmentPath = "subscriber-session" + types.AddKeyToken(subscriberSession.SessionId, "session-id")
+    subscriberSession.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/subscriber-sessions/" + subscriberSession.EntityData.SegmentPath
+    subscriberSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    subscriberSession.EntityData.Children = types.NewOrderedMap()
+    subscriberSession.EntityData.Children.Append("accounting", types.YChild{"Accounting", &subscriberSession.Accounting})
+    subscriberSession.EntityData.Children.Append("sub-policy-data", types.YChild{"SubPolicyData", nil})
+    for i := range subscriberSession.SubPolicyData {
+        types.SetYListKey(subscriberSession.SubPolicyData[i], i)
+        subscriberSession.EntityData.Children.Append(types.GetSegmentPath(subscriberSession.SubPolicyData[i]), types.YChild{"SubPolicyData", subscriberSession.SubPolicyData[i]})
+    }
+    subscriberSession.EntityData.Children.Append("session-service-info", types.YChild{"SessionServiceInfo", nil})
+    for i := range subscriberSession.SessionServiceInfo {
+        types.SetYListKey(subscriberSession.SessionServiceInfo[i], i)
+        subscriberSession.EntityData.Children.Append(types.GetSegmentPath(subscriberSession.SessionServiceInfo[i]), types.YChild{"SessionServiceInfo", subscriberSession.SessionServiceInfo[i]})
+    }
+    subscriberSession.EntityData.Children.Append("session-change-of-authorization", types.YChild{"SessionChangeOfAuthorization", nil})
+    for i := range subscriberSession.SessionChangeOfAuthorization {
+        types.SetYListKey(subscriberSession.SessionChangeOfAuthorization[i], i)
+        subscriberSession.EntityData.Children.Append(types.GetSegmentPath(subscriberSession.SessionChangeOfAuthorization[i]), types.YChild{"SessionChangeOfAuthorization", subscriberSession.SessionChangeOfAuthorization[i]})
+    }
+    subscriberSession.EntityData.Leafs = types.NewOrderedMap()
+    subscriberSession.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", subscriberSession.SessionId})
+    subscriberSession.EntityData.Leafs.Append("session-type", types.YLeaf{"SessionType", subscriberSession.SessionType})
+    subscriberSession.EntityData.Leafs.Append("pppoe-sub-type", types.YLeaf{"PppoeSubType", subscriberSession.PppoeSubType})
+    subscriberSession.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", subscriberSession.InterfaceName})
+    subscriberSession.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", subscriberSession.VrfName})
+    subscriberSession.EntityData.Leafs.Append("circuit-id", types.YLeaf{"CircuitId", subscriberSession.CircuitId})
+    subscriberSession.EntityData.Leafs.Append("remote-id", types.YLeaf{"RemoteId", subscriberSession.RemoteId})
+    subscriberSession.EntityData.Leafs.Append("lns-address", types.YLeaf{"LnsAddress", subscriberSession.LnsAddress})
+    subscriberSession.EntityData.Leafs.Append("lac-address", types.YLeaf{"LacAddress", subscriberSession.LacAddress})
+    subscriberSession.EntityData.Leafs.Append("tunnel-client-authentication-id", types.YLeaf{"TunnelClientAuthenticationId", subscriberSession.TunnelClientAuthenticationId})
+    subscriberSession.EntityData.Leafs.Append("tunnel-server-authentication-id", types.YLeaf{"TunnelServerAuthenticationId", subscriberSession.TunnelServerAuthenticationId})
+    subscriberSession.EntityData.Leafs.Append("session-ip-address", types.YLeaf{"SessionIpAddress", subscriberSession.SessionIpAddress})
+    subscriberSession.EntityData.Leafs.Append("session-ipv6-address", types.YLeaf{"SessionIpv6Address", subscriberSession.SessionIpv6Address})
+    subscriberSession.EntityData.Leafs.Append("session-ipv6-prefix", types.YLeaf{"SessionIpv6Prefix", subscriberSession.SessionIpv6Prefix})
+    subscriberSession.EntityData.Leafs.Append("delegated-ipv6-prefix", types.YLeaf{"DelegatedIpv6Prefix", subscriberSession.DelegatedIpv6Prefix})
+    subscriberSession.EntityData.Leafs.Append("ipv6-interface-id", types.YLeaf{"Ipv6InterfaceId", subscriberSession.Ipv6InterfaceId})
+    subscriberSession.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", subscriberSession.MacAddress})
+    subscriberSession.EntityData.Leafs.Append("account-session-id", types.YLeaf{"AccountSessionId", subscriberSession.AccountSessionId})
+    subscriberSession.EntityData.Leafs.Append("nas-port", types.YLeaf{"NasPort", subscriberSession.NasPort})
+    subscriberSession.EntityData.Leafs.Append("username", types.YLeaf{"Username", subscriberSession.Username})
+    subscriberSession.EntityData.Leafs.Append("clientname", types.YLeaf{"Clientname", subscriberSession.Clientname})
+    subscriberSession.EntityData.Leafs.Append("formattedname", types.YLeaf{"Formattedname", subscriberSession.Formattedname})
+    subscriberSession.EntityData.Leafs.Append("is-session-authentic", types.YLeaf{"IsSessionAuthentic", subscriberSession.IsSessionAuthentic})
+    subscriberSession.EntityData.Leafs.Append("is-session-author", types.YLeaf{"IsSessionAuthor", subscriberSession.IsSessionAuthor})
+    subscriberSession.EntityData.Leafs.Append("session-state", types.YLeaf{"SessionState", subscriberSession.SessionState})
+    subscriberSession.EntityData.Leafs.Append("session-creation-time-epoch", types.YLeaf{"SessionCreationTimeEpoch", subscriberSession.SessionCreationTimeEpoch})
+    subscriberSession.EntityData.Leafs.Append("idle-state-change-time", types.YLeaf{"IdleStateChangeTime", subscriberSession.IdleStateChangeTime})
+    subscriberSession.EntityData.Leafs.Append("total-session-idle-time", types.YLeaf{"TotalSessionIdleTime", subscriberSession.TotalSessionIdleTime})
+    subscriberSession.EntityData.Leafs.Append("access-interface-name", types.YLeaf{"AccessInterfaceName", subscriberSession.AccessInterfaceName})
+
+    subscriberSession.EntityData.YListKeys = []string {"SessionId"}
+
+    return &(subscriberSession.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_Accounting
+// Accounting information
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_Accounting struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Accounting information. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_Accounting_AccountingSession.
+    AccountingSession []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_Accounting_AccountingSession
+}
+
+func (accounting *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "subscriber-session"
+    accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/subscriber-sessions/subscriber-session/" + accounting.EntityData.SegmentPath
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Children.Append("accounting-session", types.YChild{"AccountingSession", nil})
+    for i := range accounting.AccountingSession {
+        types.SetYListKey(accounting.AccountingSession[i], i)
+        accounting.EntityData.Children.Append(types.GetSegmentPath(accounting.AccountingSession[i]), types.YChild{"AccountingSession", accounting.AccountingSession[i]})
+    }
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+
+    accounting.EntityData.YListKeys = []string {}
+
+    return &(accounting.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_Accounting_AccountingSession
+// Accounting information
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_Accounting_AccountingSession struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Accounting State Error Code for Accounting Session. The type is interface{}
+    // with range: 0..4294967295.
+    AccountingStateRc interface{}
+
+    // Accounting Stop State. The type is interface{} with range: 0..4294967295.
+    AccountingStopState interface{}
+
+    // Accounting record context name. The type is string.
+    RecordContextName interface{}
+
+    // AAA method list name used to perform accounting. The type is string.
+    MethodListName interface{}
+
+    // Accounting session ID. The type is string.
+    AccountSessionId interface{}
+
+    // Accounting start time in epoch-seconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    AccountingStartTimeEpoch interface{}
+
+    // True if interim accounting is enabled. The type is bool.
+    IsInterimAccountingEnabled interface{}
+
+    // Interim accounting interval (in minutes). The type is interface{} with
+    // range: 0..4294967295. Units are minute.
+    InterimInterval interface{}
+
+    // Time of last successful interim update in epoch-seconds . The type is
+    // interface{} with range: 0..18446744073709551615. Units are second.
+    LastSuccessfulInterimUpdateTimeEpoch interface{}
+
+    // Time of next interim update attempt (in seconds). The type is interface{}
+    // with range: 0..4294967295. Units are second.
+    NextInterimUpdateAttemptTime interface{}
+
+    // Time of last interim update attempt in epoch-seconds. The type is
+    // interface{} with range: 0..18446744073709551615. Units are second.
+    LastInterimUpdateAttemptTimeEpoch interface{}
+
+    // Number of interim updates sent. The type is interface{} with range:
+    // 0..4294967295.
+    SentInterimUpdates interface{}
+
+    // Number of interim updates accepted. The type is interface{} with range:
+    // 0..4294967295.
+    AcceptedInterimUpdates interface{}
+
+    // Number of interim updates rejected. The type is interface{} with range:
+    // 0..4294967295.
+    RejectedInterimUpdates interface{}
+
+    // Number of interim update send failures. The type is interface{} with range:
+    // 0..4294967295.
+    SentInterimUpdateFailures interface{}
+}
+
+func (accountingSession *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_Accounting_AccountingSession) GetEntityData() *types.CommonEntityData {
+    accountingSession.EntityData.YFilter = accountingSession.YFilter
+    accountingSession.EntityData.YangName = "accounting-session"
+    accountingSession.EntityData.BundleName = "cisco_ios_xr"
+    accountingSession.EntityData.ParentYangName = "accounting"
+    accountingSession.EntityData.SegmentPath = "accounting-session" + types.AddNoKeyToken(accountingSession)
+    accountingSession.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/subscriber-sessions/subscriber-session/accounting/" + accountingSession.EntityData.SegmentPath
+    accountingSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accountingSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accountingSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accountingSession.EntityData.Children = types.NewOrderedMap()
+    accountingSession.EntityData.Leafs = types.NewOrderedMap()
+    accountingSession.EntityData.Leafs.Append("accounting-state-rc", types.YLeaf{"AccountingStateRc", accountingSession.AccountingStateRc})
+    accountingSession.EntityData.Leafs.Append("accounting-stop-state", types.YLeaf{"AccountingStopState", accountingSession.AccountingStopState})
+    accountingSession.EntityData.Leafs.Append("record-context-name", types.YLeaf{"RecordContextName", accountingSession.RecordContextName})
+    accountingSession.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", accountingSession.MethodListName})
+    accountingSession.EntityData.Leafs.Append("account-session-id", types.YLeaf{"AccountSessionId", accountingSession.AccountSessionId})
+    accountingSession.EntityData.Leafs.Append("accounting-start-time-epoch", types.YLeaf{"AccountingStartTimeEpoch", accountingSession.AccountingStartTimeEpoch})
+    accountingSession.EntityData.Leafs.Append("is-interim-accounting-enabled", types.YLeaf{"IsInterimAccountingEnabled", accountingSession.IsInterimAccountingEnabled})
+    accountingSession.EntityData.Leafs.Append("interim-interval", types.YLeaf{"InterimInterval", accountingSession.InterimInterval})
+    accountingSession.EntityData.Leafs.Append("last-successful-interim-update-time-epoch", types.YLeaf{"LastSuccessfulInterimUpdateTimeEpoch", accountingSession.LastSuccessfulInterimUpdateTimeEpoch})
+    accountingSession.EntityData.Leafs.Append("next-interim-update-attempt-time", types.YLeaf{"NextInterimUpdateAttemptTime", accountingSession.NextInterimUpdateAttemptTime})
+    accountingSession.EntityData.Leafs.Append("last-interim-update-attempt-time-epoch", types.YLeaf{"LastInterimUpdateAttemptTimeEpoch", accountingSession.LastInterimUpdateAttemptTimeEpoch})
+    accountingSession.EntityData.Leafs.Append("sent-interim-updates", types.YLeaf{"SentInterimUpdates", accountingSession.SentInterimUpdates})
+    accountingSession.EntityData.Leafs.Append("accepted-interim-updates", types.YLeaf{"AcceptedInterimUpdates", accountingSession.AcceptedInterimUpdates})
+    accountingSession.EntityData.Leafs.Append("rejected-interim-updates", types.YLeaf{"RejectedInterimUpdates", accountingSession.RejectedInterimUpdates})
+    accountingSession.EntityData.Leafs.Append("sent-interim-update-failures", types.YLeaf{"SentInterimUpdateFailures", accountingSession.SentInterimUpdateFailures})
+
+    accountingSession.EntityData.YListKeys = []string {}
+
+    return &(accountingSession.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SubPolicyData
+// Subscriber control policy applied to this
+// session
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SubPolicyData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Matching event, condition and executed actions. The type is string.
+    PolicyEpoch interface{}
+}
+
+func (subPolicyData *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SubPolicyData) GetEntityData() *types.CommonEntityData {
+    subPolicyData.EntityData.YFilter = subPolicyData.YFilter
+    subPolicyData.EntityData.YangName = "sub-policy-data"
+    subPolicyData.EntityData.BundleName = "cisco_ios_xr"
+    subPolicyData.EntityData.ParentYangName = "subscriber-session"
+    subPolicyData.EntityData.SegmentPath = "sub-policy-data" + types.AddNoKeyToken(subPolicyData)
+    subPolicyData.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/subscriber-sessions/subscriber-session/" + subPolicyData.EntityData.SegmentPath
+    subPolicyData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subPolicyData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subPolicyData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    subPolicyData.EntityData.Children = types.NewOrderedMap()
+    subPolicyData.EntityData.Leafs = types.NewOrderedMap()
+    subPolicyData.EntityData.Leafs.Append("policy-epoch", types.YLeaf{"PolicyEpoch", subPolicyData.PolicyEpoch})
+
+    subPolicyData.EntityData.YListKeys = []string {}
+
+    return &(subPolicyData.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SessionServiceInfo
+// List of subscriber services associated to this
+// session
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SessionServiceInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // ServiceName. The type is string.
+    ServiceName interface{}
+
+    // ServiceParams. The type is string.
+    ServiceParams interface{}
+
+    // ServiceType. The type is IedgeOperService.
+    ServiceType interface{}
+
+    // ServiceStatus. The type is IedgeOperServiceStatus.
+    ServiceStatus interface{}
+
+    // ServiceIdentifier. The type is interface{} with range: 0..4294967295.
+    ServiceId interface{}
+
+    // ServicePrepaid. The type is bool.
+    ServicePrepaid interface{}
+}
+
+func (sessionServiceInfo *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SessionServiceInfo) GetEntityData() *types.CommonEntityData {
+    sessionServiceInfo.EntityData.YFilter = sessionServiceInfo.YFilter
+    sessionServiceInfo.EntityData.YangName = "session-service-info"
+    sessionServiceInfo.EntityData.BundleName = "cisco_ios_xr"
+    sessionServiceInfo.EntityData.ParentYangName = "subscriber-session"
+    sessionServiceInfo.EntityData.SegmentPath = "session-service-info" + types.AddNoKeyToken(sessionServiceInfo)
+    sessionServiceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/subscriber-sessions/subscriber-session/" + sessionServiceInfo.EntityData.SegmentPath
+    sessionServiceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionServiceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionServiceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sessionServiceInfo.EntityData.Children = types.NewOrderedMap()
+    sessionServiceInfo.EntityData.Leafs = types.NewOrderedMap()
+    sessionServiceInfo.EntityData.Leafs.Append("service-name", types.YLeaf{"ServiceName", sessionServiceInfo.ServiceName})
+    sessionServiceInfo.EntityData.Leafs.Append("service-params", types.YLeaf{"ServiceParams", sessionServiceInfo.ServiceParams})
+    sessionServiceInfo.EntityData.Leafs.Append("service-type", types.YLeaf{"ServiceType", sessionServiceInfo.ServiceType})
+    sessionServiceInfo.EntityData.Leafs.Append("service-status", types.YLeaf{"ServiceStatus", sessionServiceInfo.ServiceStatus})
+    sessionServiceInfo.EntityData.Leafs.Append("service-id", types.YLeaf{"ServiceId", sessionServiceInfo.ServiceId})
+    sessionServiceInfo.EntityData.Leafs.Append("service-prepaid", types.YLeaf{"ServicePrepaid", sessionServiceInfo.ServicePrepaid})
+
+    sessionServiceInfo.EntityData.YListKeys = []string {}
+
+    return &(sessionServiceInfo.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SessionChangeOfAuthorization
+// Subscriber change of authorization information
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SessionChangeOfAuthorization struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Coa Request Acked. The type is bool.
+    RequestAcked interface{}
+
+    // Request time in epoch seconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    RequestTimeEpoch interface{}
+
+    // Reply time in epoch seconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    ReplyTimeEpoch interface{}
+}
+
+func (sessionChangeOfAuthorization *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_SubscriberSession_SessionChangeOfAuthorization) GetEntityData() *types.CommonEntityData {
+    sessionChangeOfAuthorization.EntityData.YFilter = sessionChangeOfAuthorization.YFilter
+    sessionChangeOfAuthorization.EntityData.YangName = "session-change-of-authorization"
+    sessionChangeOfAuthorization.EntityData.BundleName = "cisco_ios_xr"
+    sessionChangeOfAuthorization.EntityData.ParentYangName = "subscriber-session"
+    sessionChangeOfAuthorization.EntityData.SegmentPath = "session-change-of-authorization" + types.AddNoKeyToken(sessionChangeOfAuthorization)
+    sessionChangeOfAuthorization.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/subscriber-sessions/subscriber-session/" + sessionChangeOfAuthorization.EntityData.SegmentPath
+    sessionChangeOfAuthorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionChangeOfAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionChangeOfAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sessionChangeOfAuthorization.EntityData.Children = types.NewOrderedMap()
+    sessionChangeOfAuthorization.EntityData.Leafs = types.NewOrderedMap()
+    sessionChangeOfAuthorization.EntityData.Leafs.Append("request-acked", types.YLeaf{"RequestAcked", sessionChangeOfAuthorization.RequestAcked})
+    sessionChangeOfAuthorization.EntityData.Leafs.Append("request-time-epoch", types.YLeaf{"RequestTimeEpoch", sessionChangeOfAuthorization.RequestTimeEpoch})
+    sessionChangeOfAuthorization.EntityData.Leafs.Append("reply-time-epoch", types.YLeaf{"ReplyTimeEpoch", sessionChangeOfAuthorization.ReplyTimeEpoch})
+
+    sessionChangeOfAuthorization.EntityData.YListKeys = []string {}
+
+    return &(sessionChangeOfAuthorization.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries
+// Summary information filtered by IPv4
+// address and VRF
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 address and VRF summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary.
+    Ipv4AddressVrfSummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary
+}
+
+func (ipv4AddressVrfSummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries) GetEntityData() *types.CommonEntityData {
+    ipv4AddressVrfSummaries.EntityData.YFilter = ipv4AddressVrfSummaries.YFilter
+    ipv4AddressVrfSummaries.EntityData.YangName = "ipv4-address-vrf-summaries"
+    ipv4AddressVrfSummaries.EntityData.BundleName = "cisco_ios_xr"
+    ipv4AddressVrfSummaries.EntityData.ParentYangName = "srg-role"
+    ipv4AddressVrfSummaries.EntityData.SegmentPath = "ipv4-address-vrf-summaries"
+    ipv4AddressVrfSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + ipv4AddressVrfSummaries.EntityData.SegmentPath
+    ipv4AddressVrfSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4AddressVrfSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4AddressVrfSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4AddressVrfSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv4AddressVrfSummaries.EntityData.Children.Append("ipv4-address-vrf-summary", types.YChild{"Ipv4AddressVrfSummary", nil})
+    for i := range ipv4AddressVrfSummaries.Ipv4AddressVrfSummary {
+        types.SetYListKey(ipv4AddressVrfSummaries.Ipv4AddressVrfSummary[i], i)
+        ipv4AddressVrfSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv4AddressVrfSummaries.Ipv4AddressVrfSummary[i]), types.YChild{"Ipv4AddressVrfSummary", ipv4AddressVrfSummaries.Ipv4AddressVrfSummary[i]})
+    }
+    ipv4AddressVrfSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4AddressVrfSummaries.EntityData.YListKeys = []string {}
+
+    return &(ipv4AddressVrfSummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary
+// IPv4 address and VRF summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    VrfName interface{}
+
+    // Subscriber IPv4 address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr
+}
+
+func (ipv4AddressVrfSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary) GetEntityData() *types.CommonEntityData {
+    ipv4AddressVrfSummary.EntityData.YFilter = ipv4AddressVrfSummary.YFilter
+    ipv4AddressVrfSummary.EntityData.YangName = "ipv4-address-vrf-summary"
+    ipv4AddressVrfSummary.EntityData.BundleName = "cisco_ios_xr"
+    ipv4AddressVrfSummary.EntityData.ParentYangName = "ipv4-address-vrf-summaries"
+    ipv4AddressVrfSummary.EntityData.SegmentPath = "ipv4-address-vrf-summary" + types.AddNoKeyToken(ipv4AddressVrfSummary)
+    ipv4AddressVrfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-vrf-summaries/" + ipv4AddressVrfSummary.EntityData.SegmentPath
+    ipv4AddressVrfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4AddressVrfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4AddressVrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4AddressVrfSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4AddressVrfSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &ipv4AddressVrfSummary.StateXr})
+    ipv4AddressVrfSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &ipv4AddressVrfSummary.AddressFamilyXr})
+    ipv4AddressVrfSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv4AddressVrfSummary.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4AddressVrfSummary.VrfName})
+    ipv4AddressVrfSummary.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv4AddressVrfSummary.Address})
+
+    ipv4AddressVrfSummary.EntityData.YListKeys = []string {}
+
+    return &(ipv4AddressVrfSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "ipv4-address-vrf-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "ipv4-address-vrf-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary
+// Subscriber session summary information
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr
+}
+
+func (srgSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary) GetEntityData() *types.CommonEntityData {
+    srgSummary.EntityData.YFilter = srgSummary.YFilter
+    srgSummary.EntityData.YangName = "srg-summary"
+    srgSummary.EntityData.BundleName = "cisco_ios_xr"
+    srgSummary.EntityData.ParentYangName = "srg-role"
+    srgSummary.EntityData.SegmentPath = "srg-summary"
+    srgSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + srgSummary.EntityData.SegmentPath
+    srgSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srgSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srgSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srgSummary.EntityData.Children = types.NewOrderedMap()
+    srgSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &srgSummary.StateXr})
+    srgSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &srgSummary.AddressFamilyXr})
+    srgSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    srgSummary.EntityData.YListKeys = []string {}
+
+    return &(srgSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "srg-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/srg-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/srg-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/srg-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/srg-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "srg-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/srg-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/srg-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/srg-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SrgSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/srg-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries
+// Summary information filtered by access
+// interface
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Access interface summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary.
+    AccessInterfaceSummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary
+}
+
+func (accessInterfaceSummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries) GetEntityData() *types.CommonEntityData {
+    accessInterfaceSummaries.EntityData.YFilter = accessInterfaceSummaries.YFilter
+    accessInterfaceSummaries.EntityData.YangName = "access-interface-summaries"
+    accessInterfaceSummaries.EntityData.BundleName = "cisco_ios_xr"
+    accessInterfaceSummaries.EntityData.ParentYangName = "srg-role"
+    accessInterfaceSummaries.EntityData.SegmentPath = "access-interface-summaries"
+    accessInterfaceSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + accessInterfaceSummaries.EntityData.SegmentPath
+    accessInterfaceSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessInterfaceSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessInterfaceSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accessInterfaceSummaries.EntityData.Children = types.NewOrderedMap()
+    accessInterfaceSummaries.EntityData.Children.Append("access-interface-summary", types.YChild{"AccessInterfaceSummary", nil})
+    for i := range accessInterfaceSummaries.AccessInterfaceSummary {
+        accessInterfaceSummaries.EntityData.Children.Append(types.GetSegmentPath(accessInterfaceSummaries.AccessInterfaceSummary[i]), types.YChild{"AccessInterfaceSummary", accessInterfaceSummaries.AccessInterfaceSummary[i]})
+    }
+    accessInterfaceSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    accessInterfaceSummaries.EntityData.YListKeys = []string {}
+
+    return &(accessInterfaceSummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary
+// Access interface summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Interface name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr
+}
+
+func (accessInterfaceSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary) GetEntityData() *types.CommonEntityData {
+    accessInterfaceSummary.EntityData.YFilter = accessInterfaceSummary.YFilter
+    accessInterfaceSummary.EntityData.YangName = "access-interface-summary"
+    accessInterfaceSummary.EntityData.BundleName = "cisco_ios_xr"
+    accessInterfaceSummary.EntityData.ParentYangName = "access-interface-summaries"
+    accessInterfaceSummary.EntityData.SegmentPath = "access-interface-summary" + types.AddKeyToken(accessInterfaceSummary.InterfaceName, "interface-name")
+    accessInterfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/access-interface-summaries/" + accessInterfaceSummary.EntityData.SegmentPath
+    accessInterfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessInterfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessInterfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accessInterfaceSummary.EntityData.Children = types.NewOrderedMap()
+    accessInterfaceSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &accessInterfaceSummary.StateXr})
+    accessInterfaceSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &accessInterfaceSummary.AddressFamilyXr})
+    accessInterfaceSummary.EntityData.Leafs = types.NewOrderedMap()
+    accessInterfaceSummary.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", accessInterfaceSummary.InterfaceName})
+
+    accessInterfaceSummary.EntityData.YListKeys = []string {"InterfaceName"}
+
+    return &(accessInterfaceSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "access-interface-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/access-interface-summaries/access-interface-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/access-interface-summaries/access-interface-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/access-interface-summaries/access-interface-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/access-interface-summaries/access-interface-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "access-interface-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/access-interface-summaries/access-interface-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/access-interface-summaries/access-interface-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/access-interface-summaries/access-interface-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_AccessInterfaceSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/access-interface-summaries/access-interface-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries
+// Summary information filtered by address
+// family
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Address family summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary.
+    AddressFamilySummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary
+}
+
+func (addressFamilySummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries) GetEntityData() *types.CommonEntityData {
+    addressFamilySummaries.EntityData.YFilter = addressFamilySummaries.YFilter
+    addressFamilySummaries.EntityData.YangName = "address-family-summaries"
+    addressFamilySummaries.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilySummaries.EntityData.ParentYangName = "srg-role"
+    addressFamilySummaries.EntityData.SegmentPath = "address-family-summaries"
+    addressFamilySummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + addressFamilySummaries.EntityData.SegmentPath
+    addressFamilySummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilySummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilySummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilySummaries.EntityData.Children = types.NewOrderedMap()
+    addressFamilySummaries.EntityData.Children.Append("address-family-summary", types.YChild{"AddressFamilySummary", nil})
+    for i := range addressFamilySummaries.AddressFamilySummary {
+        addressFamilySummaries.EntityData.Children.Append(types.GetSegmentPath(addressFamilySummaries.AddressFamilySummary[i]), types.YChild{"AddressFamilySummary", addressFamilySummaries.AddressFamilySummary[i]})
+    }
+    addressFamilySummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilySummaries.EntityData.YListKeys = []string {}
+
+    return &(addressFamilySummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Address family. The type is
+    // SubscriberAddressFamilyFilterFlag.
+    AddressFamily interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr
+}
+
+func (addressFamilySummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary) GetEntityData() *types.CommonEntityData {
+    addressFamilySummary.EntityData.YFilter = addressFamilySummary.YFilter
+    addressFamilySummary.EntityData.YangName = "address-family-summary"
+    addressFamilySummary.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilySummary.EntityData.ParentYangName = "address-family-summaries"
+    addressFamilySummary.EntityData.SegmentPath = "address-family-summary" + types.AddKeyToken(addressFamilySummary.AddressFamily, "address-family")
+    addressFamilySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/address-family-summaries/" + addressFamilySummary.EntityData.SegmentPath
+    addressFamilySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilySummary.EntityData.Children = types.NewOrderedMap()
+    addressFamilySummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &addressFamilySummary.StateXr})
+    addressFamilySummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &addressFamilySummary.AddressFamilyXr})
+    addressFamilySummary.EntityData.Leafs = types.NewOrderedMap()
+    addressFamilySummary.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", addressFamilySummary.AddressFamily})
+
+    addressFamilySummary.EntityData.YListKeys = []string {"AddressFamily"}
+
+    return &(addressFamilySummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "address-family-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/address-family-summaries/address-family-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/address-family-summaries/address-family-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/address-family-summaries/address-family-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/address-family-summaries/address-family-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "address-family-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/address-family-summaries/address-family-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/address-family-summaries/address-family-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/address-family-summaries/address-family-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AddressFamilySummaries_AddressFamilySummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/address-family-summaries/address-family-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries
+// Summary information filtered by subscriber
+// IPv4 address
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 address summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary.
+    Ipv4AddressSummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary
+}
+
+func (ipv4AddressSummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries) GetEntityData() *types.CommonEntityData {
+    ipv4AddressSummaries.EntityData.YFilter = ipv4AddressSummaries.YFilter
+    ipv4AddressSummaries.EntityData.YangName = "ipv4-address-summaries"
+    ipv4AddressSummaries.EntityData.BundleName = "cisco_ios_xr"
+    ipv4AddressSummaries.EntityData.ParentYangName = "srg-role"
+    ipv4AddressSummaries.EntityData.SegmentPath = "ipv4-address-summaries"
+    ipv4AddressSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + ipv4AddressSummaries.EntityData.SegmentPath
+    ipv4AddressSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4AddressSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4AddressSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4AddressSummaries.EntityData.Children = types.NewOrderedMap()
+    ipv4AddressSummaries.EntityData.Children.Append("ipv4-address-summary", types.YChild{"Ipv4AddressSummary", nil})
+    for i := range ipv4AddressSummaries.Ipv4AddressSummary {
+        ipv4AddressSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv4AddressSummaries.Ipv4AddressSummary[i]), types.YChild{"Ipv4AddressSummary", ipv4AddressSummaries.Ipv4AddressSummary[i]})
+    }
+    ipv4AddressSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4AddressSummaries.EntityData.YListKeys = []string {}
+
+    return &(ipv4AddressSummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary
+// IPv4 address summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Subscriber IPv4 address. The type is string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr
+}
+
+func (ipv4AddressSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary) GetEntityData() *types.CommonEntityData {
+    ipv4AddressSummary.EntityData.YFilter = ipv4AddressSummary.YFilter
+    ipv4AddressSummary.EntityData.YangName = "ipv4-address-summary"
+    ipv4AddressSummary.EntityData.BundleName = "cisco_ios_xr"
+    ipv4AddressSummary.EntityData.ParentYangName = "ipv4-address-summaries"
+    ipv4AddressSummary.EntityData.SegmentPath = "ipv4-address-summary" + types.AddKeyToken(ipv4AddressSummary.Address, "address")
+    ipv4AddressSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-summaries/" + ipv4AddressSummary.EntityData.SegmentPath
+    ipv4AddressSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4AddressSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4AddressSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4AddressSummary.EntityData.Children = types.NewOrderedMap()
+    ipv4AddressSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &ipv4AddressSummary.StateXr})
+    ipv4AddressSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &ipv4AddressSummary.AddressFamilyXr})
+    ipv4AddressSummary.EntityData.Leafs = types.NewOrderedMap()
+    ipv4AddressSummary.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv4AddressSummary.Address})
+
+    ipv4AddressSummary.EntityData.YListKeys = []string {"Address"}
+
+    return &(ipv4AddressSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "ipv4-address-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-summaries/ipv4-address-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-summaries/ipv4-address-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-summaries/ipv4-address-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-summaries/ipv4-address-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "ipv4-address-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-summaries/ipv4-address-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-summaries/ipv4-address-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-summaries/ipv4-address-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4AddressSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/ipv4-address-summaries/ipv4-address-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries
+// Summary information filtered by VRF
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VRF summary. The type is slice of
+    // Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary.
+    VrfSummary []*Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary
+}
+
+func (vrfSummaries *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries) GetEntityData() *types.CommonEntityData {
+    vrfSummaries.EntityData.YFilter = vrfSummaries.YFilter
+    vrfSummaries.EntityData.YangName = "vrf-summaries"
+    vrfSummaries.EntityData.BundleName = "cisco_ios_xr"
+    vrfSummaries.EntityData.ParentYangName = "srg-role"
+    vrfSummaries.EntityData.SegmentPath = "vrf-summaries"
+    vrfSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/" + vrfSummaries.EntityData.SegmentPath
+    vrfSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfSummaries.EntityData.Children = types.NewOrderedMap()
+    vrfSummaries.EntityData.Children.Append("vrf-summary", types.YChild{"VrfSummary", nil})
+    for i := range vrfSummaries.VrfSummary {
+        vrfSummaries.EntityData.Children.Append(types.GetSegmentPath(vrfSummaries.VrfSummary[i]), types.YChild{"VrfSummary", vrfSummaries.VrfSummary[i]})
+    }
+    vrfSummaries.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfSummaries.EntityData.YListKeys = []string {}
+
+    return &(vrfSummaries.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary
+// VRF summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VRF name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    VrfName interface{}
+
+    // State summary.
+    StateXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr
+
+    // Address family summary.
+    AddressFamilyXr Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr
+}
+
+func (vrfSummary *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary) GetEntityData() *types.CommonEntityData {
+    vrfSummary.EntityData.YFilter = vrfSummary.YFilter
+    vrfSummary.EntityData.YangName = "vrf-summary"
+    vrfSummary.EntityData.BundleName = "cisco_ios_xr"
+    vrfSummary.EntityData.ParentYangName = "vrf-summaries"
+    vrfSummary.EntityData.SegmentPath = "vrf-summary" + types.AddKeyToken(vrfSummary.VrfName, "vrf-name")
+    vrfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/vrf-summaries/" + vrfSummary.EntityData.SegmentPath
+    vrfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfSummary.EntityData.Children = types.NewOrderedMap()
+    vrfSummary.EntityData.Children.Append("state-xr", types.YChild{"StateXr", &vrfSummary.StateXr})
+    vrfSummary.EntityData.Children.Append("address-family-xr", types.YChild{"AddressFamilyXr", &vrfSummary.AddressFamilyXr})
+    vrfSummary.EntityData.Leafs = types.NewOrderedMap()
+    vrfSummary.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfSummary.VrfName})
+
+    vrfSummary.EntityData.YListKeys = []string {"VrfName"}
+
+    return &(vrfSummary.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr
+// State summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_IpSubscriberPacket
+}
+
+func (stateXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr) GetEntityData() *types.CommonEntityData {
+    stateXr.EntityData.YFilter = stateXr.YFilter
+    stateXr.EntityData.YangName = "state-xr"
+    stateXr.EntityData.BundleName = "cisco_ios_xr"
+    stateXr.EntityData.ParentYangName = "vrf-summary"
+    stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/vrf-summaries/vrf-summary/" + stateXr.EntityData.SegmentPath
+    stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateXr.EntityData.Children = types.NewOrderedMap()
+    stateXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &stateXr.Pppoe})
+    stateXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &stateXr.IpSubscriberDhcp})
+    stateXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &stateXr.IpSubscriberPacket})
+    stateXr.EntityData.Leafs = types.NewOrderedMap()
+
+    stateXr.EntityData.YListKeys = []string {}
+
+    return &(stateXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "state-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/vrf-summaries/vrf-summary/state-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", pppoe.InitializedSessions})
+    pppoe.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", pppoe.ConnectingSessions})
+    pppoe.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", pppoe.ConnectedSessions})
+    pppoe.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", pppoe.ActivatedSessions})
+    pppoe.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", pppoe.IdleSessions})
+    pppoe.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", pppoe.DisconnectingSessions})
+    pppoe.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", pppoe.EndSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/vrf-summaries/vrf-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberDhcp.InitializedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberDhcp.ConnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberDhcp.ConnectedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberDhcp.ActivatedSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberDhcp.IdleSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberDhcp.DisconnectingSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberDhcp.EndSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions in initialized state. The type is interface{} with range:
+    // 0..4294967295.
+    InitializedSessions interface{}
+
+    // Sessions in connecting state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectingSessions interface{}
+
+    // Sessions in connected state. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectedSessions interface{}
+
+    // Sessions in activated state. The type is interface{} with range:
+    // 0..4294967295.
+    ActivatedSessions interface{}
+
+    // Sessions in idle state. The type is interface{} with range: 0..4294967295.
+    IdleSessions interface{}
+
+    // Sessions in disconnecting state. The type is interface{} with range:
+    // 0..4294967295.
+    DisconnectingSessions interface{}
+
+    // Sessions in end state. The type is interface{} with range: 0..4294967295.
+    EndSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_StateXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/vrf-summaries/vrf-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("initialized-sessions", types.YLeaf{"InitializedSessions", ipSubscriberPacket.InitializedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connecting-sessions", types.YLeaf{"ConnectingSessions", ipSubscriberPacket.ConnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("connected-sessions", types.YLeaf{"ConnectedSessions", ipSubscriberPacket.ConnectedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("activated-sessions", types.YLeaf{"ActivatedSessions", ipSubscriberPacket.ActivatedSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("idle-sessions", types.YLeaf{"IdleSessions", ipSubscriberPacket.IdleSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("disconnecting-sessions", types.YLeaf{"DisconnectingSessions", ipSubscriberPacket.DisconnectingSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("end-sessions", types.YLeaf{"EndSessions", ipSubscriberPacket.EndSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr
+// Address family summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PPPoE summary.
+    Pppoe Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_Pppoe
+
+    // IP subscriber DHCP summary.
+    IpSubscriberDhcp Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_IpSubscriberDhcp
+
+    // IP subscriber packet summary.
+    IpSubscriberPacket Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_IpSubscriberPacket
+}
+
+func (addressFamilyXr *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr) GetEntityData() *types.CommonEntityData {
+    addressFamilyXr.EntityData.YFilter = addressFamilyXr.YFilter
+    addressFamilyXr.EntityData.YangName = "address-family-xr"
+    addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
+    addressFamilyXr.EntityData.ParentYangName = "vrf-summary"
+    addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/vrf-summaries/vrf-summary/" + addressFamilyXr.EntityData.SegmentPath
+    addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressFamilyXr.EntityData.Children = types.NewOrderedMap()
+    addressFamilyXr.EntityData.Children.Append("pppoe", types.YChild{"Pppoe", &addressFamilyXr.Pppoe})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-dhcp", types.YChild{"IpSubscriberDhcp", &addressFamilyXr.IpSubscriberDhcp})
+    addressFamilyXr.EntityData.Children.Append("ip-subscriber-packet", types.YChild{"IpSubscriberPacket", &addressFamilyXr.IpSubscriberPacket})
+    addressFamilyXr.EntityData.Leafs = types.NewOrderedMap()
+
+    addressFamilyXr.EntityData.YListKeys = []string {}
+
+    return &(addressFamilyXr.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_Pppoe
+// PPPoE summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_Pppoe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (pppoe *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "address-family-xr"
+    pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/vrf-summaries/vrf-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pppoe.EntityData.Children = types.NewOrderedMap()
+    pppoe.EntityData.Leafs = types.NewOrderedMap()
+    pppoe.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", pppoe.InProgressSessions})
+    pppoe.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", pppoe.Ipv4OnlySessions})
+    pppoe.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", pppoe.Ipv6OnlySessions})
+    pppoe.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", pppoe.DualPartUpSessions})
+    pppoe.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", pppoe.DualUpSessions})
+    pppoe.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", pppoe.LacSessions})
+
+    pppoe.EntityData.YListKeys = []string {}
+
+    return &(pppoe.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_IpSubscriberDhcp
+// IP subscriber DHCP summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_IpSubscriberDhcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_IpSubscriberDhcp) GetEntityData() *types.CommonEntityData {
+    ipSubscriberDhcp.EntityData.YFilter = ipSubscriberDhcp.YFilter
+    ipSubscriberDhcp.EntityData.YangName = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/vrf-summaries/vrf-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
+    ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberDhcp.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberDhcp.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberDhcp.InProgressSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberDhcp.Ipv4OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberDhcp.Ipv6OnlySessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberDhcp.DualPartUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberDhcp.DualUpSessions})
+    ipSubscriberDhcp.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberDhcp.LacSessions})
+
+    ipSubscriberDhcp.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberDhcp.EntityData)
+}
+
+// Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_IpSubscriberPacket
+// IP subscriber packet summary
+type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_IpSubscriberPacket struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sessions with undecided address family. The type is interface{} with range:
+    // 0..4294967295.
+    InProgressSessions interface{}
+
+    // IPv4 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv4OnlySessions interface{}
+
+    // IPv6 only sessions . The type is interface{} with range: 0..4294967295.
+    Ipv6OnlySessions interface{}
+
+    // Dual stack partially up sessions. The type is interface{} with range:
+    // 0..4294967295.
+    DualPartUpSessions interface{}
+
+    // Dual stack up sessions. The type is interface{} with range: 0..4294967295.
+    DualUpSessions interface{}
+
+    // LAC sessions. The type is interface{} with range: 0..4294967295.
+    LacSessions interface{}
+}
+
+func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary_AddressFamilyXr_IpSubscriberPacket) GetEntityData() *types.CommonEntityData {
+    ipSubscriberPacket.EntityData.YFilter = ipSubscriberPacket.YFilter
+    ipSubscriberPacket.EntityData.YangName = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
+    ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/srg-roles/srg-role/vrf-summaries/vrf-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
+    ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubscriberPacket.EntityData.Children = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs = types.NewOrderedMap()
+    ipSubscriberPacket.EntityData.Leafs.Append("in-progress-sessions", types.YLeaf{"InProgressSessions", ipSubscriberPacket.InProgressSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv4-only-sessions", types.YLeaf{"Ipv4OnlySessions", ipSubscriberPacket.Ipv4OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("ipv6-only-sessions", types.YLeaf{"Ipv6OnlySessions", ipSubscriberPacket.Ipv6OnlySessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-part-up-sessions", types.YLeaf{"DualPartUpSessions", ipSubscriberPacket.DualPartUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("dual-up-sessions", types.YLeaf{"DualUpSessions", ipSubscriberPacket.DualUpSessions})
+    ipSubscriberPacket.EntityData.Leafs.Append("lac-sessions", types.YLeaf{"LacSessions", ipSubscriberPacket.LacSessions})
+
+    ipSubscriberPacket.EntityData.YListKeys = []string {}
+
+    return &(ipSubscriberPacket.EntityData)
 }
 
 // Subscriber_Session_Nodes_Node_AuthorSummaries
@@ -11326,9 +17522,9 @@ type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     // Session state. The type is IedgeOperSessionState.
     SessionState interface{}
 
-    // Session creation time in DDD MMM DD HH:MM:SS YYYY format eg: Tue Apr 11
-    // 21:30:47 2011. The type is string.
-    SessionCreationTime interface{}
+    // Session creation time in epoch seconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    SessionCreationTimeEpoch interface{}
 
     // Time when idle state change occurred in DDD MMM DD HH:MM:SS YYYY format eg:
     // Tue Apr 11 21:30:47 2011. The type is string.
@@ -11342,28 +17538,16 @@ type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     // pattern: [a-zA-Z0-9._/-]+.
     AccessInterfaceName interface{}
 
-    // Active pending callbacks bitmask. The type is interface{} with range:
-    // 0..18446744073709551615.
-    PendingCallbacks interface{}
-
-    // AF status per Subscriber Session. The type is interface{} with range:
-    // 0..4294967295.
-    AfUpStatus interface{}
-
-    // Session IPv4 state. The type is IedgeOperSessionAfState.
-    SessionIpv4State interface{}
-
-    // Session IPv6 state. The type is IedgeOperSessionAfState.
-    SessionIpv6State interface{}
-
     // Accounting information.
     Accounting Subscriber_Session_Nodes_Node_Sessions_Session_Accounting
 
-    // List of user profile attributes collected for subscriber session.
-    UserProfileAttributes Subscriber_Session_Nodes_Node_Sessions_Session_UserProfileAttributes
+    // Subscriber control policy applied to this session. The type is slice of
+    // Subscriber_Session_Nodes_Node_Sessions_Session_SubPolicyData.
+    SubPolicyData []*Subscriber_Session_Nodes_Node_Sessions_Session_SubPolicyData
 
-    // List of mobility attributes collected for subscriber session.
-    MobilityAttributes Subscriber_Session_Nodes_Node_Sessions_Session_MobilityAttributes
+    // List of subscriber services associated to this session. The type is slice
+    // of Subscriber_Session_Nodes_Node_Sessions_Session_SessionServiceInfo.
+    SessionServiceInfo []*Subscriber_Session_Nodes_Node_Sessions_Session_SessionServiceInfo
 
     // Subscriber change of authorization information. The type is slice of
     // Subscriber_Session_Nodes_Node_Sessions_Session_SessionChangeOfAuthorization.
@@ -11383,8 +17567,16 @@ func (session *Subscriber_Session_Nodes_Node_Sessions_Session) GetEntityData() *
 
     session.EntityData.Children = types.NewOrderedMap()
     session.EntityData.Children.Append("accounting", types.YChild{"Accounting", &session.Accounting})
-    session.EntityData.Children.Append("user-profile-attributes", types.YChild{"UserProfileAttributes", &session.UserProfileAttributes})
-    session.EntityData.Children.Append("mobility-attributes", types.YChild{"MobilityAttributes", &session.MobilityAttributes})
+    session.EntityData.Children.Append("sub-policy-data", types.YChild{"SubPolicyData", nil})
+    for i := range session.SubPolicyData {
+        types.SetYListKey(session.SubPolicyData[i], i)
+        session.EntityData.Children.Append(types.GetSegmentPath(session.SubPolicyData[i]), types.YChild{"SubPolicyData", session.SubPolicyData[i]})
+    }
+    session.EntityData.Children.Append("session-service-info", types.YChild{"SessionServiceInfo", nil})
+    for i := range session.SessionServiceInfo {
+        types.SetYListKey(session.SessionServiceInfo[i], i)
+        session.EntityData.Children.Append(types.GetSegmentPath(session.SessionServiceInfo[i]), types.YChild{"SessionServiceInfo", session.SessionServiceInfo[i]})
+    }
     session.EntityData.Children.Append("session-change-of-authorization", types.YChild{"SessionChangeOfAuthorization", nil})
     for i := range session.SessionChangeOfAuthorization {
         types.SetYListKey(session.SessionChangeOfAuthorization[i], i)
@@ -11416,14 +17608,10 @@ func (session *Subscriber_Session_Nodes_Node_Sessions_Session) GetEntityData() *
     session.EntityData.Leafs.Append("is-session-authentic", types.YLeaf{"IsSessionAuthentic", session.IsSessionAuthentic})
     session.EntityData.Leafs.Append("is-session-author", types.YLeaf{"IsSessionAuthor", session.IsSessionAuthor})
     session.EntityData.Leafs.Append("session-state", types.YLeaf{"SessionState", session.SessionState})
-    session.EntityData.Leafs.Append("session-creation-time", types.YLeaf{"SessionCreationTime", session.SessionCreationTime})
+    session.EntityData.Leafs.Append("session-creation-time-epoch", types.YLeaf{"SessionCreationTimeEpoch", session.SessionCreationTimeEpoch})
     session.EntityData.Leafs.Append("idle-state-change-time", types.YLeaf{"IdleStateChangeTime", session.IdleStateChangeTime})
     session.EntityData.Leafs.Append("total-session-idle-time", types.YLeaf{"TotalSessionIdleTime", session.TotalSessionIdleTime})
     session.EntityData.Leafs.Append("access-interface-name", types.YLeaf{"AccessInterfaceName", session.AccessInterfaceName})
-    session.EntityData.Leafs.Append("pending-callbacks", types.YLeaf{"PendingCallbacks", session.PendingCallbacks})
-    session.EntityData.Leafs.Append("af-up-status", types.YLeaf{"AfUpStatus", session.AfUpStatus})
-    session.EntityData.Leafs.Append("session-ipv4-state", types.YLeaf{"SessionIpv4State", session.SessionIpv4State})
-    session.EntityData.Leafs.Append("session-ipv6-state", types.YLeaf{"SessionIpv6State", session.SessionIpv6State})
 
     session.EntityData.YListKeys = []string {"SessionId"}
 
@@ -11488,9 +17676,9 @@ type Subscriber_Session_Nodes_Node_Sessions_Session_Accounting_AccountingSession
     // Accounting session ID. The type is string.
     AccountSessionId interface{}
 
-    // Accounting start time in DDD MMM DD HH:MM:SS YYYY format eg: Tue Feb 15
-    // 15:12:49 2011. The type is string.
-    AccountingStartTime interface{}
+    // Accounting start time in epoch-seconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    AccountingStartTimeEpoch interface{}
 
     // True if interim accounting is enabled. The type is bool.
     IsInterimAccountingEnabled interface{}
@@ -11499,17 +17687,17 @@ type Subscriber_Session_Nodes_Node_Sessions_Session_Accounting_AccountingSession
     // range: 0..4294967295. Units are minute.
     InterimInterval interface{}
 
-    // Time of last successful interim update in DDD MMM DD HH:MM:SS YYYY format
-    // eg: Tue Apr 11 21:30 :47 2011. The type is string.
-    LastSuccessfulInterimUpdateTime interface{}
+    // Time of last successful interim update in epoch-seconds . The type is
+    // interface{} with range: 0..18446744073709551615. Units are second.
+    LastSuccessfulInterimUpdateTimeEpoch interface{}
 
     // Time of next interim update attempt (in seconds). The type is interface{}
     // with range: 0..4294967295. Units are second.
     NextInterimUpdateAttemptTime interface{}
 
-    // Time of last interim update attempt in DDD MMM DD HH:MM:SS YYYY format eg:
-    // Tue Apr 11 21:30:47 2011. The type is string.
-    LastInterimUpdateAttemptTime interface{}
+    // Time of last interim update attempt in epoch-seconds. The type is
+    // interface{} with range: 0..18446744073709551615. Units are second.
+    LastInterimUpdateAttemptTimeEpoch interface{}
 
     // Number of interim updates sent. The type is interface{} with range:
     // 0..4294967295.
@@ -11546,12 +17734,12 @@ func (accountingSession *Subscriber_Session_Nodes_Node_Sessions_Session_Accounti
     accountingSession.EntityData.Leafs.Append("record-context-name", types.YLeaf{"RecordContextName", accountingSession.RecordContextName})
     accountingSession.EntityData.Leafs.Append("method-list-name", types.YLeaf{"MethodListName", accountingSession.MethodListName})
     accountingSession.EntityData.Leafs.Append("account-session-id", types.YLeaf{"AccountSessionId", accountingSession.AccountSessionId})
-    accountingSession.EntityData.Leafs.Append("accounting-start-time", types.YLeaf{"AccountingStartTime", accountingSession.AccountingStartTime})
+    accountingSession.EntityData.Leafs.Append("accounting-start-time-epoch", types.YLeaf{"AccountingStartTimeEpoch", accountingSession.AccountingStartTimeEpoch})
     accountingSession.EntityData.Leafs.Append("is-interim-accounting-enabled", types.YLeaf{"IsInterimAccountingEnabled", accountingSession.IsInterimAccountingEnabled})
     accountingSession.EntityData.Leafs.Append("interim-interval", types.YLeaf{"InterimInterval", accountingSession.InterimInterval})
-    accountingSession.EntityData.Leafs.Append("last-successful-interim-update-time", types.YLeaf{"LastSuccessfulInterimUpdateTime", accountingSession.LastSuccessfulInterimUpdateTime})
+    accountingSession.EntityData.Leafs.Append("last-successful-interim-update-time-epoch", types.YLeaf{"LastSuccessfulInterimUpdateTimeEpoch", accountingSession.LastSuccessfulInterimUpdateTimeEpoch})
     accountingSession.EntityData.Leafs.Append("next-interim-update-attempt-time", types.YLeaf{"NextInterimUpdateAttemptTime", accountingSession.NextInterimUpdateAttemptTime})
-    accountingSession.EntityData.Leafs.Append("last-interim-update-attempt-time", types.YLeaf{"LastInterimUpdateAttemptTime", accountingSession.LastInterimUpdateAttemptTime})
+    accountingSession.EntityData.Leafs.Append("last-interim-update-attempt-time-epoch", types.YLeaf{"LastInterimUpdateAttemptTimeEpoch", accountingSession.LastInterimUpdateAttemptTimeEpoch})
     accountingSession.EntityData.Leafs.Append("sent-interim-updates", types.YLeaf{"SentInterimUpdates", accountingSession.SentInterimUpdates})
     accountingSession.EntityData.Leafs.Append("accepted-interim-updates", types.YLeaf{"AcceptedInterimUpdates", accountingSession.AcceptedInterimUpdates})
     accountingSession.EntityData.Leafs.Append("rejected-interim-updates", types.YLeaf{"RejectedInterimUpdates", accountingSession.RejectedInterimUpdates})
@@ -11562,321 +17750,88 @@ func (accountingSession *Subscriber_Session_Nodes_Node_Sessions_Session_Accounti
     return &(accountingSession.EntityData)
 }
 
-// Subscriber_Session_Nodes_Node_Sessions_Session_UserProfileAttributes
-// List of user profile attributes collected for
-// subscriber session
-type Subscriber_Session_Nodes_Node_Sessions_Session_UserProfileAttributes struct {
+// Subscriber_Session_Nodes_Node_Sessions_Session_SubPolicyData
+// Subscriber control policy applied to this
+// session
+type Subscriber_Session_Nodes_Node_Sessions_Session_SubPolicyData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // IPv4 maximum transmission unit. The type is interface{} with range:
-    // 0..4294967295.
-    Ipv4mtu interface{}
-
-    // IPv4 unnumbered. The type is string.
-    Ipv4Unnumbered interface{}
-
-    // Authorization service type. The type is AaaAuthService.
-    AuthorizationServiceType interface{}
-
-    // Tunnel client endpoint. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    TunnelClientEndpoint interface{}
-
-    // Tunnel server endpoint. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    TunnelServerEndpoint interface{}
-
-    // Tunnel TOS setting. The type is interface{} with range: 0..4294967295.
-    TunnelTosSetting interface{}
-
-    // Tunnel medium. The type is AaaTunnelMedium.
-    TunnelMedium interface{}
-
-    // Tunnel preference. The type is interface{} with range: 0..4294967295.
-    TunnelPreference interface{}
-
-    // Tunnel client authentication ID. The type is string.
-    TunnelClientAuthenticationId interface{}
-
-    // Tunnel protocol. The type is AaaTunnelProto.
-    TunnelProtocol interface{}
-
-    // Actual data rate upstream (in Mbps). The type is interface{} with range:
-    // 0..4294967295. Units are Mbit/s.
-    ActualDataRateUpstream interface{}
-
-    // Actual data rate downstream (in Mbps). The type is interface{} with range:
-    // 0..4294967295. Units are Mbit/s.
-    ActualDataRateDownstream interface{}
-
-    // Attainable data rate upstream (in Mbps). The type is interface{} with
-    // range: 0..4294967295. Units are Mbit/s.
-    AttainableDataRateUpstream interface{}
-
-    // Attainable data rate downstream (in Mbps). The type is interface{} with
-    // range: 0..4294967295. Units are Mbit/s.
-    AttainableDataRateDownstream interface{}
-
-    // IP address pool. The type is string.
-    PoolAddress interface{}
-
-    // Circuit ID. The type is string.
-    CircuitId interface{}
-
-    // Connection receive speed. The type is interface{} with range:
-    // 0..4294967295.
-    ConnectionReceiveSpeed interface{}
-
-    // Connection transmission speed. The type is interface{} with range:
-    // 0..4294967295.
-    ConnectionTransmissionSpeed interface{}
-
-    // Destination station ID. The type is string.
-    DestinationStationId interface{}
-
-    // Primary DNS server address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    PrimaryDnsServerAddress interface{}
-
-    // Secondary DNS server address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    SecondaryDnsServerAddress interface{}
-
-    // Formatted calling station id. The type is string.
-    FormattedCallingStationId interface{}
-
-    // Interface name. The type is string.
-    InterfaceName interface{}
-
-    // Interface type. The type is AaaInterface.
-    InterfaceType interface{}
-
-    // Interim accounting interval. The type is interface{} with range:
-    // 0..4294967295.
-    InterimAccountingInterval interface{}
-
-    // Ingress access list. The type is string.
-    IngressAccessList interface{}
-
-    // Egress access list. The type is string.
-    EgressAccessList interface{}
-
-    // IP netmask for the user. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    IpNetmask interface{}
-
-    // True, if interworking functionality. The type is bool.
-    IsInterworkingFunctionality interface{}
-
-    // Maximum interleaving delay downstream (in Mbps). The type is interface{}
-    // with range: 0..4294967295. Units are Mbit/s.
-    MaxInterleavingDelayDownstream interface{}
-
-    // Maximum interleaving delay upstream (in Mbps). The type is interface{} with
-    // range: 0..4294967295. Units are Mbit/s.
-    MaxInterleavingDelayUpstream interface{}
-
-    // Maximum data rate upstream (in Mbps). The type is interface{} with range:
-    // 0..4294967295. Units are Mbit/s.
-    MaxDataRateUpstream interface{}
-
-    // Maximum data rate downstream (in Mbps). The type is interface{} with range:
-    // 0..4294967295. Units are Mbit/s.
-    MaxDataRateDownstream interface{}
-
-    // Minimum data rate downstream (in Mbps). The type is interface{} with range:
-    // 0..4294967295. Units are Mbit/s.
-    MinDataRateDownstream interface{}
-
-    // Minimum data rate downstream low power (in Mbps). The type is interface{}
-    // with range: 0..4294967295. Units are Mbit/s.
-    MinDataRateDownstreamLowPower interface{}
-
-    // Minimum data rate upstream low power (in Mbps). The type is interface{}
-    // with range: 0..4294967295. Units are Mbit/s.
-    MinDataRateUpstreamLowPower interface{}
-
-    // Primary net bios server address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    PrimaryNetBiosServerAddress interface{}
-
-    // Secondary net bios server address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    SecondaryNetBiosServerAddress interface{}
-
-    // Parent interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
-    ParentInterfaceName interface{}
-
-    // Remote ID. The type is string.
-    RemoteId interface{}
-
-    // Route information for a user session. The type is string.
-    Route interface{}
-
-    // Session timeout (in seconds). The type is interface{} with range:
-    // 0..4294967295. Units are second.
-    SessionTimeout interface{}
-
-    // Strict RPF packets. The type is interface{} with range: 0..4294967295.
-    StrictRpfPackets interface{}
-
-    // Accounting session ID. The type is string.
-    AccountingSessionId interface{}
-
-    // Upstream parameterized QoS policy to be applied on the subscriber side. The
-    // type is string.
-    UpstreamParameterizedQosPolicy interface{}
-
-    // Downstream parameterized QoS policy to be applied on the subscriber side.
-    // The type is string.
-    DownstreamParameterizedQosPolicy interface{}
-
-    // Upstream QoS policy to be applied on the subscriber side. The type is
-    // string.
-    UpstreamQosPolicy interface{}
-
-    // Downstream QoS policy to be applied on the subscriber side. The type is
-    // string.
-    DownstreamQosPolicy interface{}
-
-    // Session termination cause. The type is AaaTerminateCause.
-    SessionTerminationCause interface{}
+    // Matching event, condition and executed actions. The type is string.
+    PolicyEpoch interface{}
 }
 
-func (userProfileAttributes *Subscriber_Session_Nodes_Node_Sessions_Session_UserProfileAttributes) GetEntityData() *types.CommonEntityData {
-    userProfileAttributes.EntityData.YFilter = userProfileAttributes.YFilter
-    userProfileAttributes.EntityData.YangName = "user-profile-attributes"
-    userProfileAttributes.EntityData.BundleName = "cisco_ios_xr"
-    userProfileAttributes.EntityData.ParentYangName = "session"
-    userProfileAttributes.EntityData.SegmentPath = "user-profile-attributes"
-    userProfileAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/sessions/session/" + userProfileAttributes.EntityData.SegmentPath
-    userProfileAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    userProfileAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    userProfileAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (subPolicyData *Subscriber_Session_Nodes_Node_Sessions_Session_SubPolicyData) GetEntityData() *types.CommonEntityData {
+    subPolicyData.EntityData.YFilter = subPolicyData.YFilter
+    subPolicyData.EntityData.YangName = "sub-policy-data"
+    subPolicyData.EntityData.BundleName = "cisco_ios_xr"
+    subPolicyData.EntityData.ParentYangName = "session"
+    subPolicyData.EntityData.SegmentPath = "sub-policy-data" + types.AddNoKeyToken(subPolicyData)
+    subPolicyData.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/sessions/session/" + subPolicyData.EntityData.SegmentPath
+    subPolicyData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subPolicyData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subPolicyData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    userProfileAttributes.EntityData.Children = types.NewOrderedMap()
-    userProfileAttributes.EntityData.Leafs = types.NewOrderedMap()
-    userProfileAttributes.EntityData.Leafs.Append("ipv4mtu", types.YLeaf{"Ipv4mtu", userProfileAttributes.Ipv4mtu})
-    userProfileAttributes.EntityData.Leafs.Append("ipv4-unnumbered", types.YLeaf{"Ipv4Unnumbered", userProfileAttributes.Ipv4Unnumbered})
-    userProfileAttributes.EntityData.Leafs.Append("authorization-service-type", types.YLeaf{"AuthorizationServiceType", userProfileAttributes.AuthorizationServiceType})
-    userProfileAttributes.EntityData.Leafs.Append("tunnel-client-endpoint", types.YLeaf{"TunnelClientEndpoint", userProfileAttributes.TunnelClientEndpoint})
-    userProfileAttributes.EntityData.Leafs.Append("tunnel-server-endpoint", types.YLeaf{"TunnelServerEndpoint", userProfileAttributes.TunnelServerEndpoint})
-    userProfileAttributes.EntityData.Leafs.Append("tunnel-tos-setting", types.YLeaf{"TunnelTosSetting", userProfileAttributes.TunnelTosSetting})
-    userProfileAttributes.EntityData.Leafs.Append("tunnel-medium", types.YLeaf{"TunnelMedium", userProfileAttributes.TunnelMedium})
-    userProfileAttributes.EntityData.Leafs.Append("tunnel-preference", types.YLeaf{"TunnelPreference", userProfileAttributes.TunnelPreference})
-    userProfileAttributes.EntityData.Leafs.Append("tunnel-client-authentication-id", types.YLeaf{"TunnelClientAuthenticationId", userProfileAttributes.TunnelClientAuthenticationId})
-    userProfileAttributes.EntityData.Leafs.Append("tunnel-protocol", types.YLeaf{"TunnelProtocol", userProfileAttributes.TunnelProtocol})
-    userProfileAttributes.EntityData.Leafs.Append("actual-data-rate-upstream", types.YLeaf{"ActualDataRateUpstream", userProfileAttributes.ActualDataRateUpstream})
-    userProfileAttributes.EntityData.Leafs.Append("actual-data-rate-downstream", types.YLeaf{"ActualDataRateDownstream", userProfileAttributes.ActualDataRateDownstream})
-    userProfileAttributes.EntityData.Leafs.Append("attainable-data-rate-upstream", types.YLeaf{"AttainableDataRateUpstream", userProfileAttributes.AttainableDataRateUpstream})
-    userProfileAttributes.EntityData.Leafs.Append("attainable-data-rate-downstream", types.YLeaf{"AttainableDataRateDownstream", userProfileAttributes.AttainableDataRateDownstream})
-    userProfileAttributes.EntityData.Leafs.Append("pool-address", types.YLeaf{"PoolAddress", userProfileAttributes.PoolAddress})
-    userProfileAttributes.EntityData.Leafs.Append("circuit-id", types.YLeaf{"CircuitId", userProfileAttributes.CircuitId})
-    userProfileAttributes.EntityData.Leafs.Append("connection-receive-speed", types.YLeaf{"ConnectionReceiveSpeed", userProfileAttributes.ConnectionReceiveSpeed})
-    userProfileAttributes.EntityData.Leafs.Append("connection-transmission-speed", types.YLeaf{"ConnectionTransmissionSpeed", userProfileAttributes.ConnectionTransmissionSpeed})
-    userProfileAttributes.EntityData.Leafs.Append("destination-station-id", types.YLeaf{"DestinationStationId", userProfileAttributes.DestinationStationId})
-    userProfileAttributes.EntityData.Leafs.Append("primary-dns-server-address", types.YLeaf{"PrimaryDnsServerAddress", userProfileAttributes.PrimaryDnsServerAddress})
-    userProfileAttributes.EntityData.Leafs.Append("secondary-dns-server-address", types.YLeaf{"SecondaryDnsServerAddress", userProfileAttributes.SecondaryDnsServerAddress})
-    userProfileAttributes.EntityData.Leafs.Append("formatted-calling-station-id", types.YLeaf{"FormattedCallingStationId", userProfileAttributes.FormattedCallingStationId})
-    userProfileAttributes.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", userProfileAttributes.InterfaceName})
-    userProfileAttributes.EntityData.Leafs.Append("interface-type", types.YLeaf{"InterfaceType", userProfileAttributes.InterfaceType})
-    userProfileAttributes.EntityData.Leafs.Append("interim-accounting-interval", types.YLeaf{"InterimAccountingInterval", userProfileAttributes.InterimAccountingInterval})
-    userProfileAttributes.EntityData.Leafs.Append("ingress-access-list", types.YLeaf{"IngressAccessList", userProfileAttributes.IngressAccessList})
-    userProfileAttributes.EntityData.Leafs.Append("egress-access-list", types.YLeaf{"EgressAccessList", userProfileAttributes.EgressAccessList})
-    userProfileAttributes.EntityData.Leafs.Append("ip-netmask", types.YLeaf{"IpNetmask", userProfileAttributes.IpNetmask})
-    userProfileAttributes.EntityData.Leafs.Append("is-interworking-functionality", types.YLeaf{"IsInterworkingFunctionality", userProfileAttributes.IsInterworkingFunctionality})
-    userProfileAttributes.EntityData.Leafs.Append("max-interleaving-delay-downstream", types.YLeaf{"MaxInterleavingDelayDownstream", userProfileAttributes.MaxInterleavingDelayDownstream})
-    userProfileAttributes.EntityData.Leafs.Append("max-interleaving-delay-upstream", types.YLeaf{"MaxInterleavingDelayUpstream", userProfileAttributes.MaxInterleavingDelayUpstream})
-    userProfileAttributes.EntityData.Leafs.Append("max-data-rate-upstream", types.YLeaf{"MaxDataRateUpstream", userProfileAttributes.MaxDataRateUpstream})
-    userProfileAttributes.EntityData.Leafs.Append("max-data-rate-downstream", types.YLeaf{"MaxDataRateDownstream", userProfileAttributes.MaxDataRateDownstream})
-    userProfileAttributes.EntityData.Leafs.Append("min-data-rate-downstream", types.YLeaf{"MinDataRateDownstream", userProfileAttributes.MinDataRateDownstream})
-    userProfileAttributes.EntityData.Leafs.Append("min-data-rate-downstream-low-power", types.YLeaf{"MinDataRateDownstreamLowPower", userProfileAttributes.MinDataRateDownstreamLowPower})
-    userProfileAttributes.EntityData.Leafs.Append("min-data-rate-upstream-low-power", types.YLeaf{"MinDataRateUpstreamLowPower", userProfileAttributes.MinDataRateUpstreamLowPower})
-    userProfileAttributes.EntityData.Leafs.Append("primary-net-bios-server-address", types.YLeaf{"PrimaryNetBiosServerAddress", userProfileAttributes.PrimaryNetBiosServerAddress})
-    userProfileAttributes.EntityData.Leafs.Append("secondary-net-bios-server-address", types.YLeaf{"SecondaryNetBiosServerAddress", userProfileAttributes.SecondaryNetBiosServerAddress})
-    userProfileAttributes.EntityData.Leafs.Append("parent-interface-name", types.YLeaf{"ParentInterfaceName", userProfileAttributes.ParentInterfaceName})
-    userProfileAttributes.EntityData.Leafs.Append("remote-id", types.YLeaf{"RemoteId", userProfileAttributes.RemoteId})
-    userProfileAttributes.EntityData.Leafs.Append("route", types.YLeaf{"Route", userProfileAttributes.Route})
-    userProfileAttributes.EntityData.Leafs.Append("session-timeout", types.YLeaf{"SessionTimeout", userProfileAttributes.SessionTimeout})
-    userProfileAttributes.EntityData.Leafs.Append("strict-rpf-packets", types.YLeaf{"StrictRpfPackets", userProfileAttributes.StrictRpfPackets})
-    userProfileAttributes.EntityData.Leafs.Append("accounting-session-id", types.YLeaf{"AccountingSessionId", userProfileAttributes.AccountingSessionId})
-    userProfileAttributes.EntityData.Leafs.Append("upstream-parameterized-qos-policy", types.YLeaf{"UpstreamParameterizedQosPolicy", userProfileAttributes.UpstreamParameterizedQosPolicy})
-    userProfileAttributes.EntityData.Leafs.Append("downstream-parameterized-qos-policy", types.YLeaf{"DownstreamParameterizedQosPolicy", userProfileAttributes.DownstreamParameterizedQosPolicy})
-    userProfileAttributes.EntityData.Leafs.Append("upstream-qos-policy", types.YLeaf{"UpstreamQosPolicy", userProfileAttributes.UpstreamQosPolicy})
-    userProfileAttributes.EntityData.Leafs.Append("downstream-qos-policy", types.YLeaf{"DownstreamQosPolicy", userProfileAttributes.DownstreamQosPolicy})
-    userProfileAttributes.EntityData.Leafs.Append("session-termination-cause", types.YLeaf{"SessionTerminationCause", userProfileAttributes.SessionTerminationCause})
+    subPolicyData.EntityData.Children = types.NewOrderedMap()
+    subPolicyData.EntityData.Leafs = types.NewOrderedMap()
+    subPolicyData.EntityData.Leafs.Append("policy-epoch", types.YLeaf{"PolicyEpoch", subPolicyData.PolicyEpoch})
 
-    userProfileAttributes.EntityData.YListKeys = []string {}
+    subPolicyData.EntityData.YListKeys = []string {}
 
-    return &(userProfileAttributes.EntityData)
+    return &(subPolicyData.EntityData)
 }
 
-// Subscriber_Session_Nodes_Node_Sessions_Session_MobilityAttributes
-// List of mobility attributes collected for
-// subscriber session
-type Subscriber_Session_Nodes_Node_Sessions_Session_MobilityAttributes struct {
+// Subscriber_Session_Nodes_Node_Sessions_Session_SessionServiceInfo
+// List of subscriber services associated to this
+// session
+type Subscriber_Session_Nodes_Node_Sessions_Session_SessionServiceInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Cisco MPC Protocol. The type is bool.
-    MpcProtocol interface{}
+    // ServiceName. The type is string.
+    ServiceName interface{}
 
-    // IPv4 address of Mobility Node. The type is string.
-    MobilityIpv4Address interface{}
+    // ServiceParams. The type is string.
+    ServiceParams interface{}
 
-    // Default Gateway IPv4 Address. The type is string.
-    MobilityDefaultIpv4Gateway interface{}
+    // ServiceType. The type is IedgeOperService.
+    ServiceType interface{}
 
-    // DNS Server Primary. The type is string.
-    MobilityDnsServer interface{}
+    // ServiceStatus. The type is IedgeOperServiceStatus.
+    ServiceStatus interface{}
 
-    // DHCP Server. The type is string.
-    MobilityDhcpServer interface{}
+    // ServiceIdentifier. The type is interface{} with range: 0..4294967295.
+    ServiceId interface{}
 
-    // IPv4 Netmask. The type is string.
-    MobilityIpv4Netmask interface{}
-
-    // Domain Name. The type is string.
-    DomainName interface{}
-
-    // Uplink GRE Key. The type is string.
-    UplinkGreKey interface{}
-
-    // Downlink GRE Key. The type is string.
-    DownlinkGreKey interface{}
-
-    // Duration of lease in seconds. The type is string. Units are second.
-    LeaseTime interface{}
+    // ServicePrepaid. The type is bool.
+    ServicePrepaid interface{}
 }
 
-func (mobilityAttributes *Subscriber_Session_Nodes_Node_Sessions_Session_MobilityAttributes) GetEntityData() *types.CommonEntityData {
-    mobilityAttributes.EntityData.YFilter = mobilityAttributes.YFilter
-    mobilityAttributes.EntityData.YangName = "mobility-attributes"
-    mobilityAttributes.EntityData.BundleName = "cisco_ios_xr"
-    mobilityAttributes.EntityData.ParentYangName = "session"
-    mobilityAttributes.EntityData.SegmentPath = "mobility-attributes"
-    mobilityAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/sessions/session/" + mobilityAttributes.EntityData.SegmentPath
-    mobilityAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    mobilityAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    mobilityAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (sessionServiceInfo *Subscriber_Session_Nodes_Node_Sessions_Session_SessionServiceInfo) GetEntityData() *types.CommonEntityData {
+    sessionServiceInfo.EntityData.YFilter = sessionServiceInfo.YFilter
+    sessionServiceInfo.EntityData.YangName = "session-service-info"
+    sessionServiceInfo.EntityData.BundleName = "cisco_ios_xr"
+    sessionServiceInfo.EntityData.ParentYangName = "session"
+    sessionServiceInfo.EntityData.SegmentPath = "session-service-info" + types.AddNoKeyToken(sessionServiceInfo)
+    sessionServiceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/sessions/session/" + sessionServiceInfo.EntityData.SegmentPath
+    sessionServiceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionServiceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionServiceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    mobilityAttributes.EntityData.Children = types.NewOrderedMap()
-    mobilityAttributes.EntityData.Leafs = types.NewOrderedMap()
-    mobilityAttributes.EntityData.Leafs.Append("mpc-protocol", types.YLeaf{"MpcProtocol", mobilityAttributes.MpcProtocol})
-    mobilityAttributes.EntityData.Leafs.Append("mobility-ipv4-address", types.YLeaf{"MobilityIpv4Address", mobilityAttributes.MobilityIpv4Address})
-    mobilityAttributes.EntityData.Leafs.Append("mobility-default-ipv4-gateway", types.YLeaf{"MobilityDefaultIpv4Gateway", mobilityAttributes.MobilityDefaultIpv4Gateway})
-    mobilityAttributes.EntityData.Leafs.Append("mobility-dns-server", types.YLeaf{"MobilityDnsServer", mobilityAttributes.MobilityDnsServer})
-    mobilityAttributes.EntityData.Leafs.Append("mobility-dhcp-server", types.YLeaf{"MobilityDhcpServer", mobilityAttributes.MobilityDhcpServer})
-    mobilityAttributes.EntityData.Leafs.Append("mobility-ipv4-netmask", types.YLeaf{"MobilityIpv4Netmask", mobilityAttributes.MobilityIpv4Netmask})
-    mobilityAttributes.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", mobilityAttributes.DomainName})
-    mobilityAttributes.EntityData.Leafs.Append("uplink-gre-key", types.YLeaf{"UplinkGreKey", mobilityAttributes.UplinkGreKey})
-    mobilityAttributes.EntityData.Leafs.Append("downlink-gre-key", types.YLeaf{"DownlinkGreKey", mobilityAttributes.DownlinkGreKey})
-    mobilityAttributes.EntityData.Leafs.Append("lease-time", types.YLeaf{"LeaseTime", mobilityAttributes.LeaseTime})
+    sessionServiceInfo.EntityData.Children = types.NewOrderedMap()
+    sessionServiceInfo.EntityData.Leafs = types.NewOrderedMap()
+    sessionServiceInfo.EntityData.Leafs.Append("service-name", types.YLeaf{"ServiceName", sessionServiceInfo.ServiceName})
+    sessionServiceInfo.EntityData.Leafs.Append("service-params", types.YLeaf{"ServiceParams", sessionServiceInfo.ServiceParams})
+    sessionServiceInfo.EntityData.Leafs.Append("service-type", types.YLeaf{"ServiceType", sessionServiceInfo.ServiceType})
+    sessionServiceInfo.EntityData.Leafs.Append("service-status", types.YLeaf{"ServiceStatus", sessionServiceInfo.ServiceStatus})
+    sessionServiceInfo.EntityData.Leafs.Append("service-id", types.YLeaf{"ServiceId", sessionServiceInfo.ServiceId})
+    sessionServiceInfo.EntityData.Leafs.Append("service-prepaid", types.YLeaf{"ServicePrepaid", sessionServiceInfo.ServicePrepaid})
 
-    mobilityAttributes.EntityData.YListKeys = []string {}
+    sessionServiceInfo.EntityData.YListKeys = []string {}
 
-    return &(mobilityAttributes.EntityData)
+    return &(sessionServiceInfo.EntityData)
 }
 
 // Subscriber_Session_Nodes_Node_Sessions_Session_SessionChangeOfAuthorization
@@ -11889,21 +17844,13 @@ type Subscriber_Session_Nodes_Node_Sessions_Session_SessionChangeOfAuthorization
     // Coa Request Acked. The type is bool.
     RequestAcked interface{}
 
-    // Request time in DDD MMM DD HH:MM:SS YYYY format eg: Tue Apr 11 21:30:47
-    // 2011. The type is string.
-    RequestTime interface{}
+    // Request time in epoch seconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    RequestTimeEpoch interface{}
 
-    // List of Request Attributes collected in COA response. The type is string
-    // with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
-    CoaRequestAttributes interface{}
-
-    // Reply time in DDD MMM DD HH:MM:SS YYYY format eg : Tue Apr 11 21:30:47
-    // 2011. The type is string.
-    ReplyTime interface{}
-
-    // List of Reply Attributes collected in COA response. The type is string with
-    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
-    CoaReplyAttributes interface{}
+    // Reply time in epoch seconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are second.
+    ReplyTimeEpoch interface{}
 }
 
 func (sessionChangeOfAuthorization *Subscriber_Session_Nodes_Node_Sessions_Session_SessionChangeOfAuthorization) GetEntityData() *types.CommonEntityData {
@@ -11920,10 +17867,8 @@ func (sessionChangeOfAuthorization *Subscriber_Session_Nodes_Node_Sessions_Sessi
     sessionChangeOfAuthorization.EntityData.Children = types.NewOrderedMap()
     sessionChangeOfAuthorization.EntityData.Leafs = types.NewOrderedMap()
     sessionChangeOfAuthorization.EntityData.Leafs.Append("request-acked", types.YLeaf{"RequestAcked", sessionChangeOfAuthorization.RequestAcked})
-    sessionChangeOfAuthorization.EntityData.Leafs.Append("request-time", types.YLeaf{"RequestTime", sessionChangeOfAuthorization.RequestTime})
-    sessionChangeOfAuthorization.EntityData.Leafs.Append("coa-request-attributes", types.YLeaf{"CoaRequestAttributes", sessionChangeOfAuthorization.CoaRequestAttributes})
-    sessionChangeOfAuthorization.EntityData.Leafs.Append("reply-time", types.YLeaf{"ReplyTime", sessionChangeOfAuthorization.ReplyTime})
-    sessionChangeOfAuthorization.EntityData.Leafs.Append("coa-reply-attributes", types.YLeaf{"CoaReplyAttributes", sessionChangeOfAuthorization.CoaReplyAttributes})
+    sessionChangeOfAuthorization.EntityData.Leafs.Append("request-time-epoch", types.YLeaf{"RequestTimeEpoch", sessionChangeOfAuthorization.RequestTimeEpoch})
+    sessionChangeOfAuthorization.EntityData.Leafs.Append("reply-time-epoch", types.YLeaf{"ReplyTimeEpoch", sessionChangeOfAuthorization.ReplyTimeEpoch})
 
     sessionChangeOfAuthorization.EntityData.YListKeys = []string {}
 

@@ -483,8 +483,12 @@ type ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Threshold limit at which track is set to UP state.
-    ThresholdUpValues ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues
+    // Up threshold value. The type is interface{} with range: 0..4294967295.
+    Up interface{}
+
+    // Down threshold value. The type is interface{} with range: 0..4294967295.
+    // The default value is 0.
+    Down interface{}
 }
 
 func (thresholdLimits *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits) GetEntityData() *types.CommonEntityData {
@@ -499,85 +503,13 @@ func (thresholdLimits *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_T
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     thresholdLimits.EntityData.Children = types.NewOrderedMap()
-    thresholdLimits.EntityData.Children.Append("threshold-up-values", types.YChild{"ThresholdUpValues", &thresholdLimits.ThresholdUpValues})
     thresholdLimits.EntityData.Leafs = types.NewOrderedMap()
+    thresholdLimits.EntityData.Leafs.Append("up", types.YLeaf{"Up", thresholdLimits.Up})
+    thresholdLimits.EntityData.Leafs.Append("down", types.YLeaf{"Down", thresholdLimits.Down})
 
     thresholdLimits.EntityData.YListKeys = []string {}
 
     return &(thresholdLimits.EntityData)
-}
-
-// ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues
-// Threshold limit at which track is set to UP
-// state
-type ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Threshold limit at which track is set to UP state. The type is slice of
-    // ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues_ThresholdUpValue.
-    ThresholdUpValue []*ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues_ThresholdUpValue
-}
-
-func (thresholdUpValues *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues) GetEntityData() *types.CommonEntityData {
-    thresholdUpValues.EntityData.YFilter = thresholdUpValues.YFilter
-    thresholdUpValues.EntityData.YangName = "threshold-up-values"
-    thresholdUpValues.EntityData.BundleName = "cisco_ios_xr"
-    thresholdUpValues.EntityData.ParentYangName = "threshold-limits"
-    thresholdUpValues.EntityData.SegmentPath = "threshold-up-values"
-    thresholdUpValues.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-weight/threshold-limits/" + thresholdUpValues.EntityData.SegmentPath
-    thresholdUpValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    thresholdUpValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    thresholdUpValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    thresholdUpValues.EntityData.Children = types.NewOrderedMap()
-    thresholdUpValues.EntityData.Children.Append("threshold-up-value", types.YChild{"ThresholdUpValue", nil})
-    for i := range thresholdUpValues.ThresholdUpValue {
-        thresholdUpValues.EntityData.Children.Append(types.GetSegmentPath(thresholdUpValues.ThresholdUpValue[i]), types.YChild{"ThresholdUpValue", thresholdUpValues.ThresholdUpValue[i]})
-    }
-    thresholdUpValues.EntityData.Leafs = types.NewOrderedMap()
-
-    thresholdUpValues.EntityData.YListKeys = []string {}
-
-    return &(thresholdUpValues.EntityData)
-}
-
-// ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues_ThresholdUpValue
-// Threshold limit at which track is set to UP
-// state
-type ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues_ThresholdUpValue struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Up value. The type is interface{} with range:
-    // 0..4294967295.
-    Up interface{}
-
-    // Threshold limit at which track is set to Down state. The type is
-    // interface{} with range: 0..4294967295. The default value is 0.
-    ThresholdDown interface{}
-}
-
-func (thresholdUpValue *ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight_ThresholdLimits_ThresholdUpValues_ThresholdUpValue) GetEntityData() *types.CommonEntityData {
-    thresholdUpValue.EntityData.YFilter = thresholdUpValue.YFilter
-    thresholdUpValue.EntityData.YangName = "threshold-up-value"
-    thresholdUpValue.EntityData.BundleName = "cisco_ios_xr"
-    thresholdUpValue.EntityData.ParentYangName = "threshold-up-values"
-    thresholdUpValue.EntityData.SegmentPath = "threshold-up-value" + types.AddKeyToken(thresholdUpValue.Up, "up")
-    thresholdUpValue.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-weight/threshold-limits/threshold-up-values/" + thresholdUpValue.EntityData.SegmentPath
-    thresholdUpValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    thresholdUpValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    thresholdUpValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    thresholdUpValue.EntityData.Children = types.NewOrderedMap()
-    thresholdUpValue.EntityData.Leafs = types.NewOrderedMap()
-    thresholdUpValue.EntityData.Leafs.Append("up", types.YLeaf{"Up", thresholdUpValue.Up})
-    thresholdUpValue.EntityData.Leafs.Append("threshold-down", types.YLeaf{"ThresholdDown", thresholdUpValue.ThresholdDown})
-
-    thresholdUpValue.EntityData.YListKeys = []string {"Up"}
-
-    return &(thresholdUpValue.EntityData)
 }
 
 // ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentageObject
@@ -687,8 +619,12 @@ type ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Threshold limit at which track is set to UP state.
-    ThresholdUpValues ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues
+    // Up threshold value. The type is interface{} with range: 0..4294967295.
+    Up interface{}
+
+    // Down threshold value. The type is interface{} with range: 0..4294967295.
+    // The default value is 0.
+    Down interface{}
 }
 
 func (thresholdLimits *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits) GetEntityData() *types.CommonEntityData {
@@ -703,85 +639,13 @@ func (thresholdLimits *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercenta
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     thresholdLimits.EntityData.Children = types.NewOrderedMap()
-    thresholdLimits.EntityData.Children.Append("threshold-up-values", types.YChild{"ThresholdUpValues", &thresholdLimits.ThresholdUpValues})
     thresholdLimits.EntityData.Leafs = types.NewOrderedMap()
+    thresholdLimits.EntityData.Leafs.Append("up", types.YLeaf{"Up", thresholdLimits.Up})
+    thresholdLimits.EntityData.Leafs.Append("down", types.YLeaf{"Down", thresholdLimits.Down})
 
     thresholdLimits.EntityData.YListKeys = []string {}
 
     return &(thresholdLimits.EntityData)
-}
-
-// ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues
-// Threshold limit at which track is set to UP
-// state
-type ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Threshold limit at which track is set to UP state. The type is slice of
-    // ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues_ThresholdUpValue.
-    ThresholdUpValue []*ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues_ThresholdUpValue
-}
-
-func (thresholdUpValues *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues) GetEntityData() *types.CommonEntityData {
-    thresholdUpValues.EntityData.YFilter = thresholdUpValues.YFilter
-    thresholdUpValues.EntityData.YangName = "threshold-up-values"
-    thresholdUpValues.EntityData.BundleName = "cisco_ios_xr"
-    thresholdUpValues.EntityData.ParentYangName = "threshold-limits"
-    thresholdUpValues.EntityData.SegmentPath = "threshold-up-values"
-    thresholdUpValues.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-percentage/threshold-limits/" + thresholdUpValues.EntityData.SegmentPath
-    thresholdUpValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    thresholdUpValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    thresholdUpValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    thresholdUpValues.EntityData.Children = types.NewOrderedMap()
-    thresholdUpValues.EntityData.Children.Append("threshold-up-value", types.YChild{"ThresholdUpValue", nil})
-    for i := range thresholdUpValues.ThresholdUpValue {
-        thresholdUpValues.EntityData.Children.Append(types.GetSegmentPath(thresholdUpValues.ThresholdUpValue[i]), types.YChild{"ThresholdUpValue", thresholdUpValues.ThresholdUpValue[i]})
-    }
-    thresholdUpValues.EntityData.Leafs = types.NewOrderedMap()
-
-    thresholdUpValues.EntityData.YListKeys = []string {}
-
-    return &(thresholdUpValues.EntityData)
-}
-
-// ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues_ThresholdUpValue
-// Threshold limit at which track is set to UP
-// state
-type ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues_ThresholdUpValue struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Up value. The type is interface{} with range:
-    // 0..4294967295.
-    Up interface{}
-
-    // Threshold limit at which track is set to Down state. The type is
-    // interface{} with range: 0..4294967295. The default value is 0.
-    ThresholdDown interface{}
-}
-
-func (thresholdUpValue *ObjectTrackings_ObjectTracking_TypeList_ThresholdPercentage_ThresholdLimits_ThresholdUpValues_ThresholdUpValue) GetEntityData() *types.CommonEntityData {
-    thresholdUpValue.EntityData.YFilter = thresholdUpValue.YFilter
-    thresholdUpValue.EntityData.YangName = "threshold-up-value"
-    thresholdUpValue.EntityData.BundleName = "cisco_ios_xr"
-    thresholdUpValue.EntityData.ParentYangName = "threshold-up-values"
-    thresholdUpValue.EntityData.SegmentPath = "threshold-up-value" + types.AddKeyToken(thresholdUpValue.Up, "up")
-    thresholdUpValue.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/object-tracking/type-list/threshold-percentage/threshold-limits/threshold-up-values/" + thresholdUpValue.EntityData.SegmentPath
-    thresholdUpValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    thresholdUpValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    thresholdUpValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    thresholdUpValue.EntityData.Children = types.NewOrderedMap()
-    thresholdUpValue.EntityData.Leafs = types.NewOrderedMap()
-    thresholdUpValue.EntityData.Leafs.Append("up", types.YLeaf{"Up", thresholdUpValue.Up})
-    thresholdUpValue.EntityData.Leafs.Append("threshold-down", types.YLeaf{"ThresholdDown", thresholdUpValue.ThresholdDown})
-
-    thresholdUpValue.EntityData.YListKeys = []string {"Up"}
-
-    return &(thresholdUpValue.EntityData)
 }
 
 // ObjectTrackings_ObjectTracking_TypeList_ThresholdWeightObject

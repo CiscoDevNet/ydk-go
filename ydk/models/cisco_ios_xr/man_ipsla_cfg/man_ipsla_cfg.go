@@ -5858,6 +5858,9 @@ type Ipsla_Responder struct {
 
     // Configure IPSLA Responder port type.
     Type Ipsla_Responder_Type
+
+    // Enter twamp-light session details.
+    TwampLight Ipsla_Responder_TwampLight
 }
 
 func (responder *Ipsla_Responder) GetEntityData() *types.CommonEntityData {
@@ -5874,6 +5877,7 @@ func (responder *Ipsla_Responder) GetEntityData() *types.CommonEntityData {
     responder.EntityData.Children = types.NewOrderedMap()
     responder.EntityData.Children.Append("twamp", types.YChild{"Twamp", &responder.Twamp})
     responder.EntityData.Children.Append("type", types.YChild{"Type", &responder.Type})
+    responder.EntityData.Children.Append("twamp-light", types.YChild{"TwampLight", &responder.TwampLight})
     responder.EntityData.Leafs = types.NewOrderedMap()
 
     responder.EntityData.YListKeys = []string {}
@@ -6108,6 +6112,1313 @@ func (port *Ipsla_Responder_Type_Udp_Addresses_Address_Ports_Port) GetEntityData
     port.EntityData.YListKeys = []string {"Port"}
 
     return &(port.EntityData)
+}
+
+// Ipsla_Responder_TwampLight
+// Enter twamp-light session details
+type Ipsla_Responder_TwampLight struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Create twamp-light session.
+    SessionIds Ipsla_Responder_TwampLight_SessionIds
+}
+
+func (twampLight *Ipsla_Responder_TwampLight) GetEntityData() *types.CommonEntityData {
+    twampLight.EntityData.YFilter = twampLight.YFilter
+    twampLight.EntityData.YangName = "twamp-light"
+    twampLight.EntityData.BundleName = "cisco_ios_xr"
+    twampLight.EntityData.ParentYangName = "responder"
+    twampLight.EntityData.SegmentPath = "twamp-light"
+    twampLight.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/" + twampLight.EntityData.SegmentPath
+    twampLight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    twampLight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    twampLight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    twampLight.EntityData.Children = types.NewOrderedMap()
+    twampLight.EntityData.Children.Append("session-ids", types.YChild{"SessionIds", &twampLight.SessionIds})
+    twampLight.EntityData.Leafs = types.NewOrderedMap()
+
+    twampLight.EntityData.YListKeys = []string {}
+
+    return &(twampLight.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds
+// Create twamp-light session
+type Ipsla_Responder_TwampLight_SessionIds struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure session ID. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId.
+    SessionId []*Ipsla_Responder_TwampLight_SessionIds_SessionId
+}
+
+func (sessionIds *Ipsla_Responder_TwampLight_SessionIds) GetEntityData() *types.CommonEntityData {
+    sessionIds.EntityData.YFilter = sessionIds.YFilter
+    sessionIds.EntityData.YangName = "session-ids"
+    sessionIds.EntityData.BundleName = "cisco_ios_xr"
+    sessionIds.EntityData.ParentYangName = "twamp-light"
+    sessionIds.EntityData.SegmentPath = "session-ids"
+    sessionIds.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/" + sessionIds.EntityData.SegmentPath
+    sessionIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sessionIds.EntityData.Children = types.NewOrderedMap()
+    sessionIds.EntityData.Children.Append("session-id", types.YChild{"SessionId", nil})
+    for i := range sessionIds.SessionId {
+        sessionIds.EntityData.Children.Append(types.GetSegmentPath(sessionIds.SessionId[i]), types.YChild{"SessionId", sessionIds.SessionId[i]})
+    }
+    sessionIds.EntityData.Leafs = types.NewOrderedMap()
+
+    sessionIds.EntityData.YListKeys = []string {}
+
+    return &(sessionIds.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId
+// Configure session ID
+type Ipsla_Responder_TwampLight_SessionIds_SessionId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. SessionID. The type is interface{} with range:
+    // 1..5.
+    SessionId interface{}
+
+    // Configure session timeout. The type is interface{} with range: 60..86400.
+    // Units are second.
+    TwampLightTimeout interface{}
+
+    // Configure local ip address.
+    LocalIp Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp
+}
+
+func (sessionId *Ipsla_Responder_TwampLight_SessionIds_SessionId) GetEntityData() *types.CommonEntityData {
+    sessionId.EntityData.YFilter = sessionId.YFilter
+    sessionId.EntityData.YangName = "session-id"
+    sessionId.EntityData.BundleName = "cisco_ios_xr"
+    sessionId.EntityData.ParentYangName = "session-ids"
+    sessionId.EntityData.SegmentPath = "session-id" + types.AddKeyToken(sessionId.SessionId, "session-id")
+    sessionId.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/" + sessionId.EntityData.SegmentPath
+    sessionId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sessionId.EntityData.Children = types.NewOrderedMap()
+    sessionId.EntityData.Children.Append("local-ip", types.YChild{"LocalIp", &sessionId.LocalIp})
+    sessionId.EntityData.Leafs = types.NewOrderedMap()
+    sessionId.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionId.SessionId})
+    sessionId.EntityData.Leafs.Append("twamp-light-timeout", types.YLeaf{"TwampLightTimeout", sessionId.TwampLightTimeout})
+
+    sessionId.EntityData.YListKeys = []string {"SessionId"}
+
+    return &(sessionId.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp
+// Configure local ip address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure IPV6 address.
+    LocalIpv6Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses
+
+    // Configure IPV4 address.
+    LocalIpv4Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses
+}
+
+func (localIp *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp) GetEntityData() *types.CommonEntityData {
+    localIp.EntityData.YFilter = localIp.YFilter
+    localIp.EntityData.YangName = "local-ip"
+    localIp.EntityData.BundleName = "cisco_ios_xr"
+    localIp.EntityData.ParentYangName = "session-id"
+    localIp.EntityData.SegmentPath = "local-ip"
+    localIp.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/" + localIp.EntityData.SegmentPath
+    localIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localIp.EntityData.Children = types.NewOrderedMap()
+    localIp.EntityData.Children.Append("local-ipv6-addresses", types.YChild{"LocalIpv6Addresses", &localIp.LocalIpv6Addresses})
+    localIp.EntityData.Children.Append("local-ipv4-addresses", types.YChild{"LocalIpv4Addresses", &localIp.LocalIpv4Addresses})
+    localIp.EntityData.Leafs = types.NewOrderedMap()
+
+    localIp.EntityData.YListKeys = []string {}
+
+    return &(localIp.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses
+// Configure IPV6 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of local ip address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address.
+    LocalIpv6Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address
+}
+
+func (localIpv6Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses) GetEntityData() *types.CommonEntityData {
+    localIpv6Addresses.EntityData.YFilter = localIpv6Addresses.YFilter
+    localIpv6Addresses.EntityData.YangName = "local-ipv6-addresses"
+    localIpv6Addresses.EntityData.BundleName = "cisco_ios_xr"
+    localIpv6Addresses.EntityData.ParentYangName = "local-ip"
+    localIpv6Addresses.EntityData.SegmentPath = "local-ipv6-addresses"
+    localIpv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/" + localIpv6Addresses.EntityData.SegmentPath
+    localIpv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localIpv6Addresses.EntityData.Children = types.NewOrderedMap()
+    localIpv6Addresses.EntityData.Children.Append("local-ipv6-address", types.YChild{"LocalIpv6Address", nil})
+    for i := range localIpv6Addresses.LocalIpv6Address {
+        localIpv6Addresses.EntityData.Children.Append(types.GetSegmentPath(localIpv6Addresses.LocalIpv6Address[i]), types.YChild{"LocalIpv6Address", localIpv6Addresses.LocalIpv6Address[i]})
+    }
+    localIpv6Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    localIpv6Addresses.EntityData.YListKeys = []string {}
+
+    return &(localIpv6Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address
+// Enter value of local ip address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Local IPv6 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Localv6Address interface{}
+
+    // Configuration of local port.
+    LocalPortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers
+}
+
+func (localIpv6Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address) GetEntityData() *types.CommonEntityData {
+    localIpv6Address.EntityData.YFilter = localIpv6Address.YFilter
+    localIpv6Address.EntityData.YangName = "local-ipv6-address"
+    localIpv6Address.EntityData.BundleName = "cisco_ios_xr"
+    localIpv6Address.EntityData.ParentYangName = "local-ipv6-addresses"
+    localIpv6Address.EntityData.SegmentPath = "local-ipv6-address" + types.AddKeyToken(localIpv6Address.Localv6Address, "localv6-address")
+    localIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/" + localIpv6Address.EntityData.SegmentPath
+    localIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localIpv6Address.EntityData.Children = types.NewOrderedMap()
+    localIpv6Address.EntityData.Children.Append("local-port-numbers", types.YChild{"LocalPortNumbers", &localIpv6Address.LocalPortNumbers})
+    localIpv6Address.EntityData.Leafs = types.NewOrderedMap()
+    localIpv6Address.EntityData.Leafs.Append("localv6-address", types.YLeaf{"Localv6Address", localIpv6Address.Localv6Address})
+
+    localIpv6Address.EntityData.YListKeys = []string {"Localv6Address"}
+
+    return &(localIpv6Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers
+// Configuration of local port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of local port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber.
+    LocalPortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber
+}
+
+func (localPortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers) GetEntityData() *types.CommonEntityData {
+    localPortNumbers.EntityData.YFilter = localPortNumbers.YFilter
+    localPortNumbers.EntityData.YangName = "local-port-numbers"
+    localPortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    localPortNumbers.EntityData.ParentYangName = "local-ipv6-address"
+    localPortNumbers.EntityData.SegmentPath = "local-port-numbers"
+    localPortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/" + localPortNumbers.EntityData.SegmentPath
+    localPortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localPortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localPortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localPortNumbers.EntityData.Children = types.NewOrderedMap()
+    localPortNumbers.EntityData.Children.Append("local-port-number", types.YChild{"LocalPortNumber", nil})
+    for i := range localPortNumbers.LocalPortNumber {
+        localPortNumbers.EntityData.Children.Append(types.GetSegmentPath(localPortNumbers.LocalPortNumber[i]), types.YChild{"LocalPortNumber", localPortNumbers.LocalPortNumber[i]})
+    }
+    localPortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    localPortNumbers.EntityData.YListKeys = []string {}
+
+    return &(localPortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber
+// Enter value of local port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Local port. The type is interface{} with range:
+    // 0..65535.
+    LocalPort interface{}
+
+    // Configure remote ip address.
+    RemoteIp Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp
+}
+
+func (localPortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber) GetEntityData() *types.CommonEntityData {
+    localPortNumber.EntityData.YFilter = localPortNumber.YFilter
+    localPortNumber.EntityData.YangName = "local-port-number"
+    localPortNumber.EntityData.BundleName = "cisco_ios_xr"
+    localPortNumber.EntityData.ParentYangName = "local-port-numbers"
+    localPortNumber.EntityData.SegmentPath = "local-port-number" + types.AddKeyToken(localPortNumber.LocalPort, "local-port")
+    localPortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/" + localPortNumber.EntityData.SegmentPath
+    localPortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localPortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localPortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localPortNumber.EntityData.Children = types.NewOrderedMap()
+    localPortNumber.EntityData.Children.Append("remote-ip", types.YChild{"RemoteIp", &localPortNumber.RemoteIp})
+    localPortNumber.EntityData.Leafs = types.NewOrderedMap()
+    localPortNumber.EntityData.Leafs.Append("local-port", types.YLeaf{"LocalPort", localPortNumber.LocalPort})
+
+    localPortNumber.EntityData.YListKeys = []string {"LocalPort"}
+
+    return &(localPortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp
+// Configure remote ip address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure IPV4 address.
+    RemoteIpv4Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses
+
+    // Configure IPV6 address.
+    RemoteIpv6Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses
+}
+
+func (remoteIp *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp) GetEntityData() *types.CommonEntityData {
+    remoteIp.EntityData.YFilter = remoteIp.YFilter
+    remoteIp.EntityData.YangName = "remote-ip"
+    remoteIp.EntityData.BundleName = "cisco_ios_xr"
+    remoteIp.EntityData.ParentYangName = "local-port-number"
+    remoteIp.EntityData.SegmentPath = "remote-ip"
+    remoteIp.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/" + remoteIp.EntityData.SegmentPath
+    remoteIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIp.EntityData.Children = types.NewOrderedMap()
+    remoteIp.EntityData.Children.Append("remote-ipv4-addresses", types.YChild{"RemoteIpv4Addresses", &remoteIp.RemoteIpv4Addresses})
+    remoteIp.EntityData.Children.Append("remote-ipv6-addresses", types.YChild{"RemoteIpv6Addresses", &remoteIp.RemoteIpv6Addresses})
+    remoteIp.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIp.EntityData.YListKeys = []string {}
+
+    return &(remoteIp.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses
+// Configure IPV4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote ipv4 address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address.
+    RemoteIpv4Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address
+}
+
+func (remoteIpv4Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses) GetEntityData() *types.CommonEntityData {
+    remoteIpv4Addresses.EntityData.YFilter = remoteIpv4Addresses.YFilter
+    remoteIpv4Addresses.EntityData.YangName = "remote-ipv4-addresses"
+    remoteIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv4Addresses.EntityData.ParentYangName = "remote-ip"
+    remoteIpv4Addresses.EntityData.SegmentPath = "remote-ipv4-addresses"
+    remoteIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/" + remoteIpv4Addresses.EntityData.SegmentPath
+    remoteIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv4Addresses.EntityData.Children = types.NewOrderedMap()
+    remoteIpv4Addresses.EntityData.Children.Append("remote-ipv4-address", types.YChild{"RemoteIpv4Address", nil})
+    for i := range remoteIpv4Addresses.RemoteIpv4Address {
+        remoteIpv4Addresses.EntityData.Children.Append(types.GetSegmentPath(remoteIpv4Addresses.RemoteIpv4Address[i]), types.YChild{"RemoteIpv4Address", remoteIpv4Addresses.RemoteIpv4Address[i]})
+    }
+    remoteIpv4Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIpv4Addresses.EntityData.YListKeys = []string {}
+
+    return &(remoteIpv4Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address
+// Enter value of remote ipv4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote IPv4 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Remotev4Address interface{}
+
+    // Configuration of remote port.
+    RemotePortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers
+}
+
+func (remoteIpv4Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address) GetEntityData() *types.CommonEntityData {
+    remoteIpv4Address.EntityData.YFilter = remoteIpv4Address.YFilter
+    remoteIpv4Address.EntityData.YangName = "remote-ipv4-address"
+    remoteIpv4Address.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv4Address.EntityData.ParentYangName = "remote-ipv4-addresses"
+    remoteIpv4Address.EntityData.SegmentPath = "remote-ipv4-address" + types.AddKeyToken(remoteIpv4Address.Remotev4Address, "remotev4-address")
+    remoteIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/" + remoteIpv4Address.EntityData.SegmentPath
+    remoteIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv4Address.EntityData.Children = types.NewOrderedMap()
+    remoteIpv4Address.EntityData.Children.Append("remote-port-numbers", types.YChild{"RemotePortNumbers", &remoteIpv4Address.RemotePortNumbers})
+    remoteIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    remoteIpv4Address.EntityData.Leafs.Append("remotev4-address", types.YLeaf{"Remotev4Address", remoteIpv4Address.Remotev4Address})
+
+    remoteIpv4Address.EntityData.YListKeys = []string {"Remotev4Address"}
+
+    return &(remoteIpv4Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers
+// Configuration of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber.
+    RemotePortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber
+}
+
+func (remotePortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers) GetEntityData() *types.CommonEntityData {
+    remotePortNumbers.EntityData.YFilter = remotePortNumbers.YFilter
+    remotePortNumbers.EntityData.YangName = "remote-port-numbers"
+    remotePortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumbers.EntityData.ParentYangName = "remote-ipv4-address"
+    remotePortNumbers.EntityData.SegmentPath = "remote-port-numbers"
+    remotePortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/" + remotePortNumbers.EntityData.SegmentPath
+    remotePortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumbers.EntityData.Children = types.NewOrderedMap()
+    remotePortNumbers.EntityData.Children.Append("remote-port-number", types.YChild{"RemotePortNumber", nil})
+    for i := range remotePortNumbers.RemotePortNumber {
+        remotePortNumbers.EntityData.Children.Append(types.GetSegmentPath(remotePortNumbers.RemotePortNumber[i]), types.YChild{"RemotePortNumber", remotePortNumbers.RemotePortNumber[i]})
+    }
+    remotePortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    remotePortNumbers.EntityData.YListKeys = []string {}
+
+    return &(remotePortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber
+// Enter value of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote port. The type is interface{} with range:
+    // 0..65535.
+    RemotePort interface{}
+
+    // Configuration of vrf.
+    VrfNames Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames
+}
+
+func (remotePortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber) GetEntityData() *types.CommonEntityData {
+    remotePortNumber.EntityData.YFilter = remotePortNumber.YFilter
+    remotePortNumber.EntityData.YangName = "remote-port-number"
+    remotePortNumber.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumber.EntityData.ParentYangName = "remote-port-numbers"
+    remotePortNumber.EntityData.SegmentPath = "remote-port-number" + types.AddKeyToken(remotePortNumber.RemotePort, "remote-port")
+    remotePortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/" + remotePortNumber.EntityData.SegmentPath
+    remotePortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumber.EntityData.Children = types.NewOrderedMap()
+    remotePortNumber.EntityData.Children.Append("vrf-names", types.YChild{"VrfNames", &remotePortNumber.VrfNames})
+    remotePortNumber.EntityData.Leafs = types.NewOrderedMap()
+    remotePortNumber.EntityData.Leafs.Append("remote-port", types.YLeaf{"RemotePort", remotePortNumber.RemotePort})
+
+    remotePortNumber.EntityData.YListKeys = []string {"RemotePort"}
+
+    return &(remotePortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames
+// Configuration of vrf
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure vrf name value. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName.
+    VrfName []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+}
+
+func (vrfNames *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames) GetEntityData() *types.CommonEntityData {
+    vrfNames.EntityData.YFilter = vrfNames.YFilter
+    vrfNames.EntityData.YangName = "vrf-names"
+    vrfNames.EntityData.BundleName = "cisco_ios_xr"
+    vrfNames.EntityData.ParentYangName = "remote-port-number"
+    vrfNames.EntityData.SegmentPath = "vrf-names"
+    vrfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/remote-port-number/" + vrfNames.EntityData.SegmentPath
+    vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfNames.EntityData.Children = types.NewOrderedMap()
+    vrfNames.EntityData.Children.Append("vrf-name", types.YChild{"VrfName", nil})
+    for i := range vrfNames.VrfName {
+        vrfNames.EntityData.Children.Append(types.GetSegmentPath(vrfNames.VrfName[i]), types.YChild{"VrfName", vrfNames.VrfName[i]})
+    }
+    vrfNames.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNames.EntityData.YListKeys = []string {}
+
+    return &(vrfNames.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+// Configure vrf name value
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VRF Name. The type is string with length: 1..32.
+    VrfName interface{}
+}
+
+func (vrfName *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
+    vrfName.EntityData.YFilter = vrfName.YFilter
+    vrfName.EntityData.YangName = "vrf-name"
+    vrfName.EntityData.BundleName = "cisco_ios_xr"
+    vrfName.EntityData.ParentYangName = "vrf-names"
+    vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
+    vrfName.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/remote-port-number/vrf-names/" + vrfName.EntityData.SegmentPath
+    vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfName.EntityData.Children = types.NewOrderedMap()
+    vrfName.EntityData.Leafs = types.NewOrderedMap()
+    vrfName.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfName.VrfName})
+
+    vrfName.EntityData.YListKeys = []string {"VrfName"}
+
+    return &(vrfName.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses
+// Configure IPV6 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote ipv6 address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address.
+    RemoteIpv6Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address
+}
+
+func (remoteIpv6Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses) GetEntityData() *types.CommonEntityData {
+    remoteIpv6Addresses.EntityData.YFilter = remoteIpv6Addresses.YFilter
+    remoteIpv6Addresses.EntityData.YangName = "remote-ipv6-addresses"
+    remoteIpv6Addresses.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv6Addresses.EntityData.ParentYangName = "remote-ip"
+    remoteIpv6Addresses.EntityData.SegmentPath = "remote-ipv6-addresses"
+    remoteIpv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/" + remoteIpv6Addresses.EntityData.SegmentPath
+    remoteIpv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv6Addresses.EntityData.Children = types.NewOrderedMap()
+    remoteIpv6Addresses.EntityData.Children.Append("remote-ipv6-address", types.YChild{"RemoteIpv6Address", nil})
+    for i := range remoteIpv6Addresses.RemoteIpv6Address {
+        remoteIpv6Addresses.EntityData.Children.Append(types.GetSegmentPath(remoteIpv6Addresses.RemoteIpv6Address[i]), types.YChild{"RemoteIpv6Address", remoteIpv6Addresses.RemoteIpv6Address[i]})
+    }
+    remoteIpv6Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIpv6Addresses.EntityData.YListKeys = []string {}
+
+    return &(remoteIpv6Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address
+// Enter value of remote ipv6 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote IPv6 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Remotev6Address interface{}
+
+    // Configuration of remote port.
+    RemotePortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers
+}
+
+func (remoteIpv6Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address) GetEntityData() *types.CommonEntityData {
+    remoteIpv6Address.EntityData.YFilter = remoteIpv6Address.YFilter
+    remoteIpv6Address.EntityData.YangName = "remote-ipv6-address"
+    remoteIpv6Address.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv6Address.EntityData.ParentYangName = "remote-ipv6-addresses"
+    remoteIpv6Address.EntityData.SegmentPath = "remote-ipv6-address" + types.AddKeyToken(remoteIpv6Address.Remotev6Address, "remotev6-address")
+    remoteIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/" + remoteIpv6Address.EntityData.SegmentPath
+    remoteIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv6Address.EntityData.Children = types.NewOrderedMap()
+    remoteIpv6Address.EntityData.Children.Append("remote-port-numbers", types.YChild{"RemotePortNumbers", &remoteIpv6Address.RemotePortNumbers})
+    remoteIpv6Address.EntityData.Leafs = types.NewOrderedMap()
+    remoteIpv6Address.EntityData.Leafs.Append("remotev6-address", types.YLeaf{"Remotev6Address", remoteIpv6Address.Remotev6Address})
+
+    remoteIpv6Address.EntityData.YListKeys = []string {"Remotev6Address"}
+
+    return &(remoteIpv6Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers
+// Configuration of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber.
+    RemotePortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber
+}
+
+func (remotePortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers) GetEntityData() *types.CommonEntityData {
+    remotePortNumbers.EntityData.YFilter = remotePortNumbers.YFilter
+    remotePortNumbers.EntityData.YangName = "remote-port-numbers"
+    remotePortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumbers.EntityData.ParentYangName = "remote-ipv6-address"
+    remotePortNumbers.EntityData.SegmentPath = "remote-port-numbers"
+    remotePortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/" + remotePortNumbers.EntityData.SegmentPath
+    remotePortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumbers.EntityData.Children = types.NewOrderedMap()
+    remotePortNumbers.EntityData.Children.Append("remote-port-number", types.YChild{"RemotePortNumber", nil})
+    for i := range remotePortNumbers.RemotePortNumber {
+        remotePortNumbers.EntityData.Children.Append(types.GetSegmentPath(remotePortNumbers.RemotePortNumber[i]), types.YChild{"RemotePortNumber", remotePortNumbers.RemotePortNumber[i]})
+    }
+    remotePortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    remotePortNumbers.EntityData.YListKeys = []string {}
+
+    return &(remotePortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber
+// Enter value of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote port. The type is interface{} with range:
+    // 0..65535.
+    RemotePort interface{}
+
+    // Configuration of vrf.
+    VrfNames Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames
+}
+
+func (remotePortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber) GetEntityData() *types.CommonEntityData {
+    remotePortNumber.EntityData.YFilter = remotePortNumber.YFilter
+    remotePortNumber.EntityData.YangName = "remote-port-number"
+    remotePortNumber.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumber.EntityData.ParentYangName = "remote-port-numbers"
+    remotePortNumber.EntityData.SegmentPath = "remote-port-number" + types.AddKeyToken(remotePortNumber.RemotePort, "remote-port")
+    remotePortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/" + remotePortNumber.EntityData.SegmentPath
+    remotePortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumber.EntityData.Children = types.NewOrderedMap()
+    remotePortNumber.EntityData.Children.Append("vrf-names", types.YChild{"VrfNames", &remotePortNumber.VrfNames})
+    remotePortNumber.EntityData.Leafs = types.NewOrderedMap()
+    remotePortNumber.EntityData.Leafs.Append("remote-port", types.YLeaf{"RemotePort", remotePortNumber.RemotePort})
+
+    remotePortNumber.EntityData.YListKeys = []string {"RemotePort"}
+
+    return &(remotePortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames
+// Configuration of vrf
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure vrf name value. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName.
+    VrfName []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+}
+
+func (vrfNames *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames) GetEntityData() *types.CommonEntityData {
+    vrfNames.EntityData.YFilter = vrfNames.YFilter
+    vrfNames.EntityData.YangName = "vrf-names"
+    vrfNames.EntityData.BundleName = "cisco_ios_xr"
+    vrfNames.EntityData.ParentYangName = "remote-port-number"
+    vrfNames.EntityData.SegmentPath = "vrf-names"
+    vrfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/remote-port-number/" + vrfNames.EntityData.SegmentPath
+    vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfNames.EntityData.Children = types.NewOrderedMap()
+    vrfNames.EntityData.Children.Append("vrf-name", types.YChild{"VrfName", nil})
+    for i := range vrfNames.VrfName {
+        vrfNames.EntityData.Children.Append(types.GetSegmentPath(vrfNames.VrfName[i]), types.YChild{"VrfName", vrfNames.VrfName[i]})
+    }
+    vrfNames.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNames.EntityData.YListKeys = []string {}
+
+    return &(vrfNames.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+// Configure vrf name value
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VRF Name. The type is string with length: 1..32.
+    VrfName interface{}
+}
+
+func (vrfName *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
+    vrfName.EntityData.YFilter = vrfName.YFilter
+    vrfName.EntityData.YangName = "vrf-name"
+    vrfName.EntityData.BundleName = "cisco_ios_xr"
+    vrfName.EntityData.ParentYangName = "vrf-names"
+    vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
+    vrfName.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/remote-port-number/vrf-names/" + vrfName.EntityData.SegmentPath
+    vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfName.EntityData.Children = types.NewOrderedMap()
+    vrfName.EntityData.Leafs = types.NewOrderedMap()
+    vrfName.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfName.VrfName})
+
+    vrfName.EntityData.YListKeys = []string {"VrfName"}
+
+    return &(vrfName.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses
+// Configure IPV4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of local ipv4 address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address.
+    LocalIpv4Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address
+}
+
+func (localIpv4Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses) GetEntityData() *types.CommonEntityData {
+    localIpv4Addresses.EntityData.YFilter = localIpv4Addresses.YFilter
+    localIpv4Addresses.EntityData.YangName = "local-ipv4-addresses"
+    localIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
+    localIpv4Addresses.EntityData.ParentYangName = "local-ip"
+    localIpv4Addresses.EntityData.SegmentPath = "local-ipv4-addresses"
+    localIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/" + localIpv4Addresses.EntityData.SegmentPath
+    localIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localIpv4Addresses.EntityData.Children = types.NewOrderedMap()
+    localIpv4Addresses.EntityData.Children.Append("local-ipv4-address", types.YChild{"LocalIpv4Address", nil})
+    for i := range localIpv4Addresses.LocalIpv4Address {
+        localIpv4Addresses.EntityData.Children.Append(types.GetSegmentPath(localIpv4Addresses.LocalIpv4Address[i]), types.YChild{"LocalIpv4Address", localIpv4Addresses.LocalIpv4Address[i]})
+    }
+    localIpv4Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    localIpv4Addresses.EntityData.YListKeys = []string {}
+
+    return &(localIpv4Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address
+// Enter value of local ipv4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Local IPv4 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Localv4Address interface{}
+
+    // Configuration of local port.
+    LocalPortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers
+}
+
+func (localIpv4Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address) GetEntityData() *types.CommonEntityData {
+    localIpv4Address.EntityData.YFilter = localIpv4Address.YFilter
+    localIpv4Address.EntityData.YangName = "local-ipv4-address"
+    localIpv4Address.EntityData.BundleName = "cisco_ios_xr"
+    localIpv4Address.EntityData.ParentYangName = "local-ipv4-addresses"
+    localIpv4Address.EntityData.SegmentPath = "local-ipv4-address" + types.AddKeyToken(localIpv4Address.Localv4Address, "localv4-address")
+    localIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/" + localIpv4Address.EntityData.SegmentPath
+    localIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localIpv4Address.EntityData.Children = types.NewOrderedMap()
+    localIpv4Address.EntityData.Children.Append("local-port-numbers", types.YChild{"LocalPortNumbers", &localIpv4Address.LocalPortNumbers})
+    localIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    localIpv4Address.EntityData.Leafs.Append("localv4-address", types.YLeaf{"Localv4Address", localIpv4Address.Localv4Address})
+
+    localIpv4Address.EntityData.YListKeys = []string {"Localv4Address"}
+
+    return &(localIpv4Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers
+// Configuration of local port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of local port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber.
+    LocalPortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber
+}
+
+func (localPortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers) GetEntityData() *types.CommonEntityData {
+    localPortNumbers.EntityData.YFilter = localPortNumbers.YFilter
+    localPortNumbers.EntityData.YangName = "local-port-numbers"
+    localPortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    localPortNumbers.EntityData.ParentYangName = "local-ipv4-address"
+    localPortNumbers.EntityData.SegmentPath = "local-port-numbers"
+    localPortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/" + localPortNumbers.EntityData.SegmentPath
+    localPortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localPortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localPortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localPortNumbers.EntityData.Children = types.NewOrderedMap()
+    localPortNumbers.EntityData.Children.Append("local-port-number", types.YChild{"LocalPortNumber", nil})
+    for i := range localPortNumbers.LocalPortNumber {
+        localPortNumbers.EntityData.Children.Append(types.GetSegmentPath(localPortNumbers.LocalPortNumber[i]), types.YChild{"LocalPortNumber", localPortNumbers.LocalPortNumber[i]})
+    }
+    localPortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    localPortNumbers.EntityData.YListKeys = []string {}
+
+    return &(localPortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber
+// Enter value of local port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Local port. The type is interface{} with range:
+    // 0..65535.
+    LocalPort interface{}
+
+    // Configure remote ip address.
+    RemoteIp Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp
+}
+
+func (localPortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber) GetEntityData() *types.CommonEntityData {
+    localPortNumber.EntityData.YFilter = localPortNumber.YFilter
+    localPortNumber.EntityData.YangName = "local-port-number"
+    localPortNumber.EntityData.BundleName = "cisco_ios_xr"
+    localPortNumber.EntityData.ParentYangName = "local-port-numbers"
+    localPortNumber.EntityData.SegmentPath = "local-port-number" + types.AddKeyToken(localPortNumber.LocalPort, "local-port")
+    localPortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/" + localPortNumber.EntityData.SegmentPath
+    localPortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localPortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localPortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localPortNumber.EntityData.Children = types.NewOrderedMap()
+    localPortNumber.EntityData.Children.Append("remote-ip", types.YChild{"RemoteIp", &localPortNumber.RemoteIp})
+    localPortNumber.EntityData.Leafs = types.NewOrderedMap()
+    localPortNumber.EntityData.Leafs.Append("local-port", types.YLeaf{"LocalPort", localPortNumber.LocalPort})
+
+    localPortNumber.EntityData.YListKeys = []string {"LocalPort"}
+
+    return &(localPortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp
+// Configure remote ip address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure IPV4 address.
+    RemoteIpv4Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses
+
+    // Configure IPV6 address.
+    RemoteIpv6Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses
+}
+
+func (remoteIp *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp) GetEntityData() *types.CommonEntityData {
+    remoteIp.EntityData.YFilter = remoteIp.YFilter
+    remoteIp.EntityData.YangName = "remote-ip"
+    remoteIp.EntityData.BundleName = "cisco_ios_xr"
+    remoteIp.EntityData.ParentYangName = "local-port-number"
+    remoteIp.EntityData.SegmentPath = "remote-ip"
+    remoteIp.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/" + remoteIp.EntityData.SegmentPath
+    remoteIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIp.EntityData.Children = types.NewOrderedMap()
+    remoteIp.EntityData.Children.Append("remote-ipv4-addresses", types.YChild{"RemoteIpv4Addresses", &remoteIp.RemoteIpv4Addresses})
+    remoteIp.EntityData.Children.Append("remote-ipv6-addresses", types.YChild{"RemoteIpv6Addresses", &remoteIp.RemoteIpv6Addresses})
+    remoteIp.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIp.EntityData.YListKeys = []string {}
+
+    return &(remoteIp.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses
+// Configure IPV4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote ipv4 address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address.
+    RemoteIpv4Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address
+}
+
+func (remoteIpv4Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses) GetEntityData() *types.CommonEntityData {
+    remoteIpv4Addresses.EntityData.YFilter = remoteIpv4Addresses.YFilter
+    remoteIpv4Addresses.EntityData.YangName = "remote-ipv4-addresses"
+    remoteIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv4Addresses.EntityData.ParentYangName = "remote-ip"
+    remoteIpv4Addresses.EntityData.SegmentPath = "remote-ipv4-addresses"
+    remoteIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/" + remoteIpv4Addresses.EntityData.SegmentPath
+    remoteIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv4Addresses.EntityData.Children = types.NewOrderedMap()
+    remoteIpv4Addresses.EntityData.Children.Append("remote-ipv4-address", types.YChild{"RemoteIpv4Address", nil})
+    for i := range remoteIpv4Addresses.RemoteIpv4Address {
+        remoteIpv4Addresses.EntityData.Children.Append(types.GetSegmentPath(remoteIpv4Addresses.RemoteIpv4Address[i]), types.YChild{"RemoteIpv4Address", remoteIpv4Addresses.RemoteIpv4Address[i]})
+    }
+    remoteIpv4Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIpv4Addresses.EntityData.YListKeys = []string {}
+
+    return &(remoteIpv4Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address
+// Enter value of remote ipv4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote IPv4 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Remotev4Address interface{}
+
+    // Configuration of remote port.
+    RemotePortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers
+}
+
+func (remoteIpv4Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address) GetEntityData() *types.CommonEntityData {
+    remoteIpv4Address.EntityData.YFilter = remoteIpv4Address.YFilter
+    remoteIpv4Address.EntityData.YangName = "remote-ipv4-address"
+    remoteIpv4Address.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv4Address.EntityData.ParentYangName = "remote-ipv4-addresses"
+    remoteIpv4Address.EntityData.SegmentPath = "remote-ipv4-address" + types.AddKeyToken(remoteIpv4Address.Remotev4Address, "remotev4-address")
+    remoteIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/" + remoteIpv4Address.EntityData.SegmentPath
+    remoteIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv4Address.EntityData.Children = types.NewOrderedMap()
+    remoteIpv4Address.EntityData.Children.Append("remote-port-numbers", types.YChild{"RemotePortNumbers", &remoteIpv4Address.RemotePortNumbers})
+    remoteIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    remoteIpv4Address.EntityData.Leafs.Append("remotev4-address", types.YLeaf{"Remotev4Address", remoteIpv4Address.Remotev4Address})
+
+    remoteIpv4Address.EntityData.YListKeys = []string {"Remotev4Address"}
+
+    return &(remoteIpv4Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers
+// Configuration of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber.
+    RemotePortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber
+}
+
+func (remotePortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers) GetEntityData() *types.CommonEntityData {
+    remotePortNumbers.EntityData.YFilter = remotePortNumbers.YFilter
+    remotePortNumbers.EntityData.YangName = "remote-port-numbers"
+    remotePortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumbers.EntityData.ParentYangName = "remote-ipv4-address"
+    remotePortNumbers.EntityData.SegmentPath = "remote-port-numbers"
+    remotePortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/" + remotePortNumbers.EntityData.SegmentPath
+    remotePortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumbers.EntityData.Children = types.NewOrderedMap()
+    remotePortNumbers.EntityData.Children.Append("remote-port-number", types.YChild{"RemotePortNumber", nil})
+    for i := range remotePortNumbers.RemotePortNumber {
+        remotePortNumbers.EntityData.Children.Append(types.GetSegmentPath(remotePortNumbers.RemotePortNumber[i]), types.YChild{"RemotePortNumber", remotePortNumbers.RemotePortNumber[i]})
+    }
+    remotePortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    remotePortNumbers.EntityData.YListKeys = []string {}
+
+    return &(remotePortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber
+// Enter value of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote port. The type is interface{} with range:
+    // 0..65535.
+    RemotePort interface{}
+
+    // Configuration of vrf.
+    VrfNames Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames
+}
+
+func (remotePortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber) GetEntityData() *types.CommonEntityData {
+    remotePortNumber.EntityData.YFilter = remotePortNumber.YFilter
+    remotePortNumber.EntityData.YangName = "remote-port-number"
+    remotePortNumber.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumber.EntityData.ParentYangName = "remote-port-numbers"
+    remotePortNumber.EntityData.SegmentPath = "remote-port-number" + types.AddKeyToken(remotePortNumber.RemotePort, "remote-port")
+    remotePortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/" + remotePortNumber.EntityData.SegmentPath
+    remotePortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumber.EntityData.Children = types.NewOrderedMap()
+    remotePortNumber.EntityData.Children.Append("vrf-names", types.YChild{"VrfNames", &remotePortNumber.VrfNames})
+    remotePortNumber.EntityData.Leafs = types.NewOrderedMap()
+    remotePortNumber.EntityData.Leafs.Append("remote-port", types.YLeaf{"RemotePort", remotePortNumber.RemotePort})
+
+    remotePortNumber.EntityData.YListKeys = []string {"RemotePort"}
+
+    return &(remotePortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames
+// Configuration of vrf
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure vrf name value. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName.
+    VrfName []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+}
+
+func (vrfNames *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames) GetEntityData() *types.CommonEntityData {
+    vrfNames.EntityData.YFilter = vrfNames.YFilter
+    vrfNames.EntityData.YangName = "vrf-names"
+    vrfNames.EntityData.BundleName = "cisco_ios_xr"
+    vrfNames.EntityData.ParentYangName = "remote-port-number"
+    vrfNames.EntityData.SegmentPath = "vrf-names"
+    vrfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/remote-port-number/" + vrfNames.EntityData.SegmentPath
+    vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfNames.EntityData.Children = types.NewOrderedMap()
+    vrfNames.EntityData.Children.Append("vrf-name", types.YChild{"VrfName", nil})
+    for i := range vrfNames.VrfName {
+        vrfNames.EntityData.Children.Append(types.GetSegmentPath(vrfNames.VrfName[i]), types.YChild{"VrfName", vrfNames.VrfName[i]})
+    }
+    vrfNames.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNames.EntityData.YListKeys = []string {}
+
+    return &(vrfNames.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+// Configure vrf name value
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VRF Name. The type is string with length: 1..32.
+    VrfName interface{}
+}
+
+func (vrfName *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
+    vrfName.EntityData.YFilter = vrfName.YFilter
+    vrfName.EntityData.YangName = "vrf-name"
+    vrfName.EntityData.BundleName = "cisco_ios_xr"
+    vrfName.EntityData.ParentYangName = "vrf-names"
+    vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
+    vrfName.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/remote-port-number/vrf-names/" + vrfName.EntityData.SegmentPath
+    vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfName.EntityData.Children = types.NewOrderedMap()
+    vrfName.EntityData.Leafs = types.NewOrderedMap()
+    vrfName.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfName.VrfName})
+
+    vrfName.EntityData.YListKeys = []string {"VrfName"}
+
+    return &(vrfName.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses
+// Configure IPV6 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote ipv6 address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address.
+    RemoteIpv6Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address
+}
+
+func (remoteIpv6Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses) GetEntityData() *types.CommonEntityData {
+    remoteIpv6Addresses.EntityData.YFilter = remoteIpv6Addresses.YFilter
+    remoteIpv6Addresses.EntityData.YangName = "remote-ipv6-addresses"
+    remoteIpv6Addresses.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv6Addresses.EntityData.ParentYangName = "remote-ip"
+    remoteIpv6Addresses.EntityData.SegmentPath = "remote-ipv6-addresses"
+    remoteIpv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/" + remoteIpv6Addresses.EntityData.SegmentPath
+    remoteIpv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv6Addresses.EntityData.Children = types.NewOrderedMap()
+    remoteIpv6Addresses.EntityData.Children.Append("remote-ipv6-address", types.YChild{"RemoteIpv6Address", nil})
+    for i := range remoteIpv6Addresses.RemoteIpv6Address {
+        remoteIpv6Addresses.EntityData.Children.Append(types.GetSegmentPath(remoteIpv6Addresses.RemoteIpv6Address[i]), types.YChild{"RemoteIpv6Address", remoteIpv6Addresses.RemoteIpv6Address[i]})
+    }
+    remoteIpv6Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIpv6Addresses.EntityData.YListKeys = []string {}
+
+    return &(remoteIpv6Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address
+// Enter value of remote ipv6 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote IPv6 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Remotev6Address interface{}
+
+    // Configuration of remote port.
+    RemotePortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers
+}
+
+func (remoteIpv6Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address) GetEntityData() *types.CommonEntityData {
+    remoteIpv6Address.EntityData.YFilter = remoteIpv6Address.YFilter
+    remoteIpv6Address.EntityData.YangName = "remote-ipv6-address"
+    remoteIpv6Address.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv6Address.EntityData.ParentYangName = "remote-ipv6-addresses"
+    remoteIpv6Address.EntityData.SegmentPath = "remote-ipv6-address" + types.AddKeyToken(remoteIpv6Address.Remotev6Address, "remotev6-address")
+    remoteIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/" + remoteIpv6Address.EntityData.SegmentPath
+    remoteIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv6Address.EntityData.Children = types.NewOrderedMap()
+    remoteIpv6Address.EntityData.Children.Append("remote-port-numbers", types.YChild{"RemotePortNumbers", &remoteIpv6Address.RemotePortNumbers})
+    remoteIpv6Address.EntityData.Leafs = types.NewOrderedMap()
+    remoteIpv6Address.EntityData.Leafs.Append("remotev6-address", types.YLeaf{"Remotev6Address", remoteIpv6Address.Remotev6Address})
+
+    remoteIpv6Address.EntityData.YListKeys = []string {"Remotev6Address"}
+
+    return &(remoteIpv6Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers
+// Configuration of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber.
+    RemotePortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber
+}
+
+func (remotePortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers) GetEntityData() *types.CommonEntityData {
+    remotePortNumbers.EntityData.YFilter = remotePortNumbers.YFilter
+    remotePortNumbers.EntityData.YangName = "remote-port-numbers"
+    remotePortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumbers.EntityData.ParentYangName = "remote-ipv6-address"
+    remotePortNumbers.EntityData.SegmentPath = "remote-port-numbers"
+    remotePortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/" + remotePortNumbers.EntityData.SegmentPath
+    remotePortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumbers.EntityData.Children = types.NewOrderedMap()
+    remotePortNumbers.EntityData.Children.Append("remote-port-number", types.YChild{"RemotePortNumber", nil})
+    for i := range remotePortNumbers.RemotePortNumber {
+        remotePortNumbers.EntityData.Children.Append(types.GetSegmentPath(remotePortNumbers.RemotePortNumber[i]), types.YChild{"RemotePortNumber", remotePortNumbers.RemotePortNumber[i]})
+    }
+    remotePortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    remotePortNumbers.EntityData.YListKeys = []string {}
+
+    return &(remotePortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber
+// Enter value of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote port. The type is interface{} with range:
+    // 0..65535.
+    RemotePort interface{}
+
+    // Configuration of vrf.
+    VrfNames Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames
+}
+
+func (remotePortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber) GetEntityData() *types.CommonEntityData {
+    remotePortNumber.EntityData.YFilter = remotePortNumber.YFilter
+    remotePortNumber.EntityData.YangName = "remote-port-number"
+    remotePortNumber.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumber.EntityData.ParentYangName = "remote-port-numbers"
+    remotePortNumber.EntityData.SegmentPath = "remote-port-number" + types.AddKeyToken(remotePortNumber.RemotePort, "remote-port")
+    remotePortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/" + remotePortNumber.EntityData.SegmentPath
+    remotePortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumber.EntityData.Children = types.NewOrderedMap()
+    remotePortNumber.EntityData.Children.Append("vrf-names", types.YChild{"VrfNames", &remotePortNumber.VrfNames})
+    remotePortNumber.EntityData.Leafs = types.NewOrderedMap()
+    remotePortNumber.EntityData.Leafs.Append("remote-port", types.YLeaf{"RemotePort", remotePortNumber.RemotePort})
+
+    remotePortNumber.EntityData.YListKeys = []string {"RemotePort"}
+
+    return &(remotePortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames
+// Configuration of vrf
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure vrf name value. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName.
+    VrfName []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+}
+
+func (vrfNames *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames) GetEntityData() *types.CommonEntityData {
+    vrfNames.EntityData.YFilter = vrfNames.YFilter
+    vrfNames.EntityData.YangName = "vrf-names"
+    vrfNames.EntityData.BundleName = "cisco_ios_xr"
+    vrfNames.EntityData.ParentYangName = "remote-port-number"
+    vrfNames.EntityData.SegmentPath = "vrf-names"
+    vrfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/remote-port-number/" + vrfNames.EntityData.SegmentPath
+    vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfNames.EntityData.Children = types.NewOrderedMap()
+    vrfNames.EntityData.Children.Append("vrf-name", types.YChild{"VrfName", nil})
+    for i := range vrfNames.VrfName {
+        vrfNames.EntityData.Children.Append(types.GetSegmentPath(vrfNames.VrfName[i]), types.YChild{"VrfName", vrfNames.VrfName[i]})
+    }
+    vrfNames.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNames.EntityData.YListKeys = []string {}
+
+    return &(vrfNames.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+// Configure vrf name value
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VRF Name. The type is string with length: 1..32.
+    VrfName interface{}
+}
+
+func (vrfName *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
+    vrfName.EntityData.YFilter = vrfName.YFilter
+    vrfName.EntityData.YangName = "vrf-name"
+    vrfName.EntityData.BundleName = "cisco_ios_xr"
+    vrfName.EntityData.ParentYangName = "vrf-names"
+    vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
+    vrfName.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/remote-port-number/vrf-names/" + vrfName.EntityData.SegmentPath
+    vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfName.EntityData.Children = types.NewOrderedMap()
+    vrfName.EntityData.Leafs = types.NewOrderedMap()
+    vrfName.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfName.VrfName})
+
+    vrfName.EntityData.YListKeys = []string {"VrfName"}
+
+    return &(vrfName.EntityData)
 }
 
 // Ipsla_MplsDiscovery

@@ -269,6 +269,14 @@ const (
     FibFrrProtocolShow_frr_protocol_mpls FibFrrProtocolShow = "frr-protocol-mpls"
 )
 
+// FibShTblFibExtBag represents Fib sh tbl fib ext bag
+type FibShTblFibExtBag string
+
+const (
+    // Leaf Extension
+    FibShTblFibExtBag_leaf_extension FibShTblFibExtBag = "leaf-extension"
+)
+
 // FibLink represents Fib link
 type FibLink string
 
@@ -378,6 +386,23 @@ const (
     FibProtocol_mpls FibProtocol = "mpls"
 )
 
+// FibnhInfoRepl represents Fibnh info repl
+type FibnhInfoRepl string
+
+const (
+    // None Replicated NHINFO
+    FibnhInfoRepl_fib_nh_repl_none FibnhInfoRepl = "fib-nh-repl-none"
+
+    // Replicated NHINFO for TE Accounting
+    FibnhInfoRepl_fib_nh_repl_rsvpte FibnhInfoRepl = "fib-nh-repl-rsvpte"
+
+    // Replicated NHINFO for SR MPLS Accounting
+    FibnhInfoRepl_fib_nh_repl_sr_mpls FibnhInfoRepl = "fib-nh-repl-sr-mpls"
+
+    // Replicated NHINFO for Bundle member
+    FibnhInfoRepl_fib_nh_repl_bm FibnhInfoRepl = "fib-nh-repl-bm"
+)
+
 // FibidbOper represents Fibidb oper
 type FibidbOper string
 
@@ -398,12 +423,39 @@ const (
     FibidbOper_fibidb_max FibidbOper = "fibidb-max"
 )
 
-// FibShTblFibExtBag represents Fib sh tbl fib ext bag
-type FibShTblFibExtBag string
+// Fibfrr represents Fibfrr
+type Fibfrr string
 
 const (
-    // Leaf Extension
-    FibShTblFibExtBag_leaf_extension FibShTblFibExtBag = "leaf-extension"
+    // TE FRR
+    Fibfrr_fib_te_frr_node Fibfrr = "fib-te-frr-node"
+
+    // TE Interface FRR
+    Fibfrr_fib_te_frr_intf Fibfrr = "fib-te-frr-intf"
+
+    // TE Protected FRR
+    Fibfrr_fib_te_frr_protected_nh Fibfrr = "fib-te-frr-protected-nh"
+
+    // TE Backup FRR
+    Fibfrr_fib_te_frr_backup_nh Fibfrr = "fib-te-frr-backup-nh"
+
+    // Per Link Protected FRR
+    Fibfrr_fib_per_link_frr_protected_nh Fibfrr = "fib-per-link-frr-protected-nh"
+
+    // Per Link Backup FRR
+    Fibfrr_fib_per_link_frr_backup_nh Fibfrr = "fib-per-link-frr-backup-nh"
+
+    // Per Prefix Protected FRR
+    Fibfrr_fib_prefix_frr_protected_nh Fibfrr = "fib-prefix-frr-protected-nh"
+
+    // Per Prefix Backup FRR
+    Fibfrr_fib_prefix_frr_backup_nh Fibfrr = "fib-prefix-frr-backup-nh"
+
+    // BGP PIC Protected FRR
+    Fibfrr_fib_pic_frr_protected_nh Fibfrr = "fib-pic-frr-protected-nh"
+
+    // BGP PIC Backup FRR
+    Fibfrr_fib_pic_frr_backup_nh Fibfrr = "fib-pic-frr-backup-nh"
 )
 
 // FibStatistics
@@ -2181,6 +2233,9 @@ type Fib_Nodes_Node_Protocols_Protocol struct {
     // NHIdTable is accessed by two keys; {NHId} and/or {NHInterface,NHAddress.
     NhIds Fib_Nodes_Node_Protocols_Protocol_NhIds
 
+    // FIB FRR NHINFO pending information.
+    FrrNhinfoPendings Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings
+
     // External Client Summary Table.
     ExternalClientSummaries Fib_Nodes_Node_Protocols_Protocol_ExternalClientSummaries
 
@@ -2212,6 +2267,7 @@ func (protocol *Fib_Nodes_Node_Protocols_Protocol) GetEntityData() *types.Common
     protocol.EntityData.Children.Append("exact-routes", types.YChild{"ExactRoutes", &protocol.ExactRoutes})
     protocol.EntityData.Children.Append("protocol-global", types.YChild{"ProtocolGlobal", &protocol.ProtocolGlobal})
     protocol.EntityData.Children.Append("nh-ids", types.YChild{"NhIds", &protocol.NhIds})
+    protocol.EntityData.Children.Append("frr-nhinfo-pendings", types.YChild{"FrrNhinfoPendings", &protocol.FrrNhinfoPendings})
     protocol.EntityData.Children.Append("external-client-summaries", types.YChild{"ExternalClientSummaries", &protocol.ExternalClientSummaries})
     protocol.EntityData.Children.Append("misc", types.YChild{"Misc", &protocol.Misc})
     protocol.EntityData.Children.Append("local-label", types.YChild{"LocalLabel", &protocol.LocalLabel})
@@ -4764,6 +4820,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -4784,6 +4844,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -5287,6 +5348,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -5307,6 +5372,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -5810,6 +5876,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -5830,6 +5900,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -6333,6 +6404,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -6353,6 +6428,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -6908,6 +6984,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -6928,6 +7008,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -7484,6 +7565,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -7504,6 +7589,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -7694,6 +7780,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail s
     // bool.
     RouteForExternalReachLinecardFlag interface{}
 
+    // The source of this route is not preferred over other sources with the same
+    // prefix. The type is bool.
+    RouteSourceNotPreferred interface{}
+
     // Route is a MPLS Segment-Routing prefix. The type is bool.
     RouteIsSrFlag interface{}
 
@@ -7768,6 +7858,7 @@ func (ipPrefixDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails
     ipPrefixDetail.EntityData.Leafs.Append("l2-subscriber-ip-protocol", types.YLeaf{"L2SubscriberIpProtocol", ipPrefixDetail.L2SubscriberIpProtocol})
     ipPrefixDetail.EntityData.Leafs.Append("l2tpv3-cookie-length-bits", types.YLeaf{"L2tpv3CookieLengthBits", ipPrefixDetail.L2tpv3CookieLengthBits})
     ipPrefixDetail.EntityData.Leafs.Append("route-for-external-reach-linecard-flag", types.YLeaf{"RouteForExternalReachLinecardFlag", ipPrefixDetail.RouteForExternalReachLinecardFlag})
+    ipPrefixDetail.EntityData.Leafs.Append("route-source-not-preferred", types.YLeaf{"RouteSourceNotPreferred", ipPrefixDetail.RouteSourceNotPreferred})
     ipPrefixDetail.EntityData.Leafs.Append("route-is-sr-flag", types.YLeaf{"RouteIsSrFlag", ipPrefixDetail.RouteIsSrFlag})
 
     ipPrefixDetail.EntityData.YListKeys = []string {}
@@ -9724,6 +9815,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -9744,6 +9839,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLo
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -10288,6 +10384,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -10308,6 +10408,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -10810,6 +10911,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -10830,6 +10935,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -11332,6 +11438,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -11352,6 +11462,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -11854,6 +11965,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -11874,6 +11989,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -12429,6 +12545,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -12449,6 +12569,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRe
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -13980,6 +14101,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief str
     // bool.
     RouteForExternalReachLinecardFlag interface{}
 
+    // The source of this route is not preferred over other sources with the same
+    // prefix. The type is bool.
+    RouteSourceNotPreferred interface{}
+
     // Route is a MPLS Segment-Routing prefix. The type is bool.
     RouteIsSrFlag interface{}
 
@@ -14054,6 +14179,7 @@ func (ipPrefixBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_I
     ipPrefixBrief.EntityData.Leafs.Append("l2-subscriber-ip-protocol", types.YLeaf{"L2SubscriberIpProtocol", ipPrefixBrief.L2SubscriberIpProtocol})
     ipPrefixBrief.EntityData.Leafs.Append("l2tpv3-cookie-length-bits", types.YLeaf{"L2tpv3CookieLengthBits", ipPrefixBrief.L2tpv3CookieLengthBits})
     ipPrefixBrief.EntityData.Leafs.Append("route-for-external-reach-linecard-flag", types.YLeaf{"RouteForExternalReachLinecardFlag", ipPrefixBrief.RouteForExternalReachLinecardFlag})
+    ipPrefixBrief.EntityData.Leafs.Append("route-source-not-preferred", types.YLeaf{"RouteSourceNotPreferred", ipPrefixBrief.RouteSourceNotPreferred})
     ipPrefixBrief.EntityData.Leafs.Append("route-is-sr-flag", types.YLeaf{"RouteIsSrFlag", ipPrefixBrief.RouteIsSrFlag})
 
     ipPrefixBrief.EntityData.YListKeys = []string {}
@@ -16011,6 +16137,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -16031,6 +16161,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -16586,6 +16717,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -16606,6 +16741,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -17151,6 +17287,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -17171,6 +17311,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -17674,6 +17815,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -17694,6 +17839,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -18197,6 +18343,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -18217,6 +18367,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -18720,6 +18871,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -18740,6 +18895,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -19323,6 +19479,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -19343,6 +19503,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -19845,6 +20006,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -19865,6 +20030,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -20367,6 +20533,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -20387,6 +20557,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -20889,6 +21060,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -20909,6 +21084,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -21464,6 +21640,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -21484,6 +21664,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRem
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -22039,6 +22220,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     // 0..4294967295.
     NhInfoReplicatedNhId interface{}
 
+    // ENCAP ID of the replicated NHINFO. The type is interface{} with range:
+    // 0..18446744073709551615.
+    NhInfoReplicatedEncapId interface{}
+
     // Interface of the replicated NHINFO. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
@@ -22059,6 +22244,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLoc
     snecdNhr.EntityData.Leafs = types.NewOrderedMap()
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-type", types.YLeaf{"NhInfoReplicatedType", snecdNhr.NhInfoReplicatedType})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-nh-id", types.YLeaf{"NhInfoReplicatedNhId", snecdNhr.NhInfoReplicatedNhId})
+    snecdNhr.EntityData.Leafs.Append("nh-info-replicated-encap-id", types.YLeaf{"NhInfoReplicatedEncapId", snecdNhr.NhInfoReplicatedEncapId})
     snecdNhr.EntityData.Leafs.Append("nh-info-replicated-interface", types.YLeaf{"NhInfoReplicatedInterface", snecdNhr.NhInfoReplicatedInterface})
 
     snecdNhr.EntityData.YListKeys = []string {}
@@ -22257,6 +22443,10 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute struct {
     // bool.
     RouteForExternalReachLinecardFlag interface{}
 
+    // The source of this route is not preferred over other sources with the same
+    // prefix. The type is bool.
+    RouteSourceNotPreferred interface{}
+
     // Route is a MPLS Segment-Routing prefix. The type is bool.
     RouteIsSrFlag interface{}
 
@@ -22334,6 +22524,7 @@ func (exactRoute *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute) GetE
     exactRoute.EntityData.Leafs.Append("l2-subscriber-ip-protocol", types.YLeaf{"L2SubscriberIpProtocol", exactRoute.L2SubscriberIpProtocol})
     exactRoute.EntityData.Leafs.Append("l2tpv3-cookie-length-bits", types.YLeaf{"L2tpv3CookieLengthBits", exactRoute.L2tpv3CookieLengthBits})
     exactRoute.EntityData.Leafs.Append("route-for-external-reach-linecard-flag", types.YLeaf{"RouteForExternalReachLinecardFlag", exactRoute.RouteForExternalReachLinecardFlag})
+    exactRoute.EntityData.Leafs.Append("route-source-not-preferred", types.YLeaf{"RouteSourceNotPreferred", exactRoute.RouteSourceNotPreferred})
     exactRoute.EntityData.Leafs.Append("route-is-sr-flag", types.YLeaf{"RouteIsSrFlag", exactRoute.RouteIsSrFlag})
 
     exactRoute.EntityData.YListKeys = []string {}
@@ -23933,6 +24124,10 @@ type Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId struct {
     // The time of last update in msec. The type is interface{} with range:
     // 0..18446744073709551615.
     TimeOfLastUpdateInMsec interface{}
+
+    // ENCAP ID value. The type is interface{} with range:
+    // 0..18446744073709551615.
+    EncapId interface{}
 }
 
 func (nhId *Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId) GetEntityData() *types.CommonEntityData {
@@ -23960,10 +24155,175 @@ func (nhId *Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId) GetEntityData() *types
     nhId.EntityData.Leafs.Append("nh-id-application", types.YLeaf{"NhIdApplication", nhId.NhIdApplication})
     nhId.EntityData.Leafs.Append("version", types.YLeaf{"Version", nhId.Version})
     nhId.EntityData.Leafs.Append("time-of-last-update-in-msec", types.YLeaf{"TimeOfLastUpdateInMsec", nhId.TimeOfLastUpdateInMsec})
+    nhId.EntityData.Leafs.Append("encap-id", types.YLeaf{"EncapId", nhId.EncapId})
 
     nhId.EntityData.YListKeys = []string {}
 
     return &(nhId.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings
+// FIB FRR NHINFO pending information
+type Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FIB FRR Nhinfo pending information. The type is slice of
+    // Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings_FrrNhinfoPending.
+    FrrNhinfoPending []*Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings_FrrNhinfoPending
+}
+
+func (frrNhinfoPendings *Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings) GetEntityData() *types.CommonEntityData {
+    frrNhinfoPendings.EntityData.YFilter = frrNhinfoPendings.YFilter
+    frrNhinfoPendings.EntityData.YangName = "frr-nhinfo-pendings"
+    frrNhinfoPendings.EntityData.BundleName = "cisco_ios_xr"
+    frrNhinfoPendings.EntityData.ParentYangName = "protocol"
+    frrNhinfoPendings.EntityData.SegmentPath = "frr-nhinfo-pendings"
+    frrNhinfoPendings.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + frrNhinfoPendings.EntityData.SegmentPath
+    frrNhinfoPendings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frrNhinfoPendings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frrNhinfoPendings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    frrNhinfoPendings.EntityData.Children = types.NewOrderedMap()
+    frrNhinfoPendings.EntityData.Children.Append("frr-nhinfo-pending", types.YChild{"FrrNhinfoPending", nil})
+    for i := range frrNhinfoPendings.FrrNhinfoPending {
+        types.SetYListKey(frrNhinfoPendings.FrrNhinfoPending[i], i)
+        frrNhinfoPendings.EntityData.Children.Append(types.GetSegmentPath(frrNhinfoPendings.FrrNhinfoPending[i]), types.YChild{"FrrNhinfoPending", frrNhinfoPendings.FrrNhinfoPending[i]})
+    }
+    frrNhinfoPendings.EntityData.Leafs = types.NewOrderedMap()
+
+    frrNhinfoPendings.EntityData.YListKeys = []string {}
+
+    return &(frrNhinfoPendings.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings_FrrNhinfoPending
+// FIB FRR Nhinfo pending information
+type Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings_FrrNhinfoPending struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Queue Index. The type is interface{} with range: 0..4294967295.
+    QueueIndex interface{}
+
+    // FRR Type. The type is Fibfrr.
+    FrrType interface{}
+
+    // Link Type. The type is FibLink.
+    LinkType interface{}
+
+    // Prefix Length. The type is interface{} with range: 0..4294967295.
+    PrefixLength interface{}
+
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+
+    // Main Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    MainInterfaceName interface{}
+
+    // NextHop Address. The type is one of the following types: string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    NextHopPrefix interface{}
+
+    // Replicated NextHop Type. The type is FibnhInfoRepl.
+    ReplicatedNhType interface{}
+
+    // FRR-NHinfo Type. The type is interface{} with range: 0..4294967295.
+    SiFrrtype interface{}
+
+    // refcount. The type is interface{} with range: 0..4294967295.
+    SiRefcount interface{}
+
+    // frr nhinfo flags. The type is interface{} with range: 0..4294967295.
+    SiFlags interface{}
+
+    // ifh assoc w frr nh. The type is interface{} with range: 0..4294967295.
+    SiIfh interface{}
+
+    // main ifh assoc w prot-frr nh. The type is interface{} with range:
+    // 0..4294967295.
+    SiMainIfh interface{}
+
+    // Linktype using this FRR object. The type is interface{} with range:
+    // 0..4294967295.
+    SiLinktype interface{}
+
+    // Protocol for next-hop prefix. The type is interface{} with range:
+    // 0..4294967295.
+    SiNhPfxProto interface{}
+
+    // nh prefix. The type is string with pattern:
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    SiNhPfx interface{}
+
+    // prefix len. The type is interface{} with range: 0..4294967295.
+    SiNhPfxLen interface{}
+
+    // tunnel id for c12k. The type is interface{} with range: 0..4294967295.
+    SiTunid interface{}
+
+    // frr-nhinfo pointer. The type is interface{} with range: 0..4294967295.
+    SiFrrPtr interface{}
+
+    // prot-frr-nhinfo pointer for a bkup-frr. The type is interface{} with range:
+    // 0..4294967295.
+    SiProtFrrPtr interface{}
+
+    // parent nhinfo pointer. The type is interface{} with range: 0..4294967295.
+    SiParentNhPtr interface{}
+
+    // replicated parent nhinfo type. The type is interface{} with range: 0..255.
+    SiReplParentType interface{}
+
+    // update timestamp. The type is interface{} with range:
+    // 0..18446744073709551615.
+    SiUpdTs interface{}
+}
+
+func (frrNhinfoPending *Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings_FrrNhinfoPending) GetEntityData() *types.CommonEntityData {
+    frrNhinfoPending.EntityData.YFilter = frrNhinfoPending.YFilter
+    frrNhinfoPending.EntityData.YangName = "frr-nhinfo-pending"
+    frrNhinfoPending.EntityData.BundleName = "cisco_ios_xr"
+    frrNhinfoPending.EntityData.ParentYangName = "frr-nhinfo-pendings"
+    frrNhinfoPending.EntityData.SegmentPath = "frr-nhinfo-pending" + types.AddNoKeyToken(frrNhinfoPending)
+    frrNhinfoPending.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/frr-nhinfo-pendings/" + frrNhinfoPending.EntityData.SegmentPath
+    frrNhinfoPending.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frrNhinfoPending.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frrNhinfoPending.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    frrNhinfoPending.EntityData.Children = types.NewOrderedMap()
+    frrNhinfoPending.EntityData.Leafs = types.NewOrderedMap()
+    frrNhinfoPending.EntityData.Leafs.Append("queue-index", types.YLeaf{"QueueIndex", frrNhinfoPending.QueueIndex})
+    frrNhinfoPending.EntityData.Leafs.Append("frr-type", types.YLeaf{"FrrType", frrNhinfoPending.FrrType})
+    frrNhinfoPending.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", frrNhinfoPending.LinkType})
+    frrNhinfoPending.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", frrNhinfoPending.PrefixLength})
+    frrNhinfoPending.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", frrNhinfoPending.InterfaceName})
+    frrNhinfoPending.EntityData.Leafs.Append("main-interface-name", types.YLeaf{"MainInterfaceName", frrNhinfoPending.MainInterfaceName})
+    frrNhinfoPending.EntityData.Leafs.Append("next-hop-prefix", types.YLeaf{"NextHopPrefix", frrNhinfoPending.NextHopPrefix})
+    frrNhinfoPending.EntityData.Leafs.Append("replicated-nh-type", types.YLeaf{"ReplicatedNhType", frrNhinfoPending.ReplicatedNhType})
+    frrNhinfoPending.EntityData.Leafs.Append("si-frrtype", types.YLeaf{"SiFrrtype", frrNhinfoPending.SiFrrtype})
+    frrNhinfoPending.EntityData.Leafs.Append("si-refcount", types.YLeaf{"SiRefcount", frrNhinfoPending.SiRefcount})
+    frrNhinfoPending.EntityData.Leafs.Append("si-flags", types.YLeaf{"SiFlags", frrNhinfoPending.SiFlags})
+    frrNhinfoPending.EntityData.Leafs.Append("si-ifh", types.YLeaf{"SiIfh", frrNhinfoPending.SiIfh})
+    frrNhinfoPending.EntityData.Leafs.Append("si-main-ifh", types.YLeaf{"SiMainIfh", frrNhinfoPending.SiMainIfh})
+    frrNhinfoPending.EntityData.Leafs.Append("si-linktype", types.YLeaf{"SiLinktype", frrNhinfoPending.SiLinktype})
+    frrNhinfoPending.EntityData.Leafs.Append("si-nh-pfx-proto", types.YLeaf{"SiNhPfxProto", frrNhinfoPending.SiNhPfxProto})
+    frrNhinfoPending.EntityData.Leafs.Append("si-nh-pfx", types.YLeaf{"SiNhPfx", frrNhinfoPending.SiNhPfx})
+    frrNhinfoPending.EntityData.Leafs.Append("si-nh-pfx-len", types.YLeaf{"SiNhPfxLen", frrNhinfoPending.SiNhPfxLen})
+    frrNhinfoPending.EntityData.Leafs.Append("si-tunid", types.YLeaf{"SiTunid", frrNhinfoPending.SiTunid})
+    frrNhinfoPending.EntityData.Leafs.Append("si-frr-ptr", types.YLeaf{"SiFrrPtr", frrNhinfoPending.SiFrrPtr})
+    frrNhinfoPending.EntityData.Leafs.Append("si-prot-frr-ptr", types.YLeaf{"SiProtFrrPtr", frrNhinfoPending.SiProtFrrPtr})
+    frrNhinfoPending.EntityData.Leafs.Append("si-parent-nh-ptr", types.YLeaf{"SiParentNhPtr", frrNhinfoPending.SiParentNhPtr})
+    frrNhinfoPending.EntityData.Leafs.Append("si-repl-parent-type", types.YLeaf{"SiReplParentType", frrNhinfoPending.SiReplParentType})
+    frrNhinfoPending.EntityData.Leafs.Append("si-upd-ts", types.YLeaf{"SiUpdTs", frrNhinfoPending.SiUpdTs})
+
+    frrNhinfoPending.EntityData.YListKeys = []string {}
+
+    return &(frrNhinfoPending.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_ExternalClientSummaries
@@ -25315,13 +25675,11 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat struct {
     // Gtrie timing statistics.
     FpdGtrieTiming Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGtrieTiming
 
-    // Number of global routes from                      each route source. The
-    // type is slice of
+    // Number of global routes from  each route source. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGbltblSrcEntry.
     FpdGbltblSrcEntry []*Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGbltblSrcEntry
 
-    // Number of vrf routes from                         each route source. The
-    // type is slice of
+    // Number of vrf routes from  each route source. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdVrftblSrcEntry.
     FpdVrftblSrcEntry []*Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdVrftblSrcEntry
 
@@ -25679,7 +26037,7 @@ func (fgtGtrieFnTiming *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_Fp
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGbltblSrcEntry
-// Number of global routes from                    
+// Number of global routes from
 // 
 // each route source
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGbltblSrcEntry struct {
@@ -25712,7 +26070,7 @@ func (fpdGbltblSrcEntry *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_F
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdVrftblSrcEntry
-// Number of vrf routes from                       
+// Number of vrf routes from
 // 
 // each route source
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdVrftblSrcEntry struct {
@@ -26380,7 +26738,7 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls struct {
     YFilter yfilter.YFilter
 
     // Table of MPLS labels.
-    LabelEntries OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries
+    Labels OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels
 }
 
 func (mpls *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls) GetEntityData() *types.CommonEntityData {
@@ -26395,7 +26753,7 @@ func (mpls *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls) GetEntityData() *typ
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     mpls.EntityData.Children = types.NewOrderedMap()
-    mpls.EntityData.Children.Append("label-entries", types.YChild{"LabelEntries", &mpls.LabelEntries})
+    mpls.EntityData.Children.Append("labels", types.YChild{"Labels", &mpls.Labels})
     mpls.EntityData.Leafs = types.NewOrderedMap()
 
     mpls.EntityData.YListKeys = []string {}
@@ -26403,145 +26761,140 @@ func (mpls *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls) GetEntityData() *typ
     return &(mpls.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels
 // Table of MPLS labels
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Label data. The type is slice of
-    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry.
-    LabelEntry []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry
+    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label.
+    Label []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label
 }
 
-func (labelEntries *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries) GetEntityData() *types.CommonEntityData {
-    labelEntries.EntityData.YFilter = labelEntries.YFilter
-    labelEntries.EntityData.YangName = "label-entries"
-    labelEntries.EntityData.BundleName = "cisco_ios_xr"
-    labelEntries.EntityData.ParentYangName = "mpls"
-    labelEntries.EntityData.SegmentPath = "label-entries"
-    labelEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/" + labelEntries.EntityData.SegmentPath
-    labelEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    labelEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    labelEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (labels *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels) GetEntityData() *types.CommonEntityData {
+    labels.EntityData.YFilter = labels.YFilter
+    labels.EntityData.YangName = "labels"
+    labels.EntityData.BundleName = "cisco_ios_xr"
+    labels.EntityData.ParentYangName = "mpls"
+    labels.EntityData.SegmentPath = "labels"
+    labels.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/" + labels.EntityData.SegmentPath
+    labels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelEntries.EntityData.Children = types.NewOrderedMap()
-    labelEntries.EntityData.Children.Append("label-entry", types.YChild{"LabelEntry", nil})
-    for i := range labelEntries.LabelEntry {
-        labelEntries.EntityData.Children.Append(types.GetSegmentPath(labelEntries.LabelEntry[i]), types.YChild{"LabelEntry", labelEntries.LabelEntry[i]})
+    labels.EntityData.Children = types.NewOrderedMap()
+    labels.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range labels.Label {
+        labels.EntityData.Children.Append(types.GetSegmentPath(labels.Label[i]), types.YChild{"Label", labels.Label[i]})
     }
-    labelEntries.EntityData.Leafs = types.NewOrderedMap()
+    labels.EntityData.Leafs = types.NewOrderedMap()
 
-    labelEntries.EntityData.YListKeys = []string {}
+    labels.EntityData.YListKeys = []string {}
 
-    return &(labelEntries.EntityData)
+    return &(labels.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label
 // Label data
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. MPLS label. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // This attribute is a key. Label. The type is string.
     Label interface{}
 
-    // This attribute is a key. Internal representation of a mask-length of MPLS
-    // label. The type is interface{} with range: 0..4294967295.
-    LabelLength interface{}
+    // A next-hop associated with the forwarding instance.
+    NextHops OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops
 
-    // State.
-    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_State
-
-    // Next hops. The type is slice of
-    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop.
-    NextHop []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop
+    // Operational data.
+    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_State
 }
 
-func (labelEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry) GetEntityData() *types.CommonEntityData {
-    labelEntry.EntityData.YFilter = labelEntry.YFilter
-    labelEntry.EntityData.YangName = "label-entry"
-    labelEntry.EntityData.BundleName = "cisco_ios_xr"
-    labelEntry.EntityData.ParentYangName = "label-entries"
-    labelEntry.EntityData.SegmentPath = "label-entry" + types.AddKeyToken(labelEntry.Label, "label") + types.AddKeyToken(labelEntry.LabelLength, "label-length")
-    labelEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/" + labelEntry.EntityData.SegmentPath
-    labelEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    labelEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    labelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (label *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "labels"
+    label.EntityData.SegmentPath = "label" + types.AddKeyToken(label.Label, "label")
+    label.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/labels/" + label.EntityData.SegmentPath
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelEntry.EntityData.Children = types.NewOrderedMap()
-    labelEntry.EntityData.Children.Append("state", types.YChild{"State", &labelEntry.State})
-    labelEntry.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
-    for i := range labelEntry.NextHop {
-        types.SetYListKey(labelEntry.NextHop[i], i)
-        labelEntry.EntityData.Children.Append(types.GetSegmentPath(labelEntry.NextHop[i]), types.YChild{"NextHop", labelEntry.NextHop[i]})
-    }
-    labelEntry.EntityData.Leafs = types.NewOrderedMap()
-    labelEntry.EntityData.Leafs.Append("label", types.YLeaf{"Label", labelEntry.Label})
-    labelEntry.EntityData.Leafs.Append("label-length", types.YLeaf{"LabelLength", labelEntry.LabelLength})
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Children.Append("next-hops", types.YChild{"NextHops", &label.NextHops})
+    label.EntityData.Children.Append("state", types.YChild{"State", &label.State})
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("label", types.YLeaf{"Label", label.Label})
 
-    labelEntry.EntityData.YListKeys = []string {"Label", "LabelLength"}
+    label.EntityData.YListKeys = []string {"Label"}
 
-    return &(labelEntry.EntityData)
+    return &(label.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_State
-// State
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_State struct {
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops
+// A next-hop associated with the forwarding
+// instance
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IP prefix. The type is string.
-    PrefixIndex interface{}
-
-    // MPLS label. The type is string.
-    LabelIndex interface{}
+    // A next-hop associated with the forwarding instance. The type is slice of
+    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop.
+    NextHop []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop
 }
 
-func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "cisco_ios_xr"
-    state.EntityData.ParentYangName = "label-entry"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/label-entry/" + state.EntityData.SegmentPath
-    state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (nextHops *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops) GetEntityData() *types.CommonEntityData {
+    nextHops.EntityData.YFilter = nextHops.YFilter
+    nextHops.EntityData.YangName = "next-hops"
+    nextHops.EntityData.BundleName = "cisco_ios_xr"
+    nextHops.EntityData.ParentYangName = "label"
+    nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/labels/label/" + nextHops.EntityData.SegmentPath
+    nextHops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    state.EntityData.Children = types.NewOrderedMap()
-    state.EntityData.Leafs = types.NewOrderedMap()
-    state.EntityData.Leafs.Append("prefix-index", types.YLeaf{"PrefixIndex", state.PrefixIndex})
-    state.EntityData.Leafs.Append("label-index", types.YLeaf{"LabelIndex", state.LabelIndex})
+    nextHops.EntityData.Children = types.NewOrderedMap()
+    nextHops.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
+    for i := range nextHops.NextHop {
+        nextHops.EntityData.Children.Append(types.GetSegmentPath(nextHops.NextHop[i]), types.YChild{"NextHop", nextHops.NextHop[i]})
+    }
+    nextHops.EntityData.Leafs = types.NewOrderedMap()
 
-    state.EntityData.YListKeys = []string {}
+    nextHops.EntityData.YListKeys = []string {}
 
-    return &(state.EntityData)
+    return &(nextHops.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop
-// Next hops
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop struct {
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop
+// A next-hop associated with the forwarding
+// instance
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
+    // This attribute is a key. A unique index identifying the next-hop entry for
+    // the AFT entry. The type is interface{} with range: 0..4294967295.
+    Index interface{}
+
     // OC AFT entry next-hop state.
-    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_State
+    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_State
 
     // AFT entry next-hop interface ref.
-    InterfaceRef OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_InterfaceRef
+    InterfaceRef OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_InterfaceRef
 }
 
-func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop) GetEntityData() *types.CommonEntityData {
+func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop) GetEntityData() *types.CommonEntityData {
     nextHop.EntityData.YFilter = nextHop.YFilter
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextHop.EntityData.ParentYangName = "label-entry"
-    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
-    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/label-entry/" + nextHop.EntityData.SegmentPath
+    nextHop.EntityData.ParentYangName = "next-hops"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/labels/label/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26550,15 +26903,16 @@ func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_Label
     nextHop.EntityData.Children.Append("state", types.YChild{"State", &nextHop.State})
     nextHop.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &nextHop.InterfaceRef})
     nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("index", types.YLeaf{"Index", nextHop.Index})
 
-    nextHop.EntityData.YListKeys = []string {}
+    nextHop.EntityData.YListKeys = []string {"Index"}
 
     return &(nextHop.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_State
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_State
 // OC AFT entry next-hop state
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_State struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -26581,13 +26935,13 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_Next
     PushedMplsLabelStack []interface{}
 }
 
-func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_State) GetEntityData() *types.CommonEntityData {
+func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/label-entry/next-hop/" + state.EntityData.SegmentPath
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/labels/label/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26606,23 +26960,23 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEn
     return &(state.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_InterfaceRef
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_InterfaceRef
 // AFT entry next-hop interface ref
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_InterfaceRef struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_InterfaceRef struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFT entry interface ref state.
-    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_InterfaceRef_State
+    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_InterfaceRef_State
 }
 
-func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_InterfaceRef) GetEntityData() *types.CommonEntityData {
+func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_InterfaceRef) GetEntityData() *types.CommonEntityData {
     interfaceRef.EntityData.YFilter = interfaceRef.YFilter
     interfaceRef.EntityData.YangName = "interface-ref"
     interfaceRef.EntityData.BundleName = "cisco_ios_xr"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
-    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/label-entry/next-hop/" + interfaceRef.EntityData.SegmentPath
+    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/labels/label/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26636,9 +26990,9 @@ func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_
     return &(interfaceRef.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_InterfaceRef_State
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_InterfaceRef_State
 // AFT entry interface ref state
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_InterfaceRef_State struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_InterfaceRef_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -26649,13 +27003,13 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_Next
     Subinterface interface{}
 }
 
-func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_InterfaceRef_State) GetEntityData() *types.CommonEntityData {
+func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_NextHops_NextHop_InterfaceRef_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/label-entry/next-hop/interface-ref/" + state.EntityData.SegmentPath
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/labels/label/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26670,6 +27024,36 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEn
     return &(state.EntityData)
 }
 
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_State
+// Operational data
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IP prefix or MPLS label. The type is string.
+    PrefixIndex interface{}
+}
+
+func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_Labels_Label_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "cisco_ios_xr"
+    state.EntityData.ParentYangName = "label"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/labels/label/" + state.EntityData.SegmentPath
+    state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("prefix-index", types.YLeaf{"PrefixIndex", state.PrefixIndex})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
 // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast
 // IPv6 abstract forwarding table
 type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast struct {
@@ -26677,7 +27061,7 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast struct {
     YFilter yfilter.YFilter
 
     // Table of IP prefixes.
-    PrefixEntries OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries
+    Prefixes OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes
 }
 
 func (ipv6Unicast *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast) GetEntityData() *types.CommonEntityData {
@@ -26692,7 +27076,7 @@ func (ipv6Unicast *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast) GetEnt
     ipv6Unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv6Unicast.EntityData.Children = types.NewOrderedMap()
-    ipv6Unicast.EntityData.Children.Append("prefix-entries", types.YChild{"PrefixEntries", &ipv6Unicast.PrefixEntries})
+    ipv6Unicast.EntityData.Children.Append("prefixes", types.YChild{"Prefixes", &ipv6Unicast.Prefixes})
     ipv6Unicast.EntityData.Leafs = types.NewOrderedMap()
 
     ipv6Unicast.EntityData.YListKeys = []string {}
@@ -26700,143 +27084,140 @@ func (ipv6Unicast *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast) GetEnt
     return &(ipv6Unicast.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes
 // Table of IP prefixes
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Prefix data. The type is slice of
-    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry.
-    PrefixEntry []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry
+    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix.
+    Prefix []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix
 }
 
-func (prefixEntries *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries) GetEntityData() *types.CommonEntityData {
-    prefixEntries.EntityData.YFilter = prefixEntries.YFilter
-    prefixEntries.EntityData.YangName = "prefix-entries"
-    prefixEntries.EntityData.BundleName = "cisco_ios_xr"
-    prefixEntries.EntityData.ParentYangName = "ipv6-unicast"
-    prefixEntries.EntityData.SegmentPath = "prefix-entries"
-    prefixEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/" + prefixEntries.EntityData.SegmentPath
-    prefixEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    prefixEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    prefixEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (prefixes *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes) GetEntityData() *types.CommonEntityData {
+    prefixes.EntityData.YFilter = prefixes.YFilter
+    prefixes.EntityData.YangName = "prefixes"
+    prefixes.EntityData.BundleName = "cisco_ios_xr"
+    prefixes.EntityData.ParentYangName = "ipv6-unicast"
+    prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/" + prefixes.EntityData.SegmentPath
+    prefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixEntries.EntityData.Children = types.NewOrderedMap()
-    prefixEntries.EntityData.Children.Append("prefix-entry", types.YChild{"PrefixEntry", nil})
-    for i := range prefixEntries.PrefixEntry {
-        prefixEntries.EntityData.Children.Append(types.GetSegmentPath(prefixEntries.PrefixEntry[i]), types.YChild{"PrefixEntry", prefixEntries.PrefixEntry[i]})
+    prefixes.EntityData.Children = types.NewOrderedMap()
+    prefixes.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
+    for i := range prefixes.Prefix {
+        prefixes.EntityData.Children.Append(types.GetSegmentPath(prefixes.Prefix[i]), types.YChild{"Prefix", prefixes.Prefix[i]})
     }
-    prefixEntries.EntityData.Leafs = types.NewOrderedMap()
+    prefixes.EntityData.Leafs = types.NewOrderedMap()
 
-    prefixEntries.EntityData.YListKeys = []string {}
+    prefixes.EntityData.YListKeys = []string {}
 
-    return &(prefixEntries.EntityData)
+    return &(prefixes.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix
 // Prefix data
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Network address. The type is one of the following
-    // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
-    // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
-    Network interface{}
+    // This attribute is a key. Prefix. The type is string.
+    Prefix interface{}
 
-    // State.
-    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_State
+    // A next-hop associated with the forwarding instance.
+    NextHops OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops
 
-    // Next hops. The type is slice of
-    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop.
-    NextHop []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop
+    // Operational data.
+    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_State
 }
 
-func (prefixEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry) GetEntityData() *types.CommonEntityData {
-    prefixEntry.EntityData.YFilter = prefixEntry.YFilter
-    prefixEntry.EntityData.YangName = "prefix-entry"
-    prefixEntry.EntityData.BundleName = "cisco_ios_xr"
-    prefixEntry.EntityData.ParentYangName = "prefix-entries"
-    prefixEntry.EntityData.SegmentPath = "prefix-entry" + types.AddKeyToken(prefixEntry.Network, "network")
-    prefixEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/" + prefixEntry.EntityData.SegmentPath
-    prefixEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    prefixEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    prefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (prefix *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix) GetEntityData() *types.CommonEntityData {
+    prefix.EntityData.YFilter = prefix.YFilter
+    prefix.EntityData.YangName = "prefix"
+    prefix.EntityData.BundleName = "cisco_ios_xr"
+    prefix.EntityData.ParentYangName = "prefixes"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.Prefix, "prefix")
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefixes/" + prefix.EntityData.SegmentPath
+    prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixEntry.EntityData.Children = types.NewOrderedMap()
-    prefixEntry.EntityData.Children.Append("state", types.YChild{"State", &prefixEntry.State})
-    prefixEntry.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
-    for i := range prefixEntry.NextHop {
-        types.SetYListKey(prefixEntry.NextHop[i], i)
-        prefixEntry.EntityData.Children.Append(types.GetSegmentPath(prefixEntry.NextHop[i]), types.YChild{"NextHop", prefixEntry.NextHop[i]})
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Children.Append("next-hops", types.YChild{"NextHops", &prefix.NextHops})
+    prefix.EntityData.Children.Append("state", types.YChild{"State", &prefix.State})
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefix.Prefix})
+
+    prefix.EntityData.YListKeys = []string {"Prefix"}
+
+    return &(prefix.EntityData)
+}
+
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops
+// A next-hop associated with the forwarding
+// instance
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A next-hop associated with the forwarding instance. The type is slice of
+    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop.
+    NextHop []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop
+}
+
+func (nextHops *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops) GetEntityData() *types.CommonEntityData {
+    nextHops.EntityData.YFilter = nextHops.YFilter
+    nextHops.EntityData.YangName = "next-hops"
+    nextHops.EntityData.BundleName = "cisco_ios_xr"
+    nextHops.EntityData.ParentYangName = "prefix"
+    nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefixes/prefix/" + nextHops.EntityData.SegmentPath
+    nextHops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextHops.EntityData.Children = types.NewOrderedMap()
+    nextHops.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
+    for i := range nextHops.NextHop {
+        nextHops.EntityData.Children.Append(types.GetSegmentPath(nextHops.NextHop[i]), types.YChild{"NextHop", nextHops.NextHop[i]})
     }
-    prefixEntry.EntityData.Leafs = types.NewOrderedMap()
-    prefixEntry.EntityData.Leafs.Append("network", types.YLeaf{"Network", prefixEntry.Network})
+    nextHops.EntityData.Leafs = types.NewOrderedMap()
 
-    prefixEntry.EntityData.YListKeys = []string {"Network"}
+    nextHops.EntityData.YListKeys = []string {}
 
-    return &(prefixEntry.EntityData)
+    return &(nextHops.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_State
-// State
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // IP prefix. The type is string.
-    PrefixIndex interface{}
-
-    // MPLS label. The type is string.
-    LabelIndex interface{}
-}
-
-func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "cisco_ios_xr"
-    state.EntityData.ParentYangName = "prefix-entry"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/prefix-entry/" + state.EntityData.SegmentPath
-    state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    state.EntityData.Children = types.NewOrderedMap()
-    state.EntityData.Leafs = types.NewOrderedMap()
-    state.EntityData.Leafs.Append("prefix-index", types.YLeaf{"PrefixIndex", state.PrefixIndex})
-    state.EntityData.Leafs.Append("label-index", types.YLeaf{"LabelIndex", state.LabelIndex})
-
-    state.EntityData.YListKeys = []string {}
-
-    return &(state.EntityData)
-}
-
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop
-// Next hops
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop struct {
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop
+// A next-hop associated with the forwarding
+// instance
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
+
+    // This attribute is a key. A unique index identifying the next-hop entry for
+    // the AFT entry. The type is interface{} with range: 0..4294967295.
+    Index interface{}
 
     // OC AFT entry next-hop state.
-    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_State
+    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_State
 
     // AFT entry next-hop interface ref.
-    InterfaceRef OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef
+    InterfaceRef OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef
 }
 
-func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop) GetEntityData() *types.CommonEntityData {
+func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop) GetEntityData() *types.CommonEntityData {
     nextHop.EntityData.YFilter = nextHop.YFilter
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextHop.EntityData.ParentYangName = "prefix-entry"
-    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
-    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/prefix-entry/" + nextHop.EntityData.SegmentPath
+    nextHop.EntityData.ParentYangName = "next-hops"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefixes/prefix/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26845,15 +27226,16 @@ func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntri
     nextHop.EntityData.Children.Append("state", types.YChild{"State", &nextHop.State})
     nextHop.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &nextHop.InterfaceRef})
     nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("index", types.YLeaf{"Index", nextHop.Index})
 
-    nextHop.EntityData.YListKeys = []string {}
+    nextHop.EntityData.YListKeys = []string {"Index"}
 
     return &(nextHop.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_State
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_State
 // OC AFT entry next-hop state
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_State struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -26876,13 +27258,13 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixE
     PushedMplsLabelStack []interface{}
 }
 
-func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_State) GetEntityData() *types.CommonEntityData {
+func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/prefix-entry/next-hop/" + state.EntityData.SegmentPath
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefixes/prefix/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26901,23 +27283,23 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries
     return &(state.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef
 // AFT entry next-hop interface ref
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFT entry interface ref state.
-    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef_State
+    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef_State
 }
 
-func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef) GetEntityData() *types.CommonEntityData {
+func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef) GetEntityData() *types.CommonEntityData {
     interfaceRef.EntityData.YFilter = interfaceRef.YFilter
     interfaceRef.EntityData.YangName = "interface-ref"
     interfaceRef.EntityData.BundleName = "cisco_ios_xr"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
-    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/prefix-entry/next-hop/" + interfaceRef.EntityData.SegmentPath
+    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefixes/prefix/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26931,9 +27313,9 @@ func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefix
     return &(interfaceRef.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef_State
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef_State
 // AFT entry interface ref state
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef_State struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -26944,13 +27326,13 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixE
     Subinterface interface{}
 }
 
-func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef_State) GetEntityData() *types.CommonEntityData {
+func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/prefix-entry/next-hop/interface-ref/" + state.EntityData.SegmentPath
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefixes/prefix/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26965,6 +27347,36 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries
     return &(state.EntityData)
 }
 
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_State
+// Operational data
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IP prefix or MPLS label. The type is string.
+    PrefixIndex interface{}
+}
+
+func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefixes_Prefix_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "cisco_ios_xr"
+    state.EntityData.ParentYangName = "prefix"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefixes/prefix/" + state.EntityData.SegmentPath
+    state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("prefix-index", types.YLeaf{"PrefixIndex", state.PrefixIndex})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
 // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast
 // IPv4 abstract forwarding table
 type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast struct {
@@ -26972,7 +27384,7 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast struct {
     YFilter yfilter.YFilter
 
     // Table of IP prefixes.
-    PrefixEntries OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries
+    Prefixes OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes
 }
 
 func (ipv4Unicast *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast) GetEntityData() *types.CommonEntityData {
@@ -26987,7 +27399,7 @@ func (ipv4Unicast *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast) GetEnt
     ipv4Unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv4Unicast.EntityData.Children = types.NewOrderedMap()
-    ipv4Unicast.EntityData.Children.Append("prefix-entries", types.YChild{"PrefixEntries", &ipv4Unicast.PrefixEntries})
+    ipv4Unicast.EntityData.Children.Append("prefixes", types.YChild{"Prefixes", &ipv4Unicast.Prefixes})
     ipv4Unicast.EntityData.Leafs = types.NewOrderedMap()
 
     ipv4Unicast.EntityData.YListKeys = []string {}
@@ -26995,143 +27407,140 @@ func (ipv4Unicast *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast) GetEnt
     return &(ipv4Unicast.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes
 // Table of IP prefixes
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Prefix data. The type is slice of
-    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry.
-    PrefixEntry []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry
+    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix.
+    Prefix []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix
 }
 
-func (prefixEntries *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries) GetEntityData() *types.CommonEntityData {
-    prefixEntries.EntityData.YFilter = prefixEntries.YFilter
-    prefixEntries.EntityData.YangName = "prefix-entries"
-    prefixEntries.EntityData.BundleName = "cisco_ios_xr"
-    prefixEntries.EntityData.ParentYangName = "ipv4-unicast"
-    prefixEntries.EntityData.SegmentPath = "prefix-entries"
-    prefixEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/" + prefixEntries.EntityData.SegmentPath
-    prefixEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    prefixEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    prefixEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (prefixes *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes) GetEntityData() *types.CommonEntityData {
+    prefixes.EntityData.YFilter = prefixes.YFilter
+    prefixes.EntityData.YangName = "prefixes"
+    prefixes.EntityData.BundleName = "cisco_ios_xr"
+    prefixes.EntityData.ParentYangName = "ipv4-unicast"
+    prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/" + prefixes.EntityData.SegmentPath
+    prefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixEntries.EntityData.Children = types.NewOrderedMap()
-    prefixEntries.EntityData.Children.Append("prefix-entry", types.YChild{"PrefixEntry", nil})
-    for i := range prefixEntries.PrefixEntry {
-        prefixEntries.EntityData.Children.Append(types.GetSegmentPath(prefixEntries.PrefixEntry[i]), types.YChild{"PrefixEntry", prefixEntries.PrefixEntry[i]})
+    prefixes.EntityData.Children = types.NewOrderedMap()
+    prefixes.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
+    for i := range prefixes.Prefix {
+        prefixes.EntityData.Children.Append(types.GetSegmentPath(prefixes.Prefix[i]), types.YChild{"Prefix", prefixes.Prefix[i]})
     }
-    prefixEntries.EntityData.Leafs = types.NewOrderedMap()
+    prefixes.EntityData.Leafs = types.NewOrderedMap()
 
-    prefixEntries.EntityData.YListKeys = []string {}
+    prefixes.EntityData.YListKeys = []string {}
 
-    return &(prefixEntries.EntityData)
+    return &(prefixes.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix
 // Prefix data
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Network address. The type is one of the following
-    // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
-    // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
-    Network interface{}
+    // This attribute is a key. Prefix. The type is string.
+    Prefix interface{}
 
-    // State.
-    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_State
+    // A next-hop associated with the forwarding instance.
+    NextHops OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops
 
-    // Next hops. The type is slice of
-    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop.
-    NextHop []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop
+    // Operational data.
+    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_State
 }
 
-func (prefixEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry) GetEntityData() *types.CommonEntityData {
-    prefixEntry.EntityData.YFilter = prefixEntry.YFilter
-    prefixEntry.EntityData.YangName = "prefix-entry"
-    prefixEntry.EntityData.BundleName = "cisco_ios_xr"
-    prefixEntry.EntityData.ParentYangName = "prefix-entries"
-    prefixEntry.EntityData.SegmentPath = "prefix-entry" + types.AddKeyToken(prefixEntry.Network, "network")
-    prefixEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/" + prefixEntry.EntityData.SegmentPath
-    prefixEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    prefixEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    prefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (prefix *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix) GetEntityData() *types.CommonEntityData {
+    prefix.EntityData.YFilter = prefix.YFilter
+    prefix.EntityData.YangName = "prefix"
+    prefix.EntityData.BundleName = "cisco_ios_xr"
+    prefix.EntityData.ParentYangName = "prefixes"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.Prefix, "prefix")
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefixes/" + prefix.EntityData.SegmentPath
+    prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixEntry.EntityData.Children = types.NewOrderedMap()
-    prefixEntry.EntityData.Children.Append("state", types.YChild{"State", &prefixEntry.State})
-    prefixEntry.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
-    for i := range prefixEntry.NextHop {
-        types.SetYListKey(prefixEntry.NextHop[i], i)
-        prefixEntry.EntityData.Children.Append(types.GetSegmentPath(prefixEntry.NextHop[i]), types.YChild{"NextHop", prefixEntry.NextHop[i]})
+    prefix.EntityData.Children = types.NewOrderedMap()
+    prefix.EntityData.Children.Append("next-hops", types.YChild{"NextHops", &prefix.NextHops})
+    prefix.EntityData.Children.Append("state", types.YChild{"State", &prefix.State})
+    prefix.EntityData.Leafs = types.NewOrderedMap()
+    prefix.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefix.Prefix})
+
+    prefix.EntityData.YListKeys = []string {"Prefix"}
+
+    return &(prefix.EntityData)
+}
+
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops
+// A next-hop associated with the forwarding
+// instance
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A next-hop associated with the forwarding instance. The type is slice of
+    // OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop.
+    NextHop []*OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop
+}
+
+func (nextHops *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops) GetEntityData() *types.CommonEntityData {
+    nextHops.EntityData.YFilter = nextHops.YFilter
+    nextHops.EntityData.YangName = "next-hops"
+    nextHops.EntityData.BundleName = "cisco_ios_xr"
+    nextHops.EntityData.ParentYangName = "prefix"
+    nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefixes/prefix/" + nextHops.EntityData.SegmentPath
+    nextHops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextHops.EntityData.Children = types.NewOrderedMap()
+    nextHops.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
+    for i := range nextHops.NextHop {
+        nextHops.EntityData.Children.Append(types.GetSegmentPath(nextHops.NextHop[i]), types.YChild{"NextHop", nextHops.NextHop[i]})
     }
-    prefixEntry.EntityData.Leafs = types.NewOrderedMap()
-    prefixEntry.EntityData.Leafs.Append("network", types.YLeaf{"Network", prefixEntry.Network})
+    nextHops.EntityData.Leafs = types.NewOrderedMap()
 
-    prefixEntry.EntityData.YListKeys = []string {"Network"}
+    nextHops.EntityData.YListKeys = []string {}
 
-    return &(prefixEntry.EntityData)
+    return &(nextHops.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_State
-// State
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // IP prefix. The type is string.
-    PrefixIndex interface{}
-
-    // MPLS label. The type is string.
-    LabelIndex interface{}
-}
-
-func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "cisco_ios_xr"
-    state.EntityData.ParentYangName = "prefix-entry"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/prefix-entry/" + state.EntityData.SegmentPath
-    state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    state.EntityData.Children = types.NewOrderedMap()
-    state.EntityData.Leafs = types.NewOrderedMap()
-    state.EntityData.Leafs.Append("prefix-index", types.YLeaf{"PrefixIndex", state.PrefixIndex})
-    state.EntityData.Leafs.Append("label-index", types.YLeaf{"LabelIndex", state.LabelIndex})
-
-    state.EntityData.YListKeys = []string {}
-
-    return &(state.EntityData)
-}
-
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop
-// Next hops
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop struct {
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop
+// A next-hop associated with the forwarding
+// instance
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
+
+    // This attribute is a key. A unique index identifying the next-hop entry for
+    // the AFT entry. The type is interface{} with range: 0..4294967295.
+    Index interface{}
 
     // OC AFT entry next-hop state.
-    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_State
+    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_State
 
     // AFT entry next-hop interface ref.
-    InterfaceRef OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef
+    InterfaceRef OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef
 }
 
-func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop) GetEntityData() *types.CommonEntityData {
+func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop) GetEntityData() *types.CommonEntityData {
     nextHop.EntityData.YFilter = nextHop.YFilter
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextHop.EntityData.ParentYangName = "prefix-entry"
-    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
-    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/prefix-entry/" + nextHop.EntityData.SegmentPath
+    nextHop.EntityData.ParentYangName = "next-hops"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefixes/prefix/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27140,15 +27549,16 @@ func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntri
     nextHop.EntityData.Children.Append("state", types.YChild{"State", &nextHop.State})
     nextHop.EntityData.Children.Append("interface-ref", types.YChild{"InterfaceRef", &nextHop.InterfaceRef})
     nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("index", types.YLeaf{"Index", nextHop.Index})
 
-    nextHop.EntityData.YListKeys = []string {}
+    nextHop.EntityData.YListKeys = []string {"Index"}
 
     return &(nextHop.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_State
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_State
 // OC AFT entry next-hop state
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_State struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -27171,13 +27581,13 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixE
     PushedMplsLabelStack []interface{}
 }
 
-func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_State) GetEntityData() *types.CommonEntityData {
+func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/prefix-entry/next-hop/" + state.EntityData.SegmentPath
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefixes/prefix/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27196,23 +27606,23 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries
     return &(state.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef
 // AFT entry next-hop interface ref
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFT entry interface ref state.
-    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef_State
+    State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef_State
 }
 
-func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef) GetEntityData() *types.CommonEntityData {
+func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef) GetEntityData() *types.CommonEntityData {
     interfaceRef.EntityData.YFilter = interfaceRef.YFilter
     interfaceRef.EntityData.YangName = "interface-ref"
     interfaceRef.EntityData.BundleName = "cisco_ios_xr"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
-    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/prefix-entry/next-hop/" + interfaceRef.EntityData.SegmentPath
+    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefixes/prefix/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27226,9 +27636,9 @@ func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefix
     return &(interfaceRef.EntityData)
 }
 
-// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef_State
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef_State
 // AFT entry interface ref state
-type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef_State struct {
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -27239,13 +27649,13 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixE
     Subinterface interface{}
 }
 
-func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_InterfaceRef_State) GetEntityData() *types.CommonEntityData {
+func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_NextHops_NextHop_InterfaceRef_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.YFilter = state.YFilter
     state.EntityData.YangName = "state"
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/prefix-entry/next-hop/interface-ref/" + state.EntityData.SegmentPath
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefixes/prefix/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27254,6 +27664,36 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries
     state.EntityData.Leafs = types.NewOrderedMap()
     state.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", state.Interface})
     state.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", state.Subinterface})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_State
+// Operational data
+type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IP prefix or MPLS label. The type is string.
+    PrefixIndex interface{}
+}
+
+func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefixes_Prefix_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "cisco_ios_xr"
+    state.EntityData.ParentYangName = "prefix"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefixes/prefix/" + state.EntityData.SegmentPath
+    state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("prefix-index", types.YLeaf{"PrefixIndex", state.PrefixIndex})
 
     state.EntityData.YListKeys = []string {}
 
@@ -27834,6 +28274,14 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail struc
     // 0..18446744073709551615.
     LeafTimeInMilliSeconds interface{}
 
+    // The total number of packets switched on all paths. The type is interface{}
+    // with range: 0..18446744073709551615.
+    TotalNumberOfPacketsSwitched interface{}
+
+    // The total number of bytes switched on all paths. The type is interface{}
+    // with range: 0..18446744073709551615. Units are byte.
+    TotalNumberOfBytesSwitched interface{}
+
     // LDI-info in FIB leaf.
     LdiInformation MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_LdiInformation
 
@@ -27886,6 +28334,8 @@ func (forwardingDetail *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_For
     forwardingDetail.EntityData.Leafs.Append("afi-table-id", types.YLeaf{"AfiTableId", forwardingDetail.AfiTableId})
     forwardingDetail.EntityData.Leafs.Append("multicast-label", types.YLeaf{"MulticastLabel", forwardingDetail.MulticastLabel})
     forwardingDetail.EntityData.Leafs.Append("leaf-time-in-milli-seconds", types.YLeaf{"LeafTimeInMilliSeconds", forwardingDetail.LeafTimeInMilliSeconds})
+    forwardingDetail.EntityData.Leafs.Append("total-number-of-packets-switched", types.YLeaf{"TotalNumberOfPacketsSwitched", forwardingDetail.TotalNumberOfPacketsSwitched})
+    forwardingDetail.EntityData.Leafs.Append("total-number-of-bytes-switched", types.YLeaf{"TotalNumberOfBytesSwitched", forwardingDetail.TotalNumberOfBytesSwitched})
 
     forwardingDetail.EntityData.YListKeys = []string {}
 
@@ -28035,20 +28485,6 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_Label
     // Tunnel id present?. The type is bool.
     TunnelIdPresent interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
-    OutgoingInterface interface{}
-
-    // Outgoing Physical Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
-    OutgoingPhysicalInterface interface{}
-
-    // Outgoing Parent Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
-    OutgoingParentInterface interface{}
-
-    // Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
-    TunnelInterface interface{}
-
     // LabelInformationPathIndex. The type is interface{} with range:
     // 0..4294967295.
     LabelInformationPathIndex interface{}
@@ -28068,7 +28504,16 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_Label
     TxPackets interface{}
 
     // Output Interface in string format. The type is string.
-    OutgoingInterfaceString interface{}
+    OutgoingInterface interface{}
+
+    // Output Physical Interface in string format. The type is string.
+    OutgoingPhysicalInterface interface{}
+
+    // Output Parent Interface in string format. The type is string.
+    OutgoingParentInterface interface{}
+
+    // Tunnel Interface in string format. The type is string.
+    TunnelInterface interface{}
 
     // Output Label in string format. The type is string.
     OutgoingLabelString interface{}
@@ -28114,16 +28559,15 @@ func (labelInformation *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_For
     labelInformation.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", labelInformation.OutgoingLabel})
     labelInformation.EntityData.Leafs.Append("mpls-adjacency-flags", types.YLeaf{"MplsAdjacencyFlags", labelInformation.MplsAdjacencyFlags})
     labelInformation.EntityData.Leafs.Append("tunnel-id-present", types.YLeaf{"TunnelIdPresent", labelInformation.TunnelIdPresent})
-    labelInformation.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", labelInformation.OutgoingInterface})
-    labelInformation.EntityData.Leafs.Append("outgoing-physical-interface", types.YLeaf{"OutgoingPhysicalInterface", labelInformation.OutgoingPhysicalInterface})
-    labelInformation.EntityData.Leafs.Append("outgoing-parent-interface", types.YLeaf{"OutgoingParentInterface", labelInformation.OutgoingParentInterface})
-    labelInformation.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", labelInformation.TunnelInterface})
     labelInformation.EntityData.Leafs.Append("label-information-path-index", types.YLeaf{"LabelInformationPathIndex", labelInformation.LabelInformationPathIndex})
     labelInformation.EntityData.Leafs.Append("label-information-next-hop-type", types.YLeaf{"LabelInformationNextHopType", labelInformation.LabelInformationNextHopType})
     labelInformation.EntityData.Leafs.Append("label-information-next-hop-protocol", types.YLeaf{"LabelInformationNextHopProtocol", labelInformation.LabelInformationNextHopProtocol})
     labelInformation.EntityData.Leafs.Append("tx-bytes", types.YLeaf{"TxBytes", labelInformation.TxBytes})
     labelInformation.EntityData.Leafs.Append("tx-packets", types.YLeaf{"TxPackets", labelInformation.TxPackets})
-    labelInformation.EntityData.Leafs.Append("outgoing-interface-string", types.YLeaf{"OutgoingInterfaceString", labelInformation.OutgoingInterfaceString})
+    labelInformation.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", labelInformation.OutgoingInterface})
+    labelInformation.EntityData.Leafs.Append("outgoing-physical-interface", types.YLeaf{"OutgoingPhysicalInterface", labelInformation.OutgoingPhysicalInterface})
+    labelInformation.EntityData.Leafs.Append("outgoing-parent-interface", types.YLeaf{"OutgoingParentInterface", labelInformation.OutgoingParentInterface})
+    labelInformation.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", labelInformation.TunnelInterface})
     labelInformation.EntityData.Leafs.Append("outgoing-label-string", types.YLeaf{"OutgoingLabelString", labelInformation.OutgoingLabelString})
     labelInformation.EntityData.Leafs.Append("prefix-or-id", types.YLeaf{"PrefixOrId", labelInformation.PrefixOrId})
     labelInformation.EntityData.Leafs.Append("label-information-next-hop-string", types.YLeaf{"LabelInformationNextHopString", labelInformation.LabelInformationNextHopString})
@@ -28387,6 +28831,14 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information struct {
     // 0..18446744073709551615.
     LeafTimeInMilliSeconds interface{}
 
+    // The total number of packets switched on all paths. The type is interface{}
+    // with range: 0..18446744073709551615.
+    TotalNumberOfPacketsSwitched interface{}
+
+    // The total number of bytes switched on all paths. The type is interface{}
+    // with range: 0..18446744073709551615. Units are byte.
+    TotalNumberOfBytesSwitched interface{}
+
     // LDI-info in FIB leaf.
     LdiInformation MplsForwarding_Nodes_Node_LabelFib_Informations_Information_LdiInformation
 
@@ -28439,6 +28891,8 @@ func (information *MplsForwarding_Nodes_Node_LabelFib_Informations_Information) 
     information.EntityData.Leafs.Append("afi-table-id", types.YLeaf{"AfiTableId", information.AfiTableId})
     information.EntityData.Leafs.Append("multicast-label", types.YLeaf{"MulticastLabel", information.MulticastLabel})
     information.EntityData.Leafs.Append("leaf-time-in-milli-seconds", types.YLeaf{"LeafTimeInMilliSeconds", information.LeafTimeInMilliSeconds})
+    information.EntityData.Leafs.Append("total-number-of-packets-switched", types.YLeaf{"TotalNumberOfPacketsSwitched", information.TotalNumberOfPacketsSwitched})
+    information.EntityData.Leafs.Append("total-number-of-bytes-switched", types.YLeaf{"TotalNumberOfBytesSwitched", information.TotalNumberOfBytesSwitched})
 
     information.EntityData.YListKeys = []string {}
 
@@ -28588,20 +29042,6 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_LabelInformatio
     // Tunnel id present?. The type is bool.
     TunnelIdPresent interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
-    OutgoingInterface interface{}
-
-    // Outgoing Physical Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
-    OutgoingPhysicalInterface interface{}
-
-    // Outgoing Parent Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
-    OutgoingParentInterface interface{}
-
-    // Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
-    TunnelInterface interface{}
-
     // LabelInformationPathIndex. The type is interface{} with range:
     // 0..4294967295.
     LabelInformationPathIndex interface{}
@@ -28621,7 +29061,16 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_LabelInformatio
     TxPackets interface{}
 
     // Output Interface in string format. The type is string.
-    OutgoingInterfaceString interface{}
+    OutgoingInterface interface{}
+
+    // Output Physical Interface in string format. The type is string.
+    OutgoingPhysicalInterface interface{}
+
+    // Output Parent Interface in string format. The type is string.
+    OutgoingParentInterface interface{}
+
+    // Tunnel Interface in string format. The type is string.
+    TunnelInterface interface{}
 
     // Output Label in string format. The type is string.
     OutgoingLabelString interface{}
@@ -28667,16 +29116,15 @@ func (labelInformation *MplsForwarding_Nodes_Node_LabelFib_Informations_Informat
     labelInformation.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", labelInformation.OutgoingLabel})
     labelInformation.EntityData.Leafs.Append("mpls-adjacency-flags", types.YLeaf{"MplsAdjacencyFlags", labelInformation.MplsAdjacencyFlags})
     labelInformation.EntityData.Leafs.Append("tunnel-id-present", types.YLeaf{"TunnelIdPresent", labelInformation.TunnelIdPresent})
-    labelInformation.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", labelInformation.OutgoingInterface})
-    labelInformation.EntityData.Leafs.Append("outgoing-physical-interface", types.YLeaf{"OutgoingPhysicalInterface", labelInformation.OutgoingPhysicalInterface})
-    labelInformation.EntityData.Leafs.Append("outgoing-parent-interface", types.YLeaf{"OutgoingParentInterface", labelInformation.OutgoingParentInterface})
-    labelInformation.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", labelInformation.TunnelInterface})
     labelInformation.EntityData.Leafs.Append("label-information-path-index", types.YLeaf{"LabelInformationPathIndex", labelInformation.LabelInformationPathIndex})
     labelInformation.EntityData.Leafs.Append("label-information-next-hop-type", types.YLeaf{"LabelInformationNextHopType", labelInformation.LabelInformationNextHopType})
     labelInformation.EntityData.Leafs.Append("label-information-next-hop-protocol", types.YLeaf{"LabelInformationNextHopProtocol", labelInformation.LabelInformationNextHopProtocol})
     labelInformation.EntityData.Leafs.Append("tx-bytes", types.YLeaf{"TxBytes", labelInformation.TxBytes})
     labelInformation.EntityData.Leafs.Append("tx-packets", types.YLeaf{"TxPackets", labelInformation.TxPackets})
-    labelInformation.EntityData.Leafs.Append("outgoing-interface-string", types.YLeaf{"OutgoingInterfaceString", labelInformation.OutgoingInterfaceString})
+    labelInformation.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", labelInformation.OutgoingInterface})
+    labelInformation.EntityData.Leafs.Append("outgoing-physical-interface", types.YLeaf{"OutgoingPhysicalInterface", labelInformation.OutgoingPhysicalInterface})
+    labelInformation.EntityData.Leafs.Append("outgoing-parent-interface", types.YLeaf{"OutgoingParentInterface", labelInformation.OutgoingParentInterface})
+    labelInformation.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", labelInformation.TunnelInterface})
     labelInformation.EntityData.Leafs.Append("outgoing-label-string", types.YLeaf{"OutgoingLabelString", labelInformation.OutgoingLabelString})
     labelInformation.EntityData.Leafs.Append("prefix-or-id", types.YLeaf{"PrefixOrId", labelInformation.PrefixOrId})
     labelInformation.EntityData.Leafs.Append("label-information-next-hop-string", types.YLeaf{"LabelInformationNextHopString", labelInformation.LabelInformationNextHopString})
@@ -29225,6 +29673,14 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg st
     // 0..18446744073709551615.
     LeafTimeInMilliSeconds interface{}
 
+    // The total number of packets switched on all paths. The type is interface{}
+    // with range: 0..18446744073709551615.
+    TotalNumberOfPacketsSwitched interface{}
+
+    // The total number of bytes switched on all paths. The type is interface{}
+    // with range: 0..18446744073709551615. Units are byte.
+    TotalNumberOfBytesSwitched interface{}
+
     // LDI-info in FIB leaf.
     LdiInformation MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_LdiInformation
 
@@ -29275,6 +29731,8 @@ func (fwdg *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_
     fwdg.EntityData.Leafs.Append("afi-table-id", types.YLeaf{"AfiTableId", fwdg.AfiTableId})
     fwdg.EntityData.Leafs.Append("multicast-label", types.YLeaf{"MulticastLabel", fwdg.MulticastLabel})
     fwdg.EntityData.Leafs.Append("leaf-time-in-milli-seconds", types.YLeaf{"LeafTimeInMilliSeconds", fwdg.LeafTimeInMilliSeconds})
+    fwdg.EntityData.Leafs.Append("total-number-of-packets-switched", types.YLeaf{"TotalNumberOfPacketsSwitched", fwdg.TotalNumberOfPacketsSwitched})
+    fwdg.EntityData.Leafs.Append("total-number-of-bytes-switched", types.YLeaf{"TotalNumberOfBytesSwitched", fwdg.TotalNumberOfBytesSwitched})
 
     fwdg.EntityData.YListKeys = []string {}
 
@@ -29424,20 +29882,6 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_La
     // Tunnel id present?. The type is bool.
     TunnelIdPresent interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
-    OutgoingInterface interface{}
-
-    // Outgoing Physical Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
-    OutgoingPhysicalInterface interface{}
-
-    // Outgoing Parent Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
-    OutgoingParentInterface interface{}
-
-    // Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
-    TunnelInterface interface{}
-
     // LabelInformationPathIndex. The type is interface{} with range:
     // 0..4294967295.
     LabelInformationPathIndex interface{}
@@ -29457,7 +29901,16 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_La
     TxPackets interface{}
 
     // Output Interface in string format. The type is string.
-    OutgoingInterfaceString interface{}
+    OutgoingInterface interface{}
+
+    // Output Physical Interface in string format. The type is string.
+    OutgoingPhysicalInterface interface{}
+
+    // Output Parent Interface in string format. The type is string.
+    OutgoingParentInterface interface{}
+
+    // Tunnel Interface in string format. The type is string.
+    TunnelInterface interface{}
 
     // Output Label in string format. The type is string.
     OutgoingLabelString interface{}
@@ -29503,16 +29956,15 @@ func (labelInformation *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_Forwa
     labelInformation.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", labelInformation.OutgoingLabel})
     labelInformation.EntityData.Leafs.Append("mpls-adjacency-flags", types.YLeaf{"MplsAdjacencyFlags", labelInformation.MplsAdjacencyFlags})
     labelInformation.EntityData.Leafs.Append("tunnel-id-present", types.YLeaf{"TunnelIdPresent", labelInformation.TunnelIdPresent})
-    labelInformation.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", labelInformation.OutgoingInterface})
-    labelInformation.EntityData.Leafs.Append("outgoing-physical-interface", types.YLeaf{"OutgoingPhysicalInterface", labelInformation.OutgoingPhysicalInterface})
-    labelInformation.EntityData.Leafs.Append("outgoing-parent-interface", types.YLeaf{"OutgoingParentInterface", labelInformation.OutgoingParentInterface})
-    labelInformation.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", labelInformation.TunnelInterface})
     labelInformation.EntityData.Leafs.Append("label-information-path-index", types.YLeaf{"LabelInformationPathIndex", labelInformation.LabelInformationPathIndex})
     labelInformation.EntityData.Leafs.Append("label-information-next-hop-type", types.YLeaf{"LabelInformationNextHopType", labelInformation.LabelInformationNextHopType})
     labelInformation.EntityData.Leafs.Append("label-information-next-hop-protocol", types.YLeaf{"LabelInformationNextHopProtocol", labelInformation.LabelInformationNextHopProtocol})
     labelInformation.EntityData.Leafs.Append("tx-bytes", types.YLeaf{"TxBytes", labelInformation.TxBytes})
     labelInformation.EntityData.Leafs.Append("tx-packets", types.YLeaf{"TxPackets", labelInformation.TxPackets})
-    labelInformation.EntityData.Leafs.Append("outgoing-interface-string", types.YLeaf{"OutgoingInterfaceString", labelInformation.OutgoingInterfaceString})
+    labelInformation.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", labelInformation.OutgoingInterface})
+    labelInformation.EntityData.Leafs.Append("outgoing-physical-interface", types.YLeaf{"OutgoingPhysicalInterface", labelInformation.OutgoingPhysicalInterface})
+    labelInformation.EntityData.Leafs.Append("outgoing-parent-interface", types.YLeaf{"OutgoingParentInterface", labelInformation.OutgoingParentInterface})
+    labelInformation.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", labelInformation.TunnelInterface})
     labelInformation.EntityData.Leafs.Append("outgoing-label-string", types.YLeaf{"OutgoingLabelString", labelInformation.OutgoingLabelString})
     labelInformation.EntityData.Leafs.Append("prefix-or-id", types.YLeaf{"PrefixOrId", labelInformation.PrefixOrId})
     labelInformation.EntityData.Leafs.Append("label-information-next-hop-string", types.YLeaf{"LabelInformationNextHopString", labelInformation.LabelInformationNextHopString})

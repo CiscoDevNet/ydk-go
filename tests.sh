@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function print_msg {
-    echo -e "$MSG_COLOR*** $(date): test.sh | $@ $NOCOLOR"
+    echo -e "$MSG_COLOR*** $(date): tests.sh | $@ $NOCOLOR"
 }
 
 function run_cmd {
@@ -35,6 +35,9 @@ else
     print_msg "Setting GOROOT to $GOROOT"
     print_msg "Setting GOPATH to $GOPATH"
 fi
+
+print_msg "Installing YDK-Go core and model packages"
+go get github.com/CiscoDevNet/ydk-go/ydk
 
 print_msg "Running codec samples"
 run_cmd go run samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_10/cd_encode_10.go -v

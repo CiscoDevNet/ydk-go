@@ -309,9 +309,6 @@ type AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_AddressRange struct 
     // VRF name. The type is string with length: 0..64.
     VrfName interface{}
 
-    // Pool scope. The type is string with length: 0..64.
-    PoolScope interface{}
-
     // Number of addresses allocated. The type is interface{} with range:
     // 0..4294967295.
     AllocatedAddresses interface{}
@@ -360,7 +357,6 @@ func (addressRange *AddressPoolService_Nodes_Node_Pools_Pool_AddressRanges_Addre
     addressRange.EntityData.Leafs.Append("start-address", types.YLeaf{"StartAddress", addressRange.StartAddress})
     addressRange.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", addressRange.PoolName})
     addressRange.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", addressRange.VrfName})
-    addressRange.EntityData.Leafs.Append("pool-scope", types.YLeaf{"PoolScope", addressRange.PoolScope})
     addressRange.EntityData.Leafs.Append("allocated-addresses", types.YLeaf{"AllocatedAddresses", addressRange.AllocatedAddresses})
     addressRange.EntityData.Leafs.Append("free-addresses", types.YLeaf{"FreeAddresses", addressRange.FreeAddresses})
     addressRange.EntityData.Leafs.Append("excluded-addresses", types.YLeaf{"ExcludedAddresses", addressRange.ExcludedAddresses})

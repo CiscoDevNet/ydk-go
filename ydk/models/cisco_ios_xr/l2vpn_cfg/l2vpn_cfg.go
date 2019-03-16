@@ -15090,6 +15090,9 @@ type Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery struct {
     // string.
     TablePolicy interface{}
 
+    // Disables BGP Implicit Import. The type is interface{}.
+    ImplicitImportDisable interface{}
+
     // Route Distinguisher.
     EvpnRouteDistinguisher Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery_EvpnRouteDistinguisher
 
@@ -15114,6 +15117,7 @@ func (evpnEviBgpAutoDiscovery *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDi
     evpnEviBgpAutoDiscovery.EntityData.Leafs = types.NewOrderedMap()
     evpnEviBgpAutoDiscovery.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnEviBgpAutoDiscovery.Enable})
     evpnEviBgpAutoDiscovery.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", evpnEviBgpAutoDiscovery.TablePolicy})
+    evpnEviBgpAutoDiscovery.EntityData.Leafs.Append("implicit-import-disable", types.YLeaf{"ImplicitImportDisable", evpnEviBgpAutoDiscovery.ImplicitImportDisable})
 
     evpnEviBgpAutoDiscovery.EntityData.YListKeys = []string {}
 
@@ -16111,6 +16115,9 @@ type Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceBgpAutoDiscovery str
     // string.
     TablePolicy interface{}
 
+    // Disables BGP Implicit Import. The type is interface{}.
+    ImplicitImportDisable interface{}
+
     // Route Distinguisher.
     EvpnRouteDistinguisher Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceBgpAutoDiscovery_EvpnRouteDistinguisher
 
@@ -16135,6 +16142,7 @@ func (evpnInstanceBgpAutoDiscovery *Evpn_EvpnTables_EvpnInstances_EvpnInstance_E
     evpnInstanceBgpAutoDiscovery.EntityData.Leafs = types.NewOrderedMap()
     evpnInstanceBgpAutoDiscovery.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnInstanceBgpAutoDiscovery.Enable})
     evpnInstanceBgpAutoDiscovery.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", evpnInstanceBgpAutoDiscovery.TablePolicy})
+    evpnInstanceBgpAutoDiscovery.EntityData.Leafs.Append("implicit-import-disable", types.YLeaf{"ImplicitImportDisable", evpnInstanceBgpAutoDiscovery.ImplicitImportDisable})
 
     evpnInstanceBgpAutoDiscovery.EntityData.YListKeys = []string {}
 

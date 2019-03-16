@@ -365,7 +365,7 @@ type Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses_SparseModeRpAddress struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
-    // Access list of groups that should map to a  given RP. The type is string
+    // Access list of groups that should map to a given RP. The type is string
     // with length: 1..64.
     AccessListName interface{}
 
@@ -1981,7 +1981,7 @@ type Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses_SparseModeRpAddress struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
-    // Access list of groups that should map to a  given RP. The type is string
+    // Access list of groups that should map to a given RP. The type is string
     // with length: 1..64.
     AccessListName interface{}
 
@@ -3538,7 +3538,7 @@ type Pim_DefaultContext_Ipv6_SparseModeRpAddresses_SparseModeRpAddress struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
-    // Access list of groups that should map to a  given RP. The type is string
+    // Access list of groups that should map to a given RP. The type is string
     // with length: 1..64.
     AccessListName interface{}
 
@@ -5452,7 +5452,7 @@ type Pim_DefaultContext_Ipv4_SparseModeRpAddresses_SparseModeRpAddress struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
-    // Access list of groups that should map to a  given RP. The type is string
+    // Access list of groups that should map to a given RP. The type is string
     // with length: 1..64.
     AccessListName interface{}
 

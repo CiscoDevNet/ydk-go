@@ -9,6 +9,12 @@ function install_os_dependencies {
 }
 
 function install_libssh {
+    print_msg "Checking installation of libssh"
+    locate libssh_threads.dylib
+    local status=$?
+    if [[ ${status} == 0 ]]; then
+        return
+    fi
     print_msg "Installing libssh-0.7.6"
     brew reinstall openssl
     export OPENSSL_ROOT_DIR=/usr/local/opt/openssl
@@ -37,9 +43,9 @@ function install_golang {
 }
 
 function install_libydk {
-    print_msg "Installing YDK C++ core library"
-    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.1/libydk-0.8.1-Darwin.pkg
-    sudo installer -pkg libydk-0.8.0-Darwin.pkg -target /
+    print_msg "Installing YDK C++ core libraries"
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk-0.8.2-Darwin.pkg
+    sudo installer -pkg libydk-0.8.2-Darwin.pkg -target /
 }
 
 # Terminal colors

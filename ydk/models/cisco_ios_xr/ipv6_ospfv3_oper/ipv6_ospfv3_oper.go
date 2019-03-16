@@ -3,7 +3,7 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   ospfv3: OSPFv3 operational information 
+//   ospfv3: OSPFv3 operational information
 // 
 // Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.

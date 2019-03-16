@@ -1574,6 +1574,10 @@ const (
     // 4 lane CWDM Lite cable
     EthernetMedia_ethernet_100gbase_sm_sr EthernetMedia = "ethernet-100gbase-sm-sr"
 
+    // Bi-directional fiber over 2 lane optics (short
+    // reach)
+    EthernetMedia_ethernet_100gbase_sr_bd EthernetMedia = "ethernet-100gbase-sr-bd"
+
     // ethernet base max
     EthernetMedia_ethernet_base_max EthernetMedia = "ethernet-base-max"
 )

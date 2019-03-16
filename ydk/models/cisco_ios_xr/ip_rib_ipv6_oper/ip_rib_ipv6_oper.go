@@ -2217,7 +2217,6 @@ func (destQRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     destQRoutes.EntityData.Children = types.NewOrderedMap()
     destQRoutes.EntityData.Children.Append("dest-q-route", types.YChild{"DestQRoute", nil})
     for i := range destQRoutes.DestQRoute {
-        types.SetYListKey(destQRoutes.DestQRoute[i], i)
         destQRoutes.EntityData.Children.Append(types.GetSegmentPath(destQRoutes.DestQRoute[i]), types.YChild{"DestQRoute", destQRoutes.DestQRoute[i]})
     }
     destQRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -2235,11 +2234,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -2357,7 +2357,7 @@ func (destQRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     destQRoute.EntityData.YangName = "dest-q-route"
     destQRoute.EntityData.BundleName = "cisco_ios_xr"
     destQRoute.EntityData.ParentYangName = "dest-q-routes"
-    destQRoute.EntityData.SegmentPath = "dest-q-route" + types.AddNoKeyToken(destQRoute)
+    destQRoute.EntityData.SegmentPath = "dest-q-route" + types.AddKeyToken(destQRoute.Address, "address") + types.AddKeyToken(destQRoute.PrefixLength, "prefix-length")
     destQRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/" + destQRoute.EntityData.SegmentPath
     destQRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destQRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -2401,7 +2401,7 @@ func (destQRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     destQRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destQRoute.TblVersion})
     destQRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destQRoute.RouteModifyTime})
 
-    destQRoute.EntityData.YListKeys = []string {}
+    destQRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(destQRoute.EntityData)
 }
@@ -2834,7 +2834,6 @@ func (destBackupRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     destBackupRoutes.EntityData.Children = types.NewOrderedMap()
     destBackupRoutes.EntityData.Children.Append("dest-backup-route", types.YChild{"DestBackupRoute", nil})
     for i := range destBackupRoutes.DestBackupRoute {
-        types.SetYListKey(destBackupRoutes.DestBackupRoute[i], i)
         destBackupRoutes.EntityData.Children.Append(types.GetSegmentPath(destBackupRoutes.DestBackupRoute[i]), types.YChild{"DestBackupRoute", destBackupRoutes.DestBackupRoute[i]})
     }
     destBackupRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -2852,11 +2851,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -2974,7 +2974,7 @@ func (destBackupRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     destBackupRoute.EntityData.YangName = "dest-backup-route"
     destBackupRoute.EntityData.BundleName = "cisco_ios_xr"
     destBackupRoute.EntityData.ParentYangName = "dest-backup-routes"
-    destBackupRoute.EntityData.SegmentPath = "dest-backup-route" + types.AddNoKeyToken(destBackupRoute)
+    destBackupRoute.EntityData.SegmentPath = "dest-backup-route" + types.AddKeyToken(destBackupRoute.Address, "address") + types.AddKeyToken(destBackupRoute.PrefixLength, "prefix-length")
     destBackupRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/" + destBackupRoute.EntityData.SegmentPath
     destBackupRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destBackupRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -3018,7 +3018,7 @@ func (destBackupRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     destBackupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destBackupRoute.TblVersion})
     destBackupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destBackupRoute.RouteModifyTime})
 
-    destBackupRoute.EntityData.YListKeys = []string {}
+    destBackupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(destBackupRoute.EntityData)
 }
@@ -4675,7 +4675,6 @@ func (adverts *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     adverts.EntityData.Children = types.NewOrderedMap()
     adverts.EntityData.Children.Append("advert", types.YChild{"Advert", nil})
     for i := range adverts.Advert {
-        types.SetYListKey(adverts.Advert[i], i)
         adverts.EntityData.Children.Append(types.GetSegmentPath(adverts.Advert[i]), types.YChild{"Advert", adverts.Advert[i]})
     }
     adverts.EntityData.Leafs = types.NewOrderedMap()
@@ -4693,11 +4692,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_A
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // ipv6 rib edm advert. The type is slice of
@@ -4710,7 +4710,7 @@ func (advert *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     advert.EntityData.YangName = "advert"
     advert.EntityData.BundleName = "cisco_ios_xr"
     advert.EntityData.ParentYangName = "adverts"
-    advert.EntityData.SegmentPath = "advert" + types.AddNoKeyToken(advert)
+    advert.EntityData.SegmentPath = "advert" + types.AddKeyToken(advert.Address, "address") + types.AddKeyToken(advert.PrefixLength, "prefix-length")
     advert.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/adverts/" + advert.EntityData.SegmentPath
     advert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -4726,7 +4726,7 @@ func (advert *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     advert.EntityData.Leafs.Append("address", types.YLeaf{"Address", advert.Address})
     advert.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", advert.PrefixLength})
 
-    advert.EntityData.YListKeys = []string {}
+    advert.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(advert.EntityData)
 }
@@ -4819,7 +4819,6 @@ func (deletedRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     deletedRoutes.EntityData.Children = types.NewOrderedMap()
     deletedRoutes.EntityData.Children.Append("deleted-route", types.YChild{"DeletedRoute", nil})
     for i := range deletedRoutes.DeletedRoute {
-        types.SetYListKey(deletedRoutes.DeletedRoute[i], i)
         deletedRoutes.EntityData.Children.Append(types.GetSegmentPath(deletedRoutes.DeletedRoute[i]), types.YChild{"DeletedRoute", deletedRoutes.DeletedRoute[i]})
     }
     deletedRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -4837,11 +4836,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -4959,7 +4959,7 @@ func (deletedRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     deletedRoute.EntityData.YangName = "deleted-route"
     deletedRoute.EntityData.BundleName = "cisco_ios_xr"
     deletedRoute.EntityData.ParentYangName = "deleted-routes"
-    deletedRoute.EntityData.SegmentPath = "deleted-route" + types.AddNoKeyToken(deletedRoute)
+    deletedRoute.EntityData.SegmentPath = "deleted-route" + types.AddKeyToken(deletedRoute.Address, "address") + types.AddKeyToken(deletedRoute.PrefixLength, "prefix-length")
     deletedRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/" + deletedRoute.EntityData.SegmentPath
     deletedRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     deletedRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -5003,7 +5003,7 @@ func (deletedRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     deletedRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", deletedRoute.TblVersion})
     deletedRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", deletedRoute.RouteModifyTime})
 
-    deletedRoute.EntityData.YListKeys = []string {}
+    deletedRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(deletedRoute.EntityData)
 }
@@ -5653,7 +5653,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -5670,11 +5669,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -5792,7 +5792,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -5836,7 +5836,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -6380,7 +6380,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -6397,11 +6396,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -6519,7 +6519,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -6563,7 +6563,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -7147,7 +7147,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -7164,11 +7163,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -7286,7 +7286,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -7330,7 +7330,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -7904,7 +7904,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -7921,11 +7920,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -8043,7 +8043,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -8087,7 +8087,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -8671,7 +8671,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -8688,11 +8687,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -8810,7 +8810,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -8854,7 +8854,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -9438,7 +9438,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -9455,11 +9454,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -9577,7 +9577,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -9621,7 +9621,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -10195,7 +10195,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -10212,11 +10211,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -10334,7 +10334,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -10378,7 +10378,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -10952,7 +10952,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -10969,11 +10968,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -11091,7 +11091,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -11135,7 +11135,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -11709,7 +11709,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -11726,11 +11725,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -11848,7 +11848,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -11892,7 +11892,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -12476,7 +12476,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -12493,11 +12492,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -12615,7 +12615,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -12659,7 +12659,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -13237,7 +13237,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -13254,11 +13253,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -13376,7 +13376,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/l2vpn/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -13420,7 +13420,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -13964,7 +13964,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -13981,11 +13980,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -14103,7 +14103,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -14147,7 +14147,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -14731,7 +14731,6 @@ func (protocolRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -14748,11 +14747,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -14870,7 +14870,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -14914,7 +14914,7 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -15347,7 +15347,6 @@ func (routes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -15365,19 +15364,13 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
-
-    // NextHop Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    NextHopAddress interface{}
-
-    // Outgoing Interface . The type is string with pattern: [a-zA-Z0-9._/-]+.
-    InterfaceName interface{}
 
     // Route prefix. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -15494,7 +15487,7 @@ func (route *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.Address, "address") + types.AddKeyToken(route.PrefixLength, "prefix-length")
     route.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -15505,8 +15498,6 @@ func (route *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     route.EntityData.Leafs = types.NewOrderedMap()
     route.EntityData.Leafs.Append("address", types.YLeaf{"Address", route.Address})
     route.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", route.PrefixLength})
-    route.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", route.NextHopAddress})
-    route.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", route.InterfaceName})
     route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
     route.EntityData.Leafs.Append("prefix-length-xr", types.YLeaf{"PrefixLengthXr", route.PrefixLengthXr})
     route.EntityData.Leafs.Append("route-version", types.YLeaf{"RouteVersion", route.RouteVersion})
@@ -15540,7 +15531,7 @@ func (route *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     route.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", route.TblVersion})
     route.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", route.RouteModifyTime})
 
-    route.EntityData.YListKeys = []string {}
+    route.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(route.EntityData)
 }
@@ -15973,7 +15964,6 @@ func (qRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     qRoutes.EntityData.Children = types.NewOrderedMap()
     qRoutes.EntityData.Children.Append("q-route", types.YChild{"QRoute", nil})
     for i := range qRoutes.QRoute {
-        types.SetYListKey(qRoutes.QRoute[i], i)
         qRoutes.EntityData.Children.Append(types.GetSegmentPath(qRoutes.QRoute[i]), types.YChild{"QRoute", qRoutes.QRoute[i]})
     }
     qRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -15991,11 +15981,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -16113,7 +16104,7 @@ func (qRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     qRoute.EntityData.YangName = "q-route"
     qRoute.EntityData.BundleName = "cisco_ios_xr"
     qRoute.EntityData.ParentYangName = "q-routes"
-    qRoute.EntityData.SegmentPath = "q-route" + types.AddNoKeyToken(qRoute)
+    qRoute.EntityData.SegmentPath = "q-route" + types.AddKeyToken(qRoute.Address, "address") + types.AddKeyToken(qRoute.PrefixLength, "prefix-length")
     qRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/" + qRoute.EntityData.SegmentPath
     qRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -16157,7 +16148,7 @@ func (qRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     qRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", qRoute.TblVersion})
     qRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", qRoute.RouteModifyTime})
 
-    qRoute.EntityData.YListKeys = []string {}
+    qRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(qRoute.EntityData)
 }
@@ -16591,7 +16582,6 @@ func (backupRoutes *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     backupRoutes.EntityData.Children = types.NewOrderedMap()
     backupRoutes.EntityData.Children.Append("backup-route", types.YChild{"BackupRoute", nil})
     for i := range backupRoutes.BackupRoute {
-        types.SetYListKey(backupRoutes.BackupRoute[i], i)
         backupRoutes.EntityData.Children.Append(types.GetSegmentPath(backupRoutes.BackupRoute[i]), types.YChild{"BackupRoute", backupRoutes.BackupRoute[i]})
     }
     backupRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -16609,14 +16599,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
-    // Proto ID. The type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Proto ID. The type is interface{} with range:
+    // 0..4294967295.
     Protoid interface{}
 
     // Route prefix. The type is string with pattern:
@@ -16734,7 +16726,7 @@ func (backupRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     backupRoute.EntityData.YangName = "backup-route"
     backupRoute.EntityData.BundleName = "cisco_ios_xr"
     backupRoute.EntityData.ParentYangName = "backup-routes"
-    backupRoute.EntityData.SegmentPath = "backup-route" + types.AddNoKeyToken(backupRoute)
+    backupRoute.EntityData.SegmentPath = "backup-route" + types.AddKeyToken(backupRoute.Address, "address") + types.AddKeyToken(backupRoute.PrefixLength, "prefix-length") + types.AddKeyToken(backupRoute.Protoid, "protoid")
     backupRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/" + backupRoute.EntityData.SegmentPath
     backupRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -16779,7 +16771,7 @@ func (backupRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     backupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", backupRoute.TblVersion})
     backupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", backupRoute.RouteModifyTime})
 
-    backupRoute.EntityData.YListKeys = []string {}
+    backupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength", "Protoid"}
 
     return &(backupRoute.EntityData)
 }
@@ -19363,7 +19355,6 @@ func (destQRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     destQRoutes.EntityData.Children = types.NewOrderedMap()
     destQRoutes.EntityData.Children.Append("dest-q-route", types.YChild{"DestQRoute", nil})
     for i := range destQRoutes.DestQRoute {
-        types.SetYListKey(destQRoutes.DestQRoute[i], i)
         destQRoutes.EntityData.Children.Append(types.GetSegmentPath(destQRoutes.DestQRoute[i]), types.YChild{"DestQRoute", destQRoutes.DestQRoute[i]})
     }
     destQRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -19381,11 +19372,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -19503,7 +19495,7 @@ func (destQRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     destQRoute.EntityData.YangName = "dest-q-route"
     destQRoute.EntityData.BundleName = "cisco_ios_xr"
     destQRoute.EntityData.ParentYangName = "dest-q-routes"
-    destQRoute.EntityData.SegmentPath = "dest-q-route" + types.AddNoKeyToken(destQRoute)
+    destQRoute.EntityData.SegmentPath = "dest-q-route" + types.AddKeyToken(destQRoute.Address, "address") + types.AddKeyToken(destQRoute.PrefixLength, "prefix-length")
     destQRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/" + destQRoute.EntityData.SegmentPath
     destQRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destQRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -19547,7 +19539,7 @@ func (destQRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     destQRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destQRoute.TblVersion})
     destQRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destQRoute.RouteModifyTime})
 
-    destQRoute.EntityData.YListKeys = []string {}
+    destQRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(destQRoute.EntityData)
 }
@@ -19980,7 +19972,6 @@ func (destBackupRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNam
     destBackupRoutes.EntityData.Children = types.NewOrderedMap()
     destBackupRoutes.EntityData.Children.Append("dest-backup-route", types.YChild{"DestBackupRoute", nil})
     for i := range destBackupRoutes.DestBackupRoute {
-        types.SetYListKey(destBackupRoutes.DestBackupRoute[i], i)
         destBackupRoutes.EntityData.Children.Append(types.GetSegmentPath(destBackupRoutes.DestBackupRoute[i]), types.YChild{"DestBackupRoute", destBackupRoutes.DestBackupRoute[i]})
     }
     destBackupRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -19998,11 +19989,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -20120,7 +20112,7 @@ func (destBackupRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableName
     destBackupRoute.EntityData.YangName = "dest-backup-route"
     destBackupRoute.EntityData.BundleName = "cisco_ios_xr"
     destBackupRoute.EntityData.ParentYangName = "dest-backup-routes"
-    destBackupRoute.EntityData.SegmentPath = "dest-backup-route" + types.AddNoKeyToken(destBackupRoute)
+    destBackupRoute.EntityData.SegmentPath = "dest-backup-route" + types.AddKeyToken(destBackupRoute.Address, "address") + types.AddKeyToken(destBackupRoute.PrefixLength, "prefix-length")
     destBackupRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/" + destBackupRoute.EntityData.SegmentPath
     destBackupRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destBackupRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -20164,7 +20156,7 @@ func (destBackupRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableName
     destBackupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destBackupRoute.TblVersion})
     destBackupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destBackupRoute.RouteModifyTime})
 
-    destBackupRoute.EntityData.YListKeys = []string {}
+    destBackupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(destBackupRoute.EntityData)
 }
@@ -21821,7 +21813,6 @@ func (adverts *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     adverts.EntityData.Children = types.NewOrderedMap()
     adverts.EntityData.Children.Append("advert", types.YChild{"Advert", nil})
     for i := range adverts.Advert {
-        types.SetYListKey(adverts.Advert[i], i)
         adverts.EntityData.Children.Append(types.GetSegmentPath(adverts.Advert[i]), types.YChild{"Advert", adverts.Advert[i]})
     }
     adverts.EntityData.Leafs = types.NewOrderedMap()
@@ -21839,11 +21830,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // ipv6 rib edm advert. The type is slice of
@@ -21856,7 +21848,7 @@ func (advert *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     advert.EntityData.YangName = "advert"
     advert.EntityData.BundleName = "cisco_ios_xr"
     advert.EntityData.ParentYangName = "adverts"
-    advert.EntityData.SegmentPath = "advert" + types.AddNoKeyToken(advert)
+    advert.EntityData.SegmentPath = "advert" + types.AddKeyToken(advert.Address, "address") + types.AddKeyToken(advert.PrefixLength, "prefix-length")
     advert.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/adverts/" + advert.EntityData.SegmentPath
     advert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -21872,7 +21864,7 @@ func (advert *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     advert.EntityData.Leafs.Append("address", types.YLeaf{"Address", advert.Address})
     advert.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", advert.PrefixLength})
 
-    advert.EntityData.YListKeys = []string {}
+    advert.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(advert.EntityData)
 }
@@ -21965,7 +21957,6 @@ func (deletedRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     deletedRoutes.EntityData.Children = types.NewOrderedMap()
     deletedRoutes.EntityData.Children.Append("deleted-route", types.YChild{"DeletedRoute", nil})
     for i := range deletedRoutes.DeletedRoute {
-        types.SetYListKey(deletedRoutes.DeletedRoute[i], i)
         deletedRoutes.EntityData.Children.Append(types.GetSegmentPath(deletedRoutes.DeletedRoute[i]), types.YChild{"DeletedRoute", deletedRoutes.DeletedRoute[i]})
     }
     deletedRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -21983,11 +21974,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -22105,7 +22097,7 @@ func (deletedRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     deletedRoute.EntityData.YangName = "deleted-route"
     deletedRoute.EntityData.BundleName = "cisco_ios_xr"
     deletedRoute.EntityData.ParentYangName = "deleted-routes"
-    deletedRoute.EntityData.SegmentPath = "deleted-route" + types.AddNoKeyToken(deletedRoute)
+    deletedRoute.EntityData.SegmentPath = "deleted-route" + types.AddKeyToken(deletedRoute.Address, "address") + types.AddKeyToken(deletedRoute.PrefixLength, "prefix-length")
     deletedRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/" + deletedRoute.EntityData.SegmentPath
     deletedRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     deletedRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -22149,7 +22141,7 @@ func (deletedRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     deletedRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", deletedRoute.TblVersion})
     deletedRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", deletedRoute.RouteModifyTime})
 
-    deletedRoute.EntityData.YListKeys = []string {}
+    deletedRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(deletedRoute.EntityData)
 }
@@ -22799,7 +22791,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -22816,11 +22807,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -22938,7 +22930,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -22982,7 +22974,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -23526,7 +23518,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -23543,11 +23534,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -23665,7 +23657,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -23709,7 +23701,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -24293,7 +24285,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -24310,11 +24301,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -24432,7 +24424,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -24476,7 +24468,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -25050,7 +25042,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -25067,11 +25058,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -25189,7 +25181,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -25233,7 +25225,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -25817,7 +25809,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -25834,11 +25825,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -25956,7 +25948,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -26000,7 +25992,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -26584,7 +26576,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -26601,11 +26592,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -26723,7 +26715,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -26767,7 +26759,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -27341,7 +27333,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -27358,11 +27349,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -27480,7 +27472,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -27524,7 +27516,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -28098,7 +28090,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -28115,11 +28106,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -28237,7 +28229,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -28281,7 +28273,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -28855,7 +28847,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -28872,11 +28863,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -28994,7 +28986,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -29038,7 +29030,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -29622,7 +29614,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -29639,11 +29630,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -29761,7 +29753,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -29805,7 +29797,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -30383,7 +30375,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -30400,11 +30391,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -30522,7 +30514,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/l2vpn/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -30566,7 +30558,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -31110,7 +31102,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -31127,11 +31118,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -31249,7 +31241,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -31293,7 +31285,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -31877,7 +31869,6 @@ func (protocolRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     protocolRoutes.EntityData.Children = types.NewOrderedMap()
     protocolRoutes.EntityData.Children.Append("protocol-route", types.YChild{"ProtocolRoute", nil})
     for i := range protocolRoutes.ProtocolRoute {
-        types.SetYListKey(protocolRoutes.ProtocolRoute[i], i)
         protocolRoutes.EntityData.Children.Append(types.GetSegmentPath(protocolRoutes.ProtocolRoute[i]), types.YChild{"ProtocolRoute", protocolRoutes.ProtocolRoute[i]})
     }
     protocolRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -31894,11 +31885,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -32016,7 +32008,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddNoKeyToken(protocolRoute)
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
     protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -32060,7 +32052,7 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -32493,7 +32485,6 @@ func (routes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
-        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -32511,19 +32502,13 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
-
-    // NextHop Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    NextHopAddress interface{}
-
-    // Outgoing Interface . The type is string with pattern: [a-zA-Z0-9._/-]+.
-    InterfaceName interface{}
 
     // Route prefix. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -32640,7 +32625,7 @@ func (route *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.Address, "address") + types.AddKeyToken(route.PrefixLength, "prefix-length")
     route.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -32651,8 +32636,6 @@ func (route *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     route.EntityData.Leafs = types.NewOrderedMap()
     route.EntityData.Leafs.Append("address", types.YLeaf{"Address", route.Address})
     route.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", route.PrefixLength})
-    route.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", route.NextHopAddress})
-    route.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", route.InterfaceName})
     route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
     route.EntityData.Leafs.Append("prefix-length-xr", types.YLeaf{"PrefixLengthXr", route.PrefixLengthXr})
     route.EntityData.Leafs.Append("route-version", types.YLeaf{"RouteVersion", route.RouteVersion})
@@ -32686,7 +32669,7 @@ func (route *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     route.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", route.TblVersion})
     route.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", route.RouteModifyTime})
 
-    route.EntityData.YListKeys = []string {}
+    route.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(route.EntityData)
 }
@@ -33119,7 +33102,6 @@ func (qRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     qRoutes.EntityData.Children = types.NewOrderedMap()
     qRoutes.EntityData.Children.Append("q-route", types.YChild{"QRoute", nil})
     for i := range qRoutes.QRoute {
-        types.SetYListKey(qRoutes.QRoute[i], i)
         qRoutes.EntityData.Children.Append(types.GetSegmentPath(qRoutes.QRoute[i]), types.YChild{"QRoute", qRoutes.QRoute[i]})
     }
     qRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -33137,11 +33119,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -33259,7 +33242,7 @@ func (qRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     qRoute.EntityData.YangName = "q-route"
     qRoute.EntityData.BundleName = "cisco_ios_xr"
     qRoute.EntityData.ParentYangName = "q-routes"
-    qRoute.EntityData.SegmentPath = "q-route" + types.AddNoKeyToken(qRoute)
+    qRoute.EntityData.SegmentPath = "q-route" + types.AddKeyToken(qRoute.Address, "address") + types.AddKeyToken(qRoute.PrefixLength, "prefix-length")
     qRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/" + qRoute.EntityData.SegmentPath
     qRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -33303,7 +33286,7 @@ func (qRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     qRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", qRoute.TblVersion})
     qRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", qRoute.RouteModifyTime})
 
-    qRoute.EntityData.YListKeys = []string {}
+    qRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(qRoute.EntityData)
 }
@@ -33737,7 +33720,6 @@ func (backupRoutes *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     backupRoutes.EntityData.Children = types.NewOrderedMap()
     backupRoutes.EntityData.Children.Append("backup-route", types.YChild{"BackupRoute", nil})
     for i := range backupRoutes.BackupRoute {
-        types.SetYListKey(backupRoutes.BackupRoute[i], i)
         backupRoutes.EntityData.Children.Append(types.GetSegmentPath(backupRoutes.BackupRoute[i]), types.YChild{"BackupRoute", backupRoutes.BackupRoute[i]})
     }
     backupRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -33755,14 +33737,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // Network Address . The type is string with pattern:
+    // This attribute is a key. Network Address . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length . The type is interface{} with range: 0..128.
+    // This attribute is a key. Prefix Length . The type is interface{} with
+    // range: 0..128.
     PrefixLength interface{}
 
-    // Proto ID. The type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Proto ID. The type is interface{} with range:
+    // 0..4294967295.
     Protoid interface{}
 
     // Route prefix. The type is string with pattern:
@@ -33880,7 +33864,7 @@ func (backupRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     backupRoute.EntityData.YangName = "backup-route"
     backupRoute.EntityData.BundleName = "cisco_ios_xr"
     backupRoute.EntityData.ParentYangName = "backup-routes"
-    backupRoute.EntityData.SegmentPath = "backup-route" + types.AddNoKeyToken(backupRoute)
+    backupRoute.EntityData.SegmentPath = "backup-route" + types.AddKeyToken(backupRoute.Address, "address") + types.AddKeyToken(backupRoute.PrefixLength, "prefix-length") + types.AddKeyToken(backupRoute.Protoid, "protoid")
     backupRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/" + backupRoute.EntityData.SegmentPath
     backupRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -33925,7 +33909,7 @@ func (backupRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     backupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", backupRoute.TblVersion})
     backupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", backupRoute.RouteModifyTime})
 
-    backupRoute.EntityData.YListKeys = []string {}
+    backupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength", "Protoid"}
 
     return &(backupRoute.EntityData)
 }

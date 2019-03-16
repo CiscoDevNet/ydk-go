@@ -420,10 +420,6 @@ type Radius_Nodes_Node_Authentication_AuthenticationGroup struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // IP address of RADIUS server. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    ServerAddress interface{}
-
     // Authentication port number. The type is interface{} with range:
     // 0..4294967295.
     Port interface{}
@@ -452,7 +448,6 @@ func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup)
     authenticationGroup.EntityData.Children = types.NewOrderedMap()
     authenticationGroup.EntityData.Children.Append("authentication", types.YChild{"Authentication", &authenticationGroup.Authentication})
     authenticationGroup.EntityData.Leafs = types.NewOrderedMap()
-    authenticationGroup.EntityData.Leafs.Append("server-address", types.YLeaf{"ServerAddress", authenticationGroup.ServerAddress})
     authenticationGroup.EntityData.Leafs.Append("port", types.YLeaf{"Port", authenticationGroup.Port})
     authenticationGroup.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", authenticationGroup.IpAddress})
     authenticationGroup.EntityData.Leafs.Append("family", types.YLeaf{"Family", authenticationGroup.Family})
@@ -516,10 +511,6 @@ type Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication struct 
     // with range: 0..4294967295. Units are millisecond.
     Rtt interface{}
 
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AuthenResponseTime interface{}
-
     // Number of succeeded authentication transactions. The type is interface{}
     // with range: 0..4294967295.
     AuthenTransactionSuccessess interface{}
@@ -539,6 +530,30 @@ type Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication struct 
     // Number of incorrect authentication responses. The type is interface{} with
     // range: 0..4294967295.
     AuthenIncorrectResponses interface{}
+
+    // Estimated Throttled Authentication Transactions. The type is interface{}
+    // with range: 0..4294967295.
+    AuthThrottledTransactions interface{}
+
+    // Maximum Throttled Authentication Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AuthMaxTransactions interface{}
+
+    // Automated Test Stats for authentication requests. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthReqs interface{}
+
+    // Automated Test Stats for authentication timeouts. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthTimeouts interface{}
+
+    // Automated Test Stats for authentication response. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthResponse interface{}
+
+    // Automated Test Stats for authentication pending. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthPending interface{}
 }
 
 func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetEntityData() *types.CommonEntityData {
@@ -566,12 +581,17 @@ func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authe
     authentication.EntityData.Leafs.Append("unknown-access-types", types.YLeaf{"UnknownAccessTypes", authentication.UnknownAccessTypes})
     authentication.EntityData.Leafs.Append("dropped-access-responses", types.YLeaf{"DroppedAccessResponses", authentication.DroppedAccessResponses})
     authentication.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", authentication.Rtt})
-    authentication.EntityData.Leafs.Append("authen-response-time", types.YLeaf{"AuthenResponseTime", authentication.AuthenResponseTime})
     authentication.EntityData.Leafs.Append("authen-transaction-successess", types.YLeaf{"AuthenTransactionSuccessess", authentication.AuthenTransactionSuccessess})
     authentication.EntityData.Leafs.Append("authen-transaction-failure", types.YLeaf{"AuthenTransactionFailure", authentication.AuthenTransactionFailure})
     authentication.EntityData.Leafs.Append("authen-unexpected-responses", types.YLeaf{"AuthenUnexpectedResponses", authentication.AuthenUnexpectedResponses})
     authentication.EntityData.Leafs.Append("authen-server-error-responses", types.YLeaf{"AuthenServerErrorResponses", authentication.AuthenServerErrorResponses})
     authentication.EntityData.Leafs.Append("authen-incorrect-responses", types.YLeaf{"AuthenIncorrectResponses", authentication.AuthenIncorrectResponses})
+    authentication.EntityData.Leafs.Append("auth-throttled-transactions", types.YLeaf{"AuthThrottledTransactions", authentication.AuthThrottledTransactions})
+    authentication.EntityData.Leafs.Append("auth-max-transactions", types.YLeaf{"AuthMaxTransactions", authentication.AuthMaxTransactions})
+    authentication.EntityData.Leafs.Append("total-test-auth-reqs", types.YLeaf{"TotalTestAuthReqs", authentication.TotalTestAuthReqs})
+    authentication.EntityData.Leafs.Append("total-test-auth-timeouts", types.YLeaf{"TotalTestAuthTimeouts", authentication.TotalTestAuthTimeouts})
+    authentication.EntityData.Leafs.Append("total-test-auth-response", types.YLeaf{"TotalTestAuthResponse", authentication.TotalTestAuthResponse})
+    authentication.EntityData.Leafs.Append("total-test-auth-pending", types.YLeaf{"TotalTestAuthPending", authentication.TotalTestAuthPending})
 
     authentication.EntityData.YListKeys = []string {}
 
@@ -620,10 +640,6 @@ type Radius_Nodes_Node_Accounting_AccountingGroup struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // IP address of RADIUS server. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    ServerAddress interface{}
-
     // Accounting port number. The type is interface{} with range: 0..4294967295.
     Port interface{}
 
@@ -651,7 +667,6 @@ func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetEntityDa
     accountingGroup.EntityData.Children = types.NewOrderedMap()
     accountingGroup.EntityData.Children.Append("accounting", types.YChild{"Accounting", &accountingGroup.Accounting})
     accountingGroup.EntityData.Leafs = types.NewOrderedMap()
-    accountingGroup.EntityData.Leafs.Append("server-address", types.YLeaf{"ServerAddress", accountingGroup.ServerAddress})
     accountingGroup.EntityData.Leafs.Append("port", types.YLeaf{"Port", accountingGroup.Port})
     accountingGroup.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", accountingGroup.IpAddress})
     accountingGroup.EntityData.Leafs.Append("family", types.YLeaf{"Family", accountingGroup.Family})
@@ -711,18 +726,6 @@ type Radius_Nodes_Node_Accounting_AccountingGroup_Accounting struct {
     // range: 0..4294967295.
     AcctUnexpectedResponses interface{}
 
-    // Number of server error accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctServerErrorResponses interface{}
-
-    // Number of incorrect accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctIncorrectResponses interface{}
-
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AcctResponseTime interface{}
-
     // Number of succeeded authentication transactions. The type is interface{}
     // with range: 0..4294967295.
     AcctTransactionSuccessess interface{}
@@ -730,6 +733,30 @@ type Radius_Nodes_Node_Accounting_AccountingGroup_Accounting struct {
     // Number of failed authentication transactions. The type is interface{} with
     // range: 0..4294967295.
     AcctTransactionFailure interface{}
+
+    // Estimated Throttled Accounting Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AcctThrottledTransactions interface{}
+
+    // Maximum Throttled Accounting Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AcctMaxThrottleTrans interface{}
+
+    // Automated Test Stats for accounting requests. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctReqs interface{}
+
+    // Automated Test Stats for accounting timeouts. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctTimeouts interface{}
+
+    // Automated Test Stats for accounting response. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctResponse interface{}
+
+    // Automated Test Stats for accounting pending. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctPending interface{}
 }
 
 func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetEntityData() *types.CommonEntityData {
@@ -756,11 +783,14 @@ func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetEn
     accounting.EntityData.Leafs.Append("dropped-responses", types.YLeaf{"DroppedResponses", accounting.DroppedResponses})
     accounting.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", accounting.Rtt})
     accounting.EntityData.Leafs.Append("acct-unexpected-responses", types.YLeaf{"AcctUnexpectedResponses", accounting.AcctUnexpectedResponses})
-    accounting.EntityData.Leafs.Append("acct-server-error-responses", types.YLeaf{"AcctServerErrorResponses", accounting.AcctServerErrorResponses})
-    accounting.EntityData.Leafs.Append("acct-incorrect-responses", types.YLeaf{"AcctIncorrectResponses", accounting.AcctIncorrectResponses})
-    accounting.EntityData.Leafs.Append("acct-response-time", types.YLeaf{"AcctResponseTime", accounting.AcctResponseTime})
     accounting.EntityData.Leafs.Append("acct-transaction-successess", types.YLeaf{"AcctTransactionSuccessess", accounting.AcctTransactionSuccessess})
     accounting.EntityData.Leafs.Append("acct-transaction-failure", types.YLeaf{"AcctTransactionFailure", accounting.AcctTransactionFailure})
+    accounting.EntityData.Leafs.Append("acct-throttled-transactions", types.YLeaf{"AcctThrottledTransactions", accounting.AcctThrottledTransactions})
+    accounting.EntityData.Leafs.Append("acct-max-throttle-trans", types.YLeaf{"AcctMaxThrottleTrans", accounting.AcctMaxThrottleTrans})
+    accounting.EntityData.Leafs.Append("total-test-acct-reqs", types.YLeaf{"TotalTestAcctReqs", accounting.TotalTestAcctReqs})
+    accounting.EntityData.Leafs.Append("total-test-acct-timeouts", types.YLeaf{"TotalTestAcctTimeouts", accounting.TotalTestAcctTimeouts})
+    accounting.EntityData.Leafs.Append("total-test-acct-response", types.YLeaf{"TotalTestAcctResponse", accounting.TotalTestAcctResponse})
+    accounting.EntityData.Leafs.Append("total-test-acct-pending", types.YLeaf{"TotalTestAcctPending", accounting.TotalTestAcctPending})
 
     accounting.EntityData.YListKeys = []string {}
 
@@ -808,10 +838,6 @@ type Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
-
-    // Client's Internet address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    ClientAddress interface{}
 
     // Number of RADIUS Disconnect-Requestsreceived from the client. The type is
     // interface{} with range: 0..4294967295.
@@ -904,8 +930,8 @@ type Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient struct {
     // VRF of RADIUS dynamic authorization client. The type is string.
     VrfName interface{}
 
-    // Address Buffer. The type is string with length: 0..46.
-    AddrBuf interface{}
+    // Address Buffer. The type is string.
+    ClientAddress interface{}
 }
 
 func (dynamicAuthorClient *Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient) GetEntityData() *types.CommonEntityData {
@@ -921,7 +947,6 @@ func (dynamicAuthorClient *Radius_Nodes_Node_DynamicAuthorizationClients_Dynamic
 
     dynamicAuthorClient.EntityData.Children = types.NewOrderedMap()
     dynamicAuthorClient.EntityData.Leafs = types.NewOrderedMap()
-    dynamicAuthorClient.EntityData.Leafs.Append("client-address", types.YLeaf{"ClientAddress", dynamicAuthorClient.ClientAddress})
     dynamicAuthorClient.EntityData.Leafs.Append("disc-reqs", types.YLeaf{"DiscReqs", dynamicAuthorClient.DiscReqs})
     dynamicAuthorClient.EntityData.Leafs.Append("disc-acks", types.YLeaf{"DiscAcks", dynamicAuthorClient.DiscAcks})
     dynamicAuthorClient.EntityData.Leafs.Append("disc-naks", types.YLeaf{"DiscNaks", dynamicAuthorClient.DiscNaks})
@@ -945,7 +970,7 @@ func (dynamicAuthorClient *Radius_Nodes_Node_DynamicAuthorizationClients_Dynamic
     dynamicAuthorClient.EntityData.Leafs.Append("service-not-present", types.YLeaf{"ServiceNotPresent", dynamicAuthorClient.ServiceNotPresent})
     dynamicAuthorClient.EntityData.Leafs.Append("send-to-ch-fail", types.YLeaf{"SendToChFail", dynamicAuthorClient.SendToChFail})
     dynamicAuthorClient.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", dynamicAuthorClient.VrfName})
-    dynamicAuthorClient.EntityData.Leafs.Append("addr-buf", types.YLeaf{"AddrBuf", dynamicAuthorClient.AddrBuf})
+    dynamicAuthorClient.EntityData.Leafs.Append("client-address", types.YLeaf{"ClientAddress", dynamicAuthorClient.ClientAddress})
 
     dynamicAuthorClient.EntityData.YListKeys = []string {}
 
@@ -1051,10 +1076,6 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Server address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    ServerAddress interface{}
-
     // Authentication port. The type is interface{} with range: 0..4294967295.
     AuthenticationPort interface{}
 
@@ -1099,7 +1120,6 @@ func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetEn
     serverGroup.EntityData.Children.Append("authentication", types.YChild{"Authentication", &serverGroup.Authentication})
     serverGroup.EntityData.Children.Append("authorization", types.YChild{"Authorization", &serverGroup.Authorization})
     serverGroup.EntityData.Leafs = types.NewOrderedMap()
-    serverGroup.EntityData.Leafs.Append("server-address", types.YLeaf{"ServerAddress", serverGroup.ServerAddress})
     serverGroup.EntityData.Leafs.Append("authentication-port", types.YLeaf{"AuthenticationPort", serverGroup.AuthenticationPort})
     serverGroup.EntityData.Leafs.Append("accounting-port", types.YLeaf{"AccountingPort", serverGroup.AccountingPort})
     serverGroup.EntityData.Leafs.Append("is-private", types.YLeaf{"IsPrivate", serverGroup.IsPrivate})
@@ -1162,18 +1182,6 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting struct {
     // range: 0..4294967295.
     AcctUnexpectedResponses interface{}
 
-    // Number of server error accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctServerErrorResponses interface{}
-
-    // Number of incorrect accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctIncorrectResponses interface{}
-
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AcctResponseTime interface{}
-
     // Number of succeeded authentication transactions. The type is interface{}
     // with range: 0..4294967295.
     AcctTransactionSuccessess interface{}
@@ -1181,6 +1189,30 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting struct {
     // Number of failed authentication transactions. The type is interface{} with
     // range: 0..4294967295.
     AcctTransactionFailure interface{}
+
+    // Estimated Throttled Accounting Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AcctThrottledTransactions interface{}
+
+    // Maximum Throttled Accounting Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AcctMaxThrottleTrans interface{}
+
+    // Automated Test Stats for accounting requests. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctReqs interface{}
+
+    // Automated Test Stats for accounting timeouts. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctTimeouts interface{}
+
+    // Automated Test Stats for accounting response. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctResponse interface{}
+
+    // Automated Test Stats for accounting pending. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctPending interface{}
 }
 
 func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetEntityData() *types.CommonEntityData {
@@ -1207,11 +1239,14 @@ func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Account
     accounting.EntityData.Leafs.Append("dropped-responses", types.YLeaf{"DroppedResponses", accounting.DroppedResponses})
     accounting.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", accounting.Rtt})
     accounting.EntityData.Leafs.Append("acct-unexpected-responses", types.YLeaf{"AcctUnexpectedResponses", accounting.AcctUnexpectedResponses})
-    accounting.EntityData.Leafs.Append("acct-server-error-responses", types.YLeaf{"AcctServerErrorResponses", accounting.AcctServerErrorResponses})
-    accounting.EntityData.Leafs.Append("acct-incorrect-responses", types.YLeaf{"AcctIncorrectResponses", accounting.AcctIncorrectResponses})
-    accounting.EntityData.Leafs.Append("acct-response-time", types.YLeaf{"AcctResponseTime", accounting.AcctResponseTime})
     accounting.EntityData.Leafs.Append("acct-transaction-successess", types.YLeaf{"AcctTransactionSuccessess", accounting.AcctTransactionSuccessess})
     accounting.EntityData.Leafs.Append("acct-transaction-failure", types.YLeaf{"AcctTransactionFailure", accounting.AcctTransactionFailure})
+    accounting.EntityData.Leafs.Append("acct-throttled-transactions", types.YLeaf{"AcctThrottledTransactions", accounting.AcctThrottledTransactions})
+    accounting.EntityData.Leafs.Append("acct-max-throttle-trans", types.YLeaf{"AcctMaxThrottleTrans", accounting.AcctMaxThrottleTrans})
+    accounting.EntityData.Leafs.Append("total-test-acct-reqs", types.YLeaf{"TotalTestAcctReqs", accounting.TotalTestAcctReqs})
+    accounting.EntityData.Leafs.Append("total-test-acct-timeouts", types.YLeaf{"TotalTestAcctTimeouts", accounting.TotalTestAcctTimeouts})
+    accounting.EntityData.Leafs.Append("total-test-acct-response", types.YLeaf{"TotalTestAcctResponse", accounting.TotalTestAcctResponse})
+    accounting.EntityData.Leafs.Append("total-test-acct-pending", types.YLeaf{"TotalTestAcctPending", accounting.TotalTestAcctPending})
 
     accounting.EntityData.YListKeys = []string {}
 
@@ -1272,10 +1307,6 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication struc
     // with range: 0..4294967295. Units are millisecond.
     Rtt interface{}
 
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AuthenResponseTime interface{}
-
     // Number of succeeded authentication transactions. The type is interface{}
     // with range: 0..4294967295.
     AuthenTransactionSuccessess interface{}
@@ -1295,6 +1326,30 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication struc
     // Number of incorrect authentication responses. The type is interface{} with
     // range: 0..4294967295.
     AuthenIncorrectResponses interface{}
+
+    // Estimated Throttled Authentication Transactions. The type is interface{}
+    // with range: 0..4294967295.
+    AuthThrottledTransactions interface{}
+
+    // Maximum Throttled Authentication Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AuthMaxTransactions interface{}
+
+    // Automated Test Stats for authentication requests. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthReqs interface{}
+
+    // Automated Test Stats for authentication timeouts. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthTimeouts interface{}
+
+    // Automated Test Stats for authentication response. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthResponse interface{}
+
+    // Automated Test Stats for authentication pending. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthPending interface{}
 }
 
 func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetEntityData() *types.CommonEntityData {
@@ -1322,12 +1377,17 @@ func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Aut
     authentication.EntityData.Leafs.Append("unknown-access-types", types.YLeaf{"UnknownAccessTypes", authentication.UnknownAccessTypes})
     authentication.EntityData.Leafs.Append("dropped-access-responses", types.YLeaf{"DroppedAccessResponses", authentication.DroppedAccessResponses})
     authentication.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", authentication.Rtt})
-    authentication.EntityData.Leafs.Append("authen-response-time", types.YLeaf{"AuthenResponseTime", authentication.AuthenResponseTime})
     authentication.EntityData.Leafs.Append("authen-transaction-successess", types.YLeaf{"AuthenTransactionSuccessess", authentication.AuthenTransactionSuccessess})
     authentication.EntityData.Leafs.Append("authen-transaction-failure", types.YLeaf{"AuthenTransactionFailure", authentication.AuthenTransactionFailure})
     authentication.EntityData.Leafs.Append("authen-unexpected-responses", types.YLeaf{"AuthenUnexpectedResponses", authentication.AuthenUnexpectedResponses})
     authentication.EntityData.Leafs.Append("authen-server-error-responses", types.YLeaf{"AuthenServerErrorResponses", authentication.AuthenServerErrorResponses})
     authentication.EntityData.Leafs.Append("authen-incorrect-responses", types.YLeaf{"AuthenIncorrectResponses", authentication.AuthenIncorrectResponses})
+    authentication.EntityData.Leafs.Append("auth-throttled-transactions", types.YLeaf{"AuthThrottledTransactions", authentication.AuthThrottledTransactions})
+    authentication.EntityData.Leafs.Append("auth-max-transactions", types.YLeaf{"AuthMaxTransactions", authentication.AuthMaxTransactions})
+    authentication.EntityData.Leafs.Append("total-test-auth-reqs", types.YLeaf{"TotalTestAuthReqs", authentication.TotalTestAuthReqs})
+    authentication.EntityData.Leafs.Append("total-test-auth-timeouts", types.YLeaf{"TotalTestAuthTimeouts", authentication.TotalTestAuthTimeouts})
+    authentication.EntityData.Leafs.Append("total-test-auth-response", types.YLeaf{"TotalTestAuthResponse", authentication.TotalTestAuthResponse})
+    authentication.EntityData.Leafs.Append("total-test-auth-pending", types.YLeaf{"TotalTestAuthPending", authentication.TotalTestAuthPending})
 
     authentication.EntityData.YListKeys = []string {}
 

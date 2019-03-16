@@ -223,13 +223,15 @@ type FlowSpec_Afs_Af_ServicePolicies_ServicePolicy struct {
     YFilter yfilter.YFilter
     YListKey string
 
+    // This attribute is a key. Choose the Policy type. The type is FsAfP.
+    PolicyType interface{}
+
     // This attribute is a key. Policy map name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
     PolicyName interface{}
 
-    // keys: policy-type. The type is slice of
-    // FlowSpec_Afs_Af_ServicePolicies_ServicePolicy_PolicyType.
-    PolicyType []*FlowSpec_Afs_Af_ServicePolicies_ServicePolicy_PolicyType
+    // Set constant integer. The type is bool. This attribute is mandatory.
+    Local interface{}
 }
 
 func (servicePolicy *FlowSpec_Afs_Af_ServicePolicies_ServicePolicy) GetEntityData() *types.CommonEntityData {
@@ -237,58 +239,21 @@ func (servicePolicy *FlowSpec_Afs_Af_ServicePolicies_ServicePolicy) GetEntityDat
     servicePolicy.EntityData.YangName = "service-policy"
     servicePolicy.EntityData.BundleName = "cisco_ios_xr"
     servicePolicy.EntityData.ParentYangName = "service-policies"
-    servicePolicy.EntityData.SegmentPath = "service-policy" + types.AddKeyToken(servicePolicy.PolicyName, "policy-name")
+    servicePolicy.EntityData.SegmentPath = "service-policy" + types.AddKeyToken(servicePolicy.PolicyType, "policy-type") + types.AddKeyToken(servicePolicy.PolicyName, "policy-name")
     servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-cfg:flow-spec/afs/af/service-policies/" + servicePolicy.EntityData.SegmentPath
     servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     servicePolicy.EntityData.Children = types.NewOrderedMap()
-    servicePolicy.EntityData.Children.Append("policy-type", types.YChild{"PolicyType", nil})
-    for i := range servicePolicy.PolicyType {
-        servicePolicy.EntityData.Children.Append(types.GetSegmentPath(servicePolicy.PolicyType[i]), types.YChild{"PolicyType", servicePolicy.PolicyType[i]})
-    }
     servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("policy-type", types.YLeaf{"PolicyType", servicePolicy.PolicyType})
     servicePolicy.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", servicePolicy.PolicyName})
+    servicePolicy.EntityData.Leafs.Append("local", types.YLeaf{"Local", servicePolicy.Local})
 
-    servicePolicy.EntityData.YListKeys = []string {"PolicyName"}
+    servicePolicy.EntityData.YListKeys = []string {"PolicyType", "PolicyName"}
 
     return &(servicePolicy.EntityData)
-}
-
-// FlowSpec_Afs_Af_ServicePolicies_ServicePolicy_PolicyType
-// keys: policy-type
-type FlowSpec_Afs_Af_ServicePolicies_ServicePolicy_PolicyType struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Choose the Policy type. The type is FsAfP.
-    PolicyType interface{}
-
-    // Set constant integer. The type is bool. This attribute is mandatory.
-    Local interface{}
-}
-
-func (policyType *FlowSpec_Afs_Af_ServicePolicies_ServicePolicy_PolicyType) GetEntityData() *types.CommonEntityData {
-    policyType.EntityData.YFilter = policyType.YFilter
-    policyType.EntityData.YangName = "policy-type"
-    policyType.EntityData.BundleName = "cisco_ios_xr"
-    policyType.EntityData.ParentYangName = "service-policy"
-    policyType.EntityData.SegmentPath = "policy-type" + types.AddKeyToken(policyType.PolicyType, "policy-type")
-    policyType.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-cfg:flow-spec/afs/af/service-policies/service-policy/" + policyType.EntityData.SegmentPath
-    policyType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    policyType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    policyType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    policyType.EntityData.Children = types.NewOrderedMap()
-    policyType.EntityData.Leafs = types.NewOrderedMap()
-    policyType.EntityData.Leafs.Append("policy-type", types.YLeaf{"PolicyType", policyType.PolicyType})
-    policyType.EntityData.Leafs.Append("local", types.YLeaf{"Local", policyType.Local})
-
-    policyType.EntityData.YListKeys = []string {"PolicyType"}
-
-    return &(policyType.EntityData)
 }
 
 // FlowSpec_Vrfs
@@ -473,13 +438,15 @@ type FlowSpec_Vrfs_Vrf_Afs_Af_ServicePolicies_ServicePolicy struct {
     YFilter yfilter.YFilter
     YListKey string
 
+    // This attribute is a key. Choose the Policy type. The type is FsAfP.
+    PolicyType interface{}
+
     // This attribute is a key. Policy map name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
     PolicyName interface{}
 
-    // keys: policy-type. The type is slice of
-    // FlowSpec_Vrfs_Vrf_Afs_Af_ServicePolicies_ServicePolicy_PolicyType.
-    PolicyType []*FlowSpec_Vrfs_Vrf_Afs_Af_ServicePolicies_ServicePolicy_PolicyType
+    // Set constant integer. The type is bool. This attribute is mandatory.
+    Local interface{}
 }
 
 func (servicePolicy *FlowSpec_Vrfs_Vrf_Afs_Af_ServicePolicies_ServicePolicy) GetEntityData() *types.CommonEntityData {
@@ -487,57 +454,20 @@ func (servicePolicy *FlowSpec_Vrfs_Vrf_Afs_Af_ServicePolicies_ServicePolicy) Get
     servicePolicy.EntityData.YangName = "service-policy"
     servicePolicy.EntityData.BundleName = "cisco_ios_xr"
     servicePolicy.EntityData.ParentYangName = "service-policies"
-    servicePolicy.EntityData.SegmentPath = "service-policy" + types.AddKeyToken(servicePolicy.PolicyName, "policy-name")
+    servicePolicy.EntityData.SegmentPath = "service-policy" + types.AddKeyToken(servicePolicy.PolicyType, "policy-type") + types.AddKeyToken(servicePolicy.PolicyName, "policy-name")
     servicePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-cfg:flow-spec/vrfs/vrf/afs/af/service-policies/" + servicePolicy.EntityData.SegmentPath
     servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     servicePolicy.EntityData.Children = types.NewOrderedMap()
-    servicePolicy.EntityData.Children.Append("policy-type", types.YChild{"PolicyType", nil})
-    for i := range servicePolicy.PolicyType {
-        servicePolicy.EntityData.Children.Append(types.GetSegmentPath(servicePolicy.PolicyType[i]), types.YChild{"PolicyType", servicePolicy.PolicyType[i]})
-    }
     servicePolicy.EntityData.Leafs = types.NewOrderedMap()
+    servicePolicy.EntityData.Leafs.Append("policy-type", types.YLeaf{"PolicyType", servicePolicy.PolicyType})
     servicePolicy.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", servicePolicy.PolicyName})
+    servicePolicy.EntityData.Leafs.Append("local", types.YLeaf{"Local", servicePolicy.Local})
 
-    servicePolicy.EntityData.YListKeys = []string {"PolicyName"}
+    servicePolicy.EntityData.YListKeys = []string {"PolicyType", "PolicyName"}
 
     return &(servicePolicy.EntityData)
-}
-
-// FlowSpec_Vrfs_Vrf_Afs_Af_ServicePolicies_ServicePolicy_PolicyType
-// keys: policy-type
-type FlowSpec_Vrfs_Vrf_Afs_Af_ServicePolicies_ServicePolicy_PolicyType struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Choose the Policy type. The type is FsVrfAfP.
-    PolicyType interface{}
-
-    // Set constant integer. The type is bool. This attribute is mandatory.
-    Local interface{}
-}
-
-func (policyType *FlowSpec_Vrfs_Vrf_Afs_Af_ServicePolicies_ServicePolicy_PolicyType) GetEntityData() *types.CommonEntityData {
-    policyType.EntityData.YFilter = policyType.YFilter
-    policyType.EntityData.YangName = "policy-type"
-    policyType.EntityData.BundleName = "cisco_ios_xr"
-    policyType.EntityData.ParentYangName = "service-policy"
-    policyType.EntityData.SegmentPath = "policy-type" + types.AddKeyToken(policyType.PolicyType, "policy-type")
-    policyType.EntityData.AbsolutePath = "Cisco-IOS-XR-flowspec-cfg:flow-spec/vrfs/vrf/afs/af/service-policies/service-policy/" + policyType.EntityData.SegmentPath
-    policyType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    policyType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    policyType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    policyType.EntityData.Children = types.NewOrderedMap()
-    policyType.EntityData.Leafs = types.NewOrderedMap()
-    policyType.EntityData.Leafs.Append("policy-type", types.YLeaf{"PolicyType", policyType.PolicyType})
-    policyType.EntityData.Leafs.Append("local", types.YLeaf{"Local", policyType.Local})
-
-    policyType.EntityData.YListKeys = []string {"PolicyType"}
-
-    return &(policyType.EntityData)
 }
 

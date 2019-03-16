@@ -216,13 +216,13 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
     // is interface{} with range: 0..4095.
     InnerVlan2 interface{}
 
-    // Class of Service of Inner Header. Range from 0 to 7. Any value beyond this
-    // range will be rejected by ACL verifier. The type is interface{} with range:
-    // 0..7.
+    // Class of Service of Inner Header. Any value not in the permissible range
+    // will be rejected. The type is interface{} with range: 0..7.
     InnerCos interface{}
 
-    // Class of Service of Inner Header. Any value not in the permissible range
-    // will be rejected. The type is interface{} with range: 0..1.
+    // Discard Eligibility Indication for Inner Header. User can specify 1 to
+    // indicate the bit is set. Leave unspecified otherwise. The type is
+    // interface{} with range: 0..1.
     InnerDei interface{}
 
     // Description for the access-list-entry/rule. The type is string with length:

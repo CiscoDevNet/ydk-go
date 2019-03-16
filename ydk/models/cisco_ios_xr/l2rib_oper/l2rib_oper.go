@@ -3,7 +3,7 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   l2rib: L2RIB operational information 
+//   l2rib: L2RIB operational information
 // 
 // Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
@@ -1507,9 +1507,6 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail struct {
     // EVPN ID. The type is interface{} with range: 0..4294967295.
     Evi interface{}
 
-    // Tag ID. The type is interface{} with range: 0..4294967295.
-    TagId interface{}
-
     // MAC IP Address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
@@ -1519,9 +1516,6 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail struct {
     // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
-
-    // Admin distance. The type is interface{} with range: 0..4294967295.
-    AdminDist interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
@@ -1567,10 +1561,8 @@ func (macipDetail *L2rib_EviChildTables_MacipDetails_MacipDetail) GetEntityData(
     macipDetail.EntityData.Children.Append("nh-tlv", types.YChild{"NhTlv", &macipDetail.NhTlv})
     macipDetail.EntityData.Leafs = types.NewOrderedMap()
     macipDetail.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", macipDetail.Evi})
-    macipDetail.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", macipDetail.TagId})
     macipDetail.EntityData.Leafs.Append("mac-addr", types.YLeaf{"MacAddr", macipDetail.MacAddr})
     macipDetail.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", macipDetail.IpAddr})
-    macipDetail.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", macipDetail.AdminDist})
     macipDetail.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", macipDetail.ProdId})
     macipDetail.EntityData.Leafs.Append("sequence-number", types.YLeaf{"SequenceNumber", macipDetail.SequenceNumber})
     macipDetail.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", macipDetail.Flags})
@@ -1964,9 +1956,6 @@ type L2rib_EviChildTables_MacIps_MacIp struct {
     // EVPN ID. The type is interface{} with range: 0..4294967295.
     Evi interface{}
 
-    // Tag ID. The type is interface{} with range: 0..4294967295.
-    TagId interface{}
-
     // MAC-IP Address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
@@ -1976,9 +1965,6 @@ type L2rib_EviChildTables_MacIps_MacIp struct {
     // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
-
-    // Admin distance. The type is interface{} with range: 0..4294967295.
-    AdminDist interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
@@ -2018,10 +2004,8 @@ func (macIp *L2rib_EviChildTables_MacIps_MacIp) GetEntityData() *types.CommonEnt
     macIp.EntityData.Children.Append("next-hop", types.YChild{"NextHop", &macIp.NextHop})
     macIp.EntityData.Leafs = types.NewOrderedMap()
     macIp.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", macIp.Evi})
-    macIp.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", macIp.TagId})
     macIp.EntityData.Leafs.Append("mac-addr", types.YLeaf{"MacAddr", macIp.MacAddr})
     macIp.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", macIp.IpAddr})
-    macIp.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", macIp.AdminDist})
     macIp.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", macIp.ProdId})
     macIp.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", macIp.MacAddress})
     macIp.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", macIp.IpAddress})
@@ -2216,15 +2200,9 @@ type L2rib_EviChildTables_Macs_Mac struct {
     // EVPN ID. The type is interface{} with range: 0..4294967295.
     Evi interface{}
 
-    // Tag ID. The type is interface{} with range: 0..4294967295.
-    TagId interface{}
-
     // MAC Address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
-
-    // Admin distance. The type is interface{} with range: 0..4294967295.
-    AdminDist interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
@@ -2261,9 +2239,7 @@ func (mac *L2rib_EviChildTables_Macs_Mac) GetEntityData() *types.CommonEntityDat
     mac.EntityData.Children.Append("route", types.YChild{"Route", &mac.Route})
     mac.EntityData.Leafs = types.NewOrderedMap()
     mac.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", mac.Evi})
-    mac.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", mac.TagId})
     mac.EntityData.Leafs.Append("mac-addr", types.YLeaf{"MacAddr", mac.MacAddr})
-    mac.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", mac.AdminDist})
     mac.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", mac.ProdId})
     mac.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", mac.MacAddress})
     mac.EntityData.Leafs.Append("admin-distance", types.YLeaf{"AdminDistance", mac.AdminDistance})
@@ -3720,15 +3696,9 @@ type L2rib_EviChildTables_MacDetails_MacDetail struct {
     // EVPN ID. The type is interface{} with range: 0..4294967295.
     Evi interface{}
 
-    // Tag ID. The type is interface{} with range: 0..4294967295.
-    TagId interface{}
-
     // MAC Address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
-
-    // Admin distance. The type is interface{} with range: 0..4294967295.
-    AdminDist interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
@@ -3779,9 +3749,7 @@ func (macDetail *L2rib_EviChildTables_MacDetails_MacDetail) GetEntityData() *typ
     macDetail.EntityData.Children.Append("rt-tlv", types.YChild{"RtTlv", &macDetail.RtTlv})
     macDetail.EntityData.Leafs = types.NewOrderedMap()
     macDetail.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", macDetail.Evi})
-    macDetail.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", macDetail.TagId})
     macDetail.EntityData.Leafs.Append("mac-addr", types.YLeaf{"MacAddr", macDetail.MacAddr})
-    macDetail.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", macDetail.AdminDist})
     macDetail.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", macDetail.ProdId})
     macDetail.EntityData.Leafs.Append("sequence-number", types.YLeaf{"SequenceNumber", macDetail.SequenceNumber})
     macDetail.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", macDetail.Flags})

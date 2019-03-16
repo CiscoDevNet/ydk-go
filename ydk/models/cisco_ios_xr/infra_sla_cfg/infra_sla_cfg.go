@@ -468,7 +468,7 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Schedule struct {
     // range: 1..90.
     ProbeInterval interface{}
 
-    // Day of week on which to schedule probes.  This must be specified if, and
+    // Day of week on which to schedule probes. This must be specified if, and
     // only if, ProbeIntervalUnit is 'Week'. The type is SlaProbeIntervalDayEnum.
     ProbeIntervalDay interface{}
 
@@ -544,7 +544,7 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Probe struct {
     // with range: 10..12096000.
     SyntheticLossCalculationPackets interface{}
 
-    // Schedule to use for packets within a burst.  The default value is to send a
+    // Schedule to use for packets within a burst. The default value is to send a
     // single packet once.
     Send Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send
 
@@ -576,7 +576,7 @@ func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetEntityData() *typ
 }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send
-// Schedule to use for packets within a burst. 
+// Schedule to use for packets within a burst.
 // The default value is to send a single packet
 // once.
 // This type is a presence type.

@@ -60,15 +60,15 @@ $ sudo apt-get install gcc-5 g++-5 -y > /dev/null
 $ sudo ln -sf /usr/bin/g++-5 /usr/bin/g++
 $ sudo ln -sf /usr/bin/gcc-5 /usr/bin/gcc
 
-$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.1/xenial/libydk_0.8.1-1_amd64.deb
-$ sudo gdebi libydk_0.8.1-1_amd64.deb
+$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.2/xenial/libydk-0.8.2-1.amd64.deb
+$ sudo gdebi libydk-0.8.2-1.amd64.deb
 ```
 
 For Bionic (Ubuntu 18.04.1):
 
 ```
-$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.1/bionic/libydk_0.8.1-1_amd64.deb
-$ sudo gdebi libydk_0.8.1-1_amd64.deb
+$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.2/bionic/libydk-0.8.2-1.amd64.deb
+$ sudo gdebi libydk-0.8.2-1.amd64.deb
 ```
 
 #### Centos (Fedora-based)
@@ -86,7 +86,7 @@ $ ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcc /usr/bin/gcc
 $ ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/g++
 
 # Install YDK core library
-$ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.1/libydk-0.8.1-1.x86_64.rpm
+$ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.2/libydk-0.8.2-1.x86_64.rpm
 ```
 
 #### Mac OS
@@ -99,8 +99,8 @@ $ brew install pkg-config libssh libxml2 xml2 curl pcre cmake
 $ xcode-select --install
 
 # Install YDK core library
-$ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.1/libydk-0.8.1-Darwin.pkg
-$ sudo installer -pkg libydk-0.8.1-Darwin.pkg -target /
+$ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk-0.8.2-Darwin.pkg
+$ sudo installer -pkg libydk-0.8.2-Darwin.pkg -target /
 ```
 
 #### Libssh installation
@@ -172,28 +172,28 @@ sudo ldconfig
 For Ubuntu/Xenial:
 
 ```
-$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.1/xenial/libydk_gnmi_0.4.0-1_amd64.deb
-$ sudo gdebi libydk_gnmi_0.4.0-1_amd64.deb
+$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.2/xenial/libydk_gnmi_0.4.0-2_amd64.deb
+$ sudo gdebi libydk_gnmi_0.4.0-2_amd64.deb
 ```
 
 For Ubuntu/Bionic:
 
 ```
-$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.1/bionic/libydk_gnmi_0.4.0-1_amd64.deb
-$ sudo gdebi libydk_gnmi_0.4.0-1_amd64.deb
+$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.2/bionic/libydk_gnmi_0.4.0-2.amd64.deb
+$ sudo gdebi libydk_gnmi_0.4.0-2.amd64.deb
 ```
 
 For CentOS
 
 ```
-   sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.1/libydk_gnmi_0.4.0-1.x86_64.rpm
+   sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.2/libydk_gnmi_0.4.0-2.x86_64.rpm
 ```
 
 ##### MacOS:
 
 ```
-$ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.1/libydk_gnmi-0.4.0-1_Darwin.pkg
-$ sudo installer -pkg libydk_gnmi-0.4.0-1_Darwin.pkg -target /
+$ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk_gnmi-0.4.0-2_Darwin.pkg
+$ sudo installer -pkg libydk_gnmi-0.4.0-2_Darwin.pkg -target /
 ```
 
 #### Runtime environment
@@ -225,4 +225,4 @@ $ go get github.com/CiscoDevNet/ydk-go/ydk
 ## Release Notes
 
 
-The current YDK release version is 0.8.1. YDK-Go is licensed under the Apache 2.0 License.
+The current YDK release version is 0.8.2. YDK-Go is licensed under the Apache 2.0 License.

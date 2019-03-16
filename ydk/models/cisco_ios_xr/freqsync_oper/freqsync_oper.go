@@ -55,8 +55,8 @@ const (
     // Stream available
     FsyncBagStreamState_stream_available FsyncBagStreamState = "stream-available"
 
-    // Stream available acquiring
-    FsyncBagStreamState_stream_available_acquiring FsyncBagStreamState = "stream-available-acquiring"
+    // Stream acquiring
+    FsyncBagStreamState_stream_acquiring FsyncBagStreamState = "stream-acquiring"
 
     // Stream locked
     FsyncBagStreamState_stream_locked FsyncBagStreamState = "stream-locked"
@@ -666,10 +666,6 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -684,6 +680,9 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
 
     // Clock ID.
     ClockId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_GnssReceiverId
@@ -702,12 +701,12 @@ func (selectedSource *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInter
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -755,6 +754,46 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSel
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-back-traces/clock-interface-selection-back-trace/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_GnssReceiverId
@@ -1043,10 +1082,6 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -1061,6 +1096,9 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
 
     // Clock ID.
     ClockId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -1079,12 +1117,12 @@ func (source *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSele
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -1132,6 +1170,46 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSel
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-forward-traces/clock-interface-selection-forward-trace/forward-trace/forward-trace-node/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -1229,10 +1307,6 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -1247,6 +1321,9 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
 
     // Clock ID.
     ClockId FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_GnssReceiverId
@@ -1265,12 +1342,12 @@ func (selectedSource *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayB
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -1318,6 +1395,46 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrac
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/time-of-day-back-trace/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_GnssReceiverId
@@ -1560,10 +1677,6 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -1578,6 +1691,9 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
 
     // Clock ID.
     ClockId FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -1596,12 +1712,12 @@ func (source *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwar
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -1649,6 +1765,46 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwa
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ntp-selection-forward-trace/forward-trace/forward-trace-node/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -1851,10 +2007,6 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -1869,6 +2021,9 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
 
     // Clock ID.
     ClockId FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -1887,12 +2042,12 @@ func (source *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwar
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -1940,6 +2095,46 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwa
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ptp-selection-forward-trace/forward-trace/forward-trace-node/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -2217,10 +2412,6 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -2235,6 +2426,9 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
 
     // Clock ID.
     ClockId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -2253,12 +2447,12 @@ func (source *FrequencySynchronization_GlobalInterfaces_GlobalInterface_Interfac
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -2306,6 +2500,46 @@ func (clockId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_Interfa
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-forward-trace/forward-trace/forward-trace-node/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -2403,10 +2637,6 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -2421,6 +2651,9 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
 
     // Clock ID.
     ClockId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_GnssReceiverId
@@ -2439,12 +2672,12 @@ func (selectedSource *FrequencySynchronization_GlobalInterfaces_GlobalInterface_
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -2492,6 +2725,46 @@ func (clockId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_Interfa
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-back-trace/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_GnssReceiverId
@@ -2680,10 +2953,6 @@ type FrequencySynchronization_Summary_FrequencySummary_Source struct {
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -2698,6 +2967,9 @@ type FrequencySynchronization_Summary_FrequencySummary_Source struct {
 
     // Clock ID.
     ClockId FrequencySynchronization_Summary_FrequencySummary_Source_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Summary_FrequencySummary_Source_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Summary_FrequencySummary_Source_GnssReceiverId
@@ -2716,12 +2988,12 @@ func (source *FrequencySynchronization_Summary_FrequencySummary_Source) GetEntit
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -2769,6 +3041,46 @@ func (clockId *FrequencySynchronization_Summary_FrequencySummary_Source_ClockId)
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Summary_FrequencySummary_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Summary_FrequencySummary_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Summary_FrequencySummary_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/frequency-summary/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Summary_FrequencySummary_Source_GnssReceiverId
@@ -2863,10 +3175,6 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source struct {
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -2881,6 +3189,9 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source struct {
 
     // Clock ID.
     ClockId FrequencySynchronization_Summary_TimeOfDaySummary_Source_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Summary_TimeOfDaySummary_Source_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Summary_TimeOfDaySummary_Source_GnssReceiverId
@@ -2899,12 +3210,12 @@ func (source *FrequencySynchronization_Summary_TimeOfDaySummary_Source) GetEntit
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -2952,6 +3263,46 @@ func (clockId *FrequencySynchronization_Summary_TimeOfDaySummary_Source_ClockId)
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Summary_TimeOfDaySummary_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Summary_TimeOfDaySummary_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Summary_TimeOfDaySummary_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/time-of-day-summary/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Summary_TimeOfDaySummary_Source_GnssReceiverId
@@ -3179,10 +3530,6 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source struct {
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -3197,6 +3544,9 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source struct {
 
     // Clock ID.
     ClockId FrequencySynchronization_InterfaceDatas_InterfaceData_Source_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_InterfaceDatas_InterfaceData_Source_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_InterfaceDatas_InterfaceData_Source_GnssReceiverId
@@ -3215,12 +3565,12 @@ func (source *FrequencySynchronization_InterfaceDatas_InterfaceData_Source) GetE
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -3268,6 +3618,46 @@ func (clockId *FrequencySynchronization_InterfaceDatas_InterfaceData_Source_Cloc
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_InterfaceDatas_InterfaceData_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_InterfaceDatas_InterfaceData_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_InterfaceDatas_InterfaceData_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_InterfaceDatas_InterfaceData_Source_GnssReceiverId
@@ -3325,10 +3715,6 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource struct
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -3343,6 +3729,9 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource struct
 
     // Clock ID.
     ClockId FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_GnssReceiverId
@@ -3361,12 +3750,12 @@ func (selectedSource *FrequencySynchronization_InterfaceDatas_InterfaceData_Sele
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -3414,6 +3803,46 @@ func (clockId *FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSou
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_GnssReceiverId
@@ -4725,10 +5154,6 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source 
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -4743,6 +5168,9 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source 
 
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_GnssReceiverId
@@ -4761,12 +5189,12 @@ func (source *FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSourc
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -4814,6 +5242,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSour
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_GnssReceiverId
@@ -5580,10 +6048,6 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_So
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -5598,6 +6062,9 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_So
 
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_GnssReceiverId
@@ -5616,12 +6083,12 @@ func (source *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClo
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -5669,6 +6136,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedCl
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_GnssReceiverId
@@ -5726,10 +6233,6 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Se
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -5744,6 +6247,9 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Se
 
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_GnssReceiverId
@@ -5762,12 +6268,12 @@ func (selectedSource *FrequencySynchronization_Nodes_Node_DetailedClockDatas_Det
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -5815,6 +6321,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedCl
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_GnssReceiverId
@@ -6344,10 +6890,6 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source struct {
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -6362,6 +6904,9 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source struct {
 
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_GnssReceiverId
@@ -6380,12 +6925,12 @@ func (source *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source) G
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -6433,6 +6978,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_C
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_GnssReceiverId
@@ -6490,10 +7075,6 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource str
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -6508,6 +7089,9 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource str
 
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_GnssReceiverId
@@ -6526,12 +7110,12 @@ func (selectedSource *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_S
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -6579,6 +7163,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Selected
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_GnssReceiverId
@@ -7143,10 +7767,6 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -7161,6 +7781,9 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
 
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_GnssReceiverId
@@ -7179,12 +7802,12 @@ func (sourceId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_Selecti
 
     sourceId.EntityData.Children = types.NewOrderedMap()
     sourceId.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &sourceId.ClockId})
+    sourceId.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &sourceId.InternalClockId})
     sourceId.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &sourceId.GnssReceiverId})
     sourceId.EntityData.Leafs = types.NewOrderedMap()
     sourceId.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", sourceId.SourceClass})
     sourceId.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", sourceId.EthernetInterface})
     sourceId.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", sourceId.SonetInterface})
-    sourceId.EntityData.Leafs.Append("node", types.YLeaf{"Node", sourceId.Node})
     sourceId.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", sourceId.PtpNode})
     sourceId.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", sourceId.SatelliteAccessInterface})
     sourceId.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", sourceId.NtpNode})
@@ -7232,6 +7855,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_Selectio
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source-id"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/stream/source-id/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_GnssReceiverId
@@ -7362,10 +8025,6 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -7380,6 +8039,9 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
 
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_ClockId
+
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_InternalClockId
 
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_GnssReceiverId
@@ -7398,12 +8060,12 @@ func (originalSource *FrequencySynchronization_Nodes_Node_SelectionPointInputs_S
 
     originalSource.EntityData.Children = types.NewOrderedMap()
     originalSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &originalSource.ClockId})
+    originalSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &originalSource.InternalClockId})
     originalSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &originalSource.GnssReceiverId})
     originalSource.EntityData.Leafs = types.NewOrderedMap()
     originalSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", originalSource.SourceClass})
     originalSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", originalSource.EthernetInterface})
     originalSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", originalSource.SonetInterface})
-    originalSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", originalSource.Node})
     originalSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", originalSource.PtpNode})
     originalSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", originalSource.SatelliteAccessInterface})
     originalSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", originalSource.NtpNode})
@@ -7451,6 +8113,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_Selectio
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "original-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/original-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_GnssReceiverId

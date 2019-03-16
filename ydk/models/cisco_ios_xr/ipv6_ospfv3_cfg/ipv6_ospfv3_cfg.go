@@ -6103,12 +6103,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Redistributes_Redistribute_ConnectedOrS
     // EIGRP route type. The type is Ospfv3EigrpRoute.
     EigrpRouteType interface{}
 
-    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is interface{}.
+    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is bool.
     PreserveMed interface{}
 
-    // Preserve Information (Multi-Exit Discriminator) of BGP routes. The type is
-    // interface{}.
-    PreserveMedInfo interface{}
+    // Preserve Metric and Metric Type ofBGP Default Route. The type is bool.
+    BgpPreserveDefaultInfo interface{}
 
     // Use metric from RIB for redistributed routes. The type is bool.
     UseRibMetric interface{}
@@ -6138,7 +6137,7 @@ func (connectedOrStaticOrSubscriberOrMobile *Ospfv3_Processes_Process_DefaultVrf
     connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("isis-route-type", types.YLeaf{"IsisRouteType", connectedOrStaticOrSubscriberOrMobile.IsisRouteType})
     connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("eigrp-route-type", types.YLeaf{"EigrpRouteType", connectedOrStaticOrSubscriberOrMobile.EigrpRouteType})
     connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("preserve-med", types.YLeaf{"PreserveMed", connectedOrStaticOrSubscriberOrMobile.PreserveMed})
-    connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("preserve-med-info", types.YLeaf{"PreserveMedInfo", connectedOrStaticOrSubscriberOrMobile.PreserveMedInfo})
+    connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("bgp-preserve-default-info", types.YLeaf{"BgpPreserveDefaultInfo", connectedOrStaticOrSubscriberOrMobile.BgpPreserveDefaultInfo})
     connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("use-rib-metric", types.YLeaf{"UseRibMetric", connectedOrStaticOrSubscriberOrMobile.UseRibMetric})
 
     connectedOrStaticOrSubscriberOrMobile.EntityData.YListKeys = []string {}
@@ -6195,12 +6194,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Redistributes_Redistribute_Bgp struct {
     // EIGRP route type. The type is Ospfv3EigrpRoute.
     EigrpRouteType interface{}
 
-    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is interface{}.
+    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is bool.
     PreserveMed interface{}
 
-    // Preserve Information (Multi-Exit Discriminator) of BGP routes. The type is
-    // interface{}.
-    PreserveMedInfo interface{}
+    // Preserve Metric and Metric Type ofBGP Default Route. The type is bool.
+    BgpPreserveDefaultInfo interface{}
 
     // Use metric from RIB for redistributed routes. The type is bool.
     UseRibMetric interface{}
@@ -6232,7 +6230,7 @@ func (bgp *Ospfv3_Processes_Process_DefaultVrf_Redistributes_Redistribute_Bgp) G
     bgp.EntityData.Leafs.Append("isis-route-type", types.YLeaf{"IsisRouteType", bgp.IsisRouteType})
     bgp.EntityData.Leafs.Append("eigrp-route-type", types.YLeaf{"EigrpRouteType", bgp.EigrpRouteType})
     bgp.EntityData.Leafs.Append("preserve-med", types.YLeaf{"PreserveMed", bgp.PreserveMed})
-    bgp.EntityData.Leafs.Append("preserve-med-info", types.YLeaf{"PreserveMedInfo", bgp.PreserveMedInfo})
+    bgp.EntityData.Leafs.Append("bgp-preserve-default-info", types.YLeaf{"BgpPreserveDefaultInfo", bgp.BgpPreserveDefaultInfo})
     bgp.EntityData.Leafs.Append("use-rib-metric", types.YLeaf{"UseRibMetric", bgp.UseRibMetric})
 
     bgp.EntityData.YListKeys = []string {"AsXx", "AsYy"}
@@ -6285,12 +6283,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Redistributes_Redistribute_Ospfv3OrIsis
     // EIGRP route type. The type is Ospfv3EigrpRoute.
     EigrpRouteType interface{}
 
-    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is interface{}.
+    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is bool.
     PreserveMed interface{}
 
-    // Preserve Information (Multi-Exit Discriminator) of BGP routes. The type is
-    // interface{}.
-    PreserveMedInfo interface{}
+    // Preserve Metric and Metric Type ofBGP Default Route. The type is bool.
+    BgpPreserveDefaultInfo interface{}
 
     // Use metric from RIB for redistributed routes. The type is bool.
     UseRibMetric interface{}
@@ -6321,7 +6318,7 @@ func (ospfv3OrIsisOrApplication *Ospfv3_Processes_Process_DefaultVrf_Redistribut
     ospfv3OrIsisOrApplication.EntityData.Leafs.Append("isis-route-type", types.YLeaf{"IsisRouteType", ospfv3OrIsisOrApplication.IsisRouteType})
     ospfv3OrIsisOrApplication.EntityData.Leafs.Append("eigrp-route-type", types.YLeaf{"EigrpRouteType", ospfv3OrIsisOrApplication.EigrpRouteType})
     ospfv3OrIsisOrApplication.EntityData.Leafs.Append("preserve-med", types.YLeaf{"PreserveMed", ospfv3OrIsisOrApplication.PreserveMed})
-    ospfv3OrIsisOrApplication.EntityData.Leafs.Append("preserve-med-info", types.YLeaf{"PreserveMedInfo", ospfv3OrIsisOrApplication.PreserveMedInfo})
+    ospfv3OrIsisOrApplication.EntityData.Leafs.Append("bgp-preserve-default-info", types.YLeaf{"BgpPreserveDefaultInfo", ospfv3OrIsisOrApplication.BgpPreserveDefaultInfo})
     ospfv3OrIsisOrApplication.EntityData.Leafs.Append("use-rib-metric", types.YLeaf{"UseRibMetric", ospfv3OrIsisOrApplication.UseRibMetric})
 
     ospfv3OrIsisOrApplication.EntityData.YListKeys = []string {"ProcessName"}
@@ -6373,12 +6370,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Redistributes_Redistribute_Eigrp struct
     // EIGRP route type. The type is Ospfv3EigrpRoute.
     EigrpRouteType interface{}
 
-    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is interface{}.
+    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is bool.
     PreserveMed interface{}
 
-    // Preserve Information (Multi-Exit Discriminator) of BGP routes. The type is
-    // interface{}.
-    PreserveMedInfo interface{}
+    // Preserve Metric and Metric Type ofBGP Default Route. The type is bool.
+    BgpPreserveDefaultInfo interface{}
 
     // Use metric from RIB for redistributed routes. The type is bool.
     UseRibMetric interface{}
@@ -6409,7 +6405,7 @@ func (eigrp *Ospfv3_Processes_Process_DefaultVrf_Redistributes_Redistribute_Eigr
     eigrp.EntityData.Leafs.Append("isis-route-type", types.YLeaf{"IsisRouteType", eigrp.IsisRouteType})
     eigrp.EntityData.Leafs.Append("eigrp-route-type", types.YLeaf{"EigrpRouteType", eigrp.EigrpRouteType})
     eigrp.EntityData.Leafs.Append("preserve-med", types.YLeaf{"PreserveMed", eigrp.PreserveMed})
-    eigrp.EntityData.Leafs.Append("preserve-med-info", types.YLeaf{"PreserveMedInfo", eigrp.PreserveMedInfo})
+    eigrp.EntityData.Leafs.Append("bgp-preserve-default-info", types.YLeaf{"BgpPreserveDefaultInfo", eigrp.BgpPreserveDefaultInfo})
     eigrp.EntityData.Leafs.Append("use-rib-metric", types.YLeaf{"UseRibMetric", eigrp.UseRibMetric})
 
     eigrp.EntityData.YListKeys = []string {"AsXx"}
@@ -13687,12 +13683,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Redistributes_Redistribute_ConnectedOrSta
     // EIGRP route type. The type is Ospfv3EigrpRoute.
     EigrpRouteType interface{}
 
-    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is interface{}.
+    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is bool.
     PreserveMed interface{}
 
-    // Preserve Information (Multi-Exit Discriminator) of BGP routes. The type is
-    // interface{}.
-    PreserveMedInfo interface{}
+    // Preserve Metric and Metric Type ofBGP Default Route. The type is bool.
+    BgpPreserveDefaultInfo interface{}
 
     // Use metric from RIB for redistributed routes. The type is bool.
     UseRibMetric interface{}
@@ -13722,7 +13717,7 @@ func (connectedOrStaticOrSubscriberOrMobile *Ospfv3_Processes_Process_Vrfs_Vrf_R
     connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("isis-route-type", types.YLeaf{"IsisRouteType", connectedOrStaticOrSubscriberOrMobile.IsisRouteType})
     connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("eigrp-route-type", types.YLeaf{"EigrpRouteType", connectedOrStaticOrSubscriberOrMobile.EigrpRouteType})
     connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("preserve-med", types.YLeaf{"PreserveMed", connectedOrStaticOrSubscriberOrMobile.PreserveMed})
-    connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("preserve-med-info", types.YLeaf{"PreserveMedInfo", connectedOrStaticOrSubscriberOrMobile.PreserveMedInfo})
+    connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("bgp-preserve-default-info", types.YLeaf{"BgpPreserveDefaultInfo", connectedOrStaticOrSubscriberOrMobile.BgpPreserveDefaultInfo})
     connectedOrStaticOrSubscriberOrMobile.EntityData.Leafs.Append("use-rib-metric", types.YLeaf{"UseRibMetric", connectedOrStaticOrSubscriberOrMobile.UseRibMetric})
 
     connectedOrStaticOrSubscriberOrMobile.EntityData.YListKeys = []string {}
@@ -13779,12 +13774,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Redistributes_Redistribute_Bgp struct {
     // EIGRP route type. The type is Ospfv3EigrpRoute.
     EigrpRouteType interface{}
 
-    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is interface{}.
+    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is bool.
     PreserveMed interface{}
 
-    // Preserve Information (Multi-Exit Discriminator) of BGP routes. The type is
-    // interface{}.
-    PreserveMedInfo interface{}
+    // Preserve Metric and Metric Type ofBGP Default Route. The type is bool.
+    BgpPreserveDefaultInfo interface{}
 
     // Use metric from RIB for redistributed routes. The type is bool.
     UseRibMetric interface{}
@@ -13816,7 +13810,7 @@ func (bgp *Ospfv3_Processes_Process_Vrfs_Vrf_Redistributes_Redistribute_Bgp) Get
     bgp.EntityData.Leafs.Append("isis-route-type", types.YLeaf{"IsisRouteType", bgp.IsisRouteType})
     bgp.EntityData.Leafs.Append("eigrp-route-type", types.YLeaf{"EigrpRouteType", bgp.EigrpRouteType})
     bgp.EntityData.Leafs.Append("preserve-med", types.YLeaf{"PreserveMed", bgp.PreserveMed})
-    bgp.EntityData.Leafs.Append("preserve-med-info", types.YLeaf{"PreserveMedInfo", bgp.PreserveMedInfo})
+    bgp.EntityData.Leafs.Append("bgp-preserve-default-info", types.YLeaf{"BgpPreserveDefaultInfo", bgp.BgpPreserveDefaultInfo})
     bgp.EntityData.Leafs.Append("use-rib-metric", types.YLeaf{"UseRibMetric", bgp.UseRibMetric})
 
     bgp.EntityData.YListKeys = []string {"AsXx", "AsYy"}
@@ -13869,12 +13863,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Redistributes_Redistribute_Ospfv3OrIsisOr
     // EIGRP route type. The type is Ospfv3EigrpRoute.
     EigrpRouteType interface{}
 
-    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is interface{}.
+    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is bool.
     PreserveMed interface{}
 
-    // Preserve Information (Multi-Exit Discriminator) of BGP routes. The type is
-    // interface{}.
-    PreserveMedInfo interface{}
+    // Preserve Metric and Metric Type ofBGP Default Route. The type is bool.
+    BgpPreserveDefaultInfo interface{}
 
     // Use metric from RIB for redistributed routes. The type is bool.
     UseRibMetric interface{}
@@ -13905,7 +13898,7 @@ func (ospfv3OrIsisOrApplication *Ospfv3_Processes_Process_Vrfs_Vrf_Redistributes
     ospfv3OrIsisOrApplication.EntityData.Leafs.Append("isis-route-type", types.YLeaf{"IsisRouteType", ospfv3OrIsisOrApplication.IsisRouteType})
     ospfv3OrIsisOrApplication.EntityData.Leafs.Append("eigrp-route-type", types.YLeaf{"EigrpRouteType", ospfv3OrIsisOrApplication.EigrpRouteType})
     ospfv3OrIsisOrApplication.EntityData.Leafs.Append("preserve-med", types.YLeaf{"PreserveMed", ospfv3OrIsisOrApplication.PreserveMed})
-    ospfv3OrIsisOrApplication.EntityData.Leafs.Append("preserve-med-info", types.YLeaf{"PreserveMedInfo", ospfv3OrIsisOrApplication.PreserveMedInfo})
+    ospfv3OrIsisOrApplication.EntityData.Leafs.Append("bgp-preserve-default-info", types.YLeaf{"BgpPreserveDefaultInfo", ospfv3OrIsisOrApplication.BgpPreserveDefaultInfo})
     ospfv3OrIsisOrApplication.EntityData.Leafs.Append("use-rib-metric", types.YLeaf{"UseRibMetric", ospfv3OrIsisOrApplication.UseRibMetric})
 
     ospfv3OrIsisOrApplication.EntityData.YListKeys = []string {"ProcessName"}
@@ -13957,12 +13950,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Redistributes_Redistribute_Eigrp struct {
     // EIGRP route type. The type is Ospfv3EigrpRoute.
     EigrpRouteType interface{}
 
-    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is interface{}.
+    // Preserve (Multi-Exit Discriminator) of BGP routes. The type is bool.
     PreserveMed interface{}
 
-    // Preserve Information (Multi-Exit Discriminator) of BGP routes. The type is
-    // interface{}.
-    PreserveMedInfo interface{}
+    // Preserve Metric and Metric Type ofBGP Default Route. The type is bool.
+    BgpPreserveDefaultInfo interface{}
 
     // Use metric from RIB for redistributed routes. The type is bool.
     UseRibMetric interface{}
@@ -13993,7 +13985,7 @@ func (eigrp *Ospfv3_Processes_Process_Vrfs_Vrf_Redistributes_Redistribute_Eigrp)
     eigrp.EntityData.Leafs.Append("isis-route-type", types.YLeaf{"IsisRouteType", eigrp.IsisRouteType})
     eigrp.EntityData.Leafs.Append("eigrp-route-type", types.YLeaf{"EigrpRouteType", eigrp.EigrpRouteType})
     eigrp.EntityData.Leafs.Append("preserve-med", types.YLeaf{"PreserveMed", eigrp.PreserveMed})
-    eigrp.EntityData.Leafs.Append("preserve-med-info", types.YLeaf{"PreserveMedInfo", eigrp.PreserveMedInfo})
+    eigrp.EntityData.Leafs.Append("bgp-preserve-default-info", types.YLeaf{"BgpPreserveDefaultInfo", eigrp.BgpPreserveDefaultInfo})
     eigrp.EntityData.Leafs.Append("use-rib-metric", types.YLeaf{"UseRibMetric", eigrp.UseRibMetric})
 
     eigrp.EntityData.YListKeys = []string {"AsXx"}

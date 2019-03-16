@@ -18,6 +18,7 @@
 // under the License.
 package path
 
+// #cgo darwin LDFLAGS:  -lydk_gnmi -lgrpc++ -lprotobuf
 // #cgo linux LDFLAGS:  -lydk_gnmi -lgrpc++ -lprotobuf
 // #include <ydk/ydk.h>
 // #include <ydk/ydk_gnmi.h>
@@ -67,7 +68,7 @@ func (gs *GnmiSession) Connect() {
 
 	AddCState(&gs.State)
 	cstate := GetCState(&gs.State)
-	
+
 	var repopath *C.char = C.CString(gs.Repo.Path)
 	defer C.free(unsafe.Pointer(repopath))
 	repo := C.RepositoryInitWithPath( *cstate, repopath)
@@ -77,7 +78,7 @@ func (gs *GnmiSession) Connect() {
 	defer C.free(unsafe.Pointer(cusername))
 	var cpassword *C.char = C.CString(gs.Password)
 	defer C.free(unsafe.Pointer(cpassword))
-	
+
 	gs.Private = C.GnmiSessionInit( *cstate, repo, caddress, cport, cusername, cpassword, cserver, cclient);
 	PanicOnCStateError(cstate)
 }
@@ -94,7 +95,7 @@ func (gs *GnmiSession) Disconnect() {
 
 func (gs *GnmiSession) GetRootSchemaNode() types.RootSchemaNode {
 	cstate := GetCState(&gs.State)
-	
+
 	realSession := gs.Private.(C.GnmiSession)
 
 	var rootSchema C.RootSchemaWrapper = C.GnmiSessionGetRootSchemaNode( *cstate, realSession)
@@ -117,7 +118,7 @@ func (gs *GnmiSession) ExecuteRpc(rpc types.Rpc) types.DataNode {
 
 	cdn := C.GnmiSessionExecuteRpc( *cstate, csession, crpc)
 	PanicOnCStateError(cstate)
-	
+
 	dn := types.DataNode{Private: cdn}
 	return dn
 }
@@ -137,7 +138,7 @@ func (gs *GnmiSession) ExecuteSubscribeRpc(rpc types.Rpc) {
 func (gs *GnmiSession) SubscribeInProgress() bool {
 	realSession := gs.Private.(C.GnmiSession)
 	cstate := GetCState(&gs.State)
-	
+
 	var cresponse C.boolean = C.GnmiSessionSubscribeInProgress( *cstate, realSession)
 	PanicOnCStateError(cstate)
 	var response bool = false
@@ -150,10 +151,10 @@ func (gs *GnmiSession) SubscribeInProgress() bool {
 func (gs *GnmiSession) GetLastSubscribeResponse(previousResponse string) string {
 	realSession := gs.Private.(C.GnmiSession)
 	cstate := GetCState(&gs.State)
-	
+
 	var cprevious *C.char = C.CString(previousResponse)
 	defer C.free(unsafe.Pointer(cprevious))
-	
+
 	cresponse := C.GetLastSubscribeResponse( *cstate, realSession, cprevious)
 	return C.GoString(cresponse)
 }
@@ -176,7 +177,7 @@ func GnmiServiceProviderConnect(
 
 	var caddress *C.char = C.CString(address)
 	defer C.free(unsafe.Pointer(caddress))
-	
+
 	var cport C.int = C.int(port)
 
 	var p C.ServiceProvider
@@ -189,7 +190,7 @@ func GnmiServiceProviderConnect(
 	defer C.free(unsafe.Pointer(cserver))
 	var cclient *C.char = C.CString(privateKey)
 	defer C.free(unsafe.Pointer(cclient))
-	
+
 	p = C.GnmiServiceProviderInit( *cstate, crepo, caddress, cport, cusername, cpassword, cserver, cclient);
 	PanicOnCStateError(cstate)
 
@@ -211,7 +212,7 @@ func GnmiServiceProviderGetSession(provider types.CServiceProvider) *GnmiSession
 	realProvider := provider.Private.(C.ServiceProvider)
 	realSession := C.GnmiServiceProviderGetSession( *cstate, realProvider)
 	PanicOnCStateError(cstate)
-	
+
 	gnmiSession := GnmiSession{Private: realSession, State: state}
 	// TODO. Possibly need to populate the rest of structure members
 
@@ -241,7 +242,7 @@ func GnmiServiceGet(provider types.CServiceProvider, filter types.Entity, operat
 	var cmode *C.char = C.CString(operation)
 	defer C.free(unsafe.Pointer(cmode))
 
-	ec := types.EntityToCollection(filter)	
+	ec := types.EntityToCollection(filter)
 	pathList := C.GnmiPathListInit()
 	for _, ent := range ec.Entities() {
 		path := parseEntityToPath(ent)
@@ -447,7 +448,7 @@ func parseEntity( entity types.Entity, path C.GnmiPath) {
 	p := strings.Index(s, "[")
 	if p > 0 {
 		entityKeys := getEntityKeys(s)
-		s = s[0:p]		
+		s = s[0:p]
 		for _, leafData := range(entPath.ValuePaths) {
 			keyValue, isKey := entityKeys[leafData.Name]
 			if  isKey {
@@ -475,5 +476,3 @@ func parseEntity( entity types.Entity, path C.GnmiPath) {
 
 	parseEntityChildren(entity, path);
 }
-
-

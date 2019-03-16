@@ -785,6 +785,8 @@ const (
     EtherSpeed_speed_100gb EtherSpeed = "speed-100gb"
 
     EtherSpeed_speed_unknown EtherSpeed = "speed-unknown"
+
+    EtherSpeed_speed_auto EtherSpeed = "speed-auto"
 )
 
 // Interfaces

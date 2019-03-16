@@ -3,7 +3,7 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   platform-qos: QoS Skywarp platform operational data 
+//   platform-qos: QoS Skywarp platform operational data
 //   platform-qos-ea: platform qos ea
 // 
 // Copyright (c) 2013-2018 by Cisco Systems, Inc.

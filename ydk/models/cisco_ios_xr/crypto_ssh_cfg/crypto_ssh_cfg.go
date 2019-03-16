@@ -35,6 +35,9 @@ type Ssh struct {
 
     // Provide SSH server service.
     Server Ssh_Server
+
+    // Provide SSH server service.
+    BackupServer Ssh_BackupServer
 }
 
 func (ssh *Ssh) GetEntityData() *types.CommonEntityData {
@@ -51,6 +54,7 @@ func (ssh *Ssh) GetEntityData() *types.CommonEntityData {
     ssh.EntityData.Children = types.NewOrderedMap()
     ssh.EntityData.Children.Append("client", types.YChild{"Client", &ssh.Client})
     ssh.EntityData.Children.Append("server", types.YChild{"Server", &ssh.Server})
+    ssh.EntityData.Children.Append("backup-server", types.YChild{"BackupServer", &ssh.BackupServer})
     ssh.EntityData.Leafs = types.NewOrderedMap()
 
     ssh.EntityData.YListKeys = []string {}
@@ -74,6 +78,10 @@ type Ssh_Client struct {
     // Source interface VRF for ssh client sessions. The type is string with
     // length: 1..32.
     ClientVrf interface{}
+
+    // Set SSH Client Tcp Window Scale factor. The type is interface{} with range:
+    // 1..14. The default value is 1.
+    TcpWindowScale interface{}
 
     // Configure client time-based rekey for SSH. The type is interface{} with
     // range: 30..1440. Units are minute. The default value is 60.
@@ -111,6 +119,7 @@ func (client *Ssh_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.Leafs.Append("rekey-volume", types.YLeaf{"RekeyVolume", client.RekeyVolume})
     client.EntityData.Leafs.Append("host-public-key", types.YLeaf{"HostPublicKey", client.HostPublicKey})
     client.EntityData.Leafs.Append("client-vrf", types.YLeaf{"ClientVrf", client.ClientVrf})
+    client.EntityData.Leafs.Append("tcp-window-scale", types.YLeaf{"TcpWindowScale", client.TcpWindowScale})
     client.EntityData.Leafs.Append("rekey-time", types.YLeaf{"RekeyTime", client.RekeyTime})
     client.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", client.SourceInterface})
     client.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", client.Dscp})
@@ -265,6 +274,10 @@ type Ssh_Server struct {
     // Cisco sshd force protocol version 2 only. The type is interface{}.
     V2 interface{}
 
+    // Set SSH Server Tcp Window Scale factor. The type is interface{} with range:
+    // 1..14. The default value is 1.
+    TcpWindowScale interface{}
+
     // Time Period in minutes, defalut 60. The type is interface{} with range:
     // 30..1440. Units are minute. The default value is 60.
     RekeyTime interface{}
@@ -325,6 +338,7 @@ func (server *Ssh_Server) GetEntityData() *types.CommonEntityData {
     server.EntityData.Leafs.Append("session-limit", types.YLeaf{"SessionLimit", server.SessionLimit})
     server.EntityData.Leafs.Append("netconf", types.YLeaf{"Netconf", server.Netconf})
     server.EntityData.Leafs.Append("v2", types.YLeaf{"V2", server.V2})
+    server.EntityData.Leafs.Append("tcp-window-scale", types.YLeaf{"TcpWindowScale", server.TcpWindowScale})
     server.EntityData.Leafs.Append("rekey-time", types.YLeaf{"RekeyTime", server.RekeyTime})
     server.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", server.Logging})
     server.EntityData.Leafs.Append("rate-limit", types.YLeaf{"RateLimit", server.RateLimit})
@@ -704,5 +718,73 @@ func (vrf *Ssh_Server_NetconfVrfTable_Vrf) GetEntityData() *types.CommonEntityDa
     vrf.EntityData.YListKeys = []string {"VrfName"}
 
     return &(vrf.EntityData)
+}
+
+// Ssh_BackupServer
+// Provide SSH server service
+type Ssh_BackupServer struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // backup server config.
+    BackupPortVrf Ssh_BackupServer_BackupPortVrf
+}
+
+func (backupServer *Ssh_BackupServer) GetEntityData() *types.CommonEntityData {
+    backupServer.EntityData.YFilter = backupServer.YFilter
+    backupServer.EntityData.YangName = "backup-server"
+    backupServer.EntityData.BundleName = "cisco_ios_xr"
+    backupServer.EntityData.ParentYangName = "ssh"
+    backupServer.EntityData.SegmentPath = "backup-server"
+    backupServer.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/" + backupServer.EntityData.SegmentPath
+    backupServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    backupServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    backupServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    backupServer.EntityData.Children = types.NewOrderedMap()
+    backupServer.EntityData.Children.Append("backup-port-vrf", types.YChild{"BackupPortVrf", &backupServer.BackupPortVrf})
+    backupServer.EntityData.Leafs = types.NewOrderedMap()
+
+    backupServer.EntityData.YListKeys = []string {}
+
+    return &(backupServer.EntityData)
+}
+
+// Ssh_BackupServer_BackupPortVrf
+// backup server config
+// This type is a presence type.
+type Ssh_BackupServer_BackupPortVrf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Port number. The type is interface{} with range: 11000..15000. This
+    // attribute is mandatory.
+    Port interface{}
+
+    // VRF name (max:32 chars). The type is string with length: 1..32. This
+    // attribute is mandatory.
+    VrfName interface{}
+}
+
+func (backupPortVrf *Ssh_BackupServer_BackupPortVrf) GetEntityData() *types.CommonEntityData {
+    backupPortVrf.EntityData.YFilter = backupPortVrf.YFilter
+    backupPortVrf.EntityData.YangName = "backup-port-vrf"
+    backupPortVrf.EntityData.BundleName = "cisco_ios_xr"
+    backupPortVrf.EntityData.ParentYangName = "backup-server"
+    backupPortVrf.EntityData.SegmentPath = "backup-port-vrf"
+    backupPortVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/backup-server/" + backupPortVrf.EntityData.SegmentPath
+    backupPortVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    backupPortVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    backupPortVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    backupPortVrf.EntityData.Children = types.NewOrderedMap()
+    backupPortVrf.EntityData.Leafs = types.NewOrderedMap()
+    backupPortVrf.EntityData.Leafs.Append("port", types.YLeaf{"Port", backupPortVrf.Port})
+    backupPortVrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", backupPortVrf.VrfName})
+
+    backupPortVrf.EntityData.YListKeys = []string {}
+
+    return &(backupPortVrf.EntityData)
 }
 

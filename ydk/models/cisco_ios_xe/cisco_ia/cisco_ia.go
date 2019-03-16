@@ -98,6 +98,21 @@ const (
     SyslogSeverity_debug SyslogSeverity = "debug"
 )
 
+// ParserMsgProcessingMethod
+type ParserMsgProcessingMethod string
+
+const (
+    // Check all parser output against a set
+    // of known errors and abort the transaction
+    // if matched.
+    ParserMsgProcessingMethod_blacklist ParserMsgProcessingMethod = "blacklist"
+
+    // Check all parser output against a set
+    // of known messages to ignore and abort 
+    // the transaction if not matched.
+    ParserMsgProcessingMethod_whitelist ParserMsgProcessingMethod = "whitelist"
+)
+
 // OnepLogLevel represents Logging levels for Onep
 type OnepLogLevel string
 

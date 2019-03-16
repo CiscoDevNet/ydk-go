@@ -24,6 +24,14 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password", reflect.TypeOf(Password{}))
 }
 
+// KeyEncryption represents Key encryption
+type KeyEncryption string
+
+const (
+    // Type6
+    KeyEncryption_type6 KeyEncryption = "type6"
+)
+
 // Password
 // Configure masterkey
 type Password struct {
@@ -60,8 +68,7 @@ type Password_Encryption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // encryption type used to store key. The type is interface{} with range:
-    // 0..4294967295. The default value is 0.
+    // encryption type used to store key. The type is KeyEncryption.
     Aes interface{}
 }
 

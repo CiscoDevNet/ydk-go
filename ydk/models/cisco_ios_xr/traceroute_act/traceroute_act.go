@@ -1,7 +1,7 @@
 // This module contains a collection of YANG definitions
 // for Cisco IOS-XR ping action package configuration.
 // 
-// Copyright (c) 2016 by Cisco Systems, Inc.
+// Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 // All rights reserved.
 package traceroute_act
 
@@ -92,9 +92,11 @@ func (input *Traceroute_Input) GetEntityData() *types.CommonEntityData {
 }
 
 // Traceroute_Input_Destination
+// This type is a presence type.
 type Traceroute_Input_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -171,9 +173,11 @@ func (destination *Traceroute_Input_Destination) GetEntityData() *types.CommonEn
 }
 
 // Traceroute_Input_Ipv4
+// This type is a presence type.
 type Traceroute_Input_Ipv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -241,9 +245,11 @@ func (ipv4 *Traceroute_Input_Ipv4) GetEntityData() *types.CommonEntityData {
 }
 
 // Traceroute_Input_Ipv6
+// This type is a presence type.
 type Traceroute_Input_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -382,9 +388,11 @@ func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetEntityData() 
 }
 
 // Traceroute_Output_TracerouteResponse_Ipv4
+// This type is a presence type.
 type Traceroute_Output_TracerouteResponse_Ipv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Destination address or hostname. The type is string.
     Destination interface{}
@@ -574,9 +582,11 @@ func (probe *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe) Ge
 }
 
 // Traceroute_Output_TracerouteResponse_Ipv6
+// This type is a presence type.
 type Traceroute_Output_TracerouteResponse_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Destination address or hostname. The type is string.
     Destination interface{}

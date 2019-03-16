@@ -44,6 +44,9 @@ type InstallAdd struct {
 
     
     Input InstallAdd_Input
+
+    
+    Output InstallAdd_Output
 }
 
 func (installAdd *InstallAdd) GetEntityData() *types.CommonEntityData {
@@ -59,6 +62,7 @@ func (installAdd *InstallAdd) GetEntityData() *types.CommonEntityData {
 
     installAdd.EntityData.Children = types.NewOrderedMap()
     installAdd.EntityData.Children.Append("input", types.YChild{"Input", &installAdd.Input})
+    installAdd.EntityData.Children.Append("output", types.YChild{"Output", &installAdd.Output})
     installAdd.EntityData.Leafs = types.NewOrderedMap()
 
     installAdd.EntityData.YListKeys = []string {}
@@ -99,6 +103,39 @@ func (input *InstallAdd_Input) GetEntityData() *types.CommonEntityData {
     return &(input.EntityData)
 }
 
+// InstallAdd_Output
+type InstallAdd_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // operation id of the triggered action. The type is string.
+    OpId interface{}
+
+    // case when op-id is not triggered. The type is string.
+    Error interface{}
+}
+
+func (output *InstallAdd_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "install-add"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-add/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("op-id", types.YLeaf{"OpId", output.OpId})
+    output.EntityData.Leafs.Append("Error", types.YLeaf{"Error", output.Error})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
 // InstallCommit
 // Cli-command install commit
 type InstallCommit struct {
@@ -107,6 +144,9 @@ type InstallCommit struct {
 
     
     Input InstallCommit_Input
+
+    
+    Output InstallCommit_Output
 }
 
 func (installCommit *InstallCommit) GetEntityData() *types.CommonEntityData {
@@ -122,6 +162,7 @@ func (installCommit *InstallCommit) GetEntityData() *types.CommonEntityData {
 
     installCommit.EntityData.Children = types.NewOrderedMap()
     installCommit.EntityData.Children.Append("input", types.YChild{"Input", &installCommit.Input})
+    installCommit.EntityData.Children.Append("output", types.YChild{"Output", &installCommit.Output})
     installCommit.EntityData.Leafs = types.NewOrderedMap()
 
     installCommit.EntityData.YListKeys = []string {}
@@ -158,6 +199,39 @@ func (input *InstallCommit_Input) GetEntityData() *types.CommonEntityData {
     return &(input.EntityData)
 }
 
+// InstallCommit_Output
+type InstallCommit_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // operation id of the triggered action. The type is string.
+    OpId interface{}
+
+    // case when op-id is not triggered. The type is string.
+    Error interface{}
+}
+
+func (output *InstallCommit_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "install-commit"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-commit/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("op-id", types.YLeaf{"OpId", output.OpId})
+    output.EntityData.Leafs.Append("Error", types.YLeaf{"Error", output.Error})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
 // InstallRemove
 // Cli-command remove
 type InstallRemove struct {
@@ -166,6 +240,9 @@ type InstallRemove struct {
 
     
     Input InstallRemove_Input
+
+    
+    Output InstallRemove_Output
 }
 
 func (installRemove *InstallRemove) GetEntityData() *types.CommonEntityData {
@@ -181,6 +258,7 @@ func (installRemove *InstallRemove) GetEntityData() *types.CommonEntityData {
 
     installRemove.EntityData.Children = types.NewOrderedMap()
     installRemove.EntityData.Children.Append("input", types.YChild{"Input", &installRemove.Input})
+    installRemove.EntityData.Children.Append("output", types.YChild{"Output", &installRemove.Output})
     installRemove.EntityData.Leafs = types.NewOrderedMap()
 
     installRemove.EntityData.YListKeys = []string {}
@@ -288,6 +366,39 @@ func (ids *InstallRemove_Input_Ids) GetEntityData() *types.CommonEntityData {
     return &(ids.EntityData)
 }
 
+// InstallRemove_Output
+type InstallRemove_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // operation id of the triggered action. The type is string.
+    OpId interface{}
+
+    // case when op-id is not triggered. The type is string.
+    Error interface{}
+}
+
+func (output *InstallRemove_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "install-remove"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-remove/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("op-id", types.YLeaf{"OpId", output.OpId})
+    output.EntityData.Leafs.Append("Error", types.YLeaf{"Error", output.Error})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
 // InstallPrepare
 // Cli-command prepare
 type InstallPrepare struct {
@@ -296,6 +407,9 @@ type InstallPrepare struct {
 
     
     Input InstallPrepare_Input
+
+    
+    Output InstallPrepare_Output
 }
 
 func (installPrepare *InstallPrepare) GetEntityData() *types.CommonEntityData {
@@ -311,6 +425,7 @@ func (installPrepare *InstallPrepare) GetEntityData() *types.CommonEntityData {
 
     installPrepare.EntityData.Children = types.NewOrderedMap()
     installPrepare.EntityData.Children.Append("input", types.YChild{"Input", &installPrepare.Input})
+    installPrepare.EntityData.Children.Append("output", types.YChild{"Output", &installPrepare.Output})
     installPrepare.EntityData.Leafs = types.NewOrderedMap()
 
     installPrepare.EntityData.YListKeys = []string {}
@@ -450,6 +565,39 @@ func (prepareForce *InstallPrepare_Input_PrepareForce) GetEntityData() *types.Co
     return &(prepareForce.EntityData)
 }
 
+// InstallPrepare_Output
+type InstallPrepare_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // operation id of the triggered action. The type is string.
+    OpId interface{}
+
+    // case when op-id is not triggered. The type is string.
+    Error interface{}
+}
+
+func (output *InstallPrepare_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "install-prepare"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-prepare/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("op-id", types.YLeaf{"OpId", output.OpId})
+    output.EntityData.Leafs.Append("Error", types.YLeaf{"Error", output.Error})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
 // InstallActivate
 // Cli-command activate
 type InstallActivate struct {
@@ -458,6 +606,9 @@ type InstallActivate struct {
 
     
     Input InstallActivate_Input
+
+    
+    Output InstallActivate_Output
 }
 
 func (installActivate *InstallActivate) GetEntityData() *types.CommonEntityData {
@@ -473,6 +624,7 @@ func (installActivate *InstallActivate) GetEntityData() *types.CommonEntityData 
 
     installActivate.EntityData.Children = types.NewOrderedMap()
     installActivate.EntityData.Children.Append("input", types.YChild{"Input", &installActivate.Input})
+    installActivate.EntityData.Children.Append("output", types.YChild{"Output", &installActivate.Output})
     installActivate.EntityData.Leafs = types.NewOrderedMap()
 
     installActivate.EntityData.YListKeys = []string {}
@@ -940,6 +1092,39 @@ func (ids *InstallActivate_Input_Ids) GetEntityData() *types.CommonEntityData {
     return &(ids.EntityData)
 }
 
+// InstallActivate_Output
+type InstallActivate_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // operation id of the triggered action. The type is string.
+    OpId interface{}
+
+    // case when op-id is not triggered. The type is string.
+    Error interface{}
+}
+
+func (output *InstallActivate_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "install-activate"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("op-id", types.YLeaf{"OpId", output.OpId})
+    output.EntityData.Leafs.Append("Error", types.YLeaf{"Error", output.Error})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
 // InstallDeactivate
 // Cli-command deactivate
 type InstallDeactivate struct {
@@ -948,6 +1133,9 @@ type InstallDeactivate struct {
 
     
     Input InstallDeactivate_Input
+
+    
+    Output InstallDeactivate_Output
 }
 
 func (installDeactivate *InstallDeactivate) GetEntityData() *types.CommonEntityData {
@@ -963,6 +1151,7 @@ func (installDeactivate *InstallDeactivate) GetEntityData() *types.CommonEntityD
 
     installDeactivate.EntityData.Children = types.NewOrderedMap()
     installDeactivate.EntityData.Children.Append("input", types.YChild{"Input", &installDeactivate.Input})
+    installDeactivate.EntityData.Children.Append("output", types.YChild{"Output", &installDeactivate.Output})
     installDeactivate.EntityData.Leafs = types.NewOrderedMap()
 
     installDeactivate.EntityData.YListKeys = []string {}
@@ -1102,6 +1291,39 @@ func (ids *InstallDeactivate_Input_Ids) GetEntityData() *types.CommonEntityData 
     return &(ids.EntityData)
 }
 
+// InstallDeactivate_Output
+type InstallDeactivate_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // operation id of the triggered action. The type is string.
+    OpId interface{}
+
+    // case when op-id is not triggered. The type is string.
+    Error interface{}
+}
+
+func (output *InstallDeactivate_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "install-deactivate"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-deactivate/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("op-id", types.YLeaf{"OpId", output.OpId})
+    output.EntityData.Leafs.Append("Error", types.YLeaf{"Error", output.Error})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
 // InstallExtract
 // Cli-command extract
 type InstallExtract struct {
@@ -1110,6 +1332,9 @@ type InstallExtract struct {
 
     
     Input InstallExtract_Input
+
+    
+    Output InstallExtract_Output
 }
 
 func (installExtract *InstallExtract) GetEntityData() *types.CommonEntityData {
@@ -1125,6 +1350,7 @@ func (installExtract *InstallExtract) GetEntityData() *types.CommonEntityData {
 
     installExtract.EntityData.Children = types.NewOrderedMap()
     installExtract.EntityData.Children.Append("input", types.YChild{"Input", &installExtract.Input})
+    installExtract.EntityData.Children.Append("output", types.YChild{"Output", &installExtract.Output})
     installExtract.EntityData.Leafs = types.NewOrderedMap()
 
     installExtract.EntityData.YListKeys = []string {}
@@ -1190,6 +1416,39 @@ func (packages *InstallExtract_Input_Packages) GetEntityData() *types.CommonEnti
     return &(packages.EntityData)
 }
 
+// InstallExtract_Output
+type InstallExtract_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // operation id of the triggered action. The type is string.
+    OpId interface{}
+
+    // case when op-id is not triggered. The type is string.
+    Error interface{}
+}
+
+func (output *InstallExtract_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "install-extract"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-extract/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("op-id", types.YLeaf{"OpId", output.OpId})
+    output.EntityData.Leafs.Append("Error", types.YLeaf{"Error", output.Error})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
 // InstallVerify
 // Cli-command install verify packages
 type InstallVerify struct {
@@ -1198,6 +1457,9 @@ type InstallVerify struct {
 
     
     Input InstallVerify_Input
+
+    
+    Output InstallVerify_Output
 }
 
 func (installVerify *InstallVerify) GetEntityData() *types.CommonEntityData {
@@ -1213,6 +1475,7 @@ func (installVerify *InstallVerify) GetEntityData() *types.CommonEntityData {
 
     installVerify.EntityData.Children = types.NewOrderedMap()
     installVerify.EntityData.Children.Append("input", types.YChild{"Input", &installVerify.Input})
+    installVerify.EntityData.Children.Append("output", types.YChild{"Output", &installVerify.Output})
     installVerify.EntityData.Leafs = types.NewOrderedMap()
 
     installVerify.EntityData.YListKeys = []string {}
@@ -1249,6 +1512,39 @@ func (input *InstallVerify_Input) GetEntityData() *types.CommonEntityData {
     return &(input.EntityData)
 }
 
+// InstallVerify_Output
+type InstallVerify_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // operation id of the triggered action. The type is string.
+    OpId interface{}
+
+    // case when op-id is not triggered. The type is string.
+    Error interface{}
+}
+
+func (output *InstallVerify_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "install-verify"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-verify/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("op-id", types.YLeaf{"OpId", output.OpId})
+    output.EntityData.Leafs.Append("Error", types.YLeaf{"Error", output.Error})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
 // InstallUpdate
 // Cli-command install update
 type InstallUpdate struct {
@@ -1257,6 +1553,9 @@ type InstallUpdate struct {
 
     
     Input InstallUpdate_Input
+
+    
+    Output InstallUpdate_Output
 }
 
 func (installUpdate *InstallUpdate) GetEntityData() *types.CommonEntityData {
@@ -1272,6 +1571,7 @@ func (installUpdate *InstallUpdate) GetEntityData() *types.CommonEntityData {
 
     installUpdate.EntityData.Children = types.NewOrderedMap()
     installUpdate.EntityData.Children.Append("input", types.YChild{"Input", &installUpdate.Input})
+    installUpdate.EntityData.Children.Append("output", types.YChild{"Output", &installUpdate.Output})
     installUpdate.EntityData.Leafs = types.NewOrderedMap()
 
     installUpdate.EntityData.YListKeys = []string {}
@@ -1643,5 +1943,38 @@ func (replaceCommitForce *InstallUpdate_Input_ReplaceCommitForce) GetEntityData(
     replaceCommitForce.EntityData.YListKeys = []string {}
 
     return &(replaceCommitForce.EntityData)
+}
+
+// InstallUpdate_Output
+type InstallUpdate_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // operation id of the triggered action. The type is string.
+    OpId interface{}
+
+    // case when op-id is not triggered. The type is string.
+    Error interface{}
+}
+
+func (output *InstallUpdate_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "install-update"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/" + output.EntityData.SegmentPath
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("op-id", types.YLeaf{"OpId", output.OpId})
+    output.EntityData.Leafs.Append("Error", types.YLeaf{"Error", output.Error})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
 }
 

@@ -5930,6 +5930,12 @@ type Aaa_Diameter_Diams_Diam_DiamAttrDefs_DiamAttrDef_DiamAttrValue struct {
     // Dataypte of attribute. The type is interface{} with range: 0..23.
     DataType interface{}
 
+    // Numeric type. The type is interface{} with range: 0..4294967295.
+    TypeUlonglong interface{}
+
+    // Numeric type. The type is interface{} with range: 0..4294967295.
+    TypeUtc interface{}
+
     // Is mandatory?. The type is interface{} with range: 0..1.
     Mandatory interface{}
 }
@@ -5956,6 +5962,8 @@ func (diamAttrValue *Aaa_Diameter_Diams_Diam_DiamAttrDefs_DiamAttrDef_DiamAttrVa
     diamAttrValue.EntityData.Leafs.Append("type-ulong", types.YLeaf{"TypeUlong", diamAttrValue.TypeUlong})
     diamAttrValue.EntityData.Leafs.Append("type-identity", types.YLeaf{"TypeIdentity", diamAttrValue.TypeIdentity})
     diamAttrValue.EntityData.Leafs.Append("data-type", types.YLeaf{"DataType", diamAttrValue.DataType})
+    diamAttrValue.EntityData.Leafs.Append("type-ulonglong", types.YLeaf{"TypeUlonglong", diamAttrValue.TypeUlonglong})
+    diamAttrValue.EntityData.Leafs.Append("type-utc", types.YLeaf{"TypeUtc", diamAttrValue.TypeUtc})
     diamAttrValue.EntityData.Leafs.Append("mandatory", types.YLeaf{"Mandatory", diamAttrValue.Mandatory})
 
     diamAttrValue.EntityData.YListKeys = []string {}

@@ -626,7 +626,7 @@ type Ntp_DscpIpv4 struct {
     YFilter yfilter.YFilter
     YPresence bool
 
-    // NTPPRECEDENCE (0) to specify Precedence value  NTPDSCP (1) to specify DSCP
+    // NTPPRECEDENCE (0) to specify Precedence value NTPDSCP (1) to specify DSCP
     // value. The type is Ntpdscp. This attribute is mandatory.
     Mode interface{}
 

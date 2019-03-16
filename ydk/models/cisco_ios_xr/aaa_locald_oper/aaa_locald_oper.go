@@ -1907,8 +1907,8 @@ type Aaa_Radius_Servers_Server struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
-    // A number that indicates the priority             of the server. The type is
-    // interface{} with range: 0..4294967295.
+    // A number that indicates the priority of the server. The type is interface{}
+    // with range: 0..4294967295.
     Priority interface{}
 
     // Per-server timeout in seconds. The type is interface{} with range:
@@ -1939,12 +1939,12 @@ type Aaa_Radius_Servers_Server struct {
     // State of the server UP/DOWN. The type is string.
     State interface{}
 
-    // Elapsed time the server has been in              current state. The type is
-    // interface{} with range: 0..4294967295.
+    // Elapsed time the server has been in current state. The type is interface{}
+    // with range: 0..4294967295.
     CurrentStateDuration interface{}
 
-    // Elapsed time the server was been in              previous state. The type
-    // is interface{} with range: 0..4294967295.
+    // Elapsed time the server was been in previous state. The type is interface{}
+    // with range: 0..4294967295.
     PreviousStateDuration interface{}
 
     // Total number of incoming packets read. The type is interface{} with range:
@@ -1971,16 +1971,16 @@ type Aaa_Radius_Servers_Server struct {
     // 0..4294967295.
     RedirectedRequests interface{}
 
-    // Round-trip time for authentication               in milliseconds. The type
-    // is interface{} with range: 0..4294967295. Units are millisecond.
+    // Round-trip time for authentication in milliseconds. The type is interface{}
+    // with range: 0..4294967295. Units are millisecond.
     AuthenticationRtt interface{}
 
     // Number of access requests. The type is interface{} with range:
     // 0..4294967295.
     AccessRequests interface{}
 
-    // Number of retransmitted                          access requests. The type
-    // is interface{} with range: 0..4294967295.
+    // Number of retransmitted access requests. The type is interface{} with
+    // range: 0..4294967295.
     AccessRequestRetransmits interface{}
 
     // Number of access accepts. The type is interface{} with range:
@@ -2011,8 +2011,8 @@ type Aaa_Radius_Servers_Server struct {
     // 0..4294967295.
     AccessTimeouts interface{}
 
-    // Number of packets received with unknown          type from authentication
-    // server. The type is interface{} with range: 0..4294967295.
+    // Number of packets received with unknown type from authentication server.
+    // The type is interface{} with range: 0..4294967295.
     UnknownAccessTypes interface{}
 
     // Number of access responses dropped. The type is interface{} with range:
@@ -2095,16 +2095,16 @@ type Aaa_Radius_Servers_Server struct {
     // range: 0..4294967295.
     AuthorIncorrectResponses interface{}
 
-    // Round-trip time for accounting                   in milliseconds. The type
-    // is interface{} with range: 0..4294967295. Units are millisecond.
+    // Round-trip time for accounting in milliseconds. The type is interface{}
+    // with range: 0..4294967295. Units are millisecond.
     AccountingRtt interface{}
 
     // Number of accounting requests. The type is interface{} with range:
     // 0..4294967295.
     AccountingRequests interface{}
 
-    // Number of retransmitted                          accounting requests. The
-    // type is interface{} with range: 0..4294967295.
+    // Number of retransmitted accounting requests. The type is interface{} with
+    // range: 0..4294967295.
     AccountingRetransmits interface{}
 
     // Number of accounting responses. The type is interface{} with range:
@@ -2115,24 +2115,24 @@ type Aaa_Radius_Servers_Server struct {
     // 0..4294967295.
     BadAccountingResponses interface{}
 
-    // Number of bad accounting                         authenticators. The type
-    // is interface{} with range: 0..4294967295.
+    // Number of bad accounting authenticators. The type is interface{} with
+    // range: 0..4294967295.
     BadAccountingAuthenticators interface{}
 
     // Number of pending accounting requests. The type is interface{} with range:
     // 0..4294967295.
     PendingAccountingRequets interface{}
 
-    // Number of accounting packets                     timed-out. The type is
-    // interface{} with range: 0..4294967295.
+    // Number of accounting packets timed-out. The type is interface{} with range:
+    // 0..4294967295.
     AccountingTimeouts interface{}
 
-    // Number of packets received with unknown          type from accounting
-    // server. The type is interface{} with range: 0..4294967295.
+    // Number of packets received with unknown type from accounting server. The
+    // type is interface{} with range: 0..4294967295.
     UnknownAccountingTypes interface{}
 
-    // Number of accounting responses                   dropped. The type is
-    // interface{} with range: 0..4294967295.
+    // Number of accounting responses dropped. The type is interface{} with range:
+    // 0..4294967295.
     DroppedAccountingResponses interface{}
 
     // Is a private server. The type is bool.
@@ -2210,16 +2210,16 @@ type Aaa_Radius_Servers_Server struct {
     // range: 0..4294967295.
     AcctTransactionFailure interface{}
 
-    // Total time of Server being in DEAD               state. The type is
-    // interface{} with range: 0..4294967295.
+    // Total time of Server being in DEAD state. The type is interface{} with
+    // range: 0..4294967295.
     TotalDeadtime interface{}
 
-    // Time of Server being in DEAD state,              after last UP. The type is
-    // interface{} with range: 0..4294967295.
+    // Time of Server being in DEAD state, after last UP. The type is interface{}
+    // with range: 0..4294967295.
     LastDeadtime interface{}
 
-    // flag to indicate Server is quarantined           or not (Automated TEST in
-    // progress). The type is bool.
+    // flag to indicate Server is quarantined or not (Automated TEST in progress).
+    // The type is bool.
     IsQuarantined interface{}
 
     // Server group name for private server. The type is string.
@@ -2805,6 +2805,9 @@ type Aaa_Diameter_Peers struct {
     // 0..4294967295. Units are second.
     TransactionTimer interface{}
 
+    // Total no.of peers. The type is interface{} with range: 0..4294967295.
+    PeerNum interface{}
+
     // Total number of transactions. The type is interface{} with range:
     // 0..4294967295.
     TransTotal interface{}
@@ -2842,6 +2845,7 @@ func (peers *Aaa_Diameter_Peers) GetEntityData() *types.CommonEntityData {
     peers.EntityData.Leafs.Append("conn-retry-timer", types.YLeaf{"ConnRetryTimer", peers.ConnRetryTimer})
     peers.EntityData.Leafs.Append("watchdog-timer", types.YLeaf{"WatchdogTimer", peers.WatchdogTimer})
     peers.EntityData.Leafs.Append("transaction-timer", types.YLeaf{"TransactionTimer", peers.TransactionTimer})
+    peers.EntityData.Leafs.Append("peer-num", types.YLeaf{"PeerNum", peers.PeerNum})
     peers.EntityData.Leafs.Append("trans-total", types.YLeaf{"TransTotal", peers.TransTotal})
     peers.EntityData.Leafs.Append("trans-max", types.YLeaf{"TransMax", peers.TransMax})
 

@@ -1234,21 +1234,21 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_Ext_Es200Stats_
     // with range: 0..18446744073709551615.
     InPktNoTag interface{}
 
-    // ingress packet untagged & validateFrames is  !strict. The type is
+    // ingress packet untagged & validateFrames is !strict. The type is
     // interface{} with range: 0..18446744073709551615.
     InPktsUntagged interface{}
 
-    // ingress frames received with an invalid MACSec tag or ICV                  
-    // added with next one gives InPktsSCIMiss. The type is interface{} with
-    // range: 0..18446744073709551615.
+    // ingress frames received with an invalid MACSec tag or ICV added with next
+    // one gives InPktsSCIMiss. The type is interface{} with range:
+    // 0..18446744073709551615.
     InPktBadTag interface{}
 
-    // correctly tagged ingress frames for which no valid SC found &              
+    // correctly tagged ingress frames for which no valid SC found &
     // validateFrames is strict. The type is interface{} with range:
     // 0..18446744073709551615.
     InPktNoSci interface{}
 
-    // correctly tagged ingress frames for which no valid SC found &              
+    // correctly tagged ingress frames for which no valid SC found &
     // validateFrames is !strict. The type is interface{} with range:
     // 0..18446744073709551615.
     InPktsUnknownSci interface{}
@@ -2102,6 +2102,9 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_TxSa 
     // 0..18446744073709551615.
     MaxPktNumber interface{}
 
+    // Confidentiality Offset. The type is interface{} with range: 0..65535.
+    ConfOffset interface{}
+
     // Xform Params.
     XformParams MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_TxSa_XformParams
 }
@@ -2129,6 +2132,7 @@ func (txSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200S
     txSa.EntityData.Leafs.Append("initial-pkt-number", types.YLeaf{"InitialPktNumber", txSa.InitialPktNumber})
     txSa.EntityData.Leafs.Append("current-pkt-number", types.YLeaf{"CurrentPktNumber", txSa.CurrentPktNumber})
     txSa.EntityData.Leafs.Append("max-pkt-number", types.YLeaf{"MaxPktNumber", txSa.MaxPktNumber})
+    txSa.EntityData.Leafs.Append("conf-offset", types.YLeaf{"ConfOffset", txSa.ConfOffset})
 
     txSa.EntityData.YListKeys = []string {}
 
@@ -2161,8 +2165,8 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_TxSa_
     // TRUE if Seq Num is 64-bit, FALSE if it is 32-bit. The type is bool.
     IsSeqNum64Bit interface{}
 
-    // TRUE to generate the authKey, so authKey in this struct not used           
-    // APM_FALSE to use provided authKey. The type is bool.
+    // TRUE to generate the authKey, so authKey in this struct not used APM_FALSE
+    // to use provided authKey. The type is bool.
     BgenAuthKey interface{}
 }
 
@@ -2245,6 +2249,9 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_RxSa 
     // octets validated. The type is interface{} with range: 0..255.
     InOctetsValidated interface{}
 
+    // Confidentiality Offset. The type is interface{} with range: 0..65535.
+    ConfOffset interface{}
+
     // Xform Params.
     XformParams MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_RxSa_XformParams
 }
@@ -2276,6 +2283,7 @@ func (rxSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200S
     rxSa.EntityData.Leafs.Append("in-pkts-unused-sa", types.YLeaf{"InPktsUnusedSa", rxSa.InPktsUnusedSa})
     rxSa.EntityData.Leafs.Append("in-octets-decrypted-validated1", types.YLeaf{"InOctetsDecryptedValidated1", rxSa.InOctetsDecryptedValidated1})
     rxSa.EntityData.Leafs.Append("in-octets-validated", types.YLeaf{"InOctetsValidated", rxSa.InOctetsValidated})
+    rxSa.EntityData.Leafs.Append("conf-offset", types.YLeaf{"ConfOffset", rxSa.ConfOffset})
 
     rxSa.EntityData.YListKeys = []string {}
 
@@ -2308,8 +2316,8 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_RxSa_
     // TRUE if Seq Num is 64-bit, FALSE if it is 32-bit. The type is bool.
     IsSeqNum64Bit interface{}
 
-    // TRUE to generate the authKey, so authKey in this struct not used           
-    // APM_FALSE to use provided authKey. The type is bool.
+    // TRUE to generate the authKey, so authKey in this struct not used APM_FALSE
+    // to use provided authKey. The type is bool.
     BgenAuthKey interface{}
 }
 
@@ -2875,29 +2883,28 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // Is Flow Enabled. The type is bool.
     IsFlowEnabled interface{}
 
-    // Parsed EtherType to match could be 0 if Ethertype should'nt                
-    // be matched can be 0x88E5 for MACSec tag. The type is interface{} with
-    // range: 0..65535.
+    // Parsed EtherType to match could be 0 if Ethertype should'nt be matched can
+    // be 0x88E5 for MACSec tag. The type is interface{} with range: 0..65535.
     Ethertype interface{}
 
-    // VLAN ID for outer tag use this when             only one tag should be
-    // matched. The type is interface{} with range: 0..65535.
+    // VLAN ID for outer tag use this when only one tag should be matched. The
+    // type is interface{} with range: 0..65535.
     OuterVlanId interface{}
 
-    // VLAN User Priority for outer tag  use            this when only one tag
-    // should be matched. The type is interface{} with range: 0..255.
+    // VLAN User Priority for outer tag  use this when only one tag should be
+    // matched. The type is interface{} with range: 0..255.
     OuterVlanUserPri interface{}
 
-    // VLAN ID for inner tag used when two              VLAN Tags should be
-    // matched. The type is interface{} with range: 0..65535.
+    // VLAN ID for inner tag used when two VLAN Tags should be matched. The type
+    // is interface{} with range: 0..65535.
     InnerVlanId interface{}
 
-    // VLAN User priority for inner tag use            when matching two VLAN
-    // tags. The type is interface{} with range: 0..255.
+    // VLAN User priority for inner tag use when matching two VLAN tags. The type
+    // is interface{} with range: 0..255.
     InnerVlanUserPri interface{}
 
-    // SCI to be matched value required for            ingress only, pass NULL for
-    // egress. The type is interface{} with range: 0..18446744073709551615.
+    // SCI to be matched value required for ingress only, pass NULL for egress.
+    // The type is interface{} with range: 0..18446744073709551615.
     Psci interface{}
 
     // priority for match 0-15(highest) . The type is interface{} with range:
@@ -2928,9 +2935,8 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // 0..255.
     TciC interface{}
 
-    // TCI bits will be checked only when this          bit is enabled. All the
-    // values of TCI bits       are mandatory when TCI check is used. The type is
-    // bool.
+    // TCI bits will be checked only when this bit is enabled. All the values of
+    // TCI bits are mandatory when TCI check is used. The type is bool.
     TciChk interface{}
 
     // Type of packet. See ethMscCfyEPktType_e. The type is string.
@@ -2975,20 +2981,19 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // botton of stack . The type is interface{} with range: 0..255.
     Mpls2Bos interface{}
 
-    // Plain bits to compare. Max values:               untagged pkt - 40 bits
-    // after EthType             1 VLAN tag - 24 bits after parsed EthType       
-    // 2 VLAN tags- 8 bits after parsed EthType         1 MPLS tag - 32 bits after
-    // 1st tag               2 MPLS tags- 8 bits following after 2nd          or
-    // atmost 5th MPLS tag                           PBB - 16 bits after C-SA     
-    // PBB with VLAN tag - 16 bits of VLAN tag . The type is interface{} with
-    // range: 0..18446744073709551615. Units are bit.
+    // Plain bits to compare. Max values: untagged pkt - 40 bits after EthType 1
+    // VLAN tag - 24 bits after parsed EthType 2 VLAN tags- 8 bits after parsed
+    // EthType 1 MPLS tag - 32 bits after 1st tag 2 MPLS tags- 8 bits following
+    // after 2nd or atmost 5th MPLS tag PBB - 16 bits after C-SA PBB with VLAN tag
+    // - 16 bits of VLAN tag . The type is interface{} with range:
+    // 0..18446744073709551615. Units are bit.
     PlainBits interface{}
 
     // No. of bits used in plainBits. The type is interface{} with range: 0..255.
     PlainBitsSize interface{}
 
-    // Force the pkt as control pkt irrepective         of the results of control
-    // packet detector. The type is bool.
+    // Force the pkt as control pkt irrepective of the results of control packet
+    // detector. The type is bool.
     ForceCtrl interface{}
 
     // Drop the packet. The type is bool.
@@ -3082,29 +3087,28 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // Is Flow Enabled. The type is bool.
     IsFlowEnabled interface{}
 
-    // Parsed EtherType to match could be 0 if Ethertype should'nt                
-    // be matched can be 0x88E5 for MACSec tag. The type is interface{} with
-    // range: 0..65535.
+    // Parsed EtherType to match could be 0 if Ethertype should'nt be matched can
+    // be 0x88E5 for MACSec tag. The type is interface{} with range: 0..65535.
     Ethertype interface{}
 
-    // VLAN ID for outer tag use this when             only one tag should be
-    // matched. The type is interface{} with range: 0..65535.
+    // VLAN ID for outer tag use this when only one tag should be matched. The
+    // type is interface{} with range: 0..65535.
     OuterVlanId interface{}
 
-    // VLAN User Priority for outer tag  use            this when only one tag
-    // should be matched. The type is interface{} with range: 0..255.
+    // VLAN User Priority for outer tag  use this when only one tag should be
+    // matched. The type is interface{} with range: 0..255.
     OuterVlanUserPri interface{}
 
-    // VLAN ID for inner tag used when two              VLAN Tags should be
-    // matched. The type is interface{} with range: 0..65535.
+    // VLAN ID for inner tag used when two VLAN Tags should be matched. The type
+    // is interface{} with range: 0..65535.
     InnerVlanId interface{}
 
-    // VLAN User priority for inner tag use            when matching two VLAN
-    // tags. The type is interface{} with range: 0..255.
+    // VLAN User priority for inner tag use when matching two VLAN tags. The type
+    // is interface{} with range: 0..255.
     InnerVlanUserPri interface{}
 
-    // SCI to be matched value required for            ingress only, pass NULL for
-    // egress. The type is interface{} with range: 0..18446744073709551615.
+    // SCI to be matched value required for ingress only, pass NULL for egress.
+    // The type is interface{} with range: 0..18446744073709551615.
     Psci interface{}
 
     // priority for match 0-15(highest) . The type is interface{} with range:
@@ -3135,9 +3139,8 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // 0..255.
     TciC interface{}
 
-    // TCI bits will be checked only when this          bit is enabled. All the
-    // values of TCI bits       are mandatory when TCI check is used. The type is
-    // bool.
+    // TCI bits will be checked only when this bit is enabled. All the values of
+    // TCI bits are mandatory when TCI check is used. The type is bool.
     TciChk interface{}
 
     // Type of packet. See ethMscCfyEPktType_e. The type is string.
@@ -3182,20 +3185,19 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // botton of stack . The type is interface{} with range: 0..255.
     Mpls2Bos interface{}
 
-    // Plain bits to compare. Max values:               untagged pkt - 40 bits
-    // after EthType             1 VLAN tag - 24 bits after parsed EthType       
-    // 2 VLAN tags- 8 bits after parsed EthType         1 MPLS tag - 32 bits after
-    // 1st tag               2 MPLS tags- 8 bits following after 2nd          or
-    // atmost 5th MPLS tag                           PBB - 16 bits after C-SA     
-    // PBB with VLAN tag - 16 bits of VLAN tag . The type is interface{} with
-    // range: 0..18446744073709551615. Units are bit.
+    // Plain bits to compare. Max values: untagged pkt - 40 bits after EthType 1
+    // VLAN tag - 24 bits after parsed EthType 2 VLAN tags- 8 bits after parsed
+    // EthType 1 MPLS tag - 32 bits after 1st tag 2 MPLS tags- 8 bits following
+    // after 2nd or atmost 5th MPLS tag PBB - 16 bits after C-SA PBB with VLAN tag
+    // - 16 bits of VLAN tag . The type is interface{} with range:
+    // 0..18446744073709551615. Units are bit.
     PlainBits interface{}
 
     // No. of bits used in plainBits. The type is interface{} with range: 0..255.
     PlainBitsSize interface{}
 
-    // Force the pkt as control pkt irrepective         of the results of control
-    // packet detector. The type is bool.
+    // Force the pkt as control pkt irrepective of the results of control packet
+    // detector. The type is bool.
     ForceCtrl interface{}
 
     // Drop the packet. The type is bool.
@@ -4276,21 +4278,21 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_Ext_Es200Stats_
     // with range: 0..18446744073709551615.
     InPktNoTag interface{}
 
-    // ingress packet untagged & validateFrames is  !strict. The type is
+    // ingress packet untagged & validateFrames is !strict. The type is
     // interface{} with range: 0..18446744073709551615.
     InPktsUntagged interface{}
 
-    // ingress frames received with an invalid MACSec tag or ICV                  
-    // added with next one gives InPktsSCIMiss. The type is interface{} with
-    // range: 0..18446744073709551615.
+    // ingress frames received with an invalid MACSec tag or ICV added with next
+    // one gives InPktsSCIMiss. The type is interface{} with range:
+    // 0..18446744073709551615.
     InPktBadTag interface{}
 
-    // correctly tagged ingress frames for which no valid SC found &              
+    // correctly tagged ingress frames for which no valid SC found &
     // validateFrames is strict. The type is interface{} with range:
     // 0..18446744073709551615.
     InPktNoSci interface{}
 
-    // correctly tagged ingress frames for which no valid SC found &              
+    // correctly tagged ingress frames for which no valid SC found &
     // validateFrames is !strict. The type is interface{} with range:
     // 0..18446744073709551615.
     InPktsUnknownSci interface{}

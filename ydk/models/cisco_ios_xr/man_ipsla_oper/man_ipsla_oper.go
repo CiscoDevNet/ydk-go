@@ -1316,6 +1316,14 @@ type Ipsla_Responder_Ports_Port struct {
     // Socket. The type is interface{} with range: -2147483648..2147483647.
     Socket interface{}
 
+    // IPv6 address of Responder. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    LocalIpv6Address interface{}
+
+    // Represent if v4 or v6. The type is interface{} with range:
+    // -2147483648..2147483647.
+    Family interface{}
+
     // List of senders. The type is slice of Ipsla_Responder_Ports_Port_Sender.
     Sender []*Ipsla_Responder_Ports_Port_Sender
 }
@@ -1349,6 +1357,8 @@ func (port *Ipsla_Responder_Ports_Port) GetEntityData() *types.CommonEntityData 
     port.EntityData.Leafs.Append("is-ipsla", types.YLeaf{"IsIpsla", port.IsIpsla})
     port.EntityData.Leafs.Append("drop-counter", types.YLeaf{"DropCounter", port.DropCounter})
     port.EntityData.Leafs.Append("socket", types.YLeaf{"Socket", port.Socket})
+    port.EntityData.Leafs.Append("local-ipv6-address", types.YLeaf{"LocalIpv6Address", port.LocalIpv6Address})
+    port.EntityData.Leafs.Append("family", types.YLeaf{"Family", port.Family})
 
     port.EntityData.YListKeys = []string {"Port"}
 
@@ -1362,7 +1372,8 @@ type Ipsla_Responder_Ports_Port_Sender struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // IP address of Sender. The type is interface{} with range: 0..4294967295.
+    // IP address of Sender. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Port on which Sender is sending. The type is interface{} with range:
@@ -1372,6 +1383,10 @@ type Ipsla_Responder_Ports_Port_Sender struct {
     // Last received time. The type is interface{} with range:
     // 0..18446744073709551615.
     LastRecvTime interface{}
+
+    // IPv6 address of Sender. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6Address interface{}
 }
 
 func (sender *Ipsla_Responder_Ports_Port_Sender) GetEntityData() *types.CommonEntityData {
@@ -1390,6 +1405,7 @@ func (sender *Ipsla_Responder_Ports_Port_Sender) GetEntityData() *types.CommonEn
     sender.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", sender.IpAddress})
     sender.EntityData.Leafs.Append("port", types.YLeaf{"Port", sender.Port})
     sender.EntityData.Leafs.Append("last-recv-time", types.YLeaf{"LastRecvTime", sender.LastRecvTime})
+    sender.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", sender.Ipv6Address})
 
     sender.EntityData.YListKeys = []string {}
 

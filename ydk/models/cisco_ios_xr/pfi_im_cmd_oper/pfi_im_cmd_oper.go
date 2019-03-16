@@ -2371,6 +2371,9 @@ const (
 
     // im attr media 100gbase sm sr
     ImAttrMedia_im_attr_media_100gbase_sm_sr ImAttrMedia = "im-attr-media-100gbase-sm-sr"
+
+    // im attr media 100gbase sr bd
+    ImAttrMedia_im_attr_media_100gbase_sr_bd ImAttrMedia = "im-attr-media-100gbase-sr-bd"
 )
 
 // SrpMgmtSrrNodeState represents SRP SRR node state

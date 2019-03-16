@@ -447,10 +447,10 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry stru
     // 0..255.
     Protocol2 interface{}
 
-    // DSCP value to match without using any operators.  Any value not in the
-    // permissible range will be rejected. Leave unspecified if DSCP comparion is
-    // not to be performed. For Setting dscp values, use the dscp container as
-    // this leaf will be deprecated soon. The type is one of the following types:
+    // DSCP value to match without any operators. Any value not in the permissible
+    // range will be rejected. Leave unspecified if DSCP comparison is not to be
+    // performed. For Setting dscp values, use the dscp container as this leaf
+    // will be deprecated soon. The type is one of the following types:
     // enumeration Ipv6AclDscpNumber, or int with range: 0..63.
     Dscp interface{}
 
@@ -503,7 +503,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry stru
     // Destination port object group name. The type is string with length: 1..64.
     DestinationPortGroup interface{}
 
-    // Sequence string for the ace. The type is string with length: 1..64.
+    // Sequence String for the ace. The type is string with length: 1..64.
     SequenceStr interface{}
 
     // Source network settings.
@@ -605,8 +605,8 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Sour
     // for no wildcarding. The type is interface{} with range: 0..128.
     SourceWildCardBits interface{}
 
-    // Source address mask. Either  source-wild-card-bits or source-mask is 
-    // supported, not both. Leave unspecified  for any. The type is string with
+    // Source address mask. Either source-wild-card-bits or source-mask is.
+    // supported, not both. Leave unspecified. for any. The type is string with
     // pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceMask interface{}
@@ -640,18 +640,18 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dest
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Destination IPv6 address, leave  unspecified if inputting as IPv6 address
-    // with  wildcarding. The type is string with pattern:
+    // Destination IPv6 address, leave unspecified if inputting as IPv6 address
+    // with wildcarding. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
-    // Wildcard bits to apply to destination  destination-address (if specified), 
+    // Wildcard bits to apply to destination destination-address (if specified),
     // leave unspecified for no wildcarding. The type is interface{} with range:
     // 0..128.
     DestinationWildCardBits interface{}
 
-    // Destination address mask. Either  destination-wild-card-bits or
-    // destination-mask  is supported, not both. Leave unspecified for any. The
+    // Destination address mask. Either destination-wild-card-bits or
+    // destination-mask. is supported, not both. Leave unspecified for any. The
     // type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationMask interface{}
@@ -781,8 +781,8 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Well known ICMP message code types to match,  leave unspecified if ICMP
-    // message code type  comparion is not to be performed. The type is
+    // Well known ICMP message code types to match, leave unspecified if ICMP
+    // message code type comparion is not to be performed. The type is
     // Ipv6AclIcmpTypeCodeEnum.
     IcmpTypeCode interface{}
 }
@@ -813,11 +813,11 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // TCP Bits match operator. Leave unspecified if  flexible comparison of TCP
-    // bits is not  required. The type is Ipv6AclTcpMatchOperatorEnum.
+    // TCP Bits match operator. Leave unspecified if flexible comparison of TCP
+    // bits is not required. The type is Ipv6AclTcpMatchOperatorEnum.
     TcpBitsMatchOperator interface{}
 
-    // TCP bits to match. Leave unspecified if  comparison of TCP bits is not
+    // TCP bits to match. Leave unspecified if comparison of TCP bits is not
     // required. The type is map[string]bool.
     TcpBits interface{}
 
@@ -855,7 +855,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Pack
     YFilter yfilter.YFilter
 
     // Packet length operator applicable if packet length is to be compared. This
-    // is a required field if any packet-length value is given, otherwise, config 
+    // is a required field if any packet-length value is given, otherwise, config
     // will be rejected. The type is Ipv6AclOperatorEnum.
     PacketLengthOperator interface{}
 
@@ -946,22 +946,22 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DSCP
     YFilter yfilter.YFilter
 
     // Enumerated DSCP operator values. Used when operator needs to be configured.
-    // Leave unspecified if DSCP operator is not required. Note: if the  dscp
-    // operator is not set, it logically behaves  same as equal operator. The type
+    // Leave unspecified if DSCP operator is not required. Note: if the dscp
+    // operator is not set, it logically behaves same as equal operator. The type
     // is Ipv6AclOperatorEnum.
     DscpOperator interface{}
 
     // DSCP value to match (if a value was specified). It can be used for the
     // lower bound (range operator) or single value (equal, less, greater..etc) or
-    // without any operator. Any value not in the permissible range  will be
-    // rejected. Leave unspecified if DSCP  comparison is not to be performed. The
+    // without any operator. Any value not in the permissible range will be
+    // rejected. Leave unspecified if DSCP comparison is not to be performed. The
     // type is one of the following types: enumeration Ipv6AclDscpNumber, or int
     // with range: 0..63.
     DscpLower interface{}
 
-    // DSCP2 value to match (if a value was specified), It can be used in the
-    // upper bound (range operator) Any value not in the permissible range will be
-    // rejected. leave unspecified if DSCP range comparison is not to be
+    // DSCP value to match (if a value was specified). It can be used in the upper
+    // bound (range operator) Any value not in the permissible range will be
+    // rejected. Leave unspecified if DSCP range comparison is not to be
     // performed. The type is one of the following types: enumeration
     // Ipv6AclDscpNumber, or int with range: 0..63.
     DscpUpper interface{}

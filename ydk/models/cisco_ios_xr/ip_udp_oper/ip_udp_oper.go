@@ -1551,8 +1551,8 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. PCB address. The type is interface{} with range:
-    // 0..4294967295.
+    // This attribute is a key. PCB address. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
     PcbAddress interface{}
 
     // Layer 4 protocol. The type is interface{} with range: 0..4294967295.

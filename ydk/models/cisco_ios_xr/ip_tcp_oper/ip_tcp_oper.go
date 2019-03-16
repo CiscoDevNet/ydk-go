@@ -2046,6 +2046,14 @@ type TcpConnection_Nodes_Node_Statistics_Summary struct {
     // 0..4294967295.
     TotalIQs interface{}
 
+    // Current number of packets extended for scaled sockets. The type is
+    // interface{} with range: 0..4294967295.
+    SockbufPakResCur interface{}
+
+    // Maximum number of packets extended for scaled sockets. The type is
+    // interface{} with range: 0..4294967295.
+    SockbufPakResMax interface{}
+
     // Total Number of Ingress packets on TCP iqs. The type is slice of
     // TcpConnection_Nodes_Node_Statistics_Summary_IqsTotalIngpacket.
     IqsTotalIngpacket []*TcpConnection_Nodes_Node_Statistics_Summary_IqsTotalIngpacket
@@ -2166,6 +2174,8 @@ func (summary *TcpConnection_Nodes_Node_Statistics_Summary) GetEntityData() *typ
     summary.EntityData.Leafs.Append("iq-sock-aborts", types.YLeaf{"IqSockAborts", summary.IqSockAborts})
     summary.EntityData.Leafs.Append("iq-ingress-drops", types.YLeaf{"IqIngressDrops", summary.IqIngressDrops})
     summary.EntityData.Leafs.Append("total-i-qs", types.YLeaf{"TotalIQs", summary.TotalIQs})
+    summary.EntityData.Leafs.Append("sockbuf-pak-res-cur", types.YLeaf{"SockbufPakResCur", summary.SockbufPakResCur})
+    summary.EntityData.Leafs.Append("sockbuf-pak-res-max", types.YLeaf{"SockbufPakResMax", summary.SockbufPakResMax})
 
     summary.EntityData.YListKeys = []string {}
 
@@ -3501,6 +3511,12 @@ type TcpConnection_Nodes_Node_DetailInformations_DetailInformation_SocketOptionF
 
     // Nonblocking socket I/O operation. The type is bool.
     NonblockingIo interface{}
+
+    // Send buffer scaled. The type is bool.
+    SndBufScaled interface{}
+
+    // Receive buffer scaled. The type is bool.
+    RcvBufScaled interface{}
 }
 
 func (socketOptionFlags *TcpConnection_Nodes_Node_DetailInformations_DetailInformation_SocketOptionFlags) GetEntityData() *types.CommonEntityData {
@@ -3527,6 +3543,8 @@ func (socketOptionFlags *TcpConnection_Nodes_Node_DetailInformations_DetailInfor
     socketOptionFlags.EntityData.Leafs.Append("out-of-band-inline", types.YLeaf{"OutOfBandInline", socketOptionFlags.OutOfBandInline})
     socketOptionFlags.EntityData.Leafs.Append("reuse-port", types.YLeaf{"ReusePort", socketOptionFlags.ReusePort})
     socketOptionFlags.EntityData.Leafs.Append("nonblocking-io", types.YLeaf{"NonblockingIo", socketOptionFlags.NonblockingIo})
+    socketOptionFlags.EntityData.Leafs.Append("snd-buf-scaled", types.YLeaf{"SndBufScaled", socketOptionFlags.SndBufScaled})
+    socketOptionFlags.EntityData.Leafs.Append("rcv-buf-scaled", types.YLeaf{"RcvBufScaled", socketOptionFlags.RcvBufScaled})
 
     socketOptionFlags.EntityData.YListKeys = []string {}
 
@@ -3845,6 +3863,9 @@ type TcpConnection_Nodes_Node_DetailInformations_DetailInformation_ReceiveBufSta
 
     // Buffer is selected for OBAND. The type is bool.
     OutOfBandSelect interface{}
+
+    // Packet Buffer is extended. The type is bool.
+    PacketExtended interface{}
 }
 
 func (receiveBufStateFlags *TcpConnection_Nodes_Node_DetailInformations_DetailInformation_ReceiveBufStateFlags) GetEntityData() *types.CommonEntityData {
@@ -3872,6 +3893,7 @@ func (receiveBufStateFlags *TcpConnection_Nodes_Node_DetailInformations_DetailIn
     receiveBufStateFlags.EntityData.Leafs.Append("connect-wakeup", types.YLeaf{"ConnectWakeup", receiveBufStateFlags.ConnectWakeup})
     receiveBufStateFlags.EntityData.Leafs.Append("output-select", types.YLeaf{"OutputSelect", receiveBufStateFlags.OutputSelect})
     receiveBufStateFlags.EntityData.Leafs.Append("out-of-band-select", types.YLeaf{"OutOfBandSelect", receiveBufStateFlags.OutOfBandSelect})
+    receiveBufStateFlags.EntityData.Leafs.Append("packet-extended", types.YLeaf{"PacketExtended", receiveBufStateFlags.PacketExtended})
 
     receiveBufStateFlags.EntityData.YListKeys = []string {}
 
@@ -3919,6 +3941,9 @@ type TcpConnection_Nodes_Node_DetailInformations_DetailInformation_SendBufStateF
 
     // Buffer is selected for OBAND. The type is bool.
     OutOfBandSelect interface{}
+
+    // Packet Buffer is extended. The type is bool.
+    PacketExtended interface{}
 }
 
 func (sendBufStateFlags *TcpConnection_Nodes_Node_DetailInformations_DetailInformation_SendBufStateFlags) GetEntityData() *types.CommonEntityData {
@@ -3946,6 +3971,7 @@ func (sendBufStateFlags *TcpConnection_Nodes_Node_DetailInformations_DetailInfor
     sendBufStateFlags.EntityData.Leafs.Append("connect-wakeup", types.YLeaf{"ConnectWakeup", sendBufStateFlags.ConnectWakeup})
     sendBufStateFlags.EntityData.Leafs.Append("output-select", types.YLeaf{"OutputSelect", sendBufStateFlags.OutputSelect})
     sendBufStateFlags.EntityData.Leafs.Append("out-of-band-select", types.YLeaf{"OutOfBandSelect", sendBufStateFlags.OutOfBandSelect})
+    sendBufStateFlags.EntityData.Leafs.Append("packet-extended", types.YLeaf{"PacketExtended", sendBufStateFlags.PacketExtended})
 
     sendBufStateFlags.EntityData.YListKeys = []string {}
 

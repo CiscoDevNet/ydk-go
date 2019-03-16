@@ -69,17 +69,6 @@ const (
     XtcAfId_ipv6 XtcAfId = "ipv6"
 )
 
-// XtcBsidMode represents XTC BSID MODE type
-type XtcBsidMode string
-
-const (
-    // Explicit binding SID
-    XtcBsidMode_explicit XtcBsidMode = "explicit"
-
-    // Dynamic binding SID
-    XtcBsidMode_dynamic XtcBsidMode = "dynamic"
-)
-
 // XtcSid1 represents XTC SID Types
 type XtcSid1 string
 
@@ -98,6 +87,23 @@ const (
 
     // Strict prefix SID
     XtcSid1_sr_strict_prefix_sid XtcSid1 = "sr-strict-prefix-sid"
+)
+
+// XtcPolicyCpathProtoOrigin represents Policy candidate path protocol origin
+type XtcPolicyCpathProtoOrigin string
+
+const (
+    // unknown
+    XtcPolicyCpathProtoOrigin_unknown XtcPolicyCpathProtoOrigin = "unknown"
+
+    // pcep
+    XtcPolicyCpathProtoOrigin_pcep XtcPolicyCpathProtoOrigin = "pcep"
+
+    // bgp
+    XtcPolicyCpathProtoOrigin_bgp XtcPolicyCpathProtoOrigin = "bgp"
+
+    // configuration
+    XtcPolicyCpathProtoOrigin_configuration XtcPolicyCpathProtoOrigin = "configuration"
 )
 
 // XtcDisjointness represents XTC policy path type
@@ -120,47 +126,60 @@ const (
     XtcDisjointness_srlg_node_disjointness XtcDisjointness = "srlg-node-disjointness"
 )
 
-// XtcBsidError represents Xtc bsid error
-type XtcBsidError string
+// XtcPolicyLspSmState represents XTC policy LSP FSM states
+type XtcPolicyLspSmState string
 
 const (
-    // No error
-    XtcBsidError_none XtcBsidError = "none"
+    // Unknown
+    XtcPolicyLspSmState_unknown XtcPolicyLspSmState = "unknown"
 
-    // Error allocating via LSD
-    XtcBsidError_allocating XtcBsidError = "allocating"
+    // Initialized
+    XtcPolicyLspSmState_initialized XtcPolicyLspSmState = "initialized"
 
-    // Explicitly configured BSID already exists
-    XtcBsidError_exists XtcBsidError = "exists"
+    // Deleted
+    XtcPolicyLspSmState_deleted XtcPolicyLspSmState = "deleted"
 
-    // Internal error
-    XtcBsidError_internal XtcBsidError = "internal"
+    // Programmed; all forwarding rewrites created
+    XtcPolicyLspSmState_programmed XtcPolicyLspSmState = "programmed"
 
-    // Configured BSID used by another color/end-point
-    XtcBsidError_color_endpoint_exists XtcBsidError = "color-endpoint-exists"
+    // Waiting for egress paths
+    XtcPolicyLspSmState_egress_paths_pending XtcPolicyLspSmState = "egress-paths-pending"
 
-    // BSID Forwarding rewrite (label xconnect) failed
-    XtcBsidError_forwarding_rewrite_error XtcBsidError = "forwarding-rewrite-error"
+    // Waiting for label allocation result
+    XtcPolicyLspSmState_label_allocation_pending XtcPolicyLspSmState = "label-allocation-pending"
 
-    // BSID not valid within SRLB range
-    XtcBsidError_srlb_invalid_label XtcBsidError = "srlb-invalid-label"
+    // Waiting for label free result
+    XtcPolicyLspSmState_label_allocation_cleanup_pending XtcPolicyLspSmState = "label-allocation-cleanup-pending"
 
-    // Internal error
-    XtcBsidError_internal_error XtcBsidError = "internal-error"
-)
+    // Waiting for label rewrite create result
+    XtcPolicyLspSmState_label_rewrite_pending XtcPolicyLspSmState = "label-rewrite-pending"
 
-// XtcSid represents Xtc sid
-type XtcSid string
+    // Waiting for label rewrite delete result
+    XtcPolicyLspSmState_label_rewrite_cleanup_pending XtcPolicyLspSmState = "label-rewrite-cleanup-pending"
 
-const (
-    // None
-    XtcSid_none XtcSid = "none"
+    // Waiting for BSID label allocation result
+    XtcPolicyLspSmState_bsid_allocation_pending XtcPolicyLspSmState = "bsid-allocation-pending"
 
-    // MPLS
-    XtcSid_mpls XtcSid = "mpls"
+    // Waiting for BSID label free result
+    XtcPolicyLspSmState_bsid_allocation_cleanup_pending XtcPolicyLspSmState = "bsid-allocation-cleanup-pending"
 
-    // IPv6
-    XtcSid_ipv6 XtcSid = "ipv6"
+    // Waiting for BSID rewrite create result
+    XtcPolicyLspSmState_bsid_rewrite_pending XtcPolicyLspSmState = "bsid-rewrite-pending"
+
+    // Waiting for BSID rewrite delete result
+    XtcPolicyLspSmState_bsid_rewrite_cleanup_pending XtcPolicyLspSmState = "bsid-rewrite-cleanup-pending"
+
+    // Waiting for tunnel rewrite create result
+    XtcPolicyLspSmState_tunnel_rewrite_pending XtcPolicyLspSmState = "tunnel-rewrite-pending"
+
+    // Waiting for tunnel rewrite delete result
+    XtcPolicyLspSmState_tunnel_rewrite_cleanup_pending XtcPolicyLspSmState = "tunnel-rewrite-cleanup-pending"
+
+    // Waiting for install timer to expire
+    XtcPolicyLspSmState_install_timer_pending XtcPolicyLspSmState = "install-timer-pending"
+
+    // Waiting for cleanup timer to expire
+    XtcPolicyLspSmState_cleanup_timer_pending XtcPolicyLspSmState = "cleanup-timer-pending"
 )
 
 // XtcPolicyPath represents XTC policy path type
@@ -175,6 +194,20 @@ const (
 
     // Dynamic PCE-based path
     XtcPolicyPath_dynamic_pce XtcPolicyPath = "dynamic-pce"
+)
+
+// XtcSid represents Xtc sid
+type XtcSid string
+
+const (
+    // None
+    XtcSid_none XtcSid = "none"
+
+    // MPLS
+    XtcSid_mpls XtcSid = "mpls"
+
+    // IPv6
+    XtcSid_ipv6 XtcSid = "ipv6"
 )
 
 // XtcAddressFamily represents Xtc address family
@@ -1458,14 +1491,14 @@ type Xtc struct {
     // Policy database in XTC Agent.
     Policies Xtc_Policies
 
+    // Forwarding information for policies.
+    PolicyForwardings Xtc_PolicyForwardings
+
     // Summary of all policies.
     PolicySummary Xtc_PolicySummary
 
     // On-Demand Color database in XTC Agent.
     OnDemandColors Xtc_OnDemandColors
-
-    // Forwarding information.
-    Forwarding Xtc_Forwarding
 
     // Controller information.
     Controller Xtc_Controller
@@ -1493,9 +1526,9 @@ func (xtc *Xtc) GetEntityData() *types.CommonEntityData {
 
     xtc.EntityData.Children = types.NewOrderedMap()
     xtc.EntityData.Children.Append("policies", types.YChild{"Policies", &xtc.Policies})
+    xtc.EntityData.Children.Append("policy-forwardings", types.YChild{"PolicyForwardings", &xtc.PolicyForwardings})
     xtc.EntityData.Children.Append("policy-summary", types.YChild{"PolicySummary", &xtc.PolicySummary})
     xtc.EntityData.Children.Append("on-demand-colors", types.YChild{"OnDemandColors", &xtc.OnDemandColors})
-    xtc.EntityData.Children.Append("forwarding", types.YChild{"Forwarding", &xtc.Forwarding})
     xtc.EntityData.Children.Append("controller", types.YChild{"Controller", &xtc.Controller})
     xtc.EntityData.Children.Append("topology-summary", types.YChild{"TopologySummary", &xtc.TopologySummary})
     xtc.EntityData.Children.Append("topology-nodes", types.YChild{"TopologyNodes", &xtc.TopologyNodes})
@@ -1563,9 +1596,6 @@ type Xtc_Policies_Policy struct {
     // Color. The type is interface{} with range: 0..4294967295.
     Color interface{}
 
-    // Whether policy was automatically created or configured. The type is bool.
-    IsAutoPolicy interface{}
-
     // Indicates number of up/down transitions. The type is interface{} with
     // range: 0..4294967295.
     TransitionCount interface{}
@@ -1590,23 +1620,11 @@ type Xtc_Policies_Policy struct {
     // range: 0..18446744073709551615. Units are nanosecond.
     DownAge interface{}
 
-    // LSP ID. The type is interface{} with range: 0..4294967295.
-    LspId interface{}
-
     // Whether steering to BGP client is disabled. The type is bool.
     SteeringBgpDisabled interface{}
 
     // Interface handle. The type is interface{} with range: 0..4294967295.
     InterfaceHandle interface{}
-
-    // Policy group identifier. The type is interface{} with range: 0..65535.
-    PolicyGroupIdentifier interface{}
-
-    // Local label identifier. The type is interface{} with range: 0..65535.
-    LocalLabelIdentifier interface{}
-
-    // Local label. The type is interface{} with range: 0..4294967295.
-    LocalLabel interface{}
 
     // Profile ID. The type is interface{} with range: 0..65535.
     ProfileId interface{}
@@ -1620,11 +1638,14 @@ type Xtc_Policies_Policy struct {
     // Binding SID information.
     BindingSid Xtc_Policies_Policy_BindingSid
 
-    // Autopolicy information.
-    AutoPolicyInfo Xtc_Policies_Policy_AutoPolicyInfo
+    // Candidate paths. The type is slice of Xtc_Policies_Policy_CandidatePath.
+    CandidatePath []*Xtc_Policies_Policy_CandidatePath
 
-    // Path options. The type is slice of Xtc_Policies_Policy_Paths.
-    Paths []*Xtc_Policies_Policy_Paths
+    // LSPs. The type is slice of Xtc_Policies_Policy_LsPs.
+    LsPs []*Xtc_Policies_Policy_LsPs
+
+    // Policy Event buffer. The type is slice of Xtc_Policies_Policy_EventBuffer.
+    EventBuffer []*Xtc_Policies_Policy_EventBuffer
 }
 
 func (policy *Xtc_Policies_Policy) GetEntityData() *types.CommonEntityData {
@@ -1641,11 +1662,20 @@ func (policy *Xtc_Policies_Policy) GetEntityData() *types.CommonEntityData {
     policy.EntityData.Children = types.NewOrderedMap()
     policy.EntityData.Children.Append("destination-address", types.YChild{"DestinationAddress", &policy.DestinationAddress})
     policy.EntityData.Children.Append("binding-sid", types.YChild{"BindingSid", &policy.BindingSid})
-    policy.EntityData.Children.Append("auto-policy-info", types.YChild{"AutoPolicyInfo", &policy.AutoPolicyInfo})
-    policy.EntityData.Children.Append("paths", types.YChild{"Paths", nil})
-    for i := range policy.Paths {
-        types.SetYListKey(policy.Paths[i], i)
-        policy.EntityData.Children.Append(types.GetSegmentPath(policy.Paths[i]), types.YChild{"Paths", policy.Paths[i]})
+    policy.EntityData.Children.Append("candidate-path", types.YChild{"CandidatePath", nil})
+    for i := range policy.CandidatePath {
+        types.SetYListKey(policy.CandidatePath[i], i)
+        policy.EntityData.Children.Append(types.GetSegmentPath(policy.CandidatePath[i]), types.YChild{"CandidatePath", policy.CandidatePath[i]})
+    }
+    policy.EntityData.Children.Append("ls-ps", types.YChild{"LsPs", nil})
+    for i := range policy.LsPs {
+        types.SetYListKey(policy.LsPs[i], i)
+        policy.EntityData.Children.Append(types.GetSegmentPath(policy.LsPs[i]), types.YChild{"LsPs", policy.LsPs[i]})
+    }
+    policy.EntityData.Children.Append("event-buffer", types.YChild{"EventBuffer", nil})
+    for i := range policy.EventBuffer {
+        types.SetYListKey(policy.EventBuffer[i], i)
+        policy.EntityData.Children.Append(types.GetSegmentPath(policy.EventBuffer[i]), types.YChild{"EventBuffer", policy.EventBuffer[i]})
     }
     policy.EntityData.Leafs = types.NewOrderedMap()
     policy.EntityData.Leafs.Append("id", types.YLeaf{"Id", policy.Id})
@@ -1653,19 +1683,14 @@ func (policy *Xtc_Policies_Policy) GetEntityData() *types.CommonEntityData {
     policy.EntityData.Leafs.Append("administrative-up", types.YLeaf{"AdministrativeUp", policy.AdministrativeUp})
     policy.EntityData.Leafs.Append("operational-up", types.YLeaf{"OperationalUp", policy.OperationalUp})
     policy.EntityData.Leafs.Append("color", types.YLeaf{"Color", policy.Color})
-    policy.EntityData.Leafs.Append("is-auto-policy", types.YLeaf{"IsAutoPolicy", policy.IsAutoPolicy})
     policy.EntityData.Leafs.Append("transition-count", types.YLeaf{"TransitionCount", policy.TransitionCount})
     policy.EntityData.Leafs.Append("forward-class", types.YLeaf{"ForwardClass", policy.ForwardClass})
     policy.EntityData.Leafs.Append("up-time", types.YLeaf{"UpTime", policy.UpTime})
     policy.EntityData.Leafs.Append("up-age", types.YLeaf{"UpAge", policy.UpAge})
     policy.EntityData.Leafs.Append("down-time", types.YLeaf{"DownTime", policy.DownTime})
     policy.EntityData.Leafs.Append("down-age", types.YLeaf{"DownAge", policy.DownAge})
-    policy.EntityData.Leafs.Append("lsp-id", types.YLeaf{"LspId", policy.LspId})
     policy.EntityData.Leafs.Append("steering-bgp-disabled", types.YLeaf{"SteeringBgpDisabled", policy.SteeringBgpDisabled})
     policy.EntityData.Leafs.Append("interface-handle", types.YLeaf{"InterfaceHandle", policy.InterfaceHandle})
-    policy.EntityData.Leafs.Append("policy-group-identifier", types.YLeaf{"PolicyGroupIdentifier", policy.PolicyGroupIdentifier})
-    policy.EntityData.Leafs.Append("local-label-identifier", types.YLeaf{"LocalLabelIdentifier", policy.LocalLabelIdentifier})
-    policy.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", policy.LocalLabel})
     policy.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", policy.ProfileId})
     policy.EntityData.Leafs.Append("ipv6-caps-enabled", types.YLeaf{"Ipv6CapsEnabled", policy.Ipv6CapsEnabled})
 
@@ -1720,21 +1745,11 @@ type Xtc_Policies_Policy_BindingSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Binding SID Mode. The type is XtcBsidMode.
-    BsidMode interface{}
+    // Whether the BSID is in fallback dynamic mode. The type is bool.
+    IsFallbackDynamic interface{}
 
-    // Binding SID error, if any. The type is XtcBsidError.
-    Error interface{}
-
-    // State of the binding SID. The type is string.
-    State interface{}
-
-    // Whether the binding SID is explicit-based. The type is bool.
-    ExplicitBased interface{}
-
-    // Whether the policy is selected for forwarding on this BSID. The type is
-    // bool.
-    PolicySelected interface{}
+    // Whether the BSID is within SRLB range. The type is bool.
+    IsWithinSrlbRange interface{}
 
     // Binding SID value.
     Value Xtc_Policies_Policy_BindingSid_Value
@@ -1754,11 +1769,8 @@ func (bindingSid *Xtc_Policies_Policy_BindingSid) GetEntityData() *types.CommonE
     bindingSid.EntityData.Children = types.NewOrderedMap()
     bindingSid.EntityData.Children.Append("value", types.YChild{"Value", &bindingSid.Value})
     bindingSid.EntityData.Leafs = types.NewOrderedMap()
-    bindingSid.EntityData.Leafs.Append("bsid-mode", types.YLeaf{"BsidMode", bindingSid.BsidMode})
-    bindingSid.EntityData.Leafs.Append("error", types.YLeaf{"Error", bindingSid.Error})
-    bindingSid.EntityData.Leafs.Append("state", types.YLeaf{"State", bindingSid.State})
-    bindingSid.EntityData.Leafs.Append("explicit-based", types.YLeaf{"ExplicitBased", bindingSid.ExplicitBased})
-    bindingSid.EntityData.Leafs.Append("policy-selected", types.YLeaf{"PolicySelected", bindingSid.PolicySelected})
+    bindingSid.EntityData.Leafs.Append("is-fallback-dynamic", types.YLeaf{"IsFallbackDynamic", bindingSid.IsFallbackDynamic})
+    bindingSid.EntityData.Leafs.Append("is-within-srlb-range", types.YLeaf{"IsWithinSrlbRange", bindingSid.IsWithinSrlbRange})
 
     bindingSid.EntityData.YListKeys = []string {}
 
@@ -1804,154 +1816,192 @@ func (value *Xtc_Policies_Policy_BindingSid_Value) GetEntityData() *types.Common
     return &(value.EntityData)
 }
 
-// Xtc_Policies_Policy_AutoPolicyInfo
-// Autopolicy information
-type Xtc_Policies_Policy_AutoPolicyInfo struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Name of client who created policy. The type is string.
-    CreatorName interface{}
-
-    // Distinguisher. The type is interface{} with range: 0..4294967295.
-    Distinguisher interface{}
-
-    // Preference of the policy. The type is interface{} with range:
-    // 0..4294967295.
-    Preference interface{}
-}
-
-func (autoPolicyInfo *Xtc_Policies_Policy_AutoPolicyInfo) GetEntityData() *types.CommonEntityData {
-    autoPolicyInfo.EntityData.YFilter = autoPolicyInfo.YFilter
-    autoPolicyInfo.EntityData.YangName = "auto-policy-info"
-    autoPolicyInfo.EntityData.BundleName = "cisco_ios_xr"
-    autoPolicyInfo.EntityData.ParentYangName = "policy"
-    autoPolicyInfo.EntityData.SegmentPath = "auto-policy-info"
-    autoPolicyInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/" + autoPolicyInfo.EntityData.SegmentPath
-    autoPolicyInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    autoPolicyInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    autoPolicyInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    autoPolicyInfo.EntityData.Children = types.NewOrderedMap()
-    autoPolicyInfo.EntityData.Leafs = types.NewOrderedMap()
-    autoPolicyInfo.EntityData.Leafs.Append("creator-name", types.YLeaf{"CreatorName", autoPolicyInfo.CreatorName})
-    autoPolicyInfo.EntityData.Leafs.Append("distinguisher", types.YLeaf{"Distinguisher", autoPolicyInfo.Distinguisher})
-    autoPolicyInfo.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", autoPolicyInfo.Preference})
-
-    autoPolicyInfo.EntityData.YListKeys = []string {}
-
-    return &(autoPolicyInfo.EntityData)
-}
-
-// Xtc_Policies_Policy_Paths
-// Path options
-type Xtc_Policies_Policy_Paths struct {
+// Xtc_Policies_Policy_CandidatePath
+// Candidate paths
+type Xtc_Policies_Policy_CandidatePath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // Index number. The type is interface{} with range: 0..4294967295.
-    Index interface{}
-
-    // Path option type. The type is XtcPolicyPath.
-    Type interface{}
-
-    // Explicit path option name. The type is string.
+    // Candidate path name. The type is string.
     Name interface{}
 
-    // Whether the path is active (used). The type is bool.
-    Active interface{}
-
-    // Configured weight of the path-option. The type is interface{} with range:
+    // Candidate path preference. The type is interface{} with range:
     // 0..4294967295.
-    Weight interface{}
+    Preference interface{}
 
-    // Configured path metric type. The type is interface{} with range: 0..255.
-    MetricType interface{}
+    // Candidate path protocol origin. The type is XtcPolicyCpathProtoOrigin.
+    ProtocolOriginator interface{}
 
-    // Path metric value. The type is interface{} with range: 0..4294967295.
-    MetricValue interface{}
+    // Candidate path discriminator. The type is interface{} with range:
+    // 0..4294967295.
+    Discriminator interface{}
 
-    // True if path is valid. The type is bool.
-    IsValid interface{}
+    // Whether this is the currently used candidate path. The type is bool.
+    IsCurrent interface{}
 
-    // True if the path is to be computed by PCE. The type is bool.
-    PceBasedPath interface{}
+    // Whether this is the candidate path that the policy is reoptimizing to. The
+    // type is bool.
+    IsReoptimizing interface{}
 
-    // Address of the PCE computed the path. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    PceAddress interface{}
+    // If set, the candidate path is administratively shutdown. The type is bool.
+    Shutdown interface{}
 
-    // Error (for display only). The type is string.
+    // Candidate path error (for display only). The type is string.
     Error interface{}
 
-    // SR path constraints.
-    SrPathConstraints Xtc_Policies_Policy_Paths_SrPathConstraints
+    // Candidate path originator.
+    Originator Xtc_Policies_Policy_CandidatePath_Originator
 
-    // SR hop list. The type is slice of Xtc_Policies_Policy_Paths_Hops.
-    Hops []*Xtc_Policies_Policy_Paths_Hops
+    // SR candidate path constraints.
+    SrPathConstraints Xtc_Policies_Policy_CandidatePath_SrPathConstraints
+
+    // Requested binding SID.
+    RequestedBsid Xtc_Policies_Policy_CandidatePath_RequestedBsid
+
+    // PCC PCEP-related information.
+    PccInformation Xtc_Policies_Policy_CandidatePath_PccInformation
+
+    // Segment lists of the candidate path. The type is slice of
+    // Xtc_Policies_Policy_CandidatePath_SegmentList.
+    SegmentList []*Xtc_Policies_Policy_CandidatePath_SegmentList
 }
 
-func (paths *Xtc_Policies_Policy_Paths) GetEntityData() *types.CommonEntityData {
-    paths.EntityData.YFilter = paths.YFilter
-    paths.EntityData.YangName = "paths"
-    paths.EntityData.BundleName = "cisco_ios_xr"
-    paths.EntityData.ParentYangName = "policy"
-    paths.EntityData.SegmentPath = "paths" + types.AddNoKeyToken(paths)
-    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/" + paths.EntityData.SegmentPath
-    paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (candidatePath *Xtc_Policies_Policy_CandidatePath) GetEntityData() *types.CommonEntityData {
+    candidatePath.EntityData.YFilter = candidatePath.YFilter
+    candidatePath.EntityData.YangName = "candidate-path"
+    candidatePath.EntityData.BundleName = "cisco_ios_xr"
+    candidatePath.EntityData.ParentYangName = "policy"
+    candidatePath.EntityData.SegmentPath = "candidate-path" + types.AddNoKeyToken(candidatePath)
+    candidatePath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/" + candidatePath.EntityData.SegmentPath
+    candidatePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    candidatePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    candidatePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    paths.EntityData.Children = types.NewOrderedMap()
-    paths.EntityData.Children.Append("sr-path-constraints", types.YChild{"SrPathConstraints", &paths.SrPathConstraints})
-    paths.EntityData.Children.Append("hops", types.YChild{"Hops", nil})
-    for i := range paths.Hops {
-        types.SetYListKey(paths.Hops[i], i)
-        paths.EntityData.Children.Append(types.GetSegmentPath(paths.Hops[i]), types.YChild{"Hops", paths.Hops[i]})
+    candidatePath.EntityData.Children = types.NewOrderedMap()
+    candidatePath.EntityData.Children.Append("originator", types.YChild{"Originator", &candidatePath.Originator})
+    candidatePath.EntityData.Children.Append("sr-path-constraints", types.YChild{"SrPathConstraints", &candidatePath.SrPathConstraints})
+    candidatePath.EntityData.Children.Append("requested-bsid", types.YChild{"RequestedBsid", &candidatePath.RequestedBsid})
+    candidatePath.EntityData.Children.Append("pcc-information", types.YChild{"PccInformation", &candidatePath.PccInformation})
+    candidatePath.EntityData.Children.Append("segment-list", types.YChild{"SegmentList", nil})
+    for i := range candidatePath.SegmentList {
+        types.SetYListKey(candidatePath.SegmentList[i], i)
+        candidatePath.EntityData.Children.Append(types.GetSegmentPath(candidatePath.SegmentList[i]), types.YChild{"SegmentList", candidatePath.SegmentList[i]})
     }
-    paths.EntityData.Leafs = types.NewOrderedMap()
-    paths.EntityData.Leafs.Append("index", types.YLeaf{"Index", paths.Index})
-    paths.EntityData.Leafs.Append("type", types.YLeaf{"Type", paths.Type})
-    paths.EntityData.Leafs.Append("name", types.YLeaf{"Name", paths.Name})
-    paths.EntityData.Leafs.Append("active", types.YLeaf{"Active", paths.Active})
-    paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
-    paths.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", paths.MetricType})
-    paths.EntityData.Leafs.Append("metric-value", types.YLeaf{"MetricValue", paths.MetricValue})
-    paths.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", paths.IsValid})
-    paths.EntityData.Leafs.Append("pce-based-path", types.YLeaf{"PceBasedPath", paths.PceBasedPath})
-    paths.EntityData.Leafs.Append("pce-address", types.YLeaf{"PceAddress", paths.PceAddress})
-    paths.EntityData.Leafs.Append("error", types.YLeaf{"Error", paths.Error})
+    candidatePath.EntityData.Leafs = types.NewOrderedMap()
+    candidatePath.EntityData.Leafs.Append("name", types.YLeaf{"Name", candidatePath.Name})
+    candidatePath.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", candidatePath.Preference})
+    candidatePath.EntityData.Leafs.Append("protocol-originator", types.YLeaf{"ProtocolOriginator", candidatePath.ProtocolOriginator})
+    candidatePath.EntityData.Leafs.Append("discriminator", types.YLeaf{"Discriminator", candidatePath.Discriminator})
+    candidatePath.EntityData.Leafs.Append("is-current", types.YLeaf{"IsCurrent", candidatePath.IsCurrent})
+    candidatePath.EntityData.Leafs.Append("is-reoptimizing", types.YLeaf{"IsReoptimizing", candidatePath.IsReoptimizing})
+    candidatePath.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", candidatePath.Shutdown})
+    candidatePath.EntityData.Leafs.Append("error", types.YLeaf{"Error", candidatePath.Error})
 
-    paths.EntityData.YListKeys = []string {}
+    candidatePath.EntityData.YListKeys = []string {}
 
-    return &(paths.EntityData)
+    return &(candidatePath.EntityData)
 }
 
-// Xtc_Policies_Policy_Paths_SrPathConstraints
-// SR path constraints
-type Xtc_Policies_Policy_Paths_SrPathConstraints struct {
+// Xtc_Policies_Policy_CandidatePath_Originator
+// Candidate path originator
+type Xtc_Policies_Policy_CandidatePath_Originator struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Originator Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Originator node address.
+    NodeAddress Xtc_Policies_Policy_CandidatePath_Originator_NodeAddress
+}
+
+func (originator *Xtc_Policies_Policy_CandidatePath_Originator) GetEntityData() *types.CommonEntityData {
+    originator.EntityData.YFilter = originator.YFilter
+    originator.EntityData.YangName = "originator"
+    originator.EntityData.BundleName = "cisco_ios_xr"
+    originator.EntityData.ParentYangName = "candidate-path"
+    originator.EntityData.SegmentPath = "originator"
+    originator.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/" + originator.EntityData.SegmentPath
+    originator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    originator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    originator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    originator.EntityData.Children = types.NewOrderedMap()
+    originator.EntityData.Children.Append("node-address", types.YChild{"NodeAddress", &originator.NodeAddress})
+    originator.EntityData.Leafs = types.NewOrderedMap()
+    originator.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", originator.AutonomousSystemNumber})
+
+    originator.EntityData.YListKeys = []string {}
+
+    return &(originator.EntityData)
+}
+
+// Xtc_Policies_Policy_CandidatePath_Originator_NodeAddress
+// Originator node address
+type Xtc_Policies_Policy_CandidatePath_Originator_NodeAddress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AFName. The type is XtcAfId.
+    AfName interface{}
+
+    // IPv4 address type. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4 interface{}
+
+    // IPv6 address type. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6 interface{}
+}
+
+func (nodeAddress *Xtc_Policies_Policy_CandidatePath_Originator_NodeAddress) GetEntityData() *types.CommonEntityData {
+    nodeAddress.EntityData.YFilter = nodeAddress.YFilter
+    nodeAddress.EntityData.YangName = "node-address"
+    nodeAddress.EntityData.BundleName = "cisco_ios_xr"
+    nodeAddress.EntityData.ParentYangName = "originator"
+    nodeAddress.EntityData.SegmentPath = "node-address"
+    nodeAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/originator/" + nodeAddress.EntityData.SegmentPath
+    nodeAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeAddress.EntityData.Children = types.NewOrderedMap()
+    nodeAddress.EntityData.Leafs = types.NewOrderedMap()
+    nodeAddress.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", nodeAddress.AfName})
+    nodeAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", nodeAddress.Ipv4})
+    nodeAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", nodeAddress.Ipv6})
+
+    nodeAddress.EntityData.YListKeys = []string {}
+
+    return &(nodeAddress.EntityData)
+}
+
+// Xtc_Policies_Policy_CandidatePath_SrPathConstraints
+// SR candidate path constraints
+type Xtc_Policies_Policy_CandidatePath_SrPathConstraints struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Path metrics.
-    PathMetrics Xtc_Policies_Policy_Paths_SrPathConstraints_PathMetrics
+    PathMetrics Xtc_Policies_Policy_CandidatePath_SrPathConstraints_PathMetrics
 
     // Segments constraints.
-    Segments Xtc_Policies_Policy_Paths_SrPathConstraints_Segments
+    Segments Xtc_Policies_Policy_CandidatePath_SrPathConstraints_Segments
 
     // Affinity constraints list. The type is slice of
-    // Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint.
-    AffinityConstraint []*Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint
+    // Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint.
+    AffinityConstraint []*Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint
 }
 
-func (srPathConstraints *Xtc_Policies_Policy_Paths_SrPathConstraints) GetEntityData() *types.CommonEntityData {
+func (srPathConstraints *Xtc_Policies_Policy_CandidatePath_SrPathConstraints) GetEntityData() *types.CommonEntityData {
     srPathConstraints.EntityData.YFilter = srPathConstraints.YFilter
     srPathConstraints.EntityData.YangName = "sr-path-constraints"
     srPathConstraints.EntityData.BundleName = "cisco_ios_xr"
-    srPathConstraints.EntityData.ParentYangName = "paths"
+    srPathConstraints.EntityData.ParentYangName = "candidate-path"
     srPathConstraints.EntityData.SegmentPath = "sr-path-constraints"
-    srPathConstraints.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/" + srPathConstraints.EntityData.SegmentPath
+    srPathConstraints.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/" + srPathConstraints.EntityData.SegmentPath
     srPathConstraints.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srPathConstraints.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srPathConstraints.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1971,16 +2021,16 @@ func (srPathConstraints *Xtc_Policies_Policy_Paths_SrPathConstraints) GetEntityD
     return &(srPathConstraints.EntityData)
 }
 
-// Xtc_Policies_Policy_Paths_SrPathConstraints_PathMetrics
+// Xtc_Policies_Policy_CandidatePath_SrPathConstraints_PathMetrics
 // Path metrics
-type Xtc_Policies_Policy_Paths_SrPathConstraints_PathMetrics struct {
+type Xtc_Policies_Policy_CandidatePath_SrPathConstraints_PathMetrics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Margin Relative. The type is interface{} with range: 0..255.
+    // Margin Relative. The type is interface{} with range: 0..4294967295.
     MarginRelative interface{}
 
-    // Margin Absolute. The type is interface{} with range: 0..255.
+    // Margin Absolute. The type is interface{} with range: 0..4294967295.
     MarginAbsolute interface{}
 
     // Maximum number of segments. The type is interface{} with range: 0..65535.
@@ -1996,13 +2046,13 @@ type Xtc_Policies_Policy_Paths_SrPathConstraints_PathMetrics struct {
     AccumulativeDelay interface{}
 }
 
-func (pathMetrics *Xtc_Policies_Policy_Paths_SrPathConstraints_PathMetrics) GetEntityData() *types.CommonEntityData {
+func (pathMetrics *Xtc_Policies_Policy_CandidatePath_SrPathConstraints_PathMetrics) GetEntityData() *types.CommonEntityData {
     pathMetrics.EntityData.YFilter = pathMetrics.YFilter
     pathMetrics.EntityData.YangName = "path-metrics"
     pathMetrics.EntityData.BundleName = "cisco_ios_xr"
     pathMetrics.EntityData.ParentYangName = "sr-path-constraints"
     pathMetrics.EntityData.SegmentPath = "path-metrics"
-    pathMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/sr-path-constraints/" + pathMetrics.EntityData.SegmentPath
+    pathMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/sr-path-constraints/" + pathMetrics.EntityData.SegmentPath
     pathMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2021,9 +2071,9 @@ func (pathMetrics *Xtc_Policies_Policy_Paths_SrPathConstraints_PathMetrics) GetE
     return &(pathMetrics.EntityData)
 }
 
-// Xtc_Policies_Policy_Paths_SrPathConstraints_Segments
+// Xtc_Policies_Policy_CandidatePath_SrPathConstraints_Segments
 // Segments constraints
-type Xtc_Policies_Policy_Paths_SrPathConstraints_Segments struct {
+type Xtc_Policies_Policy_CandidatePath_SrPathConstraints_Segments struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2031,13 +2081,13 @@ type Xtc_Policies_Policy_Paths_SrPathConstraints_Segments struct {
     SegmentAlgorithm interface{}
 }
 
-func (segments *Xtc_Policies_Policy_Paths_SrPathConstraints_Segments) GetEntityData() *types.CommonEntityData {
+func (segments *Xtc_Policies_Policy_CandidatePath_SrPathConstraints_Segments) GetEntityData() *types.CommonEntityData {
     segments.EntityData.YFilter = segments.YFilter
     segments.EntityData.YangName = "segments"
     segments.EntityData.BundleName = "cisco_ios_xr"
     segments.EntityData.ParentYangName = "sr-path-constraints"
     segments.EntityData.SegmentPath = "segments"
-    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/sr-path-constraints/" + segments.EntityData.SegmentPath
+    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/sr-path-constraints/" + segments.EntityData.SegmentPath
     segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2051,9 +2101,9 @@ func (segments *Xtc_Policies_Policy_Paths_SrPathConstraints_Segments) GetEntityD
     return &(segments.EntityData)
 }
 
-// Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint
+// Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint
 // Affinity constraints list
-type Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint struct {
+type Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -2065,17 +2115,17 @@ type Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint struct {
     Value interface{}
 
     // Colors. The type is slice of
-    // Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint_Color.
-    Color []*Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint_Color
+    // Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint_Color.
+    Color []*Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint_Color
 }
 
-func (affinityConstraint *Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint) GetEntityData() *types.CommonEntityData {
+func (affinityConstraint *Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint) GetEntityData() *types.CommonEntityData {
     affinityConstraint.EntityData.YFilter = affinityConstraint.YFilter
     affinityConstraint.EntityData.YangName = "affinity-constraint"
     affinityConstraint.EntityData.BundleName = "cisco_ios_xr"
     affinityConstraint.EntityData.ParentYangName = "sr-path-constraints"
     affinityConstraint.EntityData.SegmentPath = "affinity-constraint" + types.AddNoKeyToken(affinityConstraint)
-    affinityConstraint.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/sr-path-constraints/" + affinityConstraint.EntityData.SegmentPath
+    affinityConstraint.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/sr-path-constraints/" + affinityConstraint.EntityData.SegmentPath
     affinityConstraint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityConstraint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityConstraint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2095,9 +2145,9 @@ func (affinityConstraint *Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityCo
     return &(affinityConstraint.EntityData)
 }
 
-// Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint_Color
+// Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint_Color
 // Colors
-type Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint_Color struct {
+type Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint_Color struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -2106,13 +2156,13 @@ type Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint_Color struct
     Color interface{}
 }
 
-func (color *Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint_Color) GetEntityData() *types.CommonEntityData {
+func (color *Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint_Color) GetEntityData() *types.CommonEntityData {
     color.EntityData.YFilter = color.YFilter
     color.EntityData.YangName = "color"
     color.EntityData.BundleName = "cisco_ios_xr"
     color.EntityData.ParentYangName = "affinity-constraint"
     color.EntityData.SegmentPath = "color" + types.AddNoKeyToken(color)
-    color.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/sr-path-constraints/affinity-constraint/" + color.EntityData.SegmentPath
+    color.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/sr-path-constraints/affinity-constraint/" + color.EntityData.SegmentPath
     color.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     color.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     color.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2126,9 +2176,212 @@ func (color *Xtc_Policies_Policy_Paths_SrPathConstraints_AffinityConstraint_Colo
     return &(color.EntityData)
 }
 
-// Xtc_Policies_Policy_Paths_Hops
+// Xtc_Policies_Policy_CandidatePath_RequestedBsid
+// Requested binding SID
+type Xtc_Policies_Policy_CandidatePath_RequestedBsid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SIDType. The type is XtcSid.
+    SidType interface{}
+
+    // MPLS label. The type is interface{} with range: 0..4294967295.
+    Label interface{}
+
+    // IPv6 address. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6 interface{}
+}
+
+func (requestedBsid *Xtc_Policies_Policy_CandidatePath_RequestedBsid) GetEntityData() *types.CommonEntityData {
+    requestedBsid.EntityData.YFilter = requestedBsid.YFilter
+    requestedBsid.EntityData.YangName = "requested-bsid"
+    requestedBsid.EntityData.BundleName = "cisco_ios_xr"
+    requestedBsid.EntityData.ParentYangName = "candidate-path"
+    requestedBsid.EntityData.SegmentPath = "requested-bsid"
+    requestedBsid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/" + requestedBsid.EntityData.SegmentPath
+    requestedBsid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    requestedBsid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    requestedBsid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    requestedBsid.EntityData.Children = types.NewOrderedMap()
+    requestedBsid.EntityData.Leafs = types.NewOrderedMap()
+    requestedBsid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", requestedBsid.SidType})
+    requestedBsid.EntityData.Leafs.Append("label", types.YLeaf{"Label", requestedBsid.Label})
+    requestedBsid.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", requestedBsid.Ipv6})
+
+    requestedBsid.EntityData.YListKeys = []string {}
+
+    return &(requestedBsid.EntityData)
+}
+
+// Xtc_Policies_Policy_CandidatePath_PccInformation
+// PCC PCEP-related information
+type Xtc_Policies_Policy_CandidatePath_PccInformation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Symbolic name of the PLSP. The type is string.
+    SymbolicName interface{}
+
+    // PLSP-ID associated with the PCC info. The type is interface{} with range:
+    // 0..4294967295.
+    PlspId interface{}
+
+    // Whether the candidate path is in orphan state. The type is bool.
+    IsOrphan interface{}
+
+    // Orphan timer for PCE-initiated candidate paths in orphan state.
+    OrphanTimer Xtc_Policies_Policy_CandidatePath_PccInformation_OrphanTimer
+}
+
+func (pccInformation *Xtc_Policies_Policy_CandidatePath_PccInformation) GetEntityData() *types.CommonEntityData {
+    pccInformation.EntityData.YFilter = pccInformation.YFilter
+    pccInformation.EntityData.YangName = "pcc-information"
+    pccInformation.EntityData.BundleName = "cisco_ios_xr"
+    pccInformation.EntityData.ParentYangName = "candidate-path"
+    pccInformation.EntityData.SegmentPath = "pcc-information"
+    pccInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/" + pccInformation.EntityData.SegmentPath
+    pccInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pccInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pccInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pccInformation.EntityData.Children = types.NewOrderedMap()
+    pccInformation.EntityData.Children.Append("orphan-timer", types.YChild{"OrphanTimer", &pccInformation.OrphanTimer})
+    pccInformation.EntityData.Leafs = types.NewOrderedMap()
+    pccInformation.EntityData.Leafs.Append("symbolic-name", types.YLeaf{"SymbolicName", pccInformation.SymbolicName})
+    pccInformation.EntityData.Leafs.Append("plsp-id", types.YLeaf{"PlspId", pccInformation.PlspId})
+    pccInformation.EntityData.Leafs.Append("is-orphan", types.YLeaf{"IsOrphan", pccInformation.IsOrphan})
+
+    pccInformation.EntityData.YListKeys = []string {}
+
+    return &(pccInformation.EntityData)
+}
+
+// Xtc_Policies_Policy_CandidatePath_PccInformation_OrphanTimer
+// Orphan timer for PCE-initiated candidate paths
+// in orphan state
+type Xtc_Policies_Policy_CandidatePath_PccInformation_OrphanTimer struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Whether the timer is running. The type is bool.
+    Running interface{}
+
+    // Number of remaining seconds. The type is interface{} with range:
+    // -9223372036854775808..9223372036854775807. Units are second.
+    RemainingSeconds interface{}
+
+    // Number of remaining nanoseconds. The type is interface{} with range:
+    // -9223372036854775808..9223372036854775807. Units are nanosecond.
+    RemainingNanoSeconds interface{}
+}
+
+func (orphanTimer *Xtc_Policies_Policy_CandidatePath_PccInformation_OrphanTimer) GetEntityData() *types.CommonEntityData {
+    orphanTimer.EntityData.YFilter = orphanTimer.YFilter
+    orphanTimer.EntityData.YangName = "orphan-timer"
+    orphanTimer.EntityData.BundleName = "cisco_ios_xr"
+    orphanTimer.EntityData.ParentYangName = "pcc-information"
+    orphanTimer.EntityData.SegmentPath = "orphan-timer"
+    orphanTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/pcc-information/" + orphanTimer.EntityData.SegmentPath
+    orphanTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    orphanTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    orphanTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    orphanTimer.EntityData.Children = types.NewOrderedMap()
+    orphanTimer.EntityData.Leafs = types.NewOrderedMap()
+    orphanTimer.EntityData.Leafs.Append("running", types.YLeaf{"Running", orphanTimer.Running})
+    orphanTimer.EntityData.Leafs.Append("remaining-seconds", types.YLeaf{"RemainingSeconds", orphanTimer.RemainingSeconds})
+    orphanTimer.EntityData.Leafs.Append("remaining-nano-seconds", types.YLeaf{"RemainingNanoSeconds", orphanTimer.RemainingNanoSeconds})
+
+    orphanTimer.EntityData.YListKeys = []string {}
+
+    return &(orphanTimer.EntityData)
+}
+
+// Xtc_Policies_Policy_CandidatePath_SegmentList
+// Segment lists of the candidate path
+type Xtc_Policies_Policy_CandidatePath_SegmentList struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Explicit segment list name. The type is string.
+    Name interface{}
+
+    // Segment list type. The type is XtcPolicyPath.
+    Type interface{}
+
+    // Whether the segment list is active (used). The type is bool.
+    Active interface{}
+
+    // Weight of the segment list. The type is interface{} with range:
+    // 0..4294967295.
+    Weight interface{}
+
+    // Metric type of the segment list. The type is interface{} with range:
+    // 0..255.
+    MetricType interface{}
+
+    // Accumulated metric of the segment list. The type is interface{} with range:
+    // 0..18446744073709551615.
+    MetricValue interface{}
+
+    // True if path is valid. The type is bool.
+    IsValid interface{}
+
+    // True if the path is to be computed by PCE. The type is bool.
+    PceBasedPath interface{}
+
+    // Address of the PCE computed the path. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    PceAddress interface{}
+
+    // Error (for display only). The type is string.
+    Error interface{}
+
+    // SR hop list. The type is slice of
+    // Xtc_Policies_Policy_CandidatePath_SegmentList_Hops.
+    Hops []*Xtc_Policies_Policy_CandidatePath_SegmentList_Hops
+}
+
+func (segmentList *Xtc_Policies_Policy_CandidatePath_SegmentList) GetEntityData() *types.CommonEntityData {
+    segmentList.EntityData.YFilter = segmentList.YFilter
+    segmentList.EntityData.YangName = "segment-list"
+    segmentList.EntityData.BundleName = "cisco_ios_xr"
+    segmentList.EntityData.ParentYangName = "candidate-path"
+    segmentList.EntityData.SegmentPath = "segment-list" + types.AddNoKeyToken(segmentList)
+    segmentList.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/" + segmentList.EntityData.SegmentPath
+    segmentList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segmentList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segmentList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    segmentList.EntityData.Children = types.NewOrderedMap()
+    segmentList.EntityData.Children.Append("hops", types.YChild{"Hops", nil})
+    for i := range segmentList.Hops {
+        types.SetYListKey(segmentList.Hops[i], i)
+        segmentList.EntityData.Children.Append(types.GetSegmentPath(segmentList.Hops[i]), types.YChild{"Hops", segmentList.Hops[i]})
+    }
+    segmentList.EntityData.Leafs = types.NewOrderedMap()
+    segmentList.EntityData.Leafs.Append("name", types.YLeaf{"Name", segmentList.Name})
+    segmentList.EntityData.Leafs.Append("type", types.YLeaf{"Type", segmentList.Type})
+    segmentList.EntityData.Leafs.Append("active", types.YLeaf{"Active", segmentList.Active})
+    segmentList.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", segmentList.Weight})
+    segmentList.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", segmentList.MetricType})
+    segmentList.EntityData.Leafs.Append("metric-value", types.YLeaf{"MetricValue", segmentList.MetricValue})
+    segmentList.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", segmentList.IsValid})
+    segmentList.EntityData.Leafs.Append("pce-based-path", types.YLeaf{"PceBasedPath", segmentList.PceBasedPath})
+    segmentList.EntityData.Leafs.Append("pce-address", types.YLeaf{"PceAddress", segmentList.PceAddress})
+    segmentList.EntityData.Leafs.Append("error", types.YLeaf{"Error", segmentList.Error})
+
+    segmentList.EntityData.YListKeys = []string {}
+
+    return &(segmentList.EntityData)
+}
+
+// Xtc_Policies_Policy_CandidatePath_SegmentList_Hops
 // SR hop list
-type Xtc_Policies_Policy_Paths_Hops struct {
+type Xtc_Policies_Policy_CandidatePath_SegmentList_Hops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -2140,22 +2393,22 @@ type Xtc_Policies_Policy_Paths_Hops struct {
     Algorithm interface{}
 
     // SID value.
-    Sid Xtc_Policies_Policy_Paths_Hops_Sid
+    Sid Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_Sid
 
     // Local address.
-    LocalAddress Xtc_Policies_Policy_Paths_Hops_LocalAddress
+    LocalAddress Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_LocalAddress
 
     // Remote address.
-    RemoteAddress Xtc_Policies_Policy_Paths_Hops_RemoteAddress
+    RemoteAddress Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_RemoteAddress
 }
 
-func (hops *Xtc_Policies_Policy_Paths_Hops) GetEntityData() *types.CommonEntityData {
+func (hops *Xtc_Policies_Policy_CandidatePath_SegmentList_Hops) GetEntityData() *types.CommonEntityData {
     hops.EntityData.YFilter = hops.YFilter
     hops.EntityData.YangName = "hops"
     hops.EntityData.BundleName = "cisco_ios_xr"
-    hops.EntityData.ParentYangName = "paths"
+    hops.EntityData.ParentYangName = "segment-list"
     hops.EntityData.SegmentPath = "hops" + types.AddNoKeyToken(hops)
-    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/" + hops.EntityData.SegmentPath
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/segment-list/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2173,9 +2426,9 @@ func (hops *Xtc_Policies_Policy_Paths_Hops) GetEntityData() *types.CommonEntityD
     return &(hops.EntityData)
 }
 
-// Xtc_Policies_Policy_Paths_Hops_Sid
+// Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_Sid
 // SID value
-type Xtc_Policies_Policy_Paths_Hops_Sid struct {
+type Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_Sid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2190,13 +2443,13 @@ type Xtc_Policies_Policy_Paths_Hops_Sid struct {
     Ipv6 interface{}
 }
 
-func (sid *Xtc_Policies_Policy_Paths_Hops_Sid) GetEntityData() *types.CommonEntityData {
+func (sid *Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_Sid) GetEntityData() *types.CommonEntityData {
     sid.EntityData.YFilter = sid.YFilter
     sid.EntityData.YangName = "sid"
     sid.EntityData.BundleName = "cisco_ios_xr"
     sid.EntityData.ParentYangName = "hops"
     sid.EntityData.SegmentPath = "sid"
-    sid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/hops/" + sid.EntityData.SegmentPath
+    sid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/segment-list/hops/" + sid.EntityData.SegmentPath
     sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2212,9 +2465,9 @@ func (sid *Xtc_Policies_Policy_Paths_Hops_Sid) GetEntityData() *types.CommonEnti
     return &(sid.EntityData)
 }
 
-// Xtc_Policies_Policy_Paths_Hops_LocalAddress
+// Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_LocalAddress
 // Local address
-type Xtc_Policies_Policy_Paths_Hops_LocalAddress struct {
+type Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_LocalAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2230,13 +2483,13 @@ type Xtc_Policies_Policy_Paths_Hops_LocalAddress struct {
     Ipv6 interface{}
 }
 
-func (localAddress *Xtc_Policies_Policy_Paths_Hops_LocalAddress) GetEntityData() *types.CommonEntityData {
+func (localAddress *Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_LocalAddress) GetEntityData() *types.CommonEntityData {
     localAddress.EntityData.YFilter = localAddress.YFilter
     localAddress.EntityData.YangName = "local-address"
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "hops"
     localAddress.EntityData.SegmentPath = "local-address"
-    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/hops/" + localAddress.EntityData.SegmentPath
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/segment-list/hops/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2252,9 +2505,9 @@ func (localAddress *Xtc_Policies_Policy_Paths_Hops_LocalAddress) GetEntityData()
     return &(localAddress.EntityData)
 }
 
-// Xtc_Policies_Policy_Paths_Hops_RemoteAddress
+// Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_RemoteAddress
 // Remote address
-type Xtc_Policies_Policy_Paths_Hops_RemoteAddress struct {
+type Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_RemoteAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2270,13 +2523,13 @@ type Xtc_Policies_Policy_Paths_Hops_RemoteAddress struct {
     Ipv6 interface{}
 }
 
-func (remoteAddress *Xtc_Policies_Policy_Paths_Hops_RemoteAddress) GetEntityData() *types.CommonEntityData {
+func (remoteAddress *Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_RemoteAddress) GetEntityData() *types.CommonEntityData {
     remoteAddress.EntityData.YFilter = remoteAddress.YFilter
     remoteAddress.EntityData.YangName = "remote-address"
     remoteAddress.EntityData.BundleName = "cisco_ios_xr"
     remoteAddress.EntityData.ParentYangName = "hops"
     remoteAddress.EntityData.SegmentPath = "remote-address"
-    remoteAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/paths/hops/" + remoteAddress.EntityData.SegmentPath
+    remoteAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/candidate-path/segment-list/hops/" + remoteAddress.EntityData.SegmentPath
     remoteAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2290,6 +2543,498 @@ func (remoteAddress *Xtc_Policies_Policy_Paths_Hops_RemoteAddress) GetEntityData
     remoteAddress.EntityData.YListKeys = []string {}
 
     return &(remoteAddress.EntityData)
+}
+
+// Xtc_Policies_Policy_LsPs
+// LSPs
+type Xtc_Policies_Policy_LsPs struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // LSP ID. The type is interface{} with range: 0..65535.
+    LspId interface{}
+
+    // Policy ID. The type is interface{} with range: 0..65535.
+    PolicyId interface{}
+
+    // Local label of the LSP. The type is interface{} with range: 0..4294967295.
+    LocalLabel interface{}
+
+    // Current LSP state. The type is XtcPolicyLspSmState.
+    State interface{}
+
+    // Whether this is the current LSP. The type is bool.
+    IsCurrentLsp interface{}
+
+    // Whether this is the reoptimized LSP. The type is bool.
+    IsReoptimizedLsp interface{}
+
+    // Binding SID information.
+    BindingSid Xtc_Policies_Policy_LsPs_BindingSid
+
+    // Install timer information.
+    InstallTimer Xtc_Policies_Policy_LsPs_InstallTimer
+
+    // Cleanup timer information.
+    CleanupTimer Xtc_Policies_Policy_LsPs_CleanupTimer
+}
+
+func (lsPs *Xtc_Policies_Policy_LsPs) GetEntityData() *types.CommonEntityData {
+    lsPs.EntityData.YFilter = lsPs.YFilter
+    lsPs.EntityData.YangName = "ls-ps"
+    lsPs.EntityData.BundleName = "cisco_ios_xr"
+    lsPs.EntityData.ParentYangName = "policy"
+    lsPs.EntityData.SegmentPath = "ls-ps" + types.AddNoKeyToken(lsPs)
+    lsPs.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/" + lsPs.EntityData.SegmentPath
+    lsPs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lsPs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lsPs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    lsPs.EntityData.Children = types.NewOrderedMap()
+    lsPs.EntityData.Children.Append("binding-sid", types.YChild{"BindingSid", &lsPs.BindingSid})
+    lsPs.EntityData.Children.Append("install-timer", types.YChild{"InstallTimer", &lsPs.InstallTimer})
+    lsPs.EntityData.Children.Append("cleanup-timer", types.YChild{"CleanupTimer", &lsPs.CleanupTimer})
+    lsPs.EntityData.Leafs = types.NewOrderedMap()
+    lsPs.EntityData.Leafs.Append("lsp-id", types.YLeaf{"LspId", lsPs.LspId})
+    lsPs.EntityData.Leafs.Append("policy-id", types.YLeaf{"PolicyId", lsPs.PolicyId})
+    lsPs.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", lsPs.LocalLabel})
+    lsPs.EntityData.Leafs.Append("state", types.YLeaf{"State", lsPs.State})
+    lsPs.EntityData.Leafs.Append("is-current-lsp", types.YLeaf{"IsCurrentLsp", lsPs.IsCurrentLsp})
+    lsPs.EntityData.Leafs.Append("is-reoptimized-lsp", types.YLeaf{"IsReoptimizedLsp", lsPs.IsReoptimizedLsp})
+
+    lsPs.EntityData.YListKeys = []string {}
+
+    return &(lsPs.EntityData)
+}
+
+// Xtc_Policies_Policy_LsPs_BindingSid
+// Binding SID information
+type Xtc_Policies_Policy_LsPs_BindingSid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Whether the BSID is in fallback dynamic mode. The type is bool.
+    IsFallbackDynamic interface{}
+
+    // Whether the BSID is within SRLB range. The type is bool.
+    IsWithinSrlbRange interface{}
+
+    // Binding SID value.
+    Value Xtc_Policies_Policy_LsPs_BindingSid_Value
+}
+
+func (bindingSid *Xtc_Policies_Policy_LsPs_BindingSid) GetEntityData() *types.CommonEntityData {
+    bindingSid.EntityData.YFilter = bindingSid.YFilter
+    bindingSid.EntityData.YangName = "binding-sid"
+    bindingSid.EntityData.BundleName = "cisco_ios_xr"
+    bindingSid.EntityData.ParentYangName = "ls-ps"
+    bindingSid.EntityData.SegmentPath = "binding-sid"
+    bindingSid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/ls-ps/" + bindingSid.EntityData.SegmentPath
+    bindingSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bindingSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bindingSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bindingSid.EntityData.Children = types.NewOrderedMap()
+    bindingSid.EntityData.Children.Append("value", types.YChild{"Value", &bindingSid.Value})
+    bindingSid.EntityData.Leafs = types.NewOrderedMap()
+    bindingSid.EntityData.Leafs.Append("is-fallback-dynamic", types.YLeaf{"IsFallbackDynamic", bindingSid.IsFallbackDynamic})
+    bindingSid.EntityData.Leafs.Append("is-within-srlb-range", types.YLeaf{"IsWithinSrlbRange", bindingSid.IsWithinSrlbRange})
+
+    bindingSid.EntityData.YListKeys = []string {}
+
+    return &(bindingSid.EntityData)
+}
+
+// Xtc_Policies_Policy_LsPs_BindingSid_Value
+// Binding SID value
+type Xtc_Policies_Policy_LsPs_BindingSid_Value struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SIDType. The type is XtcSid.
+    SidType interface{}
+
+    // MPLS label. The type is interface{} with range: 0..4294967295.
+    Label interface{}
+
+    // IPv6 address. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6 interface{}
+}
+
+func (value *Xtc_Policies_Policy_LsPs_BindingSid_Value) GetEntityData() *types.CommonEntityData {
+    value.EntityData.YFilter = value.YFilter
+    value.EntityData.YangName = "value"
+    value.EntityData.BundleName = "cisco_ios_xr"
+    value.EntityData.ParentYangName = "binding-sid"
+    value.EntityData.SegmentPath = "value"
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/ls-ps/binding-sid/" + value.EntityData.SegmentPath
+    value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    value.EntityData.Children = types.NewOrderedMap()
+    value.EntityData.Leafs = types.NewOrderedMap()
+    value.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", value.SidType})
+    value.EntityData.Leafs.Append("label", types.YLeaf{"Label", value.Label})
+    value.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", value.Ipv6})
+
+    value.EntityData.YListKeys = []string {}
+
+    return &(value.EntityData)
+}
+
+// Xtc_Policies_Policy_LsPs_InstallTimer
+// Install timer information
+type Xtc_Policies_Policy_LsPs_InstallTimer struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Whether the timer is running. The type is bool.
+    Running interface{}
+
+    // Number of remaining seconds. The type is interface{} with range:
+    // -9223372036854775808..9223372036854775807. Units are second.
+    RemainingSeconds interface{}
+
+    // Number of remaining nanoseconds. The type is interface{} with range:
+    // -9223372036854775808..9223372036854775807. Units are nanosecond.
+    RemainingNanoSeconds interface{}
+}
+
+func (installTimer *Xtc_Policies_Policy_LsPs_InstallTimer) GetEntityData() *types.CommonEntityData {
+    installTimer.EntityData.YFilter = installTimer.YFilter
+    installTimer.EntityData.YangName = "install-timer"
+    installTimer.EntityData.BundleName = "cisco_ios_xr"
+    installTimer.EntityData.ParentYangName = "ls-ps"
+    installTimer.EntityData.SegmentPath = "install-timer"
+    installTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/ls-ps/" + installTimer.EntityData.SegmentPath
+    installTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    installTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    installTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    installTimer.EntityData.Children = types.NewOrderedMap()
+    installTimer.EntityData.Leafs = types.NewOrderedMap()
+    installTimer.EntityData.Leafs.Append("running", types.YLeaf{"Running", installTimer.Running})
+    installTimer.EntityData.Leafs.Append("remaining-seconds", types.YLeaf{"RemainingSeconds", installTimer.RemainingSeconds})
+    installTimer.EntityData.Leafs.Append("remaining-nano-seconds", types.YLeaf{"RemainingNanoSeconds", installTimer.RemainingNanoSeconds})
+
+    installTimer.EntityData.YListKeys = []string {}
+
+    return &(installTimer.EntityData)
+}
+
+// Xtc_Policies_Policy_LsPs_CleanupTimer
+// Cleanup timer information
+type Xtc_Policies_Policy_LsPs_CleanupTimer struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Whether the timer is running. The type is bool.
+    Running interface{}
+
+    // Number of remaining seconds. The type is interface{} with range:
+    // -9223372036854775808..9223372036854775807. Units are second.
+    RemainingSeconds interface{}
+
+    // Number of remaining nanoseconds. The type is interface{} with range:
+    // -9223372036854775808..9223372036854775807. Units are nanosecond.
+    RemainingNanoSeconds interface{}
+}
+
+func (cleanupTimer *Xtc_Policies_Policy_LsPs_CleanupTimer) GetEntityData() *types.CommonEntityData {
+    cleanupTimer.EntityData.YFilter = cleanupTimer.YFilter
+    cleanupTimer.EntityData.YangName = "cleanup-timer"
+    cleanupTimer.EntityData.BundleName = "cisco_ios_xr"
+    cleanupTimer.EntityData.ParentYangName = "ls-ps"
+    cleanupTimer.EntityData.SegmentPath = "cleanup-timer"
+    cleanupTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/ls-ps/" + cleanupTimer.EntityData.SegmentPath
+    cleanupTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cleanupTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cleanupTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cleanupTimer.EntityData.Children = types.NewOrderedMap()
+    cleanupTimer.EntityData.Leafs = types.NewOrderedMap()
+    cleanupTimer.EntityData.Leafs.Append("running", types.YLeaf{"Running", cleanupTimer.Running})
+    cleanupTimer.EntityData.Leafs.Append("remaining-seconds", types.YLeaf{"RemainingSeconds", cleanupTimer.RemainingSeconds})
+    cleanupTimer.EntityData.Leafs.Append("remaining-nano-seconds", types.YLeaf{"RemainingNanoSeconds", cleanupTimer.RemainingNanoSeconds})
+
+    cleanupTimer.EntityData.YListKeys = []string {}
+
+    return &(cleanupTimer.EntityData)
+}
+
+// Xtc_Policies_Policy_EventBuffer
+// Policy Event buffer
+type Xtc_Policies_Policy_EventBuffer struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Event message. The type is string.
+    EventMessage interface{}
+
+    // Event time, relative to Jan 1, 1970. The type is interface{} with range:
+    // 0..4294967295.
+    TimeStamp interface{}
+}
+
+func (eventBuffer *Xtc_Policies_Policy_EventBuffer) GetEntityData() *types.CommonEntityData {
+    eventBuffer.EntityData.YFilter = eventBuffer.YFilter
+    eventBuffer.EntityData.YangName = "event-buffer"
+    eventBuffer.EntityData.BundleName = "cisco_ios_xr"
+    eventBuffer.EntityData.ParentYangName = "policy"
+    eventBuffer.EntityData.SegmentPath = "event-buffer" + types.AddNoKeyToken(eventBuffer)
+    eventBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policies/policy/" + eventBuffer.EntityData.SegmentPath
+    eventBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    eventBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    eventBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    eventBuffer.EntityData.Children = types.NewOrderedMap()
+    eventBuffer.EntityData.Leafs = types.NewOrderedMap()
+    eventBuffer.EntityData.Leafs.Append("event-message", types.YLeaf{"EventMessage", eventBuffer.EventMessage})
+    eventBuffer.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", eventBuffer.TimeStamp})
+
+    eventBuffer.EntityData.YListKeys = []string {}
+
+    return &(eventBuffer.EntityData)
+}
+
+// Xtc_PolicyForwardings
+// Forwarding information for policies
+type Xtc_PolicyForwardings struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Forwarding information for the policy. The type is slice of
+    // Xtc_PolicyForwardings_PolicyForwarding.
+    PolicyForwarding []*Xtc_PolicyForwardings_PolicyForwarding
+}
+
+func (policyForwardings *Xtc_PolicyForwardings) GetEntityData() *types.CommonEntityData {
+    policyForwardings.EntityData.YFilter = policyForwardings.YFilter
+    policyForwardings.EntityData.YangName = "policy-forwardings"
+    policyForwardings.EntityData.BundleName = "cisco_ios_xr"
+    policyForwardings.EntityData.ParentYangName = "xtc"
+    policyForwardings.EntityData.SegmentPath = "policy-forwardings"
+    policyForwardings.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + policyForwardings.EntityData.SegmentPath
+    policyForwardings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyForwardings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyForwardings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyForwardings.EntityData.Children = types.NewOrderedMap()
+    policyForwardings.EntityData.Children.Append("policy-forwarding", types.YChild{"PolicyForwarding", nil})
+    for i := range policyForwardings.PolicyForwarding {
+        policyForwardings.EntityData.Children.Append(types.GetSegmentPath(policyForwardings.PolicyForwarding[i]), types.YChild{"PolicyForwarding", policyForwardings.PolicyForwarding[i]})
+    }
+    policyForwardings.EntityData.Leafs = types.NewOrderedMap()
+
+    policyForwardings.EntityData.YListKeys = []string {}
+
+    return &(policyForwardings.EntityData)
+}
+
+// Xtc_PolicyForwardings_PolicyForwarding
+// Forwarding information for the policy
+type Xtc_PolicyForwardings_PolicyForwarding struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Policy Name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Name interface{}
+
+    // Policy name. The type is string.
+    PolicyName interface{}
+
+    // Color. The type is interface{} with range: 0..4294967295.
+    Color interface{}
+
+    // Is local label valid and allocated?. The type is bool.
+    IsLocalLabelValid interface{}
+
+    // Local label for SR MPLS policy. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+
+    // Are policy stats valid?. The type is bool.
+    AreStatsValid interface{}
+
+    // Number of packets forwarded. The type is interface{} with range:
+    // 0..18446744073709551615.
+    ForwardingStatsPkts interface{}
+
+    // Number of bytes forwarded. The type is interface{} with range:
+    // 0..18446744073709551615. Units are byte.
+    ForwardingStatsBytes interface{}
+
+    // Endpoint address.
+    EndpointAddress Xtc_PolicyForwardings_PolicyForwarding_EndpointAddress
+
+    // Forwarding paths. The type is slice of
+    // Xtc_PolicyForwardings_PolicyForwarding_Paths.
+    Paths []*Xtc_PolicyForwardings_PolicyForwarding_Paths
+}
+
+func (policyForwarding *Xtc_PolicyForwardings_PolicyForwarding) GetEntityData() *types.CommonEntityData {
+    policyForwarding.EntityData.YFilter = policyForwarding.YFilter
+    policyForwarding.EntityData.YangName = "policy-forwarding"
+    policyForwarding.EntityData.BundleName = "cisco_ios_xr"
+    policyForwarding.EntityData.ParentYangName = "policy-forwardings"
+    policyForwarding.EntityData.SegmentPath = "policy-forwarding" + types.AddKeyToken(policyForwarding.Name, "name")
+    policyForwarding.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policy-forwardings/" + policyForwarding.EntityData.SegmentPath
+    policyForwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyForwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyForwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyForwarding.EntityData.Children = types.NewOrderedMap()
+    policyForwarding.EntityData.Children.Append("endpoint-address", types.YChild{"EndpointAddress", &policyForwarding.EndpointAddress})
+    policyForwarding.EntityData.Children.Append("paths", types.YChild{"Paths", nil})
+    for i := range policyForwarding.Paths {
+        types.SetYListKey(policyForwarding.Paths[i], i)
+        policyForwarding.EntityData.Children.Append(types.GetSegmentPath(policyForwarding.Paths[i]), types.YChild{"Paths", policyForwarding.Paths[i]})
+    }
+    policyForwarding.EntityData.Leafs = types.NewOrderedMap()
+    policyForwarding.EntityData.Leafs.Append("name", types.YLeaf{"Name", policyForwarding.Name})
+    policyForwarding.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", policyForwarding.PolicyName})
+    policyForwarding.EntityData.Leafs.Append("color", types.YLeaf{"Color", policyForwarding.Color})
+    policyForwarding.EntityData.Leafs.Append("is-local-label-valid", types.YLeaf{"IsLocalLabelValid", policyForwarding.IsLocalLabelValid})
+    policyForwarding.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", policyForwarding.LocalLabel})
+    policyForwarding.EntityData.Leafs.Append("are-stats-valid", types.YLeaf{"AreStatsValid", policyForwarding.AreStatsValid})
+    policyForwarding.EntityData.Leafs.Append("forwarding-stats-pkts", types.YLeaf{"ForwardingStatsPkts", policyForwarding.ForwardingStatsPkts})
+    policyForwarding.EntityData.Leafs.Append("forwarding-stats-bytes", types.YLeaf{"ForwardingStatsBytes", policyForwarding.ForwardingStatsBytes})
+
+    policyForwarding.EntityData.YListKeys = []string {"Name"}
+
+    return &(policyForwarding.EntityData)
+}
+
+// Xtc_PolicyForwardings_PolicyForwarding_EndpointAddress
+// Endpoint address
+type Xtc_PolicyForwardings_PolicyForwarding_EndpointAddress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AFName. The type is XtcAfId.
+    AfName interface{}
+
+    // IPv4 address type. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4 interface{}
+
+    // IPv6 address type. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6 interface{}
+}
+
+func (endpointAddress *Xtc_PolicyForwardings_PolicyForwarding_EndpointAddress) GetEntityData() *types.CommonEntityData {
+    endpointAddress.EntityData.YFilter = endpointAddress.YFilter
+    endpointAddress.EntityData.YangName = "endpoint-address"
+    endpointAddress.EntityData.BundleName = "cisco_ios_xr"
+    endpointAddress.EntityData.ParentYangName = "policy-forwarding"
+    endpointAddress.EntityData.SegmentPath = "endpoint-address"
+    endpointAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policy-forwardings/policy-forwarding/" + endpointAddress.EntityData.SegmentPath
+    endpointAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    endpointAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    endpointAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    endpointAddress.EntityData.Children = types.NewOrderedMap()
+    endpointAddress.EntityData.Leafs = types.NewOrderedMap()
+    endpointAddress.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", endpointAddress.AfName})
+    endpointAddress.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", endpointAddress.Ipv4})
+    endpointAddress.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", endpointAddress.Ipv6})
+
+    endpointAddress.EntityData.YListKeys = []string {}
+
+    return &(endpointAddress.EntityData)
+}
+
+// Xtc_PolicyForwardings_PolicyForwarding_Paths
+// Forwarding paths
+type Xtc_PolicyForwardings_PolicyForwarding_Paths struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Outgoing interface handle. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutgoingInterface interface{}
+
+    // IPv4 Next Hop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    NextHopIpv4 interface{}
+
+    // Table ID for nexthop address. The type is interface{} with range:
+    // 0..4294967295.
+    NextHopTableId interface{}
+
+    // Is this path protected ?. The type is bool.
+    IsProtected interface{}
+
+    // Is this path a pure backup ?. The type is bool.
+    IsPureBkup interface{}
+
+    // Path's load metric for load balancing. The type is interface{} with range:
+    // 0..4294967295.
+    LoadMetric interface{}
+
+    // path Id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Backup path Id. The type is interface{} with range: 0..255.
+    BkupPathId interface{}
+
+    // Associated segment-list. The type is string.
+    SegmentListName interface{}
+
+    // Are per path stats valid?. The type is bool.
+    AreStatsValid interface{}
+
+    // Number of packets forwarded on this path. The type is interface{} with
+    // range: 0..18446744073709551615.
+    ForwardingStatsPkts interface{}
+
+    // Number of bytes forwarded on this path. The type is interface{} with range:
+    // 0..18446744073709551615. Units are byte.
+    ForwardingStatsBytes interface{}
+
+    // Path outgoing labels. The type is slice of interface{} with range:
+    // 0..4294967295.
+    LabelStack []interface{}
+}
+
+func (paths *Xtc_PolicyForwardings_PolicyForwarding_Paths) GetEntityData() *types.CommonEntityData {
+    paths.EntityData.YFilter = paths.YFilter
+    paths.EntityData.YangName = "paths"
+    paths.EntityData.BundleName = "cisco_ios_xr"
+    paths.EntityData.ParentYangName = "policy-forwarding"
+    paths.EntityData.SegmentPath = "paths" + types.AddNoKeyToken(paths)
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/policy-forwardings/policy-forwarding/" + paths.EntityData.SegmentPath
+    paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    paths.EntityData.Children = types.NewOrderedMap()
+    paths.EntityData.Leafs = types.NewOrderedMap()
+    paths.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", paths.OutgoingInterface})
+    paths.EntityData.Leafs.Append("next-hop-ipv4", types.YLeaf{"NextHopIpv4", paths.NextHopIpv4})
+    paths.EntityData.Leafs.Append("next-hop-table-id", types.YLeaf{"NextHopTableId", paths.NextHopTableId})
+    paths.EntityData.Leafs.Append("is-protected", types.YLeaf{"IsProtected", paths.IsProtected})
+    paths.EntityData.Leafs.Append("is-pure-bkup", types.YLeaf{"IsPureBkup", paths.IsPureBkup})
+    paths.EntityData.Leafs.Append("load-metric", types.YLeaf{"LoadMetric", paths.LoadMetric})
+    paths.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", paths.PathId})
+    paths.EntityData.Leafs.Append("bkup-path-id", types.YLeaf{"BkupPathId", paths.BkupPathId})
+    paths.EntityData.Leafs.Append("segment-list-name", types.YLeaf{"SegmentListName", paths.SegmentListName})
+    paths.EntityData.Leafs.Append("are-stats-valid", types.YLeaf{"AreStatsValid", paths.AreStatsValid})
+    paths.EntityData.Leafs.Append("forwarding-stats-pkts", types.YLeaf{"ForwardingStatsPkts", paths.ForwardingStatsPkts})
+    paths.EntityData.Leafs.Append("forwarding-stats-bytes", types.YLeaf{"ForwardingStatsBytes", paths.ForwardingStatsBytes})
+    paths.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", paths.LabelStack})
+
+    paths.EntityData.YListKeys = []string {}
+
+    return &(paths.EntityData)
 }
 
 // Xtc_PolicySummary
@@ -2425,6 +3170,12 @@ type Xtc_OnDemandColors_OnDemandColor struct {
     // Color. The type is interface{} with range: 0..4294967295.
     ColorXr interface{}
 
+    // Absolute Metric Margin. The type is interface{} with range: 0..4294967295.
+    AbsoluteMargin interface{}
+
+    // Relative Metric Margin. The type is interface{} with range: 0..4294967295.
+    RelativeMargin interface{}
+
     // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
     MaximumSidDepth interface{}
 
@@ -2448,6 +3199,8 @@ func (onDemandColor *Xtc_OnDemandColors_OnDemandColor) GetEntityData() *types.Co
     onDemandColor.EntityData.Leafs = types.NewOrderedMap()
     onDemandColor.EntityData.Leafs.Append("color", types.YLeaf{"Color", onDemandColor.Color})
     onDemandColor.EntityData.Leafs.Append("color-xr", types.YLeaf{"ColorXr", onDemandColor.ColorXr})
+    onDemandColor.EntityData.Leafs.Append("absolute-margin", types.YLeaf{"AbsoluteMargin", onDemandColor.AbsoluteMargin})
+    onDemandColor.EntityData.Leafs.Append("relative-margin", types.YLeaf{"RelativeMargin", onDemandColor.RelativeMargin})
     onDemandColor.EntityData.Leafs.Append("maximum-sid-depth", types.YLeaf{"MaximumSidDepth", onDemandColor.MaximumSidDepth})
 
     onDemandColor.EntityData.YListKeys = []string {"Color"}
@@ -2491,224 +3244,6 @@ func (disjointPathInfo *Xtc_OnDemandColors_OnDemandColor_DisjointPathInfo) GetEn
     disjointPathInfo.EntityData.YListKeys = []string {}
 
     return &(disjointPathInfo.EntityData)
-}
-
-// Xtc_Forwarding
-// Forwarding information
-type Xtc_Forwarding struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Forwarding information for policies.
-    PolicyForwardings Xtc_Forwarding_PolicyForwardings
-}
-
-func (forwarding *Xtc_Forwarding) GetEntityData() *types.CommonEntityData {
-    forwarding.EntityData.YFilter = forwarding.YFilter
-    forwarding.EntityData.YangName = "forwarding"
-    forwarding.EntityData.BundleName = "cisco_ios_xr"
-    forwarding.EntityData.ParentYangName = "xtc"
-    forwarding.EntityData.SegmentPath = "forwarding"
-    forwarding.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + forwarding.EntityData.SegmentPath
-    forwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    forwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    forwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    forwarding.EntityData.Children = types.NewOrderedMap()
-    forwarding.EntityData.Children.Append("policy-forwardings", types.YChild{"PolicyForwardings", &forwarding.PolicyForwardings})
-    forwarding.EntityData.Leafs = types.NewOrderedMap()
-
-    forwarding.EntityData.YListKeys = []string {}
-
-    return &(forwarding.EntityData)
-}
-
-// Xtc_Forwarding_PolicyForwardings
-// Forwarding information for policies
-type Xtc_Forwarding_PolicyForwardings struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Forwarding information for the policy. The type is slice of
-    // Xtc_Forwarding_PolicyForwardings_PolicyForwarding.
-    PolicyForwarding []*Xtc_Forwarding_PolicyForwardings_PolicyForwarding
-}
-
-func (policyForwardings *Xtc_Forwarding_PolicyForwardings) GetEntityData() *types.CommonEntityData {
-    policyForwardings.EntityData.YFilter = policyForwardings.YFilter
-    policyForwardings.EntityData.YangName = "policy-forwardings"
-    policyForwardings.EntityData.BundleName = "cisco_ios_xr"
-    policyForwardings.EntityData.ParentYangName = "forwarding"
-    policyForwardings.EntityData.SegmentPath = "policy-forwardings"
-    policyForwardings.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/forwarding/" + policyForwardings.EntityData.SegmentPath
-    policyForwardings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    policyForwardings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    policyForwardings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    policyForwardings.EntityData.Children = types.NewOrderedMap()
-    policyForwardings.EntityData.Children.Append("policy-forwarding", types.YChild{"PolicyForwarding", nil})
-    for i := range policyForwardings.PolicyForwarding {
-        policyForwardings.EntityData.Children.Append(types.GetSegmentPath(policyForwardings.PolicyForwarding[i]), types.YChild{"PolicyForwarding", policyForwardings.PolicyForwarding[i]})
-    }
-    policyForwardings.EntityData.Leafs = types.NewOrderedMap()
-
-    policyForwardings.EntityData.YListKeys = []string {}
-
-    return &(policyForwardings.EntityData)
-}
-
-// Xtc_Forwarding_PolicyForwardings_PolicyForwarding
-// Forwarding information for the policy
-type Xtc_Forwarding_PolicyForwardings_PolicyForwarding struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Policy Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    Name interface{}
-
-    // Policy name. The type is string.
-    PolicyName interface{}
-
-    // Is local label valid and allocated?. The type is bool.
-    IsLocalLabelValid interface{}
-
-    // Local label for SR MPLS policy. The type is interface{} with range:
-    // 0..4294967295.
-    LocalLabel interface{}
-
-    // Are policy stats valid?. The type is bool.
-    AreStatsValid interface{}
-
-    // Number of packets forwarded. The type is interface{} with range:
-    // 0..18446744073709551615.
-    ForwardingStatsPkts interface{}
-
-    // Number of bytes forwarded. The type is interface{} with range:
-    // 0..18446744073709551615. Units are byte.
-    ForwardingStatsBytes interface{}
-
-    // Forwarding paths. The type is slice of
-    // Xtc_Forwarding_PolicyForwardings_PolicyForwarding_Paths.
-    Paths []*Xtc_Forwarding_PolicyForwardings_PolicyForwarding_Paths
-}
-
-func (policyForwarding *Xtc_Forwarding_PolicyForwardings_PolicyForwarding) GetEntityData() *types.CommonEntityData {
-    policyForwarding.EntityData.YFilter = policyForwarding.YFilter
-    policyForwarding.EntityData.YangName = "policy-forwarding"
-    policyForwarding.EntityData.BundleName = "cisco_ios_xr"
-    policyForwarding.EntityData.ParentYangName = "policy-forwardings"
-    policyForwarding.EntityData.SegmentPath = "policy-forwarding" + types.AddKeyToken(policyForwarding.Name, "name")
-    policyForwarding.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/forwarding/policy-forwardings/" + policyForwarding.EntityData.SegmentPath
-    policyForwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    policyForwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    policyForwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    policyForwarding.EntityData.Children = types.NewOrderedMap()
-    policyForwarding.EntityData.Children.Append("paths", types.YChild{"Paths", nil})
-    for i := range policyForwarding.Paths {
-        types.SetYListKey(policyForwarding.Paths[i], i)
-        policyForwarding.EntityData.Children.Append(types.GetSegmentPath(policyForwarding.Paths[i]), types.YChild{"Paths", policyForwarding.Paths[i]})
-    }
-    policyForwarding.EntityData.Leafs = types.NewOrderedMap()
-    policyForwarding.EntityData.Leafs.Append("name", types.YLeaf{"Name", policyForwarding.Name})
-    policyForwarding.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", policyForwarding.PolicyName})
-    policyForwarding.EntityData.Leafs.Append("is-local-label-valid", types.YLeaf{"IsLocalLabelValid", policyForwarding.IsLocalLabelValid})
-    policyForwarding.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", policyForwarding.LocalLabel})
-    policyForwarding.EntityData.Leafs.Append("are-stats-valid", types.YLeaf{"AreStatsValid", policyForwarding.AreStatsValid})
-    policyForwarding.EntityData.Leafs.Append("forwarding-stats-pkts", types.YLeaf{"ForwardingStatsPkts", policyForwarding.ForwardingStatsPkts})
-    policyForwarding.EntityData.Leafs.Append("forwarding-stats-bytes", types.YLeaf{"ForwardingStatsBytes", policyForwarding.ForwardingStatsBytes})
-
-    policyForwarding.EntityData.YListKeys = []string {"Name"}
-
-    return &(policyForwarding.EntityData)
-}
-
-// Xtc_Forwarding_PolicyForwardings_PolicyForwarding_Paths
-// Forwarding paths
-type Xtc_Forwarding_PolicyForwardings_PolicyForwarding_Paths struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Outgoing interface handle. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
-    OutgoingInterface interface{}
-
-    // IPv4 Next Hop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NextHopIpv4 interface{}
-
-    // Table ID for nexthop address. The type is interface{} with range:
-    // 0..4294967295.
-    NextHopTableId interface{}
-
-    // Is this path protected ?. The type is bool.
-    IsProtected interface{}
-
-    // Is this path a pure backup ?. The type is bool.
-    IsPureBkup interface{}
-
-    // Path's load metric for load balancing. The type is interface{} with range:
-    // 0..4294967295.
-    LoadMetric interface{}
-
-    // path Id. The type is interface{} with range: 0..255.
-    PathId interface{}
-
-    // Backup path Id. The type is interface{} with range: 0..255.
-    BkupPathId interface{}
-
-    // Associated segment-list. The type is string.
-    SegmentListName interface{}
-
-    // Are per path stats valid?. The type is bool.
-    AreStatsValid interface{}
-
-    // Number of packets forwarded on this path. The type is interface{} with
-    // range: 0..18446744073709551615.
-    ForwardingStatsPkts interface{}
-
-    // Number of bytes forwarded on this path. The type is interface{} with range:
-    // 0..18446744073709551615. Units are byte.
-    ForwardingStatsBytes interface{}
-
-    // Path outgoing labels. The type is slice of interface{} with range:
-    // 0..4294967295.
-    LabelStack []interface{}
-}
-
-func (paths *Xtc_Forwarding_PolicyForwardings_PolicyForwarding_Paths) GetEntityData() *types.CommonEntityData {
-    paths.EntityData.YFilter = paths.YFilter
-    paths.EntityData.YangName = "paths"
-    paths.EntityData.BundleName = "cisco_ios_xr"
-    paths.EntityData.ParentYangName = "policy-forwarding"
-    paths.EntityData.SegmentPath = "paths" + types.AddNoKeyToken(paths)
-    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/forwarding/policy-forwardings/policy-forwarding/" + paths.EntityData.SegmentPath
-    paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    paths.EntityData.Children = types.NewOrderedMap()
-    paths.EntityData.Leafs = types.NewOrderedMap()
-    paths.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", paths.OutgoingInterface})
-    paths.EntityData.Leafs.Append("next-hop-ipv4", types.YLeaf{"NextHopIpv4", paths.NextHopIpv4})
-    paths.EntityData.Leafs.Append("next-hop-table-id", types.YLeaf{"NextHopTableId", paths.NextHopTableId})
-    paths.EntityData.Leafs.Append("is-protected", types.YLeaf{"IsProtected", paths.IsProtected})
-    paths.EntityData.Leafs.Append("is-pure-bkup", types.YLeaf{"IsPureBkup", paths.IsPureBkup})
-    paths.EntityData.Leafs.Append("load-metric", types.YLeaf{"LoadMetric", paths.LoadMetric})
-    paths.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", paths.PathId})
-    paths.EntityData.Leafs.Append("bkup-path-id", types.YLeaf{"BkupPathId", paths.BkupPathId})
-    paths.EntityData.Leafs.Append("segment-list-name", types.YLeaf{"SegmentListName", paths.SegmentListName})
-    paths.EntityData.Leafs.Append("are-stats-valid", types.YLeaf{"AreStatsValid", paths.AreStatsValid})
-    paths.EntityData.Leafs.Append("forwarding-stats-pkts", types.YLeaf{"ForwardingStatsPkts", paths.ForwardingStatsPkts})
-    paths.EntityData.Leafs.Append("forwarding-stats-bytes", types.YLeaf{"ForwardingStatsBytes", paths.ForwardingStatsBytes})
-    paths.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", paths.LabelStack})
-
-    paths.EntityData.YListKeys = []string {}
-
-    return &(paths.EntityData)
 }
 
 // Xtc_Controller
@@ -2835,9 +3370,9 @@ type Xtc_Controller_PolicyRequests_PolicyRequest struct {
     // End point.
     EndPoint Xtc_Controller_PolicyRequests_PolicyRequest_EndPoint
 
-    // Path options. The type is slice of
-    // Xtc_Controller_PolicyRequests_PolicyRequest_Paths.
-    Paths []*Xtc_Controller_PolicyRequests_PolicyRequest_Paths
+    // Segment lists. The type is slice of
+    // Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList.
+    SegmentList []*Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList
 }
 
 func (policyRequest *Xtc_Controller_PolicyRequests_PolicyRequest) GetEntityData() *types.CommonEntityData {
@@ -2853,10 +3388,10 @@ func (policyRequest *Xtc_Controller_PolicyRequests_PolicyRequest) GetEntityData(
 
     policyRequest.EntityData.Children = types.NewOrderedMap()
     policyRequest.EntityData.Children.Append("end-point", types.YChild{"EndPoint", &policyRequest.EndPoint})
-    policyRequest.EntityData.Children.Append("paths", types.YChild{"Paths", nil})
-    for i := range policyRequest.Paths {
-        types.SetYListKey(policyRequest.Paths[i], i)
-        policyRequest.EntityData.Children.Append(types.GetSegmentPath(policyRequest.Paths[i]), types.YChild{"Paths", policyRequest.Paths[i]})
+    policyRequest.EntityData.Children.Append("segment-list", types.YChild{"SegmentList", nil})
+    for i := range policyRequest.SegmentList {
+        types.SetYListKey(policyRequest.SegmentList[i], i)
+        policyRequest.EntityData.Children.Append(types.GetSegmentPath(policyRequest.SegmentList[i]), types.YChild{"SegmentList", policyRequest.SegmentList[i]})
     }
     policyRequest.EntityData.Leafs = types.NewOrderedMap()
     policyRequest.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", policyRequest.SourceAddress})
@@ -2917,33 +3452,32 @@ func (endPoint *Xtc_Controller_PolicyRequests_PolicyRequest_EndPoint) GetEntityD
     return &(endPoint.EntityData)
 }
 
-// Xtc_Controller_PolicyRequests_PolicyRequest_Paths
-// Path options
-type Xtc_Controller_PolicyRequests_PolicyRequest_Paths struct {
+// Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList
+// Segment lists
+type Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // Index number. The type is interface{} with range: 0..4294967295.
-    Index interface{}
-
-    // Path option type. The type is XtcPolicyPath.
-    Type interface{}
-
-    // Explicit path option name. The type is string.
+    // Explicit segment list name. The type is string.
     Name interface{}
 
-    // Whether the path is active (used). The type is bool.
+    // Segment list type. The type is XtcPolicyPath.
+    Type interface{}
+
+    // Whether the segment list is active (used). The type is bool.
     Active interface{}
 
-    // Configured weight of the path-option. The type is interface{} with range:
+    // Weight of the segment list. The type is interface{} with range:
     // 0..4294967295.
     Weight interface{}
 
-    // Configured path metric type. The type is interface{} with range: 0..255.
+    // Metric type of the segment list. The type is interface{} with range:
+    // 0..255.
     MetricType interface{}
 
-    // Path metric value. The type is interface{} with range: 0..4294967295.
+    // Accumulated metric of the segment list. The type is interface{} with range:
+    // 0..18446744073709551615.
     MetricValue interface{}
 
     // True if path is valid. The type is bool.
@@ -2959,251 +3493,48 @@ type Xtc_Controller_PolicyRequests_PolicyRequest_Paths struct {
     // Error (for display only). The type is string.
     Error interface{}
 
-    // SR path constraints.
-    SrPathConstraints Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints
-
     // SR hop list. The type is slice of
-    // Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops.
-    Hops []*Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops
+    // Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops.
+    Hops []*Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops
 }
 
-func (paths *Xtc_Controller_PolicyRequests_PolicyRequest_Paths) GetEntityData() *types.CommonEntityData {
-    paths.EntityData.YFilter = paths.YFilter
-    paths.EntityData.YangName = "paths"
-    paths.EntityData.BundleName = "cisco_ios_xr"
-    paths.EntityData.ParentYangName = "policy-request"
-    paths.EntityData.SegmentPath = "paths" + types.AddNoKeyToken(paths)
-    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/" + paths.EntityData.SegmentPath
-    paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (segmentList *Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList) GetEntityData() *types.CommonEntityData {
+    segmentList.EntityData.YFilter = segmentList.YFilter
+    segmentList.EntityData.YangName = "segment-list"
+    segmentList.EntityData.BundleName = "cisco_ios_xr"
+    segmentList.EntityData.ParentYangName = "policy-request"
+    segmentList.EntityData.SegmentPath = "segment-list" + types.AddNoKeyToken(segmentList)
+    segmentList.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/" + segmentList.EntityData.SegmentPath
+    segmentList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segmentList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segmentList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    paths.EntityData.Children = types.NewOrderedMap()
-    paths.EntityData.Children.Append("sr-path-constraints", types.YChild{"SrPathConstraints", &paths.SrPathConstraints})
-    paths.EntityData.Children.Append("hops", types.YChild{"Hops", nil})
-    for i := range paths.Hops {
-        types.SetYListKey(paths.Hops[i], i)
-        paths.EntityData.Children.Append(types.GetSegmentPath(paths.Hops[i]), types.YChild{"Hops", paths.Hops[i]})
+    segmentList.EntityData.Children = types.NewOrderedMap()
+    segmentList.EntityData.Children.Append("hops", types.YChild{"Hops", nil})
+    for i := range segmentList.Hops {
+        types.SetYListKey(segmentList.Hops[i], i)
+        segmentList.EntityData.Children.Append(types.GetSegmentPath(segmentList.Hops[i]), types.YChild{"Hops", segmentList.Hops[i]})
     }
-    paths.EntityData.Leafs = types.NewOrderedMap()
-    paths.EntityData.Leafs.Append("index", types.YLeaf{"Index", paths.Index})
-    paths.EntityData.Leafs.Append("type", types.YLeaf{"Type", paths.Type})
-    paths.EntityData.Leafs.Append("name", types.YLeaf{"Name", paths.Name})
-    paths.EntityData.Leafs.Append("active", types.YLeaf{"Active", paths.Active})
-    paths.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", paths.Weight})
-    paths.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", paths.MetricType})
-    paths.EntityData.Leafs.Append("metric-value", types.YLeaf{"MetricValue", paths.MetricValue})
-    paths.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", paths.IsValid})
-    paths.EntityData.Leafs.Append("pce-based-path", types.YLeaf{"PceBasedPath", paths.PceBasedPath})
-    paths.EntityData.Leafs.Append("pce-address", types.YLeaf{"PceAddress", paths.PceAddress})
-    paths.EntityData.Leafs.Append("error", types.YLeaf{"Error", paths.Error})
+    segmentList.EntityData.Leafs = types.NewOrderedMap()
+    segmentList.EntityData.Leafs.Append("name", types.YLeaf{"Name", segmentList.Name})
+    segmentList.EntityData.Leafs.Append("type", types.YLeaf{"Type", segmentList.Type})
+    segmentList.EntityData.Leafs.Append("active", types.YLeaf{"Active", segmentList.Active})
+    segmentList.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", segmentList.Weight})
+    segmentList.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", segmentList.MetricType})
+    segmentList.EntityData.Leafs.Append("metric-value", types.YLeaf{"MetricValue", segmentList.MetricValue})
+    segmentList.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", segmentList.IsValid})
+    segmentList.EntityData.Leafs.Append("pce-based-path", types.YLeaf{"PceBasedPath", segmentList.PceBasedPath})
+    segmentList.EntityData.Leafs.Append("pce-address", types.YLeaf{"PceAddress", segmentList.PceAddress})
+    segmentList.EntityData.Leafs.Append("error", types.YLeaf{"Error", segmentList.Error})
 
-    paths.EntityData.YListKeys = []string {}
+    segmentList.EntityData.YListKeys = []string {}
 
-    return &(paths.EntityData)
+    return &(segmentList.EntityData)
 }
 
-// Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints
-// SR path constraints
-type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Path metrics.
-    PathMetrics Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_PathMetrics
-
-    // Segments constraints.
-    Segments Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_Segments
-
-    // Affinity constraints list. The type is slice of
-    // Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint.
-    AffinityConstraint []*Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint
-}
-
-func (srPathConstraints *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints) GetEntityData() *types.CommonEntityData {
-    srPathConstraints.EntityData.YFilter = srPathConstraints.YFilter
-    srPathConstraints.EntityData.YangName = "sr-path-constraints"
-    srPathConstraints.EntityData.BundleName = "cisco_ios_xr"
-    srPathConstraints.EntityData.ParentYangName = "paths"
-    srPathConstraints.EntityData.SegmentPath = "sr-path-constraints"
-    srPathConstraints.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/" + srPathConstraints.EntityData.SegmentPath
-    srPathConstraints.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srPathConstraints.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srPathConstraints.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srPathConstraints.EntityData.Children = types.NewOrderedMap()
-    srPathConstraints.EntityData.Children.Append("path-metrics", types.YChild{"PathMetrics", &srPathConstraints.PathMetrics})
-    srPathConstraints.EntityData.Children.Append("segments", types.YChild{"Segments", &srPathConstraints.Segments})
-    srPathConstraints.EntityData.Children.Append("affinity-constraint", types.YChild{"AffinityConstraint", nil})
-    for i := range srPathConstraints.AffinityConstraint {
-        types.SetYListKey(srPathConstraints.AffinityConstraint[i], i)
-        srPathConstraints.EntityData.Children.Append(types.GetSegmentPath(srPathConstraints.AffinityConstraint[i]), types.YChild{"AffinityConstraint", srPathConstraints.AffinityConstraint[i]})
-    }
-    srPathConstraints.EntityData.Leafs = types.NewOrderedMap()
-
-    srPathConstraints.EntityData.YListKeys = []string {}
-
-    return &(srPathConstraints.EntityData)
-}
-
-// Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_PathMetrics
-// Path metrics
-type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_PathMetrics struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Margin Relative. The type is interface{} with range: 0..255.
-    MarginRelative interface{}
-
-    // Margin Absolute. The type is interface{} with range: 0..255.
-    MarginAbsolute interface{}
-
-    // Maximum number of segments. The type is interface{} with range: 0..65535.
-    MaximumSegments interface{}
-
-    // Accumulative TE metric. The type is interface{} with range: 0..4294967295.
-    AccumulativeTeMetric interface{}
-
-    // Accumulative IGP metric. The type is interface{} with range: 0..4294967295.
-    AccumulativeIgpMetric interface{}
-
-    // Accumulative delay. The type is interface{} with range: 0..4294967295.
-    AccumulativeDelay interface{}
-}
-
-func (pathMetrics *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_PathMetrics) GetEntityData() *types.CommonEntityData {
-    pathMetrics.EntityData.YFilter = pathMetrics.YFilter
-    pathMetrics.EntityData.YangName = "path-metrics"
-    pathMetrics.EntityData.BundleName = "cisco_ios_xr"
-    pathMetrics.EntityData.ParentYangName = "sr-path-constraints"
-    pathMetrics.EntityData.SegmentPath = "path-metrics"
-    pathMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/sr-path-constraints/" + pathMetrics.EntityData.SegmentPath
-    pathMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pathMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pathMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pathMetrics.EntityData.Children = types.NewOrderedMap()
-    pathMetrics.EntityData.Leafs = types.NewOrderedMap()
-    pathMetrics.EntityData.Leafs.Append("margin-relative", types.YLeaf{"MarginRelative", pathMetrics.MarginRelative})
-    pathMetrics.EntityData.Leafs.Append("margin-absolute", types.YLeaf{"MarginAbsolute", pathMetrics.MarginAbsolute})
-    pathMetrics.EntityData.Leafs.Append("maximum-segments", types.YLeaf{"MaximumSegments", pathMetrics.MaximumSegments})
-    pathMetrics.EntityData.Leafs.Append("accumulative-te-metric", types.YLeaf{"AccumulativeTeMetric", pathMetrics.AccumulativeTeMetric})
-    pathMetrics.EntityData.Leafs.Append("accumulative-igp-metric", types.YLeaf{"AccumulativeIgpMetric", pathMetrics.AccumulativeIgpMetric})
-    pathMetrics.EntityData.Leafs.Append("accumulative-delay", types.YLeaf{"AccumulativeDelay", pathMetrics.AccumulativeDelay})
-
-    pathMetrics.EntityData.YListKeys = []string {}
-
-    return &(pathMetrics.EntityData)
-}
-
-// Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_Segments
-// Segments constraints
-type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_Segments struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Segment Algorithm. The type is interface{} with range: 0..255.
-    SegmentAlgorithm interface{}
-}
-
-func (segments *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_Segments) GetEntityData() *types.CommonEntityData {
-    segments.EntityData.YFilter = segments.YFilter
-    segments.EntityData.YangName = "segments"
-    segments.EntityData.BundleName = "cisco_ios_xr"
-    segments.EntityData.ParentYangName = "sr-path-constraints"
-    segments.EntityData.SegmentPath = "segments"
-    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/sr-path-constraints/" + segments.EntityData.SegmentPath
-    segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    segments.EntityData.Children = types.NewOrderedMap()
-    segments.EntityData.Leafs = types.NewOrderedMap()
-    segments.EntityData.Leafs.Append("segment-algorithm", types.YLeaf{"SegmentAlgorithm", segments.SegmentAlgorithm})
-
-    segments.EntityData.YListKeys = []string {}
-
-    return &(segments.EntityData)
-}
-
-// Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint
-// Affinity constraints list
-type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Affinity type. The type is interface{} with range: 0..255.
-    Type interface{}
-
-    // Affinity value. The type is interface{} with range: 0..4294967295.
-    Value interface{}
-
-    // Colors. The type is slice of
-    // Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint_Color.
-    Color []*Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint_Color
-}
-
-func (affinityConstraint *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint) GetEntityData() *types.CommonEntityData {
-    affinityConstraint.EntityData.YFilter = affinityConstraint.YFilter
-    affinityConstraint.EntityData.YangName = "affinity-constraint"
-    affinityConstraint.EntityData.BundleName = "cisco_ios_xr"
-    affinityConstraint.EntityData.ParentYangName = "sr-path-constraints"
-    affinityConstraint.EntityData.SegmentPath = "affinity-constraint" + types.AddNoKeyToken(affinityConstraint)
-    affinityConstraint.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/sr-path-constraints/" + affinityConstraint.EntityData.SegmentPath
-    affinityConstraint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    affinityConstraint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    affinityConstraint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    affinityConstraint.EntityData.Children = types.NewOrderedMap()
-    affinityConstraint.EntityData.Children.Append("color", types.YChild{"Color", nil})
-    for i := range affinityConstraint.Color {
-        types.SetYListKey(affinityConstraint.Color[i], i)
-        affinityConstraint.EntityData.Children.Append(types.GetSegmentPath(affinityConstraint.Color[i]), types.YChild{"Color", affinityConstraint.Color[i]})
-    }
-    affinityConstraint.EntityData.Leafs = types.NewOrderedMap()
-    affinityConstraint.EntityData.Leafs.Append("type", types.YLeaf{"Type", affinityConstraint.Type})
-    affinityConstraint.EntityData.Leafs.Append("value", types.YLeaf{"Value", affinityConstraint.Value})
-
-    affinityConstraint.EntityData.YListKeys = []string {}
-
-    return &(affinityConstraint.EntityData)
-}
-
-// Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint_Color
-// Colors
-type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint_Color struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // An affinity color. The type is string.
-    Color interface{}
-}
-
-func (color *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_SrPathConstraints_AffinityConstraint_Color) GetEntityData() *types.CommonEntityData {
-    color.EntityData.YFilter = color.YFilter
-    color.EntityData.YangName = "color"
-    color.EntityData.BundleName = "cisco_ios_xr"
-    color.EntityData.ParentYangName = "affinity-constraint"
-    color.EntityData.SegmentPath = "color" + types.AddNoKeyToken(color)
-    color.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/sr-path-constraints/affinity-constraint/" + color.EntityData.SegmentPath
-    color.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    color.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    color.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    color.EntityData.Children = types.NewOrderedMap()
-    color.EntityData.Leafs = types.NewOrderedMap()
-    color.EntityData.Leafs.Append("color", types.YLeaf{"Color", color.Color})
-
-    color.EntityData.YListKeys = []string {}
-
-    return &(color.EntityData)
-}
-
-// Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops
+// Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops
 // SR hop list
-type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops struct {
+type Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -3215,22 +3546,22 @@ type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops struct {
     Algorithm interface{}
 
     // SID value.
-    Sid Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_Sid
+    Sid Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_Sid
 
     // Local address.
-    LocalAddress Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_LocalAddress
+    LocalAddress Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_LocalAddress
 
     // Remote address.
-    RemoteAddress Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_RemoteAddress
+    RemoteAddress Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_RemoteAddress
 }
 
-func (hops *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops) GetEntityData() *types.CommonEntityData {
+func (hops *Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops) GetEntityData() *types.CommonEntityData {
     hops.EntityData.YFilter = hops.YFilter
     hops.EntityData.YangName = "hops"
     hops.EntityData.BundleName = "cisco_ios_xr"
-    hops.EntityData.ParentYangName = "paths"
+    hops.EntityData.ParentYangName = "segment-list"
     hops.EntityData.SegmentPath = "hops" + types.AddNoKeyToken(hops)
-    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/" + hops.EntityData.SegmentPath
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/segment-list/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3248,9 +3579,9 @@ func (hops *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops) GetEntityDat
     return &(hops.EntityData)
 }
 
-// Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_Sid
+// Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_Sid
 // SID value
-type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_Sid struct {
+type Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_Sid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3265,13 +3596,13 @@ type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_Sid struct {
     Ipv6 interface{}
 }
 
-func (sid *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_Sid) GetEntityData() *types.CommonEntityData {
+func (sid *Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_Sid) GetEntityData() *types.CommonEntityData {
     sid.EntityData.YFilter = sid.YFilter
     sid.EntityData.YangName = "sid"
     sid.EntityData.BundleName = "cisco_ios_xr"
     sid.EntityData.ParentYangName = "hops"
     sid.EntityData.SegmentPath = "sid"
-    sid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/hops/" + sid.EntityData.SegmentPath
+    sid.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/segment-list/hops/" + sid.EntityData.SegmentPath
     sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3287,9 +3618,9 @@ func (sid *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_Sid) GetEntity
     return &(sid.EntityData)
 }
 
-// Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_LocalAddress
+// Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_LocalAddress
 // Local address
-type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_LocalAddress struct {
+type Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_LocalAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3305,13 +3636,13 @@ type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_LocalAddress struct 
     Ipv6 interface{}
 }
 
-func (localAddress *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_LocalAddress) GetEntityData() *types.CommonEntityData {
+func (localAddress *Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_LocalAddress) GetEntityData() *types.CommonEntityData {
     localAddress.EntityData.YFilter = localAddress.YFilter
     localAddress.EntityData.YangName = "local-address"
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "hops"
     localAddress.EntityData.SegmentPath = "local-address"
-    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/hops/" + localAddress.EntityData.SegmentPath
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/segment-list/hops/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3327,9 +3658,9 @@ func (localAddress *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_Local
     return &(localAddress.EntityData)
 }
 
-// Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_RemoteAddress
+// Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_RemoteAddress
 // Remote address
-type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_RemoteAddress struct {
+type Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_RemoteAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3345,13 +3676,13 @@ type Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_RemoteAddress struct
     Ipv6 interface{}
 }
 
-func (remoteAddress *Xtc_Controller_PolicyRequests_PolicyRequest_Paths_Hops_RemoteAddress) GetEntityData() *types.CommonEntityData {
+func (remoteAddress *Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_RemoteAddress) GetEntityData() *types.CommonEntityData {
     remoteAddress.EntityData.YFilter = remoteAddress.YFilter
     remoteAddress.EntityData.YangName = "remote-address"
     remoteAddress.EntityData.BundleName = "cisco_ios_xr"
     remoteAddress.EntityData.ParentYangName = "hops"
     remoteAddress.EntityData.SegmentPath = "remote-address"
-    remoteAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/paths/hops/" + remoteAddress.EntityData.SegmentPath
+    remoteAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/policy-request/segment-list/hops/" + remoteAddress.EntityData.SegmentPath
     remoteAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
